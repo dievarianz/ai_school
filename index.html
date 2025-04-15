@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="de" class="light-mode">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NeXT AI Business School | Executive Education für KI Management</title>
+    <style>
+        /* Ursprüngliche Styles bleiben erhalten */
+
+        :root {
+            --primary: #000000;
+            --secondary: #1d1d1f;
+            --accent: #0071e3;
+            --light: #f5f5f7;
+            --text: #1d1d1f;
+            --text-light: #86868b;
+            --bg-white: #ffffff;
+            --card-bg: #ffffff;
+            --shadow: rgba(0, 0, 0, 0.08);
+            --shadow-hover: rgba(0, 0, 0, 0.12);
+            --nav-bg: rgba(255, 255, 255, 0.8);
+            --spacing: 20px;
+        }
+
+        .dark-mode {
+            --primary: #ffffff;
+            --secondary: #f5f5f7;
+            --accent: #2997ff;
+            --light: #1d1d1f;
+            --text: #f5f5f7;
+            --text-light: #a1a1a6;
+            --bg-white: #000000;
+            --card-bg: #1c1c1e;
+            --shadow: rgba(255, 255, 255, 0.05);
+            --shadow-hover: rgba(255, 255, 255, 0.08);
+            --nav-bg: rgba(29, 29, 31, 0.8);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Neue rechte Sidebar */
+        .sidebar {
+            position: fixed;
+            top: 40%;
+            right: 0;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 999;
+        }
+
+        .sidebar-item {
+            background-color: #2f6e3d;
+            color: white;
+            text-decoration: none;
+            padding: 12px 16px;
+            border-radius: 4px 0 0 4px;
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar-item:hover {
+            background-color: #3e8f4d;
+        }
+
+        .sidebar-item img {
+            margin-right: 8px;
+            width: 20px;
+            height: 20px;
+        }
+
+        .dark-mode .sidebar-item {
+            background-color: #4CAF50;
+        }
+
+        .dark-mode .sidebar-item:hover {
+            background-color: #66bb6a;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Rechte Sidebar -->
+<div class="sidebar">
+    <a href="#" class="sidebar-item">
+        <img src="https://img.icons8.com/ios-filled/24/download--v1.png" alt="Broschüre">
+        Broschüre
+    </a>
+    <a href="#" class="sidebar-item">
+        <img src="https://img.icons8.com/ios-filled/24/handshake.png" alt="Beratung">
+        Beratung
+    </a>
+    <a href="#" class="sidebar-item">
+        <img src="https://img.icons8.com/ios-filled/24/steps.png" alt="Anmeldung">
+        Anmeldung
+    </a>
+    <a href="#" class="sidebar-item">
+        <img src="https://img.icons8.com/ios-filled/24/light-on.png" alt="Events">
+        Events
+    </a>
+</div>
+
+<!-- Restlicher HTML-Inhalt kommt hier -->
+<!-- Dieser wird aus dem ursprünglichen index.html geladen -->
+<header>
+        <nav>
+            <a href="#" class="logo">NeXT AI</a>
+            <ul class="nav-links">
+                <li><a href="#about">Über uns</a></li>
+                <li><a href="#courses">Kurse</a></li>
+                <li><a href="#curriculum">Curriculum</a></li>
+                <li><a href="#testimonials">Erfahrungsberichte</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+                <li><button id="theme-toggle" class="theme-toggle"><span class="theme-toggle-icon">🌙</span>Dark Mode</button></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>Die Zukunft des Management<br>beginnt mit KI</h1>
+            <p>Executive Education für Führungskräfte in der KI-Transformation</p>
+            <a href="#courses" class="cta-button">Programme entdecken</a>
+        </div>
+    </section>
+    
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">Warum NeXT AI Business School?</h2>
+            <div class="course-grid">
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="/api/placeholder/60/60" alt="Experten-Icon">
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Führende Experten</h3>
+                        <p class="course-description">Lernen Sie von Top-Führungskräften und Wissenschaftlern, die KI in Unternehmen erfolgreich implementiert haben.</p>
+                        <a href="#" class="learn-more">Mehr erfahren</a>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="/api/placeholder/60/60" alt="Praxis-Icon">
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Praxisorientierter Ansatz</h3>
+                        <p class="course-description">Anwendungsorientierte Programme mit sofort umsetzbaren Strategien für Ihr Unternehmen.</p>
+                        <a href="#" class="learn-more">Mehr erfahren</a>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="/api/placeholder/60/60" alt="Netzwerk-Icon">
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Exklusives Netzwerk</h3>
+                        <p class="course-description">Vernetzen Sie sich mit gleichgesinnten Führungskräften und bauen Sie wertvolle Kontakte auf.</p>
+                        <a href="#" class="learn-more">Mehr erfahren</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="courses">
+        <div class="container">
+            <h2 class="section-title">Unsere Executive Programme</h2>
+            <div class="course-grid">
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="/api/placeholder/60/60" alt="Strategy Icon">
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">AI Strategy and Competitive Advantage</h3>
+                        <p class="course-description">Entwickeln Sie eine KI-Strategie, die Ihr Unternehmen im Wettbewerb positioniert und nachhaltiges Wachstum fördert.</p>
+                        <a href="#" class="learn-more">Kursdetails</a>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="/api/placeholder/60/60" alt="Leadership Icon">
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">AI-Supported Leadership</h3>
+                        <p class="course-description">Lernen Sie, wie KI Ihre Führungskompetenzen erweitern und Entscheidungsprozesse optimieren kann.</p>
+                        <a href="#" class="learn-more">Kursdetails</a>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="/api/placeholder/60/60" alt="Ethics Icon">
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Ethical AI Governance</h3>
+                        <p class="course-description">Entwickeln Sie Rahmenwerke für eine verantwortungsvolle KI-Nutzung in Ihrem Unternehmen.</p>
+                        <a href="#" class="learn-more">Kursdetails</a>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="/api/placeholder/60/60" alt="Transformation Icon">
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Digital Transformation Through AI</h3>
+                        <p class="course-description">Gestalten Sie den digitalen Wandel Ihres Unternehmens mit KI als strategischen Treiber.</p>
+                        <a href="#" class="learn-more">Kursdetails</a>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="/api/placeholder/60/60" alt="Process Icon">
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Intelligent Process Automation</h3>
+                        <p class="course-description">Identifizieren und implementieren Sie KI-Lösungen zur Automatisierung und Optimierung von Geschäftsprozessen.</p>
+                        <a href="#" class="learn-more">Kursdetails</a>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="/api/placeholder/60/60" alt="Data Icon">
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Data-Driven Leadership</h3>
+                        <p class="course-description">Nutzen Sie Daten und KI-gestützte Analysen für bessere strategische Entscheidungen.</p>
+                        <a href="#" class="learn-more">Kursdetails</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="curriculum" class="curriculum">
+        <div class="container">
+            <div class="curriculum-grid">
+                <div class="curriculum-content">
+                    <h2>Unser Executive AI Curriculum</h2>
+                    <p>Entwickelt für Führungskräfte, die KI als strategisches Werkzeug in ihrem Unternehmen implementieren möchten.</p>
+                    <ul class="module-list">
+                        <li class="module-item"><strong>Kernmodul 1:</strong> Strategische KI-Implementierung</li>
+                        <li class="module-item"><strong>Kernmodul 2:</strong> Führung und Entscheidungsfindung</li>
+                        <li class="module-item"><strong>Kernmodul 3:</strong> Governance und Risikomanagement</li>
+                        <li class="module-item"><strong>Wahlmodule:</strong> Branchenspezifische Anwendungen</li>
+                        <li class="module-item"><strong>Abschlussprojekt:</strong> KI-Implementierungsstrategie</li>
+                    </ul>
+                    <a href="#" class="cta-button" style="margin-top: 32px;">Vollständiges Curriculum anzeigen</a>
+                </div>
+                <div class="curriculum-image">
+                    <img src="/api/placeholder/400/320" alt="Executive AI Curriculum">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Was unsere Absolventen sagen</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-image">JM</div>
+                    <p class="testimonial">"Die KI-Management-Programme der NeXT AI Business School haben mir die Perspektive und das Wissen gegeben, um die digitale Transformation in meinem Unternehmen erfolgreich voranzutreiben."</p>
+                    <p class="testimonial-author">Dr. Julia Mayer</p>
+                    <p class="testimonial-role">Chief Innovation Officer, Global Tech AG</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-image">RK</div>
+                    <p class="testimonial">"Besonders wertvoll waren die praktischen Fallstudien und der Austausch mit anderen Führungskräften. Ich konnte das Gelernte direkt in unserem KI-Transformationsprojekt anwenden und messbare Ergebnisse erzielen."</p>
+                    <p class="testimonial-author">Robert Klein</p>
+                    <p class="testimonial-role">CTO, Digital Solutions GmbH</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-image">LW</div>
+                    <p class="testimonial">"Was NeXT AI von anderen Business Schools unterscheidet: Der Fokus liegt nicht auf der Technologie, sondern auf konkreten Management-Strategien. Als Führungskraft ohne technischen Hintergrund war das genau was ich brauchte."</p>
+                    <p class="testimonial-author">Lisa Weber</p>
+                    <p class="testimonial-role">Managing Director, Retail Excellence AG</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>NeXT AI</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Über uns</a></li>
+                        <li><a href="#">Unsere Mission</a></li>
+                        <li><a href="#">Fakultät</a></li>
+                        <li><a href="#">Partnerschaften</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Programme</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Executive Programme</a></li>
+                        <li><a href="#">Maßgeschneiderte Lösungen</a></li>
+                        <li><a href="#">Zertifizierungen</a></li>
+                        <li><a href="#">Online-Kurse</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Ressourcen</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="#">White Papers</a></li>
+                        <li><a href="#">KI-Tools</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Kontakt</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Beratungsgespräch vereinbaren</a></li>
+                        <li><a href="#">Standorte</a></li>
+                        <li><a href="#">Impressum</a></li>
+                        <li><a href="#">Datenschutz</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 NeXT AI Business School. Alle Rechte vorbehalten.
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Dark Mode Toggle Functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+        
+        themeToggle.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark-mode')) {
+                // Switch to Light Mode
+                htmlElement.classList.remove('dark-mode');
+                htmlElement.classList.add('light-mode');
+                themeToggle.innerHTML = '<span class="theme-toggle-icon">🌙</span>Dark Mode';
+            } else {
+                // Switch to Dark Mode
+                htmlElement.classList.remove('light-mode');
+                htmlElement.classList.add('dark-mode');
+                themeToggle.innerHTML = '<span class="theme-toggle-icon">☀️</span>Light Mode';
+            }
+        });
+    </script>
+</body>
