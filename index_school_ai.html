@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeXT AI Business School | Executive Education für KI Management</title>
+    <style>
+        /* Apple-inspirierte Designelemente */
+        :root {
+            --primary: #000000;
+            --secondary: #1d1d1f;
+            --accent: #0071e3;
+            --light: #f5f5f7;
+            --text: #1d1d1f;
+            --text-light: #86868b;
+            --spacing: 20px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 16px 0;
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 var(--spacing);
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 32px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 14px;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing);
+        }
+        
+        .hero {
+            padding: 120px 0;
+            text-align: center;
+            background: linear-gradient(to bottom, #ffffff, var(--light));
+        }
+        
+        .hero h1 {
+            font-size: 56px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            background: linear-gradient(90deg, #000000, #1d1d1f);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .hero p {
+            font-size: 24px;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+        
+        .cta-button {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 980px;
+            padding: 12px 24px;
+            font-size: 17px;
+            font-weight: 400;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .cta-button:hover {
+            background-color: #0077ED;
+            transform: scale(1.02);
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-size: 40px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 32px;
+        }
+        
+        .course-card {
+            background-color: white;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+        }
+        
+        .course-image {
+            height: 160px;
+            background-color: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .course-image img {
+            width: 60px;
+            height: 60px;
+        }
+        
+        .course-content {
+            padding: 24px;
+        }
+        
+        .course-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .course-description {
+            color: var(--text-light);
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+        
+        .learn-more {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .learn-more::after {
+            content: "→";
+            margin-left: 6px;
+            transition: transform 0.3s;
+        }
+        
+        .learn-more:hover::after {
+            transform: translateX(4px);
+        }
+        
+        .curriculum {
+            background-color: white;
+            padding: 80px 0;
+        }
+        
+        .curriculum-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .curriculum-content h2 {
+            font-size: 40px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+        
+        .curriculum-content p {
+            color: var(--text-light);
+            margin-bottom: 32px;
+        }
+        
+        .module-list {
+            list-style: none;
+        }
+        
+        .module-item {
+            margin-bottom: 16px;
+            padding-left: 24px;
+            position: relative;
+        }
+        
+        .module-item::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent);
+            border-radius: 50%;
+        }
+        
+        .curriculum-image {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .testimonials {
+            background-color: var(--light);
+        }
+        
+        .testimonial-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .testimonial {
+            font-size: 24px;
+            font-weight: 500;
+            font-style: italic;
+            margin-bottom: 24px;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--text);
+        }
+        
+        .testimonial-role {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+        
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            padding: 60px 0;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 16px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #a1a1a6;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            color: #a1a1a6;
+            font-size: 12px;
+            margin-top: 60px;
+        }
+        
+        @media (max-width: 768px) {
+            .curriculum-grid,
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 40px;
+            }
+            
+            .hero p {
+                font-size: 20px;
+            }
+            
+            .section-title {
+                font-size: 32px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#" class="logo">NeXT AI</a>
+            <ul class="nav-links">
+                <li><a href="#about">Über uns</a></li>
+                <li><a href="#courses">Kurse</a></li>
+                <li><a href="#curriculum">Curriculum</a></li>
+                <li><a href="#testimonials">Erfahrungsberichte</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>Die Zukunft des Management<br>beginnt mit KI</h1>
+            <p>Executive Education für Führungskräfte in der KI-Transformation</p>
+            <a href="#courses" class="cta-button">Programme entdecken</a>
+        </div>
+    </section>
+    
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">Warum NeXT AI Business School?</h2>
+            <div class="course-grid">
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="/api/placeholder/60/60" alt="Experten-Icon">
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Führende Experten</h3>
+                        <p class="course-description">Lernen Sie von Top-Führungskräften und Wissenschaftlern, die KI in Unternehmen erfolgreich implementiert haben.</p>
+                        <a href="#" class="learn-more">Mehr erfahren</a>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="/api/placeholder/60/60" alt="Praxis-Icon">
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Praxisorientierter Ansatz</h3>
+                        <p class="course-description">Anwendungsorientierte Programme mit sofort umsetzbaren Strategien für Ihr Unternehmen.</p>
+                        <a href="#" class="learn-more">Mehr erfahren</a>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="/api/placeholder/60/60" alt="Netzwerk-Icon">
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Exklusives Netzwerk</h3>
+                        <p class="course-description">Vernetzen Sie sich mit gleichgesinnten Führungskräften und bauen Sie wertvolle Kontakte auf.</p>
+                        <a href="#" class="learn-more">Mehr erfahren</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="courses">
+        <div class="container">
+            <h2 class="section-title">Unsere Executive Programme</h2>
+            <div class="course-grid">
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="/api/placeholder/60/60" alt="Strategy Icon">
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">AI Strategy and Competitive Advantage</h3>
+                        <p class="course-description">Entwickeln Sie eine KI-Strategie, die Ihr Unternehmen im Wettbewerb positioniert und nachhaltiges Wachstum fördert.</p>
+                        <a href="#" class="learn-more">Kursdetails</a>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="/api/placeholder/60/60" alt="Leadership Icon">
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">AI-Supported Leadership</h3>
+                        <p class="course-description">Lernen Sie, wie KI Ihre Führungskompetenzen erweitern und Entscheidungsprozesse optimieren kann.</p>
+                        <a href="#" class="learn-more">Kursdetails</a>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="/api/placeholder/60/60" alt="Ethics Icon">
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Ethical AI Governance</h3>
+                        <p class="course-description">Entwickeln Sie Rahmenwerke für eine verantwortungsvolle KI-Nutzung in Ihrem Unternehmen.</p>
+                        <a href="#" class="learn-more">Kursdetails</a>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="/api/placeholder/60/60" alt="Transformation Icon">
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Digital Transformation Through AI</h3>
+                        <p class="course-description">Gestalten Sie den digitalen Wandel Ihres Unternehmens mit KI als strategischen Treiber.</p>
+                        <a href="#" class="learn-more">Kursdetails</a>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="/api/placeholder/60/60" alt="Process Icon">
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Intelligent Process Automation</h3>
+                        <p class="course-description">Identifizieren und implementieren Sie KI-Lösungen zur Automatisierung und Optimierung von Geschäftsprozessen.</p>
+                        <a href="#" class="learn-more">Kursdetails</a>
+                    </div>
+                </div>
+                
+                <div class="course-card">
+                    <div class="course-image">
+                        <img src="/api/placeholder/60/60" alt="Data Icon">
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">Data-Driven Leadership</h3>
+                        <p class="course-description">Nutzen Sie Daten und KI-gestützte Analysen für bessere strategische Entscheidungen.</p>
+                        <a href="#" class="learn-more">Kursdetails</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="curriculum" class="curriculum">
+        <div class="container">
+            <div class="curriculum-grid">
+                <div class="curriculum-content">
+                    <h2>Unser Executive AI Curriculum</h2>
+                    <p>Entwickelt für Führungskräfte, die KI als strategisches Werkzeug in ihrem Unternehmen implementieren möchten.</p>
+                    <ul class="module-list">
+                        <li class="module-item"><strong>Kernmodul 1:</strong> Strategische KI-Implementierung</li>
+                        <li class="module-item"><strong>Kernmodul 2:</strong> Führung und Entscheidungsfindung</li>
+                        <li class="module-item"><strong>Kernmodul 3:</strong> Governance und Risikomanagement</li>
+                        <li class="module-item"><strong>Wahlmodule:</strong> Branchenspezifische Anwendungen</li>
+                        <li class="module-item"><strong>Abschlussprojekt:</strong> KI-Implementierungsstrategie</li>
+                    </ul>
+                    <a href="#" class="cta-button" style="margin-top: 32px;">Vollständiges Curriculum anzeigen</a>
+                </div>
+                <div class="curriculum-image">
+                    <img src="/api/placeholder/400/320" alt="Executive AI Curriculum">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Was unsere Absolventen sagen</h2>
+            <div class="testimonial-container">
+                <p class="testimonial">"Die KI-Management-Programme der NeXT AI Business School haben mir die Perspektive und das Wissen gegeben, um die digitale Transformation in meinem Unternehmen erfolgreich voranzutreiben."</p>
+                <p class="testimonial-author">Dr. Julia Mayer</p>
+                <p class="testimonial-role">Chief Innovation Officer, Global Tech AG</p>
+            </div>
+        </div>
+    </section>
+    
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>NeXT AI</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Über uns</a></li>
+                        <li><a href="#">Unsere Mission</a></li>
+                        <li><a href="#">Fakultät</a></li>
+                        <li><a href="#">Partnerschaften</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Programme</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Executive Programme</a></li>
+                        <li><a href="#">Maßgeschneiderte Lösungen</a></li>
+                        <li><a href="#">Zertifizierungen</a></li>
+                        <li><a href="#">Online-Kurse</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Ressourcen</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="#">White Papers</a></li>
+                        <li><a href="#">KI-Tools</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Kontakt</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Beratungsgespräch vereinbaren</a></li>
+                        <li><a href="#">Standorte</a></li>
+                        <li><a href="#">Impressum</a></li>
+                        <li><a href="#">Datenschutz</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 NeXT AI Business School. Alle Rechte vorbehalten.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
