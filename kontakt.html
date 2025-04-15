@@ -467,9 +467,66 @@
                 display: none;
             }
         }
-    </style>
+    
+/* Sidebar styles */
+.sidebar {
+    position: fixed;
+    top: 40%;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    background: transparent;
+    z-index: 1000;
+}
+.sidebar-item {
+    background-color: #970289;
+    color: white;
+    text-decoration: none;
+    padding: 10px 8px;
+    border-radius: 4px 0 0 4px;
+    border-bottom: 1px solid #ffffff44;
+    width: 56px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 10px;
+}
+.sidebar-item img {
+    width: 20px;
+    height: 20px;
+    margin-bottom: 4px;
+}
+.sidebar-item:hover {
+    background-color: #b303a4;
+}
+
+/* Replace primary accent color */
+:root {
+    --accent: #970289;
+}
+</style>
 </head>
 <body>
+<div class="sidebar">
+<a class="sidebar-item" href="kontakt.html">
+<img alt="" src="https://img.icons8.com/ios-filled/24/download--v1.png"/>
+<span>Broschüre</span>
+</a>
+<a class="sidebar-item" href="beratung.html">
+<img alt="" src="https://img.icons8.com/ios-filled/24/handshake.png"/>
+<span>Beratung</span>
+</a>
+<a class="sidebar-item" href="kontakt.html">
+<img alt="" src="https://img.icons8.com/ios-filled/24/steps.png"/>
+<span>Anmeldung</span>
+</a>
+<a class="sidebar-item" href="events.html">
+<img alt="" src="https://img.icons8.com/ios-filled/24/light-on.png"/>
+<span>Events</span>
+</a>
+</div>
+
 <header>
 <nav>
 <a class="logo" href="#">NeXT AI</a>
@@ -483,7 +540,15 @@
 </ul>
 </nav>
 </header>
-<section class="hero"><div class="container"><h1>Kontakt</h1></div></section>
+<section class="hero"><div class="container"><h1>Kontakt</h1>
+<form class="contact-form" method="POST">
+<input name="vorname" placeholder="Vorname" required="" type="text"/>
+<input name="name" placeholder="Nachname" required="" type="text"/>
+<input name="email" placeholder="E-Mail" required="" type="email"/>
+<textarea name="nachricht" placeholder="Ihre Nachricht" required="" rows="6"></textarea>
+<button class="cta-button" type="submit">Absenden</button>
+</form>
+</div></section>
 <section id="about">
 <div class="container">
 <h2 class="section-title">Warum NeXT AI Business School?</h2>
@@ -634,51 +699,38 @@
 </div>
 </div>
 </section>
+
 <footer id="contact">
 <div class="container">
 <div class="footer-container">
 <div class="footer-column">
-<h3>NeXT AI</h3>
+<h3>St. Gallen imt Business School</h3>
+</div>
+<div class="footer-column">
+<h3>Module</h3>
 <ul class="footer-links">
-<li><a href="ueber-uns.html">Über uns</a></li>
-<li><a href="mission.html">Unsere Mission</a></li>
-<li><a href="fakultaet.html">Fakultät</a></li>
-<li><a href="partner.html">Partnerschaften</a></li>
+<li><a href="ai-automation.html">Intelligent Process Automation</a></li>
+<li><a href="ai-leadership.html">Leadership KI</a></li>
+<li><a href="ai-strategy.html">Strategy KI</a></li>
+<li><a href="ai-marketing.html">Marketing KI</a></li>
+<li><a href="ai-data-leadership.html">Finance KI</a></li>
 </ul>
 </div>
 <div class="footer-column">
-<h3>Programme</h3>
+<h3>Rechtliches</h3>
 <ul class="footer-links">
-<li><a href="programme.html">Executive Programme</a></li>
-<li><a href="#">Maßgeschneiderte Lösungen</a></li>
-<li><a href="#">Zertifizierungen</a></li>
-<li><a href="#">Online-Kurse</a></li>
-</ul>
-</div>
-<div class="footer-column">
-<h3>Ressourcen</h3>
-<ul class="footer-links">
-<li><a href="#">Blog</a></li>
-<li><a href="#">Case Studies</a></li>
-<li><a href="#">White Papers</a></li>
-<li><a href="#">KI-Tools</a></li>
-</ul>
-</div>
-<div class="footer-column">
-<h3>Kontakt</h3>
-<ul class="footer-links">
-<li><a href="kontakt.html">Beratungsgespräch vereinbaren</a></li>
-<li><a href="#">Standorte</a></li>
 <li><a href="impressum.html">Impressum</a></li>
 <li><a href="datenschutz.html">Datenschutz</a></li>
+<li><a href="kontakt.html">Kontakt</a></li>
 </ul>
 </div>
 </div>
 <div class="copyright">
-                © 2025 NeXT AI Business School. Alle Rechte vorbehalten.
-            </div>
+            © 2025 NeXT AI Business School. Alle Rechte vorbehalten.
+        </div>
 </div>
 </footer>
+
 <script>
         // Dark Mode Toggle Functionality
         const themeToggle = document.getElementById('theme-toggle');
