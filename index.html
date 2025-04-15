@@ -1,19 +1,40 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" class="light-mode">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NeXT AI Business School | Executive Education für KI Management</title>
     <style>
-        /* Apple-inspirierte Designelemente */
+        /* Apple-inspirierte Designelemente mit Dark Mode Support */
         :root {
+            /* Light Mode Variables */
             --primary: #000000;
             --secondary: #1d1d1f;
             --accent: #0071e3;
             --light: #f5f5f7;
             --text: #1d1d1f;
             --text-light: #86868b;
+            --bg-white: #ffffff;
+            --card-bg: #ffffff;
+            --shadow: rgba(0, 0, 0, 0.08);
+            --shadow-hover: rgba(0, 0, 0, 0.12);
+            --nav-bg: rgba(255, 255, 255, 0.8);
             --spacing: 20px;
+        }
+        
+        /* Dark Mode Variables */
+        .dark-mode {
+            --primary: #ffffff;
+            --secondary: #f5f5f7;
+            --accent: #2997ff;
+            --light: #1d1d1f;
+            --text: #f5f5f7;
+            --text-light: #a1a1a6;
+            --bg-white: #000000;
+            --card-bg: #1c1c1e;
+            --shadow: rgba(255, 255, 255, 0.05);
+            --shadow-hover: rgba(255, 255, 255, 0.08);
+            --nav-bg: rgba(29, 29, 31, 0.8);
         }
         
         * {
@@ -27,17 +48,19 @@
             background-color: var(--light);
             color: var(--text);
             line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s;
         }
         
         header {
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: var(--nav-bg);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             position: sticky;
             top: 0;
             z-index: 100;
             padding: 16px 0;
-            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+            box-shadow: 0 1px 0 var(--shadow);
+            transition: background-color 0.3s;
         }
         
         nav {
@@ -54,6 +77,7 @@
             font-weight: 600;
             color: var(--primary);
             text-decoration: none;
+            transition: color 0.3s;
         }
         
         .nav-links {
@@ -77,6 +101,30 @@
             color: var(--accent);
         }
         
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            padding: 8px 16px;
+            border-radius: 20px;
+            background-color: var(--light);
+            transition: all 0.3s;
+            margin-left: 32px;
+        }
+        
+        .theme-toggle:hover {
+            background-color: var(--accent);
+            color: white;
+        }
+        
+        .theme-toggle-icon {
+            margin-right: 8px;
+        }
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -86,17 +134,19 @@
         .hero {
             padding: 120px 0;
             text-align: center;
-            background: linear-gradient(to bottom, #ffffff, var(--light));
+            background: linear-gradient(to bottom, var(--bg-white), var(--light));
+            transition: background 0.3s;
         }
         
         .hero h1 {
             font-size: 56px;
             font-weight: 700;
             margin-bottom: 16px;
-            background: linear-gradient(90deg, #000000, #1d1d1f);
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            transition: background 0.3s;
         }
         
         .hero p {
@@ -104,6 +154,7 @@
             color: var(--text-light);
             max-width: 600px;
             margin: 0 auto 32px;
+            transition: color 0.3s;
         }
         
         .cta-button {
@@ -125,6 +176,10 @@
             transform: scale(1.02);
         }
         
+        .dark-mode .cta-button:hover {
+            background-color: #4DB8FF;
+        }
+        
         section {
             padding: 80px 0;
         }
@@ -134,6 +189,8 @@
             font-weight: 600;
             text-align: center;
             margin-bottom: 60px;
+            color: var(--text);
+            transition: color 0.3s;
         }
         
         .course-grid {
@@ -143,16 +200,16 @@
         }
         
         .course-card {
-            background-color: white;
+            background-color: var(--card-bg);
             border-radius: 18px;
             overflow: hidden;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 8px 16px var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
         }
         
         .course-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 12px 24px var(--shadow-hover);
         }
         
         .course-image {
@@ -161,6 +218,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: background-color 0.3s;
         }
         
         .course-image img {
@@ -176,12 +234,15 @@
             font-size: 20px;
             font-weight: 600;
             margin-bottom: 12px;
+            color: var(--text);
+            transition: color 0.3s;
         }
         
         .course-description {
             color: var(--text-light);
             font-size: 14px;
             margin-bottom: 24px;
+            transition: color 0.3s;
         }
         
         .learn-more {
@@ -191,6 +252,7 @@
             font-weight: 500;
             display: inline-flex;
             align-items: center;
+            transition: color 0.3s;
         }
         
         .learn-more::after {
@@ -204,8 +266,9 @@
         }
         
         .curriculum {
-            background-color: white;
+            background-color: var(--bg-white);
             padding: 80px 0;
+            transition: background-color 0.3s;
         }
         
         .curriculum-grid {
@@ -219,11 +282,14 @@
             font-size: 40px;
             font-weight: 600;
             margin-bottom: 24px;
+            color: var(--text);
+            transition: color 0.3s;
         }
         
         .curriculum-content p {
             color: var(--text-light);
             margin-bottom: 32px;
+            transition: color 0.3s;
         }
         
         .module-list {
@@ -234,6 +300,8 @@
             margin-bottom: 16px;
             padding-left: 24px;
             position: relative;
+            color: var(--text);
+            transition: color 0.3s;
         }
         
         .module-item::before {
@@ -245,6 +313,7 @@
             height: 8px;
             background-color: var(--accent);
             border-radius: 50%;
+            transition: background-color 0.3s;
         }
         
         .curriculum-image {
@@ -254,35 +323,76 @@
         
         .testimonials {
             background-color: var(--light);
+            transition: background-color 0.3s;
         }
         
-        .testimonial-container {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+        
+        .testimonial-card {
+            background-color: var(--card-bg);
+            padding: 32px;
+            border-radius: 18px;
+            box-shadow: 0 8px 16px var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px var(--shadow-hover);
         }
         
         .testimonial {
-            font-size: 24px;
-            font-weight: 500;
+            font-size: 18px;
+            font-weight: 400;
             font-style: italic;
             margin-bottom: 24px;
+            flex-grow: 1;
+            color: var(--text);
+            transition: color 0.3s;
         }
         
         .testimonial-author {
             font-weight: 600;
             color: var(--text);
+            transition: color 0.3s;
         }
         
         .testimonial-role {
             color: var(--text-light);
             font-size: 14px;
+            transition: color 0.3s;
+        }
+        
+        .testimonial-image {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            margin-bottom: 16px;
+            background-color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 24px;
         }
         
         footer {
             background-color: var(--secondary);
             color: white;
             padding: 60px 0;
+            transition: background-color 0.3s;
+        }
+        
+        .dark-mode footer {
+            background-color: #000000;
         }
         
         .footer-container {
@@ -295,6 +405,7 @@
             font-size: 16px;
             margin-bottom: 20px;
             font-weight: 600;
+            color: white;
         }
         
         .footer-links {
@@ -323,6 +434,12 @@
             margin-top: 60px;
         }
         
+        @media (max-width: 992px) {
+            .testimonial-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
         @media (max-width: 768px) {
             .curriculum-grid,
             .footer-container {
@@ -341,6 +458,10 @@
                 font-size: 32px;
             }
             
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+            
             .nav-links {
                 display: none;
             }
@@ -357,6 +478,7 @@
                 <li><a href="#curriculum">Curriculum</a></li>
                 <li><a href="#testimonials">Erfahrungsberichte</a></li>
                 <li><a href="#contact">Kontakt</a></li>
+                <li><button id="theme-toggle" class="theme-toggle"><span class="theme-toggle-icon">🌙</span>Dark Mode</button></li>
             </ul>
         </nav>
     </header>
@@ -507,10 +629,27 @@
     <section id="testimonials" class="testimonials">
         <div class="container">
             <h2 class="section-title">Was unsere Absolventen sagen</h2>
-            <div class="testimonial-container">
-                <p class="testimonial">"Die KI-Management-Programme der NeXT AI Business School haben mir die Perspektive und das Wissen gegeben, um die digitale Transformation in meinem Unternehmen erfolgreich voranzutreiben."</p>
-                <p class="testimonial-author">Dr. Julia Mayer</p>
-                <p class="testimonial-role">Chief Innovation Officer, Global Tech AG</p>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-image">JM</div>
+                    <p class="testimonial">"Die KI-Management-Programme der NeXT AI Business School haben mir die Perspektive und das Wissen gegeben, um die digitale Transformation in meinem Unternehmen erfolgreich voranzutreiben."</p>
+                    <p class="testimonial-author">Dr. Julia Mayer</p>
+                    <p class="testimonial-role">Chief Innovation Officer, Global Tech AG</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-image">RK</div>
+                    <p class="testimonial">"Besonders wertvoll waren die praktischen Fallstudien und der Austausch mit anderen Führungskräften. Ich konnte das Gelernte direkt in unserem KI-Transformationsprojekt anwenden und messbare Ergebnisse erzielen."</p>
+                    <p class="testimonial-author">Robert Klein</p>
+                    <p class="testimonial-role">CTO, Digital Solutions GmbH</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-image">LW</div>
+                    <p class="testimonial">"Was NeXT AI von anderen Business Schools unterscheidet: Der Fokus liegt nicht auf der Technologie, sondern auf konkreten Management-Strategien. Als Führungskraft ohne technischen Hintergrund war das genau was ich brauchte."</p>
+                    <p class="testimonial-author">Lisa Weber</p>
+                    <p class="testimonial-role">Managing Director, Retail Excellence AG</p>
+                </div>
             </div>
         </div>
     </section>
@@ -560,5 +699,25 @@
             </div>
         </div>
     </footer>
+    
+    <script>
+        // Dark Mode Toggle Functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+        
+        themeToggle.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark-mode')) {
+                // Switch to Light Mode
+                htmlElement.classList.remove('dark-mode');
+                htmlElement.classList.add('light-mode');
+                themeToggle.innerHTML = '<span class="theme-toggle-icon">🌙</span>Dark Mode';
+            } else {
+                // Switch to Dark Mode
+                htmlElement.classList.remove('light-mode');
+                htmlElement.classList.add('dark-mode');
+                themeToggle.innerHTML = '<span class="theme-toggle-icon">☀️</span>Light Mode';
+            }
+        });
+    </script>
 </body>
 </html>
