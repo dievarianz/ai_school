@@ -1,656 +1,405 @@
 <!DOCTYPE html>
-<html class="light-mode" lang="de">
+<html lang="de">
 <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>NeXT AI Business School | Executive Education für KI Management</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI in Business Strategy &amp; Digital Transformation | imtxAI Business School</title>
   <style>
-    /* Apple-inspirierte Designelemente (nur Light Mode) */
     :root {
-      /* Light Mode Variables */
-      --primary: #000000;
-      --secondary: #1d1d1f;
-      --accent: #970289; /* Zweite Farbe ersetzt */
-      --light: #f5f5f7;
-      --text: #1d1d1f;
-      --text-light: #86868b;
-      --bg-white: #ffffff;
-      --card-bg: #ffffff;
-      --shadow: rgba(0, 0, 0, 0.08);
-      --shadow-hover: rgba(0, 0, 0, 0.12);
-      --nav-bg: rgba(255, 255, 255, 0.8);
-      --spacing: 20px;
+      --font-sans: -apple-system, BlinkMacSystemFont, "San Francisco", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      --color-text: #1d1d1f;
+      --color-heading: #000;
+      --color-accent: #007aff;
+      --color-accent2: #970289;
+      --color-box: #f5f5f7;
+      --spacing: 24px;
+      --radius: 12px;
+      --max-width: 1200px;
     }
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-    }
-    
+    *, *::before, *::after { box-sizing: border-box; }
     body {
-      background-color: var(--light);
-      color: var(--text);
-      line-height: 1.6;
-      transition: background-color 0.3s, color 0.3s;
+      margin: 0;
+      font-family: var(--font-sans);
+      color: var(--color-text);
+      background: #fff;
+      line-height: 1.5;
     }
-    
-    header {
-      background-color: var(--nav-bg);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      padding: 16px 0;
-      box-shadow: 0 1px 0 var(--shadow);
-      transition: background-color 0.3s;
-    }
-    
-    nav {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 var(--spacing);
-    }
-    
-    .logo {
-      font-size: 24px;
-      font-weight: 600;
-      color: var(--primary);
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    
-    .nav-links {
-      display: flex;
-      list-style: none;
-    }
-    
-    .nav-links li {
-      margin-left: 32px;
-    }
-    
-    .nav-links a {
-      text-decoration: none;
-      color: var(--text);
-      font-size: 14px;
-      font-weight: 400;
-      transition: color 0.3s;
-    }
-    
-    .nav-links a:hover {
-      color: var(--accent);
-    }
-    
+    a { color: var(--color-accent2); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    h1, h2 { margin: 0 0 var(--spacing); font-weight: 600; color: var(--color-heading); }
     .container {
-      max-width: 1200px;
+      width: 90%;
+      max-width: var(--max-width);
       margin: 0 auto;
       padding: 0 var(--spacing);
     }
-    
-    .hero {
-      padding: 120px 0;
+    section { padding: 80px 0; }
+
+    /* Header & Navigation */
+    header {
+      position: sticky; top: 0;
+      background: #fff; border-bottom: 1px solid #e0e0e0;
+      z-index: 100;
+    }
+    .nav-container {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px var(--spacing);
+    }
+    .logo { height: 32px; }
+    nav ul {
+      list-style: none; margin: 0; padding: 0;
+      display: flex; gap: 32px;
+    }
+    nav a {
+      font-size: 1rem; font-weight: 500;
+      padding: 8px 0; border-bottom: 2px solid transparent;
+      transition: border-color .2s;
+    }
+    nav a:hover { border-color: var(--color-accent2); }
+
+    /* Hero */
+    #hero {
       text-align: center;
-      background: linear-gradient(to bottom, var(--bg-white), var(--light));
-      transition: background 0.3s;
+      padding-top: 120px; padding-bottom: 100px;
+      background: #fff;
     }
-    
-    .hero h1 {
-      font-size: 56px;
-      font-weight: 700;
-      margin-bottom: 16px;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      transition: background 0.3s;
-    }
-    
-    .hero p {
-      font-size: 24px;
-      color: var(--text-light);
-      max-width: 600px;
-      margin: 0 auto 32px;
-      transition: color 0.3s;
-    }
-    
-    .cta-button {
-      background-color: var(--accent);
-      color: white;
-      border: none;
-      border-radius: 980px;
-      padding: 12px 24px;
-      font-size: 17px;
-      font-weight: 400;
-      cursor: pointer;
-      transition: all 0.3s;
-      text-decoration: none;
-      display: inline-block;
-    }
-    
-    .cta-button:hover {
-      background-color: #0077ED;
-      transform: scale(1.02);
-    }
-    
-    section {
-      padding: 80px 0;
-    }
-    
-    .section-title {
-      font-size: 40px;
-      font-weight: 600;
-      text-align: center;
-      margin-bottom: 60px;
-      color: var(--text);
-      transition: color 0.3s;
-    }
-    
-    .course-grid {
+    #hero h1 { font-size: 2.5rem; line-height: 1.2; }
+    .info-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 32px;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: var(--spacing);
+      margin-top: var(--spacing);
     }
-    
-    .course-card {
-      background-color: var(--card-bg);
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 8px 16px var(--shadow);
-      transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+    .info-box {
+      background: var(--color-box);
+      border-radius: var(--radius);
+      padding: var(--spacing);
+      text-align: center;
+      display: flex; flex-direction: column; align-items: center;
     }
-    
-    .course-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 24px var(--shadow-hover);
+    .info-box--highlight {
+      background: var(--color-accent2);
+      color: #fff;
     }
-    
-    .course-image {
-      height: 160px;
-      background-color: var(--secondary);
-      display: flex;
-      align-items: center;
+    .info-box svg {
+      width: 32px; height: 32px;
+      margin-bottom: 12px;
+      stroke-width: 2;
+      stroke: currentColor;
+      fill: none;
+    }
+    .info-label {
+      font-size: .9rem;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+      opacity: .7;
+    }
+    .info-value {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    /* Alternating section backgrounds */
+    .section--alt {
+      background: #f9f9f9;
+    }
+
+    /* Module Contents */
+    #module-content ul {
+      list-style: disc inside;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0;
+    }
+    #module-content li {
+      margin-bottom: 12px;
+      font-size: 1rem;
+    }
+
+    /* Video Placeholders */
+    .videos {
+      display: flex; flex-wrap: wrap; gap: var(--spacing);
       justify-content: center;
-      transition: background-color 0.3s;
     }
-    
-    /* In der Executive Programme-Sektion füllt das Bild nun den gesamten Platzhalter */
-    #courses .course-image img {
-      width: 100%;
-      height: 100%;
+    .video-placeholder {
+      flex: 1 1 300px;
+      height: 200px;
+      background: var(--color-box);
+      border-radius: var(--radius);
+      display: flex; align-items: center; justify-content: center;
+      color: #aaa; font-style: italic;
+    }
+
+    /* Participants */
+    .participants .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: var(--spacing);
+      max-width: 800px;
+      margin: 0 auto;
+      list-style: none; padding: 0;
+      text-align: center;
+    }
+    .participants .stats li {
+      font-size: 1rem;
+    }
+    .participants .stats li strong {
+      display: block;
+      font-size: 1.6rem;
+      margin-bottom: 4px;
+      color: var(--color-accent2);
+    }
+
+    /* Testimonials */
+    .testimonials .testimonial {
+      max-width: 700px;
+      margin: 0 auto var(--spacing);
+    }
+    .testimonials blockquote {
+      margin: 0;
+      padding: var(--spacing) var(--spacing) var(--spacing) 0;
+      border-left: 4px solid #e0e0e0;
+      font-style: italic;
+      color: #555;
+    }
+    .testimonials cite {
+      display: block;
+      margin-top: 8px;
+      font-weight: 600;
+      text-align: right;
+      color: var(--color-heading);
+    }
+
+    /* Contact */
+    .contact-info {
+      display: flex; flex-wrap: wrap; gap: var(--spacing);
+      align-items: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .contact-info img {
+      width: 120px; height: 120px;
+      border-radius: 50%;
       object-fit: cover;
     }
-    
-    .course-image img {
-      width: 60px;
-      height: 60px;
+    .contact-details h3 {
+      margin: 0 0 8px;
+      font-size: 1.25rem;
     }
-    
-    .course-content {
-      padding: 24px;
+    .contact-details p {
+      margin: 4px 0;
+      font-size: 1rem;
     }
-    
-    .course-title {
-      font-size: 20px;
-      font-weight: 600;
-      margin-bottom: 12px;
-      color: var(--text);
-      transition: color 0.3s;
-    }
-    
-    .course-description {
-      color: var(--text-light);
-      font-size: 14px;
-      margin-bottom: 24px;
-      transition: color 0.3s;
-    }
-    
-    .learn-more {
-      color: var(--accent);
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 500;
-      display: inline-flex;
-      align-items: center;
-      transition: color 0.3s;
-    }
-    
-    .learn-more::after {
-      content: "→";
-      margin-left: 6px;
-      transition: transform 0.3s;
-    }
-    
-    .learn-more:hover::after {
-      transform: translateX(4px);
-    }
-    
-    /* Testimonials */
-    .testimonials {
-      background-color: var(--light);
-      transition: background-color 0.3s;
-    }
-    
-    .testimonial-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-    }
-    
-    .testimonial-card {
-      background-color: var(--card-bg);
-      padding: 32px;
-      border-radius: 18px;
-      box-shadow: 0 8px 16px var(--shadow);
-      transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-    
-    .testimonial-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px var(--shadow-hover);
-    }
-    
-    .testimonial {
-      font-size: 18px;
-      font-weight: 400;
-      font-style: italic;
-      margin-bottom: 24px;
-      flex-grow: 1;
-      color: var(--text);
-      transition: color 0.3s;
-    }
-    
-    .testimonial-author {
-      font-weight: 600;
-      color: var(--text);
-      transition: color 0.3s;
-    }
-    
-    .testimonial-role {
-      color: var(--text-light);
-      font-size: 14px;
-      transition: color 0.3s;
-    }
-    
-    .testimonial-image {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      margin-bottom: 16px;
-      background-color: var(--accent);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-weight: 600;
-      font-size: 24px;
-    }
-    
-    footer {
-      background-color: var(--secondary);
-      color: white;
-      padding: 60px 0;
-      transition: background-color 0.3s;
-    }
-    
-    .footer-container {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 40px;
-    }
-    
-    .footer-column h3 {
-      font-size: 16px;
-      margin-bottom: 20px;
-      font-weight: 600;
-      color: white;
-    }
-    
-    .footer-links {
-      list-style: none;
-    }
-    
-    .footer-links li {
-      margin-bottom: 12px;
-    }
-    
-    .footer-links a {
-      color: #a1a1a6;
-      text-decoration: none;
-      font-size: 14px;
-      transition: color 0.3s;
-    }
-    
-    .footer-links a:hover {
-      color: white;
-    }
-    
-    .copyright {
+
+    /* CTA */
+    .cta {
+      background: var(--color-box);
+      border-radius: var(--radius);
+      padding: var(--spacing);
+      max-width: 500px;
+      margin: 0 auto;
       text-align: center;
-      color: #a1a1a6;
-      font-size: 12px;
-      margin-top: 60px;
     }
-    
-    /* Sidebar styles */
-    .sidebar {
-      position: fixed;
-      top: 40%;
-      right: 0;
-      transform: translateY(-50%);
-      display: flex;
-      flex-direction: column;
-      background: transparent;
-      z-index: 1000;
+    .cta form {
+      display: flex; flex-direction: column; gap: 16px;
     }
-    .sidebar-item {
-      background-color: #970289;
-      color: white;
-      text-decoration: none;
-      padding: 10px 8px;
-      border-radius: 4px 0 0 4px;
-      border-bottom: 1px solid #ffffff44;
-      width: 56px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      font-size: 10px;
+    .cta input, .cta select {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: var(--radius);
+      font-size: 1rem;
+      width: 100%;
     }
-    .sidebar-item img {
-      width: 20px;
-      height: 20px;
-      margin-bottom: 4px;
+    .cta button {
+      padding: 14px;
+      background: var(--color-accent2);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius);
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background .2s;
     }
-    .sidebar-item:hover {
-      background-color: #b303a4;
+    .cta button:hover {
+      background: #7a026f;
+    }
+    .cta .download {
+      display: inline-block;
+      margin-top: 16px;
+      font-size: 1rem;
+      color: var(--color-accent2);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav ul { gap: 16px; flex-wrap: wrap; }
+      #hero h1 { font-size: 2rem; }
+      .info-grid { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
+      .testimonials cite { text-align: left; }
     }
   </style>
 </head>
 <body>
-  <div class="sidebar">
-    <a class="sidebar-item" href="kontakt.html">
-      <img alt="" src="https://img.icons8.com/ios-filled/24/download--v1.png"/>
-      <span>Broschüre</span>
-    </a>
-    <a class="sidebar-item" href="beratung.html">
-      <img alt="" src="https://img.icons8.com/ios-filled/24/handshake.png"/>
-      <span>Beratung</span>
-    </a>
-    <a class="sidebar-item" href="kontakt.html">
-      <img alt="" src="https://img.icons8.com/ios-filled/24/steps.png"/>
-      <span>Anmeldung</span>
-    </a>
-    <a class="sidebar-item" href="events.html">
-      <img alt="" src="https://img.icons8.com/ios-filled/24/light-on.png"/>
-      <span>Events</span>
-    </a>
-  </div>
+
+  <!-- Header -->
   <header>
-    <nav>
-      <a class="logo" href="index.html">NeXT AI</a>
-      <ul class="nav-links">
-        <li><a href="ueber-uns.html">Über uns</a></li>
-        <li><a href="programme.html">Kurse</a></li>
-        <li><a href="index.html#testimonials">Erfahrungsberichte</a></li>
-        <li><a href="kontakt.html">Kontakt</a></li>
-      </ul>
-    </nav>
+    <div class="container nav-container">
+      <a href="#hero"><img src="logo-imtxAI.svg" alt="imtxAI Logo" class="logo"></a>
+      <nav>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#module-content">Inhalte</a></li>
+          <li><a href="#videos">Shorts</a></li>
+          <li><a href="#participants">Teilnehmer</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact">Kontakt</a></li>
+          <li><a href="#cta">Anmeldung</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
-  <section class="hero">
-    <div class="container">
-      <h1>Marketing KI</h1>
-    </div>
-  </section>
-  <section id="about">
-    <div class="container">
-      <h2 class="section-title">Warum NeXT AI Business School?</h2>
-      <div class="course-grid">
-        <div class="course-card">
-          <div class="course-image">
-            <img alt="Experten-Icon" src="/api/placeholder/60/60"/>
+
+  <main>
+    <!-- Hero -->
+    <section id="hero">
+      <div class="container">
+        <h1>AI in Business Strategy &amp; Digital Transformation</h1>
+        <div class="info-grid">
+          <!-- Location -->
+          <div class="info-box">
+            <svg viewBox="0 0 24 24"><path d="M12 21s-6-5.686-6-10a6 6 0 1 1 12 0c0 4.314-6 10-6 10z"/><circle cx="12" cy="11" r="2"/></svg>
+            <span class="info-label">Location</span>
+            <span class="info-value">St. Gallen</span>
           </div>
-          <div class="course-content">
-            <h3 class="course-title">Führende Experten</h3>
-            <p class="course-description">
-              Lernen Sie von Top-Führungskräften und Wissenschaftlern, die KI in Unternehmen erfolgreich implementiert haben.
-            </p>
-            <a class="learn-more" href="#">Mehr erfahren</a>
+          <!-- Length -->
+          <div class="info-box">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span class="info-label">Length</span>
+            <span class="info-value">5 Tage</span>
           </div>
-        </div>
-        <div class="course-card">
-          <div class="course-image">
-            <img alt="Praxis-Icon" src="/api/placeholder/60/60"/>
+          <!-- Fee -->
+          <div class="info-box">
+            <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+            <span class="info-label">Fee</span>
+            <span class="info-value">CHF 6 500</span>
           </div>
-          <div class="course-content">
-            <h3 class="course-title">Praxisorientierter Ansatz</h3>
-            <p class="course-description">
-              Anwendungsorientierte Programme mit sofort umsetzbaren Strategien für Ihr Unternehmen.
-            </p>
-            <a class="learn-more" href="#">Mehr erfahren</a>
-          </div>
-        </div>
-        <div class="course-card">
-          <div class="course-image">
-            <img alt="Netzwerk-Icon" src="/api/placeholder/60/60"/>
-          </div>
-          <div class="course-content">
-            <h3 class="course-title">Exklusives Netzwerk</h3>
-            <p class="course-description">
-              Vernetzen Sie sich mit gleichgesinnten Führungskräften und bauen Sie wertvolle Kontakte auf.
-            </p>
-            <a class="learn-more" href="#">Mehr erfahren</a>
+          <!-- Next Start with highlight -->
+          <div class="info-box info-box--highlight">
+            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <span class="info-label">Next Start</span>
+            <span class="info-value" id="countdown">60 Tage 0 Std 0 Min</span>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-  <section id="courses">
-    <div class="container">
-      <h2 class="section-title">Unsere Executive Programme</h2>
-      <div class="course-grid">
-        <div class="course-card">
-          <div class="course-image">
-            <img alt="Strategy Icon" src="/api/placeholder/60/60"/>
-          </div>
-          <div class="course-content">
-            <h3 class="course-title">AI Strategy and Competitive Advantage</h3>
-            <p class="course-description">
-              Entwickeln Sie eine KI-Strategie, die Ihr Unternehmen im Wettbewerb positioniert und nachhaltiges Wachstum fördert.
-            </p>
-            <a class="learn-more" href="#">Kursdetails</a>
-          </div>
+    </section>
+
+    <!-- Module Contents -->
+    <section id="module-content" class="section section--alt">
+      <div class="container">
+        <h2>Inhalte des Moduls</h2>
+        <ul>
+          <li>Grundlagen künstlicher Intelligenz und Machine Learning</li>
+          <li>Strategische Anwendungen von AI im Business-Kontext</li>
+          <li>Frameworks der digitalen Transformation</li>
+          <li>Change Management &amp; Organisationsentwicklung</li>
+          <li>Praxis-Workshops und Fallstudien</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Video Placeholders -->
+    <section id="videos" class="section">
+      <div class="container">
+        <h2>Shorts von LinkedIn und YouTube</h2>
+        <div class="videos">
+          <div class="video-placeholder">LinkedIn Short Platzhalter</div>
+          <div class="video-placeholder">YouTube Short Platzhalter</div>
         </div>
-        <div class="course-card">
-          <div class="course-image">
-            <img alt="Leadership Icon" src="/api/placeholder/60/60"/>
-          </div>
-          <div class="course-content">
-            <h3 class="course-title">AI-Supported Leadership</h3>
-            <p class="course-description">
-              Lernen Sie, wie KI Ihre Führungskompetenzen erweitern und Entscheidungsprozesse optimieren kann.
-            </p>
-            <a class="learn-more" href="#">Kursdetails</a>
-          </div>
+      </div>
+    </section>
+
+    <!-- Participants -->
+    <section id="participants" class="section section--alt">
+      <div class="container">
+        <h2>Information über Teilnehmer</h2>
+        <ul class="stats">
+          <li><strong>12 Jahre</strong> Erfahrung</li>
+          <li><strong>35 %</strong> Senior C‑Level</li>
+          <li><strong>42</strong> Durchschnittsalter</li>
+          <li><strong>15</strong> Nationalitäten</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="section">
+      <div class="container">
+        <h2>Testimonials</h2>
+        <div class="testimonial">
+          <blockquote>„Das Modul hat meine Sicht auf digitale Strategien komplett verändert. Absolute Empfehlung!“</blockquote>
+          <cite>— Dr. Maria Keller, CIO</cite>
         </div>
-        <div class="course-card">
-          <div class="course-image">
-            <img alt="Ethics Icon" src="/api/placeholder/60/60"/>
-          </div>
-          <div class="course-content">
-            <h3 class="course-title">Ethical AI Governance</h3>
-            <p class="course-description">
-              Entwickeln Sie Rahmenwerke für eine verantwortungsvolle KI-Nutzung in Ihrem Unternehmen.
-            </p>
-            <a class="learn-more" href="#">Kursdetails</a>
-          </div>
+        <div class="testimonial">
+          <blockquote>„Top-Dozierende und praxisnahe Fälle – perfekt für die Umsetzung im eigenen Unternehmen.“</blockquote>
+          <cite>— Markus Steiner, Digital Transformation Lead</cite>
         </div>
-        <div class="course-card">
-          <div class="course-image">
-            <img alt="Transformation Icon" src="/api/placeholder/60/60"/>
-          </div>
-          <div class="course-content">
-            <h3 class="course-title">Digital Transformation Through AI</h3>
-            <p class="course-description">
-              Gestalten Sie den digitalen Wandel Ihres Unternehmens mit KI als strategischen Treiber.
-            </p>
-            <a class="learn-more" href="#">Kursdetails</a>
-          </div>
-        </div>
-        <div class="course-card">
-          <div class="course-image">
-            <img alt="Process Icon" src="/api/placeholder/60/60"/>
-          </div>
-          <div class="course-content">
-            <h3 class="course-title">Intelligent Process Automation</h3>
-            <p class="course-description">
-              Identifizieren und implementieren Sie KI-Lösungen zur Automatisierung und Optimierung von Geschäftsprozessen.
-            </p>
-            <a class="learn-more" href="#">Kursdetails</a>
-          </div>
-        </div>
-        <div class="course-card">
-          <div class="course-image">
-            <img alt="Data Icon" src="/api/placeholder/60/60"/>
-          </div>
-          <div class="course-content">
-            <h3 class="course-title">Data-Driven Leadership</h3>
-            <p class="course-description">
-              Nutzen Sie Daten und KI-gestützte Analysen für bessere strategische Entscheidungen.
-            </p>
-            <a class="learn-more" href="#">Kursdetails</a>
+      </div>
+    </section>
+
+    <!-- Academic Contact -->
+    <section id="contact" class="section section--alt">
+      <div class="container">
+        <h2>Akademischer Ansprechpartner</h2>
+        <div class="contact-info">
+          <img src="prof-anna-meier.jpg" alt="Prof. Dr. Anna Meier">
+          <div class="contact-details">
+            <h3>Prof. Dr. Anna Meier</h3>
+            <p>Leiterin Institut für Digital Business</p>
+            <p><a href="mailto:anna.meier@unisg.ch">anna.meier@unisg.ch</a></p>
+            <p>+41 71 224 72 22</p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-  <!-- Neuer Abschnitt: Netzwerk der Business School -->
-  <section id="network">
-    <div class="container">
-      <h2 class="section-title">Unser Netzwerk</h2>
-      <div class="course-grid">
-        <div class="course-card">
-          <div class="course-image">
-            <img alt="Logo 1" src="/api/placeholder/100/100"/>
-          </div>
-        </div>
-        <div class="course-card">
-          <div class="course-image">
-            <img alt="Logo 2" src="/api/placeholder/100/100"/>
-          </div>
-        </div>
-        <div class="course-card">
-          <div class="course-image">
-            <img alt="Logo 3" src="/api/placeholder/100/100"/>
-          </div>
-        </div>
-        <div class="course-card">
-          <div class="course-image">
-            <img alt="Logo 4" src="/api/placeholder/100/100"/>
-          </div>
-        </div>
-        <div class="course-card">
-          <div class="course-image">
-            <img alt="Logo 5" src="/api/placeholder/100/100"/>
-          </div>
-        </div>
-        <div class="course-card">
-          <div class="course-image">
-            <img alt="Logo 6" src="/api/placeholder/100/100"/>
-          </div>
-        </div>
-        <div class="course-card">
-          <div class="course-image">
-            <img alt="Logo 7" src="/api/placeholder/100/100"/>
-          </div>
-        </div>
-        <div class="course-card">
-          <div class="course-image">
-            <img alt="Logo 8" src="/api/placeholder/100/100"/>
-          </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section id="cta" class="section">
+      <div class="container">
+        <h2>Anmeldung</h2>
+        <div class="cta">
+          <form action="#" method="post">
+            <input type="text" name="firstname" placeholder="Vorname" required>
+            <input type="text" name="lastname" placeholder="Name" required>
+            <input type="email" name="email" placeholder="E‑Mail" required>
+            <select name="country" required>
+              <option value="">Land auswählen</option>
+              <option value="CH">Schweiz</option>
+              <option value="DE">Deutschland</option>
+              <option value="AT">Österreich</option>
+            </select>
+            <button type="submit">Jetzt anmelden</button>
+          </form>
+          <a href="#" class="download">Broschüre herunterladen (PDF)</a>
         </div>
       </div>
-    </div>
-  </section>
-  <!-- Neuer Abschnitt: Grußwort des Gründers -->
-  <section id="grußwort">
-    <div class="container">
-      <h2 class="section-title">Grußwort des Gründers</h2>
-      <div style="text-align: center; padding: 20px;">
-        <img src="/api/placeholder/120/120" alt="Gründerfoto" style="border-radius: 50%; margin-bottom: 20px;">
-        <p>
-          Herzlich willkommen bei NeXT AI Business School! Unser Ziel ist es, die nächste Generation von Führungskräften mit den besten Strategien im Bereich Künstliche Intelligenz auszubilden. Ich freue mich, Sie auf dieser spannenden Reise zu begleiten.
-        </p>
-        <p><strong>Ihr Gründer</strong></p>
-      </div>
-    </div>
-  </section>
-  <section class="testimonials" id="testimonials">
-    <div class="container">
-      <h2 class="section-title">Was unsere Absolventen sagen</h2>
-      <div class="testimonial-grid">
-        <div class="testimonial-card">
-          <div class="testimonial-image">JM</div>
-          <p class="testimonial">
-            "Die KI-Management-Programme der NeXT AI Business School haben mir die Perspektive und das Wissen gegeben, um die digitale Transformation in meinem Unternehmen erfolgreich voranzutreiben."
-          </p>
-          <p class="testimonial-author">Dr. Julia Mayer</p>
-          <p class="testimonial-role">Chief Innovation Officer, Global Tech AG</p>
-        </div>
-        <div class="testimonial-card">
-          <div class="testimonial-image">RK</div>
-          <p class="testimonial">
-            "Besonders wertvoll waren die praktischen Fallstudien und der Austausch mit anderen Führungskräften. Ich konnte das Gelernte direkt in unserem KI-Transformationsprojekt anwenden und messbare Ergebnisse erzielen."
-          </p>
-          <p class="testimonial-author">Robert Klein</p>
-          <p class="testimonial-role">CTO, Digital Solutions GmbH</p>
-        </div>
-        <div class="testimonial-card">
-          <div class="testimonial-image">LW</div>
-          <p class="testimonial">
-            "Was NeXT AI von anderen Business Schools unterscheidet: Der Fokus liegt nicht auf der Technologie, sondern auf konkreten Management-Strategien. Als Führungskraft ohne technischen Hintergrund war das genau was ich brauchte."
-          </p>
-          <p class="testimonial-author">Lisa Weber</p>
-          <p class="testimonial-role">Managing Director, Retail Excellence AG</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  <footer id="contact">
-    <div class="container">
-      <div class="footer-container">
-        <div class="footer-column">
-          <h3>St. Gallen imt Business School</h3>
-        </div>
-        <div class="footer-column">
-          <h3>Module</h3>
-          <ul class="footer-links">
-            <li><a href="ai-automation.html">Intelligent Process Automation</a></li>
-            <li><a href="ai-leadership.html">Leadership KI</a></li>
-            <li><a href="ai-strategy.html">Strategy KI</a></li>
-            <li><a href="ai-marketing.html">Marketing KI</a></li>
-            <li><a href="ai-data-leadership.html">Finance KI</a></li>
-          </ul>
-        </div>
-        <div class="footer-column">
-          <h3>Rechtliches</h3>
-          <ul class="footer-links">
-            <li><a href="impressum.html">Impressum</a></li>
-            <li><a href="datenschutz.html">Datenschutz</a></li>
-            <li><a href="kontakt.html">Kontakt</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="copyright">
-        © 2025 NeXT AI Business School. Alle Rechte vorbehalten.
-      </div>
-    </div>
-  </footer>
+    </section>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const countdownEl = document.getElementById('countdown');
+      const target = Date.now() + 60*24*60*60*1000;
+      function tick() {
+        const now = Date.now();
+        const diff = Math.max(0, target - now);
+        const days = Math.floor(diff / (1000*60*60*24));
+        const hrs = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+        const mins = Math.floor((diff % (1000*60*60)) / (1000*60));
+        countdownEl.textContent = `${days} Tage ${hrs} Std ${mins} Min`;
+      }
+      tick();
+      setInterval(tick, 1000*60);
+    });
+  </script>
 </body>
 </html>
