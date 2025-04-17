@@ -9,9 +9,8 @@
       --font-sans: -apple-system, BlinkMacSystemFont, "San Francisco", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
       --color-text: #1d1d1f;
       --color-heading: #000;
-      --color-accent: #007aff;
-      --color-accent2: #970289;
       --color-box: #f5f5f7;
+      --color-accent2: #970289;
       --spacing: 24px;
       --radius: 12px;
       --max-width: 1200px;
@@ -57,6 +56,57 @@
     }
     nav a:hover { border-color: var(--color-accent2); }
 
+    /* Sidebar */
+    .sidebar {
+      position: fixed;
+      top: 50%; right: 0;
+      width: 70px;
+      transform: translateY(-50%);
+      background: var(--color-accent2);
+      display: flex;
+      flex-direction: column;
+      border-top-left-radius: var(--radius);
+      border-bottom-left-radius: var(--radius);
+      overflow: hidden;
+      z-index: 200;
+    }
+    .sidebar-item {
+      padding: 12px 0;
+      text-align: center;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 0.75rem;
+    }
+    .sidebar-item:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .sidebar-item svg {
+      width: 24px;
+      height: 24px;
+      margin-bottom: 6px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        top: auto; bottom: 0; left: 0; right: 0;
+        width: 100%; height: auto;
+        transform: none;
+        flex-direction: row;
+        border-radius: 0;
+      }
+      .sidebar-item {
+        flex: 1;
+        padding: 12px 0;
+      }
+    }
+
     /* Hero */
     #hero {
       text-align: center;
@@ -75,31 +125,32 @@
       border-radius: var(--radius);
       padding: var(--spacing);
       text-align: center;
-      display: flex; flex-direction: column; align-items: center;
     }
     .info-box--highlight {
       background: var(--color-accent2);
       color: #fff;
     }
     .info-box svg {
-      width: 32px; height: 32px;
+      width: 32px;
+      height: 32px;
       margin-bottom: 12px;
-      stroke-width: 2;
       stroke: currentColor;
       fill: none;
+      stroke-width: 2;
     }
     .info-label {
       font-size: .9rem;
       text-transform: uppercase;
       margin-bottom: 4px;
       opacity: .7;
+      display: block;
     }
     .info-value {
       font-size: 1.2rem;
       font-weight: 600;
     }
 
-    /* Alternating section backgrounds */
+    /* Alternating sections */
     .section--alt {
       background: #f9f9f9;
     }
@@ -139,9 +190,6 @@
       margin: 0 auto;
       list-style: none; padding: 0;
       text-align: center;
-    }
-    .participants .stats li {
-      font-size: 1rem;
     }
     .participants .stats li strong {
       display: block;
@@ -227,15 +275,6 @@
       display: inline-block;
       margin-top: 16px;
       font-size: 1rem;
-      color: var(--color-accent2);
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      nav ul { gap: 16px; flex-wrap: wrap; }
-      #hero h1 { font-size: 2rem; }
-      .info-grid { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); }
-      .testimonials cite { text-align: left; }
     }
   </style>
 </head>
@@ -259,35 +298,59 @@
     </div>
   </header>
 
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <!-- Broschüre -->
+    <div class="sidebar-item">
+      <svg viewBox="0 0 24 24">
+        <path d="M8 2h8l4 4v16H8a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/>
+        <path d="M8 2v4h8"/>
+      </svg>
+      <span>Broschüre</span>
+    </div>
+    <!-- IMT Advisor -->
+    <div class="sidebar-item">
+      <svg viewBox="0 0 24 24">
+        <path d="M16 14c2.21 0 4 1.79 4 4v2H4v-2c0-2.21 1.79-4 4-4"/>
+        <circle cx="12" cy="8" r="4"/>
+      </svg>
+      <span>IMT Advisor</span>
+    </div>
+    <!-- Nachricht -->
+    <div class="sidebar-item">
+      <svg viewBox="0 0 24 24">
+        <path d="M4 4h16v12H4z"/>
+        <polyline points="4,4 12,12 20,4"/>
+      </svg>
+      <span>Nachricht</span>
+    </div>
+  </aside>
+
   <main>
     <!-- Hero -->
     <section id="hero">
       <div class="container">
         <h1>AI in Business Strategy &amp; Digital Transformation</h1>
         <div class="info-grid">
-          <!-- Location -->
           <div class="info-box">
             <svg viewBox="0 0 24 24"><path d="M12 21s-6-5.686-6-10a6 6 0 1 1 12 0c0 4.314-6 10-6 10z"/><circle cx="12" cy="11" r="2"/></svg>
             <span class="info-label">Location</span>
             <span class="info-value">St. Gallen</span>
           </div>
-          <!-- Length -->
           <div class="info-box">
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             <span class="info-label">Length</span>
             <span class="info-value">5 Tage</span>
           </div>
-          <!-- Fee -->
           <div class="info-box">
             <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
             <span class="info-label">Fee</span>
             <span class="info-value">CHF 6 500</span>
           </div>
-          <!-- Next Start with highlight -->
           <div class="info-box info-box--highlight">
             <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             <span class="info-label">Next Start</span>
-            <span class="info-value" id="countdown">60 Tage 0 Std 0 Min</span>
+            <span class="info-value" id="countdown">60 Tage 0 Std 0 Min</span>
           </div>
         </div>
       </div>
@@ -395,7 +458,7 @@
         const days = Math.floor(diff / (1000*60*60*24));
         const hrs = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
         const mins = Math.floor((diff % (1000*60*60)) / (1000*60));
-        countdownEl.textContent = `${days} Tage ${hrs} Std ${mins} Min`;
+        countdownEl.textContent = `${days} Tage ${hrs} Std ${mins} Min`;
       }
       tick();
       setInterval(tick, 1000*60);
