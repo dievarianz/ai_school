@@ -237,6 +237,71 @@
   </style>
 <!-- ============ BOXICONS ============ -->
 <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+
+<style>
+  .valid-input {
+    border: 2px solid #28a745 !important;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%2328a745" height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg"><path d="M20.29 5.71a1 1 0 00-1.42 0L9 15.59l-3.29-3.3a1 1 0 00-1.42 1.42l4 4a1 1 0 001.42 0l10-10a1 1 0 000-1.42z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 18px 18px;
+  }
+
+  .invalid-input {
+    border: 2px solid #dc3545 !important;
+  }
+
+  .error-message {
+    color: #dc3545;
+    font-size: 0.85rem;
+    margin-bottom: 4px;
+    display: none;
+  }
+
+  .error-message.active {
+    display: block;
+  }
+</style>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("brochure-form");
+    const fields = form.querySelectorAll("input, select");
+
+    fields.forEach(field => {
+      const error = document.createElement("div");
+      error.classList.add("error-message");
+      error.textContent = "Dieses Feld muss ausgefüllt werden";
+      field.insertAdjacentElement("beforebegin", error);
+
+      field.addEventListener("input", () => validateField(field, error));
+      field.addEventListener("blur", () => validateField(field, error));
+    });
+
+    form.addEventListener("submit", function (e) {
+      let isValid = true;
+      fields.forEach(field => {
+        const error = field.previousElementSibling;
+        const valid = validateField(field, error);
+        if (!valid) isValid = false;
+      });
+      if (!isValid) e.preventDefault();
+    });
+
+    function validateField(field, errorEl) {
+      if (field.value.trim() === "" || !field.checkValidity()) {
+        field.classList.remove("valid-input");
+        field.classList.add("invalid-input");
+        errorEl.classList.add("active");
+        return false;
+      } else {
+        field.classList.remove("invalid-input");
+        field.classList.add("valid-input");
+        errorEl.classList.remove("active");
+        return true;
+      }
+    }
+  });
+</script>
 </head>
 <body>
 <!-- ============ HEADER ============ -->
@@ -300,7 +365,7 @@
 <span class="info-label">Next Start</span><span class="info-value" id="countdown">0d 0h 0m</span>
 </div>
 </div>
-<a class="hero-btn" href="#broschuere">Jetzt Broschüre herunterladen</a>
+<a class="hero-btn" href="#broschuere">Kostenlos Broschüre herunterladen</a>
 </div>
 </section>
 <!-- ----- MODUL‑SLIDER ----- -->
@@ -546,7 +611,7 @@
 </svg>
 </div>
 </div>
-<button style="width: 100%; padding: 14px; background: #970289; color: #fff; border: none; border-radius: 9999px; font-weight: 600; text-transform: uppercase;" type="submit">Jetzt herunterladen</button>
+<button style="width: 100%; padding: 14px; background: #970289; color: #fff; border: none; border-radius: 9999px; font-weight: 600; text-transform: uppercase;" type="submit">Kostenlos Broschüre herunterladen</button>
 </form>
 <div aria-live="polite" class="hidden" id="download-ready" style="text-align:center;margin-top:24px;">
 <svg height="56" style="stroke:#970289;fill:none;stroke-width:2;margin-bottom:12px" viewbox="0 0 24 24" width="56">
@@ -554,10 +619,9 @@
 <polyline points="12 11 12 17"></polyline>
 <polyline points="9 14 12 17 15 14"></polyline>
 </svg>
-<p style="font-size:1.1rem;font-weight:600;margin-bottom:8px">Jetzt Broschüre downloaden</p>
+<p style="font-size:1.1rem;font-weight:600;margin-bottom:8px">Kostenlos Broschüre downloaden</p>
 <a download="" href="assets/broschuere.pdf" style="display:inline-block;padding:12px 24px;background:#970289;color:#fff;border-radius:9999px;text-transform:uppercase;font-size:.95rem;font-weight:600">PDF herunterladen</a>
 </div>
-
 </div>
 <!-- Zitate -->
 <div style="flex: 1 1 400px; background: #fff; padding: 32px; border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); display: flex; flex-direction: column; justify-content: center;">
