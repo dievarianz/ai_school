@@ -41,15 +41,15 @@
     /* ---------- Sidebar ---------- */
     .sidebar{
       position:fixed;top:50%;right:0;transform:translateY(-50%);
-      display:flex;flex-direction:column;width:80px;background:var(--color-accent2);
+      display:flex;flex-direction:column;width:80px;background:var(--color-badge);
       border-top-left-radius:var(--radius);border-bottom-left-radius:var(--radius);z-index:200
     }
     .sidebar-item{
-      flex:1;padding:12px 0;text-align:center;color:#fff;
+      flex:1;padding:12px 0;text-align:center;color:#000;
       display:flex;flex-direction:column;align-items:center;justify-content:center;
       font-size:.75rem
     }
-    .sidebar-item:not(:last-child){border-bottom:1px solid rgba(255,255,255,.3)}
+    .sidebar-item:not(:last-child){border-bottom:1px solid rgba(0,0,0,.1)}
     .sidebar-item i{
       font-size:24px;
       margin-bottom:4px;
@@ -90,8 +90,8 @@
       gap:8px;
       margin-top:var(--spacing);
       padding:14px 32px;
-      background:var(--color-accent2);
-      color:#fff;
+      background:var(--color-badge);
+      color:#000;
       border:none;
       border-radius:9999px;
       font-size:1rem;
@@ -101,12 +101,12 @@
       cursor:pointer;
       transition:background .2s,transform .15s
     }
-    .hero-btn:hover{background:#7a026f;transform:translateY(-2px)}
+    .hero-btn:hover{background:#e6df5f;transform:translateY(-2px)}
     .hero-btn::after {
       content: '';
       width: 16px;
       height: 16px;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M9 5l7 7-7 7'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='black' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M9 5l7 7-7 7'/%3E%3C/svg%3E");
       background-size: contain;
       background-repeat: no-repeat;
       display: inline-block;
@@ -229,7 +229,7 @@
       .info-grid{margin:var(--spacing) 0}
       .info-box{width:45%;margin-bottom:var(--spacing)}
       .sidebar{top:auto;bottom:0;left:0;right:0;transform:none;flex-direction:row;width:100%;border-radius:0}
-      .sidebar-item:not(:last-child){border-right:1px solid rgba(255,255,255,.3)}
+      .sidebar-item:not(:last-child){border-right:1px solid rgba(0,0,0,.1)}
       .availability-badge{width:140px;height:140px;top:24px;right:12px;font-size:.95rem}
       .slider-btn{display:flex}
       .footer-columns{flex-direction:column;gap:32px}
@@ -324,19 +324,19 @@
 <!-- ============ SIDEBAR ============ -->
 <aside class="sidebar">
 <a class="sidebar-item" href="#broschuere">
-<i class="bx bxs-book" style="color:#fff;"></i>
+<i class="bx bxs-book" style="color:#000;"></i>
 <span>Broschüre</span>
 </a>
 <a class="sidebar-item" href="#contact">
-<i class="bx bxs-user" style="color:#fff;"></i>
+<i class="bx bxs-user" style="color:#000;"></i>
 <span>IMT Advisor</span>
 </a>
 <a class="sidebar-item" href="https://www.linkedin.com" rel="noopener" target="_blank">
-<i class="bx bxl-linkedin" style="color:#fff;"></i>
+<i class="bx bxl-linkedin" style="color:#000;"></i>
 <span>LinkedIn</span>
 </a>
 <a class="sidebar-item" href="https://www.youtube.com" rel="noopener" target="_blank">
-<i class="bx bxl-youtube" style="color:#fff;"></i>
+<i class="bx bxl-youtube" style="color:#000;"></i>
 <span>YouTube</span>
 </a>
 </aside>
@@ -520,7 +520,7 @@
 <line x1="3" x2="21" y1="10" y2="10"></line>
 </svg>
 <div class="stat-value count" data-target="12"></div>
-<div class="stat-label">Jahre Erfahrung</div>
+<div class="stat-label">Jahre Berufserfahrung</div>
 </div>
 <!-- Schlips‑Icon für Senior C‑Level -->
 <div class="stat-card">
@@ -529,7 +529,7 @@
 <path d="M10 14v8h4v-8"></path>
 </svg>
 <div class="stat-value count" data-suffix=" %" data-target="35"></div>
-<div class="stat-label">Senior C‑Level</div>
+<div class="stat-label">Teilnehmer mit Senior C‑Level</div>
 </div>
 <!-- Alters‑Icon für Durchschnittsalter -->
 <div class="stat-card">
@@ -611,7 +611,7 @@
 </svg>
 </div>
 </div>
-<button style="width: 100%; padding: 14px; background: #970289; color: #fff; border: none; border-radius: 9999px; font-weight: 600; text-transform: uppercase;" type="submit">Kostenlos Broschüre herunterladen</button>
+<button style="width: 100%; padding: 14px; background: var(--color-badge); color: #000; border: none; border-radius: 9999px; font-weight: 600; text-transform: uppercase; cursor: pointer;" type="submit">Kostenlos Broschüre herunterladen</button>
 </form>
 <div aria-live="polite" class="hidden" id="download-ready" style="text-align:center;margin-top:24px;">
 <svg height="56" style="stroke:#970289;fill:none;stroke-width:2;margin-bottom:12px" viewbox="0 0 24 24" width="56">
@@ -620,7 +620,7 @@
 <polyline points="9 14 12 17 15 14"></polyline>
 </svg>
 <p style="font-size:1.1rem;font-weight:600;margin-bottom:8px">Kostenlos Broschüre downloaden</p>
-<a download="" href="assets/broschuere.pdf" style="display:inline-block;padding:12px 24px;background:#970289;color:#fff;border-radius:9999px;text-transform:uppercase;font-size:.95rem;font-weight:600">PDF herunterladen</a>
+<a download="" href="assets/broschuere.pdf" style="display:inline-block; padding:12px 24px; background:var(--color-badge); color:#000; border-radius:9999px; text-transform:uppercase; font-size:.95rem; font-weight:600; cursor: pointer;">PDF herunterladen</a>
 </div>
 <!-- Neue Zeilen mit Icons -->
 <div style="margin-top: 16px; color: #6e6e73; font-size: 0.9rem;">
