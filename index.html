@@ -88,26 +88,51 @@
     /* ---------- Info‑Boxes ---------- */
     .info-grid{display:flex;gap:var(--spacing);justify-content:center;flex-wrap:wrap;margin:var(--spacing) 0}
     .info-box{
-      width:120px !important;
-      height:120px !important;
-      padding:24px !important;
-      background:rgba(255,255,255,0.9) !important;
-      border-radius:var(--radius) !important;
-      box-shadow:0 1px 2px rgba(0,0,0,0.07),0 1px 3px rgba(0,0,0,0.06) !important;
-      display:flex !important;
-      flex-direction:column !important;
-      justify-content:center !important;
-      text-align:center !important;
-      transition:transform 0.2s ease,box-shadow 0.2s ease !important;
-      cursor:default !important;
+      width: 125px !important;
+      height: 125px !important;
+      padding: 24px !important;
+      background: rgba(255, 255, 255, 0.9) !important;
+      border-radius: var(--radius) !important;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.07), 0 1px 3px rgba(0,0,0,0.06) !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      align-items: center !important;
+      text-align: center !important;
+      transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+      cursor: pointer !important;
     }
     .info-box:hover {
-      transform:translateY(-4px) !important;
-      box-shadow:0 4px 12px rgba(0,0,0,0.1) !important;
+      transform: translateY(-4px) !important;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
     }
-    .info-box svg{width:24px;height:24px;margin:0 auto 6px;stroke:#000;fill:none}
-    .info-label{font-size:.7rem;color:var(--color-muted);text-transform:uppercase;margin-bottom:4px}
-    .info-value{font-size:.95rem;font-weight:600;color:var(--color-text)}
+    .info-box svg {
+      width: 32px !important;
+      height: 32px !important;
+      margin-bottom: 12px !important;
+      stroke: #6e6e73 !important;
+      fill: none !important;
+      stroke-width: 1.5 !important;
+    }
+    .info-box svg path,
+    .info-box svg circle,
+    .info-box svg rect,
+    .info-box svg line,
+    .info-box svg polyline {
+      stroke: #6e6e73 !important;
+      fill: none !important;
+    }
+    .info-label {
+      font-size: 0.7rem !important;
+      color: var(--color-muted) !important;
+      text-transform: uppercase !important;
+      margin-bottom: 4px !important;
+    }
+    .info-value {
+      font-size: 0.95rem !important;
+      font-weight: 600 !important;
+      color: var(--color-text) !important;
+    }
 
     /* ---------- Hero‑Button ---------- */
     .hero-btn{
@@ -158,10 +183,12 @@
     .slide{
       flex:0 0 280px;height:280px;
       perspective:1200px;margin-bottom:var(--spacing);
+      cursor: pointer !important;
     }
     .flipper{
       width:100%;height:100%;position:relative;
       transform-style:preserve-3d;transition:transform .6s;
+      cursor: pointer !important;
     }
     .slide.flipped .flipper{transform:rotateY(180deg)}
     .flipper .front,
@@ -274,7 +301,7 @@
       text-decoration: none !important;
       font-weight: 500 !important;
       transition: transform 0.2s ease, box-shadow 0.2s ease !important;
-      width: fit-content !important;
+      width: 100% !important;
       border: none !important;
       cursor: pointer !important;
       text-transform: none !important; /* Kein Uppercase */
@@ -362,6 +389,23 @@
     .brochure-section .brochure-form input[type="submit"] {
         /* Hier könnten evtl. vorhandene generische Button-Styles zurückgesetzt werden, falls der Button eigentlich ein <button> oder <input> ist */
         all: unset !important; /* Radikaler Reset, falls nötig */
+    }
+
+    /* Rechte Spalte der Master Class */
+    .masterclass-stats-box {
+      background: #e8e8e8 !important; /* Dunklerer Grauton */
+      padding: clamp(24px, 5vw, 48px) !important;
+      border-radius: var(--radius) !important;
+      text-align: center !important;
+      transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+      text-decoration: none !important;
+      display: block !important; /* Macht den Link zu einem Block-Element */
+      color: inherit !important; /* Behält die ursprüngliche Textfarbe */
+    }
+
+    .masterclass-stats-box:hover {
+      transform: translateY(-4px) !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
     }
 </style>
 <!-- ============ BOXICONS ============ -->
@@ -477,28 +521,48 @@
 <div class="container">
 <h1>xAI in Business Strategy &amp; Digital Transformation</h1>
 <div class="info-grid">
-<div class="info-box">
-<svg viewbox="0 0 24 24"><path d="M12 21s-6-5.686-6-10a6 6 0 1 1 12 0c0 4.314-6 10-6 10z"></path><circle cx="12" cy="11" r="2"></circle></svg>
-<span class="info-label">Location</span><span class="info-value">St. Gallen</span>
-</div>
-<div class="info-box">
-<svg viewbox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-<span class="info-label">Length</span><span class="info-value">5 Tage</span>
-</div>
-<div class="info-box">
-<svg viewbox="0 0 24 24"><rect height="16" rx="2" width="22" x="1" y="4"></rect><line x1="1" x2="23" y1="10" y2="10"></line></svg>
-<span class="info-label">Fee</span><span class="info-value">CHF 2500</span>
-</div>
-<div class="info-box">
-<svg viewbox="0 0 24 24">
-  <rect height="18" rx="2" width="18" x="3" y="4"></rect>
-  <line x1="16" x2="16" y1="2" y2="6"></line>
-  <line x1="8" x2="8" y1="2" y2="6"></line>
-  <line x1="3" x2="21" y1="10" y2="10"></line>
-</svg>
-<span class="info-label">Next Start</span>
-<span class="info-value">25.5.2025</span>
-</div>
+    <!-- Location Box -->
+    <div class="info-box">
+        <svg viewBox="0 0 24 24">
+            <path d="M12 21s-6-5.686-6-10a6 6 0 1 1 12 0c0 4.314-6 10-6 10z"/>
+            <circle cx="12" cy="11" r="2"/>
+        </svg>
+        <span class="info-label">LOCATION</span>
+        <span class="info-value">St. Gallen</span>
+    </div>
+
+    <!-- Length Box -->
+    <div class="info-box">
+        <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+        </svg>
+        <span class="info-label">LENGTH</span>
+        <span class="info-value">5 Tage</span>
+    </div>
+
+    <!-- Fee Box -->
+    <div class="info-box">
+        <svg viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+            <path d="M12 15v2M12 7v2"/>
+            <path d="M15 9.5c-.83-1-2.17-1.5-3.5-1.5-1.93 0-3.5 1.57-3.5 3.5s1.57 3.5 3.5 3.5c1.33 0 2.67-.5 3.5-1.5"/>
+        </svg>
+        <span class="info-label">FEE</span>
+        <span class="info-value">CHF 250</span>
+    </div>
+
+    <!-- Next Start Box -->
+    <div class="info-box">
+        <svg viewBox="0 0 24 24">
+            <rect x="3" y="4" width="18" height="18" rx="2"/>
+            <line x1="16" y1="2" x2="16" y2="6"/>
+            <line x1="8" y1="2" x2="8" y2="6"/>
+            <line x1="3" y1="10" x2="21" y2="10"/>
+        </svg>
+        <span class="info-label">NEXT START</span>
+        <span class="info-value">25.5.2025</span>
+    </div>
 </div>
 <a href="#" style="
   display: inline-flex;
@@ -530,10 +594,6 @@
 <div class="slide flip-container">
 <div class="flipper">
 <div class="front">
-<svg class="icon" viewbox="0 0 24 24" style="stroke: #000000; fill: none;">
-  <path d="M4 4h16v16H4z"></path>
-  <path d="M4 9h16"></path>
-</svg>
 <h3>Grundlagen der KI</h3>
 <p>Einführung in ML‑Typen, neuronale Netze, Datenvorbereitung und Ethik.</p>
 <a class="flip-link" href="#">Mehr</a>
@@ -549,10 +609,6 @@
 <div class="slide flip-container">
 <div class="flipper">
 <div class="front">
-<svg class="icon" viewbox="0 0 24 24" style="stroke: #000000; fill: none;">
-  <path d="M4 4h16v16H4z"></path>
-  <path d="M4 9h16"></path>
-</svg>
 <h3>Strategische Anwendungen</h3>
 <p>Analyse von Business‑Use‑Cases und Wertschöpfungsmodellen.</p>
 <a class="flip-link" href="#">Mehr</a>
@@ -568,10 +624,6 @@
 <div class="slide flip-container">
 <div class="flipper">
 <div class="front">
-<svg class="icon" viewbox="0 0 24 24" style="stroke: #000000; fill: none;">
-  <path d="M4 4h16v16H4z"></path>
-  <path d="M4 9h16"></path>
-</svg>
 <h3>Frameworks &amp; Methoden</h3>
 <p>Agile, Lean und AI‑spezifische Prozessmodelle.</p>
 <a class="flip-link" href="#">Mehr</a>
@@ -587,10 +639,6 @@
 <div class="slide flip-container">
 <div class="flipper">
 <div class="front">
-<svg class="icon" viewbox="0 0 24 24" style="stroke: #000000; fill: none;">
-  <path d="M4 4h16v16H4z"></path>
-  <path d="M4 9h16"></path>
-</svg>
 <h3>Change Management</h3>
 <p>Strategien für erfolgreiche Implementierung.</p>
 <a class="flip-link" href="#">Mehr</a>
@@ -606,10 +654,6 @@
 <div class="slide flip-container">
 <div class="flipper">
 <div class="front">
-<svg class="icon" viewbox="0 0 24 24" style="stroke: #000000; fill: none;">
-  <path d="M4 4h16v16H4z"></path>
-  <path d="M4 9h16"></path>
-</svg>
 <h3>Praxis‑Workshops</h3>
 <p>Hands‑on Sessions mit realen Unternehmens‑Challenges.</p>
 <a class="flip-link" href="#">Mehr</a>
@@ -625,10 +669,6 @@
 <div class="slide flip-container">
 <div class="flipper">
 <div class="front">
-<svg class="icon" viewbox="0 0 24 24" style="stroke: #000000; fill: none;">
-  <path d="M4 4h16v16H4z"></path>
-  <path d="M4 9h16"></path>
-</svg>
 <h3>Digitale Tools</h3>
 <p>Überblick zu Plattformen und Software‑Stacks.</p>
 <a class="flip-link" href="#">Mehr</a>
@@ -644,10 +684,6 @@
 <div class="slide flip-container">
 <div class="flipper">
 <div class="front">
-<svg class="icon" viewbox="0 0 24 24" style="stroke: #000000; fill: none;">
-  <path d="M4 4h16v16H4z"></path>
-  <path d="M4 9h16"></path>
-</svg>
 <h3>Geschäftsmodell‑Innovation</h3>
 <p>Entwicklung und Validierung neuer AI‑basierten Geschäftsmodelle.</p>
 <a class="flip-link" href="#">Mehr</a>
@@ -794,8 +830,16 @@
       </div>
 
       <!-- Rechte Spalte -->
-      <div style="background: var(--color-card-bg); padding: clamp(24px, 5vw, 48px); 
-                  border-radius: var(--radius); text-align: center;">
+      <a href="https://www.linkedin.com/school/imtschool.ch/" target="_blank" rel="noopener noreferrer" 
+         class="masterclass-stats-box" style="
+         background: #e8e8e8;
+         padding: clamp(24px, 5vw, 48px);
+         border-radius: var(--radius);
+         text-align: center;
+         transition: transform 0.2s ease, box-shadow 0.2s ease;
+         text-decoration: none;
+         display: block;
+         color: inherit;">
         <div style="display: flex; justify-content: center; gap: clamp(16px, 3vw, 24px); margin-bottom: 24px;">
           <div style="background: #fff; display: inline-flex; align-items: center; justify-content: center;
                       padding: clamp(16px, 3vw, 32px); border-radius: 50%;">
@@ -829,7 +873,7 @@
             </div>
 
             <!-- Trennlinie -->
-            <div style="width: 1px; background: #e0e0e0;"></div>
+            <div style="width: 1px; background: #d0d0d0;"></div>
 
             <!-- Minuten -->
             <div class="stat-item" style="text-align: center;">
@@ -847,7 +891,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
