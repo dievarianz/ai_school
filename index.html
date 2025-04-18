@@ -6,8 +6,8 @@
   <title>AI in Business Strategy &amp; Digital Transformation | imtxAI Business School</title>
   <style>
     :root {
-      --font-sans: -apple-system, BlinkMacSystemFont, "San Francisco", "Segoe UI", Roboto,
-                   Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      --font-sans: -apple-system, BlinkMacSystemFont, "San Francisco", "Segoe UI",
+                   Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
       --color-text: #1d1d1f;
       --color-muted: #6e6e73;
       --color-box-bg: rgba(247,247,247,0.8);
@@ -15,10 +15,10 @@
       --spacing: 24px;
       --radius: 16px;
       --max-width: 1200px;
+      --shadow-light: 0 1px 2px rgba(0,0,0,0.07), 0 1px 3px rgba(0,0,0,0.06);
     }
-    *, *::before, *::after { box-sizing: border-box; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      margin: 0;
       font-family: var(--font-sans);
       color: var(--color-text);
       background: #fff;
@@ -26,12 +26,14 @@
     }
     a { color: var(--color-accent2); text-decoration: none; }
     a:hover { text-decoration: underline; }
-    h1, h2 { margin: 0 0 var(--spacing); font-weight: 600; }
+    h1, h2 {
+      font-weight: 600;
+      margin-bottom: var(--spacing);
+      text-align: left;
+    }
     .container {
-      width: 90%;
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 var(--spacing);
+      width: 90%; max-width: var(--max-width);
+      margin: 0 auto; padding: 0 var(--spacing);
     }
     section { position: relative; padding: 80px 0; }
 
@@ -47,8 +49,7 @@
     }
     .logo { height: 32px; }
     nav ul {
-      display: flex; gap: 32px;
-      list-style: none; margin: 0; padding: 0;
+      display: flex; gap: 32px; list-style: none;
     }
     nav a {
       font-size: 1rem; font-weight: 500;
@@ -67,42 +68,28 @@
       display: flex; flex-direction: column;
       border-top-left-radius: var(--radius);
       border-bottom-left-radius: var(--radius);
-      width: 80px; /* etwas breiter */
-      z-index: 200;
+      width: 80px; z-index: 200;
     }
     .sidebar-item {
-      padding: 12px 0; text-align: center;
-      color: #fff; cursor: pointer;
-      display: flex; flex-direction: column; align-items: center;
-      font-size: .75rem;
+      flex: 1; padding: 12px 0; text-align: center;
+      color: #fff; display:flex; flex-direction:column; align-items:center; justify-content:center;
+      font-size: .75rem; cursor:pointer;
     }
     .sidebar-item:not(:last-child) {
       border-bottom: 1px solid rgba(255,255,255,0.3);
     }
     .sidebar-item svg {
-      width: 24px; height: 24px; margin-bottom: 4px;
-      stroke: currentColor; fill: none; stroke-width: 2;
-    }
-    .sidebar-item:hover {
-      background: rgba(255,255,255,0.1);
-    }
-    @media (max-width:768px) {
-      .sidebar {
-        top:auto; bottom:0; left:0; right:0;
-        flex-direction: row; width: 100%; transform: none;
-        border-radius: 0;
-      }
-      .sidebar-item:not(:last-child) {
-        border-right: 1px solid rgba(255,255,255,0.3);
-      }
+      width: 24px; height: 24px; margin-bottom:4px;
+      stroke: currentColor; fill:none; stroke-width:2;
     }
 
     /* Hero */
     #hero {
       text-align: center;
-      padding: 120px 0 200px; /* mehr Platz unten */
-      background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?crop=entropy&fit=crop&w=1950&q=80')
-                  center/cover no-repeat;
+      padding: 120px 0 200px;
+      background:
+        url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?crop=entropy&fit=crop&w=1950&q=80')
+        center/cover no-repeat;
       color: #fff;
     }
     #hero h1 {
@@ -110,124 +97,113 @@
       text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
     }
 
-    /* Info‑Boxes: gleich groß, Schrift kleiner, transparenter */
+    /* Info‑Boxes */
     .info-grid {
-      position: absolute;
-      bottom: 16px;
-      left: 50%;
+      position: absolute; bottom:16px; left:50%;
       transform: translateX(-50%);
-      display: flex; gap: var(--spacing);
+      display:flex; gap:var(--spacing);
     }
     .info-box {
       background: var(--color-box-bg);
       border-radius: var(--radius);
-      width: 120px;
-      height: 120px;
-      padding: 8px;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      display: flex; flex-direction: column;
-      justify-content: center;
+      width:120px; height:120px; padding:8px;
+      text-align:center;
+      box-shadow: var(--shadow-light);
+      display:flex; flex-direction:column; justify-content:center;
     }
     .info-box svg {
-      width: 24px; height: 24px;
-      margin: 0 auto 6px;
-      stroke: var(--color-muted);
+      width:24px; height:24px; margin:0 auto 6px;
+      stroke: #000; fill:none;
     }
     .info-label {
-      font-size: .7rem;
-      color: var(--color-muted);
-      text-transform: uppercase;
-      margin-bottom: 4px;
+      font-size:.7rem; color:var(--color-muted);
+      text-transform:uppercase; margin-bottom:4px;
     }
     .info-value {
-      font-size: .95rem;
-      font-weight: 600;
-      color: var(--color-text);
-      line-height: 1.2;
+      font-size:.95rem; font-weight:600; color:var(--color-text);
     }
 
     /* Module Contents Slider */
-    #module-content { background: #fafafa; }
-    #module-content h2 { text-align: center; }
-    .slider-container { position: relative; margin-top: var(--spacing); }
+    #module-content { background:#fafafa; }
+    #module-content h2 { text-align:left; }
+    .slider-container { position:relative; margin-top:var(--spacing); }
     .slider-track {
-      display: flex; gap: var(--spacing);
-      overflow-x: auto; padding: 0 var(--spacing);
-      scroll-behavior: smooth;
+      display:flex; gap:var(--spacing);
+      overflow-x:auto; padding:0 var(--spacing);
+      scroll-behavior:smooth;
     }
     .slide {
-      background: #fff; border-radius: var(--radius);
-      flex: 0 0 280px; padding: var(--spacing);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      display: flex; flex-direction: column;
+      background:#fff; border-radius:var(--radius);
+      flex:0 0 280px; padding:var(--spacing);
+      box-shadow: var(--shadow-light);
+      display:flex; flex-direction:column;
     }
     .slide svg.icon {
-      width: 32px; height: 32px; margin-bottom: 12px;
-      stroke: var(--color-accent2); fill: none; stroke-width:2;
+      width:32px; height:32px; margin-bottom:12px;
+      stroke:var(--color-accent2); fill:none; stroke-width:2;
     }
-    .slide h3 { margin: 0 0 8px; font-size: 1.1rem; }
-    .slide p { margin: 0; font-size: .95rem; color: #555; line-height:1.4; flex-grow:1; }
+    .slide h3 { margin-bottom:8px; font-size:1.1rem; }
+    .slide p {
+      font-size:.95rem; color:#555; line-height:1.4; flex-grow:1;
+    }
     .slider-btn {
-      position: absolute; top:50%;
+      position:absolute; top:50%;
       width:40px; height:40px;
       background:rgba(0,0,0,0.5); border:none; border-radius:50%;
       display:flex; align-items:center; justify-content:center;
       transform:translateY(-50%); cursor:pointer;
     }
-    .slider-btn.prev { left: -20px; }
-    .slider-btn.next { right: -20px; }
-    .slider-btn svg { width:16px; height:16px; stroke:#fff; fill:none; stroke-width:2; }
+    .slider-btn.prev { left:-20px; }
+    .slider-btn.next { right:-20px; }
+    .slider-btn svg { width:16px; height:16px; stroke:#fff; }
 
-    /* Shorts */
-    .videos {
-      display: flex; flex-wrap: wrap; gap: var(--spacing);
-      justify-content: center; margin-top: var(--spacing);
+    /* Shorts – YouTube Shorts */
+    #videos .videos {
+      display:flex; flex-wrap:wrap; gap:var(--spacing);
+      justify-content:center; margin-top:var(--spacing);
     }
-    .video-placeholder {
-      position: relative; width:200px; height:360px;
-      background:#ddd; border-radius: var(--radius); overflow:hidden;
+    .video-short {
+      width:200px; height:360px;
+      border-radius:var(--radius); overflow:hidden;
+      background:#000;
     }
-    .video-placeholder img {
-      width:100%; height:100%; object-fit:cover;
-    }
-    .video-placeholder svg.play {
-      position:absolute; top:50%; left:50%;
-      transform:translate(-50%,-50%);
-      width:48px; height:48px; fill:rgba(255,255,255,0.8); stroke:none;
+    .video-short iframe {
+      width:100%; height:100%; border:none;
     }
 
-    /* Teilnehmer */
+    /* Participants */
     #participants { background:#fafafa; }
     .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px,1fr));
-      gap: var(--spacing); max-width:800px; margin:0 auto; text-align:center;
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(120px,1fr));
+      gap:var(--spacing); max-width:800px; margin:0 auto; text-align:center;
     }
     .stat-card {
       background:#fff; border-radius:var(--radius);
-      padding:var(--spacing); box-shadow:0 2px 8px rgba(0,0,0,0.05);
+      padding:var(--spacing); box-shadow:var(--shadow-light);
       display:flex; flex-direction:column; align-items:center;
     }
     .stat-card svg {
       width:32px; height:32px; margin-bottom:8px;
       stroke:var(--color-accent2); fill:none; stroke-width:2;
     }
-    .stat-value { font-size:2rem; font-weight:600; color:var(--color-accent2); }
+    .stat-value {
+      font-size:2rem; font-weight:600; color:var(--color-accent2);
+    }
     .stat-label {
-      font-size:.85rem; text-transform:uppercase;
-      color:var(--color-muted); margin-top:4px;
+      font-size:.85rem; text-transform:uppercase; color:var(--color-muted);
+      margin-top:4px;
     }
 
     /* Testimonials */
     .testimonials-grid {
       display:grid; gap:var(--spacing);
-      grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
       max-width:1000px; margin:0 auto;
     }
     .testimonial-card {
       background:#fff; border-radius:var(--radius);
-      box-shadow:0 2px 8px rgba(0,0,0,0.05);
+      box-shadow:var(--shadow-light);
       padding:var(--spacing); display:flex; flex-direction:column;
     }
     .testimonial-card img {
@@ -235,14 +211,14 @@
       object-fit:cover; margin-bottom:12px;
     }
     .testimonial-card blockquote {
-      margin:0 0 12px; font-style:italic; color:#333; line-height:1.4;
+      font-style:italic; color:#333; line-height:1.4;
+      margin-bottom:12px;
     }
     .testimonial-card cite {
-      font-weight:600; color:#000; font-size:.9rem;
-      margin-top:auto; align-self:flex-end;
+      font-weight:600; font-size:.9rem; margin-top:auto; align-self:flex-end;
     }
 
-    /* Kontakt */
+    /* Contact */
     .contact-info {
       display:flex; flex-wrap:wrap; gap:var(--spacing);
       align-items:center; max-width:800px; margin:0 auto;
@@ -251,34 +227,30 @@
       width:120px; height:120px; border-radius:50%;
       object-fit:cover; background:#ddd;
     }
-    .contact-details h3 { margin:0 0 8px; font-size:1.25rem; }
-    .contact-details p { margin:4px 0; font-size:1rem; }
+    .contact-details h3 { margin-bottom:8px; font-size:1.25rem; }
+    .contact-details p { margin-bottom:4px; font-size:1rem; }
 
-    /* Anmeldung */
+    /* CTA */
     .cta {
       background:#fff; border-radius:var(--radius);
       padding:var(--spacing); max-width:500px;
       margin:0 auto; text-align:center;
-      box-shadow:0 2px 8px rgba(0,0,0,0.05);
+      box-shadow:var(--shadow-light);
     }
     .cta form {
       display:flex; flex-direction:column; gap:16px;
     }
     .cta input, .cta select {
-      border:none; border-bottom:1px solid #ccc;
-      background:transparent; padding:8px 0; font-size:1rem;
-      width:100%;
+      border:none; border-bottom:1px solid #ccc; background:transparent;
+      padding:8px 0; font-size:1rem; width:100%;
     }
     .cta input:focus, .cta select:focus {
       outline:none; border-bottom-color:var(--color-accent2);
     }
     .cta button {
-      margin-top:var(--spacing);
-      padding:14px 0; width:100%;
-      background:var(--color-accent2); color:#fff;
-      border:none; border-radius:9999px;
-      font-size:1rem; font-weight:600;
-      text-transform:uppercase; letter-spacing:.5px;
+      margin-top:var(--spacing); padding:14px 0; width:100%;
+      background:var(--color-accent2); color:#fff; border:none; border-radius:9999px;
+      font-size:1rem; font-weight:600; text-transform:uppercase; letter-spacing:.5px;
       cursor:pointer; transition:background .2s;
     }
     .cta button:hover { background:#7a026f; }
@@ -286,18 +258,38 @@
       display:block; margin-top:16px; color:#666; font-size:.9rem;
     }
 
+    /* Responsive */
+    @media (max-width:1024px) {
+      header nav { display:none; }
+    }
     @media (max-width:768px) {
-      nav ul { flex-wrap: wrap; gap:16px; }
-      #hero h1 { font-size:2rem; }
+      .info-grid {
+        position:static; transform:none;
+        justify-content:center; flex-wrap:wrap;
+        margin:var(--spacing) 0;
+      }
+      .info-box { width:45%; margin-bottom:var(--spacing); }
+      .sidebar {
+        top:auto; bottom:0; left:0; right:0;
+        transform:none; flex-direction:row; width:100%; border-radius:0;
+      }
+      .sidebar-item:not(:last-child) {
+        border-right:1px solid rgba(255,255,255,0.3);
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
   <header>
     <div class="container nav-container">
-      <a href="#hero"><img src="logo-imtxAI.svg" alt="imtxAI Logo" class="logo"/></a>
+      <a href="#hero">
+        <img
+          src="https://lirp.cdn-website.com/d603a072/dms3rep/multi/opt/IMT-logo-rgb-unterzeile-412497ed-1920w.jpg"
+          alt="imtxAI Logo"
+          class="logo"
+        />
+      </a>
       <nav>
         <ul>
           <li><a href="#hero">Home</a></li>
@@ -312,7 +304,6 @@
     </div>
   </header>
 
-  <!-- Sidebar -->
   <aside class="sidebar">
     <div class="sidebar-item">
       <svg viewBox="0 0 24 24"><path d="M8 2h8l4 4v16H8a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><path d="M8 2v4h8"/></svg>
@@ -320,7 +311,7 @@
     </div>
     <div class="sidebar-item">
       <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M6 22v-2a4 4 0 0 1 8 0v2"/></svg>
-      <span>IMT Advisor</span>
+      <span>IMT Advisor</span>
     </div>
     <div class="sidebar-item">
       <svg viewBox="0 0 24 24"><path d="M4 4h16v12H4z"/><polyline points="4,4 12,12 20,4"/></svg>
@@ -329,7 +320,6 @@
   </aside>
 
   <main>
-    <!-- Hero + Info‑Boxes -->
     <section id="hero">
       <div class="container">
         <h1>AI in Business Strategy &amp; Digital Transformation</h1>
@@ -337,28 +327,27 @@
           <div class="info-box">
             <svg viewBox="0 0 24 24"><path d="M12 21s-6-5.686-6-10a6 6 0 1 1 12 0c0 4.314-6 10-6 10z"/><circle cx="12" cy="11" r="2"/></svg>
             <span class="info-label">Location</span>
-            <span class="info-value">St. Gallen</span>
+            <span class="info-value">St. Gallen</span>
           </div>
           <div class="info-box">
             <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
             <span class="info-label">Length</span>
-            <span class="info-value">5 Tage</span>
+            <span class="info-value">5 Tage</span>
           </div>
           <div class="info-box">
             <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
             <span class="info-label">Fee</span>
-            <span class="info-value">CHF 6 500</span>
+            <span class="info-value">CHF 6 500</span>
           </div>
           <div class="info-box">
             <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             <span class="info-label">Next Start</span>
-            <span class="info-value" id="countdown">60 Tage 0 Std 0 Min</span>
+            <span class="info-value" id="countdown">0d 0h 0min</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Inhalte des Moduls -->
     <section id="module-content">
       <div class="container">
         <h2>Inhalte des Moduls</h2>
@@ -375,12 +364,12 @@
             <div class="slide">
               <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 7v5l3 3"/></svg>
               <h3>Strategische Anwendungen</h3>
-              <p>Praxisnahe Fallstudien und Framework-Diskussionen.</p>
+              <p>Praxisnahe Fallstudien und Framework‑Diskussionen.</p>
             </div>
             <div class="slide">
               <svg class="icon" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
               <h3>Frameworks &amp; Methoden</h3>
-              <p>Agile, Lean und AI-spezifische Modelle.</p>
+              <p>Agile, Lean und AI‑spezifische Modelle.</p>
             </div>
             <div class="slide">
               <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 9h16"/></svg>
@@ -389,8 +378,8 @@
             </div>
             <div class="slide">
               <svg class="icon" viewBox="0 0 24 24"><path d="M8 2h8l4 4v12l-4 4H8l-4-4V6z"/></svg>
-              <h3>Praxis-Workshops</h3>
-              <p>Hands-on Sessions mit realen Fällen.</p>
+              <h3>Praxis‑Workshops</h3>
+              <p>Hands‑on Sessions mit realen Fällen.</p>
             </div>
             <div class="slide">
               <svg class="icon" viewBox="0 0 24 24"><path d="M2 12h20"/></svg>
@@ -399,8 +388,8 @@
             </div>
             <div class="slide">
               <svg class="icon" viewBox="0 0 24 24"><polygon points="12 2 22 22 2 22"/></svg>
-              <h3>Geschäftsmodell-Innovation</h3>
-              <p>Neue Business-Modelle entwickeln.</p>
+              <h3>Geschäftsmodell‑Innovation</h3>
+              <p>Neue Business‑Modelle entwickeln.</p>
             </div>
           </div>
           <button class="slider-btn next" aria-label="Weiter">
@@ -410,28 +399,29 @@
       </div>
     </section>
 
-    <!-- Shorts -->
     <section id="videos">
       <div class="container">
         <h2>Shorts von LinkedIn und YouTube</h2>
         <div class="videos">
-          <div class="video-placeholder">
-            <img src="https://picsum.photos/seed/6/200/360" alt="LinkedIn Short"/>
-            <svg class="play" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+          <div class="video-short">
+            <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?rel=0" allowfullscreen></iframe>
           </div>
-          <div class="video-placeholder">
-            <img src="https://picsum.photos/seed/7/200/360" alt="YouTube Short"/>
-            <svg class="play" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+          <div class="video-short">
+            <iframe src="https://www.youtube-nocookie.com/embed/9bZkp7q19f0?rel=0" allowfullscreen></iframe>
           </div>
-          <div class="video-placeholder">
-            <img src="https://picsum.photos/seed/8/200/360" alt="Weiterer Short"/>
-            <svg class="play" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+          <div class="video-short">
+            <iframe src="https://www.youtube-nocookie.com/embed/M7lc1UVf-VE?rel=0" allowfullscreen></iframe>
+          </div>
+          <div class="video-short">
+            <iframe src="https://www.youtube-nocookie.com/embed/E7wJTI-1dvQ?rel=0" allowfullscreen></iframe>
+          </div>
+          <div class="video-short">
+            <iframe src="https://www.youtube-nocookie.com/embed/3JZ_D3ELwOQ?rel=0" allowfullscreen></iframe>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Teilnehmer -->
     <section id="participants">
       <div class="container">
         <h2>Information über Teilnehmer</h2>
@@ -460,7 +450,6 @@
       </div>
     </section>
 
-    <!-- Testimonials -->
     <section id="testimonials">
       <div class="container">
         <h2>Testimonials</h2>
@@ -472,43 +461,42 @@
           </div>
           <div class="testimonial-card">
             <img src="https://picsum.photos/seed/m2/48" alt="Markus Steiner"/>
-            <blockquote>„Top-Dozierende und praxisnahe Fälle – perfekt für die Umsetzung.“</blockquote>
-            <cite>— Markus Steiner, Digital Transformation Lead</cite>
+            <blockquote>„Top‑Dozierende und praxisnahe Fälle – perfekt für die Umsetzung.“</blockquote>
+            <cite>— Markus Steiner, Digital Transformation Lead</cite>
           </div>
           <div class="testimonial-card">
-            <img src="https://picsum.photos/seed/m3/48" alt="Anna Müller"/>
+            <img src="https://picsum.photos/seed/m3/48" alt="Anna Müller"/>
             <blockquote>„Herausragende Lernerfahrung mit praktischem Bezug.“</blockquote>
-            <cite>— Anna Müller, CEO</cite>
+            <cite>— Anna Müller, CEO</cite>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Kontakt -->
     <section id="contact">
       <div class="container">
         <h2>Akademischer Ansprechpartner</h2>
         <div class="contact-info">
-          <img src="https://picsum.photos/seed/academic/120" alt="Prof. Dr. Anna Meier"/>
+          <img src="https://media.licdn.com/dms/image/v2/C4E03AQGM2NfVvOguhQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1624328774171?e=1750291200&v=beta&t=ytWUMoxHNsRXlQD6fg77G1pmHIFdG8Ym9ENvHes8Eco"
+               alt="Prof. Dr. Anna Meier" />
           <div class="contact-details">
-            <h3>Prof. Dr. Anna Meier</h3>
-            <p>Leiterin Institut für Digital Business</p>
+            <h3>Prof. Dr. Anna Meier</h3>
+            <p>Leiterin Institut für Digital Business</p>
             <p><a href="mailto:anna.meier@imt.ch">anna.meier@imt.ch</a></p>
-            <p>+41 71 224 72 22</p>
+            <p>+41 71 224 72 22</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Anmeldung -->
     <section id="cta">
       <div class="container">
         <h2>Anmeldung</h2>
         <div class="cta">
           <form action="#" method="post">
-            <input type="text" name="firstname" placeholder="Vorname" required/>
-            <input type="text" name="lastname" placeholder="Name" required/>
-            <input type="email" name="email" placeholder="E‑Mail" required/>
+            <input type="text" name="firstname" placeholder="Vorname" required />
+            <input type="text" name="lastname" placeholder="Name" required />
+            <input type="email" name="email" placeholder="E‑Mail" required />
             <select name="country" required>
               <option value="">Land auswählen</option>
               <option value="CH">Schweiz</option>
@@ -524,29 +512,32 @@
   </main>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      // Countdown
+    document.addEventListener("DOMContentLoaded", () => {
       const countdownEl = document.getElementById("countdown");
       const target = Date.now() + 60*24*60*60*1000;
       function tick() {
-        const now  = Date.now(),
+        const now = Date.now(),
               diff = Math.max(0, target - now),
               days = Math.floor(diff/(1000*60*60*24)),
               hrs  = Math.floor((diff%(1000*60*60*24))/(1000*60*60)),
               mins = Math.floor((diff%(1000*60*60))/(1000*60));
-        countdownEl.textContent = `${days} Tage ${hrs} Std ${mins} Min`;
+        countdownEl.textContent = `${days}d ${hrs}h ${mins}min`;
       }
-      tick(); setInterval(tick, 60000);
+      tick();
+      setInterval(tick, 60000);
 
-      // Slider
       const track = document.querySelector(".slider-track"),
             prev  = document.querySelector(".slider-btn.prev"),
             next  = document.querySelector(".slider-btn.next"),
             slide = document.querySelector(".slide"),
             gap   = parseInt(getComputedStyle(track).gap),
             slideWidth = slide.offsetWidth + gap;
-      prev.addEventListener("click", ()=> track.scrollBy({ left:-slideWidth, behavior:"smooth" }));
-      next.addEventListener("click", ()=> track.scrollBy({ left: slideWidth, behavior:"smooth" }));
+      prev.addEventListener("click", () =>
+        track.scrollBy({ left: -slideWidth, behavior: "smooth" })
+      );
+      next.addEventListener("click", () =>
+        track.scrollBy({ left: slideWidth, behavior: "smooth" })
+      );
     });
   </script>
 </body>
