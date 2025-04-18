@@ -88,9 +88,22 @@
     /* ---------- Info‑Boxes ---------- */
     .info-grid{display:flex;gap:var(--spacing);justify-content:center;flex-wrap:wrap;margin:var(--spacing) 0}
     .info-box{
-      width:120px;height:120px;padding:8px;background:rgba(247,247,247,.8);border-radius:var(--radius);
-      box-shadow:0 1px 2px rgba(0,0,0,.07),0 1px 3px rgba(0,0,0,.06);
-      display:flex;flex-direction:column;justify-content:center;text-align:center
+      width:120px !important;
+      height:120px !important;
+      padding:24px !important;
+      background:rgba(255,255,255,0.9) !important;
+      border-radius:var(--radius) !important;
+      box-shadow:0 1px 2px rgba(0,0,0,0.07),0 1px 3px rgba(0,0,0,0.06) !important;
+      display:flex !important;
+      flex-direction:column !important;
+      justify-content:center !important;
+      text-align:center !important;
+      transition:transform 0.2s ease,box-shadow 0.2s ease !important;
+      cursor:default !important;
+    }
+    .info-box:hover {
+      transform:translateY(-4px) !important;
+      box-shadow:0 4px 12px rgba(0,0,0,0.1) !important;
     }
     .info-box svg{width:24px;height:24px;margin:0 auto 6px;stroke:#000;fill:none}
     .info-label{font-size:.7rem;color:var(--color-muted);text-transform:uppercase;margin-bottom:4px}
@@ -247,7 +260,110 @@
       .slider-btn{display:flex}
       .footer-columns{flex-direction:column;gap:32px}
     }
-  </style>
+
+    /* Einheitliches Button-Design */
+    .cta-button {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 8px !important;
+      background: var(--color-badge) !important;
+      color: var(--color-text) !important;
+      padding: 16px 32px !important;
+      border-radius: 100px !important;
+      text-decoration: none !important;
+      font-weight: 500 !important;
+      transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+      width: fit-content !important;
+      border: none !important;
+      cursor: pointer !important;
+      text-transform: none !important; /* Kein Uppercase */
+    }
+
+    .cta-button::after {
+      content: '→' !important;
+      display: inline-block !important;
+      margin-left: 8px !important;
+      transition: transform 0.2s ease !important;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px) !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    .cta-button:hover::after {
+      transform: translateX(4px) !important;
+    }
+
+    .stat-box {
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .stat-box:hover {
+      transform: translateY(-4px);
+    }
+
+    .animate-number {
+      display: block;
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: var(--color-accent2);
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      display: block;
+      color: var(--color-muted);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+    }
+
+    /* Gezieltes Styling für den unteren Broschüren-Button */
+    .brochure-section .brochure-form a[href="#"] {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 8px !important;
+      background: var(--color-badge) !important;
+      color: var(--color-text) !important;
+      padding: 16px 32px !important;
+      border-radius: 100px !important;
+      text-decoration: none !important;
+      font-weight: 500 !important;
+      transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+      width: 100% !important; /* Oder fit-content, je nachdem was benötigt wird */
+      max-width: 100% !important;
+      border: none !important;
+      cursor: pointer !important;
+      text-transform: none !important; /* Kein Uppercase */
+      box-sizing: border-box !important;
+    }
+
+    .brochure-section .brochure-form a[href="#"]::after {
+      content: '→' !important;
+      display: inline-block !important;
+      margin-left: 8px !important;
+      transition: transform 0.2s ease !important;
+    }
+
+    .brochure-section .brochure-form a[href="#"]:hover {
+      transform: translateY(-2px) !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    .brochure-section .brochure-form a[href="#"]:hover::after {
+      transform: translateX(4px) !important;
+    }
+
+    /* Entferne potenziell störende generische Button-Styles im Formular */
+    .brochure-section .brochure-form button,
+    .brochure-section .brochure-form input[type="submit"] {
+        /* Hier könnten evtl. vorhandene generische Button-Styles zurückgesetzt werden, falls der Button eigentlich ein <button> oder <input> ist */
+        all: unset !important; /* Radikaler Reset, falls nötig */
+    }
+</style>
 <!-- ============ BOXICONS ============ -->
 <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
 
@@ -384,7 +500,23 @@
 <span class="info-value">25.5.2025</span>
 </div>
 </div>
-<a class="hero-btn" href="#broschuere">Kostenlos Broschüre herunterladen</a>
+<a href="#" style="
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-badge);
+  color: var(--color-text);
+  padding: 16px 32px;
+  border-radius: 100px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: transform 0.2s ease;
+  text-transform: none;
+  width: auto;
+  max-width: fit-content;
+">
+  Kostenlos Broschüre herunterladen <span style="margin-left: 8px; display: inline-block;">→</span>
+</a>
 </div>
 </section>
 <!-- ----- MODUL‑SLIDER ----- -->
@@ -614,101 +746,120 @@
 </section>
 
 <!-- ----- MASTER CLASS ----- -->
-<section id="masterclass" style="background: #fff; overflow: hidden;">
+<section id="masterclass" style="background: #f5f5f7; overflow: hidden;">
   <div class="container">
-    <h2 class="section-title" style="text-align: left; margin-bottom: 64px;">Masterclass</h2>
+    <h2 class="section-title" style="text-align: left; margin-bottom: 64px;">xAI Masterclass</h2>
     
-    <!-- Grid-Container mit Media Queries -->
-    <div style="display: grid; grid-template-columns: 1fr; gap: 32px; align-items: center;">
-      <!-- Linke Seite -->
-      <div style="padding: 0;">
+    <!-- Grid-Container für zwei Spalten -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;">
+      <!-- Linke Spalte -->
+      <div>
         <span style="display: inline-block; color: var(--color-accent2); font-size: 0.9rem; font-weight: 600; margin-bottom: 8px;">LINKEDIN MASTER CLASS</span>
-        <h2 style="font-size: clamp(1.8rem, 5vw, 2.2rem); line-height: 1.2; margin-bottom: 24px;">Werden Sie zum<br/>LinkedIn KI-Experten</h2>
+        <h2 style="font-size: clamp(1.8rem, 5vw, 2.2rem); line-height: 1.2; margin-bottom: 24px;">xAI in Business Strategy &<br/>Digital Transformation</h2>
         <p style="color: var(--color-muted); margin-bottom: 32px; font-size: clamp(1rem, 3vw, 1.1rem);">
-          In unserer exklusiven Master Class lernen Sie, wie Sie LinkedIn mit KI-Tools revolutionieren.
+          In unserer exklusiven Master Class erfahren Sie, wie Sie AI strategisch in der Business-Transformation einsetzen.
         </p>
         <div style="margin-bottom: 32px;">
           <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
-            <i class="bx bx-check-circle" style="color: var(--color-accent2); font-size: 24px;"></i>
+            <i class="bx bx-check-circle" style="color: #000; font-size: 24px;"></i>
             <span>Praxisnahe KI-Strategien</span>
           </div>
           <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
-            <i class="bx bx-check-circle" style="color: var(--color-accent2); font-size: 24px;"></i>
+            <i class="bx bx-check-circle" style="color: #000; font-size: 24px;"></i>
             <span>Persönliches Feedback</span>
           </div>
           <div style="display: flex; align-items: center; gap: 12px;">
-            <i class="bx bx-check-circle" style="color: var(--color-accent2); font-size: 24px;"></i>
+            <i class="bx bx-check-circle" style="color: #000; font-size: 24px;"></i>
             <span>Networking-Möglichkeiten</span>
           </div>
         </div>
-        <a href="https://www.linkedin.com/school/imtschool.ch/" target="_blank" rel="noopener noreferrer" 
-           style="display: inline-flex; align-items: center; gap: 12px; background: var(--color-badge); 
-                  color: #000; padding: 16px 32px; border-radius: 8px; text-decoration: none; 
-                  font-weight: 600; width: 100%; justify-content: center; max-width: 400px;">
+        <a href="https://www.linkedin.com/school/imtschool.ch/" target="_blank" rel="noopener noreferrer" class="cta-button" style="
+          display: inline-flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          width: 100% !important;
+          max-width: 400px !important;
+          padding: 16px 32px !important;
+          background: var(--color-badge) !important;
+          color: #000 !important;
+          border: none !important;
+          border-radius: 12px !important;
+          font-size: 1rem !important;
+          font-weight: 500 !important;
+          text-decoration: none !important;
+          cursor: pointer !important;
+          transition: all 0.2s ease-in-out !important;">
           Kostenlos Platz reservieren
-          <i class="bx bx-right-arrow-alt"></i>
         </a>
       </div>
 
-      <!-- Rechte Seite als kompletter Link -->
-      <a href="https://www.linkedin.com/school/imtschool.ch/" target="_blank" rel="noopener noreferrer" 
-         style="text-decoration: none; color: inherit; display: block;">
-        <div style="background: var(--color-card-bg); padding: clamp(24px, 5vw, 48px); 
-                    border-radius: var(--radius); text-align: center; 
-                    transition: transform 0.2s ease-in-out; cursor: pointer;">
-          <div style="display: flex; justify-content: center; gap: clamp(16px, 3vw, 24px); margin-bottom: 24px;">
-            <!-- Icons -->
-            <div style="background: #fff; display: inline-block; 
-                        padding: clamp(16px, 3vw, 32px); border-radius: 50%;">
-              <i class="bx bx-calendar" style="font-size: clamp(32px, 5vw, 48px);"></i>
-            </div>
-            <div style="background: #fff; display: inline-block; 
-                        padding: clamp(16px, 3vw, 32px); border-radius: 50%;">
-              <i class="bx bxl-linkedin" style="font-size: clamp(32px, 5vw, 48px);"></i>
-            </div>
+      <!-- Rechte Spalte -->
+      <div style="background: var(--color-card-bg); padding: clamp(24px, 5vw, 48px); 
+                  border-radius: var(--radius); text-align: center;">
+        <div style="display: flex; justify-content: center; gap: clamp(16px, 3vw, 24px); margin-bottom: 24px;">
+          <div style="background: #fff; display: inline-flex; align-items: center; justify-content: center;
+                      padding: clamp(16px, 3vw, 32px); border-radius: 50%;">
+            <i class="bx bx-calendar" style="font-size: clamp(32px, 5vw, 48px);"></i>
           </div>
-          <h3 style="font-size: clamp(1.2rem, 4vw, 1.5rem); margin-bottom: 16px;">15. Mai 2024</h3>
-          <p style="color: var(--color-muted); margin-bottom: 24px;">14:00 - 15:30 Uhr</p>
-          <div style="display: flex; justify-content: center; gap: 24px; margin-bottom: 24px;">
-            <div>
-              <div class="stat-value count" data-target="12" 
-                   style="font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 600; color: var(--color-accent2);"></div>
-              <div style="color: var(--color-muted); font-size: clamp(0.8rem, 2vw, 0.9rem);">Plätze übrig</div>
-            </div>
-            <div style="width: 1px; background: #e0e0e0;"></div>
-            <div>
-              <div class="stat-value count" data-target="90" 
-                   style="font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 600; color: var(--color-accent2);"></div>
-              <div style="color: var(--color-muted); font-size: clamp(0.8rem, 2vw, 0.9rem);">Minuten</div>
-            </div>
+          <div style="background: #fff; display: inline-flex; align-items: center; justify-content: center;
+                      padding: clamp(16px, 3vw, 32px); border-radius: 50%;">
+            <i class="bx bxl-linkedin" style="font-size: clamp(32px, 5vw, 48px);"></i>
           </div>
-          <span style="display: inline-block; background: #fff; padding: 8px 16px; 
-                       border-radius: 20px; font-size: clamp(0.8rem, 2vw, 0.9rem); 
-                       color: var(--color-accent2);">Kostenlos für Sie</span>
         </div>
-      </a>
+        
+        <div id="masterclass-stats" style="margin-top: 24px; text-align: center;">
+          <div style="color: var(--color-muted); margin-bottom: 24px;">
+            14:00 - 15:30 Uhr
+          </div>
+          
+          <div style="display: flex; justify-content: center; gap: 48px; margin-bottom: 24px;">
+            <!-- Plätze -->
+            <div class="stat-item" style="text-align: center;">
+              <div id="places-counter" style="
+                font-size: 2.2rem;
+                font-weight: 600;
+                color: #9c27b0;
+                margin-bottom: 8px;
+              ">0</div>
+              <div style="
+                color: #777;
+                font-size: 0.9rem;
+                text-transform: uppercase;
+              ">Plätze übrig</div>
+            </div>
+
+            <!-- Trennlinie -->
+            <div style="width: 1px; background: #e0e0e0;"></div>
+
+            <!-- Minuten -->
+            <div class="stat-item" style="text-align: center;">
+              <div id="minutes-counter" style="
+                font-size: 2.2rem;
+                font-weight: 600;
+                color: #9c27b0;
+                margin-bottom: 8px;
+              ">0</div>
+              <div style="
+                color: #777;
+                font-size: 0.9rem;
+                text-transform: uppercase;
+              ">Minuten</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- Responsive Styles für Mobile -->
 <style>
-  /* Media Queries für responsive Design */
-  @media (min-width: 768px) {
-    #masterclass .container > div {
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-    }
+@media (max-width: 768px) {
+  #masterclass .container > div {
+    grid-template-columns: 1fr !important; /* Einzelne Spalte auf Mobile */
+    gap: 32px !important;
   }
-
-  @media (max-width: 767px) {
-    #masterclass .container {
-      padding: 24px;
-    }
-    
-    #masterclass .section-title {
-      margin-bottom: 32px;
-    }
-  }
+}
 </style>
 
 <!-- ----- IMT ADVISOR ----- -->
@@ -761,9 +912,23 @@
   </label>
 </div>
 
-<button style="width: 100%; padding: 14px; background: var(--color-badge); color: #000; border: none; border-radius: 9999px; font-weight: 600; text-transform: uppercase; cursor: pointer;" type="submit">
-  Kostenlos Broschüre herunterladen
-</button>
+<a href="#" style="
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-badge);
+  color: var(--color-text);
+  padding: 16px 32px;
+  border-radius: 100px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: transform 0.2s ease;
+  text-transform: none;
+  width: auto;
+  max-width: fit-content;
+">
+  Kostenlos Broschüre herunterladen <span style="margin-left: 8px; display: inline-block;">→</span>
+</a>
 
 <!-- Bestehende Zeilen mit Icons -->
 <div style="margin-top: 16px; color: #6e6e73; font-size: 0.9rem;">
@@ -892,5 +1057,131 @@
       });
     });
   </script>
+
+<script>
+// Direkte Animation ohne IntersectionObserver
+function countUp(element, target, duration) {
+  let start = 0;
+  const increment = target / (duration / 16); // 16ms pro Frame (ca. 60fps)
+  
+  function updateCount() {
+    start += increment;
+    if (start >= target) {
+      element.textContent = target;
+    } else {
+      element.textContent = Math.floor(start);
+      requestAnimationFrame(updateCount);
+    }
+  }
+  
+  updateCount();
+}
+
+// Scroll-Event-Handler
+function checkScroll() {
+  const statsSection = document.getElementById('masterclass-stats');
+  const placesCounter = document.getElementById('places-counter');
+  const minutesCounter = document.getElementById('minutes-counter');
+  
+  if (!statsSection || !placesCounter || !minutesCounter) return;
+  
+  const rect = statsSection.getBoundingClientRect();
+  const isVisible = (
+    rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 && 
+    rect.bottom >= 0
+  );
+  
+  if (isVisible && placesCounter.textContent === '0') {
+    countUp(placesCounter, 12, 2000); // 2 Sekunden Animation
+    countUp(minutesCounter, 90, 2000);
+    
+    // Optional: Event-Listener entfernen nach der Animation
+    window.removeEventListener('scroll', checkScroll);
+  }
+}
+
+// Event-Listener hinzufügen
+window.addEventListener('load', function() {
+  // Initial Check
+  checkScroll();
+  
+  // Scroll-Listener
+  window.addEventListener('scroll', checkScroll);
+});
+
+// Zusätzlich: Hover-Effekt
+const statItems = document.querySelectorAll('.stat-item');
+statItems.forEach(item => {
+  item.style.transition = 'transform 0.3s ease';
+  item.addEventListener('mouseenter', () => {
+    item.style.transform = 'translateY(-4px)';
+  });
+  item.addEventListener('mouseleave', () => {
+    item.style.transform = 'translateY(0)';
+  });
+});
+</script>
+
+<script>
+// Funktion zum Ersetzen des problematischen Buttons
+document.addEventListener('DOMContentLoaded', function() {
+  // Versuche, den Button im Broschürebereich zu finden
+  const broschureButtons = document.querySelectorAll('a');
+  
+  broschureButtons.forEach(button => {
+    // Suche nach dem Text "KOSTENLOS BROSCHÜRE HERUNTERLADEN" (auch in Variationen)
+    if (button.textContent.trim().includes('BROSCHÜRE HERUNTERLADEN')) {
+      // Speichere den ursprünglichen href-Wert
+      const originalHref = button.getAttribute('href');
+      
+      // Erstelle den neuen Button mit dem gleichen Text
+      const newButton = document.createElement('a');
+      newButton.href = originalHref || '#';
+      newButton.className = 'cta-button';
+      newButton.innerHTML = 'Kostenlos Broschüre herunterladen';
+      
+      // Stile hinzufügen
+      newButton.style.display = 'inline-flex';
+      newButton.style.alignItems = 'center';
+      newButton.style.justifyContent = 'center';
+      newButton.style.width = '100%';
+      newButton.style.background = 'var(--color-badge)';
+      newButton.style.color = 'var(--color-text)';
+      newButton.style.padding = '16px 32px';
+      newButton.style.borderRadius = '100px';
+      newButton.style.textDecoration = 'none';
+      newButton.style.fontWeight = '500';
+      newButton.style.transition = 'transform 0.2s ease, box-shadow 0.2s ease';
+      newButton.style.border = 'none';
+      newButton.style.cursor = 'pointer';
+      newButton.style.textTransform = 'none';
+      
+      // Pfeil hinzufügen
+      const arrow = document.createElement('span');
+      arrow.textContent = ' →';
+      arrow.style.marginLeft = '8px';
+      arrow.style.display = 'inline-block';
+      arrow.style.transition = 'transform 0.2s ease';
+      newButton.appendChild(arrow);
+      
+      // Hover-Effekt
+      newButton.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-2px)';
+        this.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
+        arrow.style.transform = 'translateX(4px)';
+      });
+      
+      newButton.addEventListener('mouseleave', function() {
+        this.style.transform = '';
+        this.style.boxShadow = '';
+        arrow.style.transform = '';
+      });
+      
+      // Ersetze den alten Button durch den neuen
+      button.parentNode.replaceChild(newButton, button);
+    }
+  });
+});
+</script>
 </body>
 </html>
