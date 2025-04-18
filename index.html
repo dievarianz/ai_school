@@ -4,11 +4,11 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>xAI in Business Strategy &amp; Digital Transformation | imtxAI Business School</title>
+<title>xAI in Business Strategy &amp; Digital Transformation | imtxAI Business School</title>
 <!-- ============ STYLES ============ -->
 <style>
     :root{
-      --font-sans:-apple-system,BlinkMacSystemFont,"San Francisco","Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+      --font-sans:-apple-system,BlinkMacSystemFont,"San Francisco","Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
       --color-text:#1d1d1f;
       --color-muted:#6e6e73;
       --color-card-bg:#f5f5f7;
@@ -85,11 +85,32 @@
 
     /* ---------- Hero‑Button ---------- */
     .hero-btn{
-      display:inline-block;margin-top:var(--spacing);padding:14px 32px;background:var(--color-accent2);color:#fff;
-      border:none;border-radius:9999px;font-size:1rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      margin-top:var(--spacing);
+      padding:14px 32px;
+      background:var(--color-accent2);
+      color:#fff;
+      border:none;
+      border-radius:9999px;
+      font-size:1rem;
+      font-weight:600;
+      text-transform:uppercase;
+      letter-spacing:.5px;
+      cursor:pointer;
       transition:background .2s,transform .15s
     }
     .hero-btn:hover{background:#7a026f;transform:translateY(-2px)}
+    .hero-btn::after {
+      content: '';
+      width: 16px;
+      height: 16px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M9 5l7 7-7 7'/%3E%3C/svg%3E");
+      background-size: contain;
+      background-repeat: no-repeat;
+      display: inline-block;
+    }
 
     /* ---------- Modul‑Slider ---------- */
     #module-content h2{text-align:left}
@@ -171,7 +192,7 @@
     .testimonial-card blockquote{font-style:italic;color:#333;line-height:1.4;margin-bottom:12px}
     .testimonial-card cite{font-weight:600;font-size:.9rem;margin-top:auto;align-self:flex-end}
 
-    /* ---------- Contact & Brochure ---------- */
+    /* ---------- Contact & Brochure ---------- */
     #contact h2,#broschuere h2{text-align:left}
     .contact-info{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--spacing);max-width:600px;margin:0 auto;text-align:center}
     .contact-info img{width:120px;height:120px;border-radius:50%;object-fit:cover;background:#ddd}
@@ -221,7 +242,7 @@
 <!-- ============ HEADER ============ -->
 <header>
 <div class="container nav-container">
-<a href="#hero"><img alt="imtxAI Logo" class="logo" src="https://lirp.cdn-website.com/d603a072/dms3rep/multi/opt/IMT-logo-rgb-unterzeile-412497ed-1920w.jpg"/></a>
+<a href="#hero"><img alt="imtxAI Logo" class="logo" src="https://lirp.cdn-website.com/d603a072/dms3rep/multi/opt/IMT-logo-rgb-unterzeile-412497ed-1920w.jpg"/></a>
 <nav>
 <ul>
 <li><a href="#hero">Home</a></li>
@@ -243,7 +264,7 @@
 </a>
 <a class="sidebar-item" href="#contact">
 <i class="bx bxs-user" style="color:#fff;"></i>
-<span>IMT Advisor</span>
+<span>IMT Advisor</span>
 </a>
 <a class="sidebar-item" href="https://www.linkedin.com" rel="noopener" target="_blank">
 <i class="bx bxl-linkedin" style="color:#fff;"></i>
@@ -260,26 +281,26 @@
 <section id="hero">
 <div class="availability-badge">Nur noch wenige<br/>Plätze verfügbar</div>
 <div class="container">
-<h1>xAI in Business Strategy &amp; Digital Transformation</h1>
+<h1>xAI in Business Strategy &amp; Digital Transformation</h1>
 <div class="info-grid">
 <div class="info-box">
 <svg viewbox="0 0 24 24"><path d="M12 21s-6-5.686-6-10a6 6 0 1 1 12 0c0 4.314-6 10-6 10z"></path><circle cx="12" cy="11" r="2"></circle></svg>
-<span class="info-label">Location</span><span class="info-value">St. Gallen</span>
+<span class="info-label">Location</span><span class="info-value">St. Gallen</span>
 </div>
 <div class="info-box">
 <svg viewbox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-<span class="info-label">Length</span><span class="info-value">5 Tage</span>
+<span class="info-label">Length</span><span class="info-value">5 Tage</span>
 </div>
 <div class="info-box">
 <svg viewbox="0 0 24 24"><rect height="16" rx="2" width="22" x="1" y="4"></rect><line x1="1" x2="23" y1="10" y2="10"></line></svg>
-<span class="info-label">Fee</span><span class="info-value">CHF 2 500</span>
+<span class="info-label">Fee</span><span class="info-value">CHF 2 500</span>
 </div>
 <div class="info-box">
 <svg viewbox="0 0 24 24"><rect height="18" rx="2" width="18" x="3" y="4"></rect><line x1="16" x2="16" y1="2" y2="6"></line><line x1="8" x2="8" y1="2" y2="6"></line><line x1="3" x2="21" y1="10" y2="10"></line></svg>
-<span class="info-label">Next Start</span><span class="info-value" id="countdown">0d 0h 0m</span>
+<span class="info-label">Next Start</span><span class="info-value" id="countdown">0d 0h 0m</span>
 </div>
 </div>
-<a class="hero-btn" href="#broschuere">Jetzt Broschüre herunterladen</a>
+<a class="hero-btn" href="#broschuere">Jetzt Broschüre herunterladen</a>
 </div>
 </section>
 <!-- ----- MODUL‑SLIDER ----- -->
@@ -294,7 +315,7 @@
 <div class="flipper">
 <div class="front">
 <svg class="icon" viewbox="0 0 24 24"><path d="M4 4h16v16H4z"></path><path d="M4 9h16"></path></svg>
-<h3>Grundlagen der KI</h3>
+<h3>Grundlagen der KI</h3>
 <p>Einführung in ML‑Typen, neuronale Netze, Datenvorbereitung und Ethik.</p>
 <a class="flip-link" href="#">Mehr</a>
 </div>
@@ -310,13 +331,13 @@
 <div class="flipper">
 <div class="front">
 <svg class="icon" viewbox="0 0 24 24"><path d="M4 4h16v16H4z"></path><path d="M4 9h16"></path></svg>
-<h3>Strategische Anwendungen</h3>
+<h3>Strategische Anwendungen</h3>
 <p>Analyse von Business‑Use‑Cases und Wertschöpfungsmodellen.</p>
 <a class="flip-link" href="#">Mehr</a>
 </div>
 <div class="back">
 <h3>Strategische Anwendungen – Details</h3>
-<p>Fallstudien aus Finance, Retail &amp; Health Care; ROI‑Frameworks und KPI‑Tracking.</p>
+<p>Fallstudien aus Finance, Retail &amp; Health Care; ROI‑Frameworks und KPI‑Tracking.</p>
 <a class="flip-link" href="#">Zurück</a>
 </div>
 </div>
@@ -326,7 +347,7 @@
 <div class="flipper">
 <div class="front">
 <svg class="icon" viewbox="0 0 24 24"><path d="M4 4h16v16H4z"></path><path d="M4 9h16"></path></svg>
-<h3>Frameworks &amp; Methoden</h3>
+<h3>Frameworks &amp; Methoden</h3>
 <p>Agile, Lean und AI‑spezifische Prozessmodelle.</p>
 <a class="flip-link" href="#">Mehr</a>
 </div>
@@ -342,13 +363,13 @@
 <div class="flipper">
 <div class="front">
 <svg class="icon" viewbox="0 0 24 24"><path d="M4 4h16v16H4z"></path><path d="M4 9h16"></path></svg>
-<h3>Change Management</h3>
+<h3>Change Management</h3>
 <p>Strategien für erfolgreiche Implementierung.</p>
 <a class="flip-link" href="#">Mehr</a>
 </div>
 <div class="back">
 <h3>Change Management – Details</h3>
-<p>Kotter 8‑Step, ADKAR, Stakeholder‑Analyse und Kommunikationspläne.</p>
+<p>Kotter 8‑Step, ADKAR, Stakeholder‑Analyse und Kommunikationspläne.</p>
 <a class="flip-link" href="#">Zurück</a>
 </div>
 </div>
@@ -374,7 +395,7 @@
 <div class="flipper">
 <div class="front">
 <svg class="icon" viewbox="0 0 24 24"><path d="M4 4h16v16H4z"></path><path d="M4 9h16"></path></svg>
-<h3>Digitale Tools</h3>
+<h3>Digitale Tools</h3>
 <p>Überblick zu Plattformen und Software‑Stacks.</p>
 <a class="flip-link" href="#">Mehr</a>
 </div>
@@ -409,7 +430,7 @@
 <!-- ----- SHORTS ----- -->
 <section id="videos">
 <div class="container">
-<h2>Shorts von LinkedIn und YouTube</h2>
+<h2>Shorts von LinkedIn und YouTube</h2>
 <div class="videos">
 <div class="video-short"><iframe allowfullscreen="" src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?rel=0"></iframe></div>
 <div class="video-short"><iframe allowfullscreen="" src="https://www.youtube-nocookie.com/embed/9bZkp7q19f0?rel=0"></iframe></div>
@@ -423,7 +444,7 @@
 <!-- ---------- Participants ---------- -->
 <section id="participants">
 <div class="container">
-<h2>Information über Teilnehmer</h2>
+<h2>Information über Teilnehmer</h2>
 <div class="stats-grid">
 <!-- Kalender‑Icon für Jahre Erfahrung -->
 <div class="stat-card">
@@ -434,7 +455,7 @@
 <line x1="3" x2="21" y1="10" y2="10"></line>
 </svg>
 <div class="stat-value count" data-target="12"></div>
-<div class="stat-label">Jahre Erfahrung</div>
+<div class="stat-label">Jahre Erfahrung</div>
 </div>
 <!-- Schlips‑Icon für Senior C‑Level -->
 <div class="stat-card">
@@ -442,8 +463,8 @@
 <path d="M12 2l2 8-2 2-2-2 2-8z"></path>
 <path d="M10 14v8h4v-8"></path>
 </svg>
-<div class="stat-value count" data-suffix=" %" data-target="35"></div>
-<div class="stat-label">Senior C‑Level</div>
+<div class="stat-value count" data-suffix=" %" data-target="35"></div>
+<div class="stat-label">Senior C‑Level</div>
 </div>
 <!-- Alters‑Icon für Durchschnittsalter -->
 <div class="stat-card">
@@ -475,12 +496,12 @@
 <div class="testi-slider-container">
 <button aria-label="Zurück" class="testi-btn prev"><svg viewbox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
 <div class="testi-track">
-<div class="testimonial-card"><img alt="Thomas Strecker" src="https://irp.cdn-website.com/d603a072/dms3rep/multi/STRECKER-2-0d89a204.webp"/><blockquote>„Das Modul hat meine Sicht auf digitale Strategien komplett verändert.“</blockquote><cite>— Thomas Strecker, CIO</cite></div>
-<div class="testimonial-card"><img alt="Simone Fischer" src="https://irp.cdn-website.com/d603a072/dms3rep/multi/PHOTO-2023-04-27-11-32-06-1-300x300-70d6609d-5ed1dc32.webp"/><blockquote>„Top‑Dozierende und praxisnahe Fälle – perfekt für die Umsetzung.“</blockquote><cite>— Simone Fischer, Digital Lead</cite></div>
-<div class="testimonial-card"><img alt="Alexander Sitte" src="https://irp.cdn-website.com/d603a072/dms3rep/multi/Alexander-Sitte-4d3c9565-32ed4d36.webp"/><blockquote>„Herausragende Lernerfahrung mit praktischem Bezug.“</blockquote><cite>— Alexander Sitte, CEO</cite></div>
-<div class="testimonial-card"><img alt="Gaia Rossi" src="https://irp.cdn-website.com/d603a072/dms3rep/multi/Gaia-pic-5-067f3922.jpg"/><blockquote>„Die Dozent:innen verstehen es, komplexe Themen greifbar zu machen.“</blockquote><cite>— Gaia Rossi, Head of Innovation</cite></div>
-<div class="testimonial-card"><img alt="Luca Corsaro" src="https://irp.cdn-website.com/d603a072/dms3rep/multi/029_Corsaro_a-1-300x300.webp"/><blockquote>„Ein Must‑have für alle, die AI strategisch einsetzen wollen.“</blockquote><cite>— Luca Corsaro, Product Owner</cite></div>
-<div class="testimonial-card"><img alt="Markus Weber" src="https://irp.cdn-website.com/d603a072/dms3rep/multi/Markus-300x300-cad9141a-f2599afb.jpg"/><blockquote>„Selten so viel praxisrelevantes Wissen in so kurzer Zeit erhalten.“</blockquote><cite>— Markus Weber, CTO</cite></div>
+<div class="testimonial-card"><img alt="Thomas Strecker" src="https://irp.cdn-website.com/d603a072/dms3rep/multi/STRECKER-2-0d89a204.webp"/><blockquote>„Das Modul hat meine Sicht auf digitale Strategien komplett verändert.“</blockquote><cite>— Thomas Strecker, CIO</cite></div>
+<div class="testimonial-card"><img alt="Simone Fischer" src="https://irp.cdn-website.com/d603a072/dms3rep/multi/PHOTO-2023-04-27-11-32-06-1-300x300-70d6609d-5ed1dc32.webp"/><blockquote>„Top‑Dozierende und praxisnahe Fälle – perfekt für die Umsetzung.“</blockquote><cite>— Simone Fischer, Digital Lead</cite></div>
+<div class="testimonial-card"><img alt="Alexander Sitte" src="https://irp.cdn-website.com/d603a072/dms3rep/multi/Alexander-Sitte-4d3c9565-32ed4d36.webp"/><blockquote>„Herausragende Lernerfahrung mit praktischem Bezug.“</blockquote><cite>— Alexander Sitte, CEO</cite></div>
+<div class="testimonial-card"><img alt="Gaia Rossi" src="https://irp.cdn-website.com/d603a072/dms3rep/multi/Gaia-pic-5-067f3922.jpg"/><blockquote>„Die Dozent:innen verstehen es, komplexe Themen greifbar zu machen.“</blockquote><cite>— Gaia Rossi, Head of Innovation</cite></div>
+<div class="testimonial-card"><img alt="Luca Corsaro" src="https://irp.cdn-website.com/d603a072/dms3rep/multi/029_Corsaro_a-1-300x300.webp"/><blockquote>„Ein Must‑have für alle, die AI strategisch einsetzen wollen.“</blockquote><cite>— Luca Corsaro, Product Owner</cite></div>
+<div class="testimonial-card"><img alt="Markus Weber" src="https://irp.cdn-website.com/d603a072/dms3rep/multi/Markus-300x300-cad9141a-f2599afb.jpg"/><blockquote>„Selten so viel praxisrelevantes Wissen in so kurzer Zeit erhalten.“</blockquote><cite>— Markus Weber, CTO</cite></div>
 </div>
 <button aria-label="Weiter" class="testi-btn next"><svg viewbox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
 </div>
@@ -489,14 +510,14 @@
 <!-- ----- IMT ADVISOR ----- -->
 <section id="contact">
 <div class="container">
-<h2>IMT Advisor</h2>
+<h2>IMT Advisor</h2>
 <div class="contact-info">
-<img alt="Prof. Dr. Christian Abegglen" src="https://lirp.cdn-website.com/d603a072/dms3rep/multi/opt/Christian-Abegglen-2-1920w.jpg"/>
+<img alt="Prof. Dr. Christian Abegglen" src="https://lirp.cdn-website.com/d603a072/dms3rep/multi/opt/Christian-Abegglen-2-1920w.jpg"/>
 <div class="contact-details">
-<h3>Prof. Dr. Christian Abegglen</h3>
-<p>Leiter Institut für Digital Business</p>
+<h3>Prof. Dr. Christian Abegglen</h3>
+<p>Leiter Institut für Digital Business</p>
 <p><a href="mailto:christian.abegglen@imt.ch">christian.abegglen@imt.ch</a></p>
-<p>+41 71 224 72 22</p>
+<p>+41 71 224 72 22</p>
 </div>
 </div>
 </div>
@@ -559,7 +580,7 @@
 <footer>
 <div class="footer-inner">
 <div class="footer-columns">
-<div class="footer-col"><h3>StGallen<br/>imt Business School<br/>xAI</h3></div>
+<div class="footer-col"><h3>StGallen<br/>imt Business School<br/>xAI</h3></div>
 <div class="footer-col"><h3>Programme</h3><ul>
 <li><a href="#">xAI in Business Strategy &amp; Digital Transformation</a></li>
 <li><a href="#">xAI-Augmented Decision Making</a></li>
@@ -576,12 +597,12 @@
 </ul></div>
 <div class="footer-col"><h३>Kontakt</h३><ul>
 <li><a href="#">Unverbindlichen Termin buchen</a></li>
-<li><a href="tel:+41712776000">+41 71 277 60 00</a></li>
+<li><a href="tel:+41712776000">+41 71 277 60 00</a></li>
 <li>E‑Mail</li>
 <li><a href="mailto:imt@imtschool.ch">imt@imtschool.ch</a></li>
 </ul></div>
 </div>
-<div class="copyright">Copyright © 2025 StGallen imt Business School</div>
+<div class="copyright">Copyright ©2025 StGallen imt Business School</div>
 </div>
 </footer>
 <!-- ============ SCRIPTS ============ -->
