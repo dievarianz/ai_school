@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AI in Business Strategy &amp; Digital Transformation | imtxAI Business School</title>
+  <title>AI in Business Strategy &amp; Digital Transformation&nbsp;| imtxAI Business School</title>
 
   <style>
     :root{
@@ -33,8 +33,15 @@
     .sidebar-item:not(:last-child){border-bottom:1px solid rgba(255,255,255,.3)}
     .sidebar-item svg{width:24px;height:24px;margin-bottom:4px;stroke:currentColor;fill:none;stroke-width:2}
 
-    /* Hero */
-    #hero{text-align:center;padding:120px 0 200px;background:url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?crop=entropy&fit=crop&w=1950&q=80') center/cover no-repeat;color:#fff}
+    /* Hero – leicht abgedunkeltes Hintergrundfoto */
+    #hero{
+      text-align:center;
+      padding:120px 0 200px;
+      background:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),
+                 url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?crop=entropy&fit=crop&w=1950&q=80')
+                 center/cover no-repeat;
+      color:#fff
+    }
     #hero h1{font-size:2.5rem;text-shadow:2px 2px 8px rgba(0,0,0,.5)}
     .availability-badge{position:absolute;top:32px;right:5%;width:180px;height:180px;background:var(--color-badge);color:#000;border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;font-size:1.05rem;font-weight:600;line-height:1.3;transform:rotate(-6deg);z-index:50;box-shadow:0 2px 4px rgba(0,0,0,.15)}
 
@@ -79,7 +86,7 @@
     .testimonial-card blockquote{font-style:italic;color:#333;line-height:1.4;margin-bottom:12px}
     .testimonial-card cite{font-weight:600;font-size:.9rem;margin-top:auto;align-self:flex-end}
 
-    /* Contact */
+    /* Contact (IMT Advisor) */
     #contact h2,#broschuere h2{text-align:left}
     .contact-info{display:flex;flex-wrap:wrap;gap:var(--spacing);align-items:center;max-width:800px;margin:0 auto}
     .contact-info img{width:120px;height:120px;border-radius:50%;object-fit:cover;background:#ddd}
@@ -93,6 +100,10 @@
     .cta input:focus,.cta select:focus{outline:none;border-bottom-color:var(--color-accent2)}
     .cta button{margin-top:var(--spacing);padding:14px 0;width:100%;background:var(--color-accent2);color:#fff;border:none;border-radius:9999px;font-size:1rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;cursor:pointer;transition:background .2s}
     .cta button:hover{background:#7a026f}
+
+    /* Fehler‑Hinweise & Zustände */
+    .error-message{color:#d00;font-size:.85rem;margin-bottom:4px}
+    .hidden{display:none}
 
     /* Footer */
     footer{background:#f2f2f2;color:var(--color-muted);font-size:.9rem}
@@ -122,7 +133,7 @@
   <!-- Header -->
   <header>
     <div class="container nav-container">
-      <a href="#hero"><img src="https://lirp.cdn-website.com/d603a072/dms3rep/multi/opt/IMT-logo-rgb-unterzeile-412497ed-1920w.jpg" alt="imtxAI Logo" class="logo"></a>
+      <a href="#hero"><img src="https://lirp.cdn-website.com/d603a072/dms3rep/multi/opt/IMT-logo-rgb-unterzeile-412497ed-1920w.jpg" alt="imtxAI Logo" class="logo"></a>
       <nav>
         <ul>
           <li><a href="#hero">Home</a></li>
@@ -143,10 +154,10 @@
       <svg viewBox="0 0 24 24"><path d="M8 2h8l4 4v16H8a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><path d="M8 2v4h8"/></svg>
       <span>Broschüre</span>
     </a>
-    <div class="sidebar-item">
+    <a href="#contact" class="sidebar-item">
       <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M6 22v-2a4 4 0 0 1 8 0v2"/></svg>
       <span>IMT Advisor</span>
-    </div>
+    </a>
     <div class="sidebar-item">
       <svg viewBox="0 0 24 24"><path d="M4 4h16v12H4z"/><polyline points="4,4 12,12 20,4"/></svg>
       <span>Nachricht</span>
@@ -176,9 +187,9 @@
         <div class="slider-container">
           <button class="slider-btn prev" aria-label="Zurück"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
           <div class="slider-track">
-            <div class="slide"><svg class="icon" viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7-6.5-4-6.5 4 2-7L2 9h7z"/></svg><h3>Grundlagen der KI</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p></div>
-            <div class="slide"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 7v5l3 3"/></svg><h3>Strategische Anwendungen</h3><p>Praxisnahe Fallstudien und Framework‑Diskussionen.</p></div>
-            <div class="slide"><svg class="icon" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg><h3>Frameworks &amp; Methoden</h3><p>Agile, Lean und AI‑spezifische Modelle.</p></div>
+            <div class="slide"><svg class="icon" viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7-6.5-4-6.5 4 2-7L2 9h7z"/></svg><h3>Grundlagen der KI</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p></div>
+            <div class="slide"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 7v5l3 3"/></svg><h3>Strategische Anwendungen</h3><p>Praxisnahe Fallstudien und Framework‑Diskussionen.</p></div>
+            <div class="slide"><svg class="icon" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg><h3>Frameworks &amp; Methoden</h3><p>Agile, Lean und AI‑spezifische Modelle.</p></div>
             <div class="slide"><svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 9h16"/></svg><h3>Change Management</h3><p>Erfolgreiche Umsetzungsstrategien.</p></div>
             <div class="slide"><svg class="icon" viewBox="0 0 24 24"><path d="M8 2h8l4 4v12l-4 4H8l-4-4V6z"/></svg><h3>Praxis‑Workshops</h3><p>Hands‑on Sessions mit realen Fällen.</p></div>
             <div class="slide"><svg class="icon" viewBox="0 0 24 24"><path d="M2 12h20"/></svg><h3>Digitale Tools</h3><p>Tools und Plattformen zum Einsatz.</p></div>
@@ -192,7 +203,7 @@
     <!-- Shorts -->
     <section id="videos">
       <div class="container">
-        <h2>Shorts von LinkedIn und YouTube</h2>
+        <h2>Shorts von LinkedIn und YouTube</h2>
         <div class="videos">
           <div class="video-short"><iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?rel=0" allowfullscreen></iframe></div>
           <div class="video-short"><iframe src="https://www.youtube-nocookie.com/embed/9bZkp7q19f0?rel=0" allowfullscreen></iframe></div>
@@ -206,7 +217,7 @@
     <!-- Participants -->
     <section id="participants">
       <div class="container">
-        <h2>Information über Teilnehmer</h2>
+        <h2>Information über Teilnehmer</h2>
         <div class="stats-grid">
           <div class="stat-card"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg><div class="stat-value count" data-target="12"></div><div class="stat-label">Jahre Erfahrung</div></div>
           <div class="stat-card"><svg viewBox="0 0 24 24"><path d="M6 22v-2a4 4 0 0 1 8 0v2"/></svg><div class="stat-value count" data-target="35" data-suffix=" %"></div><div class="stat-label">Senior C‑Level</div></div>
@@ -235,15 +246,15 @@
       </div>
     </section>
 
-    <!-- Kontakt -->
+    <!-- IMT Advisor -->
     <section id="contact">
       <div class="container">
-        <h2>Akademischer Ansprechpartner</h2>
+        <h2>IMT Advisor</h2>
         <div class="contact-info">
           <img src="https://media.licdn.com/dms/image/v2/C4E03AQGM2NfVvOguhQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1624328774171?e=1750291200&v=beta&t=ytWUMoxHNsRXlQD6fg77G1pmHIFdG8Ym9ENvHes8Eco" alt="Prof. Dr. Anna Meier">
           <div class="contact-details">
             <h3>Prof. Dr. Anna Meier</h3>
-            <p>Leiterin Institut für Digital Business</p>
+            <p>Leiterin Institut für Digital Business</p>
             <p><a href="mailto:anna.meier@imt.ch">anna.meier@imt.ch</a></p>
             <p>+41 71 224 72 22</p>
           </div>
@@ -256,11 +267,12 @@
       <div class="container">
         <h2>Broschüre runterladen</h2>
         <div class="cta">
-          <form action="#" method="post">
-            <input type="text" name="firstname" placeholder="Vorname" required>
-            <input type="text" name="lastname" placeholder="Name" required>
-            <input type="email" name="email" placeholder="E‑Mail" required>
-            <select name="country" required>
+          <!-- Formular -->
+          <form id="brochure-form" action="#" method="post" novalidate>
+            <input type="text" name="firstname" placeholder="Vorname">
+            <input type="text" name="lastname"  placeholder="Name">
+            <input type="email" name="email"     placeholder="E‑Mail">
+            <select name="country">
               <option value="">Land auswählen</option>
               <option value="CH">Schweiz</option>
               <option value="DE">Deutschland</option>
@@ -268,6 +280,17 @@
             </select>
             <button type="submit">Jetzt Broschüre herunterladen</button>
           </form>
+
+          <!-- Erfolgs‑Hinweis (zunächst ausgeblendet) -->
+          <div id="download-ready" class="hidden" aria-live="polite">
+            <svg viewBox="0 0 24 24" width="56" height="56" style="stroke:var(--color-accent2);fill:none;stroke-width:2;margin-bottom:12px">
+              <path d="M8 2h8l4 4v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/>
+              <polyline points="12 11 12 17"/>
+              <polyline points="9 14 12 17 15 14"/>
+            </svg>
+            <p style="font-size:1.1rem;font-weight:600;margin-bottom:8px">Jetzt Broschüre downloaden</p>
+            <a href="brochure.pdf" download style="display:inline-block;padding:12px 24px;background:var(--color-accent2);color:#fff;border-radius:9999px;text-transform:uppercase;font-size:.95rem;font-weight:600">PDF herunterladen</a>
+          </div>
         </div>
       </div>
     </section>
@@ -278,30 +301,30 @@
   <footer>
     <div class="footer-inner">
       <div class="footer-columns">
-        <div class="footer-col"><h3>StGallen<br>imt Business School</h3></div>
+        <div class="footer-col"><h3>StGallen<br>imt Business School</h3></div>
         <div class="footer-col"><h3>Programme</h3><ul>
           <li><a href="#">StGallen Seminare</a></li>
-          <li><a href="#">Integrated Management and Strategy</a></li>
-          <li><a href="#">Marketing, Sales and Brand Communication</a></li>
-          <li><a href="#">Financial Management</a></li>
+          <li><a href="#">Integrated Management and Strategy</a></li>
+          <li><a href="#">Marketing, Sales and Brand Communication</a></li>
+          <li><a href="#">Financial Management</a></li>
           <li><a href="#">Inspirational Leadership</a></li>
-          <li><a href="#">StGallen imt Management Programm</a></li>
-          <li><a href="#">StGallen imt Certified Management CAS</a></li>
-          <li><a href="#">StGallen Fast‑Track MBA Programm</a></li>
+          <li><a href="#">StGallen imt Management Programm</a></li>
+          <li><a href="#">StGallen imt Certified Management CAS</a></li>
+          <li><a href="#">StGallen Fast‑Track MBA Programm</a></li>
         </ul></div>
         <div class="footer-col"><h3>Legal</h3><ul>
-          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Privacy Policy</a></li>
           <li><a href="#">Impressum</a></li>
           <li><a href="#">AGB</a></li>
         </ul></div>
         <div class="footer-col"><h3>Kontakt</h3><ul>
-          <li><a href="#">Unverbindlichen Termin buchen</a></li>
+          <li><a href="#">Unverbindlichen Termin buchen</a></li>
           <li><a href="tel:+41712776000">+41 71 277 60 00</a></li>
           <li>E‑Mail</li>
           <li><a href="mailto:imt@imtschool.ch">imt@imtschool.ch</a></li>
         </ul></div>
       </div>
-      <div class="copyright">Copyright &copy;2025 StGallen imt Business School</div>
+      <div class="copyright">Copyright © 2025 StGallen imt Business School</div>
     </div>
   </footer>
 
@@ -328,6 +351,37 @@
       const animate=()=>counters.forEach(c=>{const t=+c.dataset.target,suf=c.dataset.suffix||'',frames=120,inc=t/frames;let cur=0;
         const step=()=>{cur+=inc;cur>=t?c.textContent=t+suf:(c.textContent=Math.round(cur)+suf,requestAnimationFrame(step));};requestAnimationFrame(step);});
       new IntersectionObserver(e=>{e.forEach(v=>{if(v.isIntersecting){animate();observer.disconnect();}});},{threshold:.4}).observe(document.querySelector('#participants'));
+
+      /* ------------------------
+         Broschüre‑Formular‑Check
+         ------------------------ */
+      const form=document.getElementById('brochure-form');
+      const ready=document.getElementById('download-ready');
+
+      form?.addEventListener('submit',e=>{
+        e.preventDefault();
+        let ok=true;
+
+        /* Alte Fehlermeldungen entfernen */
+        form.querySelectorAll('.error-message').forEach(m=>m.remove());
+
+        /* Alle Eingabefelder prüfen */
+        [...form.querySelectorAll('input,select')].forEach(f=>{
+          if(!f.value.trim()){
+            ok=false;
+            const msg=document.createElement('div');
+            msg.className='error-message';
+            msg.textContent='Dieses Feld muss ausgefüllt werden';
+            f.parentNode.insertBefore(msg,f);
+          }
+        });
+
+        if(ok){
+          /* Box ausblenden, Download‑Icon einblenden */
+          form.classList.add('hidden');
+          ready.classList.remove('hidden');
+        }
+      });
     });
   </script>
 </body>
