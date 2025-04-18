@@ -50,7 +50,10 @@
       font-size:.75rem
     }
     .sidebar-item:not(:last-child){border-bottom:1px solid rgba(255,255,255,.3)}
-    .sidebar-item svg{width:24px;height:24px;margin-bottom:4px;stroke:currentColor;fill:none;stroke-width:2}
+    .sidebar-item i{
+      font-size:24px;
+      margin-bottom:4px;
+    }
 
     /* ---------- Hero ---------- */
     #hero{
@@ -183,7 +186,7 @@
     .footer-inner{max-width:var(--max-width);margin:0 auto;padding:40px var(--spacing)}
     .footer-columns{display:flex;flex-wrap:wrap;gap:48px}
     .footer-col{min-width:180px;flex:1}
-    .footer-col h3{color:var(--color-text);font-size:1rem;font-weight:600;margin-bottom:12px}
+    .footer-col h3{color:var(--color-text);font-size:1rem;font-weight:600;margin-­­⁠­bottom:12px}
     .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px;margin:0}
     .footer-col a{color:inherit;text-decoration:none}
     .footer-col a:hover{text-decoration:underline}
@@ -201,13 +204,18 @@
       .footer-columns{flex-direction:column;gap:32px}
     }
   </style>
+
+  <!-- ============ BOXICONS ============ -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+
 </head>
 <body>
 
   <!-- ============ HEADER ============ -->
   <header>
     <div class="container nav-container">
-      <a href="#hero"><img src="https://lirp.cdn-website.com/d603a072/dms3rep/multi/opt/IMT-logo-rgb-unterzeile-412497ed-1920w.jpg" alt="imtxAI Logo" class="logo"></a>
+      <a href="#hero"><img src="https://lirp.cdn-website.com/d603a072/dms3rep/multi/opt/IMT-logo-rgb-unterzeile-412497ed-1920w.jpg"
+        alt="imtxAI Logo" class="logo"></a>
       <nav>
         <ul>
           <li><a href="#hero">Home</a></li>
@@ -225,19 +233,19 @@
   <!-- ============ SIDEBAR ============ -->
   <aside class="sidebar">
     <a href="#broschuere" class="sidebar-item">
-      <svg viewBox="0 0 24 24"><path d="M8 2h8l4 4v16H8a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><path d="M8 2v4h8"/></svg>
+      <i class="bx bxs-book" style="color:#fff;"></i>
       <span>Broschüre</span>
     </a>
     <a href="#contact" class="sidebar-item">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M4 22v-2a8 8 0 0 1 16 0v2"/></svg>
+      <i class="bx bxs-user" style="color:#fff;"></i>
       <span>IMT Advisor</span>
     </a>
     <a href="https://www.linkedin.com" target="_blank" rel="noopener" class="sidebar-item">
-      <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2"/><circle cx="7" cy="6" r="1"/><line x1="7" y1="9" x2="7" y2="17"/><path d="M11 9h2v1.2c.4-.7 1.2-1.2 2.4-1.2 2 0 3.6 1.3 3.6 4V17h-2v-4c0-1-.3-2-1.6-2-1.3 0-2 1-2 2.1V17h-2V9z"/></svg>
+      <i class="bx bxl-linkedin" style="color:#fff;"></i>
       <span>LinkedIn</span>
     </a>
     <a href="https://www.youtube.com" target="_blank" rel="noopener" class="sidebar-item">
-      <svg viewBox="0 0 24 24"><path d="M2 7c0-1.1.9-2 2-2h16c1.1 0 2 .9 2 2v10c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V7z"/><polygon points="10 15 16 12 10 9"/></svg>
+      <i class="bx bxl-youtube" style="color:#fff;"></i>
       <span>YouTube</span>
     </a>
   </aside>
@@ -249,14 +257,26 @@
     <section id="hero">
       <div class="availability-badge">Nur noch wenige<br/>Plätze verfügbar</div>
       <div class="container">
-        <h1>xAI in Business Strategy &amp; Digital Transformation</h1>
+        <h1>xAI in Business Strategy &amp; Digital Transformation</h1>
         <div class="info-grid">
-          <div class="info-box"><svg viewBox="0 0 24 24"><path d="M12 21s-6-5.686-6-10a6 6 0 1 1 12 0c0 4.314-6 10-6 10z"/><circle cx="12" cy="11" r="2"/></svg><span class="info-label">Location</span><span class="info-value">St. Gallen</span></div>
-          <div class="info-box"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span class="info-label">Length</span><span class="info-value">5 Tage</span></div>
-          <div class="info-box"><svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg><span class="info-label">Fee</span><span class="info-value">CHF 2 500</span></div>
-          <div class="info-box"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span class="info-label">Next Start</span><span class="info-value" id="countdown">0d 0h 0m</span></div>
+          <div class="info-box">
+            <svg viewBox="0 0 24 24"><path d="M12 21s-6-5.686-6-10a6 6 0 1 1 12 0c0 4.314-6 10-6 10z"/><circle cx="12" cy="11" r="2"/></svg>
+            <span class="info-label">Location</span><span class="info-value">St. Gallen</span>
+          </div>
+          <div class="info-box">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span class="info-label">Length</span><span class="info-value">5 Tage</span>
+          </div>
+          <div class="info-box">
+            <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+            <span class="info-label">Fee</span><span class="info-value">CHF 2 500</span>
+          </div>
+          <div class="info-box">
+            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <span class="info-label">Next Start</span><span class="info-value" id="countdown">0d 0h 0m</span>
+          </div>
         </div>
-        <a href="#broschuere" class="hero-btn">Jetzt Broschüre herunterladen</a>
+        <a href="#broschuere" class="hero-btn">Jetzt Broschüre herunterladen</a>
       </div>
     </section>
 
@@ -408,17 +428,61 @@
     </section>
 
     <!-- ----- PARTICIPANTS ----- -->
-    <section id="participants">
-      <div class="container">
-        <h2>Information über Teilnehmer</h2>
-        <div class="stats-grid">
-          <div class="stat-card"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg><div class="stat-value count" data-target="12"></div><div class="stat-label">Jahre Erfahrung</div></div>
-          <div class="stat-card"><svg viewBox="0 0 24 24"><path d="M6 22v-2a4 4 0 0 1 8 0v2"/></svg><div class="stat-value count" data-target="35" data-suffix=" %"></div><div class="stat-label">Senior C‑Level</div></div>
-          <div class="stat-card"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M6 22v-2a4 4 0 0 1 8 0v2"/></svg><div class="stat-value count" data-target="42"></div><div class="stat-label">Durchschnittsalter</div></div>
-          <div class="stat-card"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg><div class="stat-value count" data-target="15"></div><div class="stat-label">Nationalitäten</div></div>
+    
+  <!-- ---------- Participants ---------- -->
+  <section id="participants">
+    <div class="container">
+      <h2>Information über Teilnehmer</h2>
+      <div class="stats-grid">
+
+        <!-- Kalender‑Icon für Jahre Erfahrung -->
+        <div class="stat-card">
+          <svg viewBox="0 0 24 24" stroke="#000" fill="none" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2"/>
+            <line x1="16" y1="2" x2="16" y2="6"/>
+            <line x1="8" y1="2" x2="8" y2="6"/>
+            <line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+          <div class="stat-value count" data-target="12"></div>
+          <div class="stat-label">Jahre Erfahrung</div>
         </div>
+
+        <!-- Schlips‑Icon für Senior C‑Level -->
+        <div class="stat-card">
+          <svg viewBox="0 0 24 24" stroke="#000" fill="none" stroke-width="2">
+            <path d="M12 2l2 8-2 2-2-2 2-8z"/>
+            <path d="M10 14v8h4v-8"/>
+          </svg>
+          <div class="stat-value count" data-target="35" data-suffix=" %"></div>
+          <div class="stat-label">Senior C‑Level</div>
+        </div>
+
+        <!-- Alters‑Icon für Durchschnittsalter -->
+        <div class="stat-card">
+          <svg viewBox="0 0 24 24" stroke="#000" fill="none" stroke-width="2">
+            <circle cx="12" cy="7" r="4"/>
+            <path d="M6 22v-2a6 6 0 0 1 12 0v2"/>
+          </svg>
+          <div class="stat-value count" data-target="42"></div>
+          <div class="stat-label">Durchschnittsalter</div>
+        </div>
+
+        <!-- Globus‑Icon für Nationalitäten -->
+        <div class="stat-card">
+          <svg viewBox="0 0 24 24" stroke="#000" fill="none" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+            <path d="M12 2a15 15 0 0 1 0 20"/>
+            <path d="M12 2a15 15 0 0 0 0 20"/>
+          </svg>
+          <div class="stat-value count" data-target="15"></div>
+          <div class="stat-label">Nationalitäten</div>
+        </div>
+
       </div>
-    </section>
+    </div>
+  </section>
+
 
     <!-- ----- TESTIMONIALS ----- -->
     <section id="testimonials">
@@ -427,12 +491,12 @@
         <div class="testi-slider-container">
           <button class="testi-btn prev" aria-label="Zurück"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
           <div class="testi-track">
-            <div class="testimonial-card"><img src="https://irp.cdn-website.com/d603a072/dms3rep/multi/STRECKER-2-0d89a204.webp" alt="Thomas Strecker"><blockquote>„Das Modul hat meine Sicht auf digitale Strategien komplett verändert.“</blockquote><cite>— Thomas Strecker, CIO</cite></div>
-            <div class="testimonial-card"><img src="https://irp.cdn-website.com/d603a072/dms3rep/multi/PHOTO-2023-04-27-11-32-06-1-300x300-70d6609d-5ed1dc32.webp" alt="Simone Fischer"><blockquote>„Top‑Dozierende und praxisnahe Fälle – perfekt für die Umsetzung.“</blockquote><cite>— Simone Fischer, Digital Lead</cite></div>
-            <div class="testimonial-card"><img src="https://irp.cdn-website.com/d603a072/dms3rep/multi/Alexander-Sitte-4d3c9565-32ed4d36.webp" alt="Alexander Sitte"><blockquote>„Herausragende Lernerfahrung mit praktischem Bezug.“</blockquote><cite>— Alexander Sitte, CEO</cite></div>
-            <div class="testimonial-card"><img src="https://irp.cdn-website.com/d603a072/dms3rep/multi/Gaia-pic-5-067f3922.jpg" alt="Gaia Rossi"><blockquote>„Die Dozent:innen verstehen es, komplexe Themen greifbar zu machen.“</blockquote><cite>— Gaia Rossi, Head of Innovation</cite></div>
-            <div class="testimonial-card"><img src="https://irp.cdn-website.com/d603a072/dms3rep/multi/029_Corsaro_a-1-300x300.webp" alt="Luca Corsaro"><blockquote>„Ein Must‑have für alle, die AI strategisch einsetzen wollen.“</blockquote><cite>— Luca Corsaro, Product Owner</cite></div>
-            <div class="testimonial-card"><img src="https://irp.cdn-website.com/d603a072/dms3rep/multi/Markus-300x300-cad9141a-f2599afb.jpg" alt="Markus Weber"><blockquote>„Selten so viel praxisrelevantes Wissen in so kurzer Zeit erhalten.“</blockquote><cite>— Markus Weber, CTO</cite></div>
+            <div class="testimonial-card"><img src="https://irp.cdn-website.com/d603a072/dms3rep/multi/STRECKER-2-0d89a204.webp" alt="Thomas Strecker"><blockquote>„Das Modul hat meine Sicht auf digitale Strategien komplett verändert.“</blockquote><cite>— Thomas Strecker, CIO</cite></div>
+            <div class="testimonial-card"><img src="https://irp.cdn-website.com/d603a072/dms3rep/multi/PHOTO-2023-04-27-11-32-06-1-300x300-70d6609d-5ed1dc32.webp" alt="Simone Fischer"><blockquote>„Top‑Dozierende und praxisnahe Fälle – perfekt für die Umsetzung.“</blockquote><cite>— Simone Fischer, Digital Lead</cite></div>
+            <div class="testimonial-card"><img src="https://irp.cdn-website.com/d603a072/dms3rep/multi/Alexander-Sitte-4d3c9565-32ed4d36.webp" alt="Alexander Sitte"><blockquote>„Herausragende Lernerfahrung mit praktischem Bezug.“</blockquote><cite>— Alexander Sitte, CEO</cite></div>
+            <div class="testimonial-card"><img src="https://irp.cdn-website.com/d603a072/dms3rep/multi/Gaia-pic-5-067f3922.jpg" alt="Gaia Rossi"><blockquote>„Die Dozent:innen verstehen es, komplexe Themen greifbar zu machen.“</blockquote><cite>— Gaia Rossi, Head of Innovation</cite></div>
+            <div class="testimonial-card"><img src="https://irp.cdn-website.com/d603a072/dms3rep/multi/029_Corsaro_a-1-300x300.webp" alt="Luca Corsaro"><blockquote>„Ein Must‑have für alle, die AI strategisch einsetzen wollen.“</blockquote><cite>— Luca Corsaro, Product Owner</cite></div>
+            <div class="testimonial-card"><img src="https://irp.cdn-website.com/d603a072/dms3rep/multi/Markus-300x300-cad9141a-f2599afb.jpg" alt="Markus Weber"><blockquote>„Selten so viel praxisrelevantes Wissen in so kurzer Zeit erhalten.“</blockquote><cite>— Markus Weber, CTO</cite></div>
           </div>
           <button class="testi-btn next" aria-label="Weiter"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
         </div>
@@ -442,13 +506,13 @@
     <!-- ----- IMT ADVISOR ----- -->
     <section id="contact">
       <div class="container">
-        <h2>IMT Advisor</h2>
+        <h2>IMT Advisor</h2>
         <div class="contact-info">
           <img src="https://lirp.cdn-website.com/d603a072/dms3rep/multi/opt/Christian-Abegglen-2-1920w.jpg" alt="Prof. Dr. Christian Abegglen">
           <div class="contact-details">
             <h3>Prof. Dr. Christian Abegglen</h3>
             <p>Leiter Institut für Digital Business</p>
-            <p><a href="mailto:anna.meier@imt.ch">anna.meier@imt.ch</a></p>
+            <p><a href="mailto:christian.abegglen@imt.ch">christian.abegglen@imt.ch</a></p>
             <p>+41 71 224 72 22</p>
           </div>
         </div>
@@ -506,14 +570,14 @@
           <li><a href="#">Impressum</a></li>
           <li><a href="#">AGB</a></li>
         </ul></div>
-        <div class="footer-col"><h3>Kontakt</h3><ul>
+        <div class="footer-col"><h३>Kontakt</h३><ul>
           <li><a href="#">Unverbindlichen Termin buchen</a></li>
           <li><a href="tel:+41712776000">+41 71 277 60 00</a></li>
           <li>E‑Mail</li>
           <li><a href="mailto:imt@imtschool.ch">imt@imtschool.ch</a></li>
         </ul></div>
       </div>
-      <div class="copyright">Copyright © 2025 StGallen imt Business School</div>
+      <div class="copyright">Copyright © 2025 StGallen imt Business School</div>
     </div>
   </footer>
 
