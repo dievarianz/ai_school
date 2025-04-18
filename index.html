@@ -157,6 +157,16 @@
     .testimonial-card{
       flex:0 0 280px;padding:var(--spacing);background:var(--color-card-bg);border-radius:var(--radius);display:flex;flex-direction:column
     }
+    /* Hinzugefügt: Pfeile im Testimonials‑Slider */
+    .testi-btn{
+      position:absolute;top:50%;width:40px;height:40px;background:rgba(0,0,0,.18);
+      border:none;border-radius:50%;display:flex;align-items:center;justify-content:center;
+      transform:translateY(-50%);cursor:pointer;z-index:10;
+    }
+    .testi-btn.prev{left:-20px}
+    .testi-btn.next{right:-20px}
+    .testi-btn svg{width:16px;height:16px;stroke:#fff;fill:none}
+
     .testimonial-card img{width:48px;height:48px;border-radius:50%;object-fit:cover;margin-bottom:12px}
     .testimonial-card blockquote{font-style:italic;color:#333;line-height:1.4;margin-bottom:12px}
     .testimonial-card cite{font-weight:600;font-size:.9rem;margin-top:auto;align-self:flex-end}
