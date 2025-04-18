@@ -8,24 +8,18 @@
   <style>
     :root{
       --font-sans:-apple-system,BlinkMacSystemFont,"San Francisco","Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
-      --color-text:#1d1d1f;
-      --color-muted:#6e6e73;
-      --color-card-bg:#f5f5f7;
-      --color-accent2:#970289;
-      --color-badge:#fff86a;
-      --spacing:24px;
-      --radius:16px;
-      --max-width:1200px;
+      --color-text:#1d1d1f; --color-muted:#6e6e73; --color-card-bg:#f5f5f7;
+      --color-accent2:#970289; --color-badge:#fff86a; --spacing:24px;
+      --radius:16px; --max-width:1200px;
     }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     body{font-family:var(--font-sans);color:var(--color-text);background:#fff;line-height:1.5}
-    a{color:var(--color-accent2);text-decoration:none}
-    a:hover{text-decoration:underline}
+    a{color:var(--color-accent2);text-decoration:none} a:hover{text-decoration:underline}
     h1,h2{font-weight:600;margin-bottom:var(--spacing)}
     .container{width:90%;max-width:var(--max-width);margin:0 auto;padding:0 var(--spacing)}
     section{position:relative;padding:80px 0}
 
-    /* ---------- Header ---------- */
+    /* Header */
     header{position:sticky;top:0;background:#fff;border-bottom:1px solid #e0e0e0;z-index:100}
     .nav-container{display:flex;align-items:center;justify-content:space-between;padding:16px var(--spacing)}
     .logo{height:32px}
@@ -33,25 +27,25 @@
     nav a{color:#000;font-size:1rem;font-weight:500;padding-bottom:4px;border-bottom:2px solid transparent;transition:border-color .2s}
     nav a:hover,nav a:focus{border-bottom-color:var(--color-accent2)}
 
-    /* ---------- Sidebar ---------- */
+    /* Sidebar */
     .sidebar{position:fixed;top:50%;right:0;transform:translateY(-50%);background:var(--color-accent2);display:flex;flex-direction:column;border-top-left-radius:var(--radius);border-bottom-left-radius:var(--radius);width:80px;z-index:200}
-    .sidebar-item{flex:1;padding:12px 0;text-align:center;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:.75rem;cursor:pointer}
+    .sidebar-item{flex:1;padding:12px 0;text-align:center;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:.75rem}
     .sidebar-item:not(:last-child){border-bottom:1px solid rgba(255,255,255,.3)}
     .sidebar-item svg{width:24px;height:24px;margin-bottom:4px;stroke:currentColor;fill:none;stroke-width:2}
 
-    /* ---------- Hero ---------- */
+    /* Hero */
     #hero{text-align:center;padding:120px 0 200px;background:url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?crop=entropy&fit=crop&w=1950&q=80') center/cover no-repeat;color:#fff}
     #hero h1{font-size:2.5rem;text-shadow:2px 2px 8px rgba(0,0,0,.5)}
     .availability-badge{position:absolute;top:32px;right:5%;width:180px;height:180px;background:var(--color-badge);color:#000;border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;font-size:1.05rem;font-weight:600;line-height:1.3;transform:rotate(-6deg);z-index:50;box-shadow:0 2px 4px rgba(0,0,0,.15)}
 
-    /* ---------- Info‑Boxes ---------- */
+    /* Info‑Boxes */
     .info-grid{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:var(--spacing)}
     .info-box{background:rgba(247,247,247,.8);border-radius:var(--radius);width:120px;height:120px;padding:8px;text-align:center;box-shadow:0 1px 2px rgba(0,0,0,.07),0 1px 3px rgba(0,0,0,.06);display:flex;flex-direction:column;justify-content:center}
     .info-box svg{width:24px;height:24px;margin:0 auto 6px;stroke:#000;fill:none}
     .info-label{font-size:.7rem;color:var(--color-muted);text-transform:uppercase;margin-bottom:4px}
     .info-value{font-size:.95rem;font-weight:600;color:var(--color-text)}
 
-    /* ---------- Modul‑Slider ---------- */
+    /* Modul‑Slider */
     #module-content h2{text-align:left}
     .slider-container{position:relative;margin-top:var(--spacing)}
     .slider-track{display:flex;gap:var(--spacing);overflow-x:auto;padding:0 var(--spacing);scroll-behavior:smooth}
@@ -63,12 +57,12 @@
     .slider-btn.prev,.testi-btn.prev{left:-20px}.slider-btn.next,.testi-btn.next{right:-20px}
     .slider-btn svg,.testi-btn svg{width:16px;height:16px;stroke:#fff;fill:none}
 
-    /* ---------- Shorts ---------- */
+    /* Shorts */
     #videos .videos{display:flex;flex-wrap:wrap;gap:var(--spacing);justify-content:center;margin-top:var(--spacing)}
     .video-short{width:200px;height:360px;border-radius:var(--radius);overflow:hidden;background:#000}
     .video-short iframe{width:100%;height:100%;border:none}
 
-    /* ---------- Participants ---------- */
+    /* Participants */
     #participants h2{text-align:left}
     .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:var(--spacing);max-width:800px;margin:0 auto;text-align:center}
     .stat-card{background:var(--color-card-bg);border-radius:var(--radius);padding:var(--spacing);display:flex;flex-direction:column;align-items:center}
@@ -76,7 +70,7 @@
     .stat-value{font-size:2rem;font-weight:600;color:var(--color-accent2)}
     .stat-label{font-size:.85rem;text-transform:uppercase;color:var(--color-muted);margin-top:4px}
 
-    /* ---------- Testimonials‑Slider ---------- */
+    /* Testimonials */
     #testimonials h2{text-align:left}
     .testi-slider-container{position:relative;margin-top:var(--spacing)}
     .testi-track{display:flex;gap:var(--spacing);overflow-x:auto;padding:0 var(--spacing);scroll-behavior:smooth}
@@ -85,32 +79,32 @@
     .testimonial-card blockquote{font-style:italic;color:#333;line-height:1.4;margin-bottom:12px}
     .testimonial-card cite{font-weight:600;font-size:.9rem;margin-top:auto;align-self:flex-end}
 
-    /* ---------- Contact / CTA ---------- */
-    #contact h2,#cta h2{text-align:left}
+    /* Contact */
+    #contact h2,#broschuere h2{text-align:left}
     .contact-info{display:flex;flex-wrap:wrap;gap:var(--spacing);align-items:center;max-width:800px;margin:0 auto}
     .contact-info img{width:120px;height:120px;border-radius:50%;object-fit:cover;background:#ddd}
     .contact-details h3{margin-bottom:8px;font-size:1.25rem}
     .contact-details p{margin-bottom:4px;font-size:1rem}
+
+    /* CTA / Broschüre */
     .cta{background:#fff;border-radius:var(--radius);padding:var(--spacing);max-width:500px;margin:0 auto;text-align:center;box-shadow:0 1px 2px rgba(0,0,0,.07),0 1px 3px rgba(0,0,0,.06)}
     .cta form{display:flex;flex-direction:column;gap:16px}
     .cta input,.cta select{border:none;border-bottom:1px solid #ccc;background:transparent;padding:8px 0;font-size:1rem;width:100%}
     .cta input:focus,.cta select:focus{outline:none;border-bottom-color:var(--color-accent2)}
     .cta button{margin-top:var(--spacing);padding:14px 0;width:100%;background:var(--color-accent2);color:#fff;border:none;border-radius:9999px;font-size:1rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;cursor:pointer;transition:background .2s}
     .cta button:hover{background:#7a026f}
-    .cta .download{display:block;margin-top:16px;color:#666;font-size:.9rem}
 
-    /* ---------- Footer ---------- */
+    /* Footer */
     footer{background:#f2f2f2;color:var(--color-muted);font-size:.9rem}
     .footer-inner{max-width:var(--max-width);margin:0 auto;padding:40px var(--spacing)}
     .footer-columns{display:flex;flex-wrap:wrap;gap:48px}
     .footer-col{min-width:180px;flex:1}
     .footer-col h3{color:var(--color-text);font-size:1rem;font-weight:600;margin-bottom:12px}
     .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px}
-    .footer-col a{color:inherit;text-decoration:none}
-    .footer-col a:hover{text-decoration:underline}
+    .footer-col a{color:inherit;text-decoration:none} .footer-col a:hover{text-decoration:underline}
     .copyright{border-top:1px solid #d0d0d0;margin-top:32px;padding:20px 0;font-size:.8rem}
 
-    /* ---------- Responsive ---------- */
+    /* Responsive */
     @media(max-width:1024px){header nav{display:none}}
     @media(max-width:768px){
       .info-grid{position:static;transform:none;justify-content:center;flex-wrap:wrap;margin:var(--spacing) 0}
@@ -125,10 +119,10 @@
 </head>
 <body>
 
-  <!-- ---------- Header ---------- -->
+  <!-- Header -->
   <header>
     <div class="container nav-container">
-      <a href="#hero"><img src="https://lirp.cdn-website.com/d603a072/dms3rep/multi/opt/IMT-logo-rgb-unterzeile-412497ed-1920w.jpg" alt="imtxAI Logo" class="logo"/></a>
+      <a href="#hero"><img src="https://lirp.cdn-website.com/d603a072/dms3rep/multi/opt/IMT-logo-rgb-unterzeile-412497ed-1920w.jpg" alt="imtxAI Logo" class="logo"></a>
       <nav>
         <ul>
           <li><a href="#hero">Home</a></li>
@@ -137,38 +131,45 @@
           <li><a href="#participants">Teilnehmer</a></li>
           <li><a href="#testimonials">Testimonials</a></li>
           <li><a href="#contact">Kontakt</a></li>
-          <li><a href="#cta">Anmeldung</a></li>
+          <li><a href="#broschuere">Broschüre</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- ---------- Floating Sidebar ---------- -->
+  <!-- Sidebar -->
   <aside class="sidebar">
-    <div class="sidebar-item"><svg viewBox="0 0 24 24"><path d="M8 2h8l4 4v16H8a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><path d="M8 2v4h8"/></svg><span>Broschüre</span></div>
-    <div class="sidebar-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M6 22v-2a4 4 0 0 1 8 0v2"/></svg><span>IMT Advisor</span></div>
-    <div class="sidebar-item"><svg viewBox="0 0 24 24"><path d="M4 4h16v12H4z"/><polyline points="4,4 12,12 20,4"/></svg><span>Nachricht</span></div>
+    <a href="#broschuere" class="sidebar-item">
+      <svg viewBox="0 0 24 24"><path d="M8 2h8l4 4v16H8a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><path d="M8 2v4h8"/></svg>
+      <span>Broschüre</span>
+    </a>
+    <div class="sidebar-item">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M6 22v-2a4 4 0 0 1 8 0v2"/></svg>
+      <span>IMT Advisor</span>
+    </div>
+    <div class="sidebar-item">
+      <svg viewBox="0 0 24 24"><path d="M4 4h16v12H4z"/><polyline points="4,4 12,12 20,4"/></svg>
+      <span>Nachricht</span>
+    </div>
   </aside>
 
   <main>
 
-    <!-- ---------- Hero ---------- -->
+    <!-- Hero -->
     <section id="hero">
       <div class="availability-badge">Nur noch wenige<br/>Plätze verfügbar</div>
-
       <div class="container">
         <h1>AI in Business Strategy &amp; Digital Transformation</h1>
-
         <div class="info-grid">
           <div class="info-box"><svg viewBox="0 0 24 24"><path d="M12 21s-6-5.686-6-10a6 6 0 1 1 12 0c0 4.314-6 10-6 10z"/><circle cx="12" cy="11" r="2"/></svg><span class="info-label">Location</span><span class="info-value">St. Gallen</span></div>
           <div class="info-box"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span class="info-label">Length</span><span class="info-value">5 Tage</span></div>
           <div class="info-box"><svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg><span class="info-label">Fee</span><span class="info-value">CHF 6 500</span></div>
-          <div class="info-box"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span class="info-label">Next Start</span><span class="info-value" id="countdown">0d 0h 0min</span></div>
+          <div class="info-box"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span class="info-label">Next Start</span><span class="info-value" id="countdown">0d 0h 0min</span></div>
         </div>
       </div>
     </section>
 
-    <!-- ---------- Modul‑Slider ---------- -->
+    <!-- Modul‑Slider -->
     <section id="module-content">
       <div class="container">
         <h2>Inhalte des Moduls</h2>
@@ -178,9 +179,9 @@
             <div class="slide"><svg class="icon" viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7-6.5-4-6.5 4 2-7L2 9h7z"/></svg><h3>Grundlagen der KI</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p></div>
             <div class="slide"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 7v5l3 3"/></svg><h3>Strategische Anwendungen</h3><p>Praxisnahe Fallstudien und Framework‑Diskussionen.</p></div>
             <div class="slide"><svg class="icon" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg><h3>Frameworks &amp; Methoden</h3><p>Agile, Lean und AI‑spezifische Modelle.</p></div>
-            <div class="slide"><svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 9h16"/></svg><h3>Change Management</h3><p>Erfolgreiche Umsetzungsstrategien.</p></div>
+            <div class="slide"><svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 9h16"/></svg><h3>Change Management</h3><p>Erfolgreiche Umsetzungsstrategien.</p></div>
             <div class="slide"><svg class="icon" viewBox="0 0 24 24"><path d="M8 2h8l4 4v12l-4 4H8l-4-4V6z"/></svg><h3>Praxis‑Workshops</h3><p>Hands‑on Sessions mit realen Fällen.</p></div>
-            <div class="slide"><svg class="icon" viewBox="0 0 24 24"><path d="M2 12h20"/></svg><h3>Digitale Tools</h3><p>Tools und Plattformen zum Einsatz.</p></div>
+            <div class="slide"><svg class="icon" viewBox="0 0 24 24"><path d="M2 12h20"/></svg><h3>Digitale Tools</h3><p>Tools und Plattformen zum Einsatz.</p></div>
             <div class="slide"><svg class="icon" viewBox="0 0 24 24"><polygon points="12 2 22 22 2 22"/></svg><h3>Geschäftsmodell‑Innovation</h3><p>Neue Business‑Modelle entwickeln.</p></div>
           </div>
           <button class="slider-btn next" aria-label="Weiter"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
@@ -188,7 +189,7 @@
       </div>
     </section>
 
-    <!-- ---------- Shorts ---------- -->
+    <!-- Shorts -->
     <section id="videos">
       <div class="container">
         <h2>Shorts von LinkedIn und YouTube</h2>
@@ -202,7 +203,7 @@
       </div>
     </section>
 
-    <!-- ---------- Participants ---------- -->
+    <!-- Participants -->
     <section id="participants">
       <div class="container">
         <h2>Information über Teilnehmer</h2>
@@ -215,55 +216,31 @@
       </div>
     </section>
 
-    <!-- ---------- Testimonials‑Slider ---------- -->
+    <!-- Testimonials -->
     <section id="testimonials">
       <div class="container">
         <h2>Testimonials</h2>
         <div class="testi-slider-container">
           <button class="testi-btn prev" aria-label="Zurück"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
           <div class="testi-track">
-            <div class="testimonial-card">
-              <img src="https://irp.cdn-website.com/d603a072/dms3rep/multi/STRECKER-2-0d89a204.webp" alt="Thomas Strecker"/>
-              <blockquote>„Das Modul hat meine Sicht auf digitale Strategien komplett verändert.“</blockquote>
-              <cite>— Thomas Strecker, CIO</cite>
-            </div>
-            <div class="testimonial-card">
-              <img src="https://irp.cdn-website.com/d603a072/dms3rep/multi/PHOTO-2023-04-27-11-32-06-1-300x300-70d6609d-5ed1dc32.webp" alt="Simone Fischer"/>
-              <blockquote>„Top‑Dozierende und praxisnahe Fälle – perfekt für die Umsetzung.“</blockquote>
-              <cite>— Simone Fischer, Digital Lead</cite>
-            </div>
-            <div class="testimonial-card">
-              <img src="https://irp.cdn-website.com/d603a072/dms3rep/multi/Alexander-Sitte-4d3c9565-32ed4d36.webp" alt="Alexander Sitte"/>
-              <blockquote>„Herausragende Lernerfahrung mit praktischem Bezug.“</blockquote>
-              <cite>— Alexander Sitte, CEO</cite>
-            </div>
-            <div class="testimonial-card">
-              <img src="https://irp.cdn-website.com/d603a072/dms3rep/multi/Gaia-pic-5-067f3922.jpg" alt="Gaia Rossi"/>
-              <blockquote>„Die Dozent:innen verstehen es, komplexe Themen greifbar zu machen.“</blockquote>
-              <cite>— Gaia Rossi, Head of Innovation</cite>
-            </div>
-            <div class="testimonial-card">
-              <img src="https://irp.cdn-website.com/d603a072/dms3rep/multi/029_Corsaro_a-1-300x300.webp" alt="Luca Corsaro"/>
-              <blockquote>„Ein Must‑have für alle, die AI strategisch einsetzen wollen.“</blockquote>
-              <cite>— Luca Corsaro, Product Owner</cite>
-            </div>
-            <div class="testimonial-card">
-              <img src="https://irp.cdn-website.com/d603a072/dms3rep/multi/Markus-300x300-cad9141a-f2599afb.jpg" alt="Markus Weber"/>
-              <blockquote>„Selten so viel praxisrelevantes Wissen in so kurzer Zeit erhalten.“</blockquote>
-              <cite>— Markus Weber, CTO</cite>
-            </div>
+            <div class="testimonial-card"><img src="https://irp.cdn-website.com/d603a072/dms3rep/multi/STRECKER-2-0d89a204.webp" alt="Thomas Strecker"><blockquote>„Das Modul hat meine Sicht auf digitale Strategien komplett verändert.“</blockquote><cite>— Thomas Strecker, CIO</cite></div>
+            <div class="testimonial-card"><img src="https://irp.cdn-website.com/d603a072/dms3rep/multi/PHOTO-2023-04-27-11-32-06-1-300x300-70d6609d-5ed1dc32.webp" alt="Simone Fischer"><blockquote>„Top‑Dozierende und praxisnahe Fälle – perfekt für die Umsetzung.“</blockquote><cite>— Simone Fischer, Digital Lead</cite></div>
+            <div class="testimonial-card"><img src="https://irp.cdn-website.com/d603a072/dms3rep/multi/Alexander-Sitte-4d3c9565-32ed4d36.webp" alt="Alexander Sitte"><blockquote>„Herausragende Lernerfahrung mit praktischem Bezug.“</blockquote><cite>— Alexander Sitte, CEO</cite></div>
+            <div class="testimonial-card"><img src="https://irp.cdn-website.com/d603a072/dms3rep/multi/Gaia-pic-5-067f3922.jpg" alt="Gaia Rossi"><blockquote>„Die Dozent:innen verstehen es, komplexe Themen greifbar zu machen.“</blockquote><cite>— Gaia Rossi, Head of Innovation</cite></div>
+            <div class="testimonial-card"><img src="https://irp.cdn-website.com/d603a072/dms3rep/multi/029_Corsaro_a-1-300x300.webp" alt="Luca Corsaro"><blockquote>„Ein Must‑have für alle, die AI strategisch einsetzen wollen.“</blockquote><cite>— Luca Corsaro, Product Owner</cite></div>
+            <div class="testimonial-card"><img src="https://irp.cdn-website.com/d603a072/dms3rep/multi/Markus-300x300-cad9141a-f2599afb.jpg" alt="Markus Weber"><blockquote>„Selten so viel praxisrelevantes Wissen in so kurzer Zeit erhalten.“</blockquote><cite>— Markus Weber, CTO</cite></div>
           </div>
           <button class="testi-btn next" aria-label="Weiter"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
         </div>
       </div>
     </section>
 
-    <!-- ---------- Kontakt ---------- -->
+    <!-- Kontakt -->
     <section id="contact">
       <div class="container">
         <h2>Akademischer Ansprechpartner</h2>
         <div class="contact-info">
-          <img src="https://media.licdn.com/dms/image/v2/C4E03AQGM2NfVvOguhQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1624328774171?e=1750291200&v=beta&t=ytWUMoxHNsRXlQD6fg77G1pmHIFdG8Ym9ENvHes8Eco" alt="Prof. Dr. Anna Meier"/>
+          <img src="https://media.licdn.com/dms/image/v2/C4E03AQGM2NfVvOguhQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1624328774171?e=1750291200&v=beta&t=ytWUMoxHNsRXlQD6fg77G1pmHIFdG8Ym9ENvHes8Eco" alt="Prof. Dr. Anna Meier">
           <div class="contact-details">
             <h3>Prof. Dr. Anna Meier</h3>
             <p>Leiterin Institut für Digital Business</p>
@@ -274,10 +251,10 @@
       </div>
     </section>
 
-    <!-- ---------- CTA ---------- -->
-    <section id="cta">
+    <!-- Broschüre -->
+    <section id="broschuere">
       <div class="container">
-        <h2>Anmeldung</h2>
+        <h2>Broschüre runterladen</h2>
         <div class="cta">
           <form action="#" method="post">
             <input type="text" name="firstname" placeholder="Vorname" required>
@@ -289,16 +266,15 @@
               <option value="DE">Deutschland</option>
               <option value="AT">Österreich</option>
             </select>
-            <button type="submit">Jetzt anmelden</button>
+            <button type="submit">Jetzt Broschüre herunterladen</button>
           </form>
-          <a href="#" class="download">Broschüre herunterladen (PDF)</a>
         </div>
       </div>
     </section>
 
   </main>
 
-  <!-- ---------- Footer ---------- -->
+  <!-- Footer -->
   <footer>
     <div class="footer-inner">
       <div class="footer-columns">
@@ -329,56 +305,29 @@
     </div>
   </footer>
 
-  <!-- ---------- Scripts ---------- -->
+  <!-- Scripts -->
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded',()=>{
+      /* Countdown */
+      const cd=document.getElementById('countdown'),target=Date.now()+60*24*60*60*1000;
+      const update=()=>{const d=Math.max(0,target-Date.now()),days=Math.floor(d/864e5),hrs=Math.floor(d%864e5/36e5),mins=Math.floor(d%36e5/6e4);cd.textContent=`${days}d ${hrs}h ${mins}min`;};
+      update();setInterval(update,6e4);
 
-      /* --- Countdown --- */
-      const countdownEl=document.getElementById('countdown');
-      const targetDate=Date.now()+60*24*60*60*1000;
-      const updateCountdown=()=>{
-        const diff=Math.max(0,targetDate-Date.now());
-        const d=Math.floor(diff/86_400_000),
-              h=Math.floor(diff%86_400_000/3_600_000),
-              m=Math.floor(diff%3_600_000/60_000);
-        countdownEl.textContent=`${d}d ${h}h ${m}min`;
-      };
-      updateCountdown(); setInterval(updateCountdown,60_000);
-
-      /* --- Modul‑ und Testimonials‑Slider --- */
-      const slider=(trackSelector,prevSelector,nextSelector,itemSelector)=>{
-        const track=document.querySelector(trackSelector),
-              prev=document.querySelector(prevSelector),
-              next=document.querySelector(nextSelector),
-              width=()=>document.querySelector(itemSelector).offsetWidth+parseInt(getComputedStyle(track).gap);
-        prev?.addEventListener('click',()=>track.scrollBy({left:-width(),behavior:'smooth'}));
-        next?.addEventListener('click',()=>track.scrollBy({left: width(),behavior:'smooth'}));
+      /* Slider helper */
+      const slider=(trackSel,prevSel,nextSel,itemSel)=>{
+        const t=document.querySelector(trackSel),p=document.querySelector(prevSel),n=document.querySelector(nextSel);
+        if(!t)return;const w=()=>document.querySelector(itemSel).offsetWidth+parseInt(getComputedStyle(t).gap);
+        p?.addEventListener('click',()=>t.scrollBy({left:-w(),behavior:'smooth'}));
+        n?.addEventListener('click',()=>t.scrollBy({left:w(),behavior:'smooth'}));
       };
       slider('.slider-track','.slider-btn.prev','.slider-btn.next','.slide');
       slider('.testi-track','.testi-btn.prev','.testi-btn.next','.testimonial-card');
 
-      /* --- Zähler‑Animation --- */
-      const counters=document.querySelectorAll('.stat-value.count');
-      counters.forEach(c=>c.textContent='0');
-      const animateCounters=()=>{
-        counters.forEach(counter=>{
-          const target=+counter.dataset.target,
-                suffix=counter.dataset.suffix||'';
-          let current=0,frames=120,inc=target/frames;
-          const step=()=>{
-            current+=inc;
-            if(current>=target){counter.textContent=target+suffix;}
-            else{counter.textContent=Math.round(current)+suffix;requestAnimationFrame(step);}
-          };
-          requestAnimationFrame(step);
-        });
-      };
-      let started=false;
-      new IntersectionObserver(entries=>{
-        entries.forEach(e=>{
-          if(e.isIntersecting&&!started){started=true;animateCounters();}
-        });
-      },{threshold:0.4}).observe(document.querySelector('#participants'));
+      /* Counters */
+      const counters=document.querySelectorAll('.stat-value.count');counters.forEach(e=>e.textContent='0');
+      const animate=()=>counters.forEach(c=>{const t=+c.dataset.target,suf=c.dataset.suffix||'',frames=120,inc=t/frames;let cur=0;
+        const step=()=>{cur+=inc;cur>=t?c.textContent=t+suf:(c.textContent=Math.round(cur)+suf,requestAnimationFrame(step));};requestAnimationFrame(step);});
+      new IntersectionObserver(e=>{e.forEach(v=>{if(v.isIntersecting){animate();observer.disconnect();}});},{threshold:.4}).observe(document.querySelector('#participants'));
     });
   </script>
 </body>
