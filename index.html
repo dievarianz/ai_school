@@ -4,292 +4,143 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AI in Business Strategy &amp; Digital Transformation | imtxAI Business School</title>
+
   <style>
-    :root {
-      --font-sans: -apple-system, BlinkMacSystemFont, "San Francisco", "Segoe UI",
-                   Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-      --color-text: #1d1d1f;
-      --color-muted: #6e6e73;
-      --color-box-bg: rgba(247,247,247,0.8);
-      --color-accent2: #970289;
-      --spacing: 24px;
-      --radius: 16px;
-      --max-width: 1200px;
-      --shadow-light: 0 1px 2px rgba(0,0,0,0.07), 0 1px 3px rgba(0,0,0,0.06);
+    :root{
+      --font-sans:-apple-system,BlinkMacSystemFont,"San Francisco","Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+      --color-text:#1d1d1f;
+      --color-muted:#6e6e73;
+      --color-card-bg:#f5f5f7;
+      --color-accent2:#970289;
+      --color-badge:#fff86a;
+      --spacing:24px;
+      --radius:16px;
+      --max-width:1200px;
     }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: var(--font-sans);
-      color: var(--color-text);
-      background: #fff;
-      line-height: 1.5;
-    }
-    a { color: var(--color-accent2); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    h1, h2 {
-      font-weight: 600;
-      margin-bottom: var(--spacing);
-      text-align: left;
-    }
-    .container {
-      width: 90%; max-width: var(--max-width);
-      margin: 0 auto; padding: 0 var(--spacing);
-    }
-    section { position: relative; padding: 80px 0; }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:var(--font-sans);color:var(--color-text);background:#fff;line-height:1.5}
+    a{color:var(--color-accent2);text-decoration:none}
+    a:hover{text-decoration:underline}
+    h1,h2{font-weight:600;margin-bottom:var(--spacing)}
+    .container{width:90%;max-width:var(--max-width);margin:0 auto;padding:0 var(--spacing)}
+    section{position:relative;padding:80px 0}
 
-    /* Header */
-    header {
-      position: sticky; top: 0;
-      background: #fff; border-bottom: 1px solid #e0e0e0;
-      z-index: 100;
+    /* ---------------- Header ---------------- */
+    header{position:sticky;top:0;background:#fff;border-bottom:1px solid #e0e0e0;z-index:100}
+    .nav-container{display:flex;align-items:center;justify-content:space-between;padding:16px var(--spacing)}
+    .logo{height:32px}
+    nav ul{display:flex;gap:32px;list-style:none}
+    nav a{color:#000;font-size:1rem;font-weight:500;padding-bottom:4px;border-bottom:2px solid transparent;transition:border-color .2s}
+    nav a:hover,nav a:focus{border-bottom-color:var(--color-accent2)}
+
+    /* ---------------- Sidebar ---------------- */
+    .sidebar{
+      position:fixed;top:50%;right:0;transform:translateY(-50%);
+      background:var(--color-accent2);display:flex;flex-direction:column;
+      border-top-left-radius:var(--radius);border-bottom-left-radius:var(--radius);
+      width:80px;z-index:200
     }
-    .nav-container {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 16px var(--spacing);
-    }
-    .logo { height: 32px; }
-    nav ul {
-      display: flex; gap: 32px; list-style: none;
-    }
-    nav a {
-      font-size: 1rem; font-weight: 500;
-      padding-bottom: 4px; border-bottom: 2px solid transparent;
-      transition: border-color .2s;
-    }
-    nav a:hover, nav a:focus {
-      border-bottom-color: var(--color-accent2);
+    .sidebar-item{flex:1;padding:12px 0;text-align:center;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:.75rem;cursor:pointer}
+    .sidebar-item:not(:last-child){border-bottom:1px solid rgba(255,255,255,.3)}
+    .sidebar-item svg{width:24px;height:24px;margin-bottom:4px;stroke:currentColor;fill:none;stroke-width:2}
+
+    /* ---------------- Hero ---------------- */
+    #hero{text-align:center;padding:120px 0 200px;background:url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?crop=entropy&fit=crop&w=1950&q=80') center/cover no-repeat;color:#fff}
+    #hero h1{font-size:2.5rem;text-shadow:2px 2px 8px rgba(0,0,0,.5)}
+
+    .availability-badge{
+      position:absolute;top:32px;right:5%;width:180px;height:180px;background:var(--color-badge);color:#000;
+      border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;
+      font-size:1.05rem;font-weight:600;line-height:1.3;transform:rotate(-6deg);z-index:50;box-shadow:0 2px 4px rgba(0,0,0,.15)
     }
 
-    /* Sidebar */
-    .sidebar {
-      position: fixed; top:50%; right:0;
-      transform: translateY(-50%);
-      background: var(--color-accent2);
-      display: flex; flex-direction: column;
-      border-top-left-radius: var(--radius);
-      border-bottom-left-radius: var(--radius);
-      width: 80px; z-index: 200;
-    }
-    .sidebar-item {
-      flex: 1; padding: 12px 0; text-align: center;
-      color: #fff; display:flex; flex-direction:column; align-items:center; justify-content:center;
-      font-size: .75rem; cursor:pointer;
-    }
-    .sidebar-item:not(:last-child) {
-      border-bottom: 1px solid rgba(255,255,255,0.3);
-    }
-    .sidebar-item svg {
-      width: 24px; height: 24px; margin-bottom:4px;
-      stroke: currentColor; fill:none; stroke-width:2;
-    }
+    /* ---------------- Info‑Boxes ---------------- */
+    .info-grid{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:var(--spacing)}
+    .info-box{background:rgba(247,247,247,.8);border-radius:var(--radius);width:120px;height:120px;padding:8px;text-align:center;box-shadow:0 1px 2px rgba(0,0,0,.07),0 1px 3px rgba(0,0,0,.06);display:flex;flex-direction:column;justify-content:center}
+    .info-box svg{width:24px;height:24px;margin:0 auto 6px;stroke:#000;fill:none}
+    .info-label{font-size:.7rem;color:var(--color-muted);text-transform:uppercase;margin-bottom:4px}
+    .info-value{font-size:.95rem;font-weight:600;color:var(--color-text)}
 
-    /* Hero */
-    #hero {
-      text-align: center;
-      padding: 120px 0 200px;
-      background:
-        url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?crop=entropy&fit=crop&w=1950&q=80')
-        center/cover no-repeat;
-      color: #fff;
-    }
-    #hero h1 {
-      font-size: 2.5rem;
-      text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
-    }
+    /* ---------------- Modul‑Slider ---------------- */
+    #module-content h2{text-align:left}
+    .slider-container{position:relative;margin-top:var(--spacing)}
+    .slider-track{display:flex;gap:var(--spacing);overflow-x:auto;padding:0 var(--spacing);scroll-behavior:smooth}
+    .slide{background:var(--color-card-bg);border-radius:var(--radius);flex:0 0 280px;padding:var(--spacing);display:flex;flex-direction:column}
+    .slide svg.icon{width:32px;height:32px;margin-bottom:12px;stroke:var(--color-accent2);fill:none;stroke-width:2}
+    .slide h3{margin-bottom:8px;font-size:1.1rem}
+    .slide p{font-size:.95rem;color:#555;line-height:1.4;flex-grow:1}
+    .slider-btn,.testi-btn{position:absolute;top:50%;width:40px;height:40px;background:rgba(0,0,0,.5);border:none;border-radius:50%;display:flex;align-items:center;justify-content:center;transform:translateY(-50%);cursor:pointer;z-index:10}
+    .slider-btn.prev,.testi-btn.prev{left:-20px}
+    .slider-btn.next,.testi-btn.next{right:-20px}
+    .slider-btn svg,.testi-btn svg{width:16px;height:16px;stroke:#fff;fill:none}
 
-    /* Info‑Boxes */
-    .info-grid {
-      position: absolute; bottom:16px; left:50%;
-      transform: translateX(-50%);
-      display:flex; gap:var(--spacing);
-    }
-    .info-box {
-      background: var(--color-box-bg);
-      border-radius: var(--radius);
-      width:120px; height:120px; padding:8px;
-      text-align:center;
-      box-shadow: var(--shadow-light);
-      display:flex; flex-direction:column; justify-content:center;
-    }
-    .info-box svg {
-      width:24px; height:24px; margin:0 auto 6px;
-      stroke: #000; fill:none;
-    }
-    .info-label {
-      font-size:.7rem; color:var(--color-muted);
-      text-transform:uppercase; margin-bottom:4px;
-    }
-    .info-value {
-      font-size:.95rem; font-weight:600; color:var(--color-text);
-    }
+    /* ---------------- Shorts ---------------- */
+    #videos .videos{display:flex;flex-wrap:wrap;gap:var(--spacing);justify-content:center;margin-top:var(--spacing)}
+    .video-short{width:200px;height:360px;border-radius:var(--radius);overflow:hidden;background:#000}
+    .video-short iframe{width:100%;height:100%;border:none}
 
-    /* Module Contents Slider */
-    #module-content { background:#fafafa; }
-    #module-content h2 { text-align:left; }
-    .slider-container { position:relative; margin-top:var(--spacing); }
-    .slider-track {
-      display:flex; gap:var(--spacing);
-      overflow-x:auto; padding:0 var(--spacing);
-      scroll-behavior:smooth;
-    }
-    .slide {
-      background:#fff; border-radius:var(--radius);
-      flex:0 0 280px; padding:var(--spacing);
-      box-shadow: var(--shadow-light);
-      display:flex; flex-direction:column;
-    }
-    .slide svg.icon {
-      width:32px; height:32px; margin-bottom:12px;
-      stroke:var(--color-accent2); fill:none; stroke-width:2;
-    }
-    .slide h3 { margin-bottom:8px; font-size:1.1rem; }
-    .slide p {
-      font-size:.95rem; color:#555; line-height:1.4; flex-grow:1;
-    }
-    .slider-btn {
-      position:absolute; top:50%;
-      width:40px; height:40px;
-      background:rgba(0,0,0,0.5); border:none; border-radius:50%;
-      display:flex; align-items:center; justify-content:center;
-      transform:translateY(-50%); cursor:pointer;
-    }
-    .slider-btn.prev { left:-20px; }
-    .slider-btn.next { right:-20px; }
-    .slider-btn svg { width:16px; height:16px; stroke:#fff; }
+    /* ---------------- Participants ---------------- */
+    #participants h2{text-align:left}
+    .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:var(--spacing);max-width:800px;margin:0 auto;text-align:center}
+    .stat-card{background:var(--color-card-bg);border-radius:var(--radius);padding:var(--spacing);display:flex;flex-direction:column;align-items:center}
+    .stat-card svg{width:32px;height:32px;margin-bottom:8px;stroke:var(--color-accent2);fill:none;stroke-width:2}
+    .stat-value{font-size:2rem;font-weight:600;color:var(--color-accent2)}
+    .stat-label{font-size:.85rem;text-transform:uppercase;color:var(--color-muted);margin-top:4px}
 
-    /* Shorts – YouTube Shorts */
-    #videos .videos {
-      display:flex; flex-wrap:wrap; gap:var(--spacing);
-      justify-content:center; margin-top:var(--spacing);
-    }
-    .video-short {
-      width:200px; height:360px;
-      border-radius:var(--radius); overflow:hidden;
-      background:#000;
-    }
-    .video-short iframe {
-      width:100%; height:100%; border:none;
-    }
+    /* ---------------- Testimonials‑Slider ---------------- */
+    #testimonials h2{text-align:left}
+    .testi-slider-container{position:relative;margin-top:var(--spacing)}
+    .testi-track{display:flex;gap:var(--spacing);overflow-x:auto;padding:0 var(--spacing);scroll-behavior:smooth}
+    .testimonial-card{background:var(--color-card-bg);border-radius:var(--radius);padding:var(--spacing);display:flex;flex-direction:column;flex:0 0 280px}
+    .testimonial-card img{width:48px;height:48px;border-radius:50%;object-fit:cover;margin-bottom:12px}
+    .testimonial-card blockquote{font-style:italic;color:#333;line-height:1.4;margin-bottom:12px}
+    .testimonial-card cite{font-weight:600;font-size:.9rem;margin-top:auto;align-self:flex-end}
 
-    /* Participants */
-    #participants { background:#fafafa; }
-    .stats-grid {
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(120px,1fr));
-      gap:var(--spacing); max-width:800px; margin:0 auto; text-align:center;
-    }
-    .stat-card {
-      background:#fff; border-radius:var(--radius);
-      padding:var(--spacing); box-shadow:var(--shadow-light);
-      display:flex; flex-direction:column; align-items:center;
-    }
-    .stat-card svg {
-      width:32px; height:32px; margin-bottom:8px;
-      stroke:var(--color-accent2); fill:none; stroke-width:2;
-    }
-    .stat-value {
-      font-size:2rem; font-weight:600; color:var(--color-accent2);
-    }
-    .stat-label {
-      font-size:.85rem; text-transform:uppercase; color:var(--color-muted);
-      margin-top:4px;
-    }
+    /* ---------------- Contact / CTA ---------------- */
+    #contact h2,#cta h2{text-align:left}
+    .contact-info{display:flex;flex-wrap:wrap;gap:var(--spacing);align-items:center;max-width:800px;margin:0 auto}
+    .contact-info img{width:120px;height:120px;border-radius:50%;object-fit:cover;background:#ddd}
+    .contact-details h3{margin-bottom:8px;font-size:1.25rem}
+    .contact-details p{margin-bottom:4px;font-size:1rem}
 
-    /* Testimonials */
-    .testimonials-grid {
-      display:grid; gap:var(--spacing);
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      max-width:1000px; margin:0 auto;
-    }
-    .testimonial-card {
-      background:#fff; border-radius:var(--radius);
-      box-shadow:var(--shadow-light);
-      padding:var(--spacing); display:flex; flex-direction:column;
-    }
-    .testimonial-card img {
-      width:48px; height:48px; border-radius:50%;
-      object-fit:cover; margin-bottom:12px;
-    }
-    .testimonial-card blockquote {
-      font-style:italic; color:#333; line-height:1.4;
-      margin-bottom:12px;
-    }
-    .testimonial-card cite {
-      font-weight:600; font-size:.9rem; margin-top:auto; align-self:flex-end;
-    }
+    .cta{background:#fff;border-radius:var(--radius);padding:var(--spacing);max-width:500px;margin:0 auto;text-align:center;box-shadow:0 1px 2px rgba(0,0,0,.07),0 1px 3px rgba(0,0,0,.06)}
+    .cta form{display:flex;flex-direction:column;gap:16px}
+    .cta input,.cta select{border:none;border-bottom:1px solid #ccc;background:transparent;padding:8px 0;font-size:1rem;width:100%}
+    .cta input:focus,.cta select:focus{outline:none;border-bottom-color:var(--color-accent2)}
+    .cta button{margin-top:var(--spacing);padding:14px 0;width:100%;background:var(--color-accent2);color:#fff;border:none;border-radius:9999px;font-size:1rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;cursor:pointer;transition:background .2s}
+    .cta button:hover{background:#7a026f}
+    .cta .download{display:block;margin-top:16px;color:#666;font-size:.9rem}
 
-    /* Contact */
-    .contact-info {
-      display:flex; flex-wrap:wrap; gap:var(--spacing);
-      align-items:center; max-width:800px; margin:0 auto;
-    }
-    .contact-info img {
-      width:120px; height:120px; border-radius:50%;
-      object-fit:cover; background:#ddd;
-    }
-    .contact-details h3 { margin-bottom:8px; font-size:1.25rem; }
-    .contact-details p { margin-bottom:4px; font-size:1rem; }
+    /* ---------------- Footer (Apple‑Style) ---------------- */
+    footer{background:#f2f2f2;color:var(--color-muted);font-size:.9rem}
+    .footer-inner{max-width:var(--max-width);margin:0 auto;padding:40px var(--spacing)}
+    .footer-columns{display:flex;flex-wrap:wrap;gap:48px}
+    .footer-col{min-width:180px;flex:1}
+    .footer-col h3{color:var(--color-text);font-size:1rem;font-weight:600;margin-bottom:12px}
+    .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+    .footer-col a{color:inherit;text-decoration:none}
+    .footer-col a:hover{text-decoration:underline}
+    .copyright{border-top:1px solid #d0d0d0;margin-top:32px;padding:20px 0;font-size:.8rem;color:var(--color-muted)}
 
-    /* CTA */
-    .cta {
-      background:#fff; border-radius:var(--radius);
-      padding:var(--spacing); max-width:500px;
-      margin:0 auto; text-align:center;
-      box-shadow:var(--shadow-light);
-    }
-    .cta form {
-      display:flex; flex-direction:column; gap:16px;
-    }
-    .cta input, .cta select {
-      border:none; border-bottom:1px solid #ccc; background:transparent;
-      padding:8px 0; font-size:1rem; width:100%;
-    }
-    .cta input:focus, .cta select:focus {
-      outline:none; border-bottom-color:var(--color-accent2);
-    }
-    .cta button {
-      margin-top:var(--spacing); padding:14px 0; width:100%;
-      background:var(--color-accent2); color:#fff; border:none; border-radius:9999px;
-      font-size:1rem; font-weight:600; text-transform:uppercase; letter-spacing:.5px;
-      cursor:pointer; transition:background .2s;
-    }
-    .cta button:hover { background:#7a026f; }
-    .cta .download {
-      display:block; margin-top:16px; color:#666; font-size:.9rem;
-    }
-
-    /* Responsive */
-    @media (max-width:1024px) {
-      header nav { display:none; }
-    }
-    @media (max-width:768px) {
-      .info-grid {
-        position:static; transform:none;
-        justify-content:center; flex-wrap:wrap;
-        margin:var(--spacing) 0;
-      }
-      .info-box { width:45%; margin-bottom:var(--spacing); }
-      .sidebar {
-        top:auto; bottom:0; left:0; right:0;
-        transform:none; flex-direction:row; width:100%; border-radius:0;
-      }
-      .sidebar-item:not(:last-child) {
-        border-right:1px solid rgba(255,255,255,0.3);
-      }
+    /* ---------------- Responsive ---------------- */
+    @media(max-width:1024px){header nav{display:none}}
+    @media(max-width:768px){
+      .info-grid{position:static;transform:none;justify-content:center;flex-wrap:wrap;margin:var(--spacing) 0}
+      .info-box{width:45%;margin-bottom:var(--spacing)}
+      .sidebar{top:auto;bottom:0;left:0;right:0;transform:none;flex-direction:row;width:100%;border-radius:0}
+      .sidebar-item:not(:last-child){border-right:1px solid rgba(255,255,255,.3)}
+      .availability-badge{width:140px;height:140px;top:24px;right:12px;font-size:.95rem}
+      .slider-btn,.testi-btn{display:none} /* Mobile ‹‑‑ wischen */
+      .footer-columns{flex-direction:column;gap:32px}
     }
   </style>
 </head>
 <body>
 
+  <!-- ---------------- Header ---------------- -->
   <header>
     <div class="container nav-container">
-      <a href="#hero">
-        <img
-          src="https://lirp.cdn-website.com/d603a072/dms3rep/multi/opt/IMT-logo-rgb-unterzeile-412497ed-1920w.jpg"
-          alt="imtxAI Logo"
-          class="logo"
-        />
-      </a>
+      <a href="#hero"><img src="https://lirp.cdn-website.com/d603a072/dms3rep/multi/opt/IMT-logo-rgb-unterzeile-412497ed-1920w.jpg" alt="imtxAI Logo" class="logo"/></a>
       <nav>
         <ul>
           <li><a href="#hero">Home</a></li>
@@ -304,199 +155,128 @@
     </div>
   </header>
 
+  <!-- ---------------- Floating Sidebar ---------------- -->
   <aside class="sidebar">
-    <div class="sidebar-item">
-      <svg viewBox="0 0 24 24"><path d="M8 2h8l4 4v16H8a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><path d="M8 2v4h8"/></svg>
-      <span>Broschüre</span>
-    </div>
-    <div class="sidebar-item">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M6 22v-2a4 4 0 0 1 8 0v2"/></svg>
-      <span>IMT Advisor</span>
-    </div>
-    <div class="sidebar-item">
-      <svg viewBox="0 0 24 24"><path d="M4 4h16v12H4z"/><polyline points="4,4 12,12 20,4"/></svg>
-      <span>Nachricht</span>
-    </div>
+    <div class="sidebar-item"><svg viewBox="0 0 24 24"><path d="M8 2h8l4 4v16H8a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><path d="M8 2v4h8"/></svg><span>Broschüre</span></div>
+    <div class="sidebar-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M6 22v-2a4 4 0 0 1 8 0v2"/></svg><span>IMT Advisor</span></div>
+    <div class="sidebar-item"><svg viewBox="0 0 24 24"><path d="M4 4h16v12H4z"/><polyline points="4,4 12,12 20,4"/></svg><span>Nachricht</span></div>
   </aside>
 
   <main>
+
+    <!-- ---------------- Hero ---------------- -->
     <section id="hero">
+      <div class="availability-badge">Nur noch wenige<br/>Plätze verfügbar</div>
+
       <div class="container">
         <h1>AI in Business Strategy &amp; Digital Transformation</h1>
+
         <div class="info-grid">
-          <div class="info-box">
-            <svg viewBox="0 0 24 24"><path d="M12 21s-6-5.686-6-10a6 6 0 1 1 12 0c0 4.314-6 10-6 10z"/><circle cx="12" cy="11" r="2"/></svg>
-            <span class="info-label">Location</span>
-            <span class="info-value">St. Gallen</span>
-          </div>
-          <div class="info-box">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            <span class="info-label">Length</span>
-            <span class="info-value">5 Tage</span>
-          </div>
-          <div class="info-box">
-            <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-            <span class="info-label">Fee</span>
-            <span class="info-value">CHF 6 500</span>
-          </div>
-          <div class="info-box">
-            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            <span class="info-label">Next Start</span>
-            <span class="info-value" id="countdown">0d 0h 0min</span>
-          </div>
+          <div class="info-box"><svg viewBox="0 0 24 24"><path d="M12 21s-6-5.686-6-10a6 6 0 1 1 12 0c0 4.314-6 10-6 10z"/><circle cx="12" cy="11" r="2"/></svg><span class="info-label">Location</span><span class="info-value">St. Gallen</span></div>
+          <div class="info-box"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span class="info-label">Length</span><span class="info-value">5 Tage</span></div>
+          <div class="info-box"><svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg><span class="info-label">Fee</span><span class="info-value">CHF 6 500</span></div>
+          <div class="info-box"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span class="info-label">Next Start</span><span class="info-value" id="countdown">0d 0h 0min</span></div>
         </div>
       </div>
     </section>
 
+    <!-- ---------------- Modul‑Inhalte‑Slider ---------------- -->
     <section id="module-content">
       <div class="container">
         <h2>Inhalte des Moduls</h2>
+
         <div class="slider-container">
-          <button class="slider-btn prev" aria-label="Zurück">
-            <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-          </button>
+          <button class="slider-btn prev" aria-label="Zurück"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+
           <div class="slider-track">
-            <div class="slide">
-              <svg class="icon" viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7-6.5-4-6.5 4 2-7L2 9h7z"/></svg>
-              <h3>Grundlagen der KI</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </div>
-            <div class="slide">
-              <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 7v5l3 3"/></svg>
-              <h3>Strategische Anwendungen</h3>
-              <p>Praxisnahe Fallstudien und Framework‑Diskussionen.</p>
-            </div>
-            <div class="slide">
-              <svg class="icon" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-              <h3>Frameworks &amp; Methoden</h3>
-              <p>Agile, Lean und AI‑spezifische Modelle.</p>
-            </div>
-            <div class="slide">
-              <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 9h16"/></svg>
-              <h3>Change Management</h3>
-              <p>Erfolgreiche Umsetzungsstrategien.</p>
-            </div>
-            <div class="slide">
-              <svg class="icon" viewBox="0 0 24 24"><path d="M8 2h8l4 4v12l-4 4H8l-4-4V6z"/></svg>
-              <h3>Praxis‑Workshops</h3>
-              <p>Hands‑on Sessions mit realen Fällen.</p>
-            </div>
-            <div class="slide">
-              <svg class="icon" viewBox="0 0 24 24"><path d="M2 12h20"/></svg>
-              <h3>Digitale Tools</h3>
-              <p>Tools und Plattformen zum Einsatz.</p>
-            </div>
-            <div class="slide">
-              <svg class="icon" viewBox="0 0 24 24"><polygon points="12 2 22 22 2 22"/></svg>
-              <h3>Geschäftsmodell‑Innovation</h3>
-              <p>Neue Business‑Modelle entwickeln.</p>
-            </div>
+            <div class="slide"><svg class="icon" viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7-6.5-4-6.5 4 2-7L2 9h7z"/></svg><h3>Grundlagen der KI</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p></div>
+            <div class="slide"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 7v5l3 3"/></svg><h3>Strategische Anwendungen</h3><p>Praxisnahe Fallstudien und Framework‑Diskussionen.</p></div>
+            <div class="slide"><svg class="icon" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg><h3>Frameworks &amp; Methoden</h3><p>Agile, Lean und AI‑spezifische Modelle.</p></div>
+            <div class="slide"><svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 9h16"/></svg><h3>Change Management</h3><p>Erfolgreiche Umsetzungsstrategien.</p></div>
+            <div class="slide"><svg class="icon" viewBox="0 0 24 24"><path d="M8 2h8l4 4v12l-4 4H8l-4-4V6z"/></svg><h3>Praxis‑Workshops</h3><p>Hands‑on Sessions mit realen Fällen.</p></div>
+            <div class="slide"><svg class="icon" viewBox="0 0 24 24"><path d="M2 12h20"/></svg><h3>Digitale Tools</h3><p>Tools und Plattformen zum Einsatz.</p></div>
+            <div class="slide"><svg class="icon" viewBox="0 0 24 24"><polygon points="12 2 22 22 2 22"/></svg><h3>Geschäftsmodell‑Innovation</h3><p>Neue Business‑Modelle entwickeln.</p></div>
           </div>
-          <button class="slider-btn next" aria-label="Weiter">
-            <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-          </button>
+
+          <button class="slider-btn next" aria-label="Weiter"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
         </div>
       </div>
     </section>
 
+    <!-- ---------------- Shorts ---------------- -->
     <section id="videos">
       <div class="container">
         <h2>Shorts von LinkedIn und YouTube</h2>
         <div class="videos">
-          <div class="video-short">
-            <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?rel=0" allowfullscreen></iframe>
-          </div>
-          <div class="video-short">
-            <iframe src="https://www.youtube-nocookie.com/embed/9bZkp7q19f0?rel=0" allowfullscreen></iframe>
-          </div>
-          <div class="video-short">
-            <iframe src="https://www.youtube-nocookie.com/embed/M7lc1UVf-VE?rel=0" allowfullscreen></iframe>
-          </div>
-          <div class="video-short">
-            <iframe src="https://www.youtube-nocookie.com/embed/E7wJTI-1dvQ?rel=0" allowfullscreen></iframe>
-          </div>
-          <div class="video-short">
-            <iframe src="https://www.youtube-nocookie.com/embed/3JZ_D3ELwOQ?rel=0" allowfullscreen></iframe>
-          </div>
+          <div class="video-short"><iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?rel=0" allowfullscreen></iframe></div>
+          <div class="video-short"><iframe src="https://www.youtube-nocookie.com/embed/9bZkp7q19f0?rel=0" allowfullscreen></iframe></div>
+          <div class="video-short"><iframe src="https://www.youtube-nocookie.com/embed/M7lc1UVf-VE?rel=0" allowfullscreen></iframe></div>
+          <div class="video-short"><iframe src="https://www.youtube-nocookie.com/embed/eX2qFMC8cFo?rel=0" allowfullscreen></iframe></div>
+          <div class="video-short"><iframe src="https://www.youtube-nocookie.com/embed/2vjPBrBU-TM?rel=0" allowfullscreen></iframe></div>
         </div>
       </div>
     </section>
 
+    <!-- ---------------- Participants ---------------- -->
     <section id="participants">
       <div class="container">
         <h2>Information über Teilnehmer</h2>
         <div class="stats-grid">
-          <div class="stat-card">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
-            <div class="stat-value">12</div>
-            <div class="stat-label">Jahre Erfahrung</div>
-          </div>
-          <div class="stat-card">
-            <svg viewBox="0 0 24 24"><path d="M6 22v-2a4 4 0 0 1 8 0v2"/></svg>
-            <div class="stat-value">35 %</div>
-            <div class="stat-label">Senior C‑Level</div>
-          </div>
-          <div class="stat-card">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M6 22v-2a4 4 0 0 1 8 0v2"/></svg>
-            <div class="stat-value">42</div>
-            <div class="stat-label">Durchschnittsalter</div>
-          </div>
-          <div class="stat-card">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg>
-            <div class="stat-value">15</div>
-            <div class="stat-label">Nationalitäten</div>
-          </div>
+          <div class="stat-card"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg><div class="stat-value">12</div><div class="stat-label">Jahre Erfahrung</div></div>
+          <div class="stat-card"><svg viewBox="0 0 24 24"><path d="M6 22v-2a4 4 0 0 1 8 0v2"/></svg><div class="stat-value">35 %</div><div class="stat-label">Senior C‑Level</div></div>
+          <div class="stat-card"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M6 22v-2a4 4 0 0 1 8 0v2"/></svg><div class="stat-value">42</div><div class="stat-label">Durchschnittsalter</div></div>
+          <div class="stat-card"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg><div class="stat-value">15</div><div class="stat-label">Nationalitäten</div></div>
         </div>
       </div>
     </section>
 
+    <!-- ---------------- Testimonials‑Slider ---------------- -->
     <section id="testimonials">
       <div class="container">
         <h2>Testimonials</h2>
-        <div class="testimonials-grid">
-          <div class="testimonial-card">
-            <img src="https://picsum.photos/seed/m1/48" alt="Dr. Maria Keller"/>
-            <blockquote>„Das Modul hat meine Sicht auf digitale Strategien komplett verändert.“</blockquote>
-            <cite>— Dr. Maria Keller, CIO</cite>
+
+        <div class="testi-slider-container">
+          <button class="testi-btn prev" aria-label="Zurück"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+
+          <div class="testi-track">
+            <div class="testimonial-card"><img src="https://picsum.photos/seed/m1/48" alt="Dr. Maria Keller"/><blockquote>„Das Modul hat meine Sicht auf digitale Strategien komplett verändert.“</blockquote><cite>— Dr. Maria Keller, CIO</cite></div>
+            <div class="testimonial-card"><img src="https://picsum.photos/seed/m2/48" alt="Markus Steiner"/><blockquote>„Top‑Dozierende und praxisnahe Fälle – perfekt für die Umsetzung.“</blockquote><cite>— Markus Steiner, Digital Transformation Lead</cite></div>
+            <div class="testimonial-card"><img src="https://picsum.photos/seed/m3/48" alt="Anna Müller"/><blockquote>„Herausragende Lernerfahrung mit praktischem Bezug.“</blockquote><cite>— Anna Müller, CEO</cite></div>
+            <div class="testimonial-card"><img src="https://picsum.photos/seed/m4/48" alt="Lukas Schmid"/><blockquote>„Die Dozent:innen verstehen es, komplexe Themen greifbar zu machen.“</blockquote><cite>— Lukas Schmid, Head of Innovation</cite></div>
+            <div class="testimonial-card"><img src="https://picsum.photos/seed/m5/48" alt="Sabine Koch"/><blockquote>„Ein Must‑have für alle, die AI strategisch einsetzen wollen.“</blockquote><cite>— Sabine Koch, Product Owner</cite></div>
+            <div class="testimonial-card"><img src="https://picsum.photos/seed/m6/48" alt="Patrick Weber"/><blockquote>„Selten so viel praxisrelevantes Wissen in so kurzer Zeit erhalten.“</blockquote><cite>— Patrick Weber, CTO</cite></div>
           </div>
-          <div class="testimonial-card">
-            <img src="https://picsum.photos/seed/m2/48" alt="Markus Steiner"/>
-            <blockquote>„Top‑Dozierende und praxisnahe Fälle – perfekt für die Umsetzung.“</blockquote>
-            <cite>— Markus Steiner, Digital Transformation Lead</cite>
-          </div>
-          <div class="testimonial-card">
-            <img src="https://picsum.photos/seed/m3/48" alt="Anna Müller"/>
-            <blockquote>„Herausragende Lernerfahrung mit praktischem Bezug.“</blockquote>
-            <cite>— Anna Müller, CEO</cite>
-          </div>
+
+          <button class="testi-btn next" aria-label="Weiter"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
         </div>
       </div>
     </section>
 
+    <!-- ---------------- Kontakt ---------------- -->
     <section id="contact">
       <div class="container">
         <h2>Akademischer Ansprechpartner</h2>
         <div class="contact-info">
-          <img src="https://media.licdn.com/dms/image/v2/C4E03AQGM2NfVvOguhQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1624328774171?e=1750291200&v=beta&t=ytWUMoxHNsRXlQD6fg77G1pmHIFdG8Ym9ENvHes8Eco"
-               alt="Prof. Dr. Anna Meier" />
+          <img src="https://media.licdn.com/dms/image/v2/C4E03AQGM2NfVvOguhQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1624328774171?e=1750291200&v=beta&t=ytWUMoxHNsRXlQD6fg77G1pmHIFdG8Ym9ENvHes8Eco" alt="Prof. Dr. Anna Meier"/>
           <div class="contact-details">
-            <h3>Prof. Dr. Anna Meier</h3>
-            <p>Leiterin Institut für Digital Business</p>
+            <h3>Prof. Dr. Anna Meier</h3>
+            <p>Leiterin Institut für Digital Business</p>
             <p><a href="mailto:anna.meier@imt.ch">anna.meier@imt.ch</a></p>
-            <p>+41 71 224 72 22</p>
+            <p>+41 71 224 72 22</p>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- ---------------- CTA ---------------- -->
     <section id="cta">
       <div class="container">
         <h2>Anmeldung</h2>
         <div class="cta">
           <form action="#" method="post">
-            <input type="text" name="firstname" placeholder="Vorname" required />
-            <input type="text" name="lastname" placeholder="Name" required />
-            <input type="email" name="email" placeholder="E‑Mail" required />
+            <input type="text" name="firstname" placeholder="Vorname" required>
+            <input type="text" name="lastname" placeholder="Name" required>
+            <input type="email" name="email" placeholder="E‑Mail" required>
             <select name="country" required>
               <option value="">Land auswählen</option>
               <option value="CH">Schweiz</option>
@@ -509,35 +289,89 @@
         </div>
       </div>
     </section>
+
   </main>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const countdownEl = document.getElementById("countdown");
-      const target = Date.now() + 60*24*60*60*1000;
-      function tick() {
-        const now = Date.now(),
-              diff = Math.max(0, target - now),
-              days = Math.floor(diff/(1000*60*60*24)),
-              hrs  = Math.floor((diff%(1000*60*60*24))/(1000*60*60)),
-              mins = Math.floor((diff%(1000*60*60))/(1000*60));
-        countdownEl.textContent = `${days}d ${hrs}h ${mins}min`;
-      }
-      tick();
-      setInterval(tick, 60000);
+  <!-- ---------------- Footer ---------------- -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-columns">
 
-      const track = document.querySelector(".slider-track"),
-            prev  = document.querySelector(".slider-btn.prev"),
-            next  = document.querySelector(".slider-btn.next"),
-            slide = document.querySelector(".slide"),
-            gap   = parseInt(getComputedStyle(track).gap),
-            slideWidth = slide.offsetWidth + gap;
-      prev.addEventListener("click", () =>
-        track.scrollBy({ left: -slideWidth, behavior: "smooth" })
-      );
-      next.addEventListener("click", () =>
-        track.scrollBy({ left: slideWidth, behavior: "smooth" })
-      );
+        <div class="footer-col">
+          <h3>StGallen<br>imt Business School</h3>
+        </div>
+
+        <div class="footer-col">
+          <h3>Programme</h3>
+          <ul>
+            <li><a href="#">StGallen Seminare</a></li>
+            <li><a href="#">Integrated Management and Strategy</a></li>
+            <li><a href="#">Marketing, Sales and Brand Communication</a></li>
+            <li><a href="#">Financial Management</a></li>
+            <li><a href="#">Inspirational Leadership</a></li>
+            <li><a href="#">StGallen imt Management Programm</a></li>
+            <li><a href="#">StGallen imt Certified Management CAS</a></li>
+            <li><a href="#">StGallen Fast‑Track MBA Programm</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Impressum</a></li>
+            <li><a href="#">AGB</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3>Kontakt</h3>
+          <ul>
+            <li><a href="#">Unverbindlichen Termin buchen</a></li>
+            <li><a href="tel:+41712776000">+41 71 277 60 00</a></li>
+            <li>E‑Mail</li>
+            <li><a href="mailto:imt@imtschool.ch">imt@imtschool.ch</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="copyright">
+        Copyright &copy;2025&nbsp;StGallen imt Business School
+      </div>
+    </div>
+  </footer>
+
+  <!-- ---------------- Scripts ---------------- -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      /* Countdown ---------------------------------------------------- */
+      const countdownEl = document.getElementById('countdown');
+      const target = Date.now() + 60*24*60*60*1000; // 60 Tage
+      function tick(){
+        const diff = Math.max(0, target - Date.now());
+        const d    = Math.floor(diff / 86_400_000);
+        const h    = Math.floor(diff % 86_400_000 / 3_600_000);
+        const m    = Math.floor(diff % 3_600_000 / 60_000);
+        countdownEl.textContent = `${d}d ${h}h ${m}min`;
+      }
+      tick(); setInterval(tick, 60_000);
+
+      /* Modul‑Slider ------------------------------------------------- */
+      const mTrack = document.querySelector('.slider-track'),
+            mPrev  = document.querySelector('.slider-btn.prev'),
+            mNext  = document.querySelector('.slider-btn.next'),
+            mWidth = () => document.querySelector('.slide').offsetWidth + parseInt(getComputedStyle(mTrack).gap);
+      mPrev.addEventListener('click', () => mTrack.scrollBy({left:-mWidth(),behavior:'smooth'}));
+      mNext.addEventListener('click', () => mTrack.scrollBy({left: mWidth(),behavior:'smooth'}));
+
+      /* Testimonials‑Slider ----------------------------------------- */
+      const tTrack = document.querySelector('.testi-track'),
+            tPrev  = document.querySelector('.testi-btn.prev'),
+            tNext  = document.querySelector('.testi-btn.next'),
+            tWidth = () => document.querySelector('.testimonial-card').offsetWidth + parseInt(getComputedStyle(tTrack).gap);
+      tPrev.addEventListener('click', () => tTrack.scrollBy({left:-tWidth(),behavior:'smooth'}));
+      tNext.addEventListener('click', () => tTrack.scrollBy({left: tWidth(),behavior:'smooth'}));
     });
   </script>
 </body>
