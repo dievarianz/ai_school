@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AI in Business Strategy & Digital Transformation | imtxAI Business School</title>
+  <title>xAI in Business Strategy & Digital Transformation | imtxAI Business School</title>
 
   <!-- ============ STYLES ============ -->
   <style>
@@ -245,8 +245,8 @@
         <div class="info-grid">
           <div class="info-box"><svg viewBox="0 0 24 24"><path d="M12 21s-6-5.686-6-10a6 6 0 1 1 12 0c0 4.314-6 10-6 10z"/><circle cx="12" cy="11" r="2"/></svg><span class="info-label">Location</span><span class="info-value">St. Gallen</span></div>
           <div class="info-box"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span class="info-label">Length</span><span class="info-value">5 Tage</span></div>
-          <div class="info-box"><svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg><span class="info-label">Fee</span><span class="info-value">CHF 6 500</span></div>
-          <div class="info-box"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span class="info-label">Next Start</span><span class="info-value" id="countdown">0d 0h 0min</span></div>
+          <div class="info-box"><svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg><span class="info-label">Fee</span><span class="info-value">CHF 2,500</span></div>
+          <div class="info-box"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span class="info-label">Next Start</span><span class="info-value" id="countdown">0d 0h 0m</span></div>
         </div>
 
         <a href="#broschuere" class="hero-btn">Jetzt Broschüre herunterladen</a>
@@ -402,7 +402,7 @@
   <script>
     document.addEventListener('DOMContentLoaded',()=>{
       const cd=document.getElementById('countdown'),target=Date.now()+60*24*60*60*1000;
-      const update=()=>{const d=Math.max(0,target-Date.now()),days=Math.floor(d/864e5),hrs=Math.floor(d%864e5/36e5),mins=Math.floor(d%36e5/6e4);cd.textContent=`${days}d ${hrs}h ${mins}min`;};
+      const update=()=>{const d=Math.max(0,target-Date.now()),days=Math.floor(d/864e5),hrs=Math.floor(d%864e5/36e5),mins=Math.floor(d%36e5/6e4);cd.textContent=`${days}d ${hrs}h ${mins}m`;};
       update();setInterval(update,6e4);
 
       const slider=(trackSel,prevSel,nextSel,itemSel)=>{
