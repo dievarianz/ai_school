@@ -30,7 +30,7 @@
       padding-bottom:4px;border-bottom:2px solid transparent;
       transition:border-color .2s
     }
-    /* EIN schwarzer Hover‑Strich */
+    /* EIN schwarzer Hover‑Strich */
     nav a:hover,nav a:focus{border-bottom-color:#000;text-decoration:none}
 
     /* Sidebar */
@@ -89,9 +89,13 @@
     .slide svg.icon{width:32px;height:32px;margin-bottom:12px;stroke:var(--color-accent2);fill:none;stroke-width:2}
     .slide h3{margin-bottom:8px;font-size:1.1rem}
     .slide p{font-size:.95rem;color:#555;line-height:1.4;flex-grow:1}
+
+    /* Slider‑Buttons (hellerer Hintergrund) */
     .slider-btn,.testi-btn{
-      position:absolute;top:50%;width:40px;height:40px;background:rgba(0,0,0,.5);
-      border:none;border-radius:50%;display:flex;align-items:center;justify-content:center;
+      position:absolute;top:50%;width:40px;height:40px;
+      background:rgba(0,0,0,.18);           /* << heller */
+      border:none;border-radius:50%;
+      display:flex;align-items:center;justify-content:center;
       transform:translateY(-50%);cursor:pointer;z-index:10
     }
     .slider-btn.prev,.testi-btn.prev{left:-20px}
@@ -207,8 +211,8 @@
           <li><a href="#videos">Shorts</a></li>
           <li><a href="#participants">Teilnehmer</a></li>
           <li><a href="#testimonials">Testimonials</a></li>
-          <li><a href="#contact">Kontakt</a></li>
           <li><a href="#broschuere">Broschüre</a></li>
+          <li><a href="#contact">Kontakt</a></li>
         </ul>
       </nav>
     </div>
@@ -225,7 +229,6 @@
       <span>IMT Advisor</span>
     </a>
     <a href="https://www.linkedin.com" target="_blank" rel="noopener" class="sidebar-item">
-      <!-- LinkedIn‑Logo -->
       <svg viewBox="0 0 24 24">
         <rect x="2" y="2" width="20" height="20" rx="2" ry="2"/>
         <line x1="8" y1="9" x2="8" y2="15"/>
@@ -235,7 +238,6 @@
       <span>LinkedIn</span>
     </a>
     <a href="https://www.youtube.com" target="_blank" rel="noopener" class="sidebar-item">
-      <!-- YouTube‑Logo -->
       <svg viewBox="0 0 24 24">
         <rect x="2" y="6" width="20" height="12" rx="2" ry="2"/>
         <polygon points="10 9 16 12 10 15 10 9"/>
@@ -414,22 +416,6 @@
       </div>
     </section>
 
-    <!-- IMT Advisor -->
-    <section id="contact">
-      <div class="container">
-        <h2>IMT Advisor</h2>
-        <div class="contact-info">
-          <img src="https://media.licdn.com/dms/image/v2/C4E03AQGM2NfVvOguhQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1624328774171?e=1750291200&v=beta&t=ytWUMoxHNsRXlQD6fg77G1pmHIFdG8Ym9ENvHes8Eco" alt="Prof. Dr. Anna Meier">
-          <div class="contact-details">
-            <h3>Prof. Dr. Anna Meier</h3>
-            <p>Leiterin Institut für Digital Business</p>
-            <p><a href="mailto:anna.meier@imt.ch">anna.meier@imt.ch</a></p>
-            <p>+41 71 224 72 22</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Broschüre -->
     <section id="broschuere">
       <div class="container">
@@ -456,6 +442,22 @@
             </svg>
             <p style="font-size:1.1rem;font-weight:600;margin-bottom:8px">Jetzt Broschüre downloaden</p>
             <a href="brochure.pdf" download style="display:inline-block;padding:12px 24px;background:var(--color-accent2);color:#fff;border-radius:9999px;text-transform:uppercase;font-size:.95rem;font-weight:600">PDF herunterladen</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- IMT Advisor -->
+    <section id="contact">
+      <div class="container">
+        <h2>IMT Advisor</h2>
+        <div class="contact-info">
+          <img src="https://media.licdn.com/dms/image/v2/C4E03AQGM2NfVvOguhQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1624328774171?e=1750291200&v=beta&t=ytWUMoxHNsRXlQD6fg77G1pmHIFdG8Ym9ENvHes8Eco" alt="Prof. Dr. Anna Meier">
+          <div class="contact-details">
+            <h3>Prof. Dr. Anna Meier</h3>
+            <p>Leiterin Institut für Digital Business</p>
+            <p><a href="mailto:anna.meier@imt.ch">anna.meier@imt.ch</a></p>
+            <p>+41 71 224 72 22</p>
           </div>
         </div>
       </div>
