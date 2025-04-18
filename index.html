@@ -219,7 +219,19 @@
     /* ---------- Participants ---------- */
     #participants h2{text-align:left}
     .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:var(--spacing);max-width:800px;margin:0 auto;text-align:center}
-    .stat-card{background:var(--color-card-bg);border-radius:var(--radius);padding:var(--spacing);display:flex;flex-direction:column;align-items:center}
+    .stat-card{
+      background: var(--color-card-bg);
+      border-radius: var(--radius);
+      padding: var(--spacing);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.2s ease;
+      cursor: pointer;
+    }
+    .stat-card:hover {
+      transform: translateY(-8px);
+    }
     .stat-card svg{width:32px;height:32px;margin-bottom:8px;stroke:#000000;fill:none;stroke-width:2}
     .stat-value{font-size:2rem;font-weight:600;color:var(--color-accent2)}
     .stat-label{font-size:.85rem;text-transform:uppercase;color:var(--color-muted);margin-top:4px}
@@ -393,19 +405,18 @@
 
     /* Rechte Spalte der Master Class */
     .masterclass-stats-box {
-      background: #e8e8e8 !important; /* Dunklerer Grauton */
+      background: #e8e8e8 !important;
       padding: clamp(24px, 5vw, 48px) !important;
       border-radius: var(--radius) !important;
       text-align: center !important;
-      transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+      transition: transform 0.2s ease !important;
       text-decoration: none !important;
-      display: block !important; /* Macht den Link zu einem Block-Element */
-      color: inherit !important; /* Behält die ursprüngliche Textfarbe */
+      display: block !important;
+      color: inherit !important;
     }
 
     .masterclass-stats-box:hover {
-      transform: translateY(-4px) !important;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+      transform: translateY(-8px) !important;
     }
 </style>
 <!-- ============ BOXICONS ============ -->
@@ -836,7 +847,7 @@
          padding: clamp(24px, 5vw, 48px);
          border-radius: var(--radius);
          text-align: center;
-         transition: transform 0.2s ease, box-shadow 0.2s ease;
+         transition: transform 0.2s ease !important;
          text-decoration: none;
          display: block;
          color: inherit;">
@@ -988,17 +999,42 @@
 </form>
 </div>
 <!-- Zitate -->
-<div style="flex: 1 1 400px; background: #fff; padding: 32px; border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); display: flex; flex-direction: column; justify-content: center;">
-<div style="text-align: center; margin-bottom: 32px;">
-<img alt="Christian Abegglen" src="https://lirp.cdn-website.com/d603a072/dms3rep/multi/opt/Christian-Abegglen-2-1920w.jpg" style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover; margin-bottom: 12px;"/>
-<blockquote style="font-style: italic; font-size: 0.95rem; color: #555; margin: 0;">„Die Broschüre gibt Ihnen Einblicke in eine neue Art der Führung.“</blockquote>
-<cite style="display: block; font-size: 0.85rem; color: #888; margin-top: 4px;">– Prof. Dr. Christian Abegglen</cite>
-</div>
-<div style="text-align: center;">
-<img alt="Simone Fischer" src="https://irp.cdn-website.com/d603a072/dms3rep/multi/PHOTO-2023-04-27-11-32-06-1-300x300-70d6609d-5ed1dc32.webp" style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover; margin-bottom: 12px;"/>
-<blockquote style="font-style: italic; font-size: 0.95rem; color: #555; margin: 0;">„Top-Dozierende und praxisnahe Inhalte – sehr empfehlenswert!“</blockquote>
-<cite style="display: block; font-size: 0.85rem; color: #888; margin-top: 4px;">– Simone Fischer, Digital Lead</cite>
-</div>
+<div style="
+  flex: 1 1 400px; 
+  background: #f8f8f8; 
+  padding: 32px; 
+  border-radius: 20px; 
+  border: 1px solid #e5e5e5;
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center;
+">
+  <div style="text-align: center; margin-bottom: 32px;">
+    <img 
+      alt="Christian Abegglen" 
+      src="https://lirp.cdn-website.com/d603a072/dms3rep/multi/opt/Christian-Abegglen-2-1920w.jpg" 
+      style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover; margin-bottom: 12px;"
+    />
+    <blockquote style="font-style: italic; font-size: 0.95rem; color: #555; margin: 0;">
+      „Die Broschüre gibt Ihnen Einblicke in eine neue Art der Führung."
+    </blockquote>
+    <cite style="display: block; font-size: 0.85rem; color: #888; margin-top: 4px;">
+      – Prof. Dr. Christian Abegglen
+    </cite>
+  </div>
+  <div style="text-align: center;">
+    <img 
+      alt="Simone Fischer" 
+      src="https://irp.cdn-website.com/d603a072/dms3rep/multi/PHOTO-2023-04-27-11-32-06-1-300x300-70d6609d-5ed1dc32.webp" 
+      style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover; margin-bottom: 12px;"
+    />
+    <blockquote style="font-style: italic; font-size: 0.95rem; color: #555; margin: 0;">
+      „Top-Dozierende und praxisnahe Inhalte – sehr empfehlenswert!"
+    </blockquote>
+    <cite style="display: block; font-size: 0.85rem; color: #888; margin-top: 4px;">
+      – Simone Fischer, Digital Lead
+    </cite>
+  </div>
 </div>
 </div>
 </div>
