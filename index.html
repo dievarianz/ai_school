@@ -36,12 +36,7 @@
       padding-bottom:4px;border-bottom:2px solid transparent;
       transition:border-color .2s
     }
-    /* >>> Änderung 1 – nur ein Unterstrich beim Hover <<< */
-    nav a:hover,
-    nav a:focus{
-      border-bottom-color:#000;
-      text-decoration:none;
-    }
+    nav a:hover, nav a:focus{border-bottom-color:#000;text-decoration:none}
 
     /* ---------- Sidebar ---------- */
     .sidebar{
@@ -96,22 +91,48 @@
     /* ---------- Modul‑Slider ---------- */
     #module-content h2{text-align:left}
     .slider-container{position:relative;margin-top:var(--spacing)}
-    .slider-track{display:flex;gap:var(--spacing);overflow-x:auto;padding:0 var(--spacing);scroll-behavior:smooth}
-    .slide{
-      flex:0 0 280px;padding:var(--spacing);background:var(--color-card-bg);border-radius:var(--radius);
-      display:flex;flex-direction:column
+    .slider-track{
+      display:flex;gap:var(--spacing);overflow-x:auto;
+      padding:0 var(--spacing);scroll-behavior:smooth;
     }
-    .slide svg.icon{width:32px;height:32px;margin-bottom:12px;stroke:var(--color-accent2);fill:none;stroke-width:2}
-    .slide h3{margin-bottom:8px;font-size:1.1rem}
-    .slide p{font-size:.95rem;color:#555;line-height:1.4;flex-grow:1}
-    .slider-btn,.testi-btn{
+    .slider-btn{
       position:absolute;top:50%;width:40px;height:40px;background:rgba(0,0,0,.18);
       border:none;border-radius:50%;display:flex;align-items:center;justify-content:center;
-      transform:translateY(-50%);cursor:pointer;z-index:10
+      transform:translateY(-50%);cursor:pointer;z-index:10;
     }
-    .slider-btn.prev,.testi-btn.prev{left:-20px}
-    .slider-btn.next,.testi-btn.next{right:-20px}
-    .slider-btn svg,.testi-btn svg{width:16px;height:16px;stroke:#fff;fill:none}
+    .slider-btn.prev{left:-20px}
+    .slider-btn.next{right:-20px}
+    .slider-btn svg{width:16px;height:16px;stroke:#fff;fill:none}
+
+    /* ---------- Flip‑Card Styles ---------- */
+    .slide{
+      flex:0 0 280px;height:280px;
+      perspective:1200px;margin-bottom:var(--spacing);
+    }
+    .flipper{
+      width:100%;height:100%;position:relative;
+      transform-style:preserve-3d;transition:transform .6s;
+    }
+    .slide.flipped .flipper{transform:rotateY(180deg)}
+    .flipper .front,
+    .flipper .back{
+      position:absolute;top:0;left:0;width:100%;height:100%;
+      backface-visibility:hidden;border-radius:var(--radius);
+      background:var(--color-card-bg);padding:var(--spacing);
+      display:flex;flex-direction:column;
+    }
+    .flipper .back{
+      transform:rotateY(180deg);background:#fff;
+    }
+    .flipper svg.icon{width:32px;height:32px;margin-bottom:12px;stroke:var(--color-accent2);fill:none;stroke-width:2}
+    .flipper h3{margin-bottom:8px;font-size:1.1rem}
+    .flipper p{font-size:.95rem;color:#555;line-height:1.4;flex-grow:1}
+    .flip-link{
+      align-self:flex-end;
+      font-size:.95rem;font-weight:600;
+      color:var(--color-accent2);text-decoration:underline;
+      cursor:pointer;
+    }
 
     /* ---------- Shorts ---------- */
     #videos .videos{display:flex;flex-wrap:wrap;gap:var(--spacing);justify-content:center;margin-top:var(--spacing)}
@@ -141,6 +162,7 @@
     #contact h2,#broschuere h2{text-align:left}
     .contact-info{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--spacing);max-width:600px;margin:0 auto;text-align:center}
     .contact-info img{width:120px;height:120px;border-radius:50%;object-fit:cover;background:#ddd}
+    .contact-details h3{margin-bottom:8px;font-size:1.1rem}
     .cta{
       background:#fff;border-radius:var(--radius);padding:var(--spacing);max-width:500px;margin:0 auto;text-align:center;
       box-shadow:0 1px 2px rgba(0,0,0,.07),0 1px 3px rgba(0,0,0,.06)
@@ -175,7 +197,7 @@
       .sidebar{top:auto;bottom:0;left:0;right:0;transform:none;flex-direction:row;width:100%;border-radius:0}
       .sidebar-item:not(:last-child){border-right:1px solid rgba(255,255,255,.3)}
       .availability-badge{width:140px;height:140px;top:24px;right:12px;font-size:.95rem}
-      .slider-btn,.testi-btn{display:none}
+      .slider-btn{display:flex}
       .footer-columns{flex-direction:column;gap:32px}
     }
   </style>
@@ -206,27 +228,14 @@
       <svg viewBox="0 0 24 24"><path d="M8 2h8l4 4v16H8a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><path d="M8 2v4h8"/></svg>
       <span>Broschüre</span>
     </a>
-
     <a href="#contact" class="sidebar-item">
       <svg viewBox="0 0 24 24"><circle cx="12" cy="7" r="4"/><path d="M4 22v-2a8 8 0 0 1 16 0v2"/></svg>
       <span>IMT Advisor</span>
     </a>
-
-    <!-- >>> Änderung 2 – weißes Original‑LinkedIn‑Logo <<< -->
     <a href="https://www.linkedin.com" target="_blank" rel="noopener" class="sidebar-item">
-      <svg viewBox="0 0 24 24">
-        <!-- Rahmen -->
-        <rect x="2" y="2" width="20" height="20" rx="2" ry="2"/>
-        <!-- i‑Punkt -->
-        <circle cx="7" cy="6" r="1"/>
-        <!-- i‑Säule -->
-        <line x1="7" y1="9" x2="7" y2="17"/>
-        <!-- n -->
-        <path d="M11 9h2v1.2c.4-.7 1.2-1.2 2.4-1.2 2 0 3.6 1.3 3.6 4V17h-2v-4c0-1-.3-2-1.6-2-1.3 0-2 1-2 2.1V17h-2V9z"/>
-      </svg>
+      <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="2"/><circle cx="7" cy="6" r="1"/><line x1="7" y1="9" x2="7" y2="17"/><path d="M11 9h2v1.2c.4-.7 1.2-1.2 2.4-1.2 2 0 3.6 1.3 3.6 4V17h-2v-4c0-1-.3-2-1.6-2-1.3 0-2 1-2 2.1V17h-2V9z"/></svg>
       <span>LinkedIn</span>
     </a>
-
     <a href="https://www.youtube.com" target="_blank" rel="noopener" class="sidebar-item">
       <svg viewBox="0 0 24 24"><path d="M2 7c0-1.1.9-2 2-2h16c1.1 0 2 .9 2 2v10c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V7z"/><polygon points="10 15 16 12 10 9"/></svg>
       <span>YouTube</span>
@@ -241,14 +250,12 @@
       <div class="availability-badge">Nur noch wenige<br/>Plätze verfügbar</div>
       <div class="container">
         <h1>xAI in Business Strategy &amp; Digital Transformation</h1>
-
         <div class="info-grid">
           <div class="info-box"><svg viewBox="0 0 24 24"><path d="M12 21s-6-5.686-6-10a6 6 0 1 1 12 0c0 4.314-6 10-6 10z"/><circle cx="12" cy="11" r="2"/></svg><span class="info-label">Location</span><span class="info-value">St. Gallen</span></div>
           <div class="info-box"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span class="info-label">Length</span><span class="info-value">5 Tage</span></div>
-          <div class="info-box"><svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg><span class="info-label">Fee</span><span class="info-value">CHF 2,500</span></div>
+          <div class="info-box"><svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg><span class="info-label">Fee</span><span class="info-value">CHF 2 500</span></div>
           <div class="info-box"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span class="info-label">Next Start</span><span class="info-value" id="countdown">0d 0h 0m</span></div>
         </div>
-
         <a href="#broschuere" class="hero-btn">Jetzt Broschüre herunterladen</a>
       </div>
     </section>
@@ -260,13 +267,126 @@
         <div class="slider-container">
           <button class="slider-btn prev" aria-label="Zurück"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
           <div class="slider-track">
-            <div class="slide"><svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 9h16"/></svg><h3>Grundlagen der KI</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p></div>
-            <div class="slide"><svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 9h16"/></svg><h3>Strategische Anwendungen</h3><p>Praxisnahe Fallstudien und Framework‑Diskussionen.</p></div>
-            <div class="slide"><svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 9h16"/></svg><h3>Frameworks &amp; Methoden</h3><p>Agile, Lean und AI‑spezifische Modelle.</p></div>
-            <div class="slide"><svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 9h16"/></svg><h3>Change Management</h3><p>Erfolgreiche Umsetzungsstrategien.</p></div>
-            <div class="slide"><svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 9h16"/></svg><h3>Praxis‑Workshops</h3><p>Hands‑on Sessions mit realen Fällen.</p></div>
-            <div class="slide"><svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 9h16"/></svg><h3>Digitale Tools</h3><p>Tools und Plattformen zum Einsatz.</p></div>
-            <div class="slide"><svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 9h16"/></svg><h3>Geschäftsmodell‑Innovation</h3><p>Neue Business‑Modelle entwickeln.</p></div>
+
+            <!-- Box 1 -->
+            <div class="slide flip-container">
+              <div class="flipper">
+                <div class="front">
+                  <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 9h16"/></svg>
+                  <h3>Grundlagen der KI</h3>
+                  <p>Einführung in ML‑Typen, neuronale Netze, Datenvorbereitung und Ethik.</p>
+                  <a href="#" class="flip-link">Mehr</a>
+                </div>
+                <div class="back">
+                  <h3>Grundlagen – Details</h3>
+                  <p>Vertiefung: Supervised vs. Unsupervised, Deep Learning‑Architekturen und Use‑Cases.</p>
+                  <a href="#" class="flip-link">Zurück</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Box 2 -->
+            <div class="slide flip-container">
+              <div class="flipper">
+                <div class="front">
+                  <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 9h16"/></svg>
+                  <h3>Strategische Anwendungen</h3>
+                  <p>Analyse von Business‑Use‑Cases und Wertschöpfungsmodellen.</p>
+                  <a href="#" class="flip-link">Mehr</a>
+                </div>
+                <div class="back">
+                  <h3>Strategische Anwendungen – Details</h3>
+                  <p>Fallstudien aus Finance, Retail &amp; Health Care; ROI‑Frameworks und KPI‑Tracking.</p>
+                  <a href="#" class="flip-link">Zurück</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Box 3 -->
+            <div class="slide flip-container">
+              <div class="flipper">
+                <div class="front">
+                  <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 9h16"/></svg>
+                  <h3>Frameworks &amp; Methoden</h3>
+                  <p>Agile, Lean und AI‑spezifische Prozessmodelle.</p>
+                  <a href="#" class="flip-link">Mehr</a>
+                </div>
+                <div class="back">
+                  <h3>Frameworks – Details</h3>
+                  <p>Scrum, SAFe, CRISP‑DM, MLOps‑Pipelines mit Praxisbeispielen.</p>
+                  <a href="#" class="flip-link">Zurück</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Box 4 -->
+            <div class="slide flip-container">
+              <div class="flipper">
+                <div class="front">
+                  <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 9h16"/></svg>
+                  <h3>Change Management</h3>
+                  <p>Strategien für erfolgreiche Implementierung.</p>
+                  <a href="#" class="flip-link">Mehr</a>
+                </div>
+                <div class="back">
+                  <h3>Change Management – Details</h3>
+                  <p>Kotter 8‑Step, ADKAR, Stakeholder‑Analyse und Kommunikationspläne.</p>
+                  <a href="#" class="flip-link">Zurück</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Box 5 -->
+            <div class="slide flip-container">
+              <div class="flipper">
+                <div class="front">
+                  <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 9h16"/></svg>
+                  <h3>Praxis‑Workshops</h3>
+                  <p>Hands‑on Sessions mit realen Unternehmens‑Challenges.</p>
+                  <a href="#" class="flip-link">Mehr</a>
+                </div>
+                <div class="back">
+                  <h3>Workshops – Details</h3>
+                  <p>Rapid‑Prototyping, Datenmodellierung und Storytelling in Kleingruppen.</p>
+                  <a href="#" class="flip-link">Zurück</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Box 6 -->
+            <div class="slide flip-container">
+              <div class="flipper">
+                <div class="front">
+                  <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 9h16"/></svg>
+                  <h3>Digitale Tools</h3>
+                  <p>Überblick zu Plattformen und Software‑Stacks.</p>
+                  <a href="#" class="flip-link">Mehr</a>
+                </div>
+                <div class="back">
+                  <h3>Tools – Details</h3>
+                  <p>Jupyter, TensorFlow, SageMaker, MLOps‑Frameworks und Integrationsstrategien.</p>
+                  <a href="#" class="flip-link">Zurück</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Box 7 -->
+            <div class="slide flip-container">
+              <div class="flipper">
+                <div class="front">
+                  <svg class="icon" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 9h16"/></svg>
+                  <h3>Geschäftsmodell‑Innovation</h3>
+                  <p>Entwicklung und Validierung neuer AI‑basierten Geschäftsmodelle.</p>
+                  <a href="#" class="flip-link">Mehr</a>
+                </div>
+                <div class="back">
+                  <h3>Innovation – Details</h3>
+                  <p>Value Proposition Canvas, Revenue Streams und Go‑to‑Market‑Konzepte.</p>
+                  <a href="#" class="flip-link">Zurück</a>
+                </div>
+              </div>
+            </div>
+
           </div>
           <button class="slider-btn next" aria-label="Weiter"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
         </div>
@@ -310,7 +430,7 @@
             <div class="testimonial-card"><img src="https://irp.cdn-website.com/d603a072/dms3rep/multi/STRECKER-2-0d89a204.webp" alt="Thomas Strecker"><blockquote>„Das Modul hat meine Sicht auf digitale Strategien komplett verändert.“</blockquote><cite>— Thomas Strecker, CIO</cite></div>
             <div class="testimonial-card"><img src="https://irp.cdn-website.com/d603a072/dms3rep/multi/PHOTO-2023-04-27-11-32-06-1-300x300-70d6609d-5ed1dc32.webp" alt="Simone Fischer"><blockquote>„Top‑Dozierende und praxisnahe Fälle – perfekt für die Umsetzung.“</blockquote><cite>— Simone Fischer, Digital Lead</cite></div>
             <div class="testimonial-card"><img src="https://irp.cdn-website.com/d603a072/dms3rep/multi/Alexander-Sitte-4d3c9565-32ed4d36.webp" alt="Alexander Sitte"><blockquote>„Herausragende Lernerfahrung mit praktischem Bezug.“</blockquote><cite>— Alexander Sitte, CEO</cite></div>
-            <div class="testimonial-card"><img src="https://irp.cdn-website.com/d603a072/dms3rep/multi/Gaia-pic-5-067f3922.jpg" alt="Gaia Rossi"><blockquote>„Die Dozent:innen verstehen es, komplexe Themen greifbar zu machen.“</blockquote><cite>— Gaia Rossi, Head of Innovation</cite></div>
+            <div class="testimonial-card"><img src="https://irp.cdn-website.com/d603a072/dms3rep/multi/Gaia-pic-5-067f3922.jpg" alt="Gaia Rossi"><blockquote>„Die Dozent:innen verstehen es, komplexe Themen greifbar zu machen.“</blockquote><cite>— Gaia Rossi, Head of Innovation</cite></div>
             <div class="testimonial-card"><img src="https://irp.cdn-website.com/d603a072/dms3rep/multi/029_Corsaro_a-1-300x300.webp" alt="Luca Corsaro"><blockquote>„Ein Must‑have für alle, die AI strategisch einsetzen wollen.“</blockquote><cite>— Luca Corsaro, Product Owner</cite></div>
             <div class="testimonial-card"><img src="https://irp.cdn-website.com/d603a072/dms3rep/multi/Markus-300x300-cad9141a-f2599afb.jpg" alt="Markus Weber"><blockquote>„Selten so viel praxisrelevantes Wissen in so kurzer Zeit erhalten.“</blockquote><cite>— Markus Weber, CTO</cite></div>
           </div>
@@ -352,7 +472,6 @@
             </select>
             <button type="submit">Jetzt Broschüre herunterladen</button>
           </form>
-
           <div id="download-ready" class="hidden" aria-live="polite">
             <svg viewBox="0 0 24 24" width="56" height="56" style="stroke:var(--color-accent2);fill:none;stroke-width:2;margin-bottom:12px">
               <path d="M8 2h8l4 4v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/>
@@ -374,21 +493,21 @@
       <div class="footer-columns">
         <div class="footer-col"><h3>StGallen<br>imt Business School<br>xAI</h3></div>
         <div class="footer-col"><h3>Programme</h3><ul>
-          <li><a href="#">xAI in Business Strategy & Digital Transformation</a></li>
+          <li><a href="#">xAI in Business Strategy &amp; Digital Transformation</a></li>
           <li><a href="#">xAI-Augmented Decision Making</a></li>
           <li><a href="#">xAI in Financial Analytics</a></li>
-          <li><a href="#">xAI-driven Marketing & Customer Analytics </a></li>
-          <li><a href="#">StGallen imt xAI  Management Programm</a></li>
-          <li><a href="#">StGallen imt xAI Certified Management CAS</a></li>
-          <li><a href="#">StGallen Fast‑Track xAI Programm</a></li>
+          <li><a href="#">xAI-driven Marketing &amp; Customer Analytics</a></li>
+          <li><a href="#">StGallen imt xAI Management Programm</a></li>
+          <li><a href="#">StGallen imt xAI Certified Management CAS</a></li>
+          <li><a href="#">StGallen Fast‑Track xAI Programm</a></li>
         </ul></div>
         <div class="footer-col"><h3>Legal</h3><ul>
-          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Privacy Policy</a></li>
           <li><a href="#">Impressum</a></li>
           <li><a href="#">AGB</a></li>
         </ul></div>
         <div class="footer-col"><h3>Kontakt</h3><ul>
-          <li><a href="#">Unverbindlichen Termin buchen</a></li>
+          <li><a href="#">Unverbindlichen Termin buchen</a></li>
           <li><a href="tel:+41712776000">+41 71 277 60 00</a></li>
           <li>E‑Mail</li>
           <li><a href="mailto:imt@imtschool.ch">imt@imtschool.ch</a></li>
@@ -398,31 +517,81 @@
     </div>
   </footer>
 
-  <!-- ============ SCRIPTS (unverändert) ============ -->
+  <!-- ============ SCRIPTS ============ -->
   <script>
     document.addEventListener('DOMContentLoaded',()=>{
-      const cd=document.getElementById('countdown'),target=Date.now()+60*24*60*60*1000;
-      const update=()=>{const d=Math.max(0,target-Date.now()),days=Math.floor(d/864e5),hrs=Math.floor(d%864e5/36e5),mins=Math.floor(d%36e5/6e4);cd.textContent=`${days}d ${hrs}h ${mins}m`;};
+      // Countdown
+      const cd=document.getElementById('countdown'),
+            target=Date.now()+60*24*60*60*1000;
+      const update=()=>{
+        const d=Math.max(0,target-Date.now()),
+              days=Math.floor(d/864e5),
+              hrs=Math.floor(d%864e5/36e5),
+              mins=Math.floor(d%36e5/6e4);
+        cd.textContent=`${days}d ${hrs}h ${mins}m`;
+      };
       update();setInterval(update,6e4);
 
+      // Slider navigation
       const slider=(trackSel,prevSel,nextSel,itemSel)=>{
-        const track=document.querySelector(trackSel),prev=document.querySelector(prevSel),next=document.querySelector(nextSel);
-        if(!track)return;
-        const step=()=>document.querySelector(itemSel).offsetWidth+parseInt(getComputedStyle(track).gap);
+        const track=document.querySelector(trackSel),
+              prev=document.querySelector(prevSel),
+              next=document.querySelector(nextSel);
+        if(!track) return;
+        const step=()=>document.querySelector(itemSel).offsetWidth + parseInt(getComputedStyle(track).gap);
         prev?.addEventListener('click',()=>track.scrollBy({left:-step(),behavior:'smooth'}));
         next?.addEventListener('click',()=>track.scrollBy({left: step(),behavior:'smooth'}));
       };
       slider('.slider-track','.slider-btn.prev','.slider-btn.next','.slide');
       slider('.testi-track','.testi-btn.prev','.testi-btn.next','.testimonial-card');
 
+      // Counters
       const counters=document.querySelectorAll('.stat-value.count');
-      const animateCounters=()=>counters.forEach(c=>{const tgt=+c.dataset.target,suf=c.dataset.suffix||'',inc=tgt/120;let cur=0;const tick=()=>{cur+=inc;if(cur>=tgt)c.textContent=tgt+suf;else{c.textContent=Math.round(cur)+suf;requestAnimationFrame(tick);}};requestAnimationFrame(tick);});
-      const obs=new IntersectionObserver(e=>{e.forEach(v=>{if(v.isIntersecting){animateCounters();obs.disconnect();}});},{threshold:.4});
-      obs.observe(document.querySelector('#participants'));
+      const animateCounters=()=>counters.forEach(c=>{
+        const tgt=+c.dataset.target, suf=c.dataset.suffix||'', inc=tgt/120;
+        let cur=0;
+        const tick=()=>{
+          cur+=inc;
+          c.textContent = cur>=tgt ? tgt+suf : Math.round(cur)+suf;
+          if(cur<tgt) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      });
+      new IntersectionObserver(entries=>{
+        entries.forEach(e=>{ if(e.isIntersecting){ animateCounters(); this.disconnect(); }});
+      },{threshold:.4}).observe(document.querySelector('#participants'));
 
-      const form=document.getElementById('brochure-form'),ready=document.getElementById('download-ready');
-      form?.addEventListener('submit',e=>{e.preventDefault();let ok=true;form.querySelectorAll('.error-message').forEach(m=>m.remove());
-        [...form.querySelectorAll('input,select')].forEach(f=>{if(!f.value.trim()){ok=false;const m=document.createElement('div');m.className='error-message';m.textContent='Dieses Feld muss ausgefüllt werden';f.parentNode.insertBefore(m,f);}});if(ok){form.classList.add('hidden');ready.classList.remove('hidden');}});
+      // Broschüre‑Formular
+      const form=document.getElementById('brochure-form'),
+            ready=document.getElementById('download-ready');
+      form?.addEventListener('submit',e=>{
+        e.preventDefault();
+        let ok=true;
+        form.querySelectorAll('.error-message').forEach(m=>m.remove());
+        [...form.querySelectorAll('input,select')].forEach(f=>{
+          if(!f.value.trim()){
+            ok=false;
+            const m=document.createElement('div');
+            m.className='error-message';
+            m.textContent='Dieses Feld muss ausgefüllt werden';
+            f.parentNode.insertBefore(m,f);
+          }
+        });
+        if(ok){ form.classList.add('hidden'); ready.classList.remove('hidden'); }
+      });
+
+      // Flip‑Card für alle Slides
+      document.querySelectorAll('.slide.flip-container').forEach(slide=>{
+        slide.addEventListener('click',()=>slide.classList.toggle('flipped'));
+      });
+      // Link‑Handler für Flip
+      document.querySelectorAll('.flip-link').forEach(link=>{
+        link.addEventListener('click',e=>{
+          e.preventDefault();
+          e.stopPropagation();
+          link.closest('.slide').classList.toggle('flipped');
+        });
+      });
     });
   </script>
 </body>
