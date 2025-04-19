@@ -1447,7 +1447,7 @@
       font-size: 1.1rem;
       margin-bottom: 40px;
       width: 100%;
-      text-align: left;
+      text-align: center;
     }
 
     @media (max-width: 768px) {
@@ -1455,7 +1455,20 @@
         font-size: 0.95rem;
         margin-bottom: 32px;
         line-height: 1.5;
-        padding: 0 8px;
+        padding: 0;
+        text-align: left;
+      }
+
+      h2 {
+        text-align: left !important;
+      }
+
+      section {
+        text-align: left;
+      }
+
+      .container {
+        text-align: left;
       }
     }
 
@@ -1646,6 +1659,27 @@
     @media (max-width: 480px) {
       .availability-badge {
         display: none !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      h2, .section-subtitle {
+        text-align: left !important;
+      }
+      
+      #impressionen .container h2,
+      #testimonials .container h2,
+      #faculty .container h2,
+      #contact .container h2,
+      #impressionen .container .section-subtitle,
+      #testimonials .container .section-subtitle,
+      #faculty .container .section-subtitle,
+      #contact .container .section-subtitle {
+        text-align: left !important;
+      }
+
+      .container {
+        width: 90%;
       }
     }
 </style>
