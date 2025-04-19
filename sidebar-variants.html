@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Sidebar Varianten</title>
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+
+<style>
+:root {
+  --color-accent2: #970289;
+  --radius: 16px;
+}
+
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #f5f5f7;
+}
+
+.variants-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.variant {
+  background: white;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 24px;
+  font-size: 1.2rem;
+}
+
+/* Gemeinsame Basis-Styles für alle Sidebars */
+.sidebar {
+  position: relative;
+  width: 80px;
+  border-top-left-radius: var(--radius);
+  border-bottom-left-radius: var(--radius);
+  overflow: hidden;
+}
+
+.sidebar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 0;
+  text-decoration: none;
+  font-size: .75rem;
+  transition: all 0.3s ease;
+}
+
+.sidebar-item:not(:last-child) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-item i {
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+
+/* Variante 1: Modern Monochrome */
+.sidebar-v1 {
+  background: #1d1d1f;
+}
+
+.sidebar-v1 .sidebar-item {
+  color: #8e8e93;
+}
+
+.sidebar-v1 .sidebar-item:hover {
+  color: white;
+  background: rgba(255,255,255,0.1);
+}
+
+/* Variante 2: Gradient Accent */
+.sidebar-v2 {
+  background: linear-gradient(135deg, var(--color-accent2), #6a0261);
+}
+
+.sidebar-v2 .sidebar-item {
+  color: rgba(255,255,255,0.7);
+}
+
+.sidebar-v2 .sidebar-item:hover {
+  color: white;
+  background: rgba(255,255,255,0.15);
+}
+
+/* Variante 3: Subtle & Professional */
+.sidebar-v3 {
+  background: white;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+}
+
+.sidebar-v3 .sidebar-item {
+  color: #6e6e73;
+}
+
+.sidebar-v3 .sidebar-item:hover {
+  color: var(--color-accent2);
+  background: #f5f5f7;
+}
+
+/* Variante 4: Glass Effect */
+.sidebar-v4 {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.sidebar-v4 .sidebar-item {
+  color: #1d1d1f;
+}
+
+.sidebar-v4 .sidebar-item:hover {
+  color: var(--color-accent2);
+  background: rgba(151, 2, 137, 0.08);
+}
+
+/* Gelbe Varianten */
+/* Variante 2A: Gelber Gradient - Klassisch */
+.sidebar-v2a {
+  background: linear-gradient(135deg, #fff86a, #fff200);
+}
+
+.sidebar-v2a .sidebar-item {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.sidebar-v2a .sidebar-item:hover {
+  color: #000;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Variante 2B: Gelber Gradient - Warm */
+.sidebar-v2b {
+  background: linear-gradient(135deg, #fff86a, #ffd700);
+}
+
+.sidebar-v2b .sidebar-item {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.sidebar-v2b .sidebar-item:hover {
+  color: #000;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Variante 2C: Gelber Gradient - Subtil */
+.sidebar-v2c {
+  background: linear-gradient(135deg, #fff86a, #fff9cc);
+}
+
+.sidebar-v2c .sidebar-item {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.sidebar-v2c .sidebar-item:hover {
+  color: #000;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* Variante 2D: Gelber Gradient - Modern */
+.sidebar-v2d {
+  background: linear-gradient(135deg, rgba(255, 248, 106, 0.9), rgba(255, 242, 0, 0.9));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.sidebar-v2d .sidebar-item {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.sidebar-v2d .sidebar-item:hover {
+  color: #000;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+</style>
+</head>
+<body>
+
+<div class="variants-container">
+  <!-- Variante 1: Modern Monochrome -->
+  <div class="variant">
+    <h2>Variante 1: Modern Monochrome</h2>
+    <aside class="sidebar sidebar-v1">
+      <a href="#" class="sidebar-item">
+        <i class='bx bxs-file-blank'></i>
+        Broschüre
+      </a>
+      <a href="#" class="sidebar-item">
+        <i class='bx bxs-user'></i>
+        IMT Advisor
+      </a>
+      <a href="#" class="sidebar-item">
+        <i class='bx bxl-linkedin'></i>
+        LinkedIn
+      </a>
+      <a href="#" class="sidebar-item">
+        <i class='bx bxl-youtube'></i>
+        YouTube
+      </a>
+    </aside>
+  </div>
+
+  <!-- Variante 2: Gradient Accent -->
+  <div class="variant">
+    <h2>Variante 2: Gradient Accent</h2>
+    <aside class="sidebar sidebar-v2">
+      <a href="#" class="sidebar-item">
+        <i class='bx bxs-file-blank'></i>
+        Broschüre
+      </a>
+      <a href="#" class="sidebar-item">
+        <i class='bx bxs-user'></i>
+        IMT Advisor
+      </a>
+      <a href="#" class="sidebar-item">
+        <i class='bx bxl-linkedin'></i>
+        LinkedIn
+      </a>
+      <a href="#" class="sidebar-item">
+        <i class='bx bxl-youtube'></i>
+        YouTube
+      </a>
+    </aside>
+  </div>
+
+  <!-- Variante 3: Subtle & Professional -->
+  <div class="variant">
+    <h2>Variante 3: Subtle & Professional</h2>
+    <aside class="sidebar sidebar-v3">
+      <a href="#" class="sidebar-item">
+        <i class='bx bxs-file-blank'></i>
+        Broschüre
+      </a>
+      <a href="#" class="sidebar-item">
+        <i class='bx bxs-user'></i>
+        IMT Advisor
+      </a>
+      <a href="#" class="sidebar-item">
+        <i class='bx bxl-linkedin'></i>
+        LinkedIn
+      </a>
+      <a href="#" class="sidebar-item">
+        <i class='bx bxl-youtube'></i>
+        YouTube
+      </a>
+    </aside>
+  </div>
+
+  <!-- Variante 4: Glass Effect -->
+  <div class="variant">
+    <h2>Variante 4: Glass Effect</h2>
+    <aside class="sidebar sidebar-v4">
+      <a href="#" class="sidebar-item">
+        <i class='bx bxs-file-blank'></i>
+        Broschüre
+      </a>
+      <a href="#" class="sidebar-item">
+        <i class='bx bxs-user'></i>
+        IMT Advisor
+      </a>
+      <a href="#" class="sidebar-item">
+        <i class='bx bxl-linkedin'></i>
+        LinkedIn
+      </a>
+      <a href="#" class="sidebar-item">
+        <i class='bx bxl-youtube'></i>
+        YouTube
+      </a>
+    </aside>
+  </div>
+
+  <!-- Variante 2A: Gelber Gradient - Klassisch -->
+  <div class="variant">
+    <h2>Variante 2A: Gelber Gradient - Klassisch</h2>
+    <aside class="sidebar sidebar-v2a">
+      <a href="#" class="sidebar-item">
+        <i class='bx bxs-file-blank'></i>
+        Broschüre
+      </a>
+      <a href="#" class="sidebar-item">
+        <i class='bx bxs-user'></i>
+        IMT Advisor
+      </a>
+      <a href="#" class="sidebar-item">
+        <i class='bx bxl-linkedin'></i>
+        LinkedIn
+      </a>
+      <a href="#" class="sidebar-item">
+        <i class='bx bxl-youtube'></i>
+        YouTube
+      </a>
+    </aside>
+  </div>
+
+  <!-- Variante 2B: Gelber Gradient - Warm -->
+  <div class="variant">
+    <h2>Variante 2B: Gelber Gradient - Warm</h2>
+    <aside class="sidebar sidebar-v2b">
+      <a href="#" class="sidebar-item">
+        <i class='bx bxs-file-blank'></i>
+        Broschüre
+      </a>
+      <a href="#" class="sidebar-item">
+        <i class='bx bxs-user'></i>
+        IMT Advisor
+      </a>
+      <a href="#" class="sidebar-item">
+        <i class='bx bxl-linkedin'></i>
+        LinkedIn
+      </a>
+      <a href="#" class="sidebar-item">
+        <i class='bx bxl-youtube'></i>
+        YouTube
+      </a>
+    </aside>
+  </div>
+
+  <!-- Variante 2C: Gelber Gradient - Subtil -->
+  <div class="variant">
+    <h2>Variante 2C: Gelber Gradient - Subtil</h2>
+    <aside class="sidebar sidebar-v2c">
+      <a href="#" class="sidebar-item">
+        <i class='bx bxs-file-blank'></i>
+        Broschüre
+      </a>
+      <a href="#" class="sidebar-item">
+        <i class='bx bxs-user'></i>
+        IMT Advisor
+      </a>
+      <a href="#" class="sidebar-item">
+        <i class='bx bxl-linkedin'></i>
+        LinkedIn
+      </a>
+      <a href="#" class="sidebar-item">
+        <i class='bx bxl-youtube'></i>
+        YouTube
+      </a>
+    </aside>
+  </div>
+
+  <!-- Variante 2D: Gelber Gradient - Modern -->
+  <div class="variant">
+    <h2>Variante 2D: Gelber Gradient - Modern</h2>
+    <aside class="sidebar sidebar-v2d">
+      <a href="#" class="sidebar-item">
+        <i class='bx bxs-file-blank'></i>
+        Broschüre
+      </a>
+      <a href="#" class="sidebar-item">
+        <i class='bx bxs-user'></i>
+        IMT Advisor
+      </a>
+      <a href="#" class="sidebar-item">
+        <i class='bx bxl-linkedin'></i>
+        LinkedIn
+      </a>
+      <a href="#" class="sidebar-item">
+        <i class='bx bxl-youtube'></i>
+        YouTube
+      </a>
+    </aside>
+  </div>
+</div>
+
+</body>
+</html> 
