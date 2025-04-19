@@ -704,7 +704,7 @@
     .flipper p{font-size:.95rem;color:#555;line-height:1.4;flex-grow:1}
     .flip-link{
       align-self:flex-end;
-      color:var(--color-accent2);
+      color:var(--color-muted);
       text-decoration:none;
       cursor:pointer;
       display: flex;
@@ -719,11 +719,16 @@
     .flip-link i {
       font-size: 24px;
       transition: transform 0.3s ease;
+      color: var(--color-muted);
     }
 
     .flip-link:hover {
       text-decoration: none;
       transform: scale(1.1);
+    }
+
+    .flip-link:hover i {
+      color: var(--color-text);
     }
 
     .flip-link span {
@@ -1339,6 +1344,33 @@
     .social-icons a:hover {
       color: var(--color-accent2);
     }
+
+    /* Icon Colors */
+    .icon-brain { color: #9C27B0; } /* Violett für KI/Gehirn */
+    .icon-trend { color: #2196F3; } /* Blau für Business/Wachstum */
+    .icon-data { color: #4CAF50; } /* Grün für Daten */
+    .icon-cube { color: #FF9800; } /* Orange für Innovation */
+    .icon-crown { color: #F44336; } /* Rot für Leadership */
+    .icon-slider { color: #00BCD4; } /* Türkis für Technologie */
+    .icon-expand { color: #795548; } /* Braun für Skalierung */
+
+    /* Responsive Subtitle Styling */
+    .section-subtitle {
+      color: var(--color-muted);
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+      width: 100%;
+      text-align: left;
+    }
+
+    @media (max-width: 768px) {
+      .section-subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 32px;
+        line-height: 1.5;
+        padding: 0 8px;
+      }
+    }
 </style>
 
 <!-- ============ BOXICONS ============ -->
@@ -1506,8 +1538,8 @@
 <!-- ----- MODUL‑SLIDER ----- -->
 <section id="module-content">
 <div class="container">
-<h2>KI in Business Strategy & Digital Transformation
-</h2>
+<h2>KI in Business Strategy & Digital Transformation</h2>
+<p class="section-subtitle">Entdecken Sie die sieben Schlüsselmodule unseres Executive Seminars – von KI-Grundlagen bis zur erfolgreichen Implementierung in Ihrem Unternehmen.</p>
 <div class="slider-container">
 <button aria-label="Zurück" class="slider-btn prev" disabled></button>
 <div class="slider-track">
@@ -1515,7 +1547,7 @@
 <div class="slide flip-container">
 <div class="flipper">
 <div class="front">
-<i class='bx bx-brain' style="font-size: 32px; color: var(--color-muted); margin-bottom: 16px;"></i>
+<i class='bx bx-brain icon-brain' style="font-size: 32px; margin-bottom: 16px; opacity: 0.85;"></i>
 <h3>Konzepte & strategische Relevanz von KI</h3>
 <p>KI verstehen – jenseits des Hypes. Fundiertes Wissen für strategische Entscheidungen.</p>
 <a class="flip-link" href="#">
@@ -1534,7 +1566,7 @@
 <div class="slide flip-container">
 <div class="flipper">
 <div class="front">
-<i class='bx bx-trending-up' style="font-size: 32px; color: var(--color-muted); margin-bottom: 16px;"></i>
+<i class='bx bx-trending-up icon-trend' style="font-size: 32px; margin-bottom: 16px; opacity: 0.85;"></i>
 <h3>Strategische Einsatzfelder und Business Impact von KI</h3>
 <p>Wo KI echten Mehrwert schafft – datenbasiert, skalierbar, relevant</p>
 <a class="flip-link" href="#">
@@ -1553,7 +1585,7 @@
 <div class="slide flip-container">
 <div class="flipper">
 <div class="front">
-<i class='bx bx-data' style="font-size: 32px; color: var(--color-muted); margin-bottom: 16px;"></i>
+<i class='bx bx-data icon-data' style="font-size: 32px; margin-bottom: 16px; opacity: 0.85;"></i>
 <h3>Datenstrategie als Enabler für KI</h3>
 <p>KI funktioniert nur mit Daten – die richtige Strategie macht den Unterschied.</p>
 <a class="flip-link" href="#">
@@ -1572,7 +1604,7 @@
 <div class="slide flip-container">
 <div class="flipper">
 <div class="front">
-<i class='bx bx-cube' style="font-size: 32px; color: var(--color-muted); margin-bottom: 16px;"></i>
+<i class='bx bx-cube icon-cube' style="font-size: 32px; margin-bottom: 16px; opacity: 0.85;"></i>
 <h3>Geschäftsmodellinnovation durch KI</h3>
 <p>KI verändert nicht nur Abläufe, sondern ganze Geschäftsmodelle.</p>
 <a class="flip-link" href="#">
@@ -1591,7 +1623,7 @@
 <div class="slide flip-container">
 <div class="flipper">
 <div class="front">
-<i class='bx bx-crown' style="font-size: 32px; color: var(--color-muted); margin-bottom: 16px;"></i>
+<i class='bx bx-crown icon-crown' style="font-size: 32px; margin-bottom: 16px; opacity: 0.85;"></i>
 <h3>Leadership, Change & Organisation im KI-Kontext</h3>
 <p>Transformation gelingt nur, wenn Menschen und Kultur mitziehen.</p>
 <a class="flip-link" href="#">
@@ -1610,7 +1642,7 @@
 <div class="slide flip-container">
 <div class="flipper">
 <div class="front">
-<i class='bx bx-slider' style="font-size: 32px; color: var(--color-muted); margin-bottom: 16px;"></i>
+<i class='bx bx-slider icon-slider' style="font-size: 32px; margin-bottom: 16px; opacity: 0.85;"></i>
 <h3>Technologieauswahl & Tool-Landschaft: Von Use Case zu Stack</h3>
 <p>Wissen, welche Technologie zur eigenen Strategie passt.</p>
 <a class="flip-link" href="#">
@@ -1629,7 +1661,7 @@
 <div class="slide flip-container">
 <div class="flipper">
 <div class="front">
-<i class='bx bx-expand' style="font-size: 32px; color: var(--color-muted); margin-bottom: 16px;"></i>
+<i class='bx bx-expand icon-expand' style="font-size: 32px; margin-bottom: 16px; opacity: 0.85;"></i>
 <h3>Skalierung & Governance von KI-Initiativen</h3>
 <p>Pilotprojekte sind erst der Anfang – jetzt wird skaliert.</p>
 <a class="flip-link" href="#">
@@ -1653,6 +1685,7 @@
 <section id="videos">
 <div class="container">
 <h2>Knowledge Bites von imtxAI</h2>
+<p class="section-subtitle">Entdecken Sie inspirierende Einblicke in KI-gestützte Business Strategy und Digital Transformation – von Führungskräften für Führungskräfte aufbereitet.</p>
 <div class="videos">
 <div class="video-short"><iframe allowfullscreen="" src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?rel=0"></iframe></div>
 <div class="video-short"><iframe allowfullscreen="" src="https://www.youtube-nocookie.com/embed/9bZkp7q19f0?rel=0"></iframe></div>
@@ -1667,6 +1700,7 @@
 <section id="participants">
 <div class="container">
 <h2>Information über Teilnehmer</h2>
+<p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Unser Executive Seminar KI in Business Strategy & Digital Transformation bringt erfahrene Führungskräfte aus verschiedenen Branchen und Ländern zusammen.</p>
 <div class="stats-grid">
 <!-- Kalender‑Icon für Jahre Erfahrung -->
 <div class="stat-card">
@@ -1715,6 +1749,7 @@
 <section id="impressionen">
 <div class="container">
 <h2>Excellence in Action</h2>
+<p class="section-subtitle">Tauchen Sie ein in die Atmosphäre unseres Executive Seminars – von inspirierenden Workshops über exklusive Firmenbesuche bei Google bis zu intensiven Lernerfahrungen in St. Gallen.</p>
 <div class="gallery">
   <!-- 1: Großes, hochformatiges Bild -->
   <div class="gallery-item item1">
@@ -1802,6 +1837,7 @@
 <section id="testimonials">
 <div class="container">
 <h2>Testimonials</h2>
+<p class="section-subtitle">Erfahren Sie aus erster Hand, wie Führungskräfte von unserem Executive Seminar profitieren und KI-Strategien erfolgreich in ihren Unternehmen umsetzen.</p>
 <div class="testi-slider-container">
 <button aria-label="Zurück" class="testi-btn prev" disabled></button>
 <div class="testi-track">
@@ -1933,6 +1969,7 @@
 <section id="contact">
 <div class="container">
 <h2>IMT Advisor</h2>
+<p class="section-subtitle">Ihr persönlicher Ansprechpartner für alle Fragen rund um das Executive Seminar KI in Business Strategy & Digital Transformation – profitieren Sie von seiner langjährigen Expertise in der digitalen Transformation.</p>
 <div class="contact-info">
 <img alt="Prof. Dr. Christian Abegglen" src="https://lirp.cdn-website.com/d603a072/dms3rep/multi/opt/Christian-Abegglen-2-1920w.jpg"/>
 <div class="contact-details">
@@ -1948,6 +1985,7 @@
 <section id="broschuere">
 <div class="container">
 <h2>Kostenlos Broschüre herunterladen</h2>
+<p class="section-subtitle">Laden Sie jetzt die ausführliche Programmbroschüre zum Executive Seminar KI in Business Strategy & Digital Transformation herunter – mit allen Details zu Inhalten, Methoden und Ihrem Lernerfolg.</p>
 <div style="display: flex; gap: 32px; align-items: stretch; flex-wrap: wrap; margin-top: 32px;">
       
 <!-- Formular -->
