@@ -374,12 +374,13 @@
       display: flex;
       flex-direction: column;
       width: 80px;
-      background: rgba(255, 248, 106, 0.9); /* Transparente Version von var(--color-badge) */
+      background: rgba(255, 248, 106, 0.9);
       border-top-left-radius: var(--radius);
       border-bottom-left-radius: var(--radius);
       z-index: 200;
-      backdrop-filter: blur(5px); /* Optional: Fügt einen leichten Blur-Effekt hinzu */
-      -webkit-backdrop-filter: blur(5px); /* Für Safari-Unterstützung */
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      overflow: hidden; /* This ensures child hover effects don't break the border radius */
     }
 
     .sidebar-item {
@@ -392,7 +393,8 @@
       align-items: center;
       justify-content: center;
       font-size: .75rem;
-      transition: background-color 0.3s ease; /* Smooth transition für Hover */
+      transition: background-color 0.3s ease;
+      text-decoration: none;
     }
 
     .sidebar-item:not(:last-child) {
@@ -400,12 +402,30 @@
     }
 
     .sidebar-item:hover {
-      background: rgba(255, 248, 106, 1); /* Volle Deckkraft beim Hover */
+      background: rgba(255, 248, 106, 1);
     }
 
     .sidebar-item i {
       font-size: 24px;
       margin-bottom: 4px;
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        top: auto;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transform: none;
+        flex-direction: row;
+        width: 100%;
+        border-radius: 0;
+      }
+      
+      .sidebar-item:not(:last-child) {
+        border-right: 1px solid rgba(0, 0, 0, 0.1);
+        border-bottom: none;
+      }
     }
 
     /* ---------- Hero ---------- */
@@ -923,6 +943,26 @@
 <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
 </head>
 <body>
+
+<!-- Sidebar -->
+<aside class="sidebar">
+  <a href="#broschuere" class="sidebar-item">
+    <i class='bx bxs-file-blank'></i>
+    Broschüre
+  </a>
+  <a href="#contact" class="sidebar-item">
+    <i class='bx bxs-user'></i>
+    IMT Advisor
+  </a>
+  <a href="https://www.linkedin.com/school/imtschool.ch/" target="_blank" class="sidebar-item">
+    <i class='bx bxl-linkedin'></i>
+    LinkedIn
+  </a>
+  <a href="https://www.youtube.com/@imtschool" target="_blank" class="sidebar-item">
+    <i class='bx bxl-youtube'></i>
+    YouTube
+  </a>
+</aside>
 
 <!-- Hauptnavigation -->
 <nav class="nav-wrapper">
