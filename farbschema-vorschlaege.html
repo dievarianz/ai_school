@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farbschema-Vorschläge für imtxAI</title>
+  <style>
+    :root {
+      --font-sans: -apple-system, BlinkMacSystemFont, "San Francisco", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      --spacing: 24px;
+      --radius: 16px;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: var(--font-sans);
+      color: #1d1d1f;
+      line-height: 1.5;
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    h1, h2, h3 {
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+    }
+    
+    h2 {
+      font-size: 1.75rem;
+      margin-top: 48px;
+      margin-bottom: 24px;
+    }
+    
+    h3 {
+      font-size: 1.25rem;
+      margin-top: 32px;
+      margin-bottom: 16px;
+    }
+    
+    p {
+      margin-bottom: 16px;
+    }
+    
+    .color-section {
+      margin-bottom: 60px;
+    }
+    
+    .color-palettes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+      margin-top: 24px;
+      margin-bottom: 40px;
+    }
+    
+    .palette {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+    
+    .palette-title {
+      padding: 16px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .color-row {
+      display: flex;
+      height: 80px;
+    }
+    
+    .color-square {
+      flex: 1;
+      display: flex;
+      align-items: flex-end;
+      padding: 12px;
+      color: white;
+      font-size: 0.8rem;
+      position: relative;
+    }
+    
+    .color-square.light {
+      color: #1d1d1f;
+    }
+    
+    .color-square span {
+      background: rgba(0, 0, 0, 0.2);
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+    
+    .color-square.light span {
+      background: rgba(255, 255, 255, 0.7);
+    }
+    
+    .usage-examples {
+      background: #f5f5f7;
+      border-radius: var(--radius);
+      padding: 32px;
+      margin-top: 24px;
+    }
+    
+    .example-section {
+      margin-bottom: 40px;
+    }
+    
+    .example-section:last-child {
+      margin-bottom: 0;
+    }
+    
+    .example-title {
+      font-weight: 600;
+      margin-bottom: 16px;
+      font-size: 1.1rem;
+    }
+    
+    .example-box {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+    
+    .example {
+      background: white;
+      border-radius: 8px;
+      padding: 24px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+    
+    .button-example {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    
+    .btn {
+      padding: 12px 24px;
+      border-radius: 100px;
+      border: none;
+      font-weight: 500;
+      cursor: pointer;
+      transition: transform 0.2s;
+      text-align: center;
+    }
+    
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+    
+    .typography-example {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Farbschema-Vorschläge für imtxAI</h1>
+  
+  <p>Basierend auf der bestehenden lila Akzentfarbe (#6e45e2) habe ich harmonische Farbschemata entwickelt, die die Markenidentität stärken und die visuelle Kommunikation verbessern könnten.</p>
+  
+  <div class="color-section">
+    <h2>1. Vorgeschlagene Farbpaletten</h2>
+    
+    <div class="color-palettes">
+      <!-- Palette 1: Monochrome + Akzent -->
+      <div class="palette">
+        <div class="palette-title">Palette 1: Erweiterte Monochrome mit Akzent</div>
+        <div class="color-row">
+          <div class="color-square" style="background-color: #6e45e2;">
+            <span>#6e45e2</span>
+          </div>
+          <div class="color-square" style="background-color: #8665e7;">
+            <span>#8665e7</span>
+          </div>
+          <div class="color-square" style="background-color: #9d85ec;">
+            <span>#9d85ec</span>
+          </div>
+          <div class="color-square light" style="background-color: #e5defa;">
+            <span>#e5defa</span>
+          </div>
+        </div>
+        <div class="color-row">
+          <div class="color-square" style="background-color: #1d1d1f;">
+            <span>#1d1d1f</span>
+          </div>
+          <div class="color-square" style="background-color: #424245;">
+            <span>#424245</span>
+          </div>
+          <div class="color-square" style="background-color: #6e6e73;">
+            <span>#6e6e73</span>
+          </div>
+          <div class="color-square light" style="background-color: #f5f5f7;">
+            <span>#f5f5f7</span>
+          </div>
+        </div>
+        <div class="color-row">
+          <div class="color-square" style="background-color: #ff9500;">
+            <span>#ff9500</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Palette 2: Komplementär -->
+      <div class="palette">
+        <div class="palette-title">Palette 2: Komplementäres Farbschema</div>
+        <div class="color-row">
+          <div class="color-square" style="background-color: #6e45e2;">
+            <span>#6e45e2</span>
+          </div>
+          <div class="color-square" style="background-color: #8665e7;">
+            <span>#8665e7</span>
+          </div>
+          <div class="color-square light" style="background-color: #e5defa;">
+            <span>#e5defa</span>
+          </div>
+        </div>
+        <div class="color-row">
+          <div class="color-square" style="background-color: #1d1d1f;">
+            <span>#1d1d1f</span>
+          </div>
+          <div class="color-square" style="background-color: #6e6e73;">
+            <span>#6e6e73</span>
+          </div>
+          <div class="color-square light" style="background-color: #f5f5f7;">
+            <span>#f5f5f7</span>
+          </div>
+        </div>
+        <div class="color-row">
+          <div class="color-square" style="background-color: #e2b245;">
+            <span>#e2b245</span>
+          </div>
+          <div class="color-square" style="background-color: #45c7e2;">
+            <span>#45c7e2</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Palette 3: Triade -->
+      <div class="palette">
+        <div class="palette-title">Palette 3: Triadisches Farbschema</div>
+        <div class="color-row">
+          <div class="color-square" style="background-color: #6e45e2;">
+            <span>#6e45e2</span>
+          </div>
+          <div class="color-square" style="background-color: #8665e7;">
+            <span>#8665e7</span>
+          </div>
+          <div class="color-square light" style="background-color: #e5defa;">
+            <span>#e5defa</span>
+          </div>
+        </div>
+        <div class="color-row">
+          <div class="color-square" style="background-color: #1d1d1f;">
+            <span>#1d1d1f</span>
+          </div>
+          <div class="color-square" style="background-color: #6e6e73;">
+            <span>#6e6e73</span>
+          </div>
+          <div class="color-square light" style="background-color: #f5f5f7;">
+            <span>#f5f5f7</span>
+          </div>
+        </div>
+        <div class="color-row">
+          <div class="color-square" style="background-color: #e24563;">
+            <span>#e24563</span>
+          </div>
+          <div class="color-square" style="background-color: #45e26f;">
+            <span>#45e26f</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <h3>Warum diese Paletten?</h3>
+    <p>Die vorgeschlagenen Farbschemata ergänzen die bestehende lila Akzentfarbe mit harmonischen Sekundärfarben und schaffen so ein kohärentes, ausgewogenes Erscheinungsbild:</p>
+    <ul style="margin-bottom: 24px; margin-left: 20px;">
+      <li><strong>Palette 1</strong> erweitert die bestehende monochrome Palette mit verschiedenen Abstufungen von Lila und einem kontrastierenden Orangeton als Aufmerksamkeitselement.</li>
+      <li><strong>Palette 2</strong> fügt komplementäre Farben hinzu, wobei das Goldgelb und Türkis harmonisch mit dem Lila zusammenwirken und für verschiedene Inhaltstypen genutzt werden können.</li>
+      <li><strong>Palette 3</strong> verwendet ein triadisches Farbschema, das Rot und Grün als ergänzende Akzentfarben einführt, um verschiedene Themenbereiche zu kennzeichnen.</li>
+    </ul>
+  </div>
+  
+  <div class="color-section">
+    <h2>2. Anwendungsbeispiele</h2>
+    
+    <div class="usage-examples">
+      <div class="example-section">
+        <div class="example-title">UI-Komponenten mit Palette 1</div>
+        
+        <div class="example-box">
+          <div class="example button-example">
+            <button class="btn" style="background-color: #6e45e2; color: white;">Primärer Button</button>
+          </div>
+          
+          <div class="example button-example">
+            <button class="btn" style="background-color: white; border: 2px solid #6e45e2; color: #6e45e2;">Sekundärer Button</button>
+          </div>
+          
+          <div class="example button-example">
+            <button class="btn" style="background-color: #ff9500; color: #1d1d1f;">Aktions-Button</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="example-section">
+        <div class="example-title">UI-Komponenten mit Palette 2</div>
+        
+        <div class="example-box">
+          <div class="example button-example">
+            <button class="btn" style="background-color: #6e45e2; color: white;">Primärer Button</button>
+          </div>
+          
+          <div class="example button-example">
+            <button class="btn" style="background-color: #45c7e2; color: white;">Sekundärer Button</button>
+          </div>
+          
+          <div class="example button-example">
+            <button class="btn" style="background-color: #e2b245; color: #1d1d1f;">Aktions-Button</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="example-section">
+        <div class="example-title">Beispiel für Typografie-Hervorhebung</div>
+        
+        <div class="example-box">
+          <div class="example typography-example">
+            <h4 style="color: #6e45e2; margin: 0;">KI-basierte Strategieentwicklung</h4>
+            <p style="margin: 0;">Eine innovative Herangehensweise an Business Transformation</p>
+          </div>
+          
+          <div class="example typography-example">
+            <h4 style="color: #e2b245; margin: 0;">Data-Driven Decision Making</h4>
+            <p style="margin: 0;">Entscheidungsfindung auf Basis strukturierter Datenanalyse</p>
+          </div>
+          
+          <div class="example typography-example">
+            <h4 style="color: #45c7e2; margin: 0;">Technologische Integration</h4>
+            <p style="margin: 0;">Nahtlose Einbindung von KI in bestehende Geschäftsprozesse</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="color-section">
+    <h2>3. Empfehlungen zur Implementierung</h2>
+    
+    <h3>CSS-Variablen</h3>
+    <p>Die Farbpalette sollte als CSS-Variablen implementiert werden, um Konsistenz zu gewährleisten:</p>
+    
+    <pre style="background: #f5f5f7; padding: 16px; border-radius: 8px; overflow-x: auto; margin-bottom: 24px;">
+:root {
+  /* Hauptfarben */
+  --color-primary: #6e45e2;
+  --color-primary-light: #8665e7;
+  --color-primary-lighter: #9d85ec;
+  --color-primary-bg: #e5defa;
+  
+  /* Texte */
+  --color-text: #1d1d1f;
+  --color-text-secondary: #424245;
+  --color-muted: #6e6e73;
+  --color-bg-light: #f5f5f7;
+  
+  /* Akzentfarben (je nach gewählter Palette) */
+  --color-accent1: #ff9500;  /* Palette 1 */
+  --color-accent2: #e2b245;  /* Palette 2 */
+  --color-accent3: #45c7e2;  /* Palette 2 */
+  --color-accent4: #e24563;  /* Palette 3 */
+  --color-accent5: #45e26f;  /* Palette 3 */
+}</pre>
+    
+    <h3>Farbnutzung nach Kontext</h3>
+    <p>Die Sekundärfarben sollten konsistent nach Kontext verwendet werden:</p>
+    <ul style="margin-left: 20px;">
+      <li><strong>Primäre Aktionen:</strong> --color-primary</li>
+      <li><strong>Call-to-Actions:</strong> --color-accent1 oder --color-accent2</li>
+      <li><strong>Datenvisualisierung:</strong> Die verschiedenen Akzentfarben für unterschiedliche Datenkategorien</li>
+      <li><strong>Hintergründe für Sektionen:</strong> --color-primary-bg oder --color-bg-light</li>
+      <li><strong>Themenbereiche:</strong> Verschiedene Akzentfarben für verschiedene Module oder Kursbereiche</li>
+    </ul>
+  </div>
+  
+  <div class="color-section">
+    <h2>4. Zusammenfassung</h2>
+    <p>Das vorgeschlagene Farbschema bewahrt die Identität der imtxAI Business School durch die Beibehaltung der lila Akzentfarbe, erweitert aber die Ausdrucksmöglichkeiten durch harmonisch abgestimmte Sekundärfarben.</p>
+    
+    <p>Diese Ergänzungen ermöglichen:</p>
+    <ul style="margin-left: 20px;">
+      <li>Eine klarere visuelle Hierarchie in der Benutzeroberfläche</li>
+      <li>Die Hervorhebung unterschiedlicher Inhaltstypen und Themenbereiche</li>
+      <li>Eine konsistentere und professionellere Markenwahrnehmung</li>
+      <li>Mehr gestalterische Flexibilität bei der Weiterentwicklung der Website</li>
+    </ul>
+    
+    <p>Für die Implementierung empfehle ich, mit einer der vorgeschlagenen Paletten zu beginnen und diese zunächst auf neue oder überarbeitete Seitenbereiche anzuwenden, bevor das gesamte Design aktualisiert wird.</p>
+  </div>
+  
+  <div class="color-section">
+    <h2>5. Spezielle Button-Farbvorschläge</h2>
+    
+    <p>Da die lila Markenfarbe (#6e45e2) feststeht und die Call-to-Action-Buttons sowie die Sidebar momentan in Gelb gehalten sind, möchte ich alternative Farbvorschläge präsentieren, die möglicherweise harmonischer mit dem Lila zusammenwirken.</p>
+    
+    <div class="usage-examples">
+      <div class="example-section">
+        <div class="example-title">Optimierte Button-Farbkombinationen</div>
+        
+        <div class="example-box">
+          <!-- Aktuelles Design -->
+          <div class="example">
+            <h5 style="margin-bottom: 16px;">Aktuelles Design</h5>
+            <div class="button-example" style="margin-bottom: 12px;">
+              <button class="btn" style="background-color: #fff86a; color: #1d1d1f;">Jetzt Kostenlos Broschüre herunterladen</button>
+            </div>
+            <p style="font-size: 0.85rem; margin: 0; color: #6e6e73;">Das aktuelle Gelb (#fff86a) wirkt sehr hell und steht in starkem Kontrast zum Lila.</p>
+          </div>
+          
+          <!-- Vorschlag 1: Abgetöntes Gold -->
+          <div class="example">
+            <h5 style="margin-bottom: 16px;">Vorschlag 1: Abgetöntes Gold</h5>
+            <div class="button-example" style="margin-bottom: 12px;">
+              <button class="btn" style="background-color: #e2b245; color: #1d1d1f;">Jetzt Kostenlos Broschüre herunterladen</button>
+            </div>
+            <p style="font-size: 0.85rem; margin: 0; color: #6e6e73;">Ein wärmeres, eleganteres Gold (#e2b245), das besser mit dem Lila harmoniert.</p>
+          </div>
+          
+          <!-- Vorschlag 2: Komplementäres Türkis -->
+          <div class="example">
+            <h5 style="margin-bottom: 16px;">Vorschlag 2: Komplementäres Türkis</h5>
+            <div class="button-example" style="margin-bottom: 12px;">
+              <button class="btn" style="background-color: #45c7e2; color: white;">Jetzt Kostenlos Broschüre herunterladen</button>
+            </div>
+            <p style="font-size: 0.85rem; margin: 0; color: #6e6e73;">Türkis (#45c7e2) ist komplementär zu Lila und sorgt für einen modernen, dynamischen Look.</p>
+          </div>
+        </div>
+        
+        <div class="example-box" style="margin-top: 24px;">
+          <!-- Vorschlag 3: Helleres Lila -->
+          <div class="example">
+            <h5 style="margin-bottom: 16px;">Vorschlag 3: Helleres Lila</h5>
+            <div class="button-example" style="margin-bottom: 12px;">
+              <button class="btn" style="background-color: #9d85ec; color: white;">Jetzt Kostenlos Broschüre herunterladen</button>
+            </div>
+            <p style="font-size: 0.85rem; margin: 0; color: #6e6e73;">Ein helleres Lila (#9d85ec) für eine monochrome Alternative, die mit der Markenfarbe in Harmonie steht.</p>
+          </div>
+          
+          <!-- Vorschlag 4: Koralle -->
+          <div class="example">
+            <h5 style="margin-bottom: 16px;">Vorschlag 4: Koralle</h5>
+            <div class="button-example" style="margin-bottom: 12px;">
+              <button class="btn" style="background-color: #ff6b6b; color: white;">Jetzt Kostenlos Broschüre herunterladen</button>
+            </div>
+            <p style="font-size: 0.85rem; margin: 0; color: #6e6e73;">Ein weiches Korall (#ff6b6b) für einen frischen, zugänglichen Look, der gut mit Lila harmoniert.</p>
+          </div>
+          
+          <!-- Vorschlag 5: Weiß mit Lila Rahmen -->
+          <div class="example">
+            <h5 style="margin-bottom: 16px;">Vorschlag 5: Weiß mit Lila Rahmen</h5>
+            <div class="button-example" style="margin-bottom: 12px;">
+              <button class="btn" style="background-color: white; border: 2px solid #6e45e2; color: #6e45e2;">Jetzt Kostenlos Broschüre herunterladen</button>
+            </div>
+            <p style="font-size: 0.85rem; margin: 0; color: #6e6e73;">Eine dezente, elegante Option mit weißem Hintergrund und lilafarbener Umrandung.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="example-section" style="margin-top: 40px;">
+        <div class="example-title">Sidebarfarben im Vergleich</div>
+        
+        <div class="example-box">
+          <!-- Aktuelle Sidebar -->
+          <div class="example" style="display: flex; flex-direction: column; padding: 0; overflow: hidden;">
+            <div style="padding: 16px; border-bottom: 1px solid rgba(0,0,0,0.05);">
+              <h5 style="margin: 0;">Aktuelle Sidebar</h5>
+            </div>
+            <div style="background-color: #fff86a; padding: 24px; height: 180px; display: flex; flex-direction: column; gap: 16px;">
+              <a href="#" style="display: flex; align-items: center; gap: 8px; color: #1d1d1f; text-decoration: none; font-weight: 500;">
+                <span style="width: 20px; height: 20px; display: inline-flex; justify-content: center; align-items: center;">📄</span>
+                Broschüre
+              </a>
+              <a href="#" style="display: flex; align-items: center; gap: 8px; color: #1d1d1f; text-decoration: none; font-weight: 500;">
+                <span style="width: 20px; height: 20px; display: inline-flex; justify-content: center; align-items: center;">👤</span>
+                IMT Advisor
+              </a>
+            </div>
+          </div>
+          
+          <!-- Vorschlag 1: Gold Sidebar -->
+          <div class="example" style="display: flex; flex-direction: column; padding: 0; overflow: hidden;">
+            <div style="padding: 16px; border-bottom: 1px solid rgba(0,0,0,0.05);">
+              <h5 style="margin: 0;">Vorschlag 1: Gold</h5>
+            </div>
+            <div style="background-color: #e2b245; padding: 24px; height: 180px; display: flex; flex-direction: column; gap: 16px;">
+              <a href="#" style="display: flex; align-items: center; gap: 8px; color: #1d1d1f; text-decoration: none; font-weight: 500;">
+                <span style="width: 20px; height: 20px; display: inline-flex; justify-content: center; align-items: center;">📄</span>
+                Broschüre
+              </a>
+              <a href="#" style="display: flex; align-items: center; gap: 8px; color: #1d1d1f; text-decoration: none; font-weight: 500;">
+                <span style="width: 20px; height: 20px; display: inline-flex; justify-content: center; align-items: center;">👤</span>
+                IMT Advisor
+              </a>
+            </div>
+          </div>
+          
+          <!-- Vorschlag 2: Heller Lila Sidebar -->
+          <div class="example" style="display: flex; flex-direction: column; padding: 0; overflow: hidden;">
+            <div style="padding: 16px; border-bottom: 1px solid rgba(0,0,0,0.05);">
+              <h5 style="margin: 0;">Vorschlag 2: Helles Lila</h5>
+            </div>
+            <div style="background-color: #e5defa; padding: 24px; height: 180px; display: flex; flex-direction: column; gap: 16px;">
+              <a href="#" style="display: flex; align-items: center; gap: 8px; color: #1d1d1f; text-decoration: none; font-weight: 500;">
+                <span style="width: 20px; height: 20px; display: inline-flex; justify-content: center; align-items: center;">📄</span>
+                Broschüre
+              </a>
+              <a href="#" style="display: flex; align-items: center; gap: 8px; color: #1d1d1f; text-decoration: none; font-weight: 500;">
+                <span style="width: 20px; height: 20px; display: inline-flex; justify-content: center; align-items: center;">👤</span>
+                IMT Advisor
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="example-section" style="margin-top: 40px;">
+        <div class="example-title">Zusammenfassung</div>
+        <p>Das bestehende helle Gelb (#fff86a) der Buttons und Sidebar könnte durch harmonischere Farben ersetzt werden:</p>
+        <ul style="margin-bottom: 0; padding-left: 20px;">
+          <li><strong>Für Call-to-Action Buttons:</strong> Das abgetönte Gold (#e2b245) oder Türkis (#45c7e2) bieten eine bessere Farbharmonie mit dem Marken-Lila.</li>
+          <li><strong>Für die Sidebar:</strong> Ein helleres Lila (#e5defa) würde für ein geschlosseneres Markendesign sorgen, während das Gold (#e2b245) einen eleganteren Akzent setzt als das aktuelle Hellgelb.</li>
+          <li><strong>Für sekundäre Buttons:</strong> Weiß mit lila Rahmen oder ein helles Lila (#9d85ec) bieten subtilere Alternativen.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html> 

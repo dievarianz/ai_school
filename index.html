@@ -13,8 +13,8 @@
       --color-muted:#6e6e73;
       --color-card-bg:#f5f5f7;
       --color-accent2:#970289;
-      --color-badge:#fff86a;
-      --color-badge-hover:#fff200;
+      --color-badge:#e2b245;
+      --color-badge-hover:#d4a535;
       --spacing:24px;
       --radius:16px;
       --max-width:1200px;
@@ -375,7 +375,7 @@
       width: 80px;
       border-top-left-radius: var(--radius);
       border-bottom-left-radius: var(--radius);
-      background: linear-gradient(135deg, rgba(255, 248, 106, 0.9), rgba(255, 236, 106, 0.9));
+      background: linear-gradient(135deg, rgba(229, 222, 250, 0.95), rgba(211, 200, 245, 0.95));
       backdrop-filter: blur(5px);
       -webkit-backdrop-filter: blur(5px);
       overflow: hidden;
@@ -389,9 +389,14 @@
       justify-content: center;
       padding: 12px 0;
       text-decoration: none;
-      color: rgba(0, 0, 0, 0.7);
+      color: var(--color-text);
       font-size: .75rem;
       transition: all 0.3s ease;
+    }
+
+    .sidebar-item:hover {
+      color: var(--imt-purple);
+      background: rgba(255, 255, 255, 0.5);
     }
 
     .sidebar-item:not(:last-child) {
@@ -401,11 +406,6 @@
     .sidebar-item i {
       font-size: 24px;
       margin-bottom: 4px;
-    }
-
-    .sidebar-item:hover {
-      color: #000;
-      background: rgba(255, 255, 255, 0.3);
     }
 
     @media (max-width: 768px) {
@@ -1103,7 +1103,7 @@
       align-items: center !important;
       justify-content: center !important;
       background: var(--color-badge) !important;
-      color: var(--color-text) !important;
+      color: var(--color-text) !important; /* Dunkler Text für besseren Kontrast auf Gold */
       padding: 16px 32px !important;
       border-radius: 100px !important;
       text-decoration: none !important;
@@ -1239,7 +1239,7 @@
     }
 
     #hero a[href="#broschuere"]:hover {
-      background: #fff200 !important; /* Gleiche subtil dunklere Farbe */
+      background: #d4a535 !important; /* Dunkleres Gold für den Hover-Effekt */
       text-decoration: none;
     }
 
