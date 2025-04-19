@@ -571,20 +571,102 @@
     }
 
     /* ---------- Modul‑Slider ---------- */
-    #module-content h2{text-align:left}
-    .slider-container{position:relative;margin-top:var(--spacing)}
-    .slider-track{
-      display:flex;gap:var(--spacing);overflow-x:auto;
-      padding:0 var(--spacing);scroll-behavior:smooth;
+    .slider-container {
+      position: relative;
+      margin-top: var(--spacing);
+      padding-bottom: 80px;
     }
-    .slider-btn{
-      position:absolute;top:50%;width:40px;height:40px;background:rgba(0,0,0,.18);
-      border:none;border-radius:50%;display:flex;align-items:center;justify-content:center;
-      transform:translateY(-50%);cursor:pointer;z-index:10;
+
+    .slider-track {
+      display: flex;
+      gap: var(--spacing);
+      overflow-x: auto;
+      padding: 0 var(--spacing);
+      scroll-behavior: smooth;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE and Edge */
     }
-    .slider-btn.prev{left:-20px}
-    .slider-btn.next{right:-20px}
-    .slider-btn svg{width:16px;height:16px;stroke:#fff;fill:none}
+
+    .slider-track::-webkit-scrollbar {
+      display: none; /* Chrome, Safari and Opera */
+    }
+
+    .slider-btn {
+      position: absolute;
+      bottom: 24px;
+      width: 44px;
+      height: 44px;
+      background: rgba(0, 0, 0, 0.2);
+      border: none;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      transition: all 0.2s ease;
+    }
+
+    .slider-btn:disabled {
+      background: rgba(0, 0, 0, 0.1);
+      cursor: default;
+    }
+
+    .slider-btn:not(:disabled):hover {
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    .slider-btn.prev {
+      right: 80px;
+    }
+
+    .slider-btn.next {
+      right: 24px;
+    }
+
+    .slider-btn::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border: solid #fff;
+      border-width: 0 2px 2px 0;
+      display: inline-block;
+      transition: opacity 0.2s ease;
+    }
+
+    .slider-btn.prev::before {
+      transform: rotate(135deg);
+      margin-right: -3px;
+    }
+
+    .slider-btn.next::before {
+      transform: rotate(-45deg);
+      margin-left: -3px;
+    }
+
+    .slider-btn:disabled::before {
+      opacity: 0.3;
+    }
+
+    /* Remove old SVG styles */
+    .slider-btn svg {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .slider-container {
+        padding-bottom: 72px;
+      }
+      .slider-btn {
+        bottom: 16px;
+      }
+      .slider-btn.prev {
+        right: 72px;
+      }
+      .slider-btn.next {
+        right: 16px;
+      }
+    }
 
     /* ---------- Flip‑Card Styles ---------- */
     .slide{
@@ -719,21 +801,106 @@
 
     /* ---------- Testimonials ---------- */
     #testimonials h2{text-align:left}
-    .testi-slider-container{position:relative;margin-top:var(--spacing)}
-    .testi-track{display:flex;gap:var(--spacing);overflow-x:auto;padding:0 var(--spacing);scroll-behavior:smooth}
+    .testi-slider-container{
+      position: relative;
+      margin-top: var(--spacing);
+      padding-bottom: 80px;
+    }
+    .testi-track{
+      display: flex;
+      gap: var(--spacing);
+      overflow-x: auto;
+      padding: 0 var(--spacing);
+      scroll-behavior: smooth;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE and Edge */
+    }
+
+    .testi-track::-webkit-scrollbar {
+      display: none; /* Chrome, Safari and Opera */
+    }
+
+    /* Remove old button styles */
+    .testi-btn {
+      position: absolute;
+      bottom: 24px;
+      width: 44px;
+      height: 44px;
+      background: rgba(0, 0, 0, 0.2);
+      border: none;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      transition: all 0.2s ease;
+    }
+
+    .testi-btn:disabled {
+      background: rgba(0, 0, 0, 0.1);
+      cursor: default;
+    }
+
+    .testi-btn:not(:disabled):hover {
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    .testi-btn.prev {
+      right: 80px;
+    }
+
+    .testi-btn.next {
+      right: 24px;
+    }
+
+    .testi-btn::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border: solid #fff;
+      border-width: 0 2px 2px 0;
+      display: inline-block;
+      transition: opacity 0.2s ease;
+    }
+
+    .testi-btn.prev::before {
+      transform: rotate(135deg);
+      margin-right: -3px;
+    }
+
+    .testi-btn.next::before {
+      transform: rotate(-45deg);
+      margin-left: -3px;
+    }
+
+    .testi-btn:disabled::before {
+      opacity: 0.3;
+    }
+
+    /* Remove old SVG styles */
+    .testi-btn svg {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .testi-slider-container {
+        padding-bottom: 72px;
+      }
+      .testi-btn {
+        bottom: 16px;
+      }
+      .testi-btn.prev {
+        right: 72px;
+      }
+      .testi-btn.next {
+        right: 16px;
+      }
+    }
+
     .testimonial-card{
       flex:0 0 280px;padding:var(--spacing);background:var(--color-card-bg);border-radius:var(--radius);display:flex;flex-direction:column
     }
-    /* Hinzugefügt: Pfeile im Testimonials‑Slider */
-    .testi-btn{
-      position:absolute;top:50%;width:40px;height:40px;background:rgba(0,0,0,.18);
-      border:none;border-radius:50%;display:flex;align-items:center;justify-content:center;
-      transform:translateY(-50%);cursor:pointer;z-index:10;
-    }
-    .testi-btn.prev{left:-20px}
-    .testi-btn.next{right:-20px}
-    .testi-btn svg{width:16px;height:16px;stroke:#fff;fill:none}
-
     .testimonial-card img{width:48px;height:48px;border-radius:50%;object-fit:cover;margin-bottom:12px}
     .testimonial-card blockquote{font-style:italic;color:#333;line-height:1.4;margin-bottom:12px}
     .testimonial-card cite{font-weight:600;font-size:.9rem;margin-top:auto;align-self:flex-end}
@@ -1161,19 +1328,18 @@
 <h2>Inhalte des Executive Seminars 
 </h2>
 <div class="slider-container">
-<button aria-label="Zurück" class="slider-btn prev"><svg viewbox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+<button aria-label="Zurück" class="slider-btn prev" disabled></button>
 <div class="slider-track">
 <!-- Box 1 -->
 <div class="slide flip-container">
 <div class="flipper">
 <div class="front">
-<h3>Grundlagen der KI</h3>
-<p>Einführung in ML‑Typen, neuronale Netze, Datenvorbereitung und Ethik.</p>
+<h3>Konzepte & strategische Relevanz von KI</h3>
+<p>KI verstehen – jenseits des Hypes. Fundiertes Wissen für strategische Entscheidungen.</p>
 <a class="flip-link" href="#">Mehr</a>
 </div>
 <div class="back">
-<h3>Grundlagen – Details</h3>
-<p>Vertiefung: Supervised vs. Unsupervised, Deep Learning‑Architekturen und Use‑Cases.</p>
+<p>Zentrale Konzepte wie Machine Learning und neuronale Netze werden vermittelt. Die strategische Bedeutung von KI wird herausgearbeitet und in den unternehmerischen Kontext eingeordnet.</p>
 <a class="flip-link" href="#">Zurück</a>
 </div>
 </div>
@@ -1182,13 +1348,12 @@
 <div class="slide flip-container">
 <div class="flipper">
 <div class="front">
-<h3>Strategische Anwendungen</h3>
-<p>Analyse von Business‑Use‑Cases und Wertschöpfungsmodellen.</p>
+<h3>Strategische Einsatzfelder und Business Impact von KI</h3>
+<p>Wo KI echten Mehrwert schafft – datenbasiert, skalierbar, relevant</p>
 <a class="flip-link" href="#">Mehr</a>
 </div>
 <div class="back">
-<h3>Strategische Anwendungen – Details</h3>
-<p>Fallstudien aus Finance, Retail &amp; Health Care; ROI‑Frameworks und KPI‑Tracking.</p>
+<p>Relevante Anwendungsfelder werden analysiert und hinsichtlich ihrer wirtschaftlichen Wirkung bewertet. Praxisnahe Beispiele veranschaulichen, wie Wertschöpfung durch KI ermöglicht wird.</p>
 <a class="flip-link" href="#">Zurück</a>
 </div>
 </div>
@@ -1197,13 +1362,12 @@
 <div class="slide flip-container">
 <div class="flipper">
 <div class="front">
-<h3>Frameworks &amp; Methoden</h3>
-<p>Agile, Lean und AI‑spezifische Prozessmodelle.</p>
+<h3>Datenstrategie als Enabler für KI</h3>
+<p>KI funktioniert nur mit Daten – die richtige Strategie macht den Unterschied.</p>
 <a class="flip-link" href="#">Mehr</a>
 </div>
 <div class="back">
-<h3>Frameworks – Details</h3>
-<p>Scrum, SAFe, CRISP‑DM, MLOps‑Pipelines mit Praxisbeispielen.</p>
+<p>Erfolgsfaktoren moderner Datenstrategien werden dargestellt. Es wird aufgezeigt, wie Dateninfrastruktur, Governance und Qualität für KI-Vorhaben bereitgestellt und organisiert werden können.</p>
 <a class="flip-link" href="#">Zurück</a>
 </div>
 </div>
@@ -1212,13 +1376,12 @@
 <div class="slide flip-container">
 <div class="flipper">
 <div class="front">
-<h3>Change Management</h3>
-<p>Strategien für erfolgreiche Implementierung.</p>
+<h3>Geschäftsmodellinnovation durch KI</h3>
+<p>KI verändert nicht nur Abläufe, sondern ganze Geschäftsmodelle.</p>
 <a class="flip-link" href="#">Mehr</a>
 </div>
 <div class="back">
-<h3>Change Management – Details</h3>
-<p>Kotter 8‑Step, ADKAR, Stakeholder‑Analyse und Kommunikationspläne.</p>
+<p>Potenziale zur Neugestaltung von Geschäftsmodellen werden identifiziert. Die Entwicklung datenbasierter Angebote und Erlösquellen wird anhand praxisrelevanter Frameworks aufgezeigt.</p>
 <a class="flip-link" href="#">Zurück</a>
 </div>
 </div>
@@ -1227,13 +1390,12 @@
 <div class="slide flip-container">
 <div class="flipper">
 <div class="front">
-<h3>Praxis‑Workshops</h3>
-<p>Hands‑on Sessions mit realen Unternehmens‑Challenges.</p>
+<h3>Leadership, Change & Organisation im KI-Kontext</h3>
+<p>Transformation gelingt nur, wenn Menschen und Kultur mitziehen.</p>
 <a class="flip-link" href="#">Mehr</a>
 </div>
 <div class="back">
-<h3>Workshops – Details</h3>
-<p>Rapid‑Prototyping, Datenmodellierung und Storytelling in Kleingruppen.</p>
+<p>Herausforderungen organisationalen Wandels werden analysiert. Change-Management-Ansätze und Führungsprinzipien zur erfolgreichen Implementierung von KI werden systematisch erläutert.</p>
 <a class="flip-link" href="#">Zurück</a>
 </div>
 </div>
@@ -1242,13 +1404,12 @@
 <div class="slide flip-container">
 <div class="flipper">
 <div class="front">
-<h3>Digitale Tools</h3>
-<p>Überblick zu Plattformen und Software‑Stacks.</p>
+<h3>Technologieauswahl & Tool-Landschaft: Von Use Case zu Stack</h3>
+<p>Wissen, welche Technologie zur eigenen Strategie passt.</p>
 <a class="flip-link" href="#">Mehr</a>
 </div>
 <div class="back">
-<h3>Tools – Details</h3>
-<p>Jupyter, TensorFlow, SageMaker, MLOps‑Frameworks und Integrationsstrategien.</p>
+<p>Relevante KI-Technologien und Plattformen werden überblicksartig dargestellt. Auswahl- und Integrationskriterien werden anhand strategischer und operativer Anforderungen vermittelt.</p>
 <a class="flip-link" href="#">Zurück</a>
 </div>
 </div>
@@ -1257,19 +1418,18 @@
 <div class="slide flip-container">
 <div class="flipper">
 <div class="front">
-<h3>Geschäftsmodell‑Innovation</h3>
-<p>Entwicklung und Validierung neuer AI‑basierten Geschäftsmodelle.</p>
+<h3>Skalierung & Governance von KI-Initiativen</h3>
+<p>Pilotprojekte sind erst der Anfang – jetzt wird skaliert.</p>
 <a class="flip-link" href="#">Mehr</a>
 </div>
 <div class="back">
-<h3>Innovation – Details</h3>
-<p>Value Proposition Canvas, Revenue Streams und Go‑to‑Market‑Konzepte.</p>
+<p>Vorgehensweisen zur Skalierung und institutionellen Verankerung von KI werden aufgezeigt. Strukturen zur Governance, ethische Leitlinien und Erfolgsmetriken werden diskutiert.</p>
 <a class="flip-link" href="#">Zurück</a>
 </div>
 </div>
 </div>
 </div>
-<button aria-label="Weiter" class="slider-btn next"><svg viewbox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+<button aria-label="Weiter" class="slider-btn next"></button>
 </div>
 </div>
 </section>
@@ -1340,7 +1500,7 @@
 <div class="container">
 <h2>Testimonials</h2>
 <div class="testi-slider-container">
-<button aria-label="Zurück" class="testi-btn prev"><svg viewbox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+<button aria-label="Zurück" class="testi-btn prev" disabled></button>
 <div class="testi-track">
 <div class="testimonial-card"><img alt="Thomas Strecker" src="https://irp.cdn-website.com/d603a072/dms3rep/multi/STRECKER-2-0d89a204.webp"/><blockquote>„Das Modul hat meine Sicht auf digitale Strategien komplett verändert.“</blockquote><cite>— Thomas Strecker, CIO</cite></div>
 <div class="testimonial-card"><img alt="Simone Fischer" src="https://irp.cdn-website.com/d603a072/dms3rep/multi/PHOTO-2023-04-27-11-32-06-1-300x300-70d6609d-5ed1dc32.webp"/><blockquote>„Top‑Dozierende und praxisnahe Fälle – perfekt für die Umsetzung.“</blockquote><cite>— Simone Fischer, Digital Lead</cite></div>
@@ -1349,7 +1509,7 @@
 <div class="testimonial-card"><img alt="Luca Corsaro" src="https://irp.cdn-website.com/d603a072/dms3rep/multi/029_Corsaro_a-1-300x300.webp"/><blockquote>„Ein Must‑have für alle, die AI strategisch einsetzen wollen.“</blockquote><cite>— Luca Corsaro, Product Owner</cite></div>
 <div class="testimonial-card"><img alt="Markus Weber" src="https://irp.cdn-website.com/d603a072/dms3rep/multi/Markus-300x300-cad9141a-f2599afb.jpg"/><blockquote>„Selten so viel praxisrelevantes Wissen in so kurzer Zeit erhalten.“</blockquote><cite>— Markus Weber, CTO</cite></div>
 </div>
-<button aria-label="Weiter" class="testi-btn next"><svg viewbox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+<button aria-label="Weiter" class="testi-btn next"></button>
 </div>
 </div>
 </section>
@@ -1847,6 +2007,59 @@ document.querySelector('.program-title').addEventListener('click', function(e) {
     top: 0,
     behavior: 'smooth'
   });
+});
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const initSlider = (container) => {
+    const track = container.querySelector('.slider-track, .testi-track');
+    const prevBtn = container.querySelector('.slider-btn.prev, .testi-btn.prev');
+    const nextBtn = container.querySelector('.slider-btn.next, .testi-btn.next');
+    
+    if (!track || !prevBtn || !nextBtn) return;
+
+    const updateButtonStates = () => {
+      // Check if we can scroll left
+      prevBtn.disabled = Math.abs(track.scrollLeft) < 1;
+      
+      // Check if we can scroll right
+      const maxScroll = track.scrollWidth - track.clientWidth;
+      nextBtn.disabled = Math.abs(track.scrollLeft - maxScroll) < 1;
+    };
+
+    const scrollAmount = () => {
+      const firstSlide = track.querySelector('.slide, .testimonial-card');
+      if (!firstSlide) return 0;
+      return firstSlide.offsetWidth + parseInt(getComputedStyle(track).gap);
+    };
+
+    prevBtn.addEventListener('click', () => {
+      track.scrollBy({
+        left: -scrollAmount(),
+        behavior: 'smooth'
+      });
+    });
+
+    nextBtn.addEventListener('click', () => {
+      track.scrollBy({
+        left: scrollAmount(),
+        behavior: 'smooth'
+      });
+    });
+
+    // Update button states on scroll
+    track.addEventListener('scroll', updateButtonStates);
+    
+    // Update button states on resize
+    window.addEventListener('resize', updateButtonStates);
+    
+    // Initial state
+    updateButtonStates();
+  };
+
+  // Initialize all sliders
+  document.querySelectorAll('.slider-container, .testi-slider-container').forEach(initSlider);
 });
 </script>
 </body>
