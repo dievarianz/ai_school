@@ -2757,5 +2757,57 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ... rest of the existing code ...
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('brochure-form');
+    const downloadReady = document.getElementById('download-ready');
+    
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Validate form
+        let isValid = true;
+        form.querySelectorAll('[required]').forEach(field => {
+            if (!field.value.trim()) {
+                isValid = false;
+                field.classList.add('invalid-input');
+            } else {
+                field.classList.remove('invalid-input');
+            }
+        });
+        
+        if (!isValid) return;
+
+        // Collect form data
+        const formData = {
+            programm: "AI in Business Strategy & Digital Transformation",
+            vorname: form.querySelector('[name="firstname"]').value,
+            nachname: form.querySelector('[name="lastname"]').value,
+            email: form.querySelector('[name="email"]').value,
+            land: form.querySelector('[name="country"]').value,
+            zustimmung: form.querySelector('[name="email_consent"]').checked ? 'Ja' : 'Nein'
+        };
+
+        // Send to Google Script
+        fetch('https://script.google.com/macros/s/AKfycbwIV2ywC6DU4HxDotucAnrQVO1mOdYF2Z4Bict2NMMI9obastqrDb-KIbLqULE4g2g/exec', {
+            method: 'POST',
+            body: JSON.stringify(formData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if(data.status === 'success') {
+                // Hide form and show success message
+                form.style.display = 'none';
+                downloadReady.classList.remove('hidden');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Es gab einen Fehler. Bitte versuchen Sie es später erneut.');
+        });
+    });
+});
+</script>
 </body>
 </html>
