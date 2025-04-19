@@ -2510,16 +2510,29 @@ function updateDownloadStats() {
   // Aktualisiere den Text
   const downloadsText = document.getElementById('downloads-today');
   if (downloadsText) {
-    // Hole den vorherigen Wert für die Animation
-    const prevValue = parseInt(downloadsText.querySelector('.number')?.textContent || '0');
-    
     // Erstelle den Text mit der Nummer und dem Wort "Executives" in strong-Tags
     const text = `<strong class="number">0</strong> <strong>Executives</strong> haben die Broschüre heute bereits heruntergeladen`;
     downloadsText.innerHTML = text;
     
     // Starte die Animation mit längerer Dauer (2.5 Sekunden)
     const numberElement = downloadsText.querySelector('.number');
-    animateNumber(numberElement, prevValue, currentDownloads, 2500);
+    
+    // Erstelle einen Intersection Observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Starte die Animation nur wenn das Element sichtbar ist
+          animateNumber(numberElement, 0, currentDownloads, 2500);
+          // Beobachtung beenden, damit die Animation nur einmal ausgeführt wird
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1 // Animation startet, wenn 10% des Elements sichtbar sind
+    });
+    
+    // Beobachte das Element
+    observer.observe(downloadsText);
   }
 }
 
