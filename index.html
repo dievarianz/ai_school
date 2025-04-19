@@ -18,6 +18,7 @@
       --spacing:24px;
       --radius:16px;
       --max-width:1200px;
+      --imt-purple: #6e45e2;
     }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     body{
@@ -440,11 +441,25 @@
       text-align: center;
       padding: 60px 0 20px;
       background:
-        /* Dunklerer Overlay-Gradient */
-        linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)),
-        url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?crop=entropy&fit=crop&w=1950&q=80')
-        center/cover no-repeat;
-      color: #fff
+          /* Dunklerer Overlay-Gradient */
+          linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)),
+          url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?crop=entropy&fit=crop&w=1950&q=80')
+          center/cover no-repeat;
+      color: #fff;
+    }
+
+    @media (max-width: 768px) {
+      #hero {
+        background:
+            /* Noch hellerer Overlay-Gradient für Mobile */
+            linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,.15)),
+            url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?crop=entropy&fit=crop&w=1950&q=80')
+            center/cover no-repeat;
+      }
+      
+      #hero {
+        padding: 40px 0;
+      }
     }
 
     /* Verstärkter Text-Shadow für die Hauptüberschrift */
@@ -457,14 +472,14 @@
 
     /* Styling für die Executive Seminar Überschrift */
     #hero h2 {
-      color: #fff;
-      font-size: 1.5rem;
-      margin-bottom: 8px;
-      text-shadow: 2px 2px 12px rgba(0,0,0,.8);
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+      opacity: 0.8;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      position: relative;
-      z-index: 1;
+      color: #fff;
+      text-shadow: 2px 2px 12px rgba(0,0,0,.8);
     }
     .availability-badge {
       position: absolute;
@@ -507,18 +522,20 @@
       padding: 24px !important;
       background: rgba(255, 255, 255, 0.9) !important;
       border-radius: var(--radius) !important;
+      border: 2px solid transparent !important;
       box-shadow: 0 1px 2px rgba(0,0,0,0.07), 0 1px 3px rgba(0,0,0,0.06) !important;
       display: flex !important;
       flex-direction: column !important;
       justify-content: center !important;
       align-items: center !important;
       text-align: center !important;
-      transition: background-color 0.3s ease, box-shadow 0.3s ease !important;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease !important;
       cursor: pointer !important;
     }
     .info-box:hover {
       background: rgba(255, 255, 255, 1) !important;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+      border-color: var(--imt-purple) !important;
+      box-shadow: 0 4px 12px rgba(102, 36, 131, 0.15) !important;
     }
     .info-box svg {
       width: 32px !important;
@@ -770,111 +787,92 @@
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: var(--spacing);
-      max-width: 800px;
+      gap: 24px;
       margin: 0 auto;
-      text-align: center;
-      padding: 0 var(--spacing);
+      max-width: 900px;
+      padding: 0 24px;
     }
 
     .stat-card {
-      background: var(--color-card-bg);
-      border-radius: var(--radius);
-      padding: 24px;
+      background: #f8f8f8;
+      border-radius: 16px;
+      padding: 40px 24px;
+      text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      transition: transform 0.2s ease;
-      cursor: pointer;
-      aspect-ratio: 1;
-      width: 100%;
+      min-height: 220px;
     }
 
-    .stat-card:hover {
-      transform: translateY(-8px);
+    @media (max-width: 480px) {
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            padding: 0 16px;
+        }
+
+        .stat-card {
+            padding: 24px 16px;
+            min-height: unset;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stat-icon {
+            margin-bottom: 12px;
+        }
+
+        .stat-icon svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            margin: 8px 0;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            max-width: 200px;
+        }
     }
 
-    .stat-card svg {
-      width: 32px;
-      height: 32px;
-      margin-bottom: 16px;
-      stroke: #000000;
-      fill: none;
-      stroke-width: 2;
+    .stat-icon {
+      margin-bottom: 20px;
+    }
+
+    .stat-icon svg {
+      width: 48px;
+      height: 48px;
+      stroke: currentColor;
+      fill: currentColor;
+      fill-opacity: 0.2;
     }
 
     .stat-value {
-      font-size: 2.5rem;
+      font-size: 3rem;
       font-weight: 600;
-      color: var(--color-accent2);
-      margin: 12px 0;
       line-height: 1;
+      margin: 12px 0;
     }
 
     .stat-label {
-      font-size: 0.85rem;
+      color: #666;
+      font-size: 0.9rem;
       text-transform: uppercase;
-      color: var(--color-muted);
-      padding: 0 8px;
+      letter-spacing: 0.5px;
       line-height: 1.4;
-      word-wrap: break-word;
-      hyphens: auto;
     }
 
-    @media (max-width: 768px) {
-      .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-        padding: 0 12px;
-        width: 100%;
-      }
-
-      .stat-card {
-        padding: 16px 8px;
-        min-height: 160px;
-        aspect-ratio: auto;
-      }
-
-      .stat-card svg {
-        width: 24px;
-        height: 24px;
-        margin-bottom: 8px;
-      }
-
-      .stat-value {
-        font-size: 2rem;
-        margin: 8px 0;
-      }
-
-      .stat-label {
-        font-size: 0.7rem;
-        padding: 0 4px;
-        max-width: 100%;
-        overflow-wrap: break-word;
-        word-break: break-word;
-      }
-    }
-
-    @media (max-width: 360px) {
-      .stats-grid {
-        gap: 8px;
-        padding: 0 8px;
-      }
-
-      .stat-card {
-        padding: 12px 6px;
-        min-height: 140px;
-      }
-
-      .stat-value {
-        font-size: 1.8rem;
-      }
-
-      .stat-label {
-        font-size: 0.65rem;
-      }
-    }
+    .color-brain { color: #9C27B0; }
+    .color-trend { color: #2196F3; }
+    .color-data { color: #4CAF50; }
+    .color-cube { color: #FF9800; }
 
     /* ---------- Testimonials ---------- */
     #testimonials h2{text-align:left}
@@ -1480,6 +1478,117 @@
         padding: 0 8px;
       }
     }
+
+    .seminar-title {
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 1.5px;
+        margin-bottom: 12px;
+        opacity: 0.8;
+        text-transform: uppercase;
+    }
+
+    /* Add these styles to the existing <style> section */
+    .participant-icon {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 16px;
+    }
+
+    .participant-icon svg {
+        stroke: currentColor;
+        fill: currentColor;
+        fill-opacity: 0.2;
+    }
+
+    .color-brain { color: #9C27B0; }
+    .color-trend { color: #2196F3; }
+    .color-data { color: #4CAF50; }
+    .color-cube { color: #FF9800; }
+
+    /* Desktop styles */
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+        margin: 0 auto;
+        max-width: 900px;
+        padding: 0 24px;
+    }
+
+    .stat-card {
+        background: #f8f8f8;
+        border-radius: 16px;
+        padding: 40px 24px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 220px;
+    }
+
+    /* Tablet styles */
+    @media (max-width: 768px) {
+        .stats-grid {
+            gap: 20px;
+            padding: 0 20px;
+        }
+
+        .stat-card {
+            padding: 32px 20px;
+            min-height: 200px;
+        }
+    }
+
+    /* Mobile styles */
+    @media (max-width: 600px) {
+        .stats-grid {
+            grid-template-columns: 1fr;
+            gap: 16px;
+            padding: 0 16px;
+        }
+
+        .stat-card {
+            padding: 24px 16px;
+            min-height: 160px;
+        }
+
+        .stat-icon {
+            margin-bottom: 12px;
+        }
+
+        .stat-icon svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            margin: 8px 0;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            max-width: 200px;
+        }
+    }
+
+    /* First, add these classes to the stat-value elements */
+    .stat-value {
+        font-size: 3rem;
+        font-weight: 600;
+        line-height: 1;
+        margin: 12px 0;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s, transform 0.5s;
+    }
+
+    .stat-value.count {
+        opacity: 1;
+        transform: translateY(0);
+    }
 </style>
 
 <!-- ============ BOXICONS ============ -->
@@ -1627,7 +1736,7 @@
             <path d="M15 9.5c-.83-1-2.17-1.5-3.5-1.5-1.93 0-3.5 1.57-3.5 3.5s1.57 3.5 3.5 3.5c1.33 0 2.67-.5 3.5-1.5"/>
         </svg>
         <span class="info-label">FEE</span>
-        <span class="info-value">CHF 2500</span>
+        <span class="info-value">2500 €</span>
     </div>
 
     <!-- Next Start Box -->
@@ -1811,46 +1920,56 @@
 <h2>Information über Teilnehmer</h2>
 <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Unser Executive Seminar KI in Business Strategy & Digital Transformation bringt erfahrene Führungskräfte aus verschiedenen Branchen und Ländern zusammen.</p>
 <div class="stats-grid">
-<!-- Kalender‑Icon für Jahre Erfahrung -->
-<div class="stat-card">
-<svg fill="none" stroke="#000000" stroke-width="2" viewbox="0 0 24 24">
-<rect height="18" rx="2" width="18" x="3" y="4"></rect>
-<line x1="16" x2="16" y1="2" y2="6"></line>
-<line x1="8" x2="8" y1="2" y2="6"></line>
-<line x1="3" x2="21" y1="10" y2="10"></line>
-</svg>
-<div class="stat-value count" data-target="12"></div>
-<div class="stat-label">Jahre Berufserfahrung</div>
-</div>
-<!-- Schlips‑Icon für Senior C‑Level -->
-<div class="stat-card">
-<svg fill="none" stroke="#000000" stroke-width="2" viewbox="0 0 24 24">
-<path d="M12 2l2 8-2 2-2-2 2-8z"></path>
-<path d="M10 14v8h4v-8"></path>
-</svg>
-<div class="stat-value count" data-suffix=" %" data-target="35"></div>
-<div class="stat-label">Teilnehmer mit Senior C‑Level</div>
-</div>
-<!-- Alters‑Icon für Durchschnittsalter -->
-<div class="stat-card">
-<svg fill="none" stroke="#000000" stroke-width="2" viewbox="0 0 24 24">
-<circle cx="12" cy="7" r="4"></circle>
-<path d="M6 22v-2a6 6 0 0 1 12 0v2"></path>
-</svg>
-<div class="stat-value count" data-target="42"></div>
-<div class="stat-label">Durchschnittsalter</div>
-</div>
-<!-- Globus‑Icon für Nationalitäten -->
-<div class="stat-card">
-<svg fill="none" stroke="#000000" stroke-width="2" viewbox="0 0 24 24">
-<circle cx="12" cy="12" r="10"></circle>
-<line x1="2" x2="22" y1="12" y2="12"></line>
-<path d="M12 2a15 15 0 0 1 0 20"></path>
-<path d="M12 2a15 15 0 0 0 0 20"></path>
-</svg>
-<div class="stat-value count" data-target="15"></div>
-<div class="stat-label">Nationalitäten</div>
-</div>
+    <!-- Berufserfahrung -->
+    <div class="stat-card">
+        <div class="stat-icon">
+            <svg viewBox="0 0 24 24" class="color-brain">
+                <rect x="3" y="4" width="18" height="18" rx="2"/>
+                <path d="M16 2v4M8 2v4M3 10h18"/>
+                <path d="M8 14h8M8 17h5"/>
+            </svg>
+        </div>
+        <div class="stat-value" data-target="12">0</div>
+        <div class="stat-label">Jahre Berufserfahrung</div>
+    </div>
+
+    <!-- Senior C-Level -->
+    <div class="stat-card">
+        <div class="stat-icon">
+            <svg viewBox="0 0 24 24" class="color-trend">
+                <rect x="3" y="8" width="18" height="12" rx="2"/>
+                <path d="M8 8V6a2 2 0 012-2h4a2 2 0 012 2v2"/>
+                <path d="M12 12v4"/>
+            </svg>
+        </div>
+        <div class="stat-value" data-target="35" data-suffix="%">0%</div>
+        <div class="stat-label">Teilnehmer mit Senior C-Level</div>
+    </div>
+
+    <!-- Durchschnittsalter -->
+    <div class="stat-card">
+        <div class="stat-icon">
+            <svg viewBox="0 0 24 24" class="color-data">
+                <circle cx="12" cy="8" r="5"/>
+                <path d="M20 21v-2a8 8 0 00-16 0v2"/>
+            </svg>
+        </div>
+        <div class="stat-value" data-target="42">0</div>
+        <div class="stat-label">Durchschnittsalter</div>
+    </div>
+
+    <!-- Nationalitäten -->
+    <div class="stat-card">
+        <div class="stat-icon">
+            <svg viewBox="0 0 24 24" class="color-cube">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+                <path d="M2 12h20"/>
+            </svg>
+        </div>
+        <div class="stat-value" data-target="15">0</div>
+        <div class="stat-label">Nationalitäten</div>
+    </div>
 </div>
 </div>
 </section>
@@ -2807,6 +2926,43 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Es gab einen Fehler. Bitte versuchen Sie es später erneut.');
         });
     });
+});
+</script>
+
+<script>
+// Counter animation
+function animateValue(element, start, end, duration) {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        const current = Math.floor(progress * (end - start) + start);
+        element.textContent = current + (element.dataset.suffix || '');
+        if (progress < 1) {
+            window.requestAnimationFrame(step);
+        }
+    };
+    window.requestAnimationFrame(step);
+}
+
+// Intersection Observer for triggering animations
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const target = entry.target;
+            const endValue = parseInt(target.dataset.target);
+            target.classList.add('count');
+            animateValue(target, 0, endValue, 2000);
+            observer.unobserve(target);
+        }
+    });
+}, {
+    threshold: 0.5
+});
+
+// Observe all stat values
+document.querySelectorAll('.stat-value').forEach(stat => {
+    observer.observe(stat);
 });
 </script>
 </body>
