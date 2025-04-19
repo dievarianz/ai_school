@@ -704,9 +704,30 @@
     .flipper p{font-size:.95rem;color:#555;line-height:1.4;flex-grow:1}
     .flip-link{
       align-self:flex-end;
-      font-size:.95rem;font-weight:600;
-      color:var(--color-accent2);text-decoration:underline;
+      color:var(--color-accent2);
+      text-decoration:none;
       cursor:pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      padding: 0;
+      transition: transform 0.3s ease;
+    }
+
+    .flip-link i {
+      font-size: 24px;
+      transition: transform 0.3s ease;
+    }
+
+    .flip-link:hover {
+      text-decoration: none;
+      transform: scale(1.1);
+    }
+
+    .flip-link span {
+      display: none;
     }
 
     /* Hover Effekte */
@@ -1336,11 +1357,15 @@
 <div class="front">
 <h3>Konzepte & strategische Relevanz von KI</h3>
 <p>KI verstehen – jenseits des Hypes. Fundiertes Wissen für strategische Entscheidungen.</p>
-<a class="flip-link" href="#">Mehr</a>
+<a class="flip-link" href="#">
+  <i class='bx bx-plus-circle'></i>
+</a>
 </div>
 <div class="back">
 <p>Zentrale Konzepte wie Machine Learning und neuronale Netze werden vermittelt. Die strategische Bedeutung von KI wird herausgearbeitet und in den unternehmerischen Kontext eingeordnet.</p>
-<a class="flip-link" href="#">Zurück</a>
+<a class="flip-link" href="#">
+  <i class='bx bx-minus-circle'></i>
+</a>
 </div>
 </div>
 </div>
@@ -1350,11 +1375,15 @@
 <div class="front">
 <h3>Strategische Einsatzfelder und Business Impact von KI</h3>
 <p>Wo KI echten Mehrwert schafft – datenbasiert, skalierbar, relevant</p>
-<a class="flip-link" href="#">Mehr</a>
+<a class="flip-link" href="#">
+  <i class='bx bx-plus-circle'></i>
+</a>
 </div>
 <div class="back">
 <p>Relevante Anwendungsfelder werden analysiert und hinsichtlich ihrer wirtschaftlichen Wirkung bewertet. Praxisnahe Beispiele veranschaulichen, wie Wertschöpfung durch KI ermöglicht wird.</p>
-<a class="flip-link" href="#">Zurück</a>
+<a class="flip-link" href="#">
+  <i class='bx bx-minus-circle'></i>
+</a>
 </div>
 </div>
 </div>
@@ -1364,11 +1393,15 @@
 <div class="front">
 <h3>Datenstrategie als Enabler für KI</h3>
 <p>KI funktioniert nur mit Daten – die richtige Strategie macht den Unterschied.</p>
-<a class="flip-link" href="#">Mehr</a>
+<a class="flip-link" href="#">
+  <i class='bx bx-plus-circle'></i>
+</a>
 </div>
 <div class="back">
 <p>Erfolgsfaktoren moderner Datenstrategien werden dargestellt. Es wird aufgezeigt, wie Dateninfrastruktur, Governance und Qualität für KI-Vorhaben bereitgestellt und organisiert werden können.</p>
-<a class="flip-link" href="#">Zurück</a>
+<a class="flip-link" href="#">
+  <i class='bx bx-minus-circle'></i>
+</a>
 </div>
 </div>
 </div>
@@ -1378,11 +1411,15 @@
 <div class="front">
 <h3>Geschäftsmodellinnovation durch KI</h3>
 <p>KI verändert nicht nur Abläufe, sondern ganze Geschäftsmodelle.</p>
-<a class="flip-link" href="#">Mehr</a>
+<a class="flip-link" href="#">
+  <i class='bx bx-plus-circle'></i>
+</a>
 </div>
 <div class="back">
 <p>Potenziale zur Neugestaltung von Geschäftsmodellen werden identifiziert. Die Entwicklung datenbasierter Angebote und Erlösquellen wird anhand praxisrelevanter Frameworks aufgezeigt.</p>
-<a class="flip-link" href="#">Zurück</a>
+<a class="flip-link" href="#">
+  <i class='bx bx-minus-circle'></i>
+</a>
 </div>
 </div>
 </div>
@@ -1392,11 +1429,15 @@
 <div class="front">
 <h3>Leadership, Change & Organisation im KI-Kontext</h3>
 <p>Transformation gelingt nur, wenn Menschen und Kultur mitziehen.</p>
-<a class="flip-link" href="#">Mehr</a>
+<a class="flip-link" href="#">
+  <i class='bx bx-plus-circle'></i>
+</a>
 </div>
 <div class="back">
 <p>Herausforderungen organisationalen Wandels werden analysiert. Change-Management-Ansätze und Führungsprinzipien zur erfolgreichen Implementierung von KI werden systematisch erläutert.</p>
-<a class="flip-link" href="#">Zurück</a>
+<a class="flip-link" href="#">
+  <i class='bx bx-minus-circle'></i>
+</a>
 </div>
 </div>
 </div>
@@ -1406,11 +1447,15 @@
 <div class="front">
 <h3>Technologieauswahl & Tool-Landschaft: Von Use Case zu Stack</h3>
 <p>Wissen, welche Technologie zur eigenen Strategie passt.</p>
-<a class="flip-link" href="#">Mehr</a>
+<a class="flip-link" href="#">
+  <i class='bx bx-plus-circle'></i>
+</a>
 </div>
 <div class="back">
 <p>Relevante KI-Technologien und Plattformen werden überblicksartig dargestellt. Auswahl- und Integrationskriterien werden anhand strategischer und operativer Anforderungen vermittelt.</p>
-<a class="flip-link" href="#">Zurück</a>
+<a class="flip-link" href="#">
+  <i class='bx bx-minus-circle'></i>
+</a>
 </div>
 </div>
 </div>
@@ -1420,11 +1465,15 @@
 <div class="front">
 <h3>Skalierung & Governance von KI-Initiativen</h3>
 <p>Pilotprojekte sind erst der Anfang – jetzt wird skaliert.</p>
-<a class="flip-link" href="#">Mehr</a>
+<a class="flip-link" href="#">
+  <i class='bx bx-plus-circle'></i>
+</a>
 </div>
 <div class="back">
 <p>Vorgehensweisen zur Skalierung und institutionellen Verankerung von KI werden aufgezeigt. Strukturen zur Governance, ethische Leitlinien und Erfolgsmetriken werden diskutiert.</p>
-<a class="flip-link" href="#">Zurück</a>
+<a class="flip-link" href="#">
+  <i class='bx bx-minus-circle'></i>
+</a>
 </div>
 </div>
 </div>
