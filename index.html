@@ -560,29 +560,6 @@
       transition: border-color 0.3s ease, box-shadow 0.3s ease !important;
       cursor: pointer !important;
     }
-    
-    /* Mobile Layout für Info-Boxen: 2x2 statt 3x1 oder 4x1 */
-    @media (max-width: 768px) {
-      .info-grid {
-        width: 100%;
-        display: grid;
-        grid-template-columns: repeat(2, 135px);
-        grid-template-rows: repeat(2, 135px);
-        gap: 25px;
-        justify-content: center;
-        margin: 0 auto;
-      }
-      .info-box {
-        width: 135px !important;
-        height: 135px !important;
-        margin: 0;
-      }
-      .info-box svg {
-        width: 36px !important;
-        height: 36px !important;
-      }
-    }
-    
     .info-box:hover {
       background: rgba(255, 255, 255, 1) !important;
       border-color: var(--imt-purple) !important;
@@ -1762,16 +1739,37 @@
       }
     }
 
-    /* Styles für den goldenen Button in der mobilen Ansicht */
+    /* Mobile Layout für Info-Boxen: 2x2 statt 3x1 oder 4x1 */
     @media (max-width: 768px) {
-      a[style*="border-radius: 100px"] {
+      .info-grid {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 135px);
+        grid-template-rows: repeat(2, 135px);
+        gap: 25px;
+        justify-content: center;
+        margin: 0 auto;
+      }
+      .info-box {
+        width: 135px !important;
+        height: 135px !important;
+        margin: 0;
+      }
+      .info-box svg {
+        width: 36px !important;
+        height: 36px !important;
+      }
+      
+      /* Goldener Button in der mobilen Ansicht ohne Zeilenumbruch */
+      a[href="#broschuere"] {
         display: block !important;
         width: 90% !important;
-        max-width: 420px !important;
+        max-width: 450px !important;
         margin: 24px auto 32px !important;
         text-align: center !important;
         white-space: nowrap !important;
         padding: 16px 24px !important;
+        font-size: 0.95rem !important;
       }
     }
 </style>
@@ -1893,21 +1891,6 @@
 ">
   Jetzt Kostenlos Broschüre herunterladen <span style="margin-left: 8px; display: inline-block;">→</span>
 </a>
-
-<!-- Styles für den goldenen Button in der mobilen Ansicht -->
-<style>
-@media (max-width: 768px) {
-  a[style*="border-radius: 100px"] {
-    display: block !important;
-    width: 90% !important;
-    max-width: 420px !important;
-    margin: 24px auto 32px !important;
-    text-align: center !important;
-    white-space: nowrap !important;
-    padding: 16px 24px !important;
-  }
-}
-</style>
 
 <div class="info-grid">
     <!-- Location Box -->
