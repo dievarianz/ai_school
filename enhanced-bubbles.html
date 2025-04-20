@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verbesserte Bubble-Designs</title>
+    <style>
+        :root {
+            --sf-font: -apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            --primary-color: #6e45e2;
+            --accent-color: #e2b245;
+            --light-bg: #f5f5f7;
+            --dark-bg: #1d1d1f;
+            --text-color: #1d1d1f;
+            --text-light: #86868b;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--sf-font);
+            color: var(--text-color);
+            background-color: white;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            padding: 40px 20px;
+        }
+        
+        h1 {
+            font-weight: 600;
+            font-size: 2.5rem;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+        
+        p {
+            max-width: 600px;
+            margin: 0 auto 40px;
+            text-align: center;
+            color: var(--text-light);
+        }
+        
+        .showcase {
+            margin-bottom: 80px;
+            padding: 60px;
+            border-radius: 20px;
+            background-color: var(--light-bg);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .bubble-container {
+            position: relative;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .bubble-label {
+            margin-top: 24px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        /* Original Bubble */
+        .bubble-original {
+            position: absolute;
+            top: 32px;
+            width: 180px;
+            height: 180px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #1d1d1f;
+            box-shadow: 
+                0 8px 24px rgba(0, 0, 0, 0.1),
+                inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+            animation: morph 8s ease-in-out infinite;
+            padding: 20px;
+        }
+        
+        .bubble-original span {
+            display: inline-block;
+            line-height: 1.4;
+        }
+        
+        @keyframes morph {
+            0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+            50% { border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%; }
+            100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+        }
+        
+        /* Bubble 1: Glasmorphism mit Farbverlauf */
+        .bubble-1 {
+            position: absolute;
+            top: 32px;
+            width: 180px;
+            height: 180px;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #1d1d1f;
+            box-shadow: 
+                0 8px 24px rgba(0, 0, 0, 0.15),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+            animation: morph-1 8s ease-in-out infinite;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .bubble-1::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                135deg, 
+                rgba(121, 40, 202, 0.3), 
+                rgba(255, 78, 205, 0.2), 
+                rgba(255, 183, 122, 0.1)
+            );
+            border-radius: inherit;
+            z-index: -1;
+            animation: rotate 6s linear infinite;
+        }
+        
+        .bubble-1 span {
+            display: inline-block;
+            line-height: 1.4;
+        }
+        
+        @keyframes morph-1 {
+            0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+            50% { border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%; }
+            100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Bubble 2: Neon Glowing Effect */
+        .bubble-2 {
+            position: absolute;
+            top: 32px;
+            width: 180px;
+            height: 180px;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: white;
+            box-shadow: 
+                0 8px 24px rgba(0, 0, 0, 0.4),
+                inset 0 0 30px 5px rgba(110, 69, 226, 0.8);
+            animation: morph-2 8s ease-in-out infinite, glow 3s ease-in-out infinite alternate;
+            padding: 20px;
+            border: 2px solid rgba(110, 69, 226, 0.6);
+        }
+        
+        .bubble-2 span {
+            display: inline-block;
+            line-height: 1.4;
+            text-shadow: 0 0 10px rgba(110, 69, 226, 0.8), 0 0 20px rgba(110, 69, 226, 0.4);
+        }
+        
+        @keyframes morph-2 {
+            0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+            50% { border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%; }
+            100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+        }
+        
+        @keyframes glow {
+            0% { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), inset 0 0 30px 5px rgba(110, 69, 226, 0.8), 0 0 0 2px rgba(110, 69, 226, 0.6); }
+            100% { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), inset 0 0 30px 5px rgba(110, 69, 226, 0.8), 0 0 15px 5px rgba(110, 69, 226, 0.5); }
+        }
+        
+        /* Bubble 3: Gradient Colorful with Particles */
+        .bubble-3 {
+            position: absolute;
+            top: 32px;
+            width: 180px;
+            height: 180px;
+            background: linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%);
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: white;
+            box-shadow: 0 8px 24px rgba(255, 65, 108, 0.3);
+            animation: morph-3 8s ease-in-out infinite;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .bubble-3::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect x="25" y="25" width="4" height="4" fill="white" opacity="0.3"/><rect x="45" y="45" width="3" height="3" fill="white" opacity="0.2"/><rect x="65" y="15" width="5" height="5" fill="white" opacity="0.4"/><rect x="15" y="65" width="4" height="4" fill="white" opacity="0.3"/><rect x="75" y="75" width="3" height="3" fill="white" opacity="0.2"/></svg>');
+            z-index: -1;
+            opacity: 0.5;
+            animation: rotate-particles 30s linear infinite;
+        }
+        
+        .bubble-3 span {
+            display: inline-block;
+            line-height: 1.4;
+            position: relative;
+            z-index: 1;
+        }
+        
+        @keyframes morph-3 {
+            0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+            50% { border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%; }
+            100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+        }
+        
+        @keyframes rotate-particles {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Bubble 4: 3D Effect with Depth */
+        .bubble-4 {
+            position: absolute;
+            top: 32px;
+            width: 180px;
+            height: 180px;
+            background: linear-gradient(135deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: white;
+            box-shadow: 
+                0 15px 35px rgba(0, 0, 0, 0.2),
+                0 5px 15px rgba(0, 0, 0, 0.1),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+            animation: morph-4 8s ease-in-out infinite, float 6s ease-in-out infinite;
+            padding: 20px;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        
+        .bubble-4::after {
+            content: "";
+            position: absolute;
+            inset: 10px;
+            border-radius: inherit;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateZ(-10px);
+            filter: blur(10px);
+        }
+        
+        .bubble-4 span {
+            display: inline-block;
+            line-height: 1.4;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        @keyframes morph-4 {
+            0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+            50% { border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%; }
+            100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(3deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+        
+        /* Bubble 5: Molten Gold Effect */
+        .bubble-5 {
+            position: absolute;
+            top: 32px;
+            width: 180px;
+            height: 180px;
+            background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #1d1d1f;
+            box-shadow: 
+                0 10px 30px rgba(253, 160, 133, 0.4),
+                inset 0 0 10px rgba(255, 255, 255, 0.6);
+            animation: morph-5 8s ease-in-out infinite, shine 5s ease-in-out infinite;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .bubble-5::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(
+                circle at center,
+                rgba(255, 255, 255, 0.8) 0%,
+                rgba(255, 255, 255, 0) 60%
+            );
+            opacity: 0;
+            transform: rotate(30deg);
+            animation: shine-effect 7s ease-in-out infinite;
+        }
+        
+        .bubble-5 span {
+            display: inline-block;
+            line-height: 1.4;
+            background: linear-gradient(to right, #7d5e2a, #d4af37, #7d5e2a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600;
+        }
+        
+        @keyframes morph-5 {
+            0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+            50% { border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%; }
+            100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+        }
+        
+        @keyframes shine {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes shine-effect {
+            0% { opacity: 0; transform: rotate(30deg) translateY(100%); }
+            20% { opacity: 0; transform: rotate(30deg) translateY(100%); }
+            40% { opacity: 0.6; transform: rotate(30deg) translateY(-30%); }
+            60% { opacity: 0; transform: rotate(30deg) translateY(-150%); }
+            100% { opacity: 0; transform: rotate(30deg) translateY(-150%); }
+        }
+        
+        /* Bubble 6: Realistic Glass with Light Refraction */
+        .bubble-6 {
+            position: absolute;
+            top: 32px;
+            width: 180px;
+            height: 180px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #1d1d1f;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.1),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            animation: morph-6 8s ease-in-out infinite;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .bubble-6::before, .bubble-6::after {
+            content: "";
+            position: absolute;
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.4) 0%,
+                rgba(255, 255, 255, 0) 50%,
+                rgba(255, 255, 255, 0.1) 100%
+            );
+            border-radius: inherit;
+            z-index: -1;
+        }
+        
+        .bubble-6::before {
+            top: -50%;
+            left: -50%;
+            width: 100%;
+            height: 100%;
+            transform: rotate(30deg);
+        }
+        
+        .bubble-6::after {
+            bottom: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            transform: rotate(210deg);
+        }
+        
+        .bubble-6 span {
+            display: inline-block;
+            line-height: 1.4;
+            position: relative;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        
+        @keyframes morph-6 {
+            0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+            50% { border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%; }
+            100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+        }
+        
+        /* Bubble 3 Varianten */
+        .bubble-3-v1 {
+            position: absolute;
+            top: 32px;
+            width: 180px;
+            height: 180px;
+            background: linear-gradient(135deg, #6e45e2 0%, #9c27b0 100%);
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: white;
+            box-shadow: 0 8px 24px rgba(110, 69, 226, 0.3);
+            animation: morph-3 8s ease-in-out infinite;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .bubble-3-v1::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect x="25" y="25" width="4" height="4" fill="white" opacity="0.3"/><rect x="45" y="45" width="3" height="3" fill="white" opacity="0.2"/><rect x="65" y="15" width="5" height="5" fill="white" opacity="0.4"/><rect x="15" y="65" width="4" height="4" fill="white" opacity="0.3"/><rect x="75" y="75" width="3" height="3" fill="white" opacity="0.2"/></svg>');
+            z-index: -1;
+            opacity: 0.5;
+            animation: rotate-particles 30s linear infinite;
+        }
+        
+        .bubble-3-v1 span {
+            display: inline-block;
+            line-height: 1.4;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .bubble-3-v2 {
+            position: absolute;
+            top: 32px;
+            width: 180px;
+            height: 180px;
+            background: linear-gradient(135deg, #e2b245 0%, #d4a535 100%);
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #1d1d1f;
+            box-shadow: 0 8px 24px rgba(226, 178, 69, 0.3);
+            animation: morph-3 8s ease-in-out infinite;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .bubble-3-v2::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect x="25" y="25" width="4" height="4" fill="white" opacity="0.3"/><rect x="45" y="45" width="3" height="3" fill="white" opacity="0.2"/><rect x="65" y="15" width="5" height="5" fill="white" opacity="0.4"/><rect x="15" y="65" width="4" height="4" fill="white" opacity="0.3"/><rect x="75" y="75" width="3" height="3" fill="white" opacity="0.2"/></svg>');
+            z-index: -1;
+            opacity: 0.5;
+            animation: rotate-particles 30s linear infinite;
+        }
+        
+        .bubble-3-v2 span {
+            display: inline-block;
+            line-height: 1.4;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .bubble-3-v3 {
+            position: absolute;
+            top: 32px;
+            width: 180px;
+            height: 180px;
+            background: linear-gradient(135deg, #6e45e2 0%, #e2b245 100%);
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: white;
+            box-shadow: 0 8px 24px rgba(110, 69, 226, 0.3);
+            animation: morph-3 8s ease-in-out infinite;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .bubble-3-v3::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect x="25" y="25" width="4" height="4" fill="white" opacity="0.3"/><rect x="45" y="45" width="3" height="3" fill="white" opacity="0.2"/><rect x="65" y="15" width="5" height="5" fill="white" opacity="0.4"/><rect x="15" y="65" width="4" height="4" fill="white" opacity="0.3"/><rect x="75" y="75" width="3" height="3" fill="white" opacity="0.2"/></svg>');
+            z-index: -1;
+            opacity: 0.5;
+            animation: rotate-particles 30s linear infinite;
+        }
+        
+        .bubble-3-v3 span {
+            display: inline-block;
+            line-height: 1.4;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .bubble-3-v4 {
+            position: absolute;
+            top: 32px;
+            width: 180px;
+            height: 180px;
+            background: linear-gradient(135deg, #6e45e2 20%, #9c27b0 50%, #e2b245 100%);
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: white;
+            box-shadow: 0 8px 24px rgba(110, 69, 226, 0.3);
+            animation: morph-3 8s ease-in-out infinite;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .bubble-3-v4::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect x="25" y="25" width="4" height="4" fill="white" opacity="0.3"/><rect x="45" y="45" width="3" height="3" fill="white" opacity="0.2"/><rect x="65" y="15" width="5" height="5" fill="white" opacity="0.4"/><rect x="15" y="65" width="4" height="4" fill="white" opacity="0.3"/><rect x="75" y="75" width="3" height="3" fill="white" opacity="0.2"/></svg>');
+            z-index: -1;
+            opacity: 0.5;
+            animation: rotate-particles 30s linear infinite;
+        }
+        
+        .bubble-3-v4 span {
+            display: inline-block;
+            line-height: 1.4;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .bubble-3-v5 {
+            position: absolute;
+            top: 32px;
+            width: 180px;
+            height: 180px;
+            background: linear-gradient(135deg, #8052ec 0%, #d161ff 50%, #f4b860 100%);
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: white;
+            box-shadow: 0 8px 24px rgba(128, 82, 236, 0.3);
+            animation: morph-3 8s ease-in-out infinite;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .bubble-3-v5::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect x="25" y="25" width="4" height="4" fill="white" opacity="0.3"/><rect x="45" y="45" width="3" height="3" fill="white" opacity="0.2"/><rect x="65" y="15" width="5" height="5" fill="white" opacity="0.4"/><rect x="15" y="65" width="4" height="4" fill="white" opacity="0.3"/><rect x="75" y="75" width="3" height="3" fill="white" opacity="0.2"/></svg>');
+            z-index: -1;
+            opacity: 0.5;
+            animation: rotate-particles 30s linear infinite;
+        }
+        
+        .bubble-3-v5 span {
+            display: inline-block;
+            line-height: 1.4;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .gradient-variations {
+            margin: 60px 0;
+            padding: 40px;
+            border-radius: 20px;
+            background-color: white;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+        }
+        
+        .gradient-title {
+            font-weight: 600;
+            font-size: 1.5rem;
+            margin-bottom: 36px;
+            text-align: center;
+        }
+        
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .showcase {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Verbesserte Versionen der Bubble "Wenige Plätze verfügbar"</h1>
+    <p>Hier sind verschiedene moderne und ansprechende Varianten für Ihre organische Bubble, die Apple-inspirierte Designelemente und aktuelle Trends integrieren.</p>
+    
+    <div class="showcase">
+        <div class="grid">
+            <div class="bubble-container">
+                <div class="bubble-original">
+                    <span>Nur noch wenige Plätze verfügbar</span>
+                </div>
+                <div class="bubble-label">Original: Einfache animierte Bubble</div>
+            </div>
+            
+            <div class="bubble-container">
+                <div class="bubble-1">
+                    <span>Nur noch wenige Plätze verfügbar</span>
+                </div>
+                <div class="bubble-label">1. Glasmorphism mit Farbverlauf</div>
+            </div>
+            
+            <div class="bubble-container">
+                <div class="bubble-2">
+                    <span>Nur noch wenige Plätze verfügbar</span>
+                </div>
+                <div class="bubble-label">2. Neon-Glühen im Dunkelmodus</div>
+            </div>
+            
+            <div class="bubble-container">
+                <div class="bubble-3">
+                    <span>Nur noch wenige Plätze verfügbar</span>
+                </div>
+                <div class="bubble-label">3. Gradient mit Partikel-Textur</div>
+            </div>
+            
+            <div class="bubble-container">
+                <div class="bubble-4">
+                    <span>Nur noch wenige Plätze verfügbar</span>
+                </div>
+                <div class="bubble-label">4. 3D-Effekt mit schwebender Animation</div>
+            </div>
+            
+            <div class="bubble-container">
+                <div class="bubble-5">
+                    <span>Nur noch wenige Plätze verfügbar</span>
+                </div>
+                <div class="bubble-label">5. Goldener Schimmer-Effekt</div>
+            </div>
+            
+            <div class="bubble-container">
+                <div class="bubble-6">
+                    <span>Nur noch wenige Plätze verfügbar</span>
+                </div>
+                <div class="bubble-label">6. Realistisches Glas mit Lichtbrechung</div>
+            </div>
+        </div>
+    </div>
+    
+    <h2 style="text-align: center; margin-top: 60px;">Farbvarianten des Gradient-Designs mit Partikel-Textur</h2>
+    <p>Hier sind mehrere farbliche Varianten, die zu den Gold- und Lilatönen Ihrer Markenfarben passen.</p>
+    
+    <div class="showcase">
+        <div class="grid">
+            <div class="bubble-container">
+                <div class="bubble-3">
+                    <span>Nur noch wenige Plätze verfügbar</span>
+                </div>
+                <div class="bubble-label">Original: Rot-Orange Gradient</div>
+            </div>
+            
+            <div class="bubble-container">
+                <div class="bubble-3-v1">
+                    <span>Nur noch wenige Plätze verfügbar</span>
+                </div>
+                <div class="bubble-label">Variante 1: Lila Gradient (Purple)</div>
+            </div>
+            
+            <div class="bubble-container">
+                <div class="bubble-3-v2">
+                    <span>Nur noch wenige Plätze verfügbar</span>
+                </div>
+                <div class="bubble-label">Variante 2: Gold Gradient</div>
+            </div>
+            
+            <div class="bubble-container">
+                <div class="bubble-3-v3">
+                    <span>Nur noch wenige Plätze verfügbar</span>
+                </div>
+                <div class="bubble-label">Variante 3: Lila zu Gold Verlauf</div>
+            </div>
+            
+            <div class="bubble-container">
+                <div class="bubble-3-v4">
+                    <span>Nur noch wenige Plätze verfügbar</span>
+                </div>
+                <div class="bubble-label">Variante 4: Dreifarbiger Verlauf (Lila-Pink-Gold)</div>
+            </div>
+            
+            <div class="bubble-container">
+                <div class="bubble-3-v5">
+                    <span>Nur noch wenige Plätze verfügbar</span>
+                </div>
+                <div class="bubble-label">Variante 5: Sanfter Lila-Gold Übergang</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
