@@ -420,15 +420,47 @@
         height: 60px;
         border-radius: 0;
         display: flex;
-        justify-content: space-around;
+        justify-content: space-evenly;
         align-items: center;
+        background: linear-gradient(135deg, rgba(229, 222, 250, 0.98), rgba(211, 200, 245, 0.98));
+        padding: 0;
+        margin: 0;
       }
 
       .sidebar-item {
-        flex: 1;
+        flex: 1 1 25%;
         height: 100%;
         border-bottom: none;
         border-right: 1px solid rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 6px 0;
+        gap: 4px;
+        width: 25%; /* Ensure equal width for all items */
+        max-width: 25%; /* Ensure equal width for all items */
+      }
+
+      .sidebar-item i {
+        display: block;
+        margin-bottom: 2px;
+        font-size: 20px !important;
+        height: 20px;
+        line-height: 1;
+      }
+      
+      .sidebar-item span {
+        display: block;
+        font-size: 0.75rem;
+        line-height: 1;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 100%;
+        padding: 0 4px;
+        box-sizing: border-box;
       }
 
       .sidebar-item:last-child {
@@ -468,6 +500,8 @@
       text-shadow: 2px 2px 12px rgba(0,0,0,.8);
       position: relative;
       z-index: 1;
+      text-align: center; /* Zentrierter Text für alle Ansichten */
+      width: 100%; /* Volle Breite für korrekte Zentrierung */
     }
 
     /* Styling für die Executive Seminar Überschrift */
@@ -539,6 +573,10 @@
     @media(max-width: 768px) {
       .availability-badge {
         display: none;
+      }
+      
+      #hero h1 {
+        text-align: center !important; /* Erzwinge Zentrierung auf Mobilgeräten */
       }
     }
 
@@ -1782,21 +1820,21 @@
 <!-- Sidebar -->
 <aside class="sidebar">
   <a href="#broschuere" class="sidebar-item">
-    <i class='bx bxs-file-blank'></i>
-    Broschüre
+    <i class='bx bxs-file' style="font-size: 20px; margin-bottom: 4px;"></i>
+    <span>Broschüre</span>
   </a>
   <a href="#contact" class="sidebar-item">
-    <i class='bx bxs-user'></i>
-    IMT Advisor
+    <i class='bx bxs-user' style="font-size: 20px; margin-bottom: 4px;"></i>
+    <span>IMT Advisor</span>
   </a>
   <a href="https://www.linkedin.com/school/imtschool.ch/" target="_blank" class="sidebar-item">
-    <i class='bx bxl-linkedin'></i>
-    LinkedIn
+    <i class='bx bxl-linkedin' style="font-size: 20px; margin-bottom: 4px;"></i>
+    <span>LinkedIn</span>
   </a>
   <a href="https://www.youtube.com/@imtschool" target="_blank" class="sidebar-item">
-    <i class='bx bxl-youtube'></i>
-    YouTube
-</a>
+    <i class='bx bxl-youtube' style="font-size: 20px; margin-bottom: 4px;"></i>
+    <span>YouTube</span>
+  </a>
 </aside>
 
 <!-- Hauptnavigation -->
