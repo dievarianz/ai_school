@@ -2481,11 +2481,6 @@
               <option value="CY">Zypern</option>
               <option value="OTHER">Andere</option>
 </select>
-            <div style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); pointer-events: none;">
-              <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 1L6 6L11 1" stroke="#888888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
 </div>
 
           <!-- Checkbox für E-Mail-Zustimmung -->
@@ -2538,7 +2533,7 @@
           </div>
           
           <div style="height: 6px; background-color: #e0e0e0; border-radius: 3px; margin: 15px 0; overflow: hidden;">
-            <div style="height: 100%; background-color: #9c27b0; width: 70%; border-radius: 3px; animation: progressFill 2s ease-out;"></div>
+            <div style="height: 100%; background-color: #aaaaaa; width: 70%; border-radius: 3px; animation: progressFill 2s ease-out;"></div>
           </div>
           
           <div style="text-align: center; color: #777; font-size: 0.9em;">

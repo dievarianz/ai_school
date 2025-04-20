@@ -2481,11 +2481,6 @@
               <option value="CY">Zypern</option>
               <option value="OTHER">Andere</option>
 </select>
-            <div style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); pointer-events: none;">
-              <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 1L6 6L11 1" stroke="#888888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
 </div>
 
           <!-- Checkbox für E-Mail-Zustimmung -->
@@ -2551,32 +2546,32 @@
           <div style="font-weight: 500; margin-bottom: 10px;">Letzte Aktivitäten:</div>
           
           <div style="background-color: #fef9e7; border-left: 3px solid #d4a535; padding: 10px 15px; margin: 10px 0; animation: flashBg 2s ease-out;">
-            <strong>Neu:</strong> Sandra H. aus Österreich hat die Broschüre vor 2 Minuten heruntergeladen
+            <strong>Neu:</strong> Sandra H. aus Wien hat die Broschüre vor 2 Minuten heruntergeladen
           </div>
           
           <div style="display: flex; align-items: center; padding: 12px; border-bottom: 1px solid rgba(0,0,0,0.05); animation: fadeIn 0.5s ease-out forwards; animation-delay: 0.1s;">
-            <div style="width: 48px; height: 48px; border-radius: 50%; background-color: #aaaaaa; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin-right: 15px;">MK</div>
+            <div style="width: 48px; height: 48px; border-radius: 50%; background-color: #9c27b0; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin-right: 15px;">MK</div>
             <div style="flex-grow: 1;">
               <div>Markus K.</div>
-              <div style="font-size: 0.8em; color: #777;">Deutschland</div>
+              <div style="font-size: 0.8em; color: #777;">München</div>
             </div>
             <div style="font-size: 0.8em; color: #777;">vor 17 Min</div>
           </div>
           
           <div style="display: flex; align-items: center; padding: 12px; border-bottom: 1px solid rgba(0,0,0,0.05); animation: fadeIn 0.5s ease-out forwards; animation-delay: 0.2s;">
-            <div style="width: 48px; height: 48px; border-radius: 50%; background-color: #aaaaaa; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin-right: 15px;">SL</div>
+            <div style="width: 48px; height: 48px; border-radius: 50%; background-color: #9c27b0; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin-right: 15px;">SL</div>
             <div style="flex-grow: 1;">
               <div>Sarah L.</div>
-              <div style="font-size: 0.8em; color: #777;">Deutschland</div>
+              <div style="font-size: 0.8em; color: #777;">Hamburg</div>
             </div>
             <div style="font-size: 0.8em; color: #777;">vor 32 Min</div>
           </div>
           
           <div style="display: flex; align-items: center; padding: 12px; border-bottom: 1px solid rgba(0,0,0,0.05); animation: fadeIn 0.5s ease-out forwards; animation-delay: 0.3s;">
-            <div style="width: 48px; height: 48px; border-radius: 50%; background-color: #aaaaaa; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin-right: 15px;">TG</div>
+            <div style="width: 48px; height: 48px; border-radius: 50%; background-color: #9c27b0; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin-right: 15px;">TG</div>
             <div style="flex-grow: 1;">
               <div>Thomas G.</div>
-              <div style="font-size: 0.8em; color: #777;">Deutschland</div>
+              <div style="font-size: 0.8em; color: #777;">Stuttgart</div>
             </div>
             <div style="font-size: 0.8em; color: #777;">vor 48 Min</div>
           </div>
@@ -2963,7 +2958,7 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
 <script>
-
+// ... existing code ...
 
 // Funktion zur Animation der Zahl
 function animateNumber(element, start, end, duration) {
@@ -3276,67 +3271,21 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
-
+// ... existing code ...
 
 <script>
 // Dynamische Aktivitäten und Download-Statistiken
 document.addEventListener('DOMContentLoaded', function() {
-  // Nach Ländern gruppierte Namen
-  const namenPerLand = {
-    'Deutschland': {
-      vornamen: ['Thomas', 'Michael', 'Andreas', 'Stefan', 'Christian', 'Markus', 'Daniel', 'Alexander', 'Peter', 'Martin', 'Anna', 'Julia', 'Lisa', 'Sarah', 'Laura', 'Katharina', 'Melanie', 'Christina', 'Maria', 'Sandra'],
-      nachnamen: ['M.', 'S.', 'B.', 'W.', 'K.', 'H.', 'F.', 'R.', 'T.', 'G.']
-    },
-    'Österreich': {
-      vornamen: ['Andreas', 'Thomas', 'Michael', 'Christian', 'Stefan', 'Martin', 'Daniel', 'Markus', 'Alexander', 'Peter', 'Anna', 'Elisabeth', 'Maria', 'Sarah', 'Julia', 'Katharina', 'Christina', 'Lisa', 'Sophie', 'Sandra'],
-      nachnamen: ['H.', 'S.', 'W.', 'M.', 'B.', 'G.', 'F.', 'K.', 'P.', 'R.']
-    },
-    'Schweiz': {
-      vornamen: ['Daniel', 'Thomas', 'Christian', 'Michael', 'Stefan', 'Peter', 'Martin', 'Andreas', 'Markus', 'David', 'Anna', 'Maria', 'Sarah', 'Laura', 'Sophie', 'Lena', 'Lisa', 'Julia', 'Lea', 'Nadine'],
-      nachnamen: ['M.', 'S.', 'B.', 'W.', 'H.', 'G.', 'K.', 'F.', 'R.', 'Z.']
-    },
-    'Niederlande': {
-      vornamen: ['Jan', 'Peter', 'Joris', 'Jeroen', 'Thomas', 'Mark', 'Tim', 'Willem', 'Lucas', 'Lars', 'Emma', 'Sophie', 'Lisa', 'Anna', 'Julia', 'Lotte', 'Eva', 'Sanne', 'Lieke', 'Fleur'],
-      nachnamen: ['de V.', 'van D.', 'van der H.', 'B.', 'K.', 'van W.', 'van B.', 'de B.', 'M.', 'van L.']
-    },
-    'Belgien': {
-      vornamen: ['Luc', 'Marc', 'Thomas', 'Philippe', 'Jean', 'David', 'Michel', 'Pierre', 'Patrick', 'Vincent', 'Sophie', 'Marie', 'Anne', 'Julie', 'Emma', 'Lotte', 'Charlotte', 'Isabelle', 'Nathalie', 'Céline'],
-      nachnamen: ['D.', 'L.', 'M.', 'P.', 'V.', 'C.', 'B.', 'J.', 'G.', 'H.']
-    },
-    'Luxemburg': {
-      vornamen: ['Michel', 'Jean', 'Pierre', 'Nicolas', 'Marc', 'Claude', 'Paul', 'François', 'Philippe', 'Robert', 'Marie', 'Anne', 'Sophie', 'Claire', 'Julie', 'Sarah', 'Isabelle', 'Martine', 'Monique', 'Simone'],
-      nachnamen: ['S.', 'M.', 'K.', 'W.', 'B.', 'P.', 'H.', 'R.', 'N.', 'D.']
-    },
-    'Frankreich': {
-      vornamen: ['Jean', 'Pierre', 'Michel', 'Philippe', 'Nicolas', 'François', 'Antoine', 'Thomas', 'Laurent', 'Julien', 'Marie', 'Julie', 'Sophie', 'Céline', 'Isabelle', 'Nathalie', 'Catherine', 'Sylvie', 'Anne', 'Claire'],
-      nachnamen: ['D.', 'B.', 'L.', 'M.', 'R.', 'P.', 'T.', 'S.', 'G.', 'C.']
-    },
-    'Italien': {
-      vornamen: ['Marco', 'Giuseppe', 'Antonio', 'Giovanni', 'Francesco', 'Alessandro', 'Luigi', 'Roberto', 'Andrea', 'Paolo', 'Maria', 'Anna', 'Francesca', 'Paola', 'Chiara', 'Laura', 'Valentina', 'Giulia', 'Rosa', 'Giovanna'],
-      nachnamen: ['R.', 'F.', 'M.', 'B.', 'C.', 'P.', 'V.', 'G.', 'S.', 'L.']
-    },
-    'Spanien': {
-      vornamen: ['José', 'Antonio', 'Manuel', 'Francisco', 'Juan', 'David', 'Carlos', 'Miguel', 'Javier', 'Rafael', 'María', 'Carmen', 'Ana', 'Isabel', 'Laura', 'Cristina', 'Pilar', 'Lucía', 'Elena', 'Marta'],
-      nachnamen: ['G.', 'R.', 'F.', 'M.', 'P.', 'S.', 'L.', 'H.', 'C.', 'D.']
-    },
-    'UK': {
-      vornamen: ['James', 'John', 'David', 'Michael', 'Robert', 'William', 'Richard', 'Thomas', 'Christopher', 'Daniel', 'Emily', 'Sarah', 'Emma', 'Laura', 'Rebecca', 'Sophie', 'Charlotte', 'Jessica', 'Amy', 'Elizabeth'],
-      nachnamen: ['S.', 'B.', 'W.', 'T.', 'J.', 'H.', 'C.', 'M.', 'P.', 'K.']
-    }
-  };
-  
-  // Liste aller verfügbaren Länder
-  const länder = Object.keys(namenPerLand);
+  // Liste realistischer Namen und Länder
+  const vornamen = ['Anna', 'Thomas', 'Sarah', 'Michael', 'Julia', 'Daniel', 'Laura', 'Markus', 'Sophia', 'David', 'Lisa', 'Stefan', 'Maria', 'Andreas', 'Sandra', 'Christian', 'Nina', 'Matthias', 'Eva', 'Alexander'];
+  const nachnamen = ['M.', 'S.', 'B.', 'H.', 'K.', 'W.', 'R.', 'G.', 'F.', 'L.', 'N.', 'T.', 'D.', 'P.', 'C.'];
+  const länder = ['Deutschland', 'Österreich', 'Schweiz', 'Niederlande', 'Belgien', 'Luxemburg', 'Frankreich', 'Italien', 'Spanien', 'UK'];
   
   // Funktion zum Generieren einer zufälligen Aktivität
   function generateActivity() {
-    // Zufälliges Land auswählen
+    const vorname = vornamen[Math.floor(Math.random() * vornamen.length)];
+    const nachname = nachnamen[Math.floor(Math.random() * nachnamen.length)];
     const land = länder[Math.floor(Math.random() * länder.length)];
-    
-    // Namen passend zum Land auswählen
-    const vorname = namenPerLand[land].vornamen[Math.floor(Math.random() * namenPerLand[land].vornamen.length)];
-    const nachname = namenPerLand[land].nachnamen[Math.floor(Math.random() * namenPerLand[land].nachnamen.length)];
-    
     return {
       name: `${vorname} ${nachname}`,
       land: land,
@@ -3374,17 +3323,11 @@ document.addEventListener('DOMContentLoaded', function() {
   function updateActivityDisplay() {
     // Finde den Container mit dem Titel "Letzte Aktivitäten:"
     const activityHeading = document.querySelector('div[style*="font-weight: 500"][style*="margin-bottom: 10px"]');
-    if (!activityHeading || activityHeading.textContent !== 'Letzte Aktivitäten:') {
-      console.log("Aktivitäten-Überschrift nicht gefunden");
-      return;
-    }
+    if (!activityHeading || activityHeading.textContent !== 'Letzte Aktivitäten:') return;
     
     // Finde den übergeordneten Container, der alle Aktivitäten enthält
     const parentContainer = activityHeading.parentElement;
-    if (!parentContainer) {
-      console.log("Eltern-Container nicht gefunden");
-      return;
-    }
+    if (!parentContainer) return;
     
     // Entferne alle bestehenden Aktivitäten-Elemente
     const children = Array.from(parentContainer.children);
@@ -3421,7 +3364,7 @@ document.addEventListener('DOMContentLoaded', function() {
         avatar.style.width = '48px';
         avatar.style.height = '48px';
         avatar.style.borderRadius = '50%';
-        avatar.style.backgroundColor = '#aaaaaa'; // Hellgrau statt lila
+        avatar.style.backgroundColor = '#9c27b0';
         avatar.style.display = 'flex';
         avatar.style.alignItems = 'center';
         avatar.style.justifyContent = 'center';
@@ -3509,20 +3452,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }, delay);
   }
   
-  // Bestehende Aktivitäten sofort löschen und neu generieren (für die Umstellung von Städten auf Länder)
-  localStorage.removeItem('downloadActivities');
-  activities = [];
-  for (let i = 0; i < 3; i++) {
-    const activity = generateActivity();
-    activity.time = new Date().getTime() - (10 + Math.floor(Math.random() * 50)) * 60000;
-    activities.push(activity);
-  }
-  const newActivity = generateActivity();
-  newActivity.isNew = true;
-  newActivity.time = new Date().getTime() - (1 + Math.floor(Math.random() * 3)) * 60000;
-  activities.unshift(newActivity);
-  localStorage.setItem('downloadActivities', JSON.stringify(activities));
-  
   // Initialer Aufruf
   console.log("Dynamische Aktivitäten werden initialisiert...");
   setTimeout(() => {
@@ -3537,6 +3466,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-
+// ... existing code ...
 </body>
 </html>

@@ -2481,11 +2481,6 @@
               <option value="CY">Zypern</option>
               <option value="OTHER">Andere</option>
 </select>
-            <div style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); pointer-events: none;">
-              <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 1L6 6L11 1" stroke="#888888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </div>
 </div>
 
           <!-- Checkbox für E-Mail-Zustimmung -->
@@ -2555,7 +2550,7 @@
           </div>
           
           <div style="display: flex; align-items: center; padding: 12px; border-bottom: 1px solid rgba(0,0,0,0.05); animation: fadeIn 0.5s ease-out forwards; animation-delay: 0.1s;">
-            <div style="width: 48px; height: 48px; border-radius: 50%; background-color: #aaaaaa; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin-right: 15px;">MK</div>
+            <div style="width: 48px; height: 48px; border-radius: 50%; background-color: #9c27b0; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin-right: 15px;">MK</div>
             <div style="flex-grow: 1;">
               <div>Markus K.</div>
               <div style="font-size: 0.8em; color: #777;">Deutschland</div>
@@ -2564,7 +2559,7 @@
           </div>
           
           <div style="display: flex; align-items: center; padding: 12px; border-bottom: 1px solid rgba(0,0,0,0.05); animation: fadeIn 0.5s ease-out forwards; animation-delay: 0.2s;">
-            <div style="width: 48px; height: 48px; border-radius: 50%; background-color: #aaaaaa; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin-right: 15px;">SL</div>
+            <div style="width: 48px; height: 48px; border-radius: 50%; background-color: #9c27b0; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin-right: 15px;">SL</div>
             <div style="flex-grow: 1;">
               <div>Sarah L.</div>
               <div style="font-size: 0.8em; color: #777;">Deutschland</div>
@@ -2573,7 +2568,7 @@
           </div>
           
           <div style="display: flex; align-items: center; padding: 12px; border-bottom: 1px solid rgba(0,0,0,0.05); animation: fadeIn 0.5s ease-out forwards; animation-delay: 0.3s;">
-            <div style="width: 48px; height: 48px; border-radius: 50%; background-color: #aaaaaa; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin-right: 15px;">TG</div>
+            <div style="width: 48px; height: 48px; border-radius: 50%; background-color: #9c27b0; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; margin-right: 15px;">TG</div>
             <div style="flex-grow: 1;">
               <div>Thomas G.</div>
               <div style="font-size: 0.8em; color: #777;">Deutschland</div>
@@ -2963,7 +2958,7 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 
 <script>
-
+// ... existing code ...
 
 // Funktion zur Animation der Zahl
 function animateNumber(element, start, end, duration) {
@@ -3276,7 +3271,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
-
+// ... existing code ...
 
 <script>
 // Dynamische Aktivitäten und Download-Statistiken
@@ -3370,21 +3365,23 @@ document.addEventListener('DOMContentLoaded', function() {
     localStorage.setItem('downloadActivities', JSON.stringify(activities));
   }
   
+  // Rest des Codes bleibt unverändert...
+});
+</script>
+
+// ... existing code ...
+
+<script>
+// Rest des Codes bleibt unverändert...
   // Funktion zum Aktualisieren der Anzeige
   function updateActivityDisplay() {
     // Finde den Container mit dem Titel "Letzte Aktivitäten:"
     const activityHeading = document.querySelector('div[style*="font-weight: 500"][style*="margin-bottom: 10px"]');
-    if (!activityHeading || activityHeading.textContent !== 'Letzte Aktivitäten:') {
-      console.log("Aktivitäten-Überschrift nicht gefunden");
-      return;
-    }
+    if (!activityHeading || activityHeading.textContent !== 'Letzte Aktivitäten:') return;
     
     // Finde den übergeordneten Container, der alle Aktivitäten enthält
     const parentContainer = activityHeading.parentElement;
-    if (!parentContainer) {
-      console.log("Eltern-Container nicht gefunden");
-      return;
-    }
+    if (!parentContainer) return;
     
     // Entferne alle bestehenden Aktivitäten-Elemente
     const children = Array.from(parentContainer.children);
@@ -3421,7 +3418,7 @@ document.addEventListener('DOMContentLoaded', function() {
         avatar.style.width = '48px';
         avatar.style.height = '48px';
         avatar.style.borderRadius = '50%';
-        avatar.style.backgroundColor = '#aaaaaa'; // Hellgrau statt lila
+        avatar.style.backgroundColor = '#9c27b0';
         avatar.style.display = 'flex';
         avatar.style.alignItems = 'center';
         avatar.style.justifyContent = 'center';
@@ -3509,20 +3506,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }, delay);
   }
   
-  // Bestehende Aktivitäten sofort löschen und neu generieren (für die Umstellung von Städten auf Länder)
-  localStorage.removeItem('downloadActivities');
-  activities = [];
-  for (let i = 0; i < 3; i++) {
-    const activity = generateActivity();
-    activity.time = new Date().getTime() - (10 + Math.floor(Math.random() * 50)) * 60000;
-    activities.push(activity);
-  }
-  const newActivity = generateActivity();
-  newActivity.isNew = true;
-  newActivity.time = new Date().getTime() - (1 + Math.floor(Math.random() * 3)) * 60000;
-  activities.unshift(newActivity);
-  localStorage.setItem('downloadActivities', JSON.stringify(activities));
-  
   // Initialer Aufruf
   console.log("Dynamische Aktivitäten werden initialisiert...");
   setTimeout(() => {
@@ -3537,6 +3520,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-
+// ... existing code ...
 </body>
 </html>
