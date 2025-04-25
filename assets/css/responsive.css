@@ -1,0 +1,212 @@
+/* 
+ * responsive.css
+ * Media Queries für Responsive Design
+ */
+
+/* ---------- Große Desktops (ab 1200px) ---------- */
+@media (min-width: 1200px) {
+  .container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+/* ---------- Mittlere Desktops (992px - 1199px) ---------- */
+@media (max-width: 1199px) {
+  .info-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .section-nav {
+    gap: 15px;
+  }
+  
+  .masterclass-grid {
+    gap: 30px;
+  }
+  
+  .footer-columns {
+    gap: 36px;
+  }
+}
+
+/* ---------- Tablets (768px - 991px) ---------- */
+@media (max-width: 991px) {
+  .section {
+    padding: 60px 0;
+  }
+  
+  .nav-menu {
+    position: fixed;
+    top: 70px;
+    right: -300px;
+    width: 300px;
+    height: calc(100vh - 70px);
+    background-color: white;
+    box-shadow: var(--shadow);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 20px;
+    padding: 24px;
+    transition: right 0.3s ease;
+    z-index: 100;
+  }
+  
+  .nav-menu.active {
+    right: 0;
+  }
+  
+  .mobile-menu-btn {
+    display: block;
+  }
+  
+  .program-dropdown {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    margin-top: 12px;
+    box-shadow: none;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .subnav-wrapper {
+    display: none;
+  }
+  
+  .masterclass-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .stats-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .stat-divider {
+    width: 80%;
+    height: 1px;
+  }
+  
+  .footer-inner {
+    padding: 36px 24px;
+  }
+  
+  .footer-columns {
+    gap: 30px;
+  }
+}
+
+/* ---------- Große Handys (576px - 767px) ---------- */
+@media (max-width: 767px) {
+  .section {
+    padding: 50px 0;
+  }
+  
+  h1 {
+    font-size: clamp(1.8rem, 7vw, 2.5rem);
+  }
+  
+  h2 {
+    font-size: clamp(1.4rem, 6vw, 2rem);
+  }
+  
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-inner {
+    padding: 30px 20px;
+  }
+  
+  .footer-columns {
+    flex-direction: column;
+    gap: 25px;
+  }
+  
+  .copyright {
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 30px;
+    text-align: center;
+  }
+  
+  .contact-info {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .sidebar {
+    right: 10px;
+  }
+  
+  .sidebar-item {
+    width: 60px;
+    height: 60px;
+    font-size: 11px;
+  }
+}
+
+/* ---------- Kleine Handys (bis 575px) ---------- */
+@media (max-width: 575px) {
+  .section {
+    padding: 40px 0;
+  }
+  
+  .nav-container {
+    height: 60px;
+  }
+  
+  .nav-logo img {
+    height: 30px;
+  }
+  
+  .sidebar {
+    display: none;
+  }
+  
+  .hero-btn, .cta-button {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .availability-badge {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+  }
+  
+  .slider-track {
+    scroll-snap-type: x mandatory;
+  }
+  
+  .slide.flip-container {
+    scroll-snap-align: center;
+    min-width: 85%;
+  }
+  
+  .videos {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-inner {
+    padding: 24px 16px;
+  }
+}
+
+/* ---------- Landscape Modus für Mobilgeräte ---------- */
+@media (max-height: 500px) and (orientation: landscape) {
+  #hero {
+    padding: 30px 0 15px;
+  }
+  
+  .nav-menu {
+    overflow-y: auto;
+  }
+  
+  .sidebar {
+    display: none;
+  }
+} 

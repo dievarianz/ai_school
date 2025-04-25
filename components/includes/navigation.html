@@ -1,0 +1,547 @@
+<!-- ============ NAVIGATION ============ -->
+<!-- 
+  Diese Komponente dient als zentrale Navigation für alle Seiten der Website.
+  Um diese Komponente zu verwenden, gibt es zwei Möglichkeiten:
+  
+  1. Bei HTML-Dateien mit PHP-Unterstützung:
+     <?php include('components/includes/navigation.html'); ?>
+  
+  2. Bei reinen HTML-Dateien mit JavaScript:
+     <div id="navigation-container"></div>
+     <script>
+       fetch('components/includes/navigation.html')
+         .then(response => response.text())
+         .then(data => {
+           document.getElementById('navigation-container').innerHTML = data;
+         });
+     </script>
+  
+  Änderungen an dieser Datei werden automatisch auf allen Seiten übernommen,
+  die diese Komponente einbinden.
+-->
+
+<div class="nav-wrapper">
+  <nav class="main-nav">
+    <div class="nav-container">
+      <a href="startseite.html" class="nav-logo">
+        <img src="/assets/pictures/imt_logo.webp" alt="StGallen Integrated imt Business School">
+      </a>
+      
+      <div class="nav-menu">
+        <a href="startseite.html" class="nav-link">imtxAI</a>
+        <div class="nav-item">
+          <a href="#" class="nav-link active">Programme <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <div class="program-dropdown">
+            <a href="programm-seite.html" class="program-option">AI in Business Strategy & Digital Transformation</a>
+            <a href="/programme/xai-decision-making" class="program-option">xAI-Augmented Decision Making</a>
+            <a href="/programme/xai-financial-analytics" class="program-option">xAI in Financial Analytics</a>
+            <a href="/programme/xai-marketing-analytics" class="program-option">xAI-driven Marketing & Customer Analytics</a>
+          </div>
+        </div>
+        <a href="/netzwerk" class="nav-link">Netttzwerk</a>
+        <a href="/faq" class="nav-link">FAQ</a>
+        <a href="/kontakt" class="nav-link">Kontakt</a>
+      </div>
+      
+      <div class="lang-select">
+        <a href="#" class="nav-link">DE <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="program-dropdown lang-dropdown">
+          <a href="?lang=de" class="program-option active">Deutsch</a>
+          <a href="?lang=en" class="program-option">English</a>
+        </div>
+      </div>
+      
+      <button class="mobile-menu-btn">
+        <i class="bx bx-menu"></i>
+      </button>
+    </div>
+  </nav>
+  
+  <div class="subnav-wrapper">
+    <div class="subnav-container">
+      <a href="#" class="program-title">AI in Business Strategy & Digital Transformation</a>
+      <div class="section-nav">
+        <a href="#inhalte" class="section-link">Inhalte</a>
+        <a href="#shorts" class="section-link">Shorts</a>
+        <a href="#teilnehmer" class="section-link">Teilnehmer</a>
+        <a href="#impressionen" class="section-link">Impressionen</a>
+        <a href="#faculty" class="section-link">Faculty</a>
+        <a href="#broschuere" class="section-link">Broschüre</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  :root {
+    --font-sans: -apple-system,BlinkMacSystemFont,"San Francisco","Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+    --color-text: #1d1d1f;
+    --color-muted: #6e6e73;
+    --color-card-bg: #f5f5f7;
+    --color-accent2: #970289;
+    --color-badge: #e2b245;
+    --color-badge-hover: #d4a535;
+    --spacing: 24px;
+    --radius: 16px;
+    --max-width: 1200px;
+    --imt-purple: #6e45e2;
+  }
+
+  /* Navigation Wrapper und Container */
+  .nav-wrapper {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    font-family: var(--font-sans);
+    color: var(--color-text);
+  }
+
+  .nav-container {
+    max-width: var(--max-width);
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    padding: 0;
+    position: relative;
+  }
+
+  /* Main Navigation */
+  .main-nav {
+    background: #fff;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    width: 100%;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+    height: 32px;
+  }
+
+  .nav-logo img {
+    height: 100%;
+    width: auto;
+  }
+
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    margin-right: 0;
+  }
+
+  .nav-link {
+    color: var(--color-text);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    white-space: nowrap;
+    position: relative;
+    padding: 8px 0;
+    transition: color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .nav-link svg {
+    margin-left: 2px;
+    transition: transform 0.2s ease;
+  }
+
+  .nav-link:hover {
+    color: var(--color-accent2);
+    text-decoration: none !important;
+  }
+
+  .nav-link.active {
+    color: var(--color-accent2);
+    text-decoration: none !important;
+  }
+
+  /* Verhindert die Unterstreichung bei allen Navigationslinks */
+  .nav-menu a:hover {
+    text-decoration: none !important;
+  }
+
+  .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--color-accent2);
+    border-radius: 1px;
+  }
+
+  .nav-item:hover .nav-link svg, 
+  .lang-select:hover .nav-link svg {
+    transform: rotate(180deg);
+  }
+
+  /* Dropdown */
+  .nav-item {
+    position: relative;
+  }
+
+  .program-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px);
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    min-width: 320px;
+    margin-top: 8px;
+  }
+
+  .nav-item:hover .program-dropdown,
+  .lang-select:hover .program-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .program-option {
+    display: block;
+    padding: 12px 16px;
+    color: var(--color-text);
+    text-decoration: none;
+    font-size: 0.95rem;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    line-height: 1.4;
+  }
+
+  .program-option:hover,
+  .program-option.active {
+    background: var(--color-card-bg);
+    color: var(--color-accent2);
+  }
+
+  /* Language Selector */
+  .lang-select {
+    margin-left: 32px;
+    position: relative;
+  }
+
+  .lang-dropdown {
+    right: -16px;
+    left: auto;
+    min-width: 140px;
+    transform: none !important;
+  }
+
+  /* Sub Navigation */
+  .subnav-wrapper {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: white;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    z-index: 999;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    height: 56px;
+  }
+
+  .subnav-wrapper.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .subnav-container {
+    max-width: var(--max-width);
+    width: 90%;
+    margin: 0 auto;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .program-title {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-accent2);
+    margin-right: auto;
+    white-space: nowrap;
+    max-width: 60%;
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+  }
+
+  .program-title:hover {
+    opacity: 0.8;
+    text-decoration: none;
+  }
+
+  .section-nav {
+    display: flex;
+    gap: 24px;
+    margin-left: 32px;
+  }
+
+  .section-link {
+    color: var(--color-text);
+    text-decoration: none;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .section-link:hover,
+  .section-link.active {
+    opacity: 1;
+    color: var(--color-accent2);
+  }
+
+  /* Mobile Menu */
+  .mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    color: var(--color-text);
+  }
+
+  @media (max-width: 1024px) {
+    .nav-container {
+      width: 95%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 16px;
+    }
+
+    .nav-logo {
+      margin-right: auto;
+    }
+
+    /* Hide all menu items */
+    .nav-menu {
+      display: none;
+    }
+
+    .mobile-menu-btn {
+      display: block;
+      order: 2;
+    }
+
+    /* Keep language selector visible and next to hamburger */
+    .nav-container .lang-select {
+      display: flex !important;
+      order: 3;
+      position: relative;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Mobile menu when active */
+    .nav-menu.active {
+      display: flex;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: white;
+      padding: 24px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Hide language selector in mobile menu but show other items */
+    .nav-menu.active > *:not(.lang-select) {
+      display: block;
+      width: 100%;
+    }
+
+    .nav-menu.active .lang-select {
+      display: none !important;
+    }
+
+    /* Remove any transitions or transforms from program options */
+    .program-dropdown {
+      position: static;
+      box-shadow: none;
+      opacity: 1;
+      visibility: visible;
+      width: 100%;
+      margin: 8px 0;
+      padding: 0;
+      transform: none !important;
+    }
+
+    .program-option {
+      padding: 12px 16px;
+      border-radius: 0;
+      transition: none !important;
+      transform: none !important;
+    }
+
+    .program-option:hover {
+      background: var(--color-card-bg);
+      color: var(--color-accent2);
+      padding-left: 16px !important;
+      margin-left: 0 !important;
+      transform: none !important;
+    }
+
+    /* Hide second navigation completely on mobile */
+    .subnav-wrapper {
+      display: none !important;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .nav-container {
+      width: 90%;
+      flex-wrap: wrap;
+      height: auto;
+      padding: 16px var(--spacing);
+    }
+    
+    .nav-menu {
+      margin: 16px 0;
+      width: 100%;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .nav-link {
+      padding: 0;
+    }
+    
+    .nav-link.active::after {
+      display: none;
+    }
+    
+    .nav-item {
+      width: 100%;
+    }
+
+    .section-nav {
+      flex-wrap: wrap;
+      gap: 16px;
+      height: auto;
+    }
+
+    .lang-select {
+      margin-left: 0;
+      padding: 0;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Aktiven Hauptnavigationspunkt markieren
+    const currentPath = window.location.pathname;
+    const currentPage = currentPath.split('/').pop(); // Extrahiere den Dateinamen
+    
+    // Sonderbehandlung für imtxAI Seiten
+    if (currentPage === 'startseite.html' || currentPath === '/' || currentPath === '') {
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+        if (link.textContent.trim().startsWith('imtxAI')) {
+          link.classList.add('active');
+        }
+      });
+    } 
+    // Sonderbehandlung für Programmseiten
+    else if (currentPage === 'programm-seite.html' || currentPath.includes('/programme/')) {
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+        if (link.textContent.trim().startsWith('Programme')) {
+          link.classList.add('active');
+        }
+      });
+      
+      // Markiere den spezifischen Programm-Eintrag
+      if (currentPage === 'programm-seite.html') {
+        document.querySelector('.program-option[href="programm-seite.html"]')?.classList.add('active');
+      }
+      
+      // Aktiviere die Subnavigation
+      const subNav = document.querySelector('.subnav-wrapper');
+      if (subNav) {
+        subNav.classList.add('active');
+        document.body.classList.add('has-subnav');
+        
+        // Programm-Titel aktualisieren
+        const programTitle = document.querySelector('.program-title');
+        if (programTitle && currentPage === 'programm-seite.html') {
+          programTitle.textContent = "AI in Business Strategy & Digital Transformation";
+          programTitle.href = "programm-seite.html";
+        }
+      }
+    }
+    // Standard-Verhalten für andere Seiten
+    else {
+      document.querySelectorAll('.nav-link').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href && href !== '#' && (href === currentPath || (href !== '/' && currentPath.includes(href)))) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    // Aktiven Subnavigationspunkt markieren
+    const hash = window.location.hash;
+    if (hash) {
+      document.querySelectorAll('.section-link').forEach(link => {
+        if (link.getAttribute('href') === hash) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+      });
+    }
+
+    // Hash-Änderungen überwachen
+    window.addEventListener('hashchange', function() {
+      const newHash = window.location.hash;
+      document.querySelectorAll('.section-link').forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === newHash) {
+          link.classList.add('active');
+        }
+      });
+    });
+  });
+</script> 

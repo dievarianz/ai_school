@@ -1,0 +1,169 @@
+<!-- Faculty & Experts Section for AI Business Program -->
+<style>
+  #faculty {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+  }
+  
+  #faculty .section-title {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  
+  #faculty .section-title h2 {
+    font-size: 36px;
+    font-weight: 800;
+    color: #111827;
+    margin-bottom: 20px;
+  }
+  
+  #faculty .section-title p {
+    font-size: 18px;
+    color: #4b5563;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  
+  .faculty-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+  
+  .faculty-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+  }
+  
+  .faculty-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  .faculty-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+  
+  .faculty-info {
+    padding: 20px;
+  }
+  
+  .faculty-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 5px;
+  }
+  
+  .faculty-title {
+    font-size: 16px;
+    color: #1d4ed8;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+  
+  .faculty-bio {
+    font-size: 15px;
+    color: #4b5563;
+    margin-bottom: 15px;
+    line-height: 1.6;
+  }
+  
+  .faculty-social {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .faculty-social a {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f3f4f6;
+    border-radius: 50%;
+    color: #1d4ed8;
+    transition: all 0.3s ease;
+  }
+  
+  .faculty-social a:hover {
+    background: #1d4ed8;
+    color: #fff;
+  }
+  
+  /* Mobile Responsiveness */
+  @media (max-width: 991px) {
+    .faculty-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .faculty-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    #faculty .section-title h2 {
+      font-size: 30px;
+    }
+    
+    #faculty .section-title p {
+      font-size: 16px;
+    }
+  }
+</style>
+
+<section id="faculty">
+  <div class="container">
+    <div class="section-title">
+      <h2>Faculty & Experts</h2>
+      <p>Lernen Sie von führenden Experten und Vordenkern im Bereich Künstliche Intelligenz und Business Transformation. Unsere Dozenten bringen umfassende praktische Erfahrung und akademische Exzellenz mit.</p>
+    </div>
+    
+    <div class="faculty-grid">
+      <div class="faculty-card">
+        <img src="/assets/img/faculty/prof-mueller.jpg" alt="Prof. Dr. Thomas Müller" class="faculty-img">
+        <div class="faculty-info">
+          <h3 class="faculty-name">Prof. Dr. Thomas Müller</h3>
+          <div class="faculty-title">Programmdirektor, KI-Strategie</div>
+          <p class="faculty-bio">Experte für KI-Implementierung in Unternehmen mit über 15 Jahren Erfahrung in der digitalen Transformation. Ehemaliger CTO bei Tech AG und Autor mehrerer Fachbücher zum Thema KI und Business.</p>
+          <div class="faculty-social">
+            <a href="#"><i class='bx bxl-linkedin'></i></a>
+            <a href="#"><i class='bx bxl-twitter'></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="faculty-card">
+        <img src="/assets/img/faculty/dr-schmidt.jpg" alt="Dr. Lisa Schmidt" class="faculty-img">
+        <div class="faculty-info">
+          <h3 class="faculty-name">Dr. Lisa Schmidt</h3>
+          <div class="faculty-title">Leiterin Digitale Transformation</div>
+          <p class="faculty-bio">Führende Wissenschaftlerin im Bereich maschinelles Lernen und Business Analytics. Berät internationale Unternehmen bei der Integration von KI-Lösungen in bestehende Geschäftsprozesse.</p>
+          <div class="faculty-social">
+            <a href="#"><i class='bx bxl-linkedin'></i></a>
+            <a href="#"><i class='bx bxl-twitter'></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="faculty-card">
+        <img src="/assets/img/faculty/jan-berger.jpg" alt="Jan Berger" class="faculty-img">
+        <div class="faculty-info">
+          <h3 class="faculty-name">Jan Berger</h3>
+          <div class="faculty-title">KI-Entrepreneur & Investor</div>
+          <p class="faculty-bio">Serial Entrepreneur mit mehreren erfolgreichen KI-Startups. Berät Unternehmen bei der strategischen Implementierung von KI-Lösungen und der Entwicklung neuer Geschäftsmodelle.</p>
+          <div class="faculty-social">
+            <a href="#"><i class='bx bxl-linkedin'></i></a>
+            <a href="#"><i class='bx bxl-twitter'></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> 

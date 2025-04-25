@@ -1,0 +1,227 @@
+<!-- HERO für AI BUSINESS -->
+<style>
+  #hero {
+    position: relative;
+    overflow: hidden;
+    padding: 120px 0 80px;
+    background-color: #f8f9fa;
+    margin-bottom: 80px;
+  }
+  
+  #hero .hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('/assets/img/ai-business-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15;
+    z-index: 1;
+  }
+  
+  #hero .container {
+    position: relative;
+    z-index: 2;
+  }
+  
+  #hero .bubble {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: rgba(29, 78, 216, 0.1);
+    border-radius: 50%;
+    top: -300px;
+    right: -300px;
+    z-index: 1;
+    animation: morph 15s ease-in-out infinite;
+  }
+  
+  @keyframes morph {
+    0% { border-radius: 50%; }
+    25% { border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%; }
+    50% { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; }
+    75% { border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%; }
+    100% { border-radius: 50%; }
+  }
+  
+  .badge-availability {
+    display: inline-block;
+    background-color: #fff;
+    color: #1e40af;
+    font-size: 14px;
+    padding: 6px 12px;
+    border-radius: 30px;
+    font-weight: 600;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+  }
+  
+  .seminar-title {
+    color: #1e40af;
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-weight: 600;
+  }
+  
+  #hero h1 {
+    font-size: 44px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 25px;
+    color: #111827;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+  
+  #hero p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #4b5563;
+    margin-bottom: 30px;
+    max-width: 600px;
+  }
+  
+  .download-btn {
+    background-color: #1d4ed8;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 14px 30px;
+    border-radius: 30px;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(29, 78, 216, 0.15);
+    margin-bottom: 40px;
+  }
+  
+  .download-btn:hover {
+    background-color: #1e40af;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(29, 78, 216, 0.2);
+  }
+  
+  .download-btn i {
+    margin-right: 8px;
+    font-size: 20px;
+  }
+  
+  .info-boxes {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .info-box {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+  }
+  
+  .info-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+  }
+  
+  .info-box-label {
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 8px;
+  }
+  
+  .info-box-value {
+    font-size: 18px;
+    font-weight: 700;
+    color: #111827;
+  }
+  
+  /* Mobile Responsiveness */
+  @media (max-width: 991px) {
+    #hero {
+      padding: 100px 0 60px;
+    }
+    
+    #hero h1 {
+      font-size: 36px;
+    }
+    
+    .info-boxes {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 767px) {
+    #hero {
+      padding: 80px 0 50px;
+    }
+    
+    #hero h1 {
+      font-size: 30px;
+    }
+    
+    #hero p {
+      font-size: 16px;
+    }
+    
+    .info-boxes {
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+  }
+</style>
+
+<div id="hero">
+  <div class="hero-bg"></div>
+  <div class="bubble"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="badge-availability">
+          <i class='bx bx-time'></i> Nur noch wenige Plätze verfügbar
+        </div>
+        <h5 class="seminar-title">StGallen Executive Seminar</h5>
+        <h1>KI in Business Strategy & Digital Transformation</h1>
+        <p>Erlangen Sie fundiertes Wissen über KI-Implementierung in Unternehmen, Strategieentwicklung und die Transformation von Geschäftsprozessen durch künstliche Intelligenz.</p>
+        <a href="#" class="download-btn" id="download-brochure">
+          <i class='bx bx-download'></i> Broschüre herunterladen
+        </a>
+        
+        <div class="info-boxes">
+          <div class="info-box">
+            <div class="info-box-label">
+              <i class='bx bx-map'></i> Standort
+            </div>
+            <div class="info-box-value">St. Gallen</div>
+          </div>
+          
+          <div class="info-box">
+            <div class="info-box-label">
+              <i class='bx bx-calendar'></i> Dauer
+            </div>
+            <div class="info-box-value">5 Tage</div>
+          </div>
+          
+          <div class="info-box">
+            <div class="info-box-label">
+              <i class='bx bx-wallet'></i> Gebühr
+            </div>
+            <div class="info-box-value">CHF 5'900</div>
+          </div>
+          
+          <div class="info-box">
+            <div class="info-box-label">
+              <i class='bx bx-calendar-check'></i> Nächster Start
+            </div>
+            <div class="info-box-value">15. März 2023</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
