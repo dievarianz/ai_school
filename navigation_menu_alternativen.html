@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Navigation Menu Alternative | imtxAI Business School</title>
+
+  <style>
+    :root {
+      --font-sans: -apple-system,BlinkMacSystemFont,"San Francisco","Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+      --color-text: #1d1d1f;
+      --color-muted: #6e6e73;
+      --color-card-bg: #f5f5f7;
+      --color-accent2: #970289;
+      --color-badge: #e2b245;
+      --color-badge-hover: #d4a535;
+      --spacing: 24px;
+      --radius: 16px;
+      --max-width: 1200px;
+      --imt-purple: #6e45e2;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--color-text);
+      background: #f5f5f7;
+      padding: 40px;
+      line-height: 1.5;
+    }
+
+    .preview-container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      color: var(--color-text);
+    }
+
+    /* Navigation Wrapper und Container */
+    .nav-wrapper {
+      position: relative;
+      background: rgba(255, 255, 255, 0.98);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      font-family: var(--font-sans);
+      color: var(--color-text);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+    }
+
+    .nav-container {
+      max-width: var(--max-width);
+      width: 90%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      padding: 0;
+      position: relative;
+    }
+
+    /* Main Navigation */
+    .main-nav {
+      background: #fff;
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      margin-right: auto;
+      height: 32px;
+    }
+
+    .nav-logo img {
+      height: 100%;
+      width: auto;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      margin-right: 0;
+    }
+
+    .nav-link {
+      color: var(--color-text);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      white-space: nowrap;
+      position: relative;
+      padding: 8px 0;
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .nav-link svg {
+      margin-left: 2px;
+      transition: transform 0.2s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--color-accent2);
+      text-decoration: none !important;
+    }
+
+    .nav-link.active {
+      color: var(--color-accent2);
+      text-decoration: none !important;
+    }
+
+    /* Verhindert die Unterstreichung bei allen Navigationslinks */
+    .nav-menu a:hover {
+      text-decoration: none !important;
+    }
+
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--color-accent2);
+      border-radius: 1px;
+    }
+
+    .nav-item:hover .nav-link svg, 
+    .lang-select:hover .nav-link svg {
+      transform: rotate(180deg);
+    }
+
+    /* Dropdown */
+    .nav-item {
+      position: relative;
+    }
+
+    /* Neues zweispaltiges Dropdown-Menü */
+    .program-dropdown {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-8px);
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      padding: 24px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.2s ease;
+      min-width: 600px;
+      margin-top: 8px;
+      z-index: 1000;
+      display: flex;
+      gap: 24px;
+    }
+
+    .nav-item:hover .program-dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Spalten für Seminare und Programme */
+    .menu-column {
+      flex: 1;
+    }
+
+    .menu-column h3 {
+      font-size: 1rem;
+      margin-bottom: 16px;
+      color: var(--color-accent2);
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .program-option {
+      display: block;
+      padding: 12px 16px;
+      color: var(--color-text);
+      text-decoration: none;
+      font-size: 0.95rem;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+      line-height: 1.4;
+      margin-bottom: 4px;
+    }
+
+    .program-option:hover,
+    .program-option.active {
+      background: var(--color-card-bg);
+      color: var(--color-accent2);
+    }
+  
+    /* Zusätzlicher Stil für aktive Programmoption */
+    .program-option.active {
+      font-weight: 500 !important;
+      position: relative;
+      background-color: var(--color-card-bg) !important;
+      color: var(--color-accent2) !important;
+    }
+  
+    .program-option.active::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 3px;
+      height: 60%;
+      background: var(--color-accent2);
+      border-radius: 0 2px 2px 0;
+    }
+
+    .preview-controls {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .preview-button {
+      display: inline-block;
+      margin: 0 10px;
+      padding: 12px 24px;
+      background: var(--imt-purple);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .preview-button:hover {
+      background: #5835c8;
+      transform: translateY(-2px);
+    }
+
+    .preview-note {
+      margin-top: 20px;
+      padding: 16px;
+      background: rgba(110, 69, 226, 0.1);
+      border-radius: 8px;
+      font-size: 0.9rem;
+    }
+
+    .preview-note h3 {
+      margin-bottom: 8px;
+      color: var(--imt-purple);
+    }
+  </style>
+</head>
+<body>
+  <div class="preview-container">
+    <h1>Navigation Menü Alternative</h1>
+
+    <!-- Navigation Vorschau -->
+    <div class="nav-wrapper">
+      <nav class="main-nav">
+        <div class="nav-container">
+          <a href="startseite.html" class="nav-logo">
+            <img src="https://placeholder.pics/svg/140x32/DEDEDE/555555/imt%20Logo" alt="StGallen Integrated imt Business School">
+          </a>
+          
+          <div class="nav-menu">
+            <a href="startseite.html" class="nav-link">imtxAI</a>
+            <div class="nav-item">
+              <a href="#" class="nav-link toggle-subnav">Programme <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+              
+              <!-- Neues zweispaltiges Dropdown-Menü -->
+              <div class="program-dropdown">
+                <!-- Erste Spalte: Seminare -->
+                <div class="menu-column">
+                  <h3>Seminare</h3>
+                  <a href="programm-seite.html" class="program-option">AI in Business Strategy & Digital Transformation</a>
+                  <a href="/programme/xai-decision-making" class="program-option">xAI-Augmented Decision Making</a>
+                  <a href="/programme/xai-financial-analytics" class="program-option">xAI in Financial Analytics</a>
+                  <a href="/programme/xai-marketing-analytics" class="program-option">xAI-driven Marketing & Customer Analytics</a>
+                </div>
+                
+                <!-- Zweite Spalte: Programme -->
+                <div class="menu-column">
+                  <h3>Programme</h3>
+                  <a href="#" class="program-option">StGallen imt xAI Management Programm</a>
+                  <a href="#" class="program-option">StGallen imt xAI Certified Management CAS</a>
+                  <a href="#" class="program-option">StGallen Fast‑Track xAI Programm</a>
+                </div>
+              </div>
+            </div>
+            <a href="netzwerk.html" class="nav-link">Netzwerk</a>
+            <a href="service.html" class="nav-link">Service</a>
+            <a href="kontakt.html" class="nav-link">Kontakt</a>
+          </div>
+          
+          <div style="width:80px; text-align:right;">DE</div>
+        </div>
+      </nav>
+    </div>
+
+    <div class="preview-note">
+      <h3>Hinweise zur Vorschau</h3>
+      <p>Dies ist eine Vorschau des alternativen Navigationsdropdown-Menüs mit zwei Spalten. Klicken Sie auf "Programme", um das neue Dropdown-Menü zu sehen. In der linken Spalte befinden sich die Seminare, in der rechten die längerfristigen Programme.</p>
+      <p>Die Vorteile dieses Ansatzes sind:</p>
+      <ul style="margin-left: 20px; margin-top: 10px;">
+        <li>Bessere Organisation durch Kategorisierung</li>
+        <li>Mehr Platz für zukünftige Erweiterungen</li>
+        <li>Verbesserte visuelle Trennung zwischen verschiedenen Angebotstypen</li>
+        <li>Klarere Struktur für Benutzer</li>
+      </ul>
+    </div>
+
+    <div class="preview-controls">
+      <button class="preview-button" onclick="toggleDropdown()">Dropdown anzeigen/ausblenden</button>
+    </div>
+  </div>
+
+  <script>
+    function toggleDropdown() {
+      const dropdown = document.querySelector('.program-dropdown');
+      if (dropdown.style.opacity === '1') {
+        dropdown.style.opacity = '0';
+        dropdown.style.visibility = 'hidden';
+        dropdown.style.transform = 'translateX(-50%) translateY(-8px)';
+      } else {
+        dropdown.style.opacity = '1';
+        dropdown.style.visibility = 'visible';
+        dropdown.style.transform = 'translateX(-50%) translateY(0)';
+      }
+    }
+
+    // Füge Hover-Effekt für die Vorschau hinzu
+    document.querySelector('.nav-item').addEventListener('mouseenter', function() {
+      document.querySelector('.program-dropdown').style.opacity = '1';
+      document.querySelector('.program-dropdown').style.visibility = 'visible';
+      document.querySelector('.program-dropdown').style.transform = 'translateX(-50%) translateY(0)';
+    });
+
+    document.querySelector('.nav-item').addEventListener('mouseleave', function() {
+      document.querySelector('.program-dropdown').style.opacity = '0';
+      document.querySelector('.program-dropdown').style.visibility = 'hidden';
+      document.querySelector('.program-dropdown').style.transform = 'translateX(-50%) translateY(-8px)';
+    });
+  </script>
+</body>
+</html> 

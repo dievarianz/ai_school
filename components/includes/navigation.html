@@ -30,12 +30,24 @@
       <div class="nav-menu">
         <a href="startseite.html" class="nav-link">imtxAI</a>
         <div class="nav-item">
-          <a href="#" class="nav-link active">Programme <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="#" class="nav-link active">Tracks <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           <div class="program-dropdown">
-            <a href="programm-seite.html" class="program-option">AI in Business Strategy & Digital Transformation</a>
-            <a href="/programme/xai-decision-making" class="program-option">xAI-Augmented Decision Making</a>
-            <a href="/programme/xai-financial-analytics" class="program-option">xAI in Financial Analytics</a>
-            <a href="/programme/xai-marketing-analytics" class="program-option">xAI-driven Marketing & Customer Analytics</a>
+            <!-- Erste Spalte: Seminare -->
+            <div class="menu-column">
+              <h3>Einzelseminare</h3>
+              <a href="programm-seite.html" class="program-option">AI in Business Strategy & Digital Transformation</a>
+              <a href="/programme/xai-decision-making" class="program-option">xAI-Augmented Decision Making</a>
+              <a href="/programme/xai-financial-analytics" class="program-option">xAI in Financial Analytics</a>
+              <a href="/programme/xai-marketing-analytics" class="program-option">xAI-driven Marketing & Customer Analytics</a>
+            </div>
+            
+            <!-- Zweite Spalte: Programme -->
+            <div class="menu-column">
+              <h3>Programme</h3>
+              <a href="#" class="program-option">StGallen imt xAI Management Programm</a>
+              <a href="#" class="program-option">StGallen imt xAI Certified Management CAS</a>
+              <a href="#" class="program-option">StGallen Fast‑Track xAI Programm</a>
+            </div>
           </div>
         </div>
         <a href="netzwerk.html" class="nav-link">Netzwerk</a>
@@ -203,12 +215,14 @@
     background: white;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    padding: 8px;
+    padding: 24px;
     opacity: 0;
     visibility: hidden;
     transition: all 0.2s ease;
-    min-width: 320px;
+    min-width: 600px;
     margin-top: 8px;
+    display: flex;
+    gap: 24px;
   }
 
   .nav-item:hover .program-dropdown,
@@ -216,6 +230,19 @@
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) translateY(0);
+  }
+  
+  /* Spalten für Seminare und Programme */
+  .menu-column {
+    flex: 1;
+  }
+
+  .menu-column h3 {
+    font-size: 1rem;
+    margin-bottom: 16px;
+    color: var(--color-accent2);
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   }
 
   .program-option {
@@ -227,6 +254,7 @@
     border-radius: 8px;
     transition: all 0.2s ease;
     line-height: 1.4;
+    margin-bottom: 4px;
   }
 
   .program-option:hover,
@@ -246,6 +274,8 @@
     left: auto;
     min-width: 140px;
     transform: none !important;
+    display: block !important;
+    padding: 8px !important;
   }
 
   /* Sub Navigation */
@@ -396,21 +426,15 @@
       margin: 8px 0;
       padding: 0;
       transform: none !important;
+      flex-direction: column;
     }
 
-    .program-option {
-      padding: 12px 16px;
-      border-radius: 0;
-      transition: none !important;
-      transform: none !important;
+    .menu-column {
+      margin-bottom: 16px;
     }
 
-    .program-option:hover {
-      background: var(--color-card-bg);
-      color: var(--color-accent2);
-      padding-left: 16px !important;
-      margin-left: 0 !important;
-      transform: none !important;
+    .menu-column h3 {
+      padding-left: 16px;
     }
 
     /* Hide second navigation completely on mobile */
