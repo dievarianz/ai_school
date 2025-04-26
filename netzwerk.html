@@ -100,50 +100,124 @@
       text-decoration: underline;
     }
 
-    /* Hero-Sektion */
-    .hero {
-      background-color: #f5f5f7;
-      padding: 60px 0;
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      color: var(--color-muted);
-      max-width: 800px;
-      margin: 0 auto 2rem;
-    }
-
     .content-section {
-      padding: 60px 0;
+      padding: 80px 0;
     }
 
-    .content-section h2 {
-      text-align: center;
-      margin-bottom: 40px;
+    .content-section:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    .content-section:first-child {
+      padding-top: 50px;
+    }
+
+    /* Logo Grid für Unternehmen und Universitäten */
+    .logo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .logo-item {
+      background: white;
+      border: 1px solid #eee;
+      border-radius: var(--radius);
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 150px;
+      transition: all 0.3s ease;
+      opacity: 1;
+    }
+
+    .logo-item:hover {
+      border-color: var(--color-accent2);
+      box-shadow: none;
+      transition: all 0.3s ease;
+    }
+
+    .logo-item img {
+      max-width: 80%;
+      max-height: 80%;
+      object-fit: contain;
+    }
+
+    /* Faculty Styling - übernommen aus programm-seite.html */
+    .faculty-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+      margin-top: 48px;
+    }
+
+    .faculty-card {
+      background: white;
+      border: 1px solid #eee;
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: border-color 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+    }
+
+    .faculty-card:hover {
+      border-color: var(--color-accent2);
+      box-shadow: none;
+      transition: all 0.3s ease;
+    }
+
+    .faculty-card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+    }
+
+    .faculty-info {
+      padding: 20px;
+    }
+
+    .faculty-name {
+      font-size: 1.1rem;
+      margin-bottom: 4px;
+    }
+
+    .faculty-title {
+      color: var(--color-accent2);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+    }
+
+    .faculty-description {
+      color: var(--color-muted);
+      font-size: 0.9rem;
+      line-height: 1.4;
     }
 
     @media (max-width: 768px) {
-      h1 {
-        font-size: 2rem;
+      .content-section {
+        padding: 50px 0;
       }
 
-      h2 {
-        font-size: 1.75rem;
+      .logo-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 20px;
       }
 
-      h3 {
-        font-size: 1.25rem;
+      .logo-item {
+        height: 120px;
       }
 
-      .container {
-        padding: 0 16px;
+      .faculty-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      
+      .faculty-card img {
+        height: 240px;
       }
     }
   </style>
@@ -162,21 +236,161 @@
 
   <!-- Hauptinhalt -->
   <main>
-    <!-- Hero-Bereich -->
-    <section class="hero">
+    <!-- Unternehmenspartner -->
+    <section class="content-section">
       <div class="container">
-        <h1>Unser Netzwerk</h1>
-        <p>Entdecken Sie unser Netzwerk aus Experten, Unternehmen und Partnerinstitutionen im Bereich AI und Business Transformation.</p>
+        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Unternehmenspartner</h2>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Wir arbeiten mit führenden Unternehmen zusammen, um praxisnahe und zukunftsorientierte KI-Ausbildung zu gewährleisten.</p>
+        
+        <div class="logo-grid">
+          <!-- Unternehmenslogos -->
+          <div class="logo-item">
+            <img src="assets/companies/microsoft.png" alt="Microsoft">
+          </div>
+          <div class="logo-item">
+            <img src="assets/companies/google.png" alt="Google">
+          </div>
+          <div class="logo-item">
+            <img src="assets/companies/apple.png" alt="Apple">
+          </div>
+          <div class="logo-item">
+            <img src="assets/companies/ibm.png" alt="IBM">
+          </div>
+          <div class="logo-item">
+            <img src="assets/companies/amazon.png" alt="Amazon">
+          </div>
+          <div class="logo-item">
+            <img src="assets/companies/netflix.png" alt="Netflix">
+          </div>
+          <div class="logo-item">
+            <img src="assets/companies/nvidia.png" alt="NVIDIA">
+          </div>
+          <div class="logo-item">
+            <img src="assets/companies/hp.png" alt="HP">
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Hauptinhalt -->
+    <!-- Universitätspartner -->
     <section class="content-section">
       <div class="container">
-        <h2>Netzwerkpartner</h2>
+        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Universitätspartner</h2>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Unsere akademischen Partner garantieren wissenschaftliche Exzellenz und innovative Forschung in allen unseren Programmen.</p>
         
-        <!-- Platzhalterinhalt -->
-        <p>Diese Seite befindet sich im Aufbau. Hier werden bald Informationen zu unseren Netzwerkpartnern, Veranstaltungen und Kooperationsmöglichkeiten verfügbar sein.</p>
+        <div class="logo-grid">
+          <!-- Universitätslogos -->
+          <div class="logo-item">
+            <img src="assets/universities/eth.png" alt="ETH Zürich">
+          </div>
+          <div class="logo-item">
+            <img src="assets/universities/hsg.png" alt="Universität St. Gallen">
+          </div>
+          <div class="logo-item">
+            <img src="assets/universities/mit.png" alt="MIT">
+          </div>
+          <div class="logo-item">
+            <img src="assets/universities/harvard.png" alt="Harvard University">
+          </div>
+          <div class="logo-item">
+            <img src="assets/universities/oxford.png" alt="Oxford University">
+          </div>
+          <div class="logo-item">
+            <img src="assets/universities/stanford.png" alt="Stanford University">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Faculty & Experts Section -->
+    <section class="content-section" id="faculty">
+      <div class="container">
+        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Faculty & Experts</h2>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Lernen Sie von führenden Experten aus Wissenschaft und Praxis – profitieren Sie von jahrelanger Erfahrung in KI und digitaler Transformation.</p>
+        
+        <div class="faculty-grid">
+            <div class="faculty-card">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Prof. Dr. Maria Schmidt"/>
+                <div class="faculty-info">
+                    <h3 class="faculty-name">Prof. Dr. Maria Schmidt</h3>
+                    <div class="faculty-title">Professorin für KI & Business Innovation</div>
+                    <p class="faculty-description">Expertin für KI-gestützte Geschäftsmodelle mit über 15 Jahren Erfahrung in der Transformation von Unternehmen.</p>
+                </div>
+            </div>
+            
+            <div class="faculty-card">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Dr. Thomas Weber"/>
+                <div class="faculty-info">
+                    <h3 class="faculty-name">Dr. Thomas Weber</h3>
+                    <div class="faculty-title">Chief Innovation Officer, TechCorp</div>
+                    <p class="faculty-description">Pionier in der Integration von KI in traditionelle Geschäftsprozesse. Leitet erfolgreich digitale Transformationsprojekte.</p>
+                </div>
+            </div>
+            
+            <div class="faculty-card">
+                <img src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Sarah Chen"/>
+                <div class="faculty-info">
+                    <h3 class="faculty-name">Sarah Chen</h3>
+                    <div class="faculty-title">Head of AI Strategy, GlobalTech</div>
+                    <p class="faculty-description">Verbindet akademische Expertise mit praktischer Erfahrung in der Implementierung von KI-Lösungen.</p>
+                </div>
+            </div>
+            
+            <div class="faculty-card">
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Dr. Michael Bauer"/>
+                <div class="faculty-info">
+                    <h3 class="faculty-name">Dr. Michael Bauer</h3>
+                    <div class="faculty-title">Digital Transformation Expert</div>
+                    <p class="faculty-description">Berät internationale Unternehmen bei der strategischen Ausrichtung ihrer KI-Initiativen.</p>
+                </div>
+            </div>
+            
+            <!-- Neue Faculty-Mitglieder -->
+            <div class="faculty-card">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Prof. Dr. Alexander Müller"/>
+                <div class="faculty-info">
+                    <h3 class="faculty-name">Prof. Dr. Alexander Müller</h3>
+                    <div class="faculty-title">KI-Forscher, Universität Zürich</div>
+                    <p class="faculty-description">Renommierter Wissenschaftler im Bereich maschinelles Lernen mit Schwerpunkt auf neuronalen Netzen und Deep Learning.</p>
+                </div>
+            </div>
+            
+            <div class="faculty-card">
+                <img src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Dr. Laura Martinez"/>
+                <div class="faculty-info">
+                    <h3 class="faculty-name">Dr. Laura Martinez</h3>
+                    <div class="faculty-title">CTO, AI Solutions GmbH</div>
+                    <p class="faculty-description">Technologie-Visionärin mit Fokus auf der Entwicklung ethischer KI-Systeme für den Enterprise-Bereich.</p>
+                </div>
+            </div>
+            
+            <div class="faculty-card">
+                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Robert Schneider"/>
+                <div class="faculty-info">
+                    <h3 class="faculty-name">Robert Schneider</h3>
+                    <div class="faculty-title">Head of Digital Innovation, Siemens</div>
+                    <p class="faculty-description">Experte für die Implementierung von KI-Lösungen in Industrieumgebungen und IoT-Anwendungen.</p>
+                </div>
+            </div>
+            
+            <div class="faculty-card">
+                <img src="https://images.pexels.com/photos/3765175/pexels-photo-3765175.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Prof. Dr. Sophia Bergmann"/>
+                <div class="faculty-info">
+                    <h3 class="faculty-name">Prof. Dr. Sophia Bergmann</h3>
+                    <div class="faculty-title">Lehrstuhl für Wirtschaftsinformatik, TU München</div>
+                    <p class="faculty-description">Spezialisiert auf die Schnittstelle zwischen Betriebswirtschaft und KI mit Fokus auf Prozessoptimierung.</p>
+                </div>
+            </div>
+            
+            <div class="faculty-card">
+                <img src="https://images.unsplash.com/photo-1587723958656-ee042cc565a1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Dr. James Wilson"/>
+                <div class="faculty-info">
+                    <h3 class="faculty-name">Dr. James Wilson</h3>
+                    <div class="faculty-title">AI Ethics Consultant</div>
+                    <p class="faculty-description">Berät Unternehmen und Regierungsorganisationen zu ethischen Fragen im Bereich künstlicher Intelligenz und Datenschutz.</p>
+                </div>
+            </div>
+        </div>
       </div>
     </section>
   </main>
@@ -264,63 +478,8 @@
       .then(data => {
         console.log('Footer geladen');
         if (data) document.getElementById('footer-container').innerHTML = data;
-        
-        // Überprüfen der Footer-Styles
-        if (document.querySelector('footer')) {
-          console.log('Footer Styles:', window.getComputedStyle(document.querySelector('footer')));
-        } else {
-          console.error('Footer-Element nicht gefunden');
-        }
       })
       .catch(error => console.error('Fehler beim Laden des Footers:', error));
-  </script>
-
-  <!-- Script zur Aktivierung des aktuellen Menüpunkts -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      console.log('Netzwerk-Seite geladen, markiere Netzwerk-Link als aktiv');
-      
-      // Wir verwenden ein Interval, um sicherzustellen, dass die Navigation geladen ist
-      let attempts = 0;
-      const maxAttempts = 50; // 5 Sekunden bei 100ms Interval
-      
-      const checkAndActivate = setInterval(function() {
-        attempts++;
-        
-        // Alle Navigationslinks finden
-        const navLinks = document.querySelectorAll('.nav-link');
-        
-        if (navLinks.length > 0) {
-          console.log('Navigationslinks gefunden, suche nach Netzwerk-Link');
-          
-          // Entferne die active-Klasse von allen Links
-          navLinks.forEach(link => {
-            link.classList.remove('active');
-          });
-          
-          // Setze die active-Klasse für den Netzwerk-Link
-          let networkLinkFound = false;
-          navLinks.forEach(link => {
-            if (link.textContent.trim() === 'Netzwerk') {
-              console.log('Netzwerk-Link gefunden:', link);
-              link.classList.add('active');
-              networkLinkFound = true;
-            }
-          });
-          
-          if (networkLinkFound) {
-            // Interval stoppen, wenn alles erledigt ist
-            clearInterval(checkAndActivate);
-          } else if (attempts >= maxAttempts) {
-            console.error('Netzwerk-Link konnte nach mehreren Versuchen nicht gefunden werden');
-            clearInterval(checkAndActivate);
-          }
-        } else if (attempts >= maxAttempts) {
-          console.error('Navigationslinks konnten nach mehreren Versuchen nicht gefunden werden');
-          clearInterval(checkAndActivate);
-        }
-      }, 100);
-    });
   </script>
 </body>
 </html> 
