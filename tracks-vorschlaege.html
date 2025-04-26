@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Tracks Vorschläge | imtxAI Business School</title>
+
+  <!-- ============ STYLES ============ -->
+  <style>
+    :root{
+      --font-sans:-apple-system,BlinkMacSystemFont,"San Francisco","Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+      --color-text:#1d1d1f;
+      --color-muted:#6e6e73;
+      --color-card-bg:#f5f5f7;
+      --color-accent2:#970289;
+      --color-badge:#e2b245;
+      --color-badge-hover:#d4a535;
+      --spacing:24px;
+      --radius:16px;
+      --max-width:1200px;
+      --imt-purple: #6e45e2;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--color-text);
+      background: #fff;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      padding-top: 64px;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--spacing);
+      width: 100%;
+    }
+
+    main {
+      position: relative;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      margin-bottom: 1rem;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.25rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--imt-purple);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Proposal Heading Styles */
+    .proposal-heading {
+      padding: 60px 0 30px;
+      text-align: center;
+      background: linear-gradient(to right, var(--imt-purple), var(--color-accent2));
+      color: white;
+      margin-bottom: 40px;
+    }
+
+    .proposal-heading h2 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .proposal-heading p {
+      max-width: 700px;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+
+    .proposal-section {
+      margin-bottom: 100px;
+    }
+
+    .proposal-title {
+      font-size: 1.75rem;
+      text-align: center;
+      margin: 60px 0 20px;
+      position: relative;
+      padding-bottom: 15px;
+    }
+
+    .proposal-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(to right, var(--imt-purple), var(--color-accent2));
+      border-radius: 2px;
+    }
+
+    .proposal-description {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 50px;
+      color: var(--color-muted);
+    }
+
+    /* Responsive Styling */
+    @media (max-width: 768px) {
+      .proposal-heading h2 {
+        font-size: 1.6rem;
+      }
+      
+      .proposal-title {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+
+  <!-- BoxIcons für Icons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <!-- Font Awesome für die Teaser-Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <header class="proposal-heading">
+    <div class="container">
+      <h2>Tracks Design Vorschläge</h2>
+      <p>Verschiedene Design-Optionen für die "Tracks" Sektion der imtxAI Business School Website</p>
+    </div>
+  </header>
+
+  <main>
+    <!-- Vorschlag 1: Tabs und Karten Design -->
+    <section class="proposal-section">
+      <div class="container">
+        <h2 class="proposal-title">Vorschlag 1: Tabs und Karten Design</h2>
+        <p class="proposal-description">Ein klassisches und elegantes Design mit Tabs zur Umschaltung zwischen Einzelseminaren und Programmen, gefolgt von Karten für die einzelnen Kurse.</p>
+        
+        <div class="tracks-proposal-1">
+          <style>
+            .tracks-proposal-1 .tracks-section {
+              padding: 80px 0;
+              background: #fff;
+            }
+            
+            .tracks-proposal-1 .tracks-header {
+              text-align: center;
+              margin-bottom: 60px;
+            }
+            
+            .tracks-proposal-1 .tracks-title {
+              font-size: 2.8rem;
+              font-weight: 700;
+              margin-bottom: 16px;
+              position: relative;
+              display: inline-block;
+            }
+            
+            .tracks-proposal-1 .tracks-title::after {
+              content: '';
+              position: absolute;
+              height: 8px;
+              width: 60%;
+              background: linear-gradient(to right, var(--imt-purple), var(--color-accent2));
+              bottom: -5px;
+              left: 20%;
+              z-index: -1;
+              opacity: 0.3;
+              border-radius: 4px;
+            }
+            
+            .tracks-proposal-1 .tracks-subtitle {
+              font-size: 1.2rem;
+              color: var(--color-muted);
+              max-width: 700px;
+              margin: 0 auto;
+            }
+            
+            .tracks-proposal-1 .tracks-tabs {
+              display: flex;
+              justify-content: center;
+              gap: 16px;
+              margin-bottom: 40px;
+            }
+            
+            .tracks-proposal-1 .tracks-tab {
+              padding: 12px 24px;
+              background: var(--color-card-bg);
+              border-radius: 30px;
+              font-weight: 500;
+              cursor: pointer;
+              transition: all 0.2s ease;
+              border: 2px solid transparent;
+            }
+            
+            .tracks-proposal-1 .tracks-tab.active {
+              background: var(--imt-purple);
+              color: white;
+              box-shadow: 0 4px 12px rgba(110, 69, 226, 0.2);
+            }
+            
+            .tracks-proposal-1 .tracks-tab:hover:not(.active) {
+              border-color: var(--imt-purple);
+            }
+            
+            .tracks-proposal-1 .track-cards {
+              display: grid;
+              grid-template-columns: repeat(3, 1fr);
+              gap: 24px;
+              max-width: 1080px;
+              margin: 0 auto;
+            }
+            
+            .tracks-proposal-1 .track-card {
+              background: white;
+              border-radius: var(--radius);
+              box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+              overflow: hidden;
+              transition: transform 0.3s, box-shadow 0.3s;
+              border: 1px solid #eee;
+              display: flex;
+              flex-direction: column;
+            }
+            
+            .tracks-proposal-1 .track-card:hover {
+              transform: translateY(-5px);
+              box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+              border-color: var(--imt-purple);
+            }
+            
+            .tracks-proposal-1 .track-card-header {
+              padding: 24px 24px 12px;
+              display: flex;
+              align-items: flex-start;
+              gap: 15px;
+            }
+            
+            .tracks-proposal-1 .track-icon {
+              width: 44px;
+              height: 44px;
+              border-radius: 12px;
+              background: var(--color-card-bg);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              color: var(--imt-purple);
+              font-size: 20px;
+              flex-shrink: 0;
+            }
+            
+            .tracks-proposal-1 .track-details {
+              flex-grow: 1;
+            }
+            
+            .tracks-proposal-1 .track-title {
+              font-size: 1.1rem;
+              margin-bottom: 4px;
+            }
+            
+            .tracks-proposal-1 .track-meta {
+              font-size: 0.85rem;
+              color: var(--color-muted);
+            }
+            
+            .tracks-proposal-1 .track-content {
+              padding: 0 24px 16px;
+              flex-grow: 1;
+            }
+            
+            .tracks-proposal-1 .track-description {
+              font-size: 0.95rem;
+              color: var(--color-text);
+              margin-bottom: 12px;
+              line-height: 1.5;
+            }
+            
+            .tracks-proposal-1 .track-tags {
+              margin-bottom: 12px;
+            }
+            
+            .tracks-proposal-1 .track-footer {
+              padding: 16px 24px;
+              background: var(--color-card-bg);
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              gap: 8px;
+              margin-top: auto;
+            }
+            
+            .tracks-proposal-1 .track-price {
+              font-weight: 600;
+              font-size: 0.95rem;
+            }
+            
+            .tracks-proposal-1 .track-more {
+              color: var(--imt-purple);
+              font-size: 0.9rem;
+              font-weight: 500;
+              display: inline-flex;
+              align-items: center;
+              gap: 4px;
+            }
+            
+            .tracks-proposal-1 .track-more:hover {
+              text-decoration: none;
+              opacity: 0.85;
+            }
+            
+            @media (max-width: 1024px) {
+              .tracks-proposal-1 .track-cards {
+                grid-template-columns: repeat(2, 1fr);
+              }
+            }
+            
+            @media (max-width: 768px) {
+              .tracks-proposal-1 .tracks-title {
+                font-size: 2rem;
+              }
+              
+              .tracks-proposal-1 .tracks-tabs {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+              }
+              
+              .tracks-proposal-1 .tracks-tab {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+              }
+              
+              .tracks-proposal-1 .track-cards {
+                grid-template-columns: 1fr;
+              }
+            }
+          </style>
+          
+          <div class="tracks-section">
+            <div class="container">
+              <div class="tracks-header">
+                <h2 class="tracks-title">Unsere Tracks</h2>
+                <p class="tracks-subtitle">Praxisnahe Seminare und Programme an der Schnittstelle von Management und künstlicher Intelligenz</p>
+              </div>
+              
+              <div class="tracks-tabs">
+                <div class="tracks-tab active">Einzelseminare</div>
+                <div class="tracks-tab">Programme</div>
+              </div>
+              
+              <div class="tracks-content">
+                <div class="track-cards">
+                  <!-- Card 1 -->
+                  <div class="track-card">
+                    <div class="track-card-header">
+                      <div class="track-icon">
+                        <i class="fas fa-brain"></i>
+                      </div>
+                      <div class="track-details">
+                        <h3 class="track-title">AI in Business Strategy</h3>
+                        <div class="track-meta">3-tägiges Seminar</div>
+                      </div>
+                    </div>
+                    <div class="track-content">
+                      <p class="track-description">Entwickeln Sie eine umfassende KI-Strategie für nachhaltige Wettbewerbsvorteile und digitale Transformation.</p>
+                      <div class="track-tags">
+                        <span style="display: inline-block; font-size: 0.8rem; background: #f5f5f7; padding: 4px 10px; border-radius: 20px; margin-right: 8px; margin-bottom: 4px;">Strategie</span>
+                        <span style="display: inline-block; font-size: 0.8rem; background: #f5f5f7; padding: 4px 10px; border-radius: 20px; margin-right: 8px; margin-bottom: 4px;">Digitalisierung</span>
+                      </div>
+                    </div>
+                    <div class="track-footer">
+                      <div class="track-price">CHF 3'800</div>
+                      <a href="#" class="track-more">Details <i class="bx bx-chevron-right"></i></a>
+                    </div>
+                  </div>
+                  
+                  <!-- Card 2 -->
+                  <div class="track-card">
+                    <div class="track-card-header">
+                      <div class="track-icon">
+                        <i class="fas fa-chart-line"></i>
+                      </div>
+                      <div class="track-details">
+                        <h3 class="track-title">xAI Financial Analytics</h3>
+                        <div class="track-meta">2-tägiges Seminar</div>
+                      </div>
+                    </div>
+                    <div class="track-content">
+                      <p class="track-description">Erschließen Sie finanzielle Erkenntnisse durch fortschrittliche Analysen und datengesteuerte Entscheidungsfindung.</p>
+                      <div class="track-tags">
+                        <span style="display: inline-block; font-size: 0.8rem; background: #f5f5f7; padding: 4px 10px; border-radius: 20px; margin-right: 8px; margin-bottom: 4px;">Finanzen</span>
+                        <span style="display: inline-block; font-size: 0.8rem; background: #f5f5f7; padding: 4px 10px; border-radius: 20px; margin-right: 8px; margin-bottom: 4px;">Analytics</span>
+                      </div>
+                    </div>
+                    <div class="track-footer">
+                      <div class="track-price">CHF 2'900</div>
+                      <a href="#" class="track-more">Details <i class="bx bx-chevron-right"></i></a>
+                    </div>
+                  </div>
+                  
+                  <!-- Card 3 -->
+                  <div class="track-card">
+                    <div class="track-card-header">
+                      <div class="track-icon">
+                        <i class="fas fa-bullseye"></i>
+                      </div>
+                      <div class="track-details">
+                        <h3 class="track-title">xAI-driven Marketing</h3>
+                        <div class="track-meta">2-tägiges Seminar</div>
+                      </div>
+                    </div>
+                    <div class="track-content">
+                      <p class="track-description">Optimieren Sie Ihre Marketingstrategien durch tiefgreifende Kundenanalysen und datengesteuerte Kampagnen.</p>
+                      <div class="track-tags">
+                        <span style="display: inline-block; font-size: 0.8rem; background: #f5f5f7; padding: 4px 10px; border-radius: 20px; margin-right: 8px; margin-bottom: 4px;">Marketing</span>
+                        <span style="display: inline-block; font-size: 0.8rem; background: #f5f5f7; padding: 4px 10px; border-radius: 20px; margin-right: 8px; margin-bottom: 4px;">Customer Analytics</span>
+                      </div>
+                    </div>
+                    <div class="track-footer">
+                      <div class="track-price">CHF 2'900</div>
+                      <a href="#" class="track-more">Details <i class="bx bx-chevron-right"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vorschlag 2: Fokussiertes Grid-Layout -->
+    <section class="proposal-section">
+      <div class="container">
+        <h2 class="proposal-title">Vorschlag 2: Fokussiertes Grid-Layout</h2>
+        <p class="proposal-description">Ein modernes Grid-Layout mit Fokus auf Inhalte und klare visuelle Hierarchie, für eine übersichtliche Darstellung der verschiedenen Tracks.</p>
+        
+        <div class="tracks-proposal-2">
+          <style>
+            .tracks-proposal-2 .tracks-section {
+              padding: 80px 0;
+              background: #fff;
+            }
+            
+            .tracks-proposal-2 .tracks-header {
+              margin-bottom: 50px;
+            }
+            
+            .tracks-proposal-2 .tracks-title {
+              font-size: 2.8rem;
+              font-weight: 700;
+              margin-bottom: 16px;
+              position: relative;
+              display: inline-block;
+            }
+            
+            .tracks-proposal-2 .tracks-title::before {
+              content: '';
+              position: absolute;
+              height: 3px;
+              width: 60px;
+              background: var(--imt-purple);
+              bottom: -10px;
+              left: 0;
+            }
+            
+            .tracks-proposal-2 .tracks-subtitle {
+              font-size: 1.2rem;
+              color: var(--color-muted);
+              max-width: 700px;
+              margin-top: 20px;
+            }
+            
+            .tracks-proposal-2 .tracks-filter {
+              display: flex;
+              gap: 15px;
+              margin-bottom: 30px;
+              flex-wrap: wrap;
+            }
+            
+            .tracks-proposal-2 .tracks-filter-button {
+              padding: 8px 20px;
+              border: none;
+              background: transparent;
+              color: var(--color-text);
+              font-size: 0.95rem;
+              cursor: pointer;
+              position: relative;
+              font-weight: 500;
+            }
+            
+            .tracks-proposal-2 .tracks-filter-button::after {
+              content: '';
+              position: absolute;
+              bottom: 0;
+              left: 50%;
+              transform: translateX(-50%);
+              width: 0;
+              height: 2px;
+              background: var(--imt-purple);
+              transition: width 0.2s ease;
+            }
+            
+            .tracks-proposal-2 .tracks-filter-button.active,
+            .tracks-proposal-2 .tracks-filter-button:hover {
+              color: var(--imt-purple);
+            }
+            
+            .tracks-proposal-2 .tracks-filter-button.active::after,
+            .tracks-proposal-2 .tracks-filter-button:hover::after {
+              width: 80%;
+            }
+            
+            .tracks-proposal-2 .tracks-grid {
+              display: grid;
+              grid-template-columns: repeat(3, 1fr);
+              gap: 30px;
+            }
+            
+            .tracks-proposal-2 .track-item {
+              background: white;
+              border-radius: 8px;
+              box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+              overflow: hidden;
+              transition: transform 0.3s, box-shadow 0.3s;
+              position: relative;
+            }
+            
+            .tracks-proposal-2 .track-item:hover {
+              transform: translateY(-5px);
+              box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            }
+            
+            .tracks-proposal-2 .track-category {
+              position: absolute;
+              top: 20px;
+              right: 20px;
+              background: rgba(0, 0, 0, 0.6);
+              color: white;
+              padding: 5px 10px;
+              border-radius: 20px;
+              font-size: 0.7rem;
+              font-weight: 500;
+              letter-spacing: 0.5px;
+              text-transform: uppercase;
+            }
+            
+            .tracks-proposal-2 .track-image {
+              height: 160px;
+              background: linear-gradient(45deg, #6e45e2, #88adf3);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              color: white;
+              font-size: 2.5rem;
+            }
+            
+            .tracks-proposal-2 .track-content {
+              padding: 25px;
+            }
+            
+            .tracks-proposal-2 .track-title {
+              font-size: 1.2rem;
+              margin-bottom: 10px;
+              font-weight: 600;
+            }
+            
+            .tracks-proposal-2 .track-info {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 15px;
+              font-size: 0.85rem;
+              color: var(--color-muted);
+            }
+            
+            .tracks-proposal-2 .track-duration {
+              display: flex;
+              align-items: center;
+              gap: 5px;
+            }
+            
+            .tracks-proposal-2 .track-level {
+              display: flex;
+              align-items: center;
+              gap: 5px;
+            }
+            
+            .tracks-proposal-2 .track-description {
+              margin-bottom: 20px;
+              font-size: 0.95rem;
+              line-height: 1.5;
+              color: var(--color-text);
+            }
+            
+            .tracks-proposal-2 .track-footer {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              border-top: 1px solid #f0f0f0;
+              padding-top: 15px;
+              margin-top: auto;
+            }
+            
+            .tracks-proposal-2 .track-price {
+              font-weight: 700;
+              font-size: 1.1rem;
+            }
+            
+            .tracks-proposal-2 .track-button {
+              display: inline-block;
+              padding: 8px 20px;
+              background: white;
+              border: 1px solid var(--imt-purple);
+              color: var(--imt-purple);
+              border-radius: 30px;
+              font-size: 0.85rem;
+              font-weight: 500;
+              text-decoration: none;
+              transition: all 0.2s ease;
+            }
+            
+            .tracks-proposal-2 .track-button:hover {
+              background: var(--imt-purple);
+              color: white;
+            }
+            
+            @media (max-width: 1024px) {
+              .tracks-proposal-2 .tracks-grid {
+                grid-template-columns: repeat(2, 1fr);
+              }
+            }
+            
+            @media (max-width: 768px) {
+              .tracks-proposal-2 .tracks-title {
+                font-size: 2rem;
+              }
+              
+              .tracks-proposal-2 .tracks-grid {
+                grid-template-columns: 1fr;
+              }
+              
+              .tracks-proposal-2 .tracks-filter {
+                flex-direction: row;
+                overflow-x: auto;
+                padding-bottom: 10px;
+                margin-bottom: 20px;
+              }
+              
+              .tracks-proposal-2 .tracks-filter-button {
+                padding: 8px 15px;
+                white-space: nowrap;
+              }
+            }
+          </style>
+          
+          <div class="tracks-section">
+            <div class="container">
+              <div class="tracks-header">
+                <h2 class="tracks-title">Unsere Tracks</h2>
+                <p class="tracks-subtitle">Praxisnahe Seminare und Programme an der Schnittstelle von Management und künstlicher Intelligenz</p>
+              </div>
+              
+              <div class="tracks-filter">
+                <button class="tracks-filter-button active">Alle anzeigen</button>
+                <button class="tracks-filter-button">Strategie</button>
+                <button class="tracks-filter-button">Technologie</button>
+                <button class="tracks-filter-button">Marketing</button>
+                <button class="tracks-filter-button">Finanzen</button>
+              </div>
+              
+              <div class="tracks-grid">
+                <!-- Track Item 1 -->
+                <div class="track-item">
+                  <div class="track-category">Strategie</div>
+                  <div class="track-image">
+                    <i class="fas fa-brain"></i>
+                  </div>
+                  <div class="track-content">
+                    <h3 class="track-title">AI in Business Strategy</h3>
+                    <div class="track-info">
+                      <div class="track-duration">
+                        <i class="bx bx-time"></i> 3 Tage
+                      </div>
+                      <div class="track-level">
+                        <i class="bx bx-signal-4"></i> Fortgeschritten
+                      </div>
+                    </div>
+                    <p class="track-description">Entwickeln Sie eine umfassende KI-Strategie für nachhaltige Wettbewerbsvorteile und digitale Transformation.</p>
+                    <div class="track-footer">
+                      <div class="track-price">CHF 3'800</div>
+                      <a href="#" class="track-button">Details</a>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Track Item 2 -->
+                <div class="track-item">
+                  <div class="track-category">Finanzen</div>
+                  <div class="track-image">
+                    <i class="fas fa-chart-line"></i>
+                  </div>
+                  <div class="track-content">
+                    <h3 class="track-title">xAI Financial Analytics</h3>
+                    <div class="track-info">
+                      <div class="track-duration">
+                        <i class="bx bx-time"></i> 2 Tage
+                      </div>
+                      <div class="track-level">
+                        <i class="bx bx-signal-3"></i> Mittel
+                      </div>
+                    </div>
+                    <p class="track-description">Erschließen Sie finanzielle Erkenntnisse durch fortschrittliche Analysen und datengesteuerte Entscheidungsfindung.</p>
+                    <div class="track-footer">
+                      <div class="track-price">CHF 2'900</div>
+                      <a href="#" class="track-button">Details</a>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Track Item 3 -->
+                <div class="track-item">
+                  <div class="track-category">Marketing</div>
+                  <div class="track-image">
+                    <i class="fas fa-bullseye"></i>
+                  </div>
+                  <div class="track-content">
+                    <h3 class="track-title">xAI-driven Marketing</h3>
+                    <div class="track-info">
+                      <div class="track-duration">
+                        <i class="bx bx-time"></i> 2 Tage
+                      </div>
+                      <div class="track-level">
+                        <i class="bx bx-signal-3"></i> Mittel
+                      </div>
+                    </div>
+                    <p class="track-description">Optimieren Sie Ihre Marketingstrategien durch tiefgreifende Kundenanalysen und datengesteuerte Kampagnen.</p>
+                    <div class="track-footer">
+                      <div class="track-price">CHF 2'900</div>
+                      <a href="#" class="track-button">Details</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vorschlag 3: Karten Carousel Design -->
+    <section class="proposal-section">
+      <div class="container">
+        <h2 class="proposal-title">Vorschlag 3: Karten Carousel Design</h2>
+        <p class="proposal-description">Ein interaktives Carousel-Design mit horizontalem Scroll für eine dynamische und platzsparende Präsentation der Tracks.</p>
+        
+        <div class="tracks-proposal-3">
+          <style>
+            .tracks-proposal-3 .tracks-section {
+              padding: 80px 0;
+              background: white;
+            }
+            
+            .tracks-proposal-3 .tracks-header {
+              text-align: center;
+              max-width: 800px;
+              margin: 0 auto 60px;
+            }
+            
+            .tracks-proposal-3 .tracks-title {
+              font-size: 2.5rem;
+              font-weight: 700;
+              margin-bottom: 15px;
+              position: relative;
+              display: inline-block;
+            }
+            
+            .tracks-proposal-3 .tracks-title::after {
+              content: '';
+              position: absolute;
+              width: 60px;
+              height: 4px;
+              background: var(--imt-purple);
+              bottom: -10px;
+              left: 50%;
+              transform: translateX(-50%);
+            }
+            
+            .tracks-proposal-3 .tracks-subtitle {
+              font-size: 1.1rem;
+              color: var(--color-muted);
+              line-height: 1.6;
+              margin-top: 25px;
+            }
+            
+            .tracks-proposal-3 .tracks-categories {
+              display: flex;
+              justify-content: center;
+              margin-bottom: 40px;
+              flex-wrap: wrap;
+              gap: 10px;
+            }
+            
+            .tracks-proposal-3 .category-pill {
+              padding: 8px 20px;
+              background: white;
+              border: 1px solid #e0e0e0;
+              border-radius: 30px;
+              cursor: pointer;
+              font-size: 0.95rem;
+              transition: all 0.2s;
+              font-weight: 500;
+            }
+            
+            .tracks-proposal-3 .category-pill.active {
+              background: var(--imt-purple);
+              border-color: var(--imt-purple);
+              color: white;
+            }
+            
+            .tracks-proposal-3 .category-pill:hover:not(.active) {
+              border-color: var(--imt-purple);
+              color: var(--imt-purple);
+            }
+            
+            .tracks-proposal-3 .tracks-carousel-container {
+              position: relative;
+              padding: 0 50px;
+            }
+            
+            .tracks-proposal-3 .tracks-carousel {
+              display: flex;
+              overflow-x: auto;
+              gap: 25px;
+              scroll-snap-type: x mandatory;
+              scrollbar-width: none;
+              -ms-overflow-style: none;
+              padding: 20px 0;
+            }
+            
+            .tracks-proposal-3 .tracks-carousel::-webkit-scrollbar {
+              display: none;
+            }
+            
+            .tracks-proposal-3 .carousel-card {
+              min-width: 360px;
+              background: white;
+              border-radius: 8px;
+              box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
+              overflow: hidden;
+              scroll-snap-align: start;
+              transition: transform 0.3s, box-shadow 0.3s;
+              display: flex;
+              flex-direction: column;
+            }
+            
+            .tracks-proposal-3 .carousel-card:hover {
+              transform: translateY(-5px);
+              box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            }
+            
+            .tracks-proposal-3 .card-header {
+              position: relative;
+              height: 130px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              background: linear-gradient(135deg, #605bff, #9d58ff);
+              color: white;
+            }
+            
+            .tracks-proposal-3 .card-icon {
+              font-size: 3rem;
+              margin-bottom: 10px;
+            }
+            
+            .tracks-proposal-3 .card-tag {
+              position: absolute;
+              top: 15px;
+              right: 15px;
+              background: rgba(255, 255, 255, 0.25);
+              color: white;
+              padding: 4px 12px;
+              border-radius: 20px;
+              font-size: 0.7rem;
+              backdrop-filter: blur(5px);
+              text-transform: uppercase;
+              font-weight: 600;
+              letter-spacing: 0.5px;
+            }
+            
+            .tracks-proposal-3 .card-body {
+              padding: 25px;
+              flex-grow: 1;
+              display: flex;
+              flex-direction: column;
+            }
+            
+            .tracks-proposal-3 .card-title {
+              font-size: 1.3rem;
+              font-weight: 600;
+              margin-bottom: 15px;
+              line-height: 1.3;
+            }
+            
+            .tracks-proposal-3 .card-meta {
+              display: flex;
+              gap: 20px;
+              margin-bottom: 15px;
+              font-size: 0.85rem;
+              color: var(--color-muted);
+            }
+            
+            .tracks-proposal-3 .meta-item {
+              display: flex;
+              align-items: center;
+              gap: 5px;
+            }
+            
+            .tracks-proposal-3 .card-description {
+              margin-bottom: 20px;
+              line-height: 1.5;
+              color: var(--color-text);
+              flex-grow: 1;
+            }
+            
+            .tracks-proposal-3 .card-action {
+              margin-top: auto;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            }
+            
+            .tracks-proposal-3 .card-price {
+              font-weight: 700;
+              font-size: 1.2rem;
+            }
+            
+            .tracks-proposal-3 .card-button {
+              display: inline-flex;
+              align-items: center;
+              gap: 8px;
+              padding: 8px 20px;
+              background: var(--imt-purple);
+              color: white;
+              border-radius: 30px;
+              text-decoration: none;
+              font-weight: 500;
+              transition: all 0.2s;
+              font-size: 0.9rem;
+            }
+            
+            .tracks-proposal-3 .card-button:hover {
+              background: #4f37b3;
+              transform: translateX(3px);
+            }
+            
+            .tracks-proposal-3 .carousel-controls {
+              display: flex;
+              justify-content: center;
+              gap: 15px;
+              margin-top: 30px;
+            }
+            
+            .tracks-proposal-3 .carousel-btn {
+              width: 40px;
+              height: 40px;
+              border-radius: 50%;
+              background: white;
+              border: 1px solid #e0e0e0;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              cursor: pointer;
+              transition: all 0.2s;
+            }
+            
+            .tracks-proposal-3 .carousel-btn:hover {
+              background: var(--imt-purple);
+              border-color: var(--imt-purple);
+              color: white;
+            }
+            
+            @media (max-width: 768px) {
+              .tracks-proposal-3 .tracks-title {
+                font-size: 2rem;
+              }
+              
+              .tracks-proposal-3 .tracks-carousel-container {
+                padding: 0 10px;
+              }
+              
+              .tracks-proposal-3 .carousel-card {
+                min-width: 280px;
+              }
+            }
+          </style>
+          
+          <div class="tracks-section">
+            <div class="container">
+              <div class="tracks-header">
+                <h2 class="tracks-title">Unsere Tracks</h2>
+                <p class="tracks-subtitle">Entdecken Sie unsere praxisorientierten Seminare und Programme, die Management-Know-how mit KI-Kompetenz verbinden</p>
+              </div>
+              
+              <div class="tracks-categories">
+                <div class="category-pill active">Alle Tracks</div>
+                <div class="category-pill">Strategie</div>
+                <div class="category-pill">Technologie</div>
+                <div class="category-pill">Marketing</div>
+                <div class="category-pill">Finanzen</div>
+              </div>
+              
+              <div class="tracks-carousel-container">
+                <div class="tracks-carousel">
+                  <!-- Card 1 -->
+                  <div class="carousel-card">
+                    <div class="card-header">
+                      <i class="far fa-lightbulb card-icon"></i>
+                      <div class="card-tag">Strategie</div>
+                    </div>
+                    <div class="card-body">
+                      <h3 class="card-title">AI in Business Strategy & Transformation</h3>
+                      <div class="card-meta">
+                        <div class="meta-item">
+                          <i class="bx bx-calendar"></i>
+                          <span>3 Tage</span>
+                        </div>
+                        <div class="meta-item">
+                          <i class="bx bx-map"></i>
+                          <span>St. Gallen</span>
+                        </div>
+                      </div>
+                      <p class="card-description">Entwickeln Sie eine umfassende KI-Strategie für Ihr Unternehmen und gestalten Sie aktiv die digitale Transformation.</p>
+                      <div class="card-action">
+                        <div class="card-price">CHF 3'800</div>
+                        <a href="#" class="card-button">
+                          Details <i class="bx bx-right-arrow-alt"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- Card 2 -->
+                  <div class="carousel-card">
+                    <div class="card-header">
+                      <i class="fas fa-chart-pie card-icon"></i>
+                      <div class="card-tag">Finanzen</div>
+                    </div>
+                    <div class="card-body">
+                      <h3 class="card-title">Intelligent Financial Analytics</h3>
+                      <div class="card-meta">
+                        <div class="meta-item">
+                          <i class="bx bx-calendar"></i>
+                          <span>2 Tage</span>
+                        </div>
+                        <div class="meta-item">
+                          <i class="bx bx-map"></i>
+                          <span>St. Gallen</span>
+                        </div>
+                      </div>
+                      <p class="card-description">Erschließen Sie finanzielle Erkenntnisse durch fortschrittliche Analysen und nutzen Sie KI für Finanzprognosen.</p>
+                      <div class="card-action">
+                        <div class="card-price">CHF 2'900</div>
+                        <a href="#" class="card-button">
+                          Details <i class="bx bx-right-arrow-alt"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- Card 3 -->
+                  <div class="carousel-card">
+                    <div class="card-header">
+                      <i class="fas fa-bullseye card-icon"></i>
+                      <div class="card-tag">Marketing</div>
+                    </div>
+                    <div class="card-body">
+                      <h3 class="card-title">Intelligent Marketing & Customer Analytics</h3>
+                      <div class="card-meta">
+                        <div class="meta-item">
+                          <i class="bx bx-calendar"></i>
+                          <span>2 Tage</span>
+                        </div>
+                        <div class="meta-item">
+                          <i class="bx bx-map"></i>
+                          <span>St. Gallen</span>
+                        </div>
+                      </div>
+                      <p class="card-description">Optimieren Sie Ihre Marketingstrategien durch tiefgreifende Kundenanalysen und KI-gestützte Kampagnen.</p>
+                      <div class="card-action">
+                        <div class="card-price">CHF 2'900</div>
+                        <a href="#" class="card-button">
+                          Details <i class="bx bx-right-arrow-alt"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <!-- Card 4 -->
+                  <div class="carousel-card">
+                    <div class="card-header">
+                      <i class="fas fa-brain card-icon"></i>
+                      <div class="card-tag">Technologie</div>
+                    </div>
+                    <div class="card-body">
+                      <h3 class="card-title">AI & ML Fundamentals für Manager</h3>
+                      <div class="card-meta">
+                        <div class="meta-item">
+                          <i class="bx bx-calendar"></i>
+                          <span>2 Tage</span>
+                        </div>
+                        <div class="meta-item">
+                          <i class="bx bx-map"></i>
+                          <span>St. Gallen</span>
+                        </div>
+                      </div>
+                      <p class="card-description">Verstehen Sie die Grundlagen von KI und ML und lernen Sie, wie Sie diese Technologien strategisch einsetzen können.</p>
+                      <div class="card-action">
+                        <div class="card-price">CHF 2'500</div>
+                        <a href="#" class="card-button">
+                          Details <i class="bx bx-right-arrow-alt"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="carousel-controls">
+                  <div class="carousel-btn">
+                    <i class="bx bx-chevron-left"></i>
+                  </div>
+                  <div class="carousel-btn">
+                    <i class="bx bx-chevron-right"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vorschlag 4: Grid-Kacheldesign -->
+    <section class="proposal-section">
+      <div class="container">
+        <h2 class="proposal-title">Vorschlag 4: Grid-Kacheldesign</h2>
+        <p class="proposal-description">Ein modernes Kacheldesign mit variierender Größe der Elemente für eine visuell dynamische Darstellung der Tracks.</p>
+        
+        <div class="tracks-proposal-4">
+          <style>
+            .tracks-proposal-4 .tracks-section {
+              padding: 80px 0;
+              background: white;
+            }
+            
+            .tracks-proposal-4 .tracks-header {
+              text-align: center;
+              max-width: 800px;
+              margin: 0 auto 60px;
+            }
+            
+            .tracks-proposal-4 .tracks-title {
+              font-size: 2.5rem;
+              font-weight: 700;
+              margin-bottom: 15px;
+              position: relative;
+              display: inline-block;
+            }
+            
+            .tracks-proposal-4 .tracks-title::after {
+              content: '';
+              position: absolute;
+              width: 60px;
+              height: 4px;
+              background: var(--imt-purple);
+              bottom: -10px;
+              left: 50%;
+              transform: translateX(-50%);
+            }
+            
+            .tracks-proposal-4 .tracks-subtitle {
+              font-size: 1.1rem;
+              color: var(--color-muted);
+              line-height: 1.6;
+              margin-top: 25px;
+            }
+            
+            .tracks-proposal-4 .track-filters {
+              display: flex;
+              justify-content: center;
+              margin-bottom: 40px;
+              flex-wrap: wrap;
+              gap: 12px;
+            }
+            
+            .tracks-proposal-4 .filter-btn {
+              padding: 10px 20px;
+              border: none;
+              background: #f5f5f5;
+              border-radius: 4px;
+              font-weight: 500;
+              font-size: 0.95rem;
+              cursor: pointer;
+              transition: all 0.2s;
+            }
+            
+            .tracks-proposal-4 .filter-btn.active {
+              background: var(--imt-purple);
+              color: white;
+              box-shadow: 0 4px 10px rgba(77, 59, 189, 0.2);
+            }
+            
+            .tracks-proposal-4 .filter-btn:hover:not(.active) {
+              background: #e9e9e9;
+            }
+            
+            .tracks-proposal-4 .tracks-grid {
+              display: grid;
+              grid-template-columns: repeat(4, 1fr);
+              grid-auto-rows: minmax(180px, auto);
+              gap: 20px;
+            }
+            
+            .tracks-proposal-4 .track-tile {
+              position: relative;
+              border-radius: 8px;
+              overflow: hidden;
+              box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+              transition: transform 0.3s, box-shadow 0.3s;
+              cursor: pointer;
+            }
+            
+            .tracks-proposal-4 .track-tile:hover {
+              transform: translateY(-5px);
+              box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            }
+            
+            .tracks-proposal-4 .track-tile.large {
+              grid-column: span 2;
+              grid-row: span 2;
+            }
+            
+            .tracks-proposal-4 .track-tile.medium {
+              grid-column: span 2;
+            }
+            
+            .tracks-proposal-4 .track-bg {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background-size: cover;
+              background-position: center;
+              z-index: 1;
+              transition: transform 0.5s;
+            }
+            
+            .tracks-proposal-4 .track-tile:hover .track-bg {
+              transform: scale(1.1);
+            }
+            
+            .tracks-proposal-4 .track-overlay {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.8));
+              z-index: 2;
+            }
+            
+            .tracks-proposal-4 .track-content {
+              position: relative;
+              z-index: 3;
+              padding: 25px;
+              height: 100%;
+              display: flex;
+              flex-direction: column;
+              justify-content: flex-end;
+              color: white;
+            }
+            
+            .tracks-proposal-4 .track-category {
+              font-size: 0.75rem;
+              text-transform: uppercase;
+              font-weight: 600;
+              letter-spacing: 1px;
+              margin-bottom: 10px;
+              display: inline-block;
+              background: rgba(255,255,255,0.2);
+              padding: 4px 10px;
+              border-radius: 20px;
+              backdrop-filter: blur(5px);
+            }
+            
+            .tracks-proposal-4 .track-title {
+              font-size: 1.5rem;
+              font-weight: 600;
+              margin-bottom: 10px;
+              line-height: 1.3;
+            }
+            
+            .tracks-proposal-4 .track-tile.large .track-title {
+              font-size: 1.8rem;
+            }
+            
+            .tracks-proposal-4 .track-meta {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin-bottom: 15px;
+              font-size: 0.85rem;
+            }
+            
+            .tracks-proposal-4 .track-duration {
+              display: flex;
+              align-items: center;
+              gap: 5px;
+            }
+            
+            .tracks-proposal-4 .track-price {
+              font-weight: 600;
+            }
+            
+            .tracks-proposal-4 .track-description {
+              margin-bottom: 15px;
+              font-size: 0.95rem;
+              line-height: 1.5;
+              display: none;
+            }
+            
+            .tracks-proposal-4 .track-tile.large .track-description {
+              display: block;
+            }
+            
+            .tracks-proposal-4 .track-link {
+              align-self: flex-start;
+              color: white;
+              text-decoration: none;
+              font-weight: 500;
+              font-size: 0.9rem;
+              padding: 6px 12px;
+              border: 1px solid rgba(255,255,255,0.4);
+              border-radius: 4px;
+              transition: all 0.2s;
+              display: inline-flex;
+              align-items: center;
+              gap: 5px;
+            }
+            
+            .tracks-proposal-4 .track-link:hover {
+              background: white;
+              color: var(--imt-purple);
+            }
+            
+            @media (max-width: 1200px) {
+              .tracks-proposal-4 .tracks-grid {
+                grid-template-columns: repeat(3, 1fr);
+              }
+            }
+            
+            @media (max-width: 992px) {
+              .tracks-proposal-4 .tracks-grid {
+                grid-template-columns: repeat(2, 1fr);
+              }
+            }
+            
+            @media (max-width: 576px) {
+              .tracks-proposal-4 .tracks-grid {
+                grid-template-columns: 1fr;
+              }
+              
+              .tracks-proposal-4 .track-tile.large,
+              .tracks-proposal-4 .track-tile.medium {
+                grid-column: span 1;
+                grid-row: span 1;
+              }
+              
+              .tracks-proposal-4 .track-description {
+                display: block;
+              }
+            }
+          </style>
+          
+          <div class="tracks-section">
+            <div class="container">
+              <div class="tracks-header">
+                <h2 class="tracks-title">Unsere Tracks</h2>
+                <p class="tracks-subtitle">Entdecken Sie unsere praxisorientierten Seminare und Programme, die Management-Know-how mit KI-Kompetenz verbinden</p>
+              </div>
+              
+              <div class="track-filters">
+                <button class="filter-btn active">Alle</button>
+                <button class="filter-btn">Strategie</button>
+                <button class="filter-btn">Technologie</button>
+                <button class="filter-btn">Marketing</button>
+                <button class="filter-btn">Finanzen</button>
+              </div>
+              
+              <div class="tracks-grid">
+                <!-- Large Tile -->
+                <div class="track-tile large">
+                  <div class="track-bg" style="background-image: url('assets/seminar-1.jpg');"></div>
+                  <div class="track-overlay"></div>
+                  <div class="track-content">
+                    <span class="track-category">Strategie</span>
+                    <h3 class="track-title">AI in Business Strategy & Transformation</h3>
+                    <div class="track-meta">
+                      <span class="track-duration"><i class="bx bx-time"></i> 3 Tage</span>
+                      <span class="track-price">CHF 3'800</span>
+                    </div>
+                    <p class="track-description">Entwickeln Sie eine umfassende KI-Strategie für Ihr Unternehmen und gestalten Sie aktiv die digitale Transformation. Unser intensives Seminar vermittelt praktische Einblicke in AI-Implementierungen.</p>
+                    <a href="#" class="track-link">Details <i class="bx bx-right-arrow-alt"></i></a>
+                  </div>
+                </div>
+                
+                <!-- Medium Tile -->
+                <div class="track-tile medium">
+                  <div class="track-bg" style="background-image: url('assets/seminar-2.jpg');"></div>
+                  <div class="track-overlay"></div>
+                  <div class="track-content">
+                    <span class="track-category">Finanzen</span>
+                    <h3 class="track-title">Intelligent Financial Analytics</h3>
+                    <div class="track-meta">
+                      <span class="track-duration"><i class="bx bx-time"></i> 2 Tage</span>
+                      <span class="track-price">CHF 2'900</span>
+                    </div>
+                    <a href="#" class="track-link">Details <i class="bx bx-right-arrow-alt"></i></a>
+                  </div>
+                </div>
+                
+                <!-- Regular Tile -->
+                <div class="track-tile">
+                  <div class="track-bg" style="background-image: url('assets/seminar-3.jpg');"></div>
+                  <div class="track-overlay"></div>
+                  <div class="track-content">
+                    <span class="track-category">Marketing</span>
+                    <h3 class="track-title">Intelligent Marketing & Customer Analytics</h3>
+                    <div class="track-meta">
+                      <span class="track-duration"><i class="bx bx-time"></i> 2 Tage</span>
+                      <span class="track-price">CHF 2'900</span>
+                    </div>
+                    <a href="#" class="track-link">Details <i class="bx bx-right-arrow-alt"></i></a>
+                  </div>
+                </div>
+                
+                <!-- Regular Tile -->
+                <div class="track-tile">
+                  <div class="track-bg" style="background-image: url('assets/seminar-4.jpg');"></div>
+                  <div class="track-overlay"></div>
+                  <div class="track-content">
+                    <span class="track-category">Technologie</span>
+                    <h3 class="track-title">AI & ML Fundamentals für Manager</h3>
+                    <div class="track-meta">
+                      <span class="track-duration"><i class="bx bx-time"></i> 2 Tage</span>
+                      <span class="track-price">CHF 2'500</span>
+                    </div>
+                    <a href="#" class="track-link">Details <i class="bx bx-right-arrow-alt"></i></a>
+                  </div>
+                </div>
+                
+                <!-- Medium Tile -->
+                <div class="track-tile medium">
+                  <div class="track-bg" style="background-image: url('assets/seminar-5.jpg');"></div>
+                  <div class="track-overlay"></div>
+                  <div class="track-content">
+                    <span class="track-category">Technologie</span>
+                    <h3 class="track-title">Data Science & Visualization</h3>
+                    <div class="track-meta">
+                      <span class="track-duration"><i class="bx bx-time"></i> 3 Tage</span>
+                      <span class="track-price">CHF 3'200</span>
+                    </div>
+                    <a href="#" class="track-link">Details <i class="bx bx-right-arrow-alt"></i></a>
+                  </div>
+                </div>
+                
+                <!-- Regular Tile -->
+                <div class="track-tile">
+                  <div class="track-bg" style="background-image: url('assets/seminar-6.jpg');"></div>
+                  <div class="track-overlay"></div>
+                  <div class="track-content">
+                    <span class="track-category">Strategie</span>
+                    <h3 class="track-title">Digital Leadership</h3>
+                    <div class="track-meta">
+                      <span class="track-duration"><i class="bx bx-time"></i> 2 Tage</span>
+                      <span class="track-price">CHF 2'800</span>
+                    </div>
+                    <a href="#" class="track-link">Details <i class="bx bx-right-arrow-alt"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html> 

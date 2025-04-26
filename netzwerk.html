@@ -473,12 +473,12 @@
   <!-- Dynamisches Laden der globalen Komponenten -->
   <script>
     // Navigation laden
-    fetch('components/globals/navigation.html?t=' + new Date().getTime())
+    fetch('components/globals/navigation_ohnesub.html?t=' + new Date().getTime())
       .then(response => {
         if (!response.ok) {
           console.error('Fehler beim Laden der Navigation:', response.status);
           // Fallback zum includes-Verzeichnis versuchen
-          return fetch('components/includes/navigation.html?t=' + new Date().getTime())
+          return fetch('components/includes/navigation_ohnesub.html?t=' + new Date().getTime())
             .then(resp => {
               if (!resp.ok) {
                 console.error('Auch includes-Pfad fehlgeschlagen:', resp.status);

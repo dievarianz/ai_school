@@ -1597,12 +1597,12 @@
 <!-- ============ SCRIPTS ============ -->
 <script>
   // Navigation laden
-  fetch('components/globals/navigation.html?t=' + new Date().getTime())
+  fetch('components/globals/navigation_ohnesub.html?t=' + new Date().getTime())
     .then(response => {
       if (!response.ok) {
         console.error('Fehler beim Laden der Navigation:', response.status);
         // Fallback zum globals-Verzeichnis versuchen
-        return fetch('components/includes/navigation.html?t=' + new Date().getTime())
+        return fetch('components/includes/navigation_ohnesub.html?t=' + new Date().getTime())
           .then(resp => {
             if (!resp.ok) {
               console.error('Auch globals-Pfad fehlgeschlagen:', resp.status);
@@ -1617,96 +1617,6 @@
       console.log('Navigation geladen');
       if (data) {
         document.getElementById('navigation-container').innerHTML = data;
-        
-        // Aktiviere die Unternavigation für diese Seite
-        const subNav = document.querySelector('.subnav-wrapper');
-        if (subNav) {
-          subNav.classList.add('active');
-          document.body.classList.add('has-subnav');
-          
-          // Setze den Programm-Titel
-          const programTitle = document.querySelector('.program-title');
-          if (programTitle) {
-            programTitle.textContent = 'AI in Business Strategy & Digital Transformation';
-            programTitle.href = 'programm-seite.html';
-          }
-          
-          // Aktualisiere die Abschnitts-Links
-          const sectionNav = document.querySelector('.section-nav');
-          if (sectionNav) {
-            sectionNav.innerHTML = `
-              <a href="#module-content" class="section-link">Inhalte</a>
-              <a href="#participants" class="section-link">Teilnehmer</a>
-              <a href="#impressionen" class="section-link">Impressionen</a>
-              <a href="#faculty" class="section-link">Faculty</a>
-              <a href="#contact" class="section-link">Kontakt</a>
-              <a href="#broschuere" class="section-link">Broschüre</a>
-            `;
-            
-            // Aktiviere Scroll-Spy für Abschnitts-Links
-            const sectionLinks = document.querySelectorAll('.section-link');
-            sectionLinks.forEach(link => {
-              link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
-                if (targetElement) {
-                  window.scrollTo({
-                    top: targetElement.offsetTop - 120,
-                    behavior: 'smooth'
-                  });
-                }
-              });
-            });
-          }
-        }
-        
-        // Direkte Initialisierung des Mobile-Menüs, nachdem das HTML geladen wurde
-        setTimeout(() => {
-          const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-          const navMenu = document.querySelector('.nav-menu');
-          
-          console.log('Mobile Menu Button:', mobileMenuBtn);
-          console.log('Nav Menu:', navMenu);
-          
-          if (mobileMenuBtn && navMenu) {
-            mobileMenuBtn.addEventListener('click', function() {
-              console.log('Mobile menu button clicked!');
-              navMenu.classList.toggle('active');
-              console.log('Nav menu active state:', navMenu.classList.contains('active'));
-              
-              // Sprachauswahl zum mobilen Menü hinzufügen
-              if (navMenu.classList.contains('active') && !document.querySelector('.mobile-lang-section')) {
-                const mobileLangSection = document.createElement('div');
-                mobileLangSection.className = 'mobile-lang-section';
-                mobileLangSection.innerHTML = `
-                  <div class="lang-title">Sprache</div>
-                  <div class="mobile-lang-options">
-                    <a href="?lang=de" class="mobile-lang-option active">Deutsch</a>
-                    <a href="?lang=en" class="mobile-lang-option">English</a>
-                  </div>
-                `;
-                navMenu.appendChild(mobileLangSection);
-                console.log('Added language section to mobile menu');
-              }
-            });
-            
-            // Fix mobile dropdown menu for programs
-            document.querySelectorAll('.nav-item').forEach(item => {
-              const link = item.querySelector('.nav-link');
-              const dropdown = item.querySelector('.program-dropdown');
-              
-              if (link && dropdown) {
-                link.addEventListener('click', function(e) {
-                  if (window.innerWidth <= 1024) {
-                    e.preventDefault();
-                    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-                  }
-                });
-              }
-            });
-          }
-        }, 500);
       }
     })
     .catch(error => console.error('Fehler beim Laden der Navigation:', error));
