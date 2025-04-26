@@ -494,6 +494,11 @@
         if (data) {
           document.getElementById('navigation-container').innerHTML = data;
           
+          // Mobile Navigation initialisieren (neu)
+          const navScript = document.createElement('script');
+          navScript.src = 'assets/js/mobile-nav.js?t=' + new Date().getTime();
+          document.body.appendChild(navScript);
+          
           // Netzwerk-Link als aktiv markieren
           setTimeout(() => {
             document.querySelectorAll('.nav-link').forEach(link => {

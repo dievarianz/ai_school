@@ -143,6 +143,18 @@
       display: none;
     }
 
+    /* Select-Dropdown ohne Standard-Browser-Pfeil */
+    select.form-control {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
+    
+    /* Firefox-spezifischer Fix */
+    select.form-control::-ms-expand {
+      display: none;
+    }
+
     .contact-form label {
       display: block;
       margin-bottom: 8px;
@@ -552,6 +564,13 @@
         console.log('Navigation geladen');
         if (data) {
           document.getElementById('navigation-container').innerHTML = data;
+          
+          // Mobile Navigation initialisieren (neu)
+          console.log('Füge mobile-nav.js Script hinzu...');
+          const navScript = document.createElement('script');
+          navScript.src = 'assets/js/mobile-nav.js?t=' + new Date().getTime();
+          document.body.appendChild(navScript);
+          console.log('Mobile-Nav Script hinzugefügt!');
           
           // Kontakt-Link als aktiv markieren
           setTimeout(() => {

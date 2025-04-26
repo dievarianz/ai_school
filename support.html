@@ -593,11 +593,16 @@
         if (data) {
           document.getElementById('navigation-container').innerHTML = data;
           
-          // Service-Link als aktiv markieren
+          // Mobile Navigation initialisieren (neu)
+          const navScript = document.createElement('script');
+          navScript.src = 'assets/js/mobile-nav.js?t=' + new Date().getTime();
+          document.body.appendChild(navScript);
+          
+          // Support-Link als aktiv markieren
           setTimeout(() => {
             document.querySelectorAll('.nav-link').forEach(link => {
-              if (link.textContent.trim() === 'Service') {
-                console.log('Aktiviere Service-Link:', link);
+              if (link.textContent.trim() === 'Support') {
+                console.log('Aktiviere Support-Link:', link);
                 link.classList.add('active');
               }
             });
