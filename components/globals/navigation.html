@@ -703,4 +703,94 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }, 300);
 });
+</script>
+
+<!-- Dynamische Erkennung und Anpassung des Programm-Titels -->
+<script>
+// Set program title based on active menu option
+function setActiveTrackTitle() {
+  // Give time for the menu to be fully loaded
+  setTimeout(() => {
+    const programTitle = document.querySelector('.program-title');
+    if (!programTitle) return;
+    
+    const currentUrl = window.location.href;
+    const currentPath = window.location.pathname;
+    const currentPage = currentPath.split('/').pop();
+    
+    // Define program mapping
+    const programMapping = {
+      'programm-seite.html': {
+        title: "AI in Business Strategy & Digital Transformation",
+        href: "programm-seite.html"
+      },
+      '/programme/xai-decision-making': {
+        title: "XAI Decision Making",
+        href: "/programme/xai-decision-making"
+      },
+      '/programme/xai-financial-analytics': {
+        title: "XAI Financial Analytics",
+        href: "/programme/xai-financial-analytics"
+      },
+      '/programme/xai-marketing-analytics': {
+        title: "XAI Marketing Analytics",
+        href: "/programme/xai-marketing-analytics"
+      },
+      '/programme/ai-healthcare': {
+        title: "AI in Healthcare",
+        href: "/programme/ai-healthcare"
+      },
+      '/programme/ai-recht': {
+        title: "AI & Recht",
+        href: "/programme/ai-recht"
+      },
+      'valley-alternatives.html': {
+        title: "St.Gallen Valley Netzwerk",
+        href: "valley-alternatives.html"
+      }
+    };
+    
+    // Find matching program
+    let activeProgramInfo = null;
+    
+    // Check exact matches first
+    if (programMapping[currentPage]) {
+      activeProgramInfo = programMapping[currentPage];
+    } else {
+      // Check for partial path matches
+      for (const path in programMapping) {
+        if (currentPath.includes(path) || currentUrl.includes(path)) {
+          activeProgramInfo = programMapping[path];
+          break;
+        }
+      }
+    }
+    
+    // Fallback: try to get from menu items if not found in mapping
+    if (!activeProgramInfo) {
+      const programOptions = document.querySelectorAll('.program-option');
+      programOptions.forEach(option => {
+        const optionHref = option.getAttribute('href');
+        if (optionHref && (currentUrl.includes(optionHref) || currentPath.includes(optionHref))) {
+          activeProgramInfo = {
+            title: option.textContent.trim(),
+            href: optionHref
+          };
+        }
+      });
+    }
+    
+    // Set the program title if we found an active program
+    if (activeProgramInfo) {
+      programTitle.textContent = activeProgramInfo.title;
+      programTitle.href = activeProgramInfo.href;
+      console.log("Set program title to:", activeProgramInfo.title);
+    }
+  }, 100);
+}
+
+// Call the function when the DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  setActiveTrackTitle();
+});
 </script> 
