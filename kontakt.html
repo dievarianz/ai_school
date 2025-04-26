@@ -112,6 +112,7 @@
       border-radius: 8px;
       font-size: 16px;
       transition: all 0.2s ease;
+      background-color: #fff;
     }
 
     .form-control:focus {
@@ -298,6 +299,15 @@
       }
     }
 
+    /* Einheitlicher Pfeil-Stil für alle Buttons */
+    .arrow-icon {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-weight: 400;
+      font-size: 1.2rem;
+      margin-left: 8px;
+      display: inline-block;
+    }
+
     /* Success Message Container */
     .success-message {
       display: none;
@@ -344,35 +354,131 @@
         
         <!-- Kontaktformular -->
         <div class="contact-form-container">
-          <form class="contact-form" id="contact-form" novalidate>
+          <form class="contact-form" id="contact-form" action="https://formsubmit.co/alexanderhillerb@googlemail.com" method="POST" novalidate>
+            <!-- FormSubmit Configuration -->
+            <input type="hidden" name="_subject" value="Kontkatformular StGallen IMT">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://imtschool.ch/kontakt.html?success=true">
+            
             <div class="form-grid">
               <div class="form-group">
                 <label for="firstName" class="required">Vorname</label>
-                <input type="text" id="firstName" class="form-control" required>
+                <input type="text" id="firstName" name="Vorname" class="form-control" required>
                 <div class="error-message">Bitte geben Sie Ihren Vornamen ein.</div>
               </div>
               
               <div class="form-group">
                 <label for="lastName" class="required">Nachname</label>
-                <input type="text" id="lastName" class="form-control" required>
+                <input type="text" id="lastName" name="Nachname" class="form-control" required>
                 <div class="error-message">Bitte geben Sie Ihren Nachnamen ein.</div>
               </div>
               
               <div class="form-group">
                 <label for="email" class="required">E-Mail</label>
-                <input type="email" id="email" class="form-control" required>
+                <input type="email" id="email" name="email" class="form-control" required>
                 <div class="error-message">Bitte geben Sie eine gültige E-Mail-Adresse ein.</div>
               </div>
               
               <div class="form-group">
+                <label for="country" class="required">Land</label>
+                <div style="position: relative;">
+                  <select id="country" name="Land" class="form-control" required>
+                    <option value="">Land wählen</option>
+                    <option value="AD">Andorra</option>
+                    <option value="AR">Argentinien</option>
+                    <option value="AU">Australien</option>
+                    <option value="BH">Bahrain</option>
+                    <option value="BE">Belgien</option>
+                    <option value="BR">Brasilien</option>
+                    <option value="BN">Brunei</option>
+                    <option value="CL">Chile</option>
+                    <option value="CN">China</option>
+                    <option value="DK">Dänemark</option>
+                    <option value="DE">Deutschland</option>
+                    <option value="EE">Estland</option>
+                    <option value="FI">Finnland</option>
+                    <option value="FR">Frankreich</option>
+                    <option value="GI">Gibraltar</option>
+                    <option value="GR">Griechenland</option>
+                    <option value="HK">Hongkong</option>
+                    <option value="IN">Indien</option>
+                    <option value="ID">Indonesien</option>
+                    <option value="IE">Irland</option>
+                    <option value="IS">Island</option>
+                    <option value="IL">Israel</option>
+                    <option value="IT">Italien</option>
+                    <option value="JP">Japan</option>
+                    <option value="JO">Jordanien</option>
+                    <option value="CA">Kanada</option>
+                    <option value="CO">Kolumbien</option>
+                    <option value="HR">Kroatien</option>
+                    <option value="QA">Katar</option>
+                    <option value="KW">Kuwait</option>
+                    <option value="LB">Libanon</option>
+                    <option value="LI">Liechtenstein</option>
+                    <option value="LU">Luxemburg</option>
+                    <option value="MO">Macau</option>
+                    <option value="MY">Malaysia</option>
+                    <option value="MT">Malta</option>
+                    <option value="MX">Mexiko</option>
+                    <option value="MC">Monaco</option>
+                    <option value="NL">Niederlande</option>
+                    <option value="NZ">Neuseeland</option>
+                    <option value="NO">Norwegen</option>
+                    <option value="OM">Oman</option>
+                    <option value="AT">Österreich</option>
+                    <option value="PK">Pakistan</option>
+                    <option value="PA">Panama</option>
+                    <option value="PE">Peru</option>
+                    <option value="PH">Philippinen</option>
+                    <option value="PL">Polen</option>
+                    <option value="PT">Portugal</option>
+                    <option value="PR">Puerto Rico</option>
+                    <option value="RO">Rumänien</option>
+                    <option value="RU">Russland</option>
+                    <option value="SM">San Marino</option>
+                    <option value="SA">Saudi-Arabien</option>
+                    <option value="SE">Schweden</option>
+                    <option value="CH">Schweiz</option>
+                    <option value="SG">Singapur</option>
+                    <option value="SK">Slowakei</option>
+                    <option value="SI">Slowenien</option>
+                    <option value="ES">Spanien</option>
+                    <option value="ZA">Südafrika</option>
+                    <option value="KR">Südkorea</option>
+                    <option value="TW">Taiwan</option>
+                    <option value="TH">Thailand</option>
+                    <option value="TR">Türkei</option>
+                    <option value="CZ">Tschechische Republik</option>
+                    <option value="UA">Ukraine</option>
+                    <option value="HU">Ungarn</option>
+                    <option value="AE">Vereinigte Arabische Emirate</option>
+                    <option value="GB">Vereinigtes Königreich</option>
+                    <option value="US">Vereinigte Staaten</option>
+                    <option value="VN">Vietnam</option>
+                    <option value="CY">Zypern</option>
+                    <option value="OTHER">Andere</option>
+                  </select>
+                  <div style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); pointer-events: none;">
+                    <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1 1L6 6L11 1" stroke="#888888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="error-message">Bitte wählen Sie ein Land aus.</div>
+              </div>
+              
+              <div class="form-group">
                 <label for="message" class="required">Nachricht</label>
-                <textarea id="message" class="form-control" required></textarea>
+                <textarea id="message" name="Nachricht" class="form-control" required></textarea>
                 <div class="error-message">Bitte geben Sie eine Nachricht ein.</div>
               </div>
             </div>
             
-            <div class="submit-container">
-              <button type="submit" class="cta-button">Nachricht senden</button>
+            <div class="submit-container" style="text-align: center; width: 100%;">
+              <button type="submit" class="cta-button" style="margin: 0 auto;">
+                Nachricht senden <span class="arrow-icon">→</span>
+              </button>
             </div>
           </form>
           
@@ -394,7 +500,7 @@
               <i class="bx bx-envelope"></i>
             </div>
             <h3>E-Mail</h3>
-            <p><a href="mailto:info@imtxai.ch">info@imtxai.ch</a></p>
+            <p><a href="mailto:info@imtschool.ch">info@imtschool.ch</a></p>
           </div>
           
           <div class="contact-card">
@@ -507,10 +613,20 @@
   <!-- Form Validation Script -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      // Prüfen, ob die URL einen success-Parameter enthält
+      const urlParams = new URLSearchParams(window.location.search);
+      const success = urlParams.get('success');
+      
       // Formular
       const form = document.getElementById('contact-form');
-      const inputs = form.querySelectorAll('input, textarea');
+      const inputs = form.querySelectorAll('input, textarea, select');
       const successMessage = document.getElementById('success-message');
+      
+      // Erfolgsanzeige direkt anzeigen, wenn von FormSubmit zurückgeleitet
+      if (success === 'true') {
+        form.style.display = 'none';
+        successMessage.style.display = 'block';
+      }
       
       // Live-Validierung für alle Eingabefelder
       inputs.forEach(input => {
@@ -523,6 +639,13 @@
         input.addEventListener('blur', function() {
           validateInput(this);
         });
+        
+        // For select elements, validate on change
+        if (input.tagName === 'SELECT') {
+          input.addEventListener('change', function() {
+            validateInput(this);
+          });
+        }
       });
       
       // Formular-Validierung beim Absenden
@@ -538,18 +661,12 @@
         });
         
         if (isValid) {
-          // Formular ausblenden und Erfolgsmeldung anzeigen
+          // Beim tatsächlichen Absenden das Formular nicht mehr anzeigen
           form.style.display = 'none';
           successMessage.style.display = 'block';
           
-          // Formular zurücksetzen (im Hintergrund)
-          form.reset();
-          
-          // Validierungsklassen zurücksetzen
-          inputs.forEach(input => {
-            input.classList.remove('valid-input');
-            input.classList.remove('invalid-input');
-          });
+          // Formular absenden
+          form.submit();
         }
       });
       
