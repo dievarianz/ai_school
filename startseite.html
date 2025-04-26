@@ -589,9 +589,9 @@
     .tracks-variant-3 .track-card {
       flex: 0 0 350px;
       border-radius: 15px;
-      background: white;
+      background: #f5f5f7;
       overflow: hidden;
-      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+      box-shadow: none;
       transition: all 0.3s ease;
       display: flex;
       flex-direction: column;
@@ -601,7 +601,7 @@
     .tracks-variant-3 .track-card:hover {
       border: 2px solid var(--imt-purple);
       transform: none;
-      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+      box-shadow: none;
     }
     
     .tracks-variant-3 .card-header {
@@ -718,9 +718,9 @@
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      border: 1px solid #e0e0e0;
-      background: white;
-      color: #666;
+      border: none;
+      background: #e0e0e0;
+      color: white;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -729,9 +729,8 @@
     }
     
     .tracks-variant-3 .scroll-btn:hover {
-      border-color: var(--imt-purple);
-      color: var(--imt-purple);
-      background: white;
+      background: #cccccc;
+      color: white;
     }
     
     .tracks-variant-3 .scroll-btn i {
@@ -875,12 +874,12 @@
     }
     
     .faculty-card {
-      background: #f9f9f9;
+      background: white;
       border-radius: 10px;
       overflow: hidden;
       transition: border-color 0.3s ease;
       box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
-      border: 1px solid #f0f0f0;
+      border: 1px solid #eee;
     }
     
     .faculty-card:hover {
@@ -899,10 +898,6 @@
       object-fit: cover;
     }
     
-    .faculty-card:hover .faculty-image {
-      transform: none;
-    }
-    
     .faculty-info {
       padding: 20px;
     }
@@ -918,6 +913,7 @@
       font-size: 14px;
       color: #7E4EE3;
       font-weight: 500;
+      margin-bottom: 5px;
     }
     
     .faculty-company {
@@ -1017,19 +1013,17 @@
         </div>
         
         <div class="track-filters">
-          <button class="filter-btn active">Alle</button>
-          <button class="filter-btn">Strategie</button>
-          <button class="filter-btn">Technologie</button>
-          <button class="filter-btn">Marketing</button>
-          <button class="filter-btn">Finanzen</button>
+          <button class="filter-btn active" data-filter="alle">Alle</button>
+          <button class="filter-btn" data-filter="einzelseminare">Einzelseminare</button>
+          <button class="filter-btn" data-filter="programme">Programme</button>
         </div>
         
         <div class="tracks-container">
           <div class="scroll-container">
             <!-- Card 1 -->
-            <div class="track-card">
+            <div class="track-card" data-category="einzelseminare">
               <div class="card-header">
-                <span class="track-category category-strategy">Strategie</span>
+                <span class="track-category category-strategy">Einzelseminar</span>
                 <h3 class="track-title">AI in Business Strategy & Transformation</h3>
               </div>
               <div class="card-body">
@@ -1051,9 +1045,9 @@
             </div>
             
             <!-- Card 2 -->
-            <div class="track-card">
+            <div class="track-card" data-category="einzelseminare">
               <div class="card-header">
-                <span class="track-category category-finance">Finanzen</span>
+                <span class="track-category category-strategy">Einzelseminar</span>
                 <h3 class="track-title">Intelligent Financial Analytics</h3>
               </div>
               <div class="card-body">
@@ -1075,9 +1069,9 @@
             </div>
             
             <!-- Card 3 -->
-            <div class="track-card">
+            <div class="track-card" data-category="einzelseminare">
               <div class="card-header">
-                <span class="track-category category-marketing">Marketing</span>
+                <span class="track-category category-strategy">Einzelseminar</span>
                 <h3 class="track-title">Intelligent Marketing & Customer Analytics</h3>
               </div>
               <div class="card-body">
@@ -1099,9 +1093,9 @@
             </div>
             
             <!-- Card 4 -->
-            <div class="track-card">
+            <div class="track-card" data-category="einzelseminare">
               <div class="card-header">
-                <span class="track-category category-technology">Technologie</span>
+                <span class="track-category category-strategy">Einzelseminar</span>
                 <h3 class="track-title">AI & ML Fundamentals für Manager</h3>
               </div>
               <div class="card-body">
@@ -1123,9 +1117,9 @@
             </div>
             
             <!-- Card 5 -->
-            <div class="track-card">
+            <div class="track-card" data-category="einzelseminare">
               <div class="card-header">
-                <span class="track-category category-strategy">Leadership</span>
+                <span class="track-category category-strategy">Einzelseminar</span>
                 <h3 class="track-title">AI Leadership & Change Management</h3>
               </div>
               <div class="card-body">
@@ -1526,14 +1520,16 @@
             // Aktive Klasse zum geklickten Button hinzufügen
             this.classList.add('active');
             
-            const filterValue = this.textContent.trim().toLowerCase();
+            const filterValue = this.getAttribute('data-filter');
             
             // Karten filtern
+            let visibleCards = 0;
             trackCards.forEach(card => {
-              const category = card.querySelector('.track-category').textContent.trim().toLowerCase();
+              const category = card.getAttribute('data-category');
               
               if (filterValue === 'alle' || category === filterValue) {
                 card.classList.remove('hidden');
+                visibleCards++;
               } else {
                 card.classList.add('hidden');
               }
