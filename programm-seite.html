@@ -1710,14 +1710,29 @@
       // Initiale Button-Status setzen
       checkButtonStatus();
 
+      // Dynamische Berechnung der Scroll-Menge basierend auf der Viewport-Breite
+      const calculateScrollAmount = () => {
+        // Auf mobilen Geräten präziser scrollen
+        if (window.innerWidth <= 768) {
+          const slide = track.querySelector('.slide');
+          if (!slide) return slideWidth;
+          
+          // Nur eine Slide anzeigen pro Scroll
+          return slide.offsetWidth + parseInt(getComputedStyle(track).gap);
+        } else {
+          // Auf Desktop ein angemessenes Scrolling
+          return slideWidth;
+        }
+      };
+
       // Event-Listener für die Buttons
       prevButton.addEventListener('click', () => {
-        track.scrollBy({ left: -slideWidth * 2, behavior: 'smooth' });
+        track.scrollBy({ left: -calculateScrollAmount(), behavior: 'smooth' });
         setTimeout(checkButtonStatus, 350);
       });
 
       nextButton.addEventListener('click', () => {
-        track.scrollBy({ left: slideWidth * 2, behavior: 'smooth' });
+        track.scrollBy({ left: calculateScrollAmount(), behavior: 'smooth' });
         setTimeout(checkButtonStatus, 350);
       });
 
@@ -1732,6 +1747,9 @@
 
       // Beim Scrollen den Button-Status aktualisieren
       track.addEventListener('scroll', checkButtonStatus);
+      
+      // Beim Resize die Berechnung aktualisieren
+      window.addEventListener('resize', checkButtonStatus);
     }
   });
 

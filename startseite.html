@@ -596,6 +596,19 @@
       display: flex;
       flex-direction: column;
       border: 2px solid transparent;
+      position: relative;
+      cursor: pointer;
+    }
+    
+    /* Box-Link, der die gesamte Karte umfasst */
+    .tracks-variant-3 .card-link {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      text-decoration: none;
     }
     
     .tracks-variant-3 .track-card:hover {
@@ -1042,6 +1055,7 @@
           <div class="scroll-container">
             <!-- Card 1 -->
             <div class="track-card" data-category="einzelseminare">
+              <a href="programm-seite.html" class="card-link" aria-label="AI in Business Strategy & Transformation Details"></a>
               <div class="card-header">
                 <span class="track-category category-strategy">Einzelseminar</span>
                 <h3 class="track-title">AI in Business Strategy & Transformation</h3>
@@ -1062,12 +1076,13 @@
                   </div>
                 </div>
                 <p class="track-description">Entwickeln Sie eine umfassende KI-Strategie für Ihr Unternehmen und gestalten Sie aktiv die digitale Transformation.</p>
-                <a href="#" class="track-link">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
+                <a href="programm-seite.html" class="track-link" style="position: relative; z-index: 2;">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
               </div>
             </div>
             
             <!-- Card 2 -->
             <div class="track-card" data-category="einzelseminare">
+              <a href="programm-seite.html" class="card-link" aria-label="Intelligent Financial Analytics Details"></a>
               <div class="card-header">
                 <span class="track-category category-strategy">Einzelseminar</span>
                 <h3 class="track-title">Intelligent Financial Analytics</h3>
@@ -1088,12 +1103,13 @@
                   </div>
                 </div>
                 <p class="track-description">Lernen Sie, wie KI-gestützte Finanzanalysen Ihnen helfen, fundiertere Entscheidungen zu treffen und Prognosen zu verbessern.</p>
-                <a href="#" class="track-link">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
+                <a href="programm-seite.html" class="track-link" style="position: relative; z-index: 2;">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
               </div>
             </div>
             
             <!-- Card 3 -->
             <div class="track-card" data-category="einzelseminare">
+              <a href="programm-seite.html" class="card-link" aria-label="Intelligent Marketing & Customer Analytics Details"></a>
               <div class="card-header">
                 <span class="track-category category-strategy">Einzelseminar</span>
                 <h3 class="track-title">Intelligent Marketing & Customer Analytics</h3>
@@ -1114,12 +1130,13 @@
                   </div>
                 </div>
                 <p class="track-description">Optimieren Sie Ihre Marketingstrategien durch datengestützte Einblicke und KI-basierte Kundenanalysen.</p>
-                <a href="#" class="track-link">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
+                <a href="programm-seite.html" class="track-link" style="position: relative; z-index: 2;">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
               </div>
             </div>
             
             <!-- Card 4 -->
             <div class="track-card" data-category="einzelseminare">
+              <a href="programm-seite.html" class="card-link" aria-label="AI & ML Fundamentals für Manager Details"></a>
               <div class="card-header">
                 <span class="track-category category-strategy">Einzelseminar</span>
                 <h3 class="track-title">AI & ML Fundamentals für Manager</h3>
@@ -1140,12 +1157,13 @@
                   </div>
                 </div>
                 <p class="track-description">Verstehen Sie die Grundlagen der KI und des maschinellen Lernens ohne technisches Vorwissen.</p>
-                <a href="#" class="track-link">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
+                <a href="programm-seite.html" class="track-link" style="position: relative; z-index: 2;">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
               </div>
             </div>
             
             <!-- Card 5 -->
             <div class="track-card" data-category="einzelseminare">
+              <a href="programm-seite.html" class="card-link" aria-label="AI Leadership & Change Management Details"></a>
               <div class="card-header">
                 <span class="track-category category-strategy">Einzelseminar</span>
                 <h3 class="track-title">AI Leadership & Change Management</h3>
@@ -1166,7 +1184,7 @@
                   </div>
                 </div>
                 <p class="track-description">Lernen Sie, Teams durch die digitale Transformation zu führen und Veränderungen erfolgreich zu managen.</p>
-                <a href="#" class="track-link">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
+                <a href="programm-seite.html" class="track-link" style="position: relative; z-index: 2;">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
               </div>
             </div>
           </div>
@@ -1388,34 +1406,6 @@
       .catch(error => console.error('Fehler beim Laden des Footers:', error));
   </script>
 
-  <!-- Script für die Track Scroll-Funktionalität -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Track scroll functionality
-      const scrollContainer = document.querySelector('.tracks-variant-3 .scroll-container');
-      const scrollLeftBtn = document.getElementById('scroll-left');
-      const scrollRightBtn = document.getElementById('scroll-right');
-      
-      if (scrollContainer && scrollLeftBtn && scrollRightBtn) {
-        const cardWidth = 375; // Card width + gap
-        
-        scrollLeftBtn.addEventListener('click', function() {
-          scrollContainer.scrollBy({
-            left: -cardWidth,
-            behavior: 'smooth'
-          });
-        });
-        
-        scrollRightBtn.addEventListener('click', function() {
-          scrollContainer.scrollBy({
-            left: cardWidth,
-            behavior: 'smooth'
-          });
-        });
-      }
-    });
-  </script>
-
   <!-- Script für die Track Scroll-Funktionalität und Filter -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -1425,7 +1415,20 @@
       const scrollRightBtn = document.getElementById('scroll-right');
       
       if (scrollContainer && scrollLeftBtn && scrollRightBtn) {
-        const cardWidth = 375; // Card width + gap
+        // Dynamisch die Kartenbreite berechnen
+        const calculateScrollAmount = () => {
+          // Für mobile Geräte - volle Breite einer Karte
+          if (window.innerWidth <= 768) {
+            const card = scrollContainer.querySelector('.track-card');
+            const cardWidth = card.offsetWidth;
+            const cardMargin = parseInt(window.getComputedStyle(card).marginRight) || 0;
+            // Scroll um die volle Breite einer Karte plus etwas Abstand
+            return cardWidth + cardMargin + 30; // Extra Padding damit die nächste Karte vollständig sichtbar ist
+          } else {
+            // Auf Desktop den ursprünglichen Wert verwenden
+            return 375;
+          }
+        };
         
         // Prüfen ob Scrollen möglich ist
         const updateScrollButtons = function() {
@@ -1452,17 +1455,20 @@
         
         scrollLeftBtn.addEventListener('click', function() {
           scrollContainer.scrollBy({
-            left: -cardWidth,
+            left: -calculateScrollAmount(),
             behavior: 'smooth'
           });
         });
         
         scrollRightBtn.addEventListener('click', function() {
           scrollContainer.scrollBy({
-            left: cardWidth,
+            left: calculateScrollAmount(),
             behavior: 'smooth'
           });
         });
+        
+        // Auch beim Resize-Event die Scroll-Distanz anpassen
+        window.addEventListener('resize', updateScrollButtons);
       }
       
       // Filter-Funktionalität
@@ -1497,9 +1503,7 @@
             scrollContainer.scrollLeft = 0;
             
             // Scroll-Button-Status aktualisieren
-            if (typeof updateScrollButtons === 'function') {
-              updateScrollButtons();
-            }
+            updateScrollButtons();
           });
         });
       }
