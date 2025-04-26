@@ -100,36 +100,183 @@
       text-decoration: underline;
     }
 
-    /* Hero-Sektion */
-    .hero {
-      background-color: #f5f5f7;
-      padding: 60px 0;
-      text-align: center;
+    /* Gemeinsames Formular-Styling */
+    .form-group {
+      margin-bottom: 20px;
     }
 
-    .hero h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
+    .form-control {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: all 0.2s ease;
     }
 
-    .hero p {
-      font-size: 1.2rem;
-      color: var(--color-muted);
-      max-width: 800px;
-      margin: 0 auto 2rem;
+    .form-control:focus {
+      border-color: var(--imt-purple);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(110, 69, 226, 0.1);
     }
 
+    textarea.form-control {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .invalid-input {
+      border-color: #ff3860 !important;
+      background-color: rgba(255, 56, 96, 0.05) !important;
+    }
+
+    .valid-input {
+      border-color: #23d160 !important;
+      background-color: rgba(35, 209, 96, 0.05) !important;
+    }
+
+    .error-message {
+      color: #ff3860;
+      font-size: 0.85rem;
+      margin-top: 5px;
+      display: none;
+    }
+
+    .contact-form label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .contact-form .required::after {
+      content: "*";
+      color: #ff3860;
+      margin-left: 4px;
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(to right, var(--imt-purple), #9c27b0);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 24px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(106, 69, 226, 0.2);
+    }
+
+    /* Icon Styling */
+    .contact-icon {
+      display: inline-block;
+      font-size: 32px;
+      margin-bottom: 16px;
+      color: var(--imt-purple);
+      transition: all 0.2s ease;
+    }
+
+    /* Content-Section Styling */
     .content-section {
-      padding: 60px 0;
+      padding: 80px 0;
+    }
+
+    .content-section:first-child {
+      padding-top: 50px;
     }
 
     .content-section h2 {
-      text-align: center;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      text-align: left;
+    }
+
+    .section-subtitle {
+      color: var(--color-muted);
+      font-size: 1.1rem;
       margin-bottom: 40px;
+      text-align: left;
+    }
+
+    /* Kontakt Seite spezifische Styles */
+    .contact-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 var(--spacing);
+    }
+
+    /* Formular Bereich */
+    .contact-form-container {
+      background: var(--color-card-bg);
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: none;
+      margin-bottom: 60px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .form-grid .form-group:last-child {
+      grid-column: span 2;
+    }
+
+    .submit-container {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    /* Kontaktkarten Bereich */
+    .contact-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .contact-card {
+      background: var(--color-card-bg);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: none;
+      text-align: center;
+      transition: border-color 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .contact-card:hover {
+      border-color: var(--color-accent2);
+    }
+
+    .contact-info-item h3 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
     }
 
     @media (max-width: 768px) {
+      .contact-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-grid .form-group:last-child {
+        grid-column: 1;
+      }
+      
       h1 {
         font-size: 2rem;
       }
@@ -145,6 +292,33 @@
       .container {
         padding: 0 16px;
       }
+
+      .content-section {
+        padding: 50px 0;
+      }
+    }
+
+    /* Success Message Container */
+    .success-message {
+      display: none;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .success-message .check-icon {
+      font-size: 64px;
+      color: #23d160;
+      margin-bottom: 20px;
+    }
+
+    .success-message h3 {
+      font-size: 1.3rem;
+      margin-bottom: 16px;
+    }
+
+    .success-message p {
+      color: var(--color-muted);
+      margin-bottom: 0;
     }
   </style>
 
@@ -162,21 +336,83 @@
 
   <!-- Hauptinhalt -->
   <main>
-    <!-- Hero-Bereich -->
-    <section class="hero">
-      <div class="container">
-        <h1>Kontakt</h1>
-        <p>Haben Sie Fragen zu unseren Programmen oder möchten Sie mit uns in Kontakt treten? Wir sind für Sie da.</p>
-      </div>
-    </section>
-
-    <!-- Hauptinhalt -->
+    <!-- Kontaktformular Sektion -->
     <section class="content-section">
       <div class="container">
-        <h2>Kontaktinformationen</h2>
+        <h2>Schreiben Sie uns</h2>
+        <p class="section-subtitle">Haben Sie Fragen zu unseren Programmen oder möchten Sie mit uns in Kontakt treten? Wir sind für Sie da.</p>
         
-        <!-- Platzhalterinhalt -->
-        <p>Diese Seite befindet sich im Aufbau. Hier werden bald Kontaktinformationen, Ansprechpartner und ein Kontaktformular verfügbar sein.</p>
+        <!-- Kontaktformular -->
+        <div class="contact-form-container">
+          <form class="contact-form" id="contact-form" novalidate>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="firstName" class="required">Vorname</label>
+                <input type="text" id="firstName" class="form-control" required>
+                <div class="error-message">Bitte geben Sie Ihren Vornamen ein.</div>
+              </div>
+              
+              <div class="form-group">
+                <label for="lastName" class="required">Nachname</label>
+                <input type="text" id="lastName" class="form-control" required>
+                <div class="error-message">Bitte geben Sie Ihren Nachnamen ein.</div>
+              </div>
+              
+              <div class="form-group">
+                <label for="email" class="required">E-Mail</label>
+                <input type="email" id="email" class="form-control" required>
+                <div class="error-message">Bitte geben Sie eine gültige E-Mail-Adresse ein.</div>
+              </div>
+              
+              <div class="form-group">
+                <label for="message" class="required">Nachricht</label>
+                <textarea id="message" class="form-control" required></textarea>
+                <div class="error-message">Bitte geben Sie eine Nachricht ein.</div>
+              </div>
+            </div>
+            
+            <div class="submit-container">
+              <button type="submit" class="cta-button">Nachricht senden</button>
+            </div>
+          </form>
+          
+          <!-- Erfolgsanzeige -->
+          <div class="success-message" id="success-message">
+            <i class="bx bx-check-circle check-icon"></i>
+            <h3>Vielen Dank für Ihre Nachricht</h3>
+            <p>Wir melden uns kurzfristig bei Ihnen.</p>
+          </div>
+        </div>
+        
+        <!-- Kontaktkarten Bereich -->
+        <h2>Nehmen Sie Kontakt auf</h2>
+        <p class="section-subtitle">Alternativ können Sie uns auch direkt auf einem der folgenden Wege erreichen.</p>
+        
+        <div class="contact-cards">
+          <div class="contact-card">
+            <div class="contact-icon">
+              <i class="bx bx-envelope"></i>
+            </div>
+            <h3>E-Mail</h3>
+            <p><a href="mailto:info@imtxai.ch">info@imtxai.ch</a></p>
+          </div>
+          
+          <div class="contact-card">
+            <div class="contact-icon">
+              <i class="bx bx-phone"></i>
+            </div>
+            <h3>Telefon</h3>
+            <p><a href="tel:+41712247222">+41 71 224 72 22</a></p>
+          </div>
+          
+          <div class="contact-card">
+            <div class="contact-icon">
+              <i class="bx bxl-linkedin"></i>
+            </div>
+            <h3>LinkedIn</h3>
+            <p><a href="https://www.linkedin.com/school/imtschool.ch/">imtxAI Business School</a></p>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -266,6 +502,99 @@
         if (data) document.getElementById('footer-container').innerHTML = data;
       })
       .catch(error => console.error('Fehler beim Laden des Footers:', error));
+  </script>
+
+  <!-- Form Validation Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Formular
+      const form = document.getElementById('contact-form');
+      const inputs = form.querySelectorAll('input, textarea');
+      const successMessage = document.getElementById('success-message');
+      
+      // Live-Validierung für alle Eingabefelder
+      inputs.forEach(input => {
+        // Validiere bei Änderung
+        input.addEventListener('input', function() {
+          validateInput(this);
+        });
+        
+        // Validiere beim Verlassen des Feldes
+        input.addEventListener('blur', function() {
+          validateInput(this);
+        });
+      });
+      
+      // Formular-Validierung beim Absenden
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        let isValid = true;
+        
+        // Alle Pflichtfelder validieren
+        inputs.forEach(input => {
+          if (!validateInput(input)) {
+            isValid = false;
+          }
+        });
+        
+        if (isValid) {
+          // Formular ausblenden und Erfolgsmeldung anzeigen
+          form.style.display = 'none';
+          successMessage.style.display = 'block';
+          
+          // Formular zurücksetzen (im Hintergrund)
+          form.reset();
+          
+          // Validierungsklassen zurücksetzen
+          inputs.forEach(input => {
+            input.classList.remove('valid-input');
+            input.classList.remove('invalid-input');
+          });
+        }
+      });
+      
+      // Validierungsfunktion
+      function validateInput(input) {
+        const errorMessage = input.nextElementSibling;
+        let isValid = true;
+        
+        // Pflichtfeld-Validierung
+        if (input.hasAttribute('required') && !input.value.trim()) {
+          input.classList.add('invalid-input');
+          input.classList.remove('valid-input');
+          errorMessage.style.display = 'block';
+          isValid = false;
+        } else {
+          // E-Mail-Validierung
+          if (input.type === 'email' && input.value.trim()) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(input.value.trim())) {
+              input.classList.add('invalid-input');
+              input.classList.remove('valid-input');
+              errorMessage.style.display = 'block';
+              isValid = false;
+            } else {
+              input.classList.remove('invalid-input');
+              input.classList.add('valid-input');
+              errorMessage.style.display = 'none';
+            }
+          } else {
+            input.classList.remove('invalid-input');
+            
+            // Nur als valid markieren, wenn ein Wert eingegeben wurde
+            if (input.value.trim()) {
+              input.classList.add('valid-input');
+            } else {
+              input.classList.remove('valid-input');
+            }
+            
+            errorMessage.style.display = 'none';
+          }
+        }
+        
+        return isValid;
+      }
+    });
   </script>
 
   <!-- Script zur Aktivierung des aktuellen Menüpunkts -->
