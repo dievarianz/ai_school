@@ -2108,5 +2108,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 100);
   });
 </script>
+
+<!-- Direktes Inline-Script am Ende des Body-Tags für zuverlässige Hervorhebung -->
+<script>
+  // Stellt sicher, dass die Hervorhebung zuverlässig funktioniert
+  window.addEventListener('load', function() {
+    console.log('Finales Highlighting für Business Strategy');
+    
+    // Direkte Auswahl des Elements für maximale Zuverlässigkeit
+    const businessStrategyOption = document.getElementById('business-strategy-option');
+    if (businessStrategyOption) {
+      businessStrategyOption.className = 'program-option highlight-option';
+      console.log('Hervorhebung final gesetzt', businessStrategyOption);
+    }
+    
+    // Programme-Link in der Hauptnavigation hervorheben
+    const programmeLinks = document.querySelectorAll('.nav-link');
+    programmeLinks.forEach(link => {
+      if (link.textContent.trim().includes('Tracks')) {
+        link.classList.add('active');
+        console.log('Tracks-Link aktiviert', link);
+      }
+    });
+  });
+</script>
 </body>
 </html> 

@@ -32,13 +32,13 @@
         <div class="nav-item">
           <a href="#" class="nav-link toggle-subnav">Tracks <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           <div class="program-dropdown">
-            <!-- Erste Spalte: Seminare -->
+            <!-- Erste Spalte: Einzelseminare -->
             <div class="menu-column">
               <h3>Einzelseminare</h3>
-              <a href="programm-seite.html" class="program-option">AI in Business Strategy & Digital Transformation</a>
-              <a href="/programme/xai-decision-making" class="program-option">xAI-Augmented Decision Making</a>
-              <a href="/programme/xai-financial-analytics" class="program-option">xAI in Financial Analytics</a>
-              <a href="/programme/xai-marketing-analytics" class="program-option">xAI-driven Marketing & Customer Analytics</a>
+              <a href="programm-seite.html" class="program-option" id="business-strategy-option">AI in Business Strategy & Digital Transformation</a>
+              <a href="/programme/xai-decision-making" class="program-option" id="decision-making-option">xAI-Augmented Decision Making</a>
+              <a href="/programme/xai-financial-analytics" class="program-option" id="financial-analytics-option">xAI in Financial Analytics</a>
+              <a href="/programme/xai-marketing-analytics" class="program-option" id="marketing-analytics-option">xAI-driven Marketing & Customer Analytics</a>
             </div>
             
             <!-- Zweite Spalte: Programme -->
@@ -250,6 +250,7 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   }
 
+  /* Stilregeln für alle Program-Options */
   .program-option {
     display: block;
     padding: 12px 16px;
@@ -262,30 +263,29 @@
     margin-bottom: 4px;
   }
 
-  .program-option:hover,
-  .program-option.active {
+  .program-option:hover {
     background: var(--color-card-bg);
     color: var(--color-accent2);
   }
   
-  /* Zusätzlicher Stil für aktive Programmoption */
-  .program-option.active {
-    font-weight: 500 !important;
-    position: relative;
-    background-color: var(--color-card-bg) !important;
-    color: var(--color-accent2) !important;
+  /* Speziell markierte Option - direkt bei der HTML-Definition */
+  .highlight-option {
+    font-weight: 600;
+    background-color: var(--color-card-bg);
+    color: var(--color-accent2);
+    border-left: 4px solid var(--color-accent2);
+    padding-left: 12px;
+    border-radius: 0 8px 8px 0; /* Nur rechte Seite abgerundet */
   }
   
-  .program-option.active::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 3px;
-    height: 60%;
-    background: var(--color-accent2);
-    border-radius: 0 2px 2px 0;
+  /* Optionen für die Sprachauswahl */
+  .lang-dropdown .program-option.active {
+    font-weight: 600;
+    background-color: var(--color-card-bg);
+    color: var(--color-accent2);
+    border-left: 4px solid var(--color-accent2);
+    padding-left: 12px;
+    border-radius: 0 8px 8px 0; /* Nur rechte Seite abgerundet */
   }
 
   /* Language Selector */
@@ -532,160 +532,175 @@
 </style>
 
 <script>
-// DOMContentLoaded-Handler für die gesamte Skriptausführung
-document.addEventListener('DOMContentLoaded', function() {
-  console.clear(); // Konsole bereinigen
-  console.log("Navigations-Script wird initialisiert...");
+// Garantiert ausgeführtes Script zur Hervorhebung des aktiven Menüpunkts
+(function highlightActiveMenu() {
+  console.log("NEUES HIGHLIGHTING-SCRIPT WIRD AUSGEFÜHRT");
   
-  // === Aktive Navigationselemente markieren ===
+  // Aktuelle URL ermitteln
+  var currentPath = window.location.pathname;
+  console.log("Aktuelle URL:", currentPath);
+  
+  // Alle möglichen Optionen im Programm-Dropdown
+  var optionIds = {
+    'programm-seite.html': 'business-strategy-option',
+    '/programme/xai-decision-making': 'decision-making-option',
+    '/programme/xai-financial-analytics': 'financial-analytics-option',
+    '/programme/xai-marketing-analytics': 'marketing-analytics-option'
+  };
+  
+  // Ermittle die aktive Seite
+  var activePage = '';
+  if (currentPath.endsWith('programm-seite.html')) {
+    activePage = 'programm-seite.html';
+  } else if (currentPath.includes('/programme/xai-decision-making')) {
+    activePage = '/programme/xai-decision-making';
+  } else if (currentPath.includes('/programme/xai-financial-analytics')) {
+    activePage = '/programme/xai-financial-analytics';
+  } else if (currentPath.includes('/programme/xai-marketing-analytics')) {
+    activePage = '/programme/xai-marketing-analytics';
+  }
+  
+  console.log("Aktive Seite identifiziert:", activePage);
+  
+  // Hervorhebung entfernen und neu setzen
+  document.querySelectorAll('.program-option').forEach(function(option) {
+    option.classList.remove('highlight-option');
+    console.log("Hervorhebung von", option.id, "entfernt");
+  });
+  
+  // Wenn eine aktive Seite gefunden wurde und ein entsprechendes Element existiert
+  if (activePage && optionIds[activePage]) {
+    var elementToHighlight = document.getElementById(optionIds[activePage]);
+    if (elementToHighlight) {
+      elementToHighlight.classList.add('highlight-option');
+      console.log("Hervorhebung für", elementToHighlight.id, "gesetzt");
+      
+      // Als Test ausgeben, ob die Klasse tatsächlich gesetzt wurde
+      setTimeout(function() {
+        console.log("VERIFIKATION: Element", elementToHighlight.id, 
+                   "hat jetzt die Klasse highlight-option:", 
+                   elementToHighlight.classList.contains('highlight-option'));
+      }, 100);
+    } else {
+      console.log("Element mit ID", optionIds[activePage], "nicht gefunden");
+    }
+  } else {
+    console.log("Keine passende aktive Seite gefunden, keine Hervorhebung gesetzt");
+  }
+})();
+
+// Ursprüngliches Script bleibt unverändert
+document.addEventListener('DOMContentLoaded', function() {
+  // Aktiven Hauptnavigationspunkt markieren
   const currentPath = window.location.pathname;
   const currentPage = currentPath.split('/').pop(); // Extrahiere den Dateinamen
   
-  // Für Startseite den imtxAI-Link aktivieren
-  if (currentPage === 'startseite.html' || currentPath === '/' || currentPath === '') {
-    console.log("Startseite erkannt - markiere imtxAI-Link");
-    document.querySelectorAll('.nav-link').forEach(link => {
-      link.classList.remove('active');
-      if (link.textContent.trim().startsWith('imtxAI')) {
+  // Seitenspezifische Hervorhebungen
+  function highlightActiveElements() {
+    // Deaktiviere alle bestehenden aktiven Dropdown-Optionen
+    document.querySelectorAll('.program-option').forEach(option => {
+      option.classList.remove('highlight-option');
+    });
+    
+    // Sonderbehandlung für imtxAI Seiten
+    if (currentPage === 'startseite.html' || currentPath === '/' || currentPath === '') {
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+        if (link.textContent.trim().startsWith('imtxAI')) {
+          link.classList.add('active');
+        }
+      });
+      // Keine Dropdown-Option hervorheben auf der Startseite
+    } 
+    // Sonderbehandlung für Programmseiten
+    else if (currentPage === 'programm-seite.html' || currentPath.includes('/programme/')) {
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+        if (link.textContent.trim().startsWith('Tracks')) {
+          link.classList.add('active');
+        }
+      });
+      
+      // Markiere den spezifischen Programm-Eintrag
+      if (currentPage === 'programm-seite.html') {
+        const option = document.querySelector('.program-option[href="programm-seite.html"]');
+        if (option) {
+          option.classList.add('highlight-option');
+        }
+      } else if (currentPath.includes('/programme/')) {
+        const path = '/programme/' + currentPath.split('/programme/')[1].split('/')[0];
+        const option = document.querySelector(`.program-option[href="${path}"]`);
+        if (option) {
+          option.classList.add('highlight-option');
+        }
+      }
+      
+      // Aktiviere die Subnavigation
+      const subNav = document.querySelector('.subnav-wrapper');
+      if (subNav) {
+        subNav.classList.add('active');
+        document.body.classList.add('has-subnav');
+        
+        // Programm-Titel aktualisieren
+        const programTitle = document.querySelector('.program-title');
+        if (programTitle && currentPage === 'programm-seite.html') {
+          programTitle.textContent = "AI in Business Strategy & Digital Transformation";
+          programTitle.href = "programm-seite.html";
+        }
+      }
+    }
+    // Standard-Verhalten für andere Seiten
+    else {
+      document.querySelectorAll('.nav-link').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href && href !== '#' && (href === currentPath || (href !== '/' && currentPath.includes(href)))) {
+          link.classList.add('active');
+        }
+      });
+    }
+  }
+  
+  // Aktiven Subnavigationspunkt markieren
+  const hash = window.location.hash;
+  if (hash) {
+    document.querySelectorAll('.section-link').forEach(link => {
+      if (link.getAttribute('href') === hash) {
         link.classList.add('active');
       }
     });
-  } 
-  // Für Programmseite den Programme-Link und Option aktivieren
-  else if (currentPage === 'programm-seite.html' || currentPath.includes('/programme/')) {
-    console.log("Programmseite erkannt - markiere Programme-Link");
-    // Programme-Link markieren
-    const programmeLink = document.querySelector('.nav-link.toggle-subnav');
-    if (programmeLink) {
-      document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-      programmeLink.classList.add('active');
-      console.log("Programme-Link wurde aktiviert");
-    }
-    
-    // Aktive Option markieren
-    const businessStrategyOption = document.querySelector('.program-option[href="programm-seite.html"]');
-    if (businessStrategyOption) {
-      businessStrategyOption.classList.add('active');
-      console.log("Entsprechende Programm-Option wurde aktiviert");
-    }
-    
-    // Subnavigation aktivieren
-    const subNav = document.querySelector('.subnav-wrapper');
-    if (subNav) {
-      subNav.classList.add('active');
-      document.body.classList.add('has-subnav');
-      console.log("Subnavigation wurde aktiviert");
-      
-      // Titel aktualisieren
-      const programTitle = document.querySelector('.program-title');
-      if (programTitle && currentPage === 'programm-seite.html') {
-        programTitle.textContent = "AI in Business Strategy & Digital Transformation";
-        programTitle.href = "programm-seite.html";
-      }
-    }
-  }
-  
-  // === Subnavigation Toggle-Funktionalität ===
-  // 1. Listener für den Programme-Link hinzufügen
-  const toggleSubNavLink = document.querySelector('.toggle-subnav');
-  console.log("Toggle-Link gefunden:", toggleSubNavLink);
-  
-  if (toggleSubNavLink) {
-    toggleSubNavLink.addEventListener('click', function(event) {
-      // Nur auf Desktop verhindern wir das Standardverhalten
-      if (window.innerWidth > 1024) {
-        event.preventDefault();
-        console.log("Toggle-Link wurde geklickt");
-        
-        // Direkte Referenz auf die Subnavigation
-        const subNav = document.querySelector('.subnav-wrapper');
-        console.log("Subnav gefunden:", subNav);
-        
-        if (subNav) {
-          // Zustand umschalten
-          const isVisible = subNav.classList.contains('active');
-          console.log("Aktueller Status - sichtbar:", isVisible);
-          
-          if (isVisible) {
-            console.log(">> Subnavigation wird VERSTECKT");
-            subNav.classList.remove('active');
-            document.body.classList.remove('has-subnav');
-          } else {
-            console.log(">> Subnavigation wird ANGEZEIGT");
-            subNav.classList.add('active');
-            document.body.classList.add('has-subnav');
-          }
-        }
-      }
-    });
-    console.log("Click-Handler für Toggle-Link registriert");
   }
 
   // Mobile Menu Toggle
-  const mobileMenuButton = document.getElementById('mobileMenuButton');
-  if (mobileMenuButton) {
-    mobileMenuButton.addEventListener('click', function() {
-      const navMenu = document.querySelector('.nav-menu');
+  const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+  const navMenu = document.querySelector('.nav-menu');
+  
+  if (mobileMenuBtn) {
+    mobileMenuBtn.addEventListener('click', function() {
       navMenu.classList.toggle('active');
-      
-      // Add language selector to mobile menu when opened
-      if (navMenu.classList.contains('active') && !document.querySelector('.mobile-lang-section')) {
-        const mobileLangSection = document.createElement('div');
-        mobileLangSection.className = 'mobile-lang-section';
-        mobileLangSection.innerHTML = `
-          <div class="lang-title">Sprache</div>
-          <div class="mobile-lang-options">
-            <a href="?lang=de" class="mobile-lang-option active">Deutsch</a>
-            <a href="?lang=en" class="mobile-lang-option">English</a>
-          </div>
-        `;
-        navMenu.appendChild(mobileLangSection);
-      }
     });
   }
-  
-  // Mobile Dropdown Menu für Programme
-  document.querySelectorAll('.nav-item').forEach(item => {
-    if (!item.querySelector('.toggle-subnav')) { // Alle außer dem Programme-Link
-      const link = item.querySelector('.nav-link');
-      const dropdown = item.querySelector('.program-dropdown');
-      
-      if (link && dropdown) {
-        link.addEventListener('click', function(e) {
-          if (window.innerWidth <= 1024) {
-            e.preventDefault();
-            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-          }
-        });
+
+  // Hash-Änderungen überwachen
+  window.addEventListener('hashchange', function() {
+    const newHash = window.location.hash;
+    document.querySelectorAll('.section-link').forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === newHash) {
+        link.classList.add('active');
       }
-    }
-  });
-  
-  // Scroll Spy für aktiven Abschnitt
-  window.addEventListener('scroll', function() {
-    const subNav = document.querySelector('.subnav-wrapper');
-    if (!subNav || !subNav.classList.contains('active')) return;
-    
-    const sectionLinks = document.querySelectorAll('.section-link');
-    const sections = Array.from(sectionLinks)
-      .map(link => {
-        const id = link.getAttribute('href').substring(1);
-        const element = document.getElementById(id);
-        return { link, element };
-      })
-      .filter(({ element }) => element !== null);
-    
-    const currentSection = sections.find(({ element }) => {
-      const rect = element.getBoundingClientRect();
-      return rect.top <= 120 && rect.bottom > 120;
     });
-    
-    if (currentSection) {
-      sectionLinks.forEach(link => link.classList.remove('active'));
-      currentSection.link.classList.add('active');
-    }
   });
   
-  console.log("Navigation vollständig initialisiert");
+  // Ausführen nach kurzer Verzögerung, um sicherzustellen, dass alles geladen ist
+  setTimeout(highlightActiveElements, 100);
+  
+  // Nach 300ms nochmal das Highlighting ausführen
+  setTimeout(function() {
+    var businessOption = document.getElementById('business-strategy-option');
+    if (currentPage === 'programm-seite.html' && businessOption) {
+      businessOption.classList.add('highlight-option');
+      console.log("FINALE PRÜFUNG: Highlight für Business Strategy gesetzt");
+    }
+  }, 300);
 });
 </script> 

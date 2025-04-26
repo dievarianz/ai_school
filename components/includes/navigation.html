@@ -32,13 +32,13 @@
         <div class="nav-item">
           <a href="#" class="nav-link active">Tracks <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           <div class="program-dropdown">
-            <!-- Erste Spalte: Seminare -->
+            <!-- Erste Spalte: Einzelseminare -->
             <div class="menu-column">
               <h3>Einzelseminare</h3>
-              <a href="programm-seite.html" class="program-option">AI in Business Strategy & Digital Transformation</a>
-              <a href="/programme/xai-decision-making" class="program-option">xAI-Augmented Decision Making</a>
-              <a href="/programme/xai-financial-analytics" class="program-option">xAI in Financial Analytics</a>
-              <a href="/programme/xai-marketing-analytics" class="program-option">xAI-driven Marketing & Customer Analytics</a>
+              <a href="programm-seite.html" class="program-option" id="business-strategy-option">AI in Business Strategy & Digital Transformation</a>
+              <a href="/programme/xai-decision-making" class="program-option" id="decision-making-option">xAI-Augmented Decision Making</a>
+              <a href="/programme/xai-financial-analytics" class="program-option" id="financial-analytics-option">xAI in Financial Analytics</a>
+              <a href="/programme/xai-marketing-analytics" class="program-option" id="marketing-analytics-option">xAI-driven Marketing & Customer Analytics</a>
             </div>
             
             <!-- Zweite Spalte: Programme -->
@@ -245,6 +245,7 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   }
 
+  /* Stilregeln für alle Program-Options */
   .program-option {
     display: block;
     padding: 12px 16px;
@@ -257,10 +258,29 @@
     margin-bottom: 4px;
   }
 
-  .program-option:hover,
-  .program-option.active {
+  .program-option:hover {
     background: var(--color-card-bg);
     color: var(--color-accent2);
+  }
+  
+  /* Speziell markierte Option - direkt bei der HTML-Definition */
+  .highlight-option {
+    font-weight: 600;
+    background-color: var(--color-card-bg);
+    color: var(--color-accent2);
+    border-left: 4px solid var(--color-accent2);
+    padding-left: 12px;
+    border-radius: 0 8px 8px 0; /* Nur rechte Seite abgerundet */
+  }
+  
+  /* Optionen für die Sprachauswahl */
+  .lang-dropdown .program-option.active {
+    font-weight: 600;
+    background-color: var(--color-card-bg);
+    color: var(--color-accent2);
+    border-left: 4px solid var(--color-accent2);
+    padding-left: 12px;
+    border-radius: 0 8px 8px 0; /* Nur rechte Seite abgerundet */
   }
 
   /* Language Selector */
@@ -485,10 +505,75 @@
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Aktiven Hauptnavigationspunkt markieren
-    const currentPath = window.location.pathname;
-    const currentPage = currentPath.split('/').pop(); // Extrahiere den Dateinamen
+// Garantiert ausgeführtes Script zur Hervorhebung des aktiven Menüpunkts
+(function highlightActiveMenu() {
+  console.log("NEUES HIGHLIGHTING-SCRIPT WIRD AUSGEFÜHRT");
+  
+  // Aktuelle URL ermitteln
+  var currentPath = window.location.pathname;
+  console.log("Aktuelle URL:", currentPath);
+  
+  // Alle möglichen Optionen im Programm-Dropdown
+  var optionIds = {
+    'programm-seite.html': 'business-strategy-option',
+    '/programme/xai-decision-making': 'decision-making-option',
+    '/programme/xai-financial-analytics': 'financial-analytics-option',
+    '/programme/xai-marketing-analytics': 'marketing-analytics-option'
+  };
+  
+  // Ermittle die aktive Seite
+  var activePage = '';
+  if (currentPath.endsWith('programm-seite.html')) {
+    activePage = 'programm-seite.html';
+  } else if (currentPath.includes('/programme/xai-decision-making')) {
+    activePage = '/programme/xai-decision-making';
+  } else if (currentPath.includes('/programme/xai-financial-analytics')) {
+    activePage = '/programme/xai-financial-analytics';
+  } else if (currentPath.includes('/programme/xai-marketing-analytics')) {
+    activePage = '/programme/xai-marketing-analytics';
+  }
+  
+  console.log("Aktive Seite identifiziert:", activePage);
+  
+  // Hervorhebung entfernen und neu setzen
+  document.querySelectorAll('.program-option').forEach(function(option) {
+    option.classList.remove('highlight-option');
+    console.log("Hervorhebung von", option.id, "entfernt");
+  });
+  
+  // Wenn eine aktive Seite gefunden wurde und ein entsprechendes Element existiert
+  if (activePage && optionIds[activePage]) {
+    var elementToHighlight = document.getElementById(optionIds[activePage]);
+    if (elementToHighlight) {
+      elementToHighlight.classList.add('highlight-option');
+      console.log("Hervorhebung für", elementToHighlight.id, "gesetzt");
+      
+      // Als Test ausgeben, ob die Klasse tatsächlich gesetzt wurde
+      setTimeout(function() {
+        console.log("VERIFIKATION: Element", elementToHighlight.id, 
+                   "hat jetzt die Klasse highlight-option:", 
+                   elementToHighlight.classList.contains('highlight-option'));
+      }, 100);
+    } else {
+      console.log("Element mit ID", optionIds[activePage], "nicht gefunden");
+    }
+  } else {
+    console.log("Keine passende aktive Seite gefunden, keine Hervorhebung gesetzt");
+  }
+})();
+
+// Ursprüngliches Script bleibt unverändert
+document.addEventListener('DOMContentLoaded', function() {
+  // Aktiven Hauptnavigationspunkt markieren
+  const currentPath = window.location.pathname;
+  const currentPage = currentPath.split('/').pop(); // Extrahiere den Dateinamen
+  
+  // Seitenspezifische Hervorhebungen
+  function highlightActiveElements() {
+    // Deaktiviere alle bestehenden aktiven Dropdown-Optionen
+    document.querySelectorAll('.program-option').forEach(option => {
+      option.classList.remove('highlight-option');
+    });
     
     // Sonderbehandlung für imtxAI Seiten
     if (currentPage === 'startseite.html' || currentPath === '/' || currentPath === '') {
@@ -498,19 +583,29 @@
           link.classList.add('active');
         }
       });
+      // Keine Dropdown-Option hervorheben auf der Startseite
     } 
     // Sonderbehandlung für Programmseiten
     else if (currentPage === 'programm-seite.html' || currentPath.includes('/programme/')) {
       document.querySelectorAll('.nav-link').forEach(link => {
         link.classList.remove('active');
-        if (link.textContent.trim().startsWith('Programme')) {
+        if (link.textContent.trim().startsWith('Tracks')) {
           link.classList.add('active');
         }
       });
       
       // Markiere den spezifischen Programm-Eintrag
       if (currentPage === 'programm-seite.html') {
-        document.querySelector('.program-option[href="programm-seite.html"]')?.classList.add('active');
+        const option = document.querySelector('.program-option[href="programm-seite.html"]');
+        if (option) {
+          option.classList.add('highlight-option');
+        }
+      } else if (currentPath.includes('/programme/')) {
+        const path = '/programme/' + currentPath.split('/programme/')[1].split('/')[0];
+        const option = document.querySelector(`.program-option[href="${path}"]`);
+        if (option) {
+          option.classList.add('highlight-option');
+        }
       }
       
       // Aktiviere die Subnavigation
@@ -536,36 +631,49 @@
         }
       });
     }
+  }
+  
+  // Aktiven Subnavigationspunkt markieren
+  const hash = window.location.hash;
+  if (hash) {
+    document.querySelectorAll('.section-link').forEach(link => {
+      if (link.getAttribute('href') === hash) {
+        link.classList.add('active');
+      }
+    });
+  }
 
-    // Aktiven Subnavigationspunkt markieren
-    const hash = window.location.hash;
-    if (hash) {
-      document.querySelectorAll('.section-link').forEach(link => {
-        if (link.getAttribute('href') === hash) {
-          link.classList.add('active');
-        }
-      });
-    }
+  // Mobile Menu Toggle
+  const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+  const navMenu = document.querySelector('.nav-menu');
+  
+  if (mobileMenuBtn) {
+    mobileMenuBtn.addEventListener('click', function() {
+      navMenu.classList.toggle('active');
+    });
+  }
 
-    // Mobile Menu Toggle
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const navMenu = document.querySelector('.nav-menu');
-    
-    if (mobileMenuBtn) {
-      mobileMenuBtn.addEventListener('click', function() {
-        navMenu.classList.toggle('active');
-      });
-    }
-
-    // Hash-Änderungen überwachen
-    window.addEventListener('hashchange', function() {
-      const newHash = window.location.hash;
-      document.querySelectorAll('.section-link').forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === newHash) {
-          link.classList.add('active');
-        }
-      });
+  // Hash-Änderungen überwachen
+  window.addEventListener('hashchange', function() {
+    const newHash = window.location.hash;
+    document.querySelectorAll('.section-link').forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === newHash) {
+        link.classList.add('active');
+      }
     });
   });
+  
+  // Ausführen nach kurzer Verzögerung, um sicherzustellen, dass alles geladen ist
+  setTimeout(highlightActiveElements, 100);
+  
+  // Nach 300ms nochmal das Highlighting ausführen
+  setTimeout(function() {
+    var businessOption = document.getElementById('business-strategy-option');
+    if (currentPage === 'programm-seite.html' && businessOption) {
+      businessOption.classList.add('highlight-option');
+      console.log("FINALE PRÜFUNG: Highlight für Business Strategy gesetzt");
+    }
+  }, 300);
+});
 </script> 
