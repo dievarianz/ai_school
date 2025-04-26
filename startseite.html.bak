@@ -595,11 +595,11 @@
       transition: all 0.3s ease;
       display: flex;
       flex-direction: column;
-      border-bottom: 2px solid transparent;
+      border: 2px solid transparent;
     }
     
     .tracks-variant-3 .track-card:hover {
-      border-bottom: 2px solid var(--imt-purple);
+      border-color: var(--imt-purple);
       transform: none;
       box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
     }
@@ -639,6 +639,9 @@
       font-weight: 600;
       margin: 0;
       line-height: 1.3;
+      min-height: 3.25rem; /* Konstante Höhe für ein- und zweizeilige Titel */
+      display: flex;
+      align-items: flex-start;
     }
     
     .tracks-variant-3 .card-body {
@@ -751,218 +754,6 @@
     @media (max-width: 768px) {
       .tracks-variant-3 .track-card {
         flex: 0 0 100%;
-      }
-    }
-
-    .network-section {
-      padding: 100px 0;
-      background: linear-gradient(to bottom, #fff, #f9f9fa);
-    }
-    
-    .network-intro {
-      text-align: center;
-      margin-bottom: 60px;
-    }
-    
-    .network-eyebrow {
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--imt-purple);
-      margin-bottom: 1rem;
-      font-weight: 500;
-    }
-    
-    .network-title {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      font-weight: 700;
-    }
-    
-    .network-description {
-      color: var(--color-muted);
-      font-size: 1.1rem;
-      max-width: 700px;
-      margin: 0 auto 2rem;
-      line-height: 1.5;
-    }
-    
-    .network-filter {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 40px;
-      flex-wrap: wrap;
-    }
-    
-    .filter-btn {
-      background: none;
-      border: 1px solid #e1e1e1;
-      border-radius: 30px;
-      padding: 8px 20px;
-      font-size: 0.9rem;
-      color: var(--color-muted);
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    
-    .filter-btn:hover {
-      border-color: var(--imt-purple);
-      color: var(--imt-purple);
-    }
-    
-    .filter-btn.active {
-      background: var(--imt-purple);
-      color: white;
-      border-color: var(--imt-purple);
-    }
-    
-    .partners {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 30px;
-      margin-bottom: 60px;
-    }
-    
-    .partner-item {
-      background: white;
-      border-radius: 10px;
-      padding: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
-      transition: all 0.3s ease;
-      border: 1px solid #f0f0f0;
-      aspect-ratio: 16/10;
-    }
-    
-    .partner-item:hover {
-      border-color: var(--color-accent2);
-      box-shadow: none;
-      transition: all 0.3s ease;
-    }
-    
-    .partner-logo {
-      max-width: 100%;
-      max-height: 70px;
-      filter: grayscale(100%);
-      opacity: 0.7;
-      transition: all 0.3s;
-    }
-    
-    .partner-item:hover .partner-logo {
-      filter: grayscale(0);
-      opacity: 1;
-    }
-    
-    .faculty-section {
-      margin-top: 60px;
-    }
-    
-    .faculty-title {
-      font-size: 28px;
-      font-weight: 600;
-      color: #1C1C1C;
-      margin-bottom: 30px;
-      text-align: center;
-    }
-    
-    .faculty-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 30px;
-    }
-    
-    .faculty-card {
-      background: #f9f9f9;
-      border-radius: 10px;
-      overflow: hidden;
-      transition: all 0.3s;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
-      border: 1px solid #f0f0f0;
-    }
-    
-    .faculty-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    }
-    
-    .faculty-image-container {
-      height: 200px;
-      overflow: hidden;
-    }
-    
-    .faculty-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: all 0.5s;
-    }
-    
-    .faculty-card:hover .faculty-image {
-      transform: scale(1.1);
-    }
-    
-    .faculty-info {
-      padding: 20px;
-    }
-    
-    .faculty-name {
-      font-size: 18px;
-      font-weight: 600;
-      color: #1C1C1C;
-      margin-bottom: 5px;
-    }
-    
-    .faculty-position {
-      font-size: 14px;
-      color: #7E4EE3;
-      font-weight: 500;
-    }
-    
-    .faculty-company {
-      font-size: 14px;
-      color: #777;
-      margin-top: 5px;
-    }
-    
-    .view-all-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: transparent;
-      color: var(--color-text);
-      border: 2px solid #ddd;
-      padding: 12px 24px;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-weight: 500;
-      transition: all 0.3s;
-    }
-    
-    .view-all-btn:hover {
-      background: #f5f5f7;
-      text-decoration: none;
-    }
-    
-    .section-link {
-      text-align: center;
-      margin-top: 40px;
-    }
-    
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-      .network-title {
-        font-size: 32px;
-      }
-      
-      .partners {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-      }
-      
-      .faculty-grid {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       }
     }
   </style>
@@ -1160,109 +951,189 @@
       </div>
     </section>
 
-    <!-- Netzwerk-Sektion: In bester Gesellschaft -->
-    <section class="network-section">
+    <!-- Teaser Sektion -->
+    <section style="background: linear-gradient(135deg, #f5f5fa 0%, #fff 100%); margin: 0; padding: 80px 20px; border-radius: 20px;">
       <div class="container">
-        <div class="network-intro">
-          <h2 class="network-title">In bester Gesellschaft</h2>
-          <p class="network-description">Unsere Business School arbeitet mit führenden Unternehmen, renommierten Universitäten und Experten zusammen, um Ihnen das beste Bildungserlebnis zu bieten.</p>
+        <div class="section-intro">
+          <h2 style="font-size: 56px; margin-bottom: 20px;">StGallen Executive <span style="color: #7b4bec;">Seminare</span></h2>
+          <p style="font-size: 22px; max-width: 650px; margin: 0 auto; color: #6e6e73;">Vier Seminare, die KI und intelligentes Management für Ihren Führungserfolg verbinden</p>
         </div>
         
-        <div class="network-filter">
-          <button class="filter-btn active">Alle</button>
-          <button class="filter-btn">Unternehmen</button>
-          <button class="filter-btn">Universitäten</button>
-        </div>
-        
-        <div class="partners">
-          <!-- Partner Logos -->
-          <div class="partner-item" data-category="unternehmen">
-            <img src="assets/companies/microsoft.png" alt="Microsoft" class="partner-logo">
+        <div class="courses-grid">
+          <!-- AI in Business Strategy -->
+          <div class="course-card">
+            <div class="course-header">
+              <div class="course-icon" style="background: #f9f5ff;">
+                <i class="fas fa-chess-knight" style="color: #7b4bec; font-size: 28px;"></i>
+              </div>
+              <h3 class="course-title">AI in Business Strategy & Transformation</h3>
+              <p class="course-subtitle">3-tägiges Executive Seminar</p>
+            </div>
+            <div class="course-content">
+              <p class="course-description">Entwickeln Sie eine umfassende KI-Strategie für nachhaltige Wettbewerbsvorteile und digitale Transformation.</p>
+              <div class="feature-container">
+                <div class="course-feature">
+                  <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#30d158" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 11 12 14 22 4"></polyline>
+                  </svg>
+                  <span class="feature-text">Strategisches KI-Rahmenwerk</span>
+                </div>
+                <div class="course-feature">
+                  <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#30d158" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 11 12 14 22 4"></polyline>
+                  </svg>
+                  <span class="feature-text">Praxisorientierte Fallstudien</span>
+                </div>
+              </div>
+            </div>
+            <div class="course-footer">
+              <span class="course-availability">3 Plätze verfügbar</span>
+              <a href="#" class="course-link">
+                Mehr erfahren
+                <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
           </div>
-          <div class="partner-item" data-category="unternehmen">
-            <img src="assets/companies/google.png" alt="Google" class="partner-logo">
-          </div>
-          <div class="partner-item" data-category="unternehmen">
-            <img src="assets/companies/apple.png" alt="Apple" class="partner-logo">
-          </div>
-          <div class="partner-item" data-category="universitäten">
-            <img src="assets/universities/eth.png" alt="ETH Zürich" class="partner-logo">
-          </div>
-          <div class="partner-item" data-category="unternehmen">
-            <img src="assets/companies/amazon.png" alt="Amazon" class="partner-logo">
-          </div>
-          <div class="partner-item" data-category="unternehmen">
-            <img src="assets/companies/ibm.png" alt="IBM" class="partner-logo">
-          </div>
-          <div class="partner-item" data-category="universitäten">
-            <img src="assets/universities/harvard.png" alt="Harvard University" class="partner-logo">
-          </div>
-          <div class="partner-item" data-category="universitäten">
-            <img src="assets/universities/hsg.png" alt="Universität St. Gallen" class="partner-logo">
-          </div>
-        </div>
-        
-        <div class="faculty-section">
-          <h3 class="faculty-title">Unsere Dozenten &amp; Experten</h3>
           
-          <div class="faculty-grid">
-            <!-- Faculty Members -->
-            <div class="faculty-card">
-              <div class="faculty-image-container">
-                <img src="assets/faculty/list.png" alt="Prof. Dr. Sebastian List" class="faculty-image">
+          <!-- Intelligent Decision Making -->
+          <div class="course-card">
+            <div class="course-header">
+              <div class="course-icon" style="background: #f0f9ff;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 3v18"></path>
+                  <path d="M3 12h18"></path>
+                  <path d="M7 17l-4 4"></path>
+                  <path d="M17 17l4 4"></path>
+                  <path d="M7 7l-4-4"></path>
+                  <path d="M17 7l4-4"></path>
+                </svg>
               </div>
-              <div class="faculty-info">
-                <h4 class="faculty-name">Prof. Dr. Sebastian List</h4>
-                <div class="faculty-position">Digitale Transformation</div>
-                <div class="faculty-company">Technische Universität Berlin</div>
+              <h3 class="course-title">Intelligent Decision Making</h3>
+              <p class="course-subtitle">2-tägiges Executive Seminar</p>
+            </div>
+            <div class="course-content">
+              <p class="course-description">Verbessern Sie Ihre Entscheidungsprozesse durch fortschrittliche Datenanalyse und KI-gestützte Methoden.</p>
+              <div class="feature-container">
+                <div class="course-feature">
+                  <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#30d158" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 11 12 14 22 4"></polyline>
+                  </svg>
+                  <span class="feature-text">Datengestützte Entscheidungsmodelle</span>
+                </div>
+                <div class="course-feature">
+                  <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#30d158" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 11 12 14 22 4"></polyline>
+                  </svg>
+                  <span class="feature-text">Predictive Analytics</span>
+                </div>
               </div>
             </div>
-            
-            <div class="faculty-card">
-              <div class="faculty-image-container">
-                <img src="assets/faculty/lueder_tockenbuerger.png" alt="Dr. Annika Lüder-Tockenbürger" class="faculty-image">
-              </div>
-              <div class="faculty-info">
-                <h4 class="faculty-name">Dr. Annika Lüder-Tockenbürger</h4>
-                <div class="faculty-position">AI Research Lead</div>
-                <div class="faculty-company">BioTech AG</div>
-              </div>
-            </div>
-            
-            <div class="faculty-card">
-              <div class="faculty-image-container">
-                <img src="assets/faculty/verebes.jpg" alt="Dr. Peter Verebes" class="faculty-image">
-              </div>
-              <div class="faculty-info">
-                <h4 class="faculty-name">Dr. Peter Verebes</h4>
-                <div class="faculty-position">CTO</div>
-                <div class="faculty-company">AI Security Systems</div>
-              </div>
-            </div>
-            
-            <div class="faculty-card">
-              <div class="faculty-image-container">
-                <img src="assets/faculty/von_berchem.jpg" alt="Prof. Dr. Franziska von Berchem" class="faculty-image">
-              </div>
-              <div class="faculty-info">
-                <h4 class="faculty-name">Prof. Dr. Franziska von Berchem</h4>
-                <div class="faculty-position">AI Ethics Pioneer</div>
-                <div class="faculty-company">Universität München</div>
-              </div>
+            <div class="course-footer">
+              <span class="course-availability limited">1 Platz verfügbar</span>
+              <a href="#" class="course-link">
+                Mehr erfahren
+                <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </a>
             </div>
           </div>
-        </div>
-        
-        <div class="section-link">
-          <a href="netzwerk.html" class="view-all-btn">
-            Gesamtes Netzwerk entdecken <i class="bx bx-right-arrow-alt"></i>
-          </a>
+          
+          <!-- Intelligent Financial Analytics -->
+          <div class="course-card">
+            <div class="course-header">
+              <div class="course-icon" style="background: #f0f9ff;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="1" x2="12" y2="23"></line>
+                  <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+              </div>
+              <h3 class="course-title">Intelligent Financial Analytics</h3>
+              <p class="course-subtitle">2-tägiges Executive Seminar</p>
+            </div>
+            <div class="course-content">
+              <p class="course-description">Erschließen Sie finanzielle Erkenntnisse durch fortschrittliche Analysen und datengesteuerte Entscheidungsfindung.</p>
+              <div class="feature-container">
+                <div class="course-feature">
+                  <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#30d158" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 11 12 14 22 4"></polyline>
+                  </svg>
+                  <span class="feature-text">Finanzanalyse-Frameworks</span>
+                </div>
+                <div class="course-feature">
+                  <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#30d158" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 11 12 14 22 4"></polyline>
+                  </svg>
+                  <span class="feature-text">KI-gestützte Prognosemodelle</span>
+                </div>
+              </div>
+            </div>
+            <div class="course-footer">
+              <span class="course-availability">5 Plätze verfügbar</span>
+              <a href="#" class="course-link">
+                Mehr erfahren
+                <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+          
+          <!-- Intelligent Marketing & Customer Analytics -->
+          <div class="course-card">
+            <div class="course-header">
+              <div class="course-icon" style="background: #fff8f0;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ff9f0a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </div>
+              <h3 class="course-title">Intelligent Marketing & Customer Analytics</h3>
+              <p class="course-subtitle">2-tägiges Executive Seminar</p>
+            </div>
+            <div class="course-content">
+              <p class="course-description">Optimieren Sie Ihre Marketingstrategien durch tiefgreifende Kundenanalysen und datengesteuerte Kampagnen.</p>
+              <div class="feature-container">
+                <div class="course-feature">
+                  <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#30d158" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 11 12 14 22 4"></polyline>
+                  </svg>
+                  <span class="feature-text">Customer Journey Mapping</span>
+                </div>
+                <div class="course-feature">
+                  <svg class="feature-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#30d158" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 11 12 14 22 4"></polyline>
+                  </svg>
+                  <span class="feature-text">Personalisierte Marketing-Strategien</span>
+                </div>
+              </div>
+            </div>
+            <div class="course-footer">
+              <span class="course-availability">4 Plätze verfügbar</span>
+              <a href="#" class="course-link">
+                Mehr erfahren
+                <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Footer einbinden -->
-    <div id="footer-container"></div>
+    <!-- Beispiel-Content-Sektion -->
+    <section class="content-section">
+      <div class="container">
+        <h2>Unsere Programme</h2>
+        <p>Hier werden in Zukunft unsere Programme und Kurse angezeigt. Diese Seite dient als Grundgerüst mit den wichtigsten Komponenten (Navigation, Sidebar und Footer).</p>
+      </div>
+    </section>
   </main>
 
   <!-- Footer einbinden -->
@@ -1547,40 +1418,6 @@
             if (typeof updateScrollButtons === 'function') {
               updateScrollButtons();
             }
-          });
-        });
-      }
-    });
-  </script>
-  
-  <!-- Script für die Netzwerk Filter-Funktionalität -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Filter-Funktionalität für Partner im "In bester Gesellschaft"-Abschnitt
-      const networkFilterButtons = document.querySelectorAll('.network-section .filter-btn');
-      const partnerItems = document.querySelectorAll('.network-section .partner-item');
-      
-      if (networkFilterButtons.length && partnerItems.length) {
-        networkFilterButtons.forEach(btn => {
-          btn.addEventListener('click', function() {
-            // Aktive Klasse von allen Buttons entfernen
-            networkFilterButtons.forEach(button => button.classList.remove('active'));
-            
-            // Aktive Klasse zum geklickten Button hinzufügen
-            this.classList.add('active');
-            
-            const filterValue = this.textContent.trim().toLowerCase();
-            
-            // Partner-Items filtern
-            partnerItems.forEach(item => {
-              const category = item.getAttribute('data-category');
-              
-              if (filterValue === 'alle' || category === filterValue) {
-                item.style.display = 'flex';
-              } else {
-                item.style.display = 'none';
-              }
-            });
           });
         });
       }
