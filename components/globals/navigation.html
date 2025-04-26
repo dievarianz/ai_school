@@ -529,64 +529,87 @@
       width: 90%;
     }
   }
+
+  /* Ensure the highlight-option class has strong styling */
+  .program-option.highlight-option {
+    font-weight: 600 !important;
+    background-color: var(--color-card-bg) !important;
+    color: var(--color-accent2) !important;
+    border-left: 4px solid var(--color-accent2) !important;
+    padding-left: 12px !important;
+    border-radius: 0 8px 8px 0 !important; /* Nur rechte Seite abgerundet */
+  }
 </style>
 
 <script>
 // Garantiert ausgeführtes Script zur Hervorhebung des aktiven Menüpunkts
 (function highlightActiveMenu() {
-  console.log("NEUES HIGHLIGHTING-SCRIPT WIRD AUSGEFÜHRT");
-  
-  // Aktuelle URL ermitteln
-  var currentPath = window.location.pathname;
-  console.log("Aktuelle URL:", currentPath);
-  
-  // Alle möglichen Optionen im Programm-Dropdown
-  var optionIds = {
-    'programm-seite.html': 'business-strategy-option',
-    '/programme/xai-decision-making': 'decision-making-option',
-    '/programme/xai-financial-analytics': 'financial-analytics-option',
-    '/programme/xai-marketing-analytics': 'marketing-analytics-option'
-  };
-  
-  // Ermittle die aktive Seite
-  var activePage = '';
-  if (currentPath.endsWith('programm-seite.html')) {
-    activePage = 'programm-seite.html';
-  } else if (currentPath.includes('/programme/xai-decision-making')) {
-    activePage = '/programme/xai-decision-making';
-  } else if (currentPath.includes('/programme/xai-financial-analytics')) {
-    activePage = '/programme/xai-financial-analytics';
-  } else if (currentPath.includes('/programme/xai-marketing-analytics')) {
-    activePage = '/programme/xai-marketing-analytics';
-  }
-  
-  console.log("Aktive Seite identifiziert:", activePage);
-  
-  // Hervorhebung entfernen und neu setzen
-  document.querySelectorAll('.program-option').forEach(function(option) {
-    option.classList.remove('highlight-option');
-    console.log("Hervorhebung von", option.id, "entfernt");
-  });
-  
-  // Wenn eine aktive Seite gefunden wurde und ein entsprechendes Element existiert
-  if (activePage && optionIds[activePage]) {
-    var elementToHighlight = document.getElementById(optionIds[activePage]);
-    if (elementToHighlight) {
-      elementToHighlight.classList.add('highlight-option');
-      console.log("Hervorhebung für", elementToHighlight.id, "gesetzt");
-      
-      // Als Test ausgeben, ob die Klasse tatsächlich gesetzt wurde
-      setTimeout(function() {
-        console.log("VERIFIKATION: Element", elementToHighlight.id, 
-                   "hat jetzt die Klasse highlight-option:", 
-                   elementToHighlight.classList.contains('highlight-option'));
-      }, 100);
-    } else {
-      console.log("Element mit ID", optionIds[activePage], "nicht gefunden");
+  // Diese Funktion mit einer kurzen Verzögerung ausführen, damit DOM vollständig geladen ist
+  setTimeout(function() {
+    console.log("NEUES HIGHLIGHTING-SCRIPT WIRD AUSGEFÜHRT");
+    
+    // Aktuelle URL ermitteln
+    var currentUrl = window.location.href;
+    var currentPath = window.location.pathname;
+    console.log("Aktuelle URL:", currentPath);
+    
+    // Alle möglichen Optionen im Programm-Dropdown
+    var optionIds = {
+      'programm-seite.html': 'business-strategy-option',
+      '/programme/xai-decision-making': 'decision-making-option',
+      '/programme/xai-financial-analytics': 'financial-analytics-option',
+      '/programme/xai-marketing-analytics': 'marketing-analytics-option'
+    };
+    
+    // Ermittle die aktive Seite
+    var activePage = '';
+    if (currentPath.endsWith('programm-seite.html') || currentUrl.includes('programm-seite.html')) {
+      activePage = 'programm-seite.html';
+    } else if (currentPath.includes('/programme/xai-decision-making') || currentUrl.includes('/programme/xai-decision-making')) {
+      activePage = '/programme/xai-decision-making';
+    } else if (currentPath.includes('/programme/xai-financial-analytics') || currentUrl.includes('/programme/xai-financial-analytics')) {
+      activePage = '/programme/xai-financial-analytics';
+    } else if (currentPath.includes('/programme/xai-marketing-analytics') || currentUrl.includes('/programme/xai-marketing-analytics')) {
+      activePage = '/programme/xai-marketing-analytics';
     }
-  } else {
-    console.log("Keine passende aktive Seite gefunden, keine Hervorhebung gesetzt");
-  }
+    
+    console.log("Aktive Seite identifiziert:", activePage);
+    
+    // Hervorhebung entfernen und neu setzen
+    document.querySelectorAll('.program-option').forEach(function(option) {
+      option.classList.remove('highlight-option');
+      console.log("Hervorhebung von", option.id, "entfernt");
+    });
+    
+    // Wenn eine aktive Seite gefunden wurde und ein entsprechendes Element existiert
+    if (activePage && optionIds[activePage]) {
+      var elementToHighlight = document.getElementById(optionIds[activePage]);
+      if (elementToHighlight) {
+        elementToHighlight.classList.add('highlight-option');
+        console.log("Hervorhebung für", elementToHighlight.id, "gesetzt");
+        
+        // Als Test ausgeben, ob die Klasse tatsächlich gesetzt wurde
+        setTimeout(function() {
+          console.log("VERIFIKATION: Element", elementToHighlight.id, 
+                     "hat jetzt die Klasse highlight-option:", 
+                     elementToHighlight.classList.contains('highlight-option'));
+        }, 100);
+      } else {
+        console.log("Element mit ID", optionIds[activePage], "nicht gefunden");
+      }
+    } else {
+      console.log("Keine passende aktive Seite gefunden, keine Hervorhebung gesetzt");
+    }
+
+    // Sicherstellen, dass Tracks-Navigationspunkt aktiv ist, wenn wir auf einer Programmseite sind
+    if (activePage) {
+      document.querySelectorAll('.nav-link').forEach(link => {
+        if (link.textContent.trim().startsWith('Tracks')) {
+          link.classList.add('active');
+        }
+      });
+    }
+  }, 200); // Kleine Verzögerung für DOM-Ladung
 })();
 
 // Ursprüngliches Script bleibt unverändert
@@ -792,5 +815,74 @@ function setActiveTrackTitle() {
 // Call the function when the DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
   setActiveTrackTitle();
+});
+</script>
+
+<!-- Add this script at the end to ensure it runs after everything else -->
+<script>
+// Function to directly set the highlight on the correct program option
+function forceHighlightActiveProgram() {
+  console.log("FORCE HIGHLIGHT START");
+  
+  // Get current page information
+  const currentUrl = window.location.href;
+  const currentPath = window.location.pathname;
+  
+  // Find the program option that should be highlighted
+  let targetOption = null;
+  
+  // Check for exact matches first
+  if (currentUrl.includes('programm-seite.html')) {
+    targetOption = document.getElementById('business-strategy-option');
+    console.log("Should highlight Business Strategy");
+  } else if (currentUrl.includes('/programme/xai-decision-making') || currentPath.includes('/programme/xai-decision-making')) {
+    targetOption = document.getElementById('decision-making-option');
+    console.log("Should highlight Decision Making");
+  } else if (currentUrl.includes('/programme/xai-financial-analytics') || currentPath.includes('/programme/xai-financial-analytics')) {
+    targetOption = document.getElementById('financial-analytics-option');
+    console.log("Should highlight Financial Analytics");
+  } else if (currentUrl.includes('/programme/xai-marketing-analytics') || currentPath.includes('/programme/xai-marketing-analytics')) {
+    targetOption = document.getElementById('marketing-analytics-option');
+    console.log("Should highlight Marketing Analytics");
+  }
+  
+  // If we found a target, highlight it
+  if (targetOption) {
+    console.log("Found target option:", targetOption.id);
+    
+    // Remove highlight from all options first
+    document.querySelectorAll('.program-option').forEach(opt => {
+      opt.classList.remove('highlight-option');
+    });
+    
+    // Add highlight to the target option
+    targetOption.classList.add('highlight-option');
+    console.log("Added highlight-option class to", targetOption.id);
+    
+    // Make sure 'Tracks' is highlighted in main menu
+    document.querySelectorAll('.nav-link').forEach(link => {
+      if (link.textContent.trim().startsWith('Tracks')) {
+        link.classList.add('active');
+        console.log("Added active class to Tracks link");
+      }
+    });
+  } else {
+    console.log("No option found to highlight");
+  }
+}
+
+// Run the highlighting at various intervals to ensure it catches
+setTimeout(forceHighlightActiveProgram, 200);
+setTimeout(forceHighlightActiveProgram, 500);
+setTimeout(forceHighlightActiveProgram, 1000);
+
+// Also run when the DOM is fully loaded
+document.addEventListener('DOMContentLoaded', () => {
+  forceHighlightActiveProgram();
+});
+
+// Also run when window is fully loaded
+window.addEventListener('load', () => {
+  forceHighlightActiveProgram();
 });
 </script> 
