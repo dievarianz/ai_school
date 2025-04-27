@@ -753,6 +753,10 @@
       color: var(--imt-purple);
     }
     
+    .tracks-variant-3 .category-program {
+      color: #17a689;
+    }
+    
     .tracks-variant-3 .category-finance {
       color: #17a689;
     }
@@ -805,6 +809,11 @@
       flex-shrink: 0; /* Verhindert Schrumpfen */
     }
     
+    /* Teal Icons für Programme */
+    .track-card[data-category="programme"] .card-row i {
+      color: #17a689;
+    }
+    
     .tracks-variant-3 .track-description {
       margin: 15px 0;
       font-size: 0.95rem;
@@ -824,6 +833,11 @@
       font-size: 0.9rem;
       position: relative;
       overflow: hidden;
+    }
+    
+    /* Teal Link für Programme */
+    .track-card[data-category="programme"] .track-link {
+      color: #17a689;
     }
     
     .tracks-variant-3 .track-link:hover {
@@ -1119,6 +1133,24 @@
       margin-top: 8px;
       border-top: 1px solid #eee;
     }
+
+    /* Teal Border bei Hover für Programme */
+    .track-card[data-category="programme"]:hover {
+      border: 2px solid #17a689;
+    }
+
+    /* Teal Button Hover für Programme Filter */
+    .tracks-variant-3 .filter-btn[data-filter="programme"]:hover {
+      border-color: #17a689;
+      color: #17a689;
+    }
+
+    /* Teal Active Button für Programme Filter */
+    .tracks-variant-3 .filter-btn[data-filter="programme"].active {
+      background: #17a689;
+      color: white;
+      border-color: #17a689;
+    }
   </style>
 
   <!-- BoxIcons für Icons -->
@@ -1335,7 +1367,7 @@
             <div class="track-card" data-category="programme">
               <a href="programm-seite.html" class="card-link" aria-label="StGallen imt xAI Management Programm Details"></a>
               <div class="card-header">
-                <span class="track-category category-strategy">Programm</span>
+                <span class="track-category category-program">Programm</span>
                 <h3 class="track-title">StGallen imt xAI Management Programm</h3>
               </div>
               <div class="card-body">
