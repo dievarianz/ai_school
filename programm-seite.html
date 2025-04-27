@@ -250,22 +250,11 @@
     box-shadow: 0 4px 12px rgba(102, 36, 131, 0.15) !important;
   }
   
-  .info-box svg {
-    width: 32px !important;
-    height: 32px !important;
-    margin-bottom: 12px !important;
-    stroke: #6e6e73 !important;
-    fill: none !important;
-    stroke-width: 1.5 !important;
-  }
-  
-  .info-box svg path,
-  .info-box svg circle,
-  .info-box svg rect,
-  .info-box svg line,
-  .info-box svg polyline {
-    stroke: #6e6e73 !important;
-    fill: none !important;
+  /* BoxIcons statt SVG */
+  .info-box i.bx {
+    font-size: 24px !important;
+    color: var(--imt-purple) !important;
+    margin-bottom: 16px !important;
   }
   
   .info-label {
@@ -1083,43 +1072,28 @@
       <div class="info-grid">
         <!-- Location Box -->
         <div class="info-box">
-          <svg viewBox="0 0 24 24">
-            <path d="M12 21s-6-5.686-6-10a6 6 0 1 1 12 0c0 4.314-6 10-6 10z"/>
-            <circle cx="12" cy="11" r="2"/>
-          </svg>
+          <i class="bx bx-map"></i>
           <span class="info-label">LOCATION</span>
           <span class="info-value">St. Gallen</span>
         </div>
 
         <!-- Length Box -->
         <div class="info-box">
-          <svg viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="10"/>
-            <polyline points="12 6 12 12 16 14"/>
-          </svg>
+          <i class="bx bx-time"></i>
           <span class="info-label">LENGTH</span>
           <span class="info-value">3 Tage</span>
         </div>
 
         <!-- Fee Box -->
         <div class="info-box">
-          <svg viewBox="0 0 24 24">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
-            <path d="M12 15v2M12 7v2"/>
-            <path d="M15 9.5c-.83-1-2.17-1.5-3.5-1.5-1.93 0-3.5 1.57-3.5 3.5s1.57 3.5 3.5 3.5c1.33 0 2.67-.5 3.5-1.5"/>
-          </svg>
+          <i class="bx bx-euro"></i>
           <span class="info-label">FEE</span>
           <span class="info-value">2500 €</span>
         </div>
 
         <!-- Next Start Box -->
         <div class="info-box">
-          <svg viewBox="0 0 24 24">
-            <rect x="3" y="4" width="18" height="18" rx="2"/>
-            <line x1="16" y1="2" x2="16" y2="6"/>
-            <line x1="8" y1="2" x2="8" y2="6"/>
-            <line x1="3" y1="10" x2="21" y2="10"/>
-          </svg>
+          <i class="bx bx-calendar"></i>
           <span class="info-label">NEXT START</span>
           <span class="info-value">25.5.2025</span>
         </div>

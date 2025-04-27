@@ -902,32 +902,27 @@
     
     .faculty-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+      margin-top: 48px;
     }
     
     .faculty-card {
       background: white;
-      border-radius: 10px;
+      border: 1px solid #eee;
+      border-radius: var(--radius);
       overflow: hidden;
       transition: border-color 0.3s ease;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
-      border: 1px solid #eee;
+      box-shadow: none;
     }
     
     .faculty-card:hover {
       border-color: var(--color-accent2);
-      box-shadow: none;
     }
     
-    .faculty-image-container {
-      height: 200px;
-      overflow: hidden;
-    }
-    
-    .faculty-image {
+    .faculty-card img {
       width: 100%;
-      height: 100%;
+      height: 280px;
       object-fit: cover;
     }
     
@@ -936,23 +931,22 @@
     }
     
     .faculty-name {
-      font-size: 18px;
-      font-weight: 600;
-      color: #1C1C1C;
-      margin-bottom: 5px;
+      font-size: 1.1rem;
+      margin-bottom: 4px;
     }
     
-    .faculty-position {
-      font-size: 14px;
-      color: #7E4EE3;
-      font-weight: 500;
-      margin-bottom: 5px;
+    .faculty-title {
+      color: var(--color-accent2);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
     }
     
-    .faculty-company {
-      font-size: 14px;
-      color: #777;
-      margin-top: 5px;
+    .faculty-description {
+      color: var(--color-muted);
+      font-size: 0.9rem;
+      line-height: 1.4;
     }
     
     .view-all-btn {
@@ -1042,7 +1036,7 @@
       <div class="container">
         <div class="tracks-header">
           <h2 class="tracks-title">Unsere Tracks</h2>
-          <p class="tracks-subtitle">Entdecken Sie unsere praxisorientierten Seminare und Programme, die Management-Know-how mit KI-Kompetenz verbinden</p>
+          <p class="tracks-subtitle">Entdecken Sie unsere praxisorientierten Einzelseminare und Programme, die Management-Know-how mit KI-Kompetenz verbinden</p>
         </div>
         
         <div class="track-filters">
@@ -1184,6 +1178,33 @@
                   </div>
                 </div>
                 <p class="track-description">Lernen Sie, Teams durch die digitale Transformation zu führen und Veränderungen erfolgreich zu managen.</p>
+                <a href="programm-seite.html" class="track-link" style="position: relative; z-index: 2;">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
+              </div>
+            </div>
+            
+            <!-- Card 6: Neues Programm -->
+            <div class="track-card" data-category="programme">
+              <a href="programm-seite.html" class="card-link" aria-label="StGallen imt xAI Management Programm Details"></a>
+              <div class="card-header">
+                <span class="track-category category-strategy">Programm</span>
+                <h3 class="track-title">StGallen imt xAI Management Programm</h3>
+              </div>
+              <div class="card-body">
+                <div class="info-section">
+                  <div class="card-row">
+                    <i class="bx bx-map"></i>
+                    <span>St. Gallen oder Online</span>
+                  </div>
+                  <div class="card-row">
+                    <i class="bx bx-time"></i>
+                    <span>12 Tage</span>
+                  </div>
+                  <div class="card-row">
+                    <i class="bx bx-calendar"></i>
+                    <span>05.06.2025</span>
+                  </div>
+                </div>
+                <p class="track-description">Umfassendes Programm zur Integration von KI in strategische Managementprozesse mit zertifiziertem Abschluss.</p>
                 <a href="programm-seite.html" class="track-link" style="position: relative; z-index: 2;">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
               </div>
             </div>
