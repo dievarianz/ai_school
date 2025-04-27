@@ -121,6 +121,15 @@
       background-color: #e8e8ed;
       text-decoration: none;
     }
+
+    .contact-card {
+      position: relative;
+    }
+    
+    .contact-card:hover {
+      border: 3px solid var(--imt-purple);
+      box-shadow: 0 2px 10px rgba(110, 69, 226, 0.1);
+    }
   </style>
 
   <!-- BoxIcons für Icons -->
@@ -146,10 +155,67 @@
         </div>
         
         <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Ansprechpartner</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Hier finden Sie die richtigen Kontaktpersonen für Ihre Anliegen.</p>
-        <h2>Unser Team für Sie</h2>
-        <p>Diese Seite wird in Kürze mit detaillierten Informationen zu unseren Ansprechpartnern für Beratung, technische Unterstützung und Administration ergänzt.</p>
-        <p>Bei Fragen können Sie sich vorerst an unsere allgemeine Kontaktadresse wenden.</p>
+        
+        <!-- Content-Container mit definierter Breite -->
+        <div style="max-width: 1000px; width: 100%;">
+          <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Ihr persönlicher Ansprechpartner für alle Fragen rund um das Executive Seminar AI in Business Strategy & Digital Transformation – profitieren Sie von seiner langjährigen Expertise in der digitalen Transformation.</p>
+          
+          <!-- Ansprechpartner Card -->
+          <div class="contact-card" style="background: white; border-radius: 16px; overflow: hidden; margin-bottom: 60px; display: flex; flex-direction: column; width: 100%; border: 2px solid transparent; transition: all 0.3s ease; box-shadow: 0 1px 5px rgba(0,0,0,0.05);" onmouseover="this.style.border='2px solid #6e45e2'" onmouseout="this.style.border='2px solid transparent'">
+            <!-- Content -->
+            <div style="display: flex; flex-wrap: wrap; padding: 40px; gap: 40px; align-items: center;">
+              <!-- Bild mit Styling -->
+              <div style="width: 200px; height: 200px; border-radius: 50%; overflow: hidden; flex-shrink: 0; border: 3px solid white;">
+                <img alt="Monika Dutkiewicz" src="https://lirp.cdn-website.com/d603a072/dms3rep/multi/opt/Monika-Dutkiewiecz-70a9e6ff-bb2e6919-9188df2f-1920w.jpeg" style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
+              
+              <!-- Kontaktdaten mit schönem Styling -->
+              <div style="flex: 1; min-width: 300px;">
+                <h2 style="font-size: 2rem; margin-bottom: 15px; font-weight: 600; color: var(--color-text);">Monika Dutkiewicz</h2>
+                <div style="width: 50px; height: 4px; background: var(--imt-purple); margin-bottom: 20px;"></div>
+                <p style="font-size: 1.15rem; margin-bottom: 25px; color: var(--color-muted);">Ansprechpartner KI in Business Strategy & Digital Transformation</p>
+                
+                <!-- Kontaktoptionen mit Icons -->
+                <div style="display: flex; flex-direction: column; gap: 15px;">
+                  <a href="mailto:monika.dutkiewicz@imt.ch" style="display: flex; align-items: center; gap: 12px; color: var(--color-text); text-decoration: none; transition: all 0.2s ease;">
+                    <div style="background: var(--color-card-bg); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--imt-purple);">
+                      <i class='bx bx-envelope' style="font-size: 20px;"></i>
+                    </div>
+                    <span style="font-size: 1.05rem;">monika.dutkiewicz@imt.ch</span>
+                  </a>
+                  
+                  <a href="tel:+41712247222" style="display: flex; align-items: center; gap: 12px; color: var(--color-text); text-decoration: none; transition: all 0.2s ease;">
+                    <div style="background: var(--color-card-bg); width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--imt-purple);">
+                      <i class='bx bx-phone' style="font-size: 20px;"></i>
+                    </div>
+                    <span style="font-size: 1.05rem;">+41 71 224 72 22</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Weitere Ansprechpartner - mit verbessertem Styling -->
+          <div style="background: var(--color-card-bg); border-radius: 16px; padding: 30px; width: 100%;">
+            <h3 style="font-size: 1.3rem; margin-bottom: 1.2rem; color: var(--color-text); display: flex; align-items: center; gap: 10px;">
+              <i class='bx bx-group' style="color: var(--imt-purple); font-size: 24px;"></i>
+              Weitere Ansprechpartner
+            </h3>
+            <p style="margin-bottom: 1.5rem; color: var(--color-text); line-height: 1.6;">Haben Sie Fragen zu anderen Kursen oder allgemeine Anfragen? Unser Team steht Ihnen gerne zur Verfügung.</p>
+            
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+              <i class='bx bx-phone' style="color: var(--imt-purple); font-size: 20px;"></i>
+              <p style="margin: 0;">Rufen Sie uns an: <a href="tel:+41712247200" style="color: var(--imt-purple); font-weight: 500;">+41 71 224 72 00</a></p>
+            </div>
+            
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <i class='bx bx-envelope' style="color: var(--imt-purple); font-size: 20px;"></i>
+              <p style="margin: 0;">Oder schreiben Sie uns eine E-Mail: 
+                <a href="mailto:info@imt.ch" style="color: var(--imt-purple); font-weight: 500;">info@imt.ch</a>
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </main>
