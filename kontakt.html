@@ -616,9 +616,14 @@
       const urlParams = new URLSearchParams(window.location.search);
       const success = urlParams.get('success');
       
-      // Formular
+      // Formular und Elemente
       const form = document.getElementById('contact-form');
-      const inputs = form.querySelectorAll('input, textarea, select');
+      const firstName = document.getElementById('firstName');
+      const lastName = document.getElementById('lastName');
+      const email = document.getElementById('email');
+      const country = document.getElementById('country');
+      const message = document.getElementById('message');
+      const submitButton = form.querySelector('button[type="submit"]');
       const successMessage = document.getElementById('success-message');
       
       // Erfolgsanzeige direkt anzeigen, wenn von FormSubmit zurückgeleitet
@@ -627,110 +632,228 @@
         successMessage.style.display = 'block';
       }
       
-      // Live-Validierung für alle Eingabefelder
-      inputs.forEach(input => {
-        // Validiere bei Änderung
-        input.addEventListener('input', function() {
-          validateInput(this);
-        });
-        
-        // Validiere beim Verlassen des Feldes
-        input.addEventListener('blur', function() {
-          validateInput(this);
-        });
-        
-        // For select elements, validate on change
-        if (input.tagName === 'SELECT') {
-          input.addEventListener('change', function() {
-            validateInput(this);
-          });
-        }
+      // Speichern, ob ein Feld schon bearbeitet wurde
+      const touched = {
+        firstName: false,
+        lastName: false,
+        email: false,
+        country: false,
+        message: false
+      };
+      
+      // Event Listeners für alle Felder
+      firstName.addEventListener('input', function() {
+        touched.firstName = true;
+        validateField(firstName);
       });
       
-      // Formular-Validierung beim Absenden
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
+      lastName.addEventListener('input', function() {
+        touched.lastName = true;
+        validateField(lastName);
+      });
+      
+      email.addEventListener('input', function() {
+        touched.email = true;
+        validateField(email);
+      });
+      
+      country.addEventListener('change', function() {
+        touched.country = true;
+        validateField(country);
+      });
+      
+      message.addEventListener('input', function() {
+        touched.message = true;
+        validateField(message);
+      });
+      
+      // Validation beim Verlassen des Feldes
+      firstName.addEventListener('blur', function() {
+        touched.firstName = true;
+        validateField(firstName);
+      });
+      
+      lastName.addEventListener('blur', function() {
+        touched.lastName = true;
+        validateField(lastName);
+      });
+      
+      email.addEventListener('blur', function() {
+        touched.email = true;
+        validateField(email);
+      });
+      
+      country.addEventListener('blur', function() {
+        touched.country = true;
+        validateField(country);
+      });
+      
+      message.addEventListener('blur', function() {
+        touched.message = true;
+        validateField(message);
+      });
+      
+      // Funktion zum Validieren eines Feldes
+      function validateField(field) {
+        const errorElement = field.nextElementSibling;
         let isValid = true;
         
-        // Alle Pflichtfelder validieren
-        inputs.forEach(input => {
-          if (!validateInput(input)) {
+        // Nur validieren wenn das Feld schon bearbeitet wurde
+        if (!touched[field.id]) {
+          return true;
+        }
+        
+        // Validierung für leere Felder
+        if (field.hasAttribute('required') && !field.value.trim()) {
+          isValid = false;
+        }
+        
+        // Spezielle Validierung für E-Mail
+        if (field.type === 'email' && field.value.trim()) {
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(field.value.trim())) {
             isValid = false;
           }
-        });
-        
-        if (isValid) {
-          // FormData für asynchrones Senden vorbereiten
-          const formData = new FormData(form);
-          
-          // Versteckte Anzeige bereits vor dem Senden, um die Benutzererfahrung zu verbessern
-          form.style.display = 'none';
-          successMessage.style.display = 'block';
-          
-          // Formular asynchron mit Fetch API senden
-          fetch('https://formsubmit.co/ajax/alexanderhillerb@googlemail.com', {
-            method: 'POST',
-            body: formData,
-            headers: {
-              'Accept': 'application/json',
-              'X-Requested-With': 'XMLHttpRequest'
-            }
-          })
-          .then(response => {
-            // Formular zurücksetzen
-            form.reset();
-            
-            if (!response.ok) {
-              console.error('Fehler beim Senden des Formulars:', response);
-            }
-          })
-          .catch(error => {
-            console.error('Fehler beim Senden des Formulars:', error);
-          });
         }
-      });
-      
-      // Validierungsfunktion
-      function validateInput(input) {
-        const errorMessage = input.nextElementSibling;
-        let isValid = true;
         
-        // Pflichtfeld-Validierung
-        if (input.hasAttribute('required') && !input.value.trim()) {
-          input.classList.add('invalid-input');
-          input.classList.remove('valid-input');
-          errorMessage.style.display = 'block';
-          isValid = false;
-        } else {
-          // E-Mail-Validierung
-          if (input.type === 'email' && input.value.trim()) {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(input.value.trim())) {
-              input.classList.add('invalid-input');
-              input.classList.remove('valid-input');
-              errorMessage.style.display = 'block';
-              isValid = false;
-            } else {
-              input.classList.remove('invalid-input');
-              input.classList.add('valid-input');
-              errorMessage.style.display = 'none';
-            }
-          } else {
-            input.classList.remove('invalid-input');
-            
-            // Nur als valid markieren, wenn ein Wert eingegeben wurde
-            if (input.value.trim()) {
-              input.classList.add('valid-input');
-            } else {
-              input.classList.remove('valid-input');
-            }
-            
-            errorMessage.style.display = 'none';
+        // Spezielle Validierung für das Land-Dropdown
+        if (field.id === 'country') {
+          if (!field.value || field.value === '' || field.value === 'Land wählen') {
+            isValid = false;
           }
+        }
+        
+        // Visuelle Anzeige der Validierung
+        if (isValid) {
+          field.classList.remove('invalid-input');
+          field.classList.add('valid-input');
+          errorElement.style.display = 'none';
+        } else {
+          field.classList.add('invalid-input');
+          field.classList.remove('valid-input');
+          errorElement.style.display = 'block';
         }
         
         return isValid;
       }
+      
+      // Funktion zum Validieren des gesamten Formulars
+      function validateForm() {
+        let isValid = true;
+        
+        // Alle Felder als berührt markieren
+        touched.firstName = true;
+        touched.lastName = true;
+        touched.email = true;
+        touched.country = true;
+        touched.message = true;
+        
+        // Validierung aller Felder
+        if (!validateField(firstName)) isValid = false;
+        if (!validateField(lastName)) isValid = false;
+        if (!validateField(email)) isValid = false;
+        if (!validateField(country)) isValid = false;
+        if (!validateField(message)) isValid = false;
+        
+        return isValid;
+      }
+      
+      // Funktion zum Anzeigen einer Fehlermeldung unter dem Submit-Button
+      function showSubmitError(message) {
+        const existingMessage = document.getElementById('incomplete-fields-message');
+        if (existingMessage) {
+          existingMessage.remove();
+        }
+        
+        const errorElement = document.createElement('div');
+        errorElement.id = 'incomplete-fields-message';
+        errorElement.style.color = '#ff3860';
+        errorElement.style.textAlign = 'center';
+        errorElement.style.marginTop = '15px';
+        errorElement.style.fontWeight = '500';
+        errorElement.textContent = message;
+        
+        submitButton.parentNode.appendChild(errorElement);
+        
+        setTimeout(() => {
+          if (errorElement.parentNode) {
+            errorElement.style.opacity = '0';
+            errorElement.style.transition = 'opacity 0.5s ease';
+            setTimeout(() => {
+              if (errorElement.parentNode) {
+                errorElement.remove();
+              }
+            }, 500);
+          }
+        }, 5000);
+      }
+      
+      // Abfangen des Submit-Events
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        console.log('Submit-Versuch:');
+        console.log('Vorname:', firstName.value);
+        console.log('Nachname:', lastName.value);
+        console.log('Email:', email.value);
+        console.log('Land:', country.value);
+        console.log('Nachricht:', message.value);
+        
+        // Validiere alle Felder
+        const formIsValid = validateForm();
+        
+        // Wenn das Formular nicht gültig ist
+        if (!formIsValid) {
+          console.log('Formular ist ungültig!');
+          
+          // Fokus auf das erste ungültige Feld setzen
+          if (!validateField(firstName)) {
+            firstName.focus();
+          } else if (!validateField(lastName)) {
+            lastName.focus();
+          } else if (!validateField(email)) {
+            email.focus();
+          } else if (!validateField(country)) {
+            country.focus();
+          } else if (!validateField(message)) {
+            message.focus();
+          }
+          
+          showSubmitError('Bitte füllen Sie alle erforderlichen Felder aus.');
+          return;
+        }
+        
+        // Wenn das Formular gültig ist
+        console.log('Formular ist gültig!');
+        
+        // FormData für den Versand vorbereiten
+        const formData = new FormData(form);
+        
+        // Anzeige des Erfolgs
+        form.style.display = 'none';
+        successMessage.style.display = 'block';
+        
+        // Formular senden
+        fetch('https://formsubmit.co/ajax/alexanderhillerb@googlemail.com', {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest'
+          }
+        })
+        .then(response => {
+          console.log('Server-Antwort:', response.status);
+          form.reset();
+          
+          if (!response.ok) {
+            console.error('Fehler beim Senden:', response);
+          }
+        })
+        .catch(error => {
+          console.error('Fehler beim Senden:', error);
+        });
+      });
     });
   </script>
 
