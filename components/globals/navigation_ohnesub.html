@@ -46,9 +46,9 @@
             <!-- Zweite Spalte: Programme -->
             <div class="menu-column">
               <h3>Programme</h3>
-              <a href="#" class="program-option">StGallen imt xAI Management Programm</a>
-              <a href="#" class="program-option">StGallen imt xAI Certified Management CAS</a>
-              <a href="#" class="program-option">StGallen Fast‑Track xAI Programm</a>
+              <a href="programm-seite4.html" class="program-option">StGallen imt xAI Management Programm</a>
+              <a href="programm-seite4.html" class="program-option">StGallen imt xAI Certified Management CAS</a>
+              <a href="programm-seite4.html" class="program-option">StGallen Fast‑Track xAI Programm</a>
             </div>
           </div>
         </div>
@@ -322,6 +322,7 @@
     .nav-logo {
       z-index: 1010;
       position: relative;
+      background-color: white; /* Add background to prevent text showing through */
     }
     
     .nav-menu {
@@ -349,6 +350,7 @@
     .mobile-menu-btn {
       display: block;
       z-index: 1010;
+      background-color: white; /* Add background to prevent text showing through */
     }
     
     .nav-link {
@@ -397,6 +399,11 @@
       margin-top: 10px;
       font-size: 0.9rem;
       padding-left: 12px;
+    }
+    
+    /* Add more space between last item in first column and Programme heading */
+    .menu-column:nth-child(2) h3 {
+      margin-top: 24px; /* Increased from 10px to 24px for more spacing */
     }
     
     .program-option {
@@ -449,4 +456,81 @@
       color: white;
     }
   }
-</style> 
+</style>
+
+<!-- JavaScript für aktive Programm-Optionen -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Aktuelle URL ermitteln
+    const currentPath = window.location.pathname;
+    const currentPage = currentPath.substring(currentPath.lastIndexOf('/') + 1);
+    const urlParams = new URLSearchParams(window.location.search);
+    const programParam = urlParams.get('program');
+    
+    // Falls wir auf einer der Programmseiten sind, fügen wir einen Programm-Parameter hinzu
+    // Diese Funktion läuft beim ersten Laden der Seite und speichert den Programmtitel
+    if (currentPage.startsWith('programm-seite') && !programParam) {
+      try {
+        // Extrahiere den Titel der aktuellen Seite aus der H1
+        const pageH1 = document.querySelector('h1');
+        
+        if (pageH1) {
+          // Füge den aktuellen Programmtitel als URL-Parameter hinzu, ohne die Seite neu zu laden
+          const newUrl = new URL(window.location);
+          newUrl.searchParams.set('program', pageH1.textContent.trim());
+          window.history.replaceState({}, '', newUrl);
+        }
+      } catch (e) {
+        console.error('Fehler beim Hinzufügen des Programm-Parameters:', e);
+      }
+    }
+    
+    // Hole den aktualisierten Programm-Parameter
+    const updatedProgramParam = new URLSearchParams(window.location.search).get('program');
+    
+    // Alle Programm-Optionen im Dropdown durchgehen
+    const programOptions = document.querySelectorAll('.program-option');
+    let hasHighlightedOption = false;
+    
+    programOptions.forEach(option => {
+      const optionHref = option.getAttribute('href');
+      const optionText = option.textContent.trim();
+      
+      // Falls es einen spezifischen Programm-Parameter gibt, verwenden wir diesen
+      if (updatedProgramParam && optionText.toLowerCase().includes(updatedProgramParam.toLowerCase())) {
+        option.classList.add('highlight-option');
+        hasHighlightedOption = true;
+        return;
+      }
+      
+      // Prüfen, ob der Link mit der aktuellen Seite übereinstimmt
+      if (optionHref === currentPage) {
+        // Bei mehreren Links zur gleichen Seite (programm-seite4.html) 
+        // prüfen wir, ob die Seitentitel im HTML übereinstimmen
+        if (currentPage === "programm-seite4.html" && !hasHighlightedOption) {
+          const pageTitle = document.title;
+          if (pageTitle && pageTitle.includes(optionText)) {
+            option.classList.add('highlight-option');
+            hasHighlightedOption = true;
+          }
+        } else if (!hasHighlightedOption) {
+          // Bei eindeutigen Seiten einfach hervorheben
+          option.classList.add('highlight-option');
+          hasHighlightedOption = true;
+        }
+      }
+    });
+    
+    // Fallback: Wenn keine Option hervorgehoben wurde und wir auf einer Programmseite sind,
+    // heben wir die erste Option mit dem passenden Seitennamen hervor
+    if (!hasHighlightedOption && currentPage.startsWith('programm-seite')) {
+      programOptions.forEach(option => {
+        const optionHref = option.getAttribute('href');
+        if (optionHref === currentPage) {
+          option.classList.add('highlight-option');
+          return;
+        }
+      });
+    }
+  });
+</script>
