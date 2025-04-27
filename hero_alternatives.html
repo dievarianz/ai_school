@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Hero-Bereich Alternativen | imtxAI Business School</title>
+
+  <!-- ============ STYLES ============ -->
+  <style>
+    :root{
+      --font-sans:-apple-system,BlinkMacSystemFont,"San Francisco","Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+      --color-text:#1d1d1f;
+      --color-muted:#6e6e73;
+      --color-card-bg:#f5f5f7;
+      --color-accent2:#970289;
+      --color-badge:#e2b245;
+      --color-badge-hover:#d4a535;
+      --spacing:24px;
+      --radius:16px;
+      --max-width:1200px;
+      --imt-purple: #6e45e2;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--color-text);
+      background: #fff;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      padding-top: 20px;
+    }
+
+    /* Basis Styling für Container */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--spacing);
+      width: 100%;
+    }
+
+    /* Allgemeine Typografie */
+    h1, h2, h3 {
+      margin-bottom: 1rem;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.25rem;
+      padding-top: 40px;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    /* Gemeinsame Stile für alle Hero-Varianten */
+    .hero-common {
+      text-align: center;
+      padding: 60px 0 20px;
+      color: #fff;
+      position: relative;
+      margin-bottom: 50px;
+    }
+
+    /* Original Hero-Stil als Referenz */
+    #hero-original {
+      background:
+          linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)),
+          url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?crop=entropy&fit=crop&w=1950&q=80')
+          center/cover no-repeat;
+    }
+
+    /* Variante 1: Hellerer Overlay */
+    #hero-variant1 {
+      background:
+          linear-gradient(rgba(0,0,0,.15), rgba(0,0,0,.15)),
+          url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?crop=entropy&fit=crop&w=1950&q=80')
+          center/cover no-repeat;
+    }
+
+    /* Variante 2: Unschärfe-Effekt */
+    #hero-variant2 {
+      position: relative;
+      overflow: hidden;
+    }
+
+    #hero-variant2::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background:
+          linear-gradient(rgba(0,0,0,.25), rgba(0,0,0,.25)),
+          url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?crop=entropy&fit=crop&w=1950&q=80')
+          center/cover no-repeat;
+      filter: blur(5px);
+      z-index: -1;
+    }
+
+    /* Variante 3: Schwarz-Weiß-Effekt */
+    #hero-variant3 {
+      background:
+          linear-gradient(rgba(0,0,0,.25), rgba(0,0,0,.25)),
+          url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?crop=entropy&fit=crop&w=1950&q=80&auto=format&fit=crop&w=1950&q=80')
+          center/cover no-repeat;
+      filter: grayscale(100%);
+    }
+
+    /* Variante 4: Farbton-Überlagerung */
+    #hero-variant4 {
+      background:
+          linear-gradient(rgba(110, 69, 226, 0.7), rgba(110, 69, 226, 0.7)),
+          url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?crop=entropy&fit=crop&w=1950&q=80')
+          center/cover no-repeat;
+    }
+
+    /* Variante 5: Dunklerer Overlay */
+    #hero-variant5 {
+      background:
+          linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
+          url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?crop=entropy&fit=crop&w=1950&q=80')
+          center/cover no-repeat;
+    }
+
+    /* Variante 6: Weißer Overlay */
+    #hero-variant6 {
+      background:
+          linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)),
+          url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?crop=entropy&fit=crop&w=1950&q=80')
+          center/cover no-repeat;
+      color: var(--color-text); /* Dunkler Text für bessere Lesbarkeit auf hellem Hintergrund */
+    }
+
+    /* Variante 7: Vignette-Effekt */
+    #hero-variant7 {
+      position: relative;
+      background:
+          url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?crop=entropy&fit=crop&w=1950&q=80')
+          center/cover no-repeat;
+      isolation: isolate;
+    }
+
+    #hero-variant7::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(
+        ellipse at center,
+        rgba(0, 0, 0, 0.1) 0%,
+        rgba(0, 0, 0, 0.6) 100%
+      );
+      z-index: -1;
+    }
+
+    /* Variante 8: Gedämpfte Farbsättigung */
+    #hero-variant8 {
+      background:
+          linear-gradient(rgba(0,0,0,.25), rgba(0,0,0,.25)),
+          url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?crop=entropy&fit=crop&w=1950&q=80')
+          center/cover no-repeat;
+      filter: saturate(40%);
+    }
+
+    /* Variante 9: Fast unsichtbares Bild */
+    #hero-variant9 {
+      background:
+          linear-gradient(rgba(245, 245, 247, 0.92), rgba(245, 245, 247, 0.92)),
+          url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?crop=entropy&fit=crop&w=1950&q=80')
+          center/cover no-repeat;
+      color: var(--color-text);
+    }
+
+    /* Variante 10: Minimale Bildsichtbarkeit unten */
+    #hero-variant10 {
+      position: relative;
+      background-color: var(--color-card-bg);
+      color: var(--color-text);
+      overflow: hidden;
+    }
+
+    #hero-variant10::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background: 
+          linear-gradient(to top, rgba(0,0,0,0.5), transparent),
+          url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?crop=entropy&fit=crop&w=1950&q=80')
+          center/cover no-repeat;
+      opacity: 0.5;
+      z-index: 0;
+    }
+
+    #hero-variant10 .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Variante 11: Invertiertes Bild als subtiler Hintergrund */
+    #hero-variant11 {
+      background:
+          linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)),
+          url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?crop=entropy&fit=crop&w=1950&q=80')
+          center/cover no-repeat;
+      color: var(--color-text);
+      filter: invert(8%);
+    }
+
+    /* KREATIVE VARIANTEN */
+
+    /* Variante 12: Dualton-Effekt */
+    #hero-variant12 {
+      position: relative;
+      background:
+          url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?crop=entropy&fit=crop&w=1950&q=80')
+          center/cover no-repeat;
+      isolation: isolate;
+    }
+
+    #hero-variant12::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(110, 69, 226, 0.8) 0%, rgba(156, 39, 176, 0.7) 100%);
+      mix-blend-mode: hard-light;
+      z-index: -1;
+    }
+
+    /* Variante 13: Wellenmuster-Overlay */
+    #hero-variant13 {
+      position: relative;
+      background-color: #2c2c30;
+      overflow: hidden;
+    }
+
+    #hero-variant13::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+          url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?crop=entropy&fit=crop&w=1950&q=80')
+          center/cover no-repeat;
+      filter: brightness(0.7) contrast(1.2);
+      opacity: 0.2;
+      z-index: 0;
+    }
+
+    #hero-variant13::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+          url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.184 20c.357-.13.72-.264.888-.14 1.005.626 1.87 1.28 2.393 1.39.242.275.48.54.725.832.492.886 1.3 1.334 2.49 1.48.386.285.77.593 1.187.92.12.152.28.28.51.38.23.136.48.242.796.32.315.1.76.148 1.33.08.258.19.46.366.6.51.278.43.546.84.806 1.208.026.322.11.606.33.805.442.466.947.764 1.646.91.386.286.77.593 1.186.92.083.292.204.57.42.808.215.236.486.372.847.401.245.249.48.485.705.71.273.006.533.106.716.288.275.32.47.748.56 1.32.323.324.656.63 1.01.91.34.262.74.438 1.15.452.39.392.965.702 1.778.86.12.434.246.815.4 1.14.154.324.4.55.78.695.39.312.877.463 1.558.455.267.6.52.148.703.268.284.182.512.46.673.84.161.38.3.86.38 1.47.105.512.467.896 1.26 1.113.8.218 1.345.497 1.7.895.46.56.762 1.096.934 1.559v.001c.17.463.277.888.318 1.287.249.31.48.616.705.71.275.322.47.749.56 1.32.346.344.675.67 1.006.91.335.262.735.438 1.15.452.385.392.965.702 1.778.86.113.276.225.54.336.781.111.242.264.486.478.729.213.242.513.407.907.44.36.392.798.7 1.26.86.432.154.77.258.995.357.226.1.334.217.358.438.24.12.61.233.123.435l.001.001z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E")
+          repeat-x;
+      animation: wave 25s linear infinite;
+      z-index: 1;
+    }
+
+    @keyframes wave {
+      0% { background-position: 0 0; }
+      100% { background-position: 1000px 0; }
+    }
+
+    #hero-variant13 .container {
+      position: relative;
+      z-index: 2;
+    }
+    
+    /* Variante 14: Geometrisches Pattern */
+    #hero-variant14 {
+      position: relative;
+      background-color: #f5f5f7;
+      color: var(--color-text);
+      overflow: hidden;
+    }
+
+    #hero-variant14::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+          url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?crop=entropy&fit=crop&w=1950&q=80')
+          center/cover no-repeat;
+      opacity: 0.07;
+      z-index: 0;
+    }
+
+    #hero-variant14::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--imt-purple);
+      clip-path: polygon(
+        0 0, 
+        calc(100% - 50px) 0, 
+        100% 50px, 
+        100% 100%, 
+        50px 100%, 
+        0 calc(100% - 50px)
+      );
+      opacity: 0.05;
+      z-index: 1;
+    }
+
+    #hero-variant14 .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .section-divider {
+      text-align: center;
+      padding: 40px 0 10px;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--color-text);
+      border-bottom: 1px solid #eee;
+      margin-bottom: 30px;
+    }
+
+    /* Info-Boxen-Styling */
+    .info-grid {
+      display: flex;
+      gap: var(--spacing);
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: var(--spacing) 0;
+    }
+    
+    .info-box {
+      width: 125px !important;
+      height: 125px !important;
+      padding: 24px !important;
+      background: rgba(255, 255, 255, 0.9) !important;
+      border-radius: var(--radius) !important;
+      border: 2px solid transparent !important;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.07), 0 1px 3px rgba(0,0,0,0.06) !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      align-items: center !important;
+      text-align: center !important;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease !important;
+      cursor: pointer !important;
+    }
+    
+    .info-box:hover {
+      background: rgba(255, 255, 255, 1) !important;
+      border-color: var(--imt-purple) !important;
+      box-shadow: 0 4px 12px rgba(102, 36, 131, 0.15) !important;
+    }
+    
+    .info-box i.bx {
+      font-size: 24px !important;
+      color: var(--imt-purple) !important;
+      margin-bottom: 16px !important;
+    }
+    
+    .info-label {
+      font-size: 0.7rem !important;
+      color: var(--color-muted) !important;
+      text-transform: uppercase !important;
+      margin-bottom: 4px !important;
+    }
+    
+    .info-value {
+      font-size: 0.95rem !important;
+      font-weight: 600 !important;
+      color: var(--color-text) !important;
+    }
+
+    /* Button-Styling */
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(to right, var(--imt-purple), #9c27b0);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 24px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      margin: 24px 0 32px;
+    }
+
+    .cta-button span {
+      margin-left: 8px;
+      display: inline-block;
+      transition: transform 0.2s ease;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(106, 69, 226, 0.2);
+      text-decoration: none;
+    }
+    
+    .cta-button:hover span {
+      transform: translateX(4px);
+    }
+    
+    .arrow-icon {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-weight: 400;
+      font-size: 1.2rem;
+      margin-left: 8px;
+      display: inline-block;
+    }
+    
+    .variant-title {
+      padding: 10px;
+      background-color: rgba(0,0,0,0.7);
+      border-radius: 5px;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+  </style>
+
+  <!-- BoxIcons für Icons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>Hero-Bereich Alternativen</h1>
+    <p>Hier sind vier verschiedene dezentere Varianten des Hero-Bereichs mit dem gleichen Foto, aber verschiedenen Stilen.</p>
+  </div>
+
+  <!-- Original Hero als Referenz -->
+  <section id="hero-original" class="hero-common">
+    <div class="container">
+      <div class="variant-title">Original: Standard-Overlay</div>
+      <h1>AI in Business Strategy &amp; Digital Transformation</h1>
+
+      <a href="#broschuere" class="cta-button">
+        Jetzt Kostenlos Broschüre herunterladen <span class="arrow-icon">→</span>
+      </a>
+
+      <div class="info-grid">
+        <div class="info-box">
+          <i class="bx bx-map"></i>
+          <span class="info-label">LOCATION</span>
+          <span class="info-value">St. Gallen</span>
+        </div>
+
+        <div class="info-box">
+          <i class="bx bx-time"></i>
+          <span class="info-label">LENGTH</span>
+          <span class="info-value">3 Tage</span>
+        </div>
+
+        <div class="info-box">
+          <i class="bx bx-euro"></i>
+          <span class="info-label">FEE</span>
+          <span class="info-value">2500 €</span>
+        </div>
+
+        <div class="info-box">
+          <i class="bx bx-calendar"></i>
+          <span class="info-label">NEXT START</span>
+          <span class="info-value">25.5.2025</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Variante 1: Hellerer Overlay -->
+  <section id="hero-variant1" class="hero-common">
+    <div class="container">
+      <div class="variant-title">Variante 1: Hellerer Overlay</div>
+      <h1>AI in Business Strategy &amp; Digital Transformation</h1>
+
+      <a href="#broschuere" class="cta-button">
+        Jetzt Kostenlos Broschüre herunterladen <span class="arrow-icon">→</span>
+      </a>
+
+      <div class="info-grid">
+        <div class="info-box">
+          <i class="bx bx-map"></i>
+          <span class="info-label">LOCATION</span>
+          <span class="info-value">St. Gallen</span>
+        </div>
+
+        <div class="info-box">
+          <i class="bx bx-time"></i>
+          <span class="info-label">LENGTH</span>
+          <span class="info-value">3 Tage</span>
+        </div>
+
+        <div class="info-box">
+          <i class="bx bx-euro"></i>
+          <span class="info-label">FEE</span>
+          <span class="info-value">2500 €</span>
+        </div>
+
+        <div class="info-box">
+          <i class="bx bx-calendar"></i>
+          <span class="info-label">NEXT START</span>
+          <span class="info-value">25.5.2025</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Variante 2: Unschärfe-Effekt -->
+  <section id="hero-variant2" class="hero-common">
+    <div class="container">
+      <div class="variant-title">Variante 2: Unschärfe-Effekt</div>
+      <h1>AI in Business Strategy &amp; Digital Transformation</h1>
+
+      <a href="#broschuere" class="cta-button">
+        Jetzt Kostenlos Broschüre herunterladen <span class="arrow-icon">→</span>
+      </a>
+
+      <div class="info-grid">
+        <div class="info-box">
+          <i class="bx bx-map"></i>
+          <span class="info-label">LOCATION</span>
+          <span class="info-value">St. Gallen</span>
+        </div>
+
+        <div class="info-box">
+          <i class="bx bx-time"></i>
+          <span class="info-label">LENGTH</span>
+          <span class="info-value">3 Tage</span>
+        </div>
+
+        <div class="info-box">
+          <i class="bx bx-euro"></i>
+          <span class="info-label">FEE</span>
+          <span class="info-value">2500 €</span>
+        </div>
+
+        <div class="info-box">
+          <i class="bx bx-calendar"></i>
+          <span class="info-label">NEXT START</span>
+          <span class="info-value">25.5.2025</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Variante 3: Schwarz-Weiß-Effekt -->
+  <section id="hero-variant3" class="hero-common">
+    <div class="container">
+      <div class="variant-title">Variante 3: Schwarz-Weiß-Effekt</div>
+      <h1>AI in Business Strategy &amp; Digital Transformation</h1>
+
+      <a href="#broschuere" class="cta-button">
+        Jetzt Kostenlos Broschüre herunterladen <span class="arrow-icon">→</span>
+      </a>
+
+      <div class="info-grid">
+        <div class="info-box">
+          <i class="bx bx-map"></i>
+          <span class="info-label">LOCATION</span>
+          <span class="info-value">St. Gallen</span>
+        </div>
+
+        <div class="info-box">
+          <i class="bx bx-time"></i>
+          <span class="info-label">LENGTH</span>
+          <span class="info-value">3 Tage</span>
+        </div>
+
+        <div class="info-box">
+          <i class="bx bx-euro"></i>
+          <span class="info-label">FEE</span>
+          <span class="info-value">2500 €</span>
+        </div>
+
+        <div class="info-box">
+          <i class="bx bx-calendar"></i>
+          <span class="info-label">NEXT START</span>
+          <span class="info-value">25.5.2025</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Variante 4: Farbton-Überlagerung -->
+  <section id="hero-variant4" class="hero-common">
+    <div class="container">
+      <div class="variant-title">Variante 4: Farbton-Überlagerung (Brand Purple)</div>
+      <h1>AI in Business Strategy &amp; Digital Transformation</h1>
+
+      <a href="#broschuere" class="cta-button">
+        Jetzt Kostenlos Broschüre herunterladen <span class="arrow-icon">→</span>
+      </a>
+
+      <div class="info-grid">
+        <div class="info-box">
+          <i class="bx bx-map"></i>
+          <span class="info-label">LOCATION</span>
+          <span class="info-value">St. Gallen</span>
+        </div>
+
+        <div class="info-box">
+          <i class="bx bx-time"></i>
+          <span class="info-label">LENGTH</span>
+          <span class="info-value">3 Tage</span>
+        </div>
+
+        <div class="info-box">
+          <i class="bx bx-euro"></i>
+          <span class="info-label">FEE</span>
+          <span class="info-value">2500 €</span>
+        </div>
+
+        <div class="info-box">
+          <i class="bx bx-calendar"></i>
+          <span class="info-label">NEXT START</span>
+          <span class="info-value">25.5.2025</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Variante 5: Dunklerer Overlay -->
+  <section id="hero-variant5" class="hero-common">
+    <div class="container">
+      <div class="variant-title">Variante 5: Dunklerer Overlay</div>
+      <h1>AI in Business Strategy &amp; Digital Transformation</h1>
+
+      <a href="#broschuere" class="cta-button">
+        Jetzt Kostenlos Broschüre herunterladen <span class="arrow-icon">→</span>
+      </a>
+
+      <div class="info-grid">
+        <div class="info-box">
+          <i class="bx bx-map"></i>
+          <span class="info-label">LOCATION</span>
+          <span class="info-value">St. Gallen</span>
+        </div>
+
+        <div class="info-box">
+          <i class="bx bx-time"></i>
+          <span class="info-label">LENGTH</span>
+          <span class="info-value">3 Tage</span>
+        </div>
+
+        <div class="info-box">
+          <i class="bx bx-euro"></i>
+          <span class="info-label">FEE</span>
+          <span class="info-value">2500 €</span>
+        </div>
+
+        <div class="info-box">
+          <i class="bx bx-calendar"></i>
+          <span class="info-label">NEXT START</span>
+          <span class="info-value">25.5.2025</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Variante 6: Weißer Overlay -->
+  <section id="hero-variant6" class="hero-common">
+    <div class="container">
+      <div class="variant-title" style="color: #1d1d1f; background-color: rgba(255,255,255,0.7);">Variante 6: Weißer Overlay</div>
+      <h1>AI in Business Strategy &amp; Digital Transformation</h1>
+
+      <a href="#broschuere" class="cta-button">
+        Jetzt Kostenlos Broschüre herunterladen <span class="arrow-icon">→</span>
+      </a>
+
+      <div class="info-grid">
+        <div class="info-box">
+          <i class="bx bx-map"></i>
+          <span class="info-label">LOCATION</span>
+          <span class="info-value">St. Gallen</span>
+        </div>
+
+        <div class="info-box">
+          <i class="bx bx-time"></i>
+          <span class="info-label">LENGTH</span>
+          <span class="info-value">3 Tage</span>
+        </div>
+
+        <div class="info-box">
+          <i class="bx bx-euro"></i>
+          <span class="info-label">FEE</span>
+          <span class="info-value">2500 €</span>
+        </div>
+
+        <div class="info-box">
+          <i class="bx bx-calendar"></i>
+          <span class="info-label">NEXT START</span>
+          <span class="info-value">25.5.2025</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Variante 7: Vignette-Effekt -->
+  <section id="hero-variant7" class="hero-common">
+    <div class="container">
+      <div class="variant-title">Variante 7: Vignette-Effekt</div>
+      <h1>AI in Business Strategy &amp; Digital Transformation</h1>
+
+      <a href="#broschuere" class="cta-button">
+        Jetzt Kostenlos Broschüre herunterladen <span class="arrow-icon">→</span>
+      </a>
+
+      <div class="info-grid">
+        <div class="info-box">
+          <i class="bx bx-map"></i>
+          <span class="info-label">LOCATION</span>
+          <span class="info-value">St. Gallen</span>
+        </div>
+
+        <div class="info-box">
+          <i class="bx bx-time"></i>
+          <span class="info-label">LENGTH</span>
+          <span class="info-value">3 Tage</span>
+        </div>
+
+        <div class="info-box">
+          <i class="bx bx-euro"></i>
+          <span class="info-label">FEE</span>
+          <span class="info-value">2500 €</span>
+        </div>
+
+        <div class="info-box">
+          <i class="bx bx-calendar"></i>
+          <span class="info-label">NEXT START</span>
+          <span class="info-value">25.5.2025</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Variante 8: Gedämpfte Farbsättigung -->
+  <section id="hero-variant8" class="hero-common">
+    <div class="container">
+      <div class="variant-title">Variante 8: Gedämpfte Farbsättigung</div>
+      <h1>AI in Business Strategy &amp; Digital Transformation</h1>
+
+      <a href="#broschuere" class="cta-button">
+        Jetzt Kostenlos Broschüre herunterladen <span class="arrow-icon">→</span>
+      </a>
+
+      <div class="info-grid">
+        <div class="info-box">
+          <i class="bx bx-map"></i>
+          <span class="info-label">LOCATION</span>
+          <span class="info-value">St. Gallen</span>
+        </div>
+
+        <div class="info-box">
+          <i class="bx bx-time"></i>
+          <span class="info-label">LENGTH</span>
+          <span class="info-value">3 Tage</span>
+        </div>
+
+        <div class="info-box">
+          <i class="bx bx-euro"></i>
+          <span class="info-label">FEE</span>
+          <span class="info-value">2500 €</span>
+        </div>
+
+        <div class="info-box">
+          <i class="bx bx-calendar"></i>
+          <span class="info-label">NEXT START</span>
+          <span class="info-value">25.5.2025</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="section-divider">Sehr dezente Bildvarianten</div>
+  </div>
+
+  <!-- Variante 9: Fast unsichtbares Bild -->
+  <section id="hero-variant9" class="hero-common">
+    <div class="container">
+      <div class="variant-title" style="color: #1d1d1f; background-color: rgba(255,255,255,0.7);">Variante 9: Fast unsichtbares Bild</div>
+      <h1 style="color: var(--color-text)">AI in Business Strategy &amp; Digital Transformation</h1>
+
+      <a href="#broschuere" class="cta-button">
+        Jetzt Kostenlos Broschüre herunterladen <span class="arrow-icon">→</span>
+      </a>
+
+      <div class="info-grid">
+        <div class="info-box">
+          <i class="bx bx-map"></i>
+          <span class="info-label">LOCATION</span>
+          <span class="info-value">St. Gallen</span>
+        </div>
+
+        <div class="info-box">
+          <i class="bx bx-time"></i>
+          <span class="info-label">LENGTH</span>
+          <span class="info-value">3 Tage</span>
+        </div>
+
+        <div class="info-box">
+          <i class="bx bx-euro"></i>
+          <span class="info-label">FEE</span>
+          <span class="info-value">2500 €</span>
+        </div>
+
+        <div class="info-box">
+          <i class="bx bx-calendar"></i>
+          <span class="info-label">NEXT START</span>
+          <span class="info-value">25.5.2025</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Variante 10: Minimale Bildsichtbarkeit unten -->
+  <section id="hero-variant10" class="hero-common">
+    <div class="container">
+      <div class="variant-title" style="color: #1d1d1f; background-color: rgba(255,255,255,0.7);">Variante 10: Minimale Bildsichtbarkeit unten</div>
+      <h1 style="color: var(--color-text)">AI in Business Strategy &amp; Digital Transformation</h1>
+
+      <a href="#broschuere" class="cta-button">
+        Jetzt Kostenlos Broschüre herunterladen <span class="arrow-icon">→</span>
+      </a>
+
+      <div class="info-grid">
+        <div class="info-box">
+          <i class="bx bx-map"></i>
+          <span class="info-label">LOCATION</span>
+          <span class="info-value">St. Gallen</span>
+        </div>
+
+        <div class="info-box">
+          <i class="bx bx-time"></i>
+          <span class="info-label">LENGTH</span>
+          <span class="info-value">3 Tage</span>
+        </div>
+
+        <div class="info-box">
+          <i class="bx bx-euro"></i>
+          <span class="info-label">FEE</span>
+          <span class="info-value">2500 €</span>
+        </div>
+
+        <div class="info-box">
+          <i class="bx bx-calendar"></i>
+          <span class="info-label">NEXT START</span>
+          <span class="info-value">25.5.2025</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Variante 11: Invertiertes Bild als subtiler Hintergrund -->
+  <section id="hero-variant11" class="hero-common">
+    <div class="container">
+      <div class="variant-title" style="color: #1d1d1f; background-color: rgba(255,255,255,0.7);">Variante 11: Invertiertes Bild als subtiler Hintergrund</div>
+      <h1 style="color: var(--color-text)">AI in Business Strategy &amp; Digital Transformation</h1>
+
+      <a href="#broschuere" class="cta-button">
+        Jetzt Kostenlos Broschüre herunterladen <span class="arrow-icon">→</span>
+      </a>
+
+      <div class="info-grid">
+        <div class="info-box">
+          <i class="bx bx-map"></i>
+          <span class="info-label">LOCATION</span>
+          <span class="info-value">St. Gallen</span>
+        </div>
+
+        <div class="info-box">
+          <i class="bx bx-time"></i>
+          <span class="info-label">LENGTH</span>
+          <span class="info-value">3 Tage</span>
+        </div>
+
+        <div class="info-box">
+          <i class="bx bx-euro"></i>
+          <span class="info-label">FEE</span>
+          <span class="info-value">2500 €</span>
+        </div>
+
+        <div class="info-box">
+          <i class="bx bx-calendar"></i>
+          <span class="info-label">NEXT START</span>
+          <span class="info-value">25.5.2025</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="section-divider">Kreative Alternativen</div>
+  </div>
+
+  <!-- Variante 12: Dualton-Effekt -->
+  <section id="hero-variant12" class="hero-common">
+    <div class="container">
+      <div class="variant-title">Variante 12: Dualton-Effekt</div>
+      <h1>AI in Business Strategy &amp; Digital Transformation</h1>
+
+      <a href="#broschuere" class="cta-button">
+        Jetzt Kostenlos Broschüre herunterladen <span class="arrow-icon">→</span>
+      </a>
+
+      <div class="info-grid">
+        <div class="info-box">
+          <i class="bx bx-map"></i>
+          <span class="info-label">LOCATION</span>
+          <span class="info-value">St. Gallen</span>
+        </div>
+
+        <div class="info-box">
+          <i class="bx bx-time"></i>
+          <span class="info-label">LENGTH</span>
+          <span class="info-value">3 Tage</span>
+        </div>
+
+        <div class="info-box">
+          <i class="bx bx-euro"></i>
+          <span class="info-label">FEE</span>
+          <span class="info-value">2500 €</span>
+        </div>
+
+        <div class="info-box">
+          <i class="bx bx-calendar"></i>
+          <span class="info-label">NEXT START</span>
+          <span class="info-value">25.5.2025</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Variante 13: Wellenmuster-Overlay -->
+  <section id="hero-variant13" class="hero-common">
+    <div class="container">
+      <div class="variant-title">Variante 13: Wellenmuster-Overlay</div>
+      <h1>AI in Business Strategy &amp; Digital Transformation</h1>
+
+      <a href="#broschuere" class="cta-button">
+        Jetzt Kostenlos Broschüre herunterladen <span class="arrow-icon">→</span>
+      </a>
+
+      <div class="info-grid">
+        <div class="info-box">
+          <i class="bx bx-map"></i>
+          <span class="info-label">LOCATION</span>
+          <span class="info-value">St. Gallen</span>
+        </div>
+
+        <div class="info-box">
+          <i class="bx bx-time"></i>
+          <span class="info-label">LENGTH</span>
+          <span class="info-value">3 Tage</span>
+        </div>
+
+        <div class="info-box">
+          <i class="bx bx-euro"></i>
+          <span class="info-label">FEE</span>
+          <span class="info-value">2500 €</span>
+        </div>
+
+        <div class="info-box">
+          <i class="bx bx-calendar"></i>
+          <span class="info-label">NEXT START</span>
+          <span class="info-value">25.5.2025</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Variante 14: Geometrisches Pattern -->
+  <section id="hero-variant14" class="hero-common">
+    <div class="container">
+      <div class="variant-title" style="color: #1d1d1f; background-color: rgba(255,255,255,0.7);">Variante 14: Geometrisches Pattern</div>
+      <h1 style="color: var(--color-text)">AI in Business Strategy &amp; Digital Transformation</h1>
+
+      <a href="#broschuere" class="cta-button">
+        Jetzt Kostenlos Broschüre herunterladen <span class="arrow-icon">→</span>
+      </a>
+
+      <div class="info-grid">
+        <div class="info-box">
+          <i class="bx bx-map"></i>
+          <span class="info-label">LOCATION</span>
+          <span class="info-value">St. Gallen</span>
+        </div>
+
+        <div class="info-box">
+          <i class="bx bx-time"></i>
+          <span class="info-label">LENGTH</span>
+          <span class="info-value">3 Tage</span>
+        </div>
+
+        <div class="info-box">
+          <i class="bx bx-euro"></i>
+          <span class="info-label">FEE</span>
+          <span class="info-value">2500 €</span>
+        </div>
+
+        <div class="info-box">
+          <i class="bx bx-calendar"></i>
+          <span class="info-label">NEXT START</span>
+          <span class="info-value">25.5.2025</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html> 
