@@ -1589,20 +1589,56 @@
       return response.text();
     })
     .then(data => {
-      console.log('Navigation geladen');
       if (data) {
         document.getElementById('navigation-container').innerHTML = data;
         
-        // Mobile Navigation initialisieren
-        console.log('Füge mobile-nav.js Script hinzu...');
-        const navScript = document.createElement('script');
-        navScript.src = 'assets/js/mobile-nav.js?t=' + new Date().getTime();
-        document.body.appendChild(navScript);
-        console.log('Mobile-Nav Script hinzugefügt!');
+        // Mobile Navigation direkt initialisieren statt externe Datei
+        setTimeout(function() {
+          const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+          const navMenu = document.querySelector('.nav-menu');
+          
+          if (mobileMenuBtn && navMenu) {
+            // Single Event Handler für den Menü-Button
+            mobileMenuBtn.addEventListener('click', function(e) {
+              e.preventDefault();
+              navMenu.classList.toggle('active');
+              
+              // Sprachauswahl hinzufügen - nur wenn sie noch nicht existiert
+              if (navMenu.classList.contains('active') && !document.querySelector('.mobile-lang-section')) {
+                const langSection = document.createElement('div');
+                langSection.className = 'mobile-lang-section';
+                langSection.innerHTML = `
+                  <div class="lang-title">Sprache</div>
+                  <div class="mobile-lang-options">
+                    <a href="?lang=de" class="mobile-lang-option active">Deutsch</a>
+                    <a href="?lang=en" class="mobile-lang-option">English</a>
+                  </div>
+                `;
+                navMenu.appendChild(langSection);
+              }
+            });
+            
+            // Dropdown-Handler einrichten
+            document.querySelectorAll('.nav-item').forEach(item => {
+              const toggleLink = item.querySelector('.toggle-subnav');
+              const dropdown = item.querySelector('.program-dropdown');
+              
+              if (toggleLink && dropdown) {
+                toggleLink.addEventListener('click', function(e) {
+                  if (window.innerWidth <= 1024) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+                  }
+                });
+              }
+            });
+          }
+        }, 100); // Kurzes Delay für DOM-Update
       }
     })
     .catch(error => console.error('Fehler beim Laden der Navigation:', error));
-  
+
   // Sidebar laden
   fetch('components/globals/sidebar.html?t=' + new Date().getTime())
     .then(response => {
@@ -1621,7 +1657,6 @@
       return response.text();
     })
     .then(data => {
-      console.log('Sidebar geladen');
       if (data) document.getElementById('sidebar-container').innerHTML = data;
     })
     .catch(error => console.error('Fehler beim Laden der Sidebar:', error));
@@ -1644,15 +1679,7 @@
       return response.text();
     })
     .then(data => {
-      console.log('Footer geladen');
       if (data) document.getElementById('footer-container').innerHTML = data;
-      
-      // Überprüfen der Footer-Styles
-      if (document.querySelector('footer')) {
-        console.log('Footer Styles:', window.getComputedStyle(document.querySelector('footer')));
-      } else {
-        console.error('Footer-Element nicht gefunden');
-      }
     })
     .catch(error => console.error('Fehler beim Laden des Footers:', error));
 
