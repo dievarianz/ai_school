@@ -121,6 +121,434 @@
       background-color: #e8e8ed;
       text-decoration: none;
     }
+    
+    /* Broschüren-Download Sektion */
+    .download-section {
+      background: linear-gradient(to bottom, #f9f9fa, #fff);
+      padding: 60px 0;
+      border-radius: var(--radius);
+      margin-top: 30px;
+    }
+    
+    .download-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .download-title {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+    
+    .download-description {
+      color: var(--color-muted);
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 0 auto 20px;
+    }
+    
+    .download-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      border-radius: var(--radius);
+      padding: 40px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+    
+    .download-selector {
+      margin-bottom: 30px;
+    }
+    
+    .custom-select {
+      position: relative;
+      font-family: var(--font-sans);
+      width: 100%;
+      margin-bottom: 25px;
+    }
+    
+    .select-selected {
+      background: white;
+      color: var(--color-text);
+      padding: 14px 16px;
+      border-radius: 8px;
+      border: 2px solid var(--imt-purple);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+      font-weight: 500;
+    }
+    
+    .select-selected:after {
+      content: '';
+      width: 10px;
+      height: 10px;
+      border: 2px solid var(--color-muted);
+      border-width: 0 2px 2px 0;
+      display: inline-block;
+      transform: rotate(45deg) translateY(-2px);
+      margin-left: 10px;
+      transition: transform 0.2s ease;
+    }
+    
+    .select-selected.select-arrow-active:after {
+      transform: rotate(-135deg) translateY(-2px);
+    }
+    
+    .select-selected:hover {
+      border-color: var(--imt-purple);
+      box-shadow: 0 0 0 2px rgba(110, 69, 226, 0.2);
+    }
+    
+    .select-items {
+      position: absolute;
+      background-color: white;
+      top: auto;
+      bottom: calc(100% + 8px);
+      left: 0;
+      right: 0;
+      z-index: 99;
+      border-radius: 8px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+      max-height: 300px;
+      overflow-y: auto;
+    }
+    
+    .select-hide {
+      display: none;
+    }
+    
+    .select-category {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--imt-purple);
+      padding: 12px 16px 8px;
+      border-bottom: none;
+      background-color: #f9f9fb;
+      pointer-events: none;
+    }
+    
+    .programme-category {
+      color: #17a689 !important;
+    }
+    
+    .select-category:not(:first-child) {
+      margin-top: 8px;
+      border-top: 1px solid #eee;
+    }
+    
+    .select-item {
+      color: var(--color-text);
+      padding: 12px 16px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-weight: 400;
+      border-bottom: 1px solid #f5f5f7;
+    }
+    
+    .select-item:last-child {
+      border-bottom: none;
+    }
+    
+    .select-item:hover {
+      background-color: var(--color-card-bg);
+      color: var(--imt-purple);
+    }
+    
+    .select-items .select-item:nth-child(n+6):hover {
+      color: #17a689;
+    }
+    
+    .download-info {
+      background: #f9f9fb;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 30px;
+      display: none;
+    }
+    
+    .download-info.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .download-info-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    
+    .download-info-details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+    
+    .info-item {
+      display: flex;
+      align-items: center;
+      font-size: 0.9rem;
+      color: var(--color-muted);
+    }
+    
+    .info-item i {
+      margin-right: 8px;
+      color: var(--imt-purple);
+    }
+    
+    .info-item.programme i {
+      color: #17a689;
+    }
+    
+    .download-info-desc {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin-bottom: 15px;
+    }
+    
+    .download-btn {
+      background: linear-gradient(to right, var(--imt-purple), #9c27b0);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 16px 28px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+    
+    .programme-btn {
+      background: linear-gradient(to right, #17a689, #0d8b73);
+    }
+    
+    .download-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(106, 69, 226, 0.2);
+    }
+    
+    .programme-btn:hover {
+      box-shadow: 0 6px 12px rgba(23, 166, 137, 0.2);
+    }
+    
+    .download-btn i {
+      margin-right: 10px;
+      font-size: 1.2rem;
+    }
+    
+    .error-message {
+      color: #e74c3c;
+      font-size: 0.85rem;
+      text-align: center;
+      margin-top: 10px;
+      display: none;
+    }
+    
+    .error-message.visible {
+      display: block;
+    }
+    
+    /* Formular-Validierungsstile */
+    .invalid-input {
+      border-color: #ff3860 !important;
+      background-color: rgba(255, 56, 96, 0.05) !important;
+    }
+
+    .valid-input {
+      border-color: #23d160 !important;
+      background-color: rgba(35, 209, 96, 0.05) !important;
+    }
+    
+    /* Modal Formular Styling */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    
+    .modal-container {
+      background-color: white;
+      border-radius: var(--radius);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      max-width: 500px;
+      width: 90%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 30px;
+      position: relative;
+      transform: translateY(20px);
+      transition: transform 0.3s ease;
+      margin: 0 auto;
+    }
+    
+    .modal-overlay.active .modal-container {
+      transform: translateY(0);
+    }
+    
+    .modal-header {
+      margin-bottom: 20px;
+      position: relative;
+    }
+    
+    .modal-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin: 0 0 10px 0;
+      color: var(--color-text);
+      padding-right: 30px;
+    }
+    
+    .modal-subtitle {
+      font-size: 0.95rem;
+      color: var(--color-muted);
+      margin: 0 0 5px 0;
+    }
+    
+    .modal-close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--color-muted);
+      padding: 0;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 12px 15px;
+      font-size: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    
+    .form-control:focus {
+      outline: none;
+      border-color: var(--imt-purple);
+      box-shadow: 0 0 0 3px rgba(110, 69, 226, 0.1);
+    }
+    
+    .form-check {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+    
+    .form-check-input {
+      margin-top: 3px;
+      margin-right: 10px;
+      flex-shrink: 0;
+    }
+    
+    .form-check-label {
+      font-size: 0.85rem;
+      color: var(--color-muted);
+      line-height: 1.4;
+    }
+    
+    .form-submit {
+      background: linear-gradient(to right, var(--imt-purple), #9c27b0);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 14px 20px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      width: 100%;
+    }
+    
+    .form-submit.programme-submit {
+      background: linear-gradient(to right, #17a689, #0d8b73);
+    }
+    
+    .form-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(106, 69, 226, 0.2);
+    }
+    
+    .form-submit.programme-submit:hover {
+      box-shadow: 0 6px 12px rgba(23, 166, 137, 0.2);
+    }
+    
+    .form-error {
+      color: #e74c3c;
+      font-size: 0.8rem;
+      margin-top: 5px;
+      display: none;
+    }
+    
+    .form-error.visible {
+      display: block;
+    }
+    
+    @media (max-width: 768px) {
+      .download-container {
+        padding: 25px;
+      }
+      
+      .download-header {
+        margin-bottom: 30px;
+      }
+      
+      .download-title {
+        font-size: 1.5rem;
+      }
+      
+      .download-description {
+        font-size: 1rem;
+      }
+      
+      .modal-container {
+        padding: 20px;
+      }
+    }
   </style>
 
   <!-- BoxIcons für Icons -->
@@ -147,15 +575,225 @@
         
         <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Kursinformationen</h2>
         <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Hier finden Sie alle Informationen zu unseren Kursen und Lehrinhalten.</p>
-        <h2>Übersicht zu unseren Kursen</h2>
-        <p>Diese Seite wird in Kürze mit detaillierten Informationen zu unserem Kursangebot, Lernmaterialien und Studieninhalten ergänzt.</p>
-        <p>Bei Fragen zu spezifischen Kursinhalten kontaktieren Sie bitte unser Beratungsteam.</p>
+        
+        <!-- Broschüren-Download Sektion -->
+        <div class="download-section">
+          <div class="container">
+            <div class="download-header">
+              <h2 class="download-title">Broschüren Download</h2>
+              <p class="download-description">Entdecken Sie detaillierte Informationen zu unseren Einzelseminaren und Programmen in unseren Broschüren.</p>
+            </div>
+            
+            <div class="download-container">
+              <div class="download-selector">
+                <label for="track-select" style="display: block; margin-bottom: 8px; font-weight: 500;">Wählen Sie einen Track oder ein Programm:</label>
+                
+                <div class="custom-select">
+                  <div class="select-selected">Bitte wählen Sie eine Option</div>
+                  <div class="select-items select-hide">
+                    <div class="select-category">Einzelseminare</div>
+                    <div class="select-item" data-value="ai-business-strategy">AI in Business Strategy &amp; Digital Transformation</div>
+                    <div class="select-item" data-value="xai-decision-making">xAI-Augmented Decision Making</div>
+                    <div class="select-item" data-value="xai-financial-analytics">xAI in Financial Analytics</div>
+                    <div class="select-item" data-value="xai-marketing-analytics">xAI-driven Marketing &amp; Customer Analytics</div>
+                    
+                    <div class="select-category programme-category">Programme</div>
+                    <div class="select-item" data-value="xai-management-programm">StGallen imt xAI Management Programm</div>
+                    <div class="select-item" data-value="xai-certified-cas">StGallen imt xAI Certified Management CAS</div>
+                    <div class="select-item" data-value="xai-fast-track">StGallen Fast‑Track xAI Programm</div>
+                  </div>
+                </div>
+                
+                <div class="error-message">Bitte wählen Sie eine Option aus.</div>
+              </div>
+              
+              <!-- Dynamischer Inhalt je nach Auswahl -->
+              <!-- Beispiel für Einzelseminar -->
+              <div class="download-info" id="ai-business-strategy">
+                <h3 class="download-info-title">AI in Business Strategy &amp; Digital Transformation</h3>
+                <div class="download-info-details">
+                  <div class="info-item">
+                    <i class='bx bx-map'></i>
+                    <span>St. Gallen oder Online</span>
+                  </div>
+                  <div class="info-item">
+                    <i class='bx bx-time'></i>
+                    <span>3 Tage</span>
+                  </div>
+                  <div class="info-item">
+                    <i class='bx bx-calendar'></i>
+                    <span>Nächster Start: 01.06.2025</span>
+                  </div>
+                </div>
+                <p class="download-info-desc">Entwickeln Sie eine umfassende KI-Strategie für Ihr Unternehmen und gestalten Sie aktiv die digitale Transformation. In dieser Broschüre finden Sie detaillierte Informationen zu Inhalten, Lernzielen und Dozenten.</p>
+                <button class="download-btn">
+                  <i class='bx bx-download'></i>
+                  Broschüre herunterladen (PDF, 2.4 MB)
+                </button>
+              </div>
+              
+              <!-- Beispiel für Programm -->
+              <div class="download-info" id="xai-management-programm">
+                <h3 class="download-info-title">StGallen imt xAI Management Programm</h3>
+                <div class="download-info-details">
+                  <div class="info-item programme">
+                    <i class='bx bx-map'></i>
+                    <span>St. Gallen oder Online</span>
+                  </div>
+                  <div class="info-item programme">
+                    <i class='bx bx-time'></i>
+                    <span>12 Tage</span>
+                  </div>
+                  <div class="info-item programme">
+                    <i class='bx bx-calendar'></i>
+                    <span>Nächster Start: 05.06.2025</span>
+                  </div>
+                </div>
+                <p class="download-info-desc">Umfassendes Programm zur Integration von KI in strategische Managementprozesse mit zertifiziertem Abschluss. Die Broschüre enthält den vollständigen Lehrplan, Modulübersicht, Dozentenprofile und Teilnahmebedingungen.</p>
+                <button class="download-btn programme-btn">
+                  <i class='bx bx-download'></i>
+                  Broschüre herunterladen (PDF, 5.8 MB)
+                </button>
+              </div>
+
+              <!-- Weitere Kursoptionen würden hier folgen... -->
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
   <!-- Footer einbinden -->
   <div id="footer-container"></div>
+  
+  <!-- Modal für Anmeldeformular -->
+  <div class="modal-overlay" id="downloadModal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 class="modal-title">Broschüre herunterladen</h3>
+        <p class="modal-subtitle">Bitte füllen Sie das Formular aus, um die Broschüre herunterzuladen.</p>
+        <button class="modal-close" id="modalClose">&times;</button>
+      </div>
+      
+      <form id="downloadForm">
+        <input type="hidden" id="selectedCourse" name="selectedCourse">
+        
+        <div class="form-group">
+          <label for="firstName" class="form-label">Vorname*</label>
+          <input type="text" id="firstName" name="firstName" class="form-control" required>
+          <div id="firstNameError" class="form-error">Bitte geben Sie Ihren Vornamen ein.</div>
+        </div>
+        
+        <div class="form-group">
+          <label for="lastName" class="form-label">Nachname*</label>
+          <input type="text" id="lastName" name="lastName" class="form-control" required>
+          <div id="lastNameError" class="form-error">Bitte geben Sie Ihren Nachnamen ein.</div>
+        </div>
+        
+        <div class="form-group">
+          <label for="email" class="form-label">E-Mail*</label>
+          <input type="email" id="email" name="email" class="form-control" required>
+          <div id="emailError" class="form-error">Bitte geben Sie eine gültige E-Mail-Adresse ein.</div>
+        </div>
+        
+        <div class="form-group">
+          <label for="country" class="form-label">Land*</label>
+          <select id="country" name="country" class="form-control" required>
+            <option value="">Land wählen</option>
+            <option value="AD">Andorra</option>
+            <option value="AR">Argentinien</option>
+            <option value="AU">Australien</option>
+            <option value="BH">Bahrain</option>
+            <option value="BE">Belgien</option>
+            <option value="BR">Brasilien</option>
+            <option value="BN">Brunei</option>
+            <option value="CL">Chile</option>
+            <option value="CN">China</option>
+            <option value="DK">Dänemark</option>
+            <option value="DE">Deutschland</option>
+            <option value="EE">Estland</option>
+            <option value="FI">Finnland</option>
+            <option value="FR">Frankreich</option>
+            <option value="GI">Gibraltar</option>
+            <option value="GR">Griechenland</option>
+            <option value="HK">Hongkong</option>
+            <option value="IN">Indien</option>
+            <option value="ID">Indonesien</option>
+            <option value="IE">Irland</option>
+            <option value="IS">Island</option>
+            <option value="IL">Israel</option>
+            <option value="IT">Italien</option>
+            <option value="JP">Japan</option>
+            <option value="JO">Jordanien</option>
+            <option value="CA">Kanada</option>
+            <option value="CO">Kolumbien</option>
+            <option value="HR">Kroatien</option>
+            <option value="QA">Katar</option>
+            <option value="KW">Kuwait</option>
+            <option value="LB">Libanon</option>
+            <option value="LI">Liechtenstein</option>
+            <option value="LU">Luxemburg</option>
+            <option value="MO">Macau</option>
+            <option value="MY">Malaysia</option>
+            <option value="MT">Malta</option>
+            <option value="MX">Mexiko</option>
+            <option value="MC">Monaco</option>
+            <option value="NL">Niederlande</option>
+            <option value="NZ">Neuseeland</option>
+            <option value="NO">Norwegen</option>
+            <option value="OM">Oman</option>
+            <option value="AT">Österreich</option>
+            <option value="PK">Pakistan</option>
+            <option value="PA">Panama</option>
+            <option value="PE">Peru</option>
+            <option value="PH">Philippinen</option>
+            <option value="PL">Polen</option>
+            <option value="PT">Portugal</option>
+            <option value="PR">Puerto Rico</option>
+            <option value="RO">Rumänien</option>
+            <option value="RU">Russland</option>
+            <option value="SM">San Marino</option>
+            <option value="SA">Saudi-Arabien</option>
+            <option value="SE">Schweden</option>
+            <option value="CH">Schweiz</option>
+            <option value="SG">Singapur</option>
+            <option value="SK">Slowakei</option>
+            <option value="SI">Slowenien</option>
+            <option value="ES">Spanien</option>
+            <option value="ZA">Südafrika</option>
+            <option value="KR">Südkorea</option>
+            <option value="TW">Taiwan</option>
+            <option value="TH">Thailand</option>
+            <option value="TR">Türkei</option>
+            <option value="CZ">Tschechische Republik</option>
+            <option value="UA">Ukraine</option>
+            <option value="HU">Ungarn</option>
+            <option value="AE">Vereinigte Arabische Emirate</option>
+            <option value="GB">Vereinigtes Königreich</option>
+            <option value="US">Vereinigte Staaten</option>
+            <option value="VN">Vietnam</option>
+            <option value="CY">Zypern</option>
+            <option value="OTHER">Andere</option>
+          </select>
+          <div id="countryError" class="form-error">Bitte wählen Sie ein Land aus.</div>
+        </div>
+        
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="consent" name="consent">
+          <label class="form-check-label" for="consent">
+            Ich stimme zu, dass meine Daten gemäß der Datenschutzerklärung verarbeitet werden.
+          </label>
+        </div>
+        
+        <button type="submit" class="form-submit" id="formSubmitBtn">Broschüre herunterladen</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Hidden iframe for download and hidden link for new tab PDF -->
+  <iframe id="downloadFrame" style="display:none;"></iframe>
+  <a id="pdfDownloadLink" href="/assets/broschueren/broschuere.pdf" target="_blank" style="display: none;">Download</a>
 
   <!-- Dynamisches Laden der globalen Komponenten -->
   <script>
@@ -240,6 +878,416 @@
         if (data) document.getElementById('footer-container').innerHTML = data;
       })
       .catch(error => console.error('Fehler beim Laden des Footers:', error));
+  </script>
+  
+  <!-- Script für Dropdown- und Broschüren-Funktionalität -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const selectElement = document.querySelector('.custom-select');
+      const selectedElement = selectElement.querySelector('.select-selected');
+      const items = selectElement.querySelector('.select-items');
+      const errorMessage = document.querySelector('.error-message');
+      const downloadInfoDivs = document.querySelectorAll('.download-info');
+      
+      // Modal-Elemente
+      const modal = document.getElementById('downloadModal');
+      const modalClose = document.getElementById('modalClose');
+      const downloadForm = document.getElementById('downloadForm');
+      const selectedCourseInput = document.getElementById('selectedCourse');
+      const formSubmitBtn = document.getElementById('formSubmitBtn');
+      
+      // Toggle Select Dropdown
+      selectedElement.addEventListener('click', function(e) {
+        e.stopPropagation();
+        this.classList.toggle('select-arrow-active');
+        items.classList.toggle('select-hide');
+        
+        // Remove error message when dropdown is opened
+        errorMessage.classList.remove('visible');
+        
+        // Ensure dropdown is fully visible when opening upwards
+        const dropdown = items;
+        if (!dropdown.classList.contains('select-hide')) {
+            // Zuerst Dropdown-Position zurücksetzen, um korrekt zu messen
+            dropdown.style.maxHeight = '';
+            dropdown.style.bottom = 'calc(100% + 8px)';
+            dropdown.style.top = 'auto';
+            
+            // Dropdown-Abmessungen und Position prüfen
+            const dropdownRect = dropdown.getBoundingClientRect();
+            const viewportHeight = window.innerHeight;
+            const spaceAbove = dropdownRect.top;
+            const dropdownHeight = dropdownRect.height;
+            
+            // Wenn nicht genug Platz oben ist oder es über den oberen Rand hinausragt
+            if (spaceAbove < 10 || dropdownRect.top < 0) {
+                // Nach unten öffnen
+                dropdown.style.bottom = 'auto';
+                dropdown.style.top = 'calc(100% + 8px)';
+                dropdown.style.maxHeight = `${Math.min(300, viewportHeight - dropdownRect.bottom - 20)}px`;
+            }
+        }
+      });
+      
+      // Wenn ein Item ausgewählt wird
+      const selectItems = items.querySelectorAll('.select-item');
+      selectItems.forEach(item => {
+        item.addEventListener('click', function() {
+          // Update selected text
+          selectedElement.textContent = this.textContent;
+          
+          // Hide all info divs
+          downloadInfoDivs.forEach(div => {
+            div.classList.remove('active');
+          });
+          
+          // Show selected info div
+          const selectedValue = this.getAttribute('data-value');
+          const infoDiv = document.getElementById(selectedValue);
+          
+          if (infoDiv) {
+            infoDiv.classList.add('active');
+            
+            // Change button color based on category
+            const downloadBtn = infoDiv.querySelector('.download-btn');
+            if (selectedValue.includes('xai-management') || selectedValue.includes('xai-certified') || selectedValue.includes('xai-fast-track')) {
+              downloadBtn.classList.add('programme-btn');
+              formSubmitBtn.classList.add('programme-submit');
+            } else {
+              downloadBtn.classList.remove('programme-btn');
+              formSubmitBtn.classList.remove('programme-submit');
+            }
+          }
+          
+          // Hide dropdown
+          items.classList.add('select-hide');
+          selectedElement.classList.remove('select-arrow-active');
+        });
+      });
+      
+      // Download-Button-Funktionalität
+      const downloadButtons = document.querySelectorAll('.download-btn');
+      downloadButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const parent = this.closest('.download-info');
+          const courseTitle = parent.querySelector('.download-info-title').textContent;
+          
+          // Set selected course in hidden form field
+          selectedCourseInput.value = courseTitle;
+          
+          // Show modal
+          modal.classList.add('active');
+          
+          // Set Submit Button Style based on course type
+          if (this.classList.contains('programme-btn')) {
+            formSubmitBtn.classList.add('programme-submit');
+          } else {
+            formSubmitBtn.classList.remove('programme-submit');
+          }
+        });
+      });
+      
+      // Close modal when clicking the close button
+      modalClose.addEventListener('click', function() {
+        modal.classList.remove('active');
+      });
+      
+      // Close modal when clicking outside
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+          modal.classList.remove('active');
+        }
+      });
+      
+      // Live validation
+      const formFields = downloadForm.querySelectorAll('input, select');
+      
+      formFields.forEach(field => {
+        // Blur event (wenn das Feld verlassen wird)
+        field.addEventListener('blur', function() {
+          validateField(this);
+        });
+        
+        // Input event (während der Eingabe)
+        field.addEventListener('input', function() {
+          validateField(this);
+        });
+      });
+      
+      // Funktion zur Validierung einzelner Felder
+      function validateField(field) {
+        // Zurücksetzen des Fehlers
+        const errorElement = document.getElementById(field.id + 'Error');
+        if (errorElement) {
+          errorElement.classList.remove('visible');
+        }
+        
+        // E-Mail-Validation
+        if (field.type === 'email') {
+          const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!field.value.trim()) {
+            field.classList.add('invalid-input');
+            field.classList.remove('valid-input');
+            if (errorElement) errorElement.classList.add('visible');
+          } else if (!emailPattern.test(field.value.trim())) {
+            field.classList.add('invalid-input');
+            field.classList.remove('valid-input');
+            if (errorElement) errorElement.classList.add('visible');
+          } else {
+            field.classList.remove('invalid-input');
+            field.classList.add('valid-input');
+          }
+        } 
+        // Andere Felder
+        else if (field.type !== 'checkbox') {
+          if (!field.value.trim()) {
+            field.classList.add('invalid-input');
+            field.classList.remove('valid-input');
+            if (errorElement) errorElement.classList.add('visible');
+          } else {
+            field.classList.remove('invalid-input');
+            field.classList.add('valid-input');
+          }
+        }
+      }
+      
+      // Form validation and submission
+      downloadForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        if (validateForm()) {
+          // Formular-Daten für die Übermittlung vorbereiten
+          const formData = {
+            programm: selectedCourseInput.value,
+            vorname: firstNameInput.value.trim(),
+            nachname: lastNameInput.value.trim(),
+            email: emailInput.value.trim(),
+            land: countrySelect.value,
+            zustimmung: document.getElementById('consent').checked ? 'Ja' : 'Nein',
+            quelle: 'support_kursinformationen'
+          };
+          
+          // Form-Button Zustand ändern
+          const formSubmitBtn = document.querySelector('.form-submit');
+          if (formSubmitBtn) {
+            formSubmitBtn.disabled = true;
+            formSubmitBtn.innerHTML = 'Wird gesendet...';
+          }
+          
+          // Broschüre herunterladen, unabhängig vom Versand der Daten
+          startDownload();
+          
+          // Daten an Google Sheet senden
+          fetch('https://script.google.com/macros/s/AKfycbwIV2ywC6DU4HxDotucAnrQVO1mOdYF2Z4Bict2NMMI9obastqrDb-KIbLqULE4g2g/exec', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData)
+          })
+          .then(response => {
+            console.log('Antwort erhalten:', response);
+            // Modal schließen
+            modal.classList.remove('active');
+            resetForm();
+            
+            // Button zurücksetzen
+            if (formSubmitBtn) {
+              formSubmitBtn.disabled = false;
+              formSubmitBtn.innerHTML = 'Broschüre herunterladen';
+            }
+          })
+          .catch(error => {
+            console.error('Error:', error);
+            // Auch bei Fehlern das Modal schließen
+            modal.classList.remove('active');
+            resetForm();
+            
+            // Button zurücksetzen
+            if (formSubmitBtn) {
+              formSubmitBtn.disabled = false;
+              formSubmitBtn.innerHTML = 'Broschüre herunterladen';
+            }
+          });
+        }
+      });
+      
+      // Close dropdown when clicking elsewhere
+      document.addEventListener('click', function() {
+        items.classList.add('select-hide');
+        selectedElement.classList.remove('select-arrow-active');
+      });
+    });
+  </script>
+
+  <!-- Script für das Download-Formular -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // DOM-Elemente
+      const downloadButtons = document.querySelectorAll('.download-btn');
+      const downloadModal = document.getElementById('downloadModal');
+      const modalClose = document.getElementById('modalClose');
+      const downloadForm = document.getElementById('downloadForm');
+      const formSubmitBtn = document.getElementById('formSubmitBtn');
+      const pdfLink = document.getElementById('pdfDownloadLink');
+      
+      // Felder
+      const firstNameInput = document.getElementById('firstName');
+      const lastNameInput = document.getElementById('lastName');
+      const emailInput = document.getElementById('email');
+      const countrySelect = document.getElementById('country');
+      const selectedCourseInput = document.getElementById('selectedCourse');
+      const consentCheckbox = document.getElementById('consent');
+      
+      // Fehlermeldungen
+      const firstNameError = document.getElementById('firstNameError');
+      const lastNameError = document.getElementById('lastNameError');
+      const emailError = document.getElementById('emailError');
+      const countryError = document.getElementById('countryError');
+      
+      // Formularfelder ausblenden
+      function hideAllErrors() {
+        firstNameError.style.display = 'none';
+        lastNameError.style.display = 'none';
+        emailError.style.display = 'none';
+        countryError.style.display = 'none';
+      }
+      
+      // Initial alle Fehler ausblenden
+      hideAllErrors();
+      
+      // Modal öffnen
+      downloadButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+          e.preventDefault();
+          const courseName = this.getAttribute('data-course') || this.closest('.download-info').querySelector('.download-info-title').textContent;
+          selectedCourseInput.value = courseName;
+          downloadModal.classList.add('active');
+        });
+      });
+      
+      // Modal schließen
+      modalClose.addEventListener('click', function() {
+        downloadModal.classList.remove('active');
+        resetForm();
+      });
+      
+      // Klick außerhalb des Modals
+      window.addEventListener('click', function(e) {
+        if (e.target === downloadModal) {
+          downloadModal.classList.remove('active');
+          resetForm();
+        }
+      });
+      
+      // Formular zurücksetzen
+      function resetForm() {
+        downloadForm.reset();
+        hideAllErrors();
+        
+        // Reset button state
+        formSubmitBtn.disabled = false;
+        formSubmitBtn.innerHTML = 'Broschüre herunterladen';
+      }
+      
+      // Direkter Event-Handler für Button
+      formSubmitBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Führe Form-Validierung manuell durch
+        if (validateForm()) {
+          // Form-Button deaktivieren
+          formSubmitBtn.disabled = true;
+          formSubmitBtn.innerHTML = 'Wird gesendet...';
+          
+          // Daten für API-Call vorbereiten
+          const formData = {
+            programm: selectedCourseInput.value,
+            vorname: firstNameInput.value.trim(),
+            nachname: lastNameInput.value.trim(),
+            email: emailInput.value.trim(),
+            land: countrySelect.value,
+            zustimmung: consentCheckbox.checked ? 'Ja' : 'Nein',
+            quelle: 'support_kursinformationen'
+          };
+          
+          console.log('Sende Daten:', formData);
+          
+          // PDF direkt in neuem Tab öffnen
+          pdfLink.click();
+          
+          // Daten an Google Sheet senden - exakt wie in programm-seite.html
+          fetch('https://script.google.com/macros/s/AKfycbwIV2ywC6DU4HxDotucAnrQVO1mOdYF2Z4Bict2NMMI9obastqrDb-KIbLqULE4g2g/exec', {
+            method: 'POST',
+            body: JSON.stringify(formData)
+          })
+          .then(response => response.json())
+          .then(data => {
+            console.log('Verarbeitete Daten:', data);
+            if(data.status === 'success') {
+              console.log('Daten erfolgreich gesendet');
+            }
+            // Modal schließen
+            downloadModal.classList.remove('active');
+            resetForm();
+          })
+          .catch(error => {
+            console.error('Error:', error);
+            // Auch bei Fehlern das Modal schließen
+            downloadModal.classList.remove('active');
+            resetForm();
+          });
+        }
+      });
+      
+      // Validierungsfunktionen
+      function validateFirstName() {
+        if (firstNameInput.value.trim() === '') {
+          firstNameError.style.display = 'block';
+          return false;
+        }
+        firstNameError.style.display = 'none';
+        return true;
+      }
+      
+      function validateLastName() {
+        if (lastNameInput.value.trim() === '') {
+          lastNameError.style.display = 'block';
+          return false;
+        }
+        lastNameError.style.display = 'none';
+        return true;
+      }
+      
+      function validateEmail() {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(emailInput.value.trim())) {
+          emailError.style.display = 'block';
+          return false;
+        }
+        emailError.style.display = 'none';
+        return true;
+      }
+      
+      function validateCountry() {
+        if (countrySelect.value === '') {
+          countryError.style.display = 'block';
+          return false;
+        }
+        countryError.style.display = 'none';
+        return true;
+      }
+      
+      // Validierung des gesamten Formulars
+      function validateForm() {
+        const isFirstNameValid = validateFirstName();
+        const isLastNameValid = validateLastName();
+        const isEmailValid = validateEmail();
+        const isCountryValid = validateCountry();
+        
+        return isFirstNameValid && isLastNameValid && isEmailValid && isCountryValid;
+      }
+    });
   </script>
 </body>
 </html> 
