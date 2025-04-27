@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Kursinformationen | imtxAI Business School</title>
+
+  <!-- ============ STYLES ============ -->
+  <style>
+    :root{
+      --font-sans:-apple-system,BlinkMacSystemFont,"San Francisco","Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+      --color-text:#1d1d1f;
+      --color-muted:#6e6e73;
+      --color-card-bg:#f5f5f7;
+      --color-accent2:#970289;
+      --color-badge:#e2b245;
+      --color-badge-hover:#d4a535;
+      --spacing:24px;
+      --radius:16px;
+      --max-width:1200px;
+      --imt-purple: #6e45e2;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--color-text);
+      background: #fff;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      padding-top: 64px;
+      transition: padding-top 0.3s ease;
+    }
+    
+    body.has-subnav {
+      padding-top: 110px;
+    }
+    
+    @media (max-width: 1024px) {
+      body.has-subnav {
+        padding-top: 64px;
+      }
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--spacing);
+      width: 100%;
+    }
+
+    main {
+      position: relative;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      margin-bottom: 1rem;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--imt-purple);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      background-color: #f5f5f7;
+      padding: 60px 0;
+      text-align: center;
+    }
+
+    .content-section {
+      padding: 80px 0;
+    }
+
+    .content-section:first-child {
+      padding-top: 50px;
+    }
+
+    /* Back Link Styling */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      color: var(--imt-purple);
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 8px 12px;
+      border-radius: 6px;
+      background-color: var(--color-card-bg);
+      transition: all 0.2s ease;
+    }
+
+    .back-link i {
+      margin-right: 8px;
+      font-size: 18px;
+    }
+
+    .back-link:hover {
+      background-color: #e8e8ed;
+      text-decoration: none;
+    }
+  </style>
+
+  <!-- BoxIcons für Icons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+</head>
+<body>
+  <!-- Dynamisches Laden der Navigation -->
+  <div id="navigation-container"></div>
+  
+  <!-- Sidebar einbinden -->
+  <div id="sidebar-container"></div>
+
+  <!-- Hauptinhalt -->
+  <main>
+    <!-- Inhalt -->
+    <section class="content-section">
+      <div class="container">
+        <div style="margin-bottom: 30px;">
+          <a href="support.html" class="back-link"><i class='bx bx-arrow-back'></i> Zurück zur Support-Übersicht</a>
+        </div>
+        
+        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Kursinformationen</h2>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Hier finden Sie alle Informationen zu unseren Kursen und Lehrinhalten.</p>
+        <h2>Übersicht zu unseren Kursen</h2>
+        <p>Diese Seite wird in Kürze mit detaillierten Informationen zu unserem Kursangebot, Lernmaterialien und Studieninhalten ergänzt.</p>
+        <p>Bei Fragen zu spezifischen Kursinhalten kontaktieren Sie bitte unser Beratungsteam.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer einbinden -->
+  <div id="footer-container"></div>
+
+  <!-- Dynamisches Laden der globalen Komponenten -->
+  <script>
+    // Navigation laden
+    fetch('components/globals/navigation_ohnesub.html?t=' + new Date().getTime())
+      .then(response => {
+        if (!response.ok) {
+          console.error('Fehler beim Laden der Navigation:', response.status);
+          return fetch('components/includes/navigation_ohnesub.html?t=' + new Date().getTime())
+            .then(resp => {
+              if (!resp.ok) {
+                console.error('Auch includes-Pfad fehlgeschlagen:', resp.status);
+                return '';
+              }
+              return resp.text();
+            });
+        }
+        return response.text();
+      })
+      .then(data => {
+        console.log('Navigation geladen');
+        if (data) {
+          document.getElementById('navigation-container').innerHTML = data;
+          
+          // Mobile Navigation initialisieren
+          const navScript = document.createElement('script');
+          navScript.src = 'assets/js/mobile-nav.js?t=' + new Date().getTime();
+          document.body.appendChild(navScript);
+          
+          // Support-Link als aktiv markieren
+          setTimeout(() => {
+            document.querySelectorAll('.nav-link').forEach(link => {
+              if (link.textContent.trim() === 'Support') {
+                link.classList.add('active');
+              }
+            });
+          }, 200);
+        }
+      })
+      .catch(error => console.error('Fehler beim Laden der Navigation:', error));
+
+    // Sidebar laden
+    fetch('components/globals/sidebar.html?t=' + new Date().getTime())
+      .then(response => {
+        if (!response.ok) {
+          console.error('Fehler beim Laden der Sidebar:', response.status);
+          return fetch('components/includes/sidebar.html?t=' + new Date().getTime())
+            .then(resp => {
+              if (!resp.ok) {
+                console.error('Auch includes-Pfad fehlgeschlagen:', resp.status);
+                return '';
+              }
+              return resp.text();
+            });
+        }
+        return response.text();
+      })
+      .then(data => {
+        console.log('Sidebar geladen');
+        if (data) document.getElementById('sidebar-container').innerHTML = data;
+      })
+      .catch(error => console.error('Fehler beim Laden der Sidebar:', error));
+
+    // Footer laden
+    fetch('components/globals/footer.html?t=' + new Date().getTime())
+      .then(response => {
+        if (!response.ok) {
+          console.error('Fehler beim Laden des Footers:', response.status);
+          return fetch('components/includes/footer.html?t=' + new Date().getTime())
+            .then(resp => {
+              if (!resp.ok) {
+                console.error('Auch includes-Pfad fehlgeschlagen:', resp.status);
+                return '';
+              }
+              return resp.text();
+            });
+        }
+        return response.text();
+      })
+      .then(data => {
+        console.log('Footer geladen');
+        if (data) document.getElementById('footer-container').innerHTML = data;
+      })
+      .catch(error => console.error('Fehler beim Laden des Footers:', error));
+  </script>
+</body>
+</html> 

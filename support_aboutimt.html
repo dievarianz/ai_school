@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Über St. Gallen IMT | imtxAI Business School</title>
+
+  <!-- ============ STYLES ============ -->
+  <style>
+    :root{
+      --font-sans:-apple-system,BlinkMacSystemFont,"San Francisco","Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+      --color-text:#1d1d1f;
+      --color-muted:#6e6e73;
+      --color-card-bg:#f5f5f7;
+      --color-accent2:#970289;
+      --color-badge:#e2b245;
+      --color-badge-hover:#d4a535;
+      --spacing:24px;
+      --radius:16px;
+      --max-width:1200px;
+      --imt-purple: #6e45e2;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--color-text);
+      background: #fff;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      /* Padding für fixierte Navigation */
+      padding-top: 64px;
+      transition: padding-top 0.3s ease;
+    }
+    
+    /* When subnav is active, increase body padding */
+    body.has-subnav {
+      padding-top: 110px;
+    }
+    
+    @media (max-width: 1024px) {
+      body.has-subnav {
+        padding-top: 64px;
+      }
+    }
+
+    /* Basis Styling für Container */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--spacing);
+      width: 100%;
+    }
+
+    /* Hauptinhalt der Seite */
+    main {
+      position: relative;
+    }
+
+    /* Allgemeine Typografie */
+    h1, h2, h3, h4, h5, h6 {
+      margin-bottom: 1rem;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.25rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--imt-purple);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Back Link Styling */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      color: var(--imt-purple);
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 8px 12px;
+      border-radius: 6px;
+      background-color: var(--color-card-bg);
+      transition: all 0.2s ease;
+    }
+
+    .back-link i {
+      margin-right: 8px;
+      font-size: 18px;
+    }
+
+    .back-link:hover {
+      background-color: #e8e8ed;
+      text-decoration: none;
+    }
+
+    .content-section {
+      padding: 80px 0;
+    }
+
+    .content-section:first-child {
+      padding-top: 50px;
+    }
+
+    .content-section h2 {
+      text-align: left;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .section-subtitle {
+      color: var(--color-muted);
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+      text-align: left;
+      max-width: 800px;
+      margin-left: 0;
+      margin-right: auto;
+    }
+  </style>
+
+  <!-- BoxIcons für Icons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <!-- Font Awesome für die Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+</head>
+<body>
+  <!-- Dynamisches Laden der Navigation -->
+  <div id="navigation-container"></div>
+  
+  <!-- Sidebar einbinden -->
+  <div id="sidebar-container"></div>
+
+  <!-- Hauptinhalt -->
+  <main>
+    <!-- Über St. Gallen IMT -->
+    <section class="content-section">
+      <div class="container">
+        <div style="margin-bottom: 30px;">
+          <a href="support.html" class="back-link"><i class='bx bx-arrow-back'></i> Zurück zur Support-Übersicht</a>
+        </div>
+        
+        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Über St. Gallen IMT</h2>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Das Institut für Management und Technologie St. Gallen (IMT) ist eine renommierte Bildungseinrichtung mit Fokus auf praxisorientierte Führungskräfteentwicklung.</p>
+        
+        <p>Das IMT St. Gallen wurde vor über zwei Jahrzehnten gegründet und hat sich als führende Institution für Weiterbildung in den Bereichen Management, Leadership und digitale Transformation etabliert. Als strategischer Partner der imtxAI Business School bringt das IMT seine umfassende Expertise in die Entwicklung und Durchführung unserer Programme ein.</p>
+        
+        <p>Die Zusammenarbeit zwischen dem IMT und der imtxAI Business School ermöglicht ein einzigartiges Bildungsangebot, das akademische Exzellenz mit praktischer Anwendbarkeit verbindet. Unsere gemeinsamen Programme zeichnen sich durch einen starken Fokus auf die Integration von KI-Technologien in Management-Prozesse und Unternehmensstrategien aus.</p>
+        
+        <p>Das IMT St. Gallen ist bekannt für seinen praxisnahen Ansatz und seine enge Verbindung zur Wirtschaft. Die Dozierenden des IMT verfügen über umfangreiche Erfahrung sowohl in der akademischen Welt als auch in führenden Positionen in der Industrie, was ihnen ermöglicht, theoretisches Wissen mit praktischen Anwendungsbeispielen zu verknüpfen.</p>
+        
+        <p>Durch die Partnerschaft mit dem IMT St. Gallen können wir unseren Teilnehmern ein Lernerlebnis bieten, das sie optimal auf die Herausforderungen der digitalen Transformation vorbereitet und ihnen die notwendigen Kompetenzen vermittelt, um ihre Organisationen erfolgreich in die Zukunft zu führen.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer einbinden -->
+  <div id="footer-container"></div>
+
+  <!-- Dynamisches Laden der globalen Komponenten -->
+  <script>
+    // Navigation laden
+    fetch('components/globals/navigation_ohnesub.html?t=' + new Date().getTime())
+      .then(response => {
+        if (!response.ok) {
+          console.error('Fehler beim Laden der Navigation:', response.status);
+          // Fallback zum includes-Verzeichnis versuchen
+          return fetch('components/includes/navigation_ohnesub.html?t=' + new Date().getTime())
+            .then(resp => {
+              if (!resp.ok) {
+                console.error('Auch includes-Pfad fehlgeschlagen:', resp.status);
+                return '';
+              }
+              return resp.text();
+            });
+        }
+        return response.text();
+      })
+      .then(data => {
+        console.log('Navigation geladen');
+        if (data) {
+          document.getElementById('navigation-container').innerHTML = data;
+          
+          // Mobile Navigation initialisieren (neu)
+          const navScript = document.createElement('script');
+          navScript.src = 'assets/js/mobile-nav.js?t=' + new Date().getTime();
+          document.body.appendChild(navScript);
+          
+          // Support-Link als aktiv markieren
+          setTimeout(() => {
+            document.querySelectorAll('.nav-link').forEach(link => {
+              if (link.textContent.trim() === 'Support') {
+                console.log('Aktiviere Support-Link:', link);
+                link.classList.add('active');
+              }
+            });
+          }, 200);
+        }
+      })
+      .catch(error => console.error('Fehler beim Laden der Navigation:', error));
+
+    // Sidebar laden
+    fetch('components/globals/sidebar.html?t=' + new Date().getTime())
+      .then(response => {
+        if (!response.ok) {
+          console.error('Fehler beim Laden der Sidebar:', response.status);
+          // Fallback zum includes-Verzeichnis versuchen
+          return fetch('components/includes/sidebar.html?t=' + new Date().getTime())
+            .then(resp => {
+              if (!resp.ok) {
+                console.error('Auch includes-Pfad fehlgeschlagen:', resp.status);
+                return '';
+              }
+              return resp.text();
+            });
+        }
+        return response.text();
+      })
+      .then(data => {
+        console.log('Sidebar geladen');
+        if (data) document.getElementById('sidebar-container').innerHTML = data;
+      })
+      .catch(error => console.error('Fehler beim Laden der Sidebar:', error));
+
+    // Footer laden
+    fetch('components/globals/footer.html?v=' + new Date().getTime())
+      .then(response => {
+        if (!response.ok) {
+          console.error('Fehler beim Laden des Footers:', response.status);
+          // Fallback zum includes-Verzeichnis versuchen
+          return fetch('components/includes/footer.html?v=' + new Date().getTime())
+            .then(resp => {
+              if (!resp.ok) {
+                console.error('Auch includes-Pfad fehlgeschlagen:', resp.status);
+                return '';
+              }
+              return resp.text();
+            });
+        }
+        return response.text();
+      })
+      .then(data => {
+        console.log('Footer geladen');
+        if (data) document.getElementById('footer-container').innerHTML = data;
+      })
+      .catch(error => console.error('Fehler beim Laden des Footers:', error));
+  </script>
+
+  <!-- Script zur Aktivierung des aktuellen Menüpunkts -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('Support-Seite geladen, markiere Support-Link als aktiv');
+      
+      // Wir verwenden ein Interval, um sicherzustellen, dass die Navigation geladen ist
+      let attempts = 0;
+      const maxAttempts = 50; // 5 Sekunden bei 100ms Interval
+      
+      const checkAndActivate = setInterval(function() {
+        attempts++;
+        
+        // Alle Navigationslinks finden
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        if (navLinks.length > 0) {
+          console.log('Navigationslinks gefunden, suche nach Support-Link');
+          
+          // Entferne die active-Klasse von allen Links
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+          });
+          
+          // Setze die active-Klasse für den Support-Link
+          let supportLinkFound = false;
+          navLinks.forEach(link => {
+            if (link.textContent.trim() === 'Support') {
+              console.log('Support-Link gefunden:', link);
+              link.classList.add('active');
+              supportLinkFound = true;
+            }
+          });
+          
+          if (supportLinkFound) {
+            // Interval stoppen, wenn alles erledigt ist
+            clearInterval(checkAndActivate);
+          } else if (attempts >= maxAttempts) {
+            console.error('Support-Link konnte nach mehreren Versuchen nicht gefunden werden');
+            clearInterval(checkAndActivate);
+          }
+        } else if (attempts >= maxAttempts) {
+          console.error('Navigationslinks konnten nach mehreren Versuchen nicht gefunden werden');
+          clearInterval(checkAndActivate);
+        }
+      }, 100);
+    });
+  </script>
+</body>
+</html> 

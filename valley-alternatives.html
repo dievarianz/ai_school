@@ -347,23 +347,27 @@
       }
     }
 
-    /* ===== ALTERNATIVE 2: STATISTICS WITH ANIMATION ===== */
+    /* ===== ALTERNATIVE 2: SWISS CROSS TIMELINE ===== */
     .valley-teaser-2 {
+      background: linear-gradient(to bottom, #f5f5f7, #ffffff);
       padding: 80px 0;
-      background: linear-gradient(135deg, #fafafa, #f5f5f7);
-      position: relative;
       overflow: hidden;
+      position: relative;
     }
 
-    .valley-teaser-2 .pattern {
+    .valley-teaser-2 .swiss-bg {
       position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%236e45e2' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-      opacity: 0.5;
+      top: -30%;
+      right: -10%;
+      height: 160%;
+      width: 50%;
+      opacity: 0.03;
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Switzerland.svg/512px-Flag_of_Switzerland.svg.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
       z-index: 1;
+      transform: rotate(15deg);
     }
 
     .valley-teaser-2 .content {
@@ -371,285 +375,437 @@
       z-index: 2;
     }
 
-    .valley-teaser-2 .header {
-      text-align: center;
-      margin-bottom: 60px;
+    .valley-teaser-2 .swiss-ribbon {
+      position: relative;
+      display: flex;
+      align-items: center;
+      margin-bottom: 30px;
     }
 
     .valley-teaser-2 .swiss-flag {
-      display: inline-flex;
+      width: 40px;
+      height: 40px;
+      background-color: var(--swiss-red);
+      border-radius: 50%;
+      display: flex;
       align-items: center;
-      margin-bottom: 20px;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 1.5rem;
+      margin-right: 15px;
+      box-shadow: 0 4px 10px rgba(255, 0, 0, 0.2);
     }
 
-    .valley-teaser-2 .swiss-emoji {
-      font-size: 1.5rem;
-      margin-right: 10px;
+    .valley-teaser-2 .swiss-flag::after {
+      content: "+";
+      color: white;
     }
 
     .valley-teaser-2 .location {
-      font-size: 0.9rem;
+      font-size: 1rem;
       font-weight: 600;
-      color: var(--color-muted);
-      letter-spacing: 1px;
-      text-transform: uppercase;
+      color: var(--swiss-red);
+      position: relative;
     }
 
     .valley-teaser-2 h2 {
       font-size: 3rem;
-      margin-bottom: 15px;
-      background: linear-gradient(to right, var(--imt-purple), var(--st-gallen-red));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      display: inline-block;
+      font-weight: 800;
+      margin-bottom: 25px;
+      max-width: 800px;
+      position: relative;
     }
 
-    .valley-teaser-2 .subtitle {
+    .valley-teaser-2 .highlight {
+      position: relative;
+      display: inline-block;
+      color: var(--swiss-red);
+    }
+
+    .valley-teaser-2 .highlight::after {
+      content: '';
+      position: absolute;
+      bottom: 5px;
+      left: 0;
+      height: 10px;
+      width: 100%;
+      background: rgba(255, 0, 0, 0.1);
+      z-index: -1;
+    }
+
+    .valley-teaser-2 .description {
       font-size: 1.2rem;
       color: var(--color-muted);
-      max-width: 700px;
-      margin: 0 auto 40px;
+      max-width: 600px;
+      margin-bottom: 40px;
     }
 
-    .valley-teaser-2 .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-      margin-bottom: 50px;
-    }
-
-    .valley-teaser-2 .stat-card {
-      background: white;
-      border-radius: var(--radius);
-      padding: 30px;
-      text-align: center;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
-      transition: all 0.3s ease;
-      border: 1px solid rgba(0, 0, 0, 0.05);
+    .valley-teaser-2 .timeline {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 40px;
+      overflow-x: auto;
+      padding-bottom: 20px;
       position: relative;
-      overflow: hidden;
+      scroll-snap-type: x mandatory;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
     }
 
-    .valley-teaser-2 .stat-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.07);
-      border-color: rgba(110, 69, 226, 0.2);
+    .valley-teaser-2 .timeline::-webkit-scrollbar {
+      display: none;
     }
 
-    .valley-teaser-2 .stat-bg {
+    /* Timeline connecting line */
+    .valley-teaser-2 .timeline::before {
+      content: '';
       position: absolute;
-      top: 0;
+      top: 70px;
       left: 0;
       right: 0;
-      height: 5px;
-      background: linear-gradient(to right, var(--imt-purple), var(--st-gallen-red));
+      height: 2px;
+      background: linear-gradient(to right, rgba(255, 0, 0, 0.8), rgba(255, 0, 0, 0.2));
+      z-index: 1;
     }
 
-    .valley-teaser-2 .stat-number {
-      font-size: 3.5rem;
-      font-weight: 800;
-      margin-bottom: 10px;
-      background: linear-gradient(to right, var(--imt-purple), var(--st-gallen-red));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      display: inline-block;
+    .valley-teaser-2 .milestone {
+      flex: 0 0 280px;
+      background: white;
+      border-radius: var(--radius);
+      padding: 25px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      transition: all 0.3s ease;
       position: relative;
+      z-index: 2;
+      scroll-snap-align: start;
+      border-top: 4px solid var(--swiss-red);
     }
 
-    .valley-teaser-2 .stat-number.count-up {
-      counter-reset: stat var(--stat-value);
+    .valley-teaser-2 .milestone:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
     }
 
-    .valley-teaser-2 .stat-label {
-      font-size: 1rem;
+    .valley-teaser-2 .milestone-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .valley-teaser-2 .milestone-icon {
+      position: relative;
+      width: 40px;
+      height: 40px;
+      background: var(--swiss-red);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.2rem;
+      margin-right: 12px;
+      box-shadow: 0 4px 8px rgba(255, 0, 0, 0.15);
+    }
+
+    .valley-teaser-2 .milestone-icon::before {
+      content: '';
+      position: absolute;
+      top: -55px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 50px;
+      background: linear-gradient(to top, var(--swiss-red), transparent);
+    }
+
+    .valley-teaser-2 .milestone-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .valley-teaser-2 .milestone-desc {
+      font-size: 0.95rem;
       color: var(--color-muted);
       line-height: 1.4;
+      margin-bottom: 15px;
     }
 
-    .valley-teaser-2 .stat-symbol {
-      vertical-align: super;
-      font-size: 1.5rem;
-      margin-left: 5px;
+    .valley-teaser-2 .milestone-fact {
+      padding: 8px 12px;
+      background: rgba(255, 0, 0, 0.05);
+      border-radius: 8px;
+      font-size: 0.85rem;
+      color: var(--swiss-red);
+      font-weight: 500;
     }
 
-    .valley-teaser-2 .cta {
+    .valley-teaser-2 .scroll-hint {
       text-align: center;
+      color: var(--color-muted);
+      font-size: 0.9rem;
+      margin-bottom: 30px;
+      display: none;
     }
 
-    .valley-teaser-2 .btn {
-      padding: 14px 30px;
+    .valley-teaser-2 .btn-primary {
+      background: linear-gradient(to right, var(--swiss-red), #ff6384);
+      color: white;
+    }
+
+    .valley-teaser-2 .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(255, 45, 85, 0.3);
     }
 
     @media (max-width: 768px) {
       .valley-teaser-2 h2 {
-        font-size: 2.3rem;
+        font-size: 2.2rem;
       }
-      
-      .valley-teaser-2 .subtitle {
+
+      .valley-teaser-2 .description {
         font-size: 1rem;
       }
       
-      .valley-teaser-2 .stat-number {
-        font-size: 2.8rem;
+      .valley-teaser-2 .scroll-hint {
+        display: block;
       }
     }
 
-    /* ===== ALTERNATIVE 3: 3D VALLEY VISUALIZATION ===== */
+    /* ===== ALTERNATIVE 3: ALPINE VALLEY LAYERS ===== */
     .valley-teaser-3 {
-      padding: 0;
-      position: relative;
+      background: #f5f5f7;
+      padding: 80px 0 0 0;
       overflow: hidden;
-      height: 600px;
-      display: flex;
-      align-items: center;
-      color: white;
-    }
-
-    .valley-teaser-3 .background-image {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url('https://images.unsplash.com/photo-1583223667854-e2e679b78d1e?q=80&w=2070');
-      background-size: cover;
-      background-position: center;
-      filter: brightness(0.7);
-      z-index: 1;
-      transform: scale(1.05);
-      transition: transform 0.5s ease;
-    }
-
-    .valley-teaser-3:hover .background-image {
-      transform: scale(1);
-    }
-
-    .valley-teaser-3 .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
-      z-index: 2;
+      position: relative;
     }
 
     .valley-teaser-3 .content {
       position: relative;
-      z-index: 3;
-      max-width: 650px;
+      z-index: 2;
+      padding-bottom: 20px;
     }
 
     .valley-teaser-3 .badge {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
       padding: 6px 15px;
-      background-color: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      background: rgba(255, 0, 0, 0.1);
+      color: var(--swiss-red);
       border-radius: 30px;
-      font-size: 0.9rem;
-      margin-bottom: 30px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .valley-teaser-3 .badge i {
+      margin-right: 8px;
+      font-size: 1.1rem;
     }
 
     .valley-teaser-3 h2 {
-      font-size: 3.5rem;
+      font-size: 3rem;
       font-weight: 800;
-      margin-bottom: 20px;
-      line-height: 1.1;
+      margin-bottom: 25px;
+      max-width: 750px;
     }
 
-    .valley-teaser-3 h2 .highlight {
-      color: #FF2D55;
+    .valley-teaser-3 .highlight {
+      position: relative;
+      display: inline-block;
+    }
+
+    .valley-teaser-3 .highlight::after {
+      content: '';
+      position: absolute;
+      bottom: 5px;
+      left: 0;
+      height: 10px;
+      width: 100%;
+      background: rgba(255, 0, 0, 0.15);
+      z-index: -1;
     }
 
     .valley-teaser-3 .description {
       font-size: 1.2rem;
-      margin-bottom: 40px;
-      opacity: 0.9;
+      color: var(--color-muted);
       max-width: 600px;
+      margin-bottom: 40px;
     }
 
+    /* Swiss Valley Visualization */
+    .valley-teaser-3 .valley-visual {
+      position: relative;
+      height: 400px;
+      overflow: hidden;
+      margin-top: 60px;
+    }
+
+    .valley-teaser-3 .valley-layers {
+      position: relative;
+      height: 100%;
+      width: 100%;
+      perspective: 1000px;
+      transform-style: preserve-3d;
+    }
+
+    .valley-teaser-3 .valley-layer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      background-position: bottom center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      transform-origin: bottom center;
+    }
+
+    .valley-teaser-3 .layer-1 {
+      background-image: url('https://images.unsplash.com/photo-1587202372634-32705e3bf442?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80');
+      z-index: 1;
+      transform: translateZ(-200px) scale(1.2);
+      height: 70%;
+      filter: brightness(0.7);
+    }
+
+    .valley-teaser-3 .layer-2 {
+      background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80');
+      z-index: 2;
+      transform: translateZ(-100px) scale(1.1);
+      height: 80%;
+      filter: brightness(0.8);
+    }
+
+    .valley-teaser-3 .layer-3 {
+      background-image: url('https://images.unsplash.com/photo-1473187983305-f615310e7daa?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80');
+      z-index: 3;
+      transform: translateZ(0px) scale(1);
+      height: 100%;
+      filter: brightness(0.9);
+    }
+
+    .valley-teaser-3 .valley-info {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      z-index: 10;
+      width: 90%;
+      max-width: 800px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .valley-teaser-3 .valley-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 15px;
+    }
+
+    .valley-teaser-3 .valley-desc {
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Features Cards */
     .valley-teaser-3 .features {
       display: flex;
-      gap: 25px;
-      margin-bottom: 40px;
+      gap: 15px;
+      margin: -120px 30px 50px;
+      position: relative;
+      z-index: 4;
     }
 
-    .valley-teaser-3 .feature {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    .valley-teaser-3 .feature-card {
+      flex: 1;
+      background: white;
+      border-radius: var(--radius);
+      padding: 25px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transform: translateY(0);
+      transition: all 0.3s ease;
+      border-top: 4px solid var(--swiss-red);
+    }
+
+    .valley-teaser-3 .feature-card:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
     }
 
     .valley-teaser-3 .feature-icon {
-      width: 40px;
-      height: 40px;
-      background-color: rgba(255, 255, 255, 0.1);
+      width: 60px;
+      height: 60px;
+      background: #f8f8f8;
       border-radius: 50%;
-      backdrop-filter: blur(5px);
-      -webkit-backdrop-filter: blur(5px);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.2rem;
+      margin: 0 auto 15px;
+      font-size: 1.8rem;
+      color: var(--swiss-red);
     }
 
-    .valley-teaser-3 .feature-text {
-      font-size: 0.95rem;
-      font-weight: 500;
+    .valley-teaser-3 .feature-icon img {
+      width: 30px;
+      height: auto;
     }
 
-    .valley-teaser-3 .cta-container {
-      display: flex;
-      gap: 15px;
+    .valley-teaser-3 .feature-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .valley-teaser-3 .feature-desc {
+      font-size: 0.9rem;
+      color: var(--color-muted);
+      line-height: 1.4;
+    }
+
+    .valley-teaser-3 .cta {
+      text-align: center;
+      padding: 30px 0;
     }
 
     .valley-teaser-3 .btn-primary {
-      background: white;
-      color: #333;
+      background: linear-gradient(to right, var(--swiss-red), #ff5c76);
+      color: white;
+      padding: 14px 30px;
     }
 
     .valley-teaser-3 .btn-primary:hover {
-      background: white;
       transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-    }
-
-    .valley-teaser-3 .btn-secondary {
-      background: transparent;
-      color: white;
-      border: 2px solid rgba(255, 255, 255, 0.3);
-    }
-
-    .valley-teaser-3 .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: rgba(255, 255, 255, 0.5);
+      box-shadow: 0 8px 15px rgba(255, 0, 0, 0.2);
     }
 
     @media (max-width: 768px) {
-      .valley-teaser-3 {
-        height: 650px;
-      }
-      
       .valley-teaser-3 h2 {
-        font-size: 2.3rem;
+        font-size: 2.2rem;
+      }
+
+      .valley-teaser-3 .description {
+        font-size: 1rem;
       }
       
-      .valley-teaser-3 .description {
+      .valley-teaser-3 .valley-title {
+        font-size: 2rem;
+      }
+      
+      .valley-teaser-3 .valley-desc {
         font-size: 1rem;
       }
       
       .valley-teaser-3 .features {
         flex-direction: column;
-        gap: 15px;
-      }
-      
-      .valley-teaser-3 .cta-container {
-        flex-direction: column;
+        margin-top: -80px;
       }
     }
-
   </style>
 
   <!-- BoxIcons -->
@@ -732,55 +888,84 @@
         <div class="alternative-header">
           <div class="alternative-number">2</div>
           <div class="alternative-info">
-            <h2 class="alternative-title">Statistiken mit Animation</h2>
-            <p class="alternative-description">Ein datengetriebener Ansatz mit animierten Statistiken, der die Stärke des StGallen Valley mit Zahlen untermauert.</p>
+            <h2 class="alternative-title">Swiss Cross Timeline</h2>
+            <p class="alternative-description">Ein modernes, horizontales Timeline-Design, das die Schweizer Geschichte und die Vorteile des StGallen Valley visuell darstellt.</p>
           </div>
         </div>
 
         <!-- Alternative 2 Teaser -->
         <div class="valley-teaser-2">
-          <div class="pattern"></div>
+          <div class="swiss-bg"></div>
           <div class="container content">
-            <div class="header">
-              <div class="swiss-flag">
-                <span class="swiss-emoji">🇨🇭</span>
-                <span class="location">St. Gallen, Schweiz</span>
+            <div class="swiss-ribbon">
+              <div class="swiss-flag"></div>
+              <span class="location">St. Gallen, Schweiz</span>
+            </div>
+            <h2>Entdecken Sie das <span class="highlight">StGallen Valley</span> – Schweizer Qualität trifft Innovation</h2>
+            <p class="description">Im Herzen der Schweiz gelegen, verbindet das StGallen Valley traditionelle Schweizer Werte wie Präzision und Exzellenz mit zukunftsweisender KI- und Management-Innovation.</p>
+            
+            <div class="timeline">
+              <div class="milestone">
+                <div class="milestone-header">
+                  <div class="milestone-icon">
+                    <i class="bx bx-building"></i>
+                  </div>
+                  <h3 class="milestone-title">Tradition</h3>
+                </div>
+                <p class="milestone-desc">St. Gallen blickt auf eine lange Geschichte der Management-Excellence zurück - vom traditionellen Textilhandel bis zum führenden Wirtschaftsstandort.</p>
+                <div class="milestone-fact">Seit 1898</div>
               </div>
-              <h2>Das StGallen Valley</h2>
-              <p class="subtitle">Entdecken Sie das dynamische Zentrum für Management-Innovation und KI-Exzellenz im Herzen der Schweiz – ein einzigartiges Ökosystem für die Führungskräfte von morgen.</p>
+              
+              <div class="milestone">
+                <div class="milestone-header">
+                  <div class="milestone-icon">
+                    <i class="bx bx-book"></i>
+                  </div>
+                  <h3 class="milestone-title">Bildung</h3>
+                </div>
+                <p class="milestone-desc">Die HSG St. Gallen zählt zu den führenden Wirtschaftsuniversitäten Europas und bildet Talente auf höchstem Niveau aus.</p>
+                <div class="milestone-fact">Top 5 in Europa</div>
+              </div>
+              
+              <div class="milestone">
+                <div class="milestone-header">
+                  <div class="milestone-icon">
+                    <i class="bx bx-network-chart"></i>
+                  </div>
+                  <h3 class="milestone-title">Innovation</h3>
+                </div>
+                <p class="milestone-desc">Als Schweizer KI-Hub verbindet das StGallen Valley über 250 Tech-Unternehmen mit Forschungsexzellenz.</p>
+                <div class="milestone-fact">250+ Unternehmen</div>
+              </div>
+              
+              <div class="milestone">
+                <div class="milestone-header">
+                  <div class="milestone-icon">
+                    <i class="bx bx-globe-alt"></i>
+                  </div>
+                  <h3 class="milestone-title">Global</h3>
+                </div>
+                <p class="milestone-desc">Internationale Vernetzung mit den wichtigsten Wirtschaftsstandorten und Technologiezentren weltweit.</p>
+                <div class="milestone-fact">Globales Netzwerk</div>
+              </div>
+              
+              <div class="milestone">
+                <div class="milestone-header">
+                  <div class="milestone-icon">
+                    <i class="bx bx-trending-up"></i>
+                  </div>
+                  <h3 class="milestone-title">Zukunft</h3>
+                </div>
+                <p class="milestone-desc">Mit der imtxAI Business School werden die Führungskräfte von morgen auf die digitale Transformation vorbereitet.</p>
+                <div class="milestone-fact">Seit 2023</div>
+              </div>
             </div>
             
-            <div class="stats-grid">
-              <div class="stat-card">
-                <div class="stat-bg"></div>
-                <div class="stat-number" data-value="125">125<span class="stat-symbol">+</span></div>
-                <p class="stat-label">Jahre Management-Exzellenz und Tradition in St. Gallen</p>
-              </div>
-              
-              <div class="stat-card">
-                <div class="stat-bg"></div>
-                <div class="stat-number" data-value="250">250<span class="stat-symbol">+</span></div>
-                <p class="stat-label">Innovative Unternehmen im Tech- und KI-Cluster</p>
-              </div>
-              
-              <div class="stat-card">
-                <div class="stat-bg"></div>
-                <div class="stat-number" data-value="92">92<span class="stat-symbol">%</span></div>
-                <p class="stat-label">Unserer Absolventen nehmen Führungspositionen ein</p>
-              </div>
-              
-              <div class="stat-card">
-                <div class="stat-bg"></div>
-                <div class="stat-number" data-value="5">#5</div>
-                <p class="stat-label">Ranking unter Europas führenden Managementschulen</p>
-              </div>
-            </div>
+            <p class="scroll-hint"><i class="bx bx-chevrons-right"></i> Nach rechts scrollen für mehr</p>
             
-            <div class="cta">
-              <a href="#" class="btn btn-primary">
-                Das StGallen Valley erleben <span class="arrow-icon">→</span>
-              </a>
-            </div>
+            <a href="#" class="btn btn-primary">
+              Das StGallen Valley entdecken <span class="arrow-icon">→</span>
+            </a>
           </div>
         </div>
       </section>
@@ -790,49 +975,64 @@
         <div class="alternative-header">
           <div class="alternative-number">3</div>
           <div class="alternative-info">
-            <h2 class="alternative-title">Immersives Landschaftsbild</h2>
-            <p class="alternative-description">Ein visuell beeindruckendes Design mit einem großformatigen Hintergrundbild der Schweizer Landschaft und klaren Kernbotschaften.</p>
+            <h2 class="alternative-title">Alpine Valley Layers</h2>
+            <p class="alternative-description">Ein modernes Design, das die Vorteile des StGallen Valley und die Schweizer Natur visuell darstellt.</p>
           </div>
         </div>
 
         <!-- Alternative 3 Teaser -->
         <div class="valley-teaser-3">
-          <div class="background-image"></div>
-          <div class="overlay"></div>
           <div class="container content">
-            <div class="badge">Das Schweizer Innovationszentrum</div>
-            <h2>Lernen Sie im <span class="highlight">StGallen Valley</span> – dem Schweizer Epizentrum für Management und KI</h2>
-            <p class="description">Eine einzigartige Kombination aus Schweizer Qualität, Management-Tradition und zukunftsweisender KI-Innovation in einer der schönsten Regionen Europas.</p>
-            
+            <div class="badge">
+              <i class="bx bx-map-pin"></i>
+              St. Gallen, Schweiz
+            </div>
+            <h2>Das <span class="highlight">StGallen Valley</span> – wo Alpenlandschaft auf Technologie-Innovation trifft</h2>
+            <p class="description">Eingebettet zwischen Alpenpanoramen und dem Bodensee, vereint das StGallen Valley Schweizer Tradition mit führender Management-Expertise und KI-Innovation in einer einzigartigen Umgebung.</p>
+          </div>
+          
+          <div class="valley-visual">
+            <div class="valley-layers">
+              <div class="valley-layer layer-1"></div>
+              <div class="valley-layer layer-2"></div>
+              <div class="valley-layer layer-3"></div>
+              <div class="valley-info">
+                <h3 class="valley-title">Schweizer Innovation im Herzen Europas</h3>
+                <p class="valley-desc">Erleben Sie das einzigartige Ökosystem des StGallen Valley in einer der landschaftlich schönsten Regionen der Schweiz</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="container">
             <div class="features">
-              <div class="feature">
+              <div class="feature-card">
                 <div class="feature-icon">
                   <i class="bx bx-medal"></i>
                 </div>
-                <div class="feature-text">Management-Exzellenz seit 1898</div>
+                <h3 class="feature-title">Schweizer Präzision</h3>
+                <p class="feature-desc">Management-Ausbildung mit der Präzision und Qualität, für die die Schweiz weltbekannt ist</p>
               </div>
               
-              <div class="feature">
+              <div class="feature-card">
                 <div class="feature-icon">
-                  <i class="bx bx-brain"></i>
+                  <i class="bx bx-trending-up"></i>
                 </div>
-                <div class="feature-text">KI-Innovationscluster</div>
+                <h3 class="feature-title">Wirtschaftskraft</h3>
+                <p class="feature-desc">Profitieren Sie von einem der stabilsten und innovativsten Wirtschaftssysteme der Welt</p>
               </div>
               
-              <div class="feature">
+              <div class="feature-card">
                 <div class="feature-icon">
                   <i class="bx bx-world"></i>
                 </div>
-                <div class="feature-text">Internationale Vernetzung</div>
+                <h3 class="feature-title">Internationale Vernetzung</h3>
+                <p class="feature-desc">Ein globales Netzwerk von Partnern, Unternehmen und Forschungseinrichtungen</p>
               </div>
             </div>
             
-            <div class="cta-container">
+            <div class="cta">
               <a href="#" class="btn btn-primary">
-                Programme entdecken <span class="arrow-icon">→</span>
-              </a>
-              <a href="#" class="btn btn-secondary">
-                Mehr über St. Gallen
+                Mehr über das StGallen Valley <span class="arrow-icon">→</span>
               </a>
             </div>
           </div>

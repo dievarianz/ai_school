@@ -154,6 +154,7 @@
       margin-bottom: 60px;
     }
 
+    /* Card styling for both div and a versions */
     .support-card {
       background: var(--color-card-bg);
       padding: 30px;
@@ -164,6 +165,10 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
+      position: relative;
+      cursor: pointer;
+      text-decoration: none; /* Ensure links don't have underlines */
+      color: inherit; /* Inherit text color instead of link color */
     }
 
     .support-card:hover {
@@ -173,14 +178,9 @@
     .support-card i {
       font-size: 32px;
       margin-bottom: 16px;
-      transition: transform 0.3s ease;
       color: var(--imt-purple);
     }
-
-    .support-card:hover i {
-      transform: scale(1.1);
-    }
-
+    
     .support-card h3 {
       margin-bottom: 12px;
       font-size: 1.2rem;
@@ -196,12 +196,60 @@
       margin-top: auto;
       display: inline-flex;
       align-items: center;
+      color: var(--imt-purple);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      position: relative;
+      z-index: 2;
     }
-
+    
+    .support-card a:hover {
+      text-decoration: none !important;
+    }
+    
     .support-card a i {
       font-size: 18px;
       margin-left: 6px;
       margin-bottom: 0;
+      transition: transform 0.2s ease;
+      transform: translateY(1px);
+      display: inline-block;
+    }
+    
+    .support-card a:hover i {
+      transform: translateX(4px) translateY(1px);
+    }
+    
+    .support-card-link {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      border-radius: var(--radius);
+    }
+
+    /* Ensure the support-card-link is clickable */
+    .support-card {
+      position: relative;
+      cursor: pointer;
+    }
+    
+    .support-card > *:not(.support-card-link) {
+      pointer-events: none;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .support-card-link {
+      z-index: 3;
+    }
+    
+    /* Allow clicks on the "Mehr erfahren" link while keeping card clickable */
+    .support-card .more-link {
+      pointer-events: auto;
     }
 
     /* FAQ Styles */
@@ -358,6 +406,56 @@
         margin-bottom: 8px;
       }
     }
+
+    /* Style for "Mehr erfahren" link/span */
+    .more-link {
+      margin-top: auto;
+      display: inline-flex;
+      align-items: center;
+      color: var(--imt-purple);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      position: relative;
+    }
+    
+    .support-card:hover .more-link {
+      text-decoration: none !important;
+    }
+    
+    .more-link i {
+      font-size: 18px;
+      margin-left: 6px;
+      margin-bottom: 0;
+      transition: transform 0.2s ease;
+      transform: translateY(1px);
+      display: inline-block;
+    }
+    
+    .support-card:hover .more-link i {
+      transform: translateX(4px) translateY(1px);
+    }
+
+    /* Ensure no text is underlined in cards */
+    a.support-card,
+    a.support-card:hover,
+    a.support-card:focus {
+      text-decoration: none !important;
+    }
+    
+    a.support-card h3,
+    a.support-card p,
+    a.support-card span,
+    a.support-card * {
+      text-decoration: none !important;
+    }
+    
+    a.support-card:hover h3,
+    a.support-card:hover p,
+    a.support-card:hover span,
+    a.support-card:hover * {
+      text-decoration: none !important;
+    }
   </style>
 
   <!-- BoxIcons für Icons -->
@@ -384,29 +482,29 @@
         <p class="section-subtitle">Wählen Sie aus einer unserer Support-Kategorien oder durchsuchen Sie unsere häufig gestellten Fragen.</p>
         
         <div class="support-grid">
-          <!-- Karte 1: Technischer Support -->
-          <div class="support-card">
+          <!-- Karte 1: Über St. Gallen IMT -->
+          <a href="support_aboutimt.html" class="support-card">
             <i class='bx bx-laptop'></i>
-            <h3>Technischer Support</h3>
-            <p>Hilfe bei Anmeldeproblemen, Zugang zum Online-Campus und technischen Schwierigkeiten.</p>
-            <a href="#tech-support">Mehr erfahren <i class='bx bx-chevron-right'></i></a>
-          </div>
+            <h3>Über St. Gallen IMT</h3>
+            <p>Unsere Geschichte, Mission und Vision der KI-Weiterbildung.</p>
+            <span class="more-link">Mehr erfahren <i class='bx bx-chevron-right'></i></span>
+          </a>
           
           <!-- Karte 2: Kursinformationen -->
-          <div class="support-card">
+          <a href="support_kursinformationen.html" class="support-card">
             <i class='bx bx-book-open'></i>
             <h3>Kursinformationen</h3>
-            <p>Informationen zu Kursinhalten, Unterrichtsmaterialien und Lernfortschritt.</p>
-            <a href="#course-info">Mehr erfahren <i class='bx bx-chevron-right'></i></a>
-          </div>
+            <p>Informationen zu Kursinhalten, Materialien und Lernfortschritt.</p>
+            <span class="more-link">Mehr erfahren <i class='bx bx-chevron-right'></i></span>
+          </a>
           
-          <!-- Karte 3: Organisatorisches -->
-          <div class="support-card">
+          <!-- Karte 3: Ansprechpartner -->
+          <a href="support_ansprechpartner.html" class="support-card">
             <i class='bx bx-calendar-check'></i>
-            <h3>Organisatorisches</h3>
-            <p>Antworten zu Terminen, Anmeldeverfahren, Gebühren und Zertifizierungen.</p>
-            <a href="#organization">Mehr erfahren <i class='bx bx-chevron-right'></i></a>
-          </div>
+            <h3>Ansprechpartner</h3>
+            <p>Ihre Kontaktpersonen für Beratung, Anmeldung und Studium.</p>
+            <span class="more-link">Mehr erfahren <i class='bx bx-chevron-right'></i></span>
+          </a>
         </div>
       </div>
     </section>
@@ -562,7 +660,7 @@
       <div class="container">
         <div class="support-cta">
           <h3>Ihre Frage nicht gefunden?</h3>
-          <p>Unser Support-Team steht Ihnen jederzeit zur Verfügung, um Ihre individuellen Fragen zu beantworten und Sie bei Ihrem Studienerfolg zu unterstützen.</p>
+          <p>Unser Support-Team steht Ihnen jederzeit zur Verfügung, um Ihre individuellen Fragen zu beantworten und Sie zu unterstützen.</p>
           <a href="kontakt.html" class="cta-button">Kontakt aufnehmen</a>
         </div>
       </div>
