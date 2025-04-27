@@ -36,6 +36,18 @@
     -moz-osx-font-smoothing: grayscale;
     /* Padding für fixierte Navigation */
     padding-top: 64px;
+    transition: padding-top 0.3s ease;
+  }
+  
+  /* When subnav is active, increase body padding */
+  body.has-subnav {
+    padding-top: 110px;
+  }
+  
+  @media (max-width: 1024px) {
+    body.has-subnav {
+      padding-top: 64px;
+    }
   }
 
   /* Basis Styling für Container */
@@ -49,7 +61,6 @@
   /* Hauptinhalt der Seite */
   main {
     position: relative;
-    padding-top: 60px;
   }
 
   /* Allgemeine Typografie */
@@ -89,36 +100,34 @@
     text-decoration: underline;
   }
 
-  /* Impressum-Sektion */
-  .impressum-section {
+  /* Content-Sektion */
+  .content-section {
     padding: 80px 0;
   }
+
+  .content-section:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  .content-section:first-child {
+    padding-top: 50px;
+  }
   
-  .impressum-section h1 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
+  /* Überschriften im Content sollten wie in netzwerk.html aussehen */
+  .content-section h2:not(:first-child) {
+    font-size: 1.3rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
     color: var(--color-text);
   }
   
-  .impressum-section h2 {
-    font-size: 1.5rem;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    color: var(--color-text);
-  }
-  
-  .impressum-section p {
-    margin-bottom: 1rem;
-    line-height: 1.6;
-  }
-  
-  .impressum-section ul {
-    margin-bottom: 1.5rem;
-    padding-left: 1.5rem;
-  }
-  
-  .impressum-section li {
-    margin-bottom: 0.5rem;
+  /* Absätze stylen wie in netzwerk.html */
+  .content-section p {
+    color: var(--color-muted);
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
   }
   
   .address-block {
@@ -132,16 +141,24 @@
     margin-bottom: 0.5rem;
   }
   
+  .address-block h2 {
+    font-size: 1.3rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+  
   @media (max-width: 768px) {
-    .impressum-section {
+    .content-section {
       padding: 40px 0;
     }
     
-    .impressum-section h1 {
+    h1 {
       font-size: 2rem;
     }
     
-    .impressum-section h2 {
+    h2 {
       font-size: 1.3rem;
     }
   }
@@ -149,6 +166,8 @@
 
 <!-- BoxIcons für Icons -->
 <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+<!-- Font Awesome für die Icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
 
@@ -160,9 +179,9 @@
 
 <!-- Hauptinhalt -->
 <main>
-  <div class="container">
-    <section class="impressum-section">
-      <h1>Impressum</h1>
+  <section class="content-section">
+    <div class="container">
+      <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Impressum</h2>
       
       <div class="address-block">
         <h2>StGallen imt Business School xAI</h2>
@@ -195,8 +214,8 @@
       
       <h2>Urheberrecht</h2>
       <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem schweizerischen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
-    </section>
-  </div>
+    </div>
+  </section>
 </main>
 
 <!-- Footer einbinden -->
@@ -205,12 +224,12 @@
 <!-- ============ SCRIPTS ============ -->
 <script>
   // Navigation laden
-  fetch('components/globals/navigation.html?t=' + new Date().getTime())
+  fetch('components/globals/navigation_ohnesub.html?t=' + new Date().getTime())
     .then(response => {
       if (!response.ok) {
         console.error('Fehler beim Laden der Navigation:', response.status);
         // Fallback zum globals-Verzeichnis versuchen
-        return fetch('components/includes/navigation.html?t=' + new Date().getTime())
+        return fetch('components/includes/navigation_ohnesub.html?t=' + new Date().getTime())
           .then(resp => {
             if (!resp.ok) {
               console.error('Auch globals-Pfad fehlgeschlagen:', resp.status);
@@ -223,7 +242,14 @@
     })
     .then(data => {
       console.log('Navigation geladen');
-      if (data) document.getElementById('navigation-container').innerHTML = data;
+      if (data) {
+        document.getElementById('navigation-container').innerHTML = data;
+        
+        // Mobile Navigation initialisieren
+        const navScript = document.createElement('script');
+        navScript.src = 'assets/js/mobile-nav.js?t=' + new Date().getTime();
+        document.body.appendChild(navScript);
+      }
     })
     .catch(error => console.error('Fehler beim Laden der Navigation:', error));
   

@@ -100,37 +100,34 @@
       text-decoration: underline;
     }
 
-    /* Hero-Sektion */
-    .hero {
-      background-color: #f5f5f7;
-      padding: 60px 0;
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      color: var(--color-muted);
-      max-width: 800px;
-      margin: 0 auto 2rem;
-    }
-
+    /* Content-Sektion */
     .content-section {
       padding: 80px 0;
+    }
+
+    .content-section:nth-child(even) {
+      background-color: #f9f9f9;
     }
 
     .content-section:first-child {
       padding-top: 50px;
     }
     
-    .content-section h2 {
-      text-align: center;
-      margin-bottom: 40px;
+    /* Überschriften im Content */
+    .content-section h2:not(:first-child) {
+      font-size: 1.3rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+      color: var(--color-text);
+    }
+    
+    /* Absätze stylen */
+    .content-section p {
+      color: var(--color-muted);
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 0.75rem;
     }
 
     @media (max-width: 768px) {
@@ -149,6 +146,10 @@
       .container {
         padding: 0 16px;
       }
+      
+      .content-section {
+        padding: 40px 0;
+      }
     }
   </style>
 
@@ -166,21 +167,48 @@
 
   <!-- Hauptinhalt -->
   <main>
-    <!-- Hero-Bereich -->
-    <section class="hero">
-      <div class="container">
-        <h1>Allgemeine Geschäftsbedingungen</h1>
-        <p>Hier finden Sie unsere allgemeinen Geschäftsbedingungen für die Teilnahme an Kursen und Programmen der imtxAI Business School.</p>
-      </div>
-    </section>
-
     <!-- Hauptinhalt -->
     <section class="content-section">
       <div class="container">
-        <h2>Allgemeine Geschäftsbedingungen</h2>
+        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Allgemeine Geschäftsbedingungen (AGB)</h2>
         
-        <!-- Platzhalterinhalt -->
-        <p>Diese Seite befindet sich im Aufbau. Hier werden bald unsere allgemeinen Geschäftsbedingungen verfügbar sein.</p>
+        <h2>1. Geltungsbereich</h2>
+        <p>Diese AGB gelten für sämtliche Seminare und Programme der StGallen Integrated imt Business School AG/Co. imtxAI. Bei Unklarheiten nehmen Sie bitte Kontakt auf.</p>
+        
+        <h2>2. Anmeldung</h2>
+        <p>Mit der Anmeldung akzeptieren die Teilnehmer unsere AGB. Die Anmeldung kann per Post, E-Mail oder über die Website erfolgen. Nach Erhalt der Anmeldung versenden wir die Anmeldebestätigung, Rechnung und weitere Unterlagen. Die Plätze werden nach Eingang der Anmeldung vergeben.</p>
+        
+        <h2>3. Seminargebühren</h2>
+        <p>Die Seminargebühr versteht sich, sofern nicht anders vermerkt, exklusive Hotel und allfälliger Verpflegung. Hotel- und Verpflegungskosten werden direkt im Hotel bezahlt.</p>
+        <p>Die Seminargebühr wird bei Anmeldung in Rechnung gestellt und ist vor Beginn des Seminars zu begleichen.</p>
+        
+        <h2>4. Annullierung / Abmeldung</h2>
+        <p>Bei Annullierung der Anmeldung werden folgende Kosten in Rechnung gestellt:</p>
+        <p>- bis 30 Tage vor Seminarbeginn: kostenlos</p>
+        <p>- 29 bis 15 Tage vor Seminarbeginn: 50% der Seminargebühr</p>
+        <p>- 14 bis 8 Tage vor Seminarbeginn: 75% der Seminargebühr</p>
+        <p>- 7 bis 0 Tage vor Seminarbeginn oder bei Nichterscheinen: 100% der Seminargebühr</p>
+        
+        <h2>5. Ersatzteilnehmer</h2>
+        <p>Ein Ersatzteilnehmer kann jederzeit und ohne Kostenfolge gestellt werden.</p>
+        
+        <h2>6. Programmänderungen und Absage</h2>
+        <p>Die StGallen Integrated imt Business School AG behält sich das Recht vor, Programmänderungen und Dozentenänderungen durchzuführen. Bei zu geringer Teilnehmeranzahl kann ein Seminar abgesagt werden. In diesem Fall werden alle bereits bezahlten Seminargebühren vollständig zurückerstattet.</p>
+        
+        <h2>7. Vertraulichkeit und Urheberrechte</h2>
+        <p>Die Teilnehmer verpflichten sich, alle während des Seminars gemachten Angaben über Unternehmen vertraulich zu behandeln. Die Seminarunterlagen sind urheberrechtlich geschützt und dürfen nicht vervielfältigt oder an Dritte weitergegeben werden.</p>
+        
+        <h2>8. Haftung</h2>
+        <p>Für Personen- und Sachschäden, die während unserer Seminare eintreten, übernehmen wir keine Haftung, soweit uns nicht Vorsatz oder grobe Fahrlässigkeit nachgewiesen wird.</p>
+        
+        <h2>9. Anwendbares Recht</h2>
+        <p>Es gilt schweizerisches Recht.</p>
+        
+        <h2>10. Ungültigkeit</h2>
+        <p>Sind einzelne Bestimmungen dieser AGB ungültig oder unwirksam, so hat dies keinen Einfluss auf die Wirksamkeit der übrigen Bestimmungen und der AGB als Ganzes.</p>
+        
+        <h2>11. Zukünftige Änderungen</h2>
+        <p>Mit Erscheinen neuer AGB verlieren alle früheren Ausgaben ihre Gültigkeit.</p>
       </div>
     </section>
   </main>
@@ -191,12 +219,12 @@
   <!-- Dynamisches Laden der globalen Komponenten -->
   <script>
     // Navigation laden
-    fetch('components/globals/navigation.html?t=' + new Date().getTime())
+    fetch('components/globals/navigation_ohnesub.html?t=' + new Date().getTime())
       .then(response => {
         if (!response.ok) {
           console.error('Fehler beim Laden der Navigation:', response.status);
           // Fallback zum includes-Verzeichnis versuchen
-          return fetch('components/includes/navigation.html?t=' + new Date().getTime())
+          return fetch('components/includes/navigation_ohnesub.html?t=' + new Date().getTime())
             .then(resp => {
               if (!resp.ok) {
                 console.error('Auch includes-Pfad fehlgeschlagen:', resp.status);
@@ -211,6 +239,11 @@
         console.log('Navigation geladen');
         if (data) {
           document.getElementById('navigation-container').innerHTML = data;
+          
+          // Mobile Navigation initialisieren
+          const navScript = document.createElement('script');
+          navScript.src = 'assets/js/mobile-nav.js?t=' + new Date().getTime();
+          document.body.appendChild(navScript);
         }
       })
       .catch(error => console.error('Fehler beim Laden der Navigation:', error));
