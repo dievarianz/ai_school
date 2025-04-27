@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Valley Teaser Alternativen | imtxAI Business School</title>
+  <title>StGallen Valley Teaser Alternativen | imtxAI Business School</title>
 
-  <!-- ============ STYLES ============ -->
+  <!-- STYLES -->
   <style>
     :root{
       --font-sans:-apple-system,BlinkMacSystemFont,"San Francisco","Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
@@ -19,7 +19,8 @@
       --radius:16px;
       --max-width:1200px;
       --imt-purple: #6e45e2;
-      --swiss-red: #ff0000;
+      --st-gallen-red: #ff2d55;
+      --swiss-red: #FF0000;
     }
 
     * {
@@ -35,7 +36,7 @@
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      padding-top: 40px;
+      padding-top: 50px;
     }
 
     .container {
@@ -54,12 +55,16 @@
     h1 {
       font-size: 2.5rem;
       margin-bottom: 1.5rem;
-      text-align: center;
     }
 
     h2 {
       font-size: 2rem;
       margin-bottom: 1.25rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
     }
 
     p {
@@ -77,214 +82,103 @@
       text-decoration: underline;
     }
 
-    /* Page Title */
-    .page-title {
+    /* Page Header */
+    .page-header {
       text-align: center;
-      margin: 40px 0;
+      padding: 60px 0;
+      background: linear-gradient(to right, #f5f5f7, #fff);
+      margin-bottom: 40px;
     }
 
-    .page-title h1 {
-      position: relative;
-      display: inline-block;
+    .page-title {
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin-bottom: 10px;
     }
 
-    .page-title h1::after {
-      content: '';
-      position: absolute;
-      height: 12px;
-      width: 60%;
-      background: linear-gradient(to right, var(--imt-purple), var(--color-accent2));
-      bottom: -5px;
-      left: 20%;
-      z-index: -1;
-      opacity: 0.3;
+    .page-subtitle {
+      color: var(--color-muted);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
     }
 
-    /* Alternative Sections */
-    .alt-section {
+    /* Alternative Designs Container */
+    .alternatives-container {
+      margin-bottom: 100px;
+    }
+
+    .alternative {
       margin-bottom: 80px;
-      padding-bottom: 60px;
-      border-bottom: 1px solid #eee;
+      border-bottom: 1px solid #eaeaea;
+      padding-bottom: 80px;
     }
 
-    .alt-section:last-child {
+    .alternative:last-child {
       border-bottom: none;
     }
 
-    .alt-title {
+    .alternative-header {
       display: flex;
       align-items: center;
       margin-bottom: 30px;
     }
 
-    .alt-number {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      background: var(--imt-purple);
-      color: white;
-      border-radius: 50%;
-      font-weight: 600;
+    .alternative-number {
+      font-size: 4rem;
+      font-weight: 800;
+      color: #f2f2f2;
       margin-right: 15px;
+      line-height: 1;
     }
 
-    .alt-heading {
+    .alternative-info {
+      flex: 1;
+    }
+
+    .alternative-title {
       font-size: 1.8rem;
-      margin: 0;
+      margin-bottom: 5px;
     }
 
-    /* Alternative 1: Swiss Map with St.Gallen Focus */
-    .swiss-map-teaser {
-      background: linear-gradient(to bottom, #fff, #f5f5f7);
-      border-radius: var(--radius);
-      padding: 60px 0;
-      position: relative;
-      overflow: hidden;
+    .alternative-description {
+      color: var(--color-muted);
+      font-size: 1rem;
     }
 
-    .map-container {
-      position: relative;
-      height: 500px;
-      margin: 0 auto;
-      max-width: 800px;
-    }
-
-    .swiss-map {
-      width: 100%;
-      height: 100%;
-      position: relative;
-      display: flex;
+    .btn {
+      display: inline-flex;
+      align-items: center;
       justify-content: center;
-      align-items: center;
-    }
-
-    .swiss-map svg {
-      width: 70%;
-      height: 70%;
-    }
-
-    .stgallen-pulse {
-      position: absolute;
-      top: 25%;
-      right: 25%;
-      width: 20px;
-      height: 20px;
-      background: var(--imt-purple);
-      border-radius: 50%;
-      cursor: pointer;
-      box-shadow: 0 0 0 rgba(110, 69, 226, 0.4);
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0% {
-        box-shadow: 0 0 0 0 rgba(110, 69, 226, 0.4);
-      }
-      70% {
-        box-shadow: 0 0 0 20px rgba(110, 69, 226, 0);
-      }
-      100% {
-        box-shadow: 0 0 0 0 rgba(110, 69, 226, 0);
-      }
-    }
-
-    .valley-popup {
-      position: absolute;
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      width: 300px;
-      top: 15%;
-      right: 35%;
-      z-index: 10;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.3s ease;
-      pointer-events: none;
-    }
-
-    .valley-popup.active {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: all;
-    }
-
-    .valley-popup h3 {
-      color: var(--imt-purple);
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-    }
-
-    .valley-popup h3 i {
-      margin-right: 8px;
-    }
-
-    .map-overlay-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: rgba(255, 255, 255, 0.9);
-      padding: 30px;
-      border-radius: var(--radius);
-      text-align: center;
-      max-width: 500px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    }
-
-    .map-overlay-text h2 {
-      font-size: 2.2rem;
-      margin-bottom: 15px;
-      color: var(--imt-purple);
-    }
-
-    .map-overlay-text .swiss-flag {
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      background: var(--swiss-red);
-      position: relative;
-      margin-right: 5px;
-    }
-
-    .swiss-flag::after {
-      content: '+';
-      color: white;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 16px;
-      font-weight: bold;
-    }
-
-    .map-cta {
-      margin-top: 20px;
-    }
-
-    .map-btn {
-      background: linear-gradient(to right, var(--imt-purple), #9c27b0);
-      color: white;
-      border: none;
       padding: 12px 24px;
       border-radius: 8px;
       font-weight: 500;
       font-size: 1rem;
       transition: all 0.2s ease;
       cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
       text-decoration: none;
     }
 
-    .map-btn:hover {
+    .btn-primary {
+      background: linear-gradient(to right, var(--imt-purple), #9c27b0);
+      color: white;
+      border: none;
+    }
+
+    .btn-primary:hover {
       transform: translateY(-2px);
       box-shadow: 0 6px 12px rgba(106, 69, 226, 0.2);
+      text-decoration: none;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--color-text);
+      border: 2px solid #ddd;
+    }
+
+    .btn-secondary:hover {
+      background: #f5f5f7;
       text-decoration: none;
     }
 
@@ -297,574 +191,739 @@
       transition: transform 0.2s ease;
     }
 
-    .map-btn:hover .arrow-icon {
+    .btn:hover .arrow-icon {
       transform: translateX(4px);
     }
 
-    /* Alternative 2: Panoramic Valley with Stats */
-    .valley-panorama {
-      height: 400px;
-      background: url('https://images.unsplash.com/photo-1625403125019-887e70f01f89?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80') no-repeat center;
-      background-size: cover;
+    /* ===== ALTERNATIVE 1: HORIZONTAL PANELS WITH PARALLAX ===== */
+    .valley-teaser-1 {
+      background: linear-gradient(to bottom, #f8f8f8, #fff);
+      padding: 80px 0;
+      overflow: hidden;
       position: relative;
-      border-radius: var(--radius) var(--radius) 0 0;
+    }
+
+    .valley-teaser-1 .map-bg {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: 40%;
+      opacity: 0.1;
+      background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Karte_des_Kantons_St._Gallen.png/800px-Karte_des_Kantons_St._Gallen.png');
+      background-size: cover;
+      background-position: center;
+      z-index: 1;
+    }
+
+    .valley-teaser-1 .content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .valley-teaser-1 .tag {
+      display: inline-block;
+      padding: 6px 12px;
+      background: rgba(110, 69, 226, 0.1);
+      color: var(--imt-purple);
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .valley-teaser-1 h2 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 30px;
+      max-width: 800px;
+    }
+
+    .valley-teaser-1 .highlight {
+      position: relative;
+      display: inline-block;
+    }
+
+    .valley-teaser-1 .highlight::after {
+      content: '';
+      position: absolute;
+      bottom: 3px;
+      left: 0;
+      height: 12px;
+      width: 100%;
+      background: rgba(255, 45, 85, 0.3);
+      z-index: -1;
+    }
+
+    .valley-teaser-1 .description {
+      font-size: 1.2rem;
+      color: var(--color-muted);
+      max-width: 600px;
+      margin-bottom: 40px;
+    }
+
+    .valley-teaser-1 .panels {
+      display: flex;
+      gap: 25px;
+      margin-bottom: 40px;
+      overflow-x: auto;
+      padding-bottom: 20px;
+      scroll-snap-type: x mandatory;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .valley-teaser-1 .panels::-webkit-scrollbar {
+      display: none;
+    }
+
+    .valley-teaser-1 .panel {
+      flex: 0 0 300px;
+      height: 220px;
+      background: white;
+      border-radius: var(--radius);
+      padding: 25px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      transition: all 0.3s ease;
+      scroll-snap-align: start;
+      display: flex;
+      flex-direction: column;
+      position: relative;
       overflow: hidden;
     }
 
-    .panorama-overlay {
+    .valley-teaser-1 .panel:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .valley-teaser-1 .panel-icon {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: var(--imt-purple);
+    }
+
+    .valley-teaser-1 .panel-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .valley-teaser-1 .panel-desc {
+      font-size: 0.95rem;
+      color: var(--color-muted);
+      line-height: 1.4;
+    }
+
+    .valley-teaser-1 .panel-number {
+      position: absolute;
+      bottom: -20px;
+      right: -10px;
+      font-size: 6rem;
+      font-weight: 900;
+      color: rgba(0, 0, 0, 0.03);
+      line-height: 1;
+    }
+
+    .valley-teaser-1 .scroll-hint {
+      text-align: center;
+      color: var(--color-muted);
+      font-size: 0.9rem;
+      margin-bottom: 30px;
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .valley-teaser-1 h2 {
+        font-size: 2.2rem;
+      }
+
+      .valley-teaser-1 .description {
+        font-size: 1rem;
+      }
+      
+      .valley-teaser-1 .scroll-hint {
+        display: block;
+      }
+    }
+
+    /* ===== ALTERNATIVE 2: STATISTICS WITH ANIMATION ===== */
+    .valley-teaser-2 {
+      padding: 80px 0;
+      background: linear-gradient(135deg, #fafafa, #f5f5f7);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .valley-teaser-2 .pattern {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%236e45e2' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.5;
+      z-index: 1;
+    }
+
+    .valley-teaser-2 .content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .valley-teaser-2 .header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .valley-teaser-2 .swiss-flag {
+      display: inline-flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .valley-teaser-2 .swiss-emoji {
+      font-size: 1.5rem;
+      margin-right: 10px;
+    }
+
+    .valley-teaser-2 .location {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--color-muted);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .valley-teaser-2 h2 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      background: linear-gradient(to right, var(--imt-purple), var(--st-gallen-red));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+
+    .valley-teaser-2 .subtitle {
+      font-size: 1.2rem;
+      color: var(--color-muted);
+      max-width: 700px;
+      margin: 0 auto 40px;
+    }
+
+    .valley-teaser-2 .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-bottom: 50px;
+    }
+
+    .valley-teaser-2 .stat-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .valley-teaser-2 .stat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.07);
+      border-color: rgba(110, 69, 226, 0.2);
+    }
+
+    .valley-teaser-2 .stat-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(to right, var(--imt-purple), var(--st-gallen-red));
+    }
+
+    .valley-teaser-2 .stat-number {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      background: linear-gradient(to right, var(--imt-purple), var(--st-gallen-red));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+      position: relative;
+    }
+
+    .valley-teaser-2 .stat-number.count-up {
+      counter-reset: stat var(--stat-value);
+    }
+
+    .valley-teaser-2 .stat-label {
+      font-size: 1rem;
+      color: var(--color-muted);
+      line-height: 1.4;
+    }
+
+    .valley-teaser-2 .stat-symbol {
+      vertical-align: super;
+      font-size: 1.5rem;
+      margin-left: 5px;
+    }
+
+    .valley-teaser-2 .cta {
+      text-align: center;
+    }
+
+    .valley-teaser-2 .btn {
+      padding: 14px 30px;
+    }
+
+    @media (max-width: 768px) {
+      .valley-teaser-2 h2 {
+        font-size: 2.3rem;
+      }
+      
+      .valley-teaser-2 .subtitle {
+        font-size: 1rem;
+      }
+      
+      .valley-teaser-2 .stat-number {
+        font-size: 2.8rem;
+      }
+    }
+
+    /* ===== ALTERNATIVE 3: 3D VALLEY VISUALIZATION ===== */
+    .valley-teaser-3 {
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+      height: 600px;
+      display: flex;
+      align-items: center;
+      color: white;
+    }
+
+    .valley-teaser-3 .background-image {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.2));
-      display: flex;
-      align-items: center;
-      padding: 0 50px;
+      background-image: url('https://images.unsplash.com/photo-1583223667854-e2e679b78d1e?q=80&w=2070');
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.7);
+      z-index: 1;
+      transform: scale(1.05);
+      transition: transform 0.5s ease;
     }
 
-    .panorama-content {
-      color: white;
-      max-width: 500px;
+    .valley-teaser-3:hover .background-image {
+      transform: scale(1);
     }
 
-    .panorama-content h2 {
-      font-size: 2.8rem;
-      margin-bottom: 20px;
-    }
-
-    .panorama-content p {
-      font-size: 1.1rem;
-      margin-bottom: 25px;
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
-      padding: 40px;
-      background: white;
-      border-radius: 0 0 var(--radius) var(--radius);
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-    }
-
-    .stat-card {
-      text-align: center;
-      padding: 20px;
-      background: #f8f8fa;
-      border-radius: 10px;
-      transition: transform 0.3s ease;
-    }
-
-    .stat-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-    }
-
-    .stat-icon {
-      font-size: 2.5rem;
-      color: var(--imt-purple);
-      margin-bottom: 15px;
-    }
-
-    .stat-number {
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: var(--color-text);
-      margin-bottom: 5px;
-    }
-
-    .stat-label {
-      color: var(--color-muted);
-      font-size: 0.9rem;
-    }
-
-    /* Alternative 3: Swiss Quality Interactive Elements */
-    .swiss-quality-teaser {
-      background: white;
-      border-radius: var(--radius);
-      overflow: hidden;
-      position: relative;
-    }
-
-    .swiss-pattern {
+    .valley-teaser-3 .overlay {
       position: absolute;
       top: 0;
-      right: 0;
-      width: 300px;
-      height: 300px;
-      background: radial-gradient(circle, rgba(255, 0, 0, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
-      border-radius: 50%;
-      z-index: 1;
-    }
-
-    .swiss-quality-content {
-      display: flex;
-      position: relative;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
       z-index: 2;
     }
 
-    .swiss-quality-text {
-      flex: 1;
-      padding: 60px;
+    .valley-teaser-3 .content {
+      position: relative;
+      z-index: 3;
+      max-width: 650px;
     }
 
-    .swiss-quality-text h2 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-      position: relative;
+    .valley-teaser-3 .badge {
       display: inline-block;
+      padding: 6px 15px;
+      background-color: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 30px;
+      font-size: 0.9rem;
+      margin-bottom: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    .swiss-quality-text h2::after {
-      content: '';
-      position: absolute;
-      height: 12px;
-      width: 60%;
-      background: linear-gradient(to right, var(--swiss-red), rgba(255, 0, 0, 0.5));
-      bottom: -5px;
-      left: 0;
-      z-index: -1;
-      opacity: 0.3;
+    .valley-teaser-3 h2 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      line-height: 1.1;
     }
 
-    .quality-features {
-      margin-top: 30px;
+    .valley-teaser-3 h2 .highlight {
+      color: #FF2D55;
     }
 
-    .quality-feature {
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: 25px;
-    }
-
-    .quality-icon-container {
-      width: 50px;
-      height: 50px;
-      min-width: 50px;
-      border-radius: 50%;
-      background: #f5f5f7;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-right: 15px;
-      position: relative;
-      z-index: 1;
-      transition: all 0.3s ease;
-    }
-
-    .quality-feature:hover .quality-icon-container {
-      background: var(--imt-purple);
-      color: white;
-      transform: scale(1.1);
-    }
-
-    .quality-icon {
-      font-size: 1.5rem;
-      color: var(--imt-purple);
-      transition: all 0.3s ease;
-    }
-
-    .quality-feature:hover .quality-icon {
-      color: white;
-    }
-
-    .quality-text h3 {
+    .valley-teaser-3 .description {
       font-size: 1.2rem;
-      margin-bottom: 5px;
+      margin-bottom: 40px;
+      opacity: 0.9;
+      max-width: 600px;
     }
 
-    .quality-text p {
-      color: var(--color-muted);
-      font-size: 0.95rem;
+    .valley-teaser-3 .features {
+      display: flex;
+      gap: 25px;
+      margin-bottom: 40px;
     }
 
-    .swiss-quality-image {
-      flex: 1;
-      min-height: 500px;
-      background: url('https://images.unsplash.com/photo-1566846128021-b940b0eec910?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80') no-repeat center;
-      background-size: cover;
-      position: relative;
+    .valley-teaser-3 .feature {
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    .swiss-badge {
-      position: absolute;
-      top: 40px;
-      right: 40px;
-      width: 100px;
-      height: 100px;
-      background: white;
+    .valley-teaser-3 .feature-icon {
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255, 255, 255, 0.1);
       border-radius: 50%;
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-      animation: float 3s ease-in-out infinite;
+      font-size: 1.2rem;
     }
 
-    @keyframes float {
-      0% {
-        transform: translateY(0px);
-      }
-      50% {
-        transform: translateY(-10px);
-      }
-      100% {
-        transform: translateY(0px);
-      }
-    }
-
-    .swiss-cross {
-      width: 60px;
-      height: 60px;
-      background: var(--swiss-red);
-      position: relative;
-    }
-
-    .swiss-cross::after {
-      content: '';
-      position: absolute;
-      top: 20px;
-      left: 0;
-      width: 60px;
-      height: 20px;
-      background: white;
-    }
-
-    .swiss-cross::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 20px;
-      width: 20px;
-      height: 60px;
-      background: white;
-    }
-
-    .cta-container {
-      text-align: center;
-      margin-top: 40px;
-    }
-
-    .quality-cta {
-      background: linear-gradient(to right, var(--imt-purple), #9c27b0);
-      color: white;
-      border: none;
-      padding: 12px 28px;
-      border-radius: 8px;
+    .valley-teaser-3 .feature-text {
+      font-size: 0.95rem;
       font-weight: 500;
-      font-size: 1rem;
-      transition: all 0.2s ease;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
     }
 
-    .quality-cta:hover {
+    .valley-teaser-3 .cta-container {
+      display: flex;
+      gap: 15px;
+    }
+
+    .valley-teaser-3 .btn-primary {
+      background: white;
+      color: #333;
+    }
+
+    .valley-teaser-3 .btn-primary:hover {
+      background: white;
       transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(106, 69, 226, 0.2);
-      text-decoration: none;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
     }
 
-    /* Responsive Styles */
+    .valley-teaser-3 .btn-secondary {
+      background: transparent;
+      color: white;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .valley-teaser-3 .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+
     @media (max-width: 768px) {
-      .map-container {
-        height: 400px;
+      .valley-teaser-3 {
+        height: 650px;
       }
-
-      .map-overlay-text {
-        width: 90%;
-        padding: 20px;
+      
+      .valley-teaser-3 h2 {
+        font-size: 2.3rem;
       }
-
-      .map-overlay-text h2 {
-        font-size: 1.8rem;
+      
+      .valley-teaser-3 .description {
+        font-size: 1rem;
       }
-
-      .valley-popup {
-        width: 250px;
-        right: 25%;
-      }
-
-      .stats-grid {
-        grid-template-columns: 1fr;
+      
+      .valley-teaser-3 .features {
+        flex-direction: column;
         gap: 15px;
-        padding: 20px;
       }
-
-      .panorama-content h2 {
-        font-size: 2rem;
-      }
-
-      .swiss-quality-content {
+      
+      .valley-teaser-3 .cta-container {
         flex-direction: column;
       }
-
-      .swiss-quality-text {
-        padding: 30px;
-      }
-
-      .swiss-quality-image {
-        min-height: 300px;
-      }
-
-      .swiss-badge {
-        top: 20px;
-        right: 20px;
-        width: 80px;
-        height: 80px;
-      }
-
-      .swiss-cross {
-        width: 50px;
-        height: 50px;
-      }
-
-      .swiss-cross::after {
-        top: 15px;
-        width: 50px;
-        height: 20px;
-      }
-
-      .swiss-cross::before {
-        left: 15px;
-        width: 20px;
-        height: 50px;
-      }
     }
+
   </style>
 
-  <!-- BoxIcons für Icons -->
+  <!-- BoxIcons -->
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-  <!-- Font Awesome für Icons -->
+  <!-- Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon.png" type="image/png">
 </head>
 <body>
-  <div class="container">
-    <div class="page-title">
-      <h1>StGallen Valley Teaser Alternativen</h1>
+  <header class="page-header">
+    <div class="container">
+      <h1 class="page-title">StGallen Valley Teaser Alternativen</h1>
+      <p class="page-subtitle">Drei Design-Alternativen für die Darstellung des StGallen Valley als USP auf der Startseite.</p>
     </div>
+  </header>
 
-    <!-- Alternative 1: Swiss Map with St.Gallen Focus -->
-    <section class="alt-section">
-      <div class="alt-title">
-        <div class="alt-number">1</div>
-        <h2 class="alt-heading">Schweizer Karte mit St.Gallen Fokus</h2>
-      </div>
-
-      <div class="swiss-map-teaser">
-        <div class="map-container">
-          <div class="swiss-map">
-            <svg viewBox="0 0 1000 650" xmlns="http://www.w3.org/2000/svg">
-              <!-- Schweiz-Umriss -->
-              <path fill="#f0f0f5" stroke="#999" stroke-width="2" d="M273.6,246.9c0,0,12.6-1.9,17.5-1c4.9,1,15.5,7.8,15.5,7.8s13.6-1,14.6,5.8c1,6.8,2.9,9.7,2.9,9.7
-                s9.7,0,11.7,2.9c1.9,2.9,7.8,5.8,13.6,5.8s6.8,8.7,12.6,9.7c5.8,1,1.9,8.7,1.9,8.7s11.7,1.9,13.6,9.7c1.9,7.8,10.7,7.8,11.7,14.6
-                c1,6.8,7.8,16.5,15.5,16.5s16.5-1,16.5-1s5.8,8.7,14.6,8.7c8.7,0,16.5,1,24.3,5.8c7.8,4.9,23.3,7.8,29.1,1.9
-                c5.8-5.8,15.5-7.8,22.3-5.8c6.8,1.9,15.5,0,22.3-2.9c6.8-2.9,13.6-9.7,22.3-9.7s14.6,6.8,20.4,2.9c5.8-3.9,10.7-10.7,17.5-12.6
-                c6.8-1.9,15.5-13.6,22.3-14.6s9.7-11.7,19.4-10.7c9.7,1,14.6-7.8,17.5-7.8c2.9,0,18.4-1,20.4-3.9c1.9-2.9,14.6-2.9,16.5-9.7
-                c1.9-6.8,15.5-10.7,15.5-10.7s13.6-10.7,24.3-12.6c10.7-1.9,8.7-14.6,8.7-14.6s-5.8-10.7-14.6-11.7c-8.7-1-14.6-8.7-14.6-8.7
-                s-5.8-15.5-10.7-18.4c-4.9-2.9-12.6-11.7-24.3-7.8c-11.7,3.9-16.5,1.9-23.3-1.9c-6.8-3.9-20.4,1-28.1-1c-7.8-1.9-22.3-5.8-22.3-5.8
-                s-18.4,5.8-28.1,4.9c-9.7-1-19.4-7.8-28.1-7.8s-18.4,6.8-30.1,3.9c-11.7-2.9-16.5-11.7-28.1-7.8c-11.7,3.9-18.4-2.9-28.1-1
-                c-9.7,1.9-15.5,9.7-24.3,9.7s-12.6-7.8-22.3-7.8s-16.5,7.8-26.2,10.7c-9.7,2.9-16.5-3.9-24.3-1.9c-7.8,1.9-18.4,11.7-26.2,12.6
-                c-7.8,1-11.7,10.7-19.4,11.7c-7.8,1-14.6,11.7-14.6,11.7s-13.6,2.9-10.7,13.6C259,243,273.6,246.9,273.6,246.9z" />
-              
-              <!-- St. Gallen Markierung (Nordosten der Schweiz) -->
-              <circle id="stgallen-marker-svg" cx="740" cy="190" r="15" fill="#6e45e2" />
-              <text x="740" y="170" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#1d1d1f">St.Gallen</text>
-              
-              <!-- Pulsierender Effekt für St. Gallen -->
-              <circle cx="740" cy="190" r="15" fill="#6e45e2" opacity="0.5">
-                <animate attributeName="r" values="15;30;15" dur="2s" repeatCount="indefinite" />
-                <animate attributeName="opacity" values="0.5;0;0.5" dur="2s" repeatCount="indefinite" />
-              </circle>
-            </svg>
-            <div class="stgallen-pulse" id="stgallen-marker" style="top: 30%; right: 26%;"></div>
-            <div class="valley-popup" id="valley-popup">
-              <h3><i class="bx bx-map-pin"></i> St.Gallen Valley</h3>
-              <p>Das führende Innovationszentrum der Schweiz, wo Management-Expertise und technologische Innovation zusammentreffen.</p>
-              <p><i class="bx bx-check-circle" style="color: var(--imt-purple);"></i> 250+ innovative Unternehmen</p>
-              <p><i class="bx bx-check-circle" style="color: var(--imt-purple);"></i> Top 5 der Forschungsstandorte in Europa</p>
-            </div>
+  <main class="alternatives-container">
+    <div class="container">
+      <!-- Alternative 1 -->
+      <section class="alternative">
+        <div class="alternative-header">
+          <div class="alternative-number">1</div>
+          <div class="alternative-info">
+            <h2 class="alternative-title">Horizontale Panels mit Parallax</h2>
+            <p class="alternative-description">Ein modernes, horizontales Panel-Design mit Parallax-Effekt, das die Vorteile des StGallen Valley visuell darstellt.</p>
           </div>
-          <div class="map-overlay-text">
-            <div class="swiss-flag"></div>
-            <h2>StGallen Valley</h2>
-            <p>Im Herzen der Schweiz gelegen, ist das StGallen Valley ein einzigartiges Ökosystem für Management-Innovation und digitale Transformation. Unsere Business School liegt im Zentrum dieses dynamischen Clusters.</p>
-            <div class="map-cta">
-              <a href="#" class="map-btn">
-                Mehr erfahren <span class="arrow-icon">→</span>
+        </div>
+
+        <!-- Alternative 1 Teaser -->
+        <div class="valley-teaser-1">
+          <div class="map-bg"></div>
+          <div class="container content">
+            <span class="tag">Einzigartig in Europa</span>
+            <h2>Willkommen im <span class="highlight">StGallen Valley</span> – wo Innovation auf Management-Expertise trifft</h2>
+            <p class="description">Profitieren Sie vom weltweit einzigartigen Ökosystem an der Schnittstelle von Spitzenforschung, Wirtschaft und KI-Innovation im Herzen der Schweiz.</p>
+            
+            <div class="panels">
+              <div class="panel">
+                <i class="bx bx-globe panel-icon"></i>
+                <h3 class="panel-title">Internationale Exzellenz</h3>
+                <p class="panel-desc">Top-Rankings im internationalen Vergleich der Management-Hochschulen</p>
+                <span class="panel-number">01</span>
+              </div>
+              
+              <div class="panel">
+                <i class="bx bx-building panel-icon"></i>
+                <h3 class="panel-title">Business Cluster</h3>
+                <p class="panel-desc">Zugang zu über 250 innovativen Technologieunternehmen im StGallen Valley</p>
+                <span class="panel-number">02</span>
+              </div>
+              
+              <div class="panel">
+                <i class="bx bx-network-chart panel-icon"></i>
+                <h3 class="panel-title">KI-Ökosystem</h3>
+                <p class="panel-desc">Vernetzung mit führenden KI-Forschern und Tech-Pionieren der Schweiz</p>
+                <span class="panel-number">03</span>
+              </div>
+              
+              <div class="panel">
+                <i class="bx bx-line-chart panel-icon"></i>
+                <h3 class="panel-title">Wirtschaftskraft</h3>
+                <p class="panel-desc">Im Herzen einer der innovativsten Wirtschaftsregionen Europas</p>
+                <span class="panel-number">04</span>
+              </div>
+            </div>
+            
+            <p class="scroll-hint"><i class="bx bx-chevrons-right"></i> Nach rechts scrollen für mehr</p>
+            
+            <a href="#" class="btn btn-primary">
+              Mehr über das StGallen Valley <span class="arrow-icon">→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Alternative 2 -->
+      <section class="alternative">
+        <div class="alternative-header">
+          <div class="alternative-number">2</div>
+          <div class="alternative-info">
+            <h2 class="alternative-title">Statistiken mit Animation</h2>
+            <p class="alternative-description">Ein datengetriebener Ansatz mit animierten Statistiken, der die Stärke des StGallen Valley mit Zahlen untermauert.</p>
+          </div>
+        </div>
+
+        <!-- Alternative 2 Teaser -->
+        <div class="valley-teaser-2">
+          <div class="pattern"></div>
+          <div class="container content">
+            <div class="header">
+              <div class="swiss-flag">
+                <span class="swiss-emoji">🇨🇭</span>
+                <span class="location">St. Gallen, Schweiz</span>
+              </div>
+              <h2>Das StGallen Valley</h2>
+              <p class="subtitle">Entdecken Sie das dynamische Zentrum für Management-Innovation und KI-Exzellenz im Herzen der Schweiz – ein einzigartiges Ökosystem für die Führungskräfte von morgen.</p>
+            </div>
+            
+            <div class="stats-grid">
+              <div class="stat-card">
+                <div class="stat-bg"></div>
+                <div class="stat-number" data-value="125">125<span class="stat-symbol">+</span></div>
+                <p class="stat-label">Jahre Management-Exzellenz und Tradition in St. Gallen</p>
+              </div>
+              
+              <div class="stat-card">
+                <div class="stat-bg"></div>
+                <div class="stat-number" data-value="250">250<span class="stat-symbol">+</span></div>
+                <p class="stat-label">Innovative Unternehmen im Tech- und KI-Cluster</p>
+              </div>
+              
+              <div class="stat-card">
+                <div class="stat-bg"></div>
+                <div class="stat-number" data-value="92">92<span class="stat-symbol">%</span></div>
+                <p class="stat-label">Unserer Absolventen nehmen Führungspositionen ein</p>
+              </div>
+              
+              <div class="stat-card">
+                <div class="stat-bg"></div>
+                <div class="stat-number" data-value="5">#5</div>
+                <p class="stat-label">Ranking unter Europas führenden Managementschulen</p>
+              </div>
+            </div>
+            
+            <div class="cta">
+              <a href="#" class="btn btn-primary">
+                Das StGallen Valley erleben <span class="arrow-icon">→</span>
               </a>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Alternative 2: Panoramic Valley with Stats -->
-    <section class="alt-section">
-      <div class="alt-title">
-        <div class="alt-number">2</div>
-        <h2 class="alt-heading">Panorama mit leistungsstarken Statistiken</h2>
-      </div>
-
-      <div>
-        <div class="valley-panorama">
-          <div class="panorama-overlay">
-            <div class="panorama-content">
-              <h2>StGallen Valley</h2>
-              <p>Im Herzen der Schweizer Exzellenz – Wo Innovation, Management-Expertise und Tradition zusammentreffen. Profitieren Sie von unserem einzigartigen Ökosystem.</p>
-            </div>
+      <!-- Alternative 3 -->
+      <section class="alternative">
+        <div class="alternative-header">
+          <div class="alternative-number">3</div>
+          <div class="alternative-info">
+            <h2 class="alternative-title">Immersives Landschaftsbild</h2>
+            <p class="alternative-description">Ein visuell beeindruckendes Design mit einem großformatigen Hintergrundbild der Schweizer Landschaft und klaren Kernbotschaften.</p>
           </div>
         </div>
-        <div class="stats-grid">
-          <div class="stat-card">
-            <div class="stat-icon">
-              <i class="fas fa-building"></i>
-            </div>
-            <div class="stat-number">250+</div>
-            <div class="stat-label">Innovative Unternehmen im St.Gallen Cluster</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-icon">
-              <i class="fas fa-graduation-cap"></i>
-            </div>
-            <div class="stat-number">85%</div>
-            <div class="stat-label">Karrierewachstum nach Programm-Abschluss</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-icon">
-              <i class="fas fa-handshake"></i>
-            </div>
-            <div class="stat-number">120+</div>
-            <div class="stat-label">Internationale Partnerschaften und Kooperationen</div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Alternative 3: Swiss Quality Interactive Elements -->
-    <section class="alt-section">
-      <div class="alt-title">
-        <div class="alt-number">3</div>
-        <h2 class="alt-heading">Schweizer Qualität mit interaktiven Elementen</h2>
-      </div>
-
-      <div class="swiss-quality-teaser">
-        <div class="swiss-pattern"></div>
-        <div class="swiss-quality-content">
-          <div class="swiss-quality-text">
-            <h2>Schweizer Exzellenz im StGallen Valley</h2>
-            <p>Unser einzigartiger Standort im Herzen des Schweizer Innovations-Clusters vereint Präzision, Qualität und zukunftsweisende Management-Expertise.</p>
+        <!-- Alternative 3 Teaser -->
+        <div class="valley-teaser-3">
+          <div class="background-image"></div>
+          <div class="overlay"></div>
+          <div class="container content">
+            <div class="badge">Das Schweizer Innovationszentrum</div>
+            <h2>Lernen Sie im <span class="highlight">StGallen Valley</span> – dem Schweizer Epizentrum für Management und KI</h2>
+            <p class="description">Eine einzigartige Kombination aus Schweizer Qualität, Management-Tradition und zukunftsweisender KI-Innovation in einer der schönsten Regionen Europas.</p>
             
-            <div class="quality-features">
-              <div class="quality-feature">
-                <div class="quality-icon-container">
-                  <i class="quality-icon fas fa-chart-line"></i>
+            <div class="features">
+              <div class="feature">
+                <div class="feature-icon">
+                  <i class="bx bx-medal"></i>
                 </div>
-                <div class="quality-text">
-                  <h3>Management Excellence</h3>
-                  <p>Profitieren Sie von einem der führenden Management-Cluster Europas mit Zugang zu Top-Experten und Unternehmen.</p>
-                </div>
+                <div class="feature-text">Management-Exzellenz seit 1898</div>
               </div>
               
-              <div class="quality-feature">
-                <div class="quality-icon-container">
-                  <i class="quality-icon fas fa-robot"></i>
+              <div class="feature">
+                <div class="feature-icon">
+                  <i class="bx bx-brain"></i>
                 </div>
-                <div class="quality-text">
-                  <h3>KI-Innovation</h3>
-                  <p>St.Gallen ist ein wachsendes Zentrum für KI-Forschung und -Anwendungen in der Unternehmensführung.</p>
-                </div>
+                <div class="feature-text">KI-Innovationscluster</div>
               </div>
               
-              <div class="quality-feature">
-                <div class="quality-icon-container">
-                  <i class="quality-icon fas fa-globe-europe"></i>
+              <div class="feature">
+                <div class="feature-icon">
+                  <i class="bx bx-world"></i>
                 </div>
-                <div class="quality-text">
-                  <h3>Internationale Vernetzung</h3>
-                  <p>Unser Schweizer Standort bietet Ihnen ein Sprungbrett in internationale Märkte und ein globales Netzwerk.</p>
-                </div>
+                <div class="feature-text">Internationale Vernetzung</div>
               </div>
             </div>
             
             <div class="cta-container">
-              <a href="#" class="quality-cta">
-                StGallen Valley entdecken <span class="arrow-icon">→</span>
+              <a href="#" class="btn btn-primary">
+                Programme entdecken <span class="arrow-icon">→</span>
+              </a>
+              <a href="#" class="btn btn-secondary">
+                Mehr über St. Gallen
               </a>
             </div>
           </div>
-          
-          <div class="swiss-quality-image">
-            <div class="swiss-badge">
-              <div class="swiss-cross"></div>
-            </div>
-          </div>
         </div>
-      </div>
-    </section>
-  </div>
-  
+      </section>
+    </div>
+  </main>
+
   <script>
+    // Animation für die gezählten Statistiken in Alternative 2
     document.addEventListener('DOMContentLoaded', function() {
-      // Alternative 1: Map popup interaction
-      const stgallenMarker = document.getElementById('stgallen-marker');
-      const valleyPopup = document.getElementById('valley-popup');
-      
-      if (stgallenMarker && valleyPopup) {
-        stgallenMarker.addEventListener('click', function() {
-          valleyPopup.classList.toggle('active');
-        });
-        
-        // Close popup when clicking outside
-        document.addEventListener('click', function(event) {
-          if (!stgallenMarker.contains(event.target) && !valleyPopup.contains(event.target)) {
-            valleyPopup.classList.remove('active');
-          }
-        });
-      }
-      
-      // Alternative 2: Animated counter for stats
-      const statNumbers = document.querySelectorAll('.stat-number');
-      
-      function animateValue(element, start, end, duration) {
-        let startTimestamp = null;
-        const step = (timestamp) => {
-          if (!startTimestamp) startTimestamp = timestamp;
-          const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-          const value = Math.floor(progress * (end - start) + start);
-          
-          // Handle numbers with + symbol
-          if (element.textContent.includes('+')) {
-            element.textContent = value + '+';
-          } else {
-            element.textContent = value + '%';
-          }
-          
-          if (progress < 1) {
-            window.requestAnimationFrame(step);
-          }
-        };
-        window.requestAnimationFrame(step);
-      }
-      
-      // Intersection Observer to trigger counter animations when in view
+      // Intersections Observer für Animationen beim Scrollen
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            const target = entry.target;
-            const finalValue = parseInt(target.textContent.replace(/[^0-9]/g, ''));
-            animateValue(target, 0, finalValue, 2000);
-            observer.unobserve(target);
+            if (entry.target.classList.contains('stat-number')) {
+              animateValue(entry.target);
+            }
           }
         });
-      }, { threshold: 0.5 });
-      
-      statNumbers.forEach(statNumber => {
-        observer.observe(statNumber);
+      }, {
+        threshold: 0.5
       });
+      
+      // Alle Statistik-Nummern beobachten
+      document.querySelectorAll('.valley-teaser-2 .stat-number').forEach(el => {
+        observer.observe(el);
+      });
+      
+      // Funktion zum Animieren der Zählwerte
+      function animateValue(element) {
+        const value = parseInt(element.getAttribute('data-value'));
+        const duration = 1500; // Animation in Millisekunden
+        const startTime = performance.now();
+        let currentNumber = 0;
+        
+        function updateNumber(timestamp) {
+          const elapsed = timestamp - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          
+          // Easing Funktion für natürlichere Animation
+          const easeOutQuad = function(t) { 
+            return t * (2 - t); 
+          };
+          
+          // Berechne aktuellen Wert
+          currentNumber = Math.floor(easeOutQuad(progress) * value);
+          
+          // Text-Inhalt aktualisieren, aber Symbol beibehalten
+          const symbol = element.querySelector('.stat-symbol');
+          if (symbol) {
+            element.innerHTML = currentNumber + symbol.outerHTML;
+          } else {
+            element.textContent = currentNumber;
+          }
+          
+          if (progress < 1) {
+            requestAnimationFrame(updateNumber);
+          }
+        }
+        
+        requestAnimationFrame(updateNumber);
+      }
+      
+      // Horizontales Scrollen für die Panels in Alternative 1
+      const panels = document.querySelector('.valley-teaser-1 .panels');
+      
+      if (panels) {
+        // Taste drücken für horizontales Scrollen
+        panels.addEventListener('keydown', function(e) {
+          if (e.key === 'ArrowRight') {
+            panels.scrollBy({
+              left: 300,
+              behavior: 'smooth'
+            });
+          } else if (e.key === 'ArrowLeft') {
+            panels.scrollBy({
+              left: -300,
+              behavior: 'smooth'
+            });
+          }
+        });
+        
+        // Mausrad für horizontales Scrollen
+        panels.addEventListener('wheel', function(e) {
+          if (e.deltaY !== 0) {
+            e.preventDefault();
+            panels.scrollLeft += e.deltaY;
+          }
+        }, { passive: false });
+      }
     });
   </script>
 </body>
