@@ -362,6 +362,7 @@
       flex: 1;
       max-width: 460px;
       text-align: left;
+      position: relative;
     }
 
     .custom-select {
@@ -383,6 +384,27 @@
       transition: all 0.2s ease;
       font-weight: 500;
       text-align: left;
+    }
+
+    .select-selected.error {
+      border-color: #e74c3c;
+      box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.2);
+    }
+    
+    .error-message {
+      color: #e74c3c;
+      font-size: 0.85rem;
+      margin: 0;
+      display: none;
+      position: absolute;
+      top: -20px;
+      left: 0;
+      width: 100%;
+      text-align: center;
+    }
+    
+    .error-message.visible {
+      display: block;
     }
 
     .select-selected:after {
@@ -1128,7 +1150,7 @@
           <div class="hero-actions">
             <div class="program-selector">
               <div class="custom-select">
-                <div class="select-selected">AI in Business Strategy &amp; Digital Transformation</div>
+                <div class="select-selected">Wählen Sie Ihren Track</div>
                 <div class="select-items select-hide">
                   <div class="select-category">Einzelseminare</div>
                   <div class="select-item" data-value="programm-seite.html">AI in Business Strategy &amp; Digital Transformation</div>
@@ -1142,7 +1164,7 @@
                 </div>
               </div>
             </div>
-            <a href="programm-seite.html" class="hero-btn hero-btn-primary" id="program-link">
+            <a href="#" class="hero-btn hero-btn-primary" id="program-link">
               Programm entdecken <span class="arrow-icon">→</span>
             </a>
           </div>
@@ -1699,12 +1721,49 @@
       const selectedElement = selectElement.querySelector('.select-selected');
       const items = selectElement.querySelector('.select-items');
       const programLink = document.getElementById('program-link');
+      const programSelector = document.querySelector('.program-selector');
+      
+      // Add error message element before the custom-select
+      const errorMessage = document.createElement('div');
+      errorMessage.className = 'error-message';
+      errorMessage.textContent = 'Wählen Sie einen Track aus';
+      // Insert as first child of program-selector
+      programSelector.insertBefore(errorMessage, programSelector.firstChild);
+      
+      // No additional padding needed - the absolute positioning won't affect layout
+      
+      // Set default state
+      let trackSelected = false;
+      programLink.addEventListener('click', function(e) {
+        // Check if default option is selected
+        if (!trackSelected) {
+          e.preventDefault(); // Prevent navigation
+          
+          // Show error styling
+          selectedElement.classList.add('error');
+          errorMessage.classList.add('visible');
+          
+          // Show dropdown
+          items.classList.remove('select-hide');
+          selectedElement.classList.add('select-arrow-active');
+          
+          // Remove error styling after 3 seconds
+          setTimeout(() => {
+            selectedElement.classList.remove('error');
+            errorMessage.classList.remove('visible');
+          }, 3000);
+        }
+      });
       
       // Toggle Select Dropdown
       selectedElement.addEventListener('click', function(e) {
         e.stopPropagation();
         this.classList.toggle('select-arrow-active');
         items.classList.toggle('select-hide');
+        
+        // Remove error styling when dropdown is opened
+        selectedElement.classList.remove('error');
+        errorMessage.classList.remove('visible');
         
         // Ensure dropdown is fully visible
         const dropdown = items;
@@ -1734,9 +1793,16 @@
           // Update program link
           programLink.href = this.getAttribute('data-value');
           
+          // Mark as selected
+          trackSelected = true;
+          
           // Hide dropdown
           items.classList.add('select-hide');
           selectedElement.classList.remove('select-arrow-active');
+          
+          // Remove any error styling
+          selectedElement.classList.remove('error');
+          errorMessage.classList.remove('visible');
         });
       });
       
