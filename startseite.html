@@ -431,12 +431,14 @@
     .select-items {
       position: absolute;
       background-color: white;
-      top: calc(100% + 8px);
+      top: auto;
+      bottom: calc(100% + 8px);
       left: 0;
       right: 0;
       z-index: 99;
       border-radius: 8px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
       max-height: 300px;
       overflow-y: auto;
       text-align: left;
@@ -1129,6 +1131,16 @@
       pointer-events: none;
     }
 
+    /* Teal-Farbe für Programme-Kategorie im Dropdown */
+    .select-category:nth-child(5) {
+      color: #17a689;
+    }
+
+    /* Direktes Ansprechen der Programm-Kategorie über Klasse */
+    .programme-category {
+      color: #17a689 !important;
+    }
+
     .select-category:not(:first-child) {
       margin-top: 8px;
       border-top: 1px solid #eee;
@@ -1150,6 +1162,15 @@
       background: #17a689;
       color: white;
       border-color: #17a689;
+    }
+
+    /* Custom Select für Dropdown-Stil auf Programme */
+    .select-items .select-item:nth-child(n+6) {
+      transition: all 0.2s ease;
+    }
+    
+    .select-items .select-item:nth-child(n+6):hover {
+      color: #17a689;
     }
   </style>
 
@@ -1189,7 +1210,7 @@
                   <div class="select-item" data-value="programm-seite2.html">xAI-Augmented Decision Making</div>
                   <div class="select-item" data-value="programm-seite3.html">xAI in Financial Analytics</div>
                   <div class="select-item" data-value="programm-seite4.html">xAI-driven Marketing &amp; Customer Analytics</div>
-                  <div class="select-category">Programme</div>
+                  <div class="select-category programme-category">Programme</div>
                   <div class="select-item" data-value="programm-seite4.html">StGallen imt xAI Management Programm</div>
                   <div class="select-item" data-value="programm-seite4.html">StGallen imt xAI Certified Management CAS</div>
                   <div class="select-item" data-value="programm-seite4.html">StGallen Fast‑Track xAI Programm</div>
@@ -1762,8 +1783,6 @@
       // Insert as first child of program-selector
       programSelector.insertBefore(errorMessage, programSelector.firstChild);
       
-      // No additional padding needed - the absolute positioning won't affect layout
-      
       // Set default state
       let trackSelected = false;
       programLink.addEventListener('click', function(e) {
@@ -1797,21 +1816,19 @@
         selectedElement.classList.remove('error');
         errorMessage.classList.remove('visible');
         
-        // Ensure dropdown is fully visible
+        // Ensure dropdown is fully visible when opening upwards
         const dropdown = items;
-        const dropdownRect = dropdown.getBoundingClientRect();
-        const viewportHeight = window.innerHeight;
-        
-        // Check if dropdown extends beyond viewport
-        if (dropdownRect.bottom > viewportHeight) {
-          // Position above if not enough space below
-          if (dropdownRect.height < dropdownRect.top) {
-            dropdown.style.top = 'auto';
-            dropdown.style.bottom = 'calc(100% + 8px)';
-          } else {
-            // Otherwise just make sure it's scrollable and not too tall
-            dropdown.style.maxHeight = Math.min(300, viewportHeight - dropdownRect.top - 20) + 'px';
-          }
+        if (!dropdown.classList.contains('select-hide')) {
+            // Reset any previous height limit
+            dropdown.style.maxHeight = '';
+            
+            // Check if dropdown would extend beyond the top of the viewport
+            const dropdownRect = dropdown.getBoundingClientRect();
+            if (dropdownRect.top < 0) {
+                dropdown.style.maxHeight = `${window.innerHeight - 50}px`;
+                dropdown.style.bottom = 'auto';
+                dropdown.style.top = 'calc(100% + 8px)'; // Revert to opening downward
+            }
         }
       });
       
