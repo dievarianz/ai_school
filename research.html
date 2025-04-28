@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Research | imtxAI Business School</title>
+
+  <!-- ============ STYLES ============ -->
+  <style>
+    :root{
+      --font-sans:-apple-system,BlinkMacSystemFont,"San Francisco","Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+      --color-text:#1d1d1f;
+      --color-muted:#6e6e73;
+      --color-card-bg:#f5f5f7;
+      --color-accent2:#970289;
+      --color-badge:#e2b245;
+      --color-badge-hover:#d4a535;
+      --spacing:24px;
+      --radius:16px;
+      --max-width:1200px;
+      --imt-purple: #6e45e2;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--color-text);
+      background: #fff;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      /* Padding für fixierte Navigation */
+      padding-top: 64px;
+      transition: padding-top 0.3s ease;
+    }
+    
+    /* When subnav is active, increase body padding */
+    body.has-subnav {
+      padding-top: 110px;
+    }
+    
+    @media (max-width: 1024px) {
+      body.has-subnav {
+        padding-top: 64px;
+      }
+    }
+
+    /* Basis Styling für Container */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--spacing);
+      width: 100%;
+    }
+
+    /* Hauptinhalt der Seite */
+    main {
+      position: relative;
+    }
+
+    /* Allgemeine Typografie */
+    h1, h2, h3, h4, h5, h6 {
+      margin-bottom: 1rem;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.25rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--imt-purple);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Hero-Sektion */
+    .hero {
+      background-color: #f5f5f7;
+      padding: 60px 0;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--color-muted);
+      max-width: 800px;
+      margin: 0 auto 2rem;
+    }
+
+    .content-section {
+      padding: 80px 0;
+    }
+
+    .content-section:first-child {
+      padding-top: 50px;
+    }
+
+    .content-section h2 {
+      text-align: left;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .section-subtitle {
+      color: var(--color-muted);
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+      text-align: left;
+      max-width: 800px;
+      margin-left: 0;
+      margin-right: auto;
+    }
+
+    /* Support Cards */
+    .support-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+      margin-bottom: 60px;
+    }
+
+    /* Card styling for both div and a versions */
+    .support-card {
+      background: var(--color-card-bg);
+      padding: 30px;
+      border-radius: var(--radius);
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      cursor: pointer;
+      text-decoration: none; /* Ensure links don't have underlines */
+      color: inherit; /* Inherit text color instead of link color */
+    }
+
+    .support-card:hover {
+      border-color: var(--color-accent2);
+    }
+
+    .support-card i {
+      font-size: 32px;
+      margin-bottom: 16px;
+      color: var(--imt-purple);
+    }
+    
+    .support-card h3 {
+      margin-bottom: 12px;
+      font-size: 1.2rem;
+    }
+
+    .support-card p {
+      color: var(--color-muted);
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+
+    .support-card a {
+      margin-top: auto;
+      display: inline-flex;
+      align-items: center;
+      color: var(--imt-purple);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .support-card a:hover {
+      text-decoration: none !important;
+    }
+    
+    .support-card a i {
+      font-size: 1rem;
+      margin-left: 6px;
+      margin-bottom: 0;
+      transition: transform 0.2s ease;
+      transform: translateY(1px);
+      display: inline-block;
+    }
+    
+    .support-card a:hover i {
+      transform: translateX(4px) translateY(1px);
+    }
+    
+    .support-card-link {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      border-radius: var(--radius);
+    }
+
+    /* Ensure the support-card-link is clickable */
+    .support-card {
+      position: relative;
+      cursor: pointer;
+    }
+    
+    .support-card > *:not(.support-card-link) {
+      pointer-events: none;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .support-card-link {
+      z-index: 3;
+    }
+    
+    /* Allow clicks on the "Mehr erfahren" link while keeping card clickable */
+    .support-card .more-link {
+      pointer-events: auto;
+    }
+
+    /* FAQ Styles */
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      margin-bottom: 16px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--color-card-bg);
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .faq-item:hover {
+      border-color: var(--color-accent2);
+    }
+
+    .faq-question {
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-weight: 600;
+      position: relative;
+    }
+
+    .faq-question i {
+      font-size: 24px;
+      transition: transform 0.3s ease;
+      color: var(--imt-purple);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      padding: 0 24px;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+      padding: 0 24px 24px;
+    }
+
+    .faq-item.active .faq-question i {
+      transform: rotate(180deg);
+    }
+
+    /* Category Tabs */
+    .faq-tabs {
+      display: flex;
+      justify-content: flex-start;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .faq-tab {
+      padding: 8px 20px;
+      margin: 0 8px 8px;
+      background: transparent;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      color: var(--color-text);
+      background: var(--color-card-bg);
+    }
+
+    .faq-tab.active {
+      background: var(--imt-purple);
+      color: white;
+    }
+
+    .faq-tab:hover:not(.active) {
+      background: #e8e8e8;
+    }
+
+    /* Contact Support Section */
+    .support-cta {
+      text-align: left;
+      margin-top: 60px;
+      padding: 40px;
+      background: var(--color-card-bg);
+      border-radius: var(--radius);
+    }
+
+    .support-cta h3 {
+      font-size: 1.3rem;
+      margin-bottom: 16px;
+    }
+
+    .support-cta p {
+      margin-bottom: 24px;
+      max-width: 600px;
+      margin-left: 0;
+      margin-right: auto;
+    }
+
+    .cta-button {
+      background: linear-gradient(to right, var(--imt-purple), #9c27b0);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 24px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(106, 69, 226, 0.2);
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.75rem;
+      }
+
+      h3 {
+        font-size: 1.25rem;
+      }
+
+      .container {
+        padding: 0 16px;
+      }
+      
+      .support-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .faq-tabs {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .faq-tab {
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 8px;
+      }
+    }
+
+    /* Style for "Mehr erfahren" link/span */
+    .more-link {
+      margin-top: auto;
+      display: inline-flex;
+      align-items: center;
+      color: var(--imt-purple);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      position: relative;
+    }
+    
+    .support-card:hover .more-link {
+      text-decoration: none !important;
+    }
+    
+    .more-link i {
+      font-size: 1rem;
+      margin-left: 6px;
+      margin-bottom: 0;
+      transition: transform 0.2s ease;
+      transform: translateY(1px);
+      display: inline-block;
+    }
+    
+    .support-card:hover .more-link i {
+      transform: translateX(4px) translateY(1px);
+    }
+
+    /* Ensure no text is underlined in cards */
+    a.support-card,
+    a.support-card:hover,
+    a.support-card:focus {
+      text-decoration: none !important;
+    }
+    
+    a.support-card h3,
+    a.support-card p,
+    a.support-card span,
+    a.support-card * {
+      text-decoration: none !important;
+    }
+    
+    a.support-card:hover h3,
+    a.support-card:hover p,
+    a.support-card:hover span,
+    a.support-card:hover * {
+      text-decoration: none !important;
+    }
+  </style>
+
+  <!-- BoxIcons für Icons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <!-- Font Awesome für die Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+</head>
+<body>
+  <!-- Dynamisches Laden der Navigation -->
+  <div id="navigation-container"></div>
+  
+  <!-- Sidebar einbinden -->
+  <div id="sidebar-container"></div>
+
+  <!-- Hauptinhalt -->
+  <main>
+    <!-- Support-Kategorien -->
+    <section class="content-section">
+      <div class="container">
+        <h2>St. Gallen imt Business School Research</h2>
+        <p class="section-subtitle">Wählen Sie aus einer unserer Support-Kategorien oder durchsuchen Sie unsere häufig gestellten Fragen.</p>
+        
+        <div class="support-grid">
+          <!-- Karte 1: Über St. Gallen IMT -->
+          <a href="support_aboutimt.html" class="support-card">
+            <i class='bx bx-laptop'></i>
+            <h3>Über St. Gallen IMT</h3>
+            <p>Unsere Geschichte, Mission und Vision der KI-Weiterbildung.</p>
+            <span class="more-link">Mehr erfahren <i class='bx bx-right-arrow-alt'></i></span>
+          </a>
+          
+          <!-- Karte 2: Kursinformationen -->
+          <a href="support_kursinformationen.html" class="support-card">
+            <i class='bx bx-book-open'></i>
+            <h3>Kursinformationen</h3>
+            <p>Informationen zu Kursinhalten, Materialien und Lernfortschritt.</p>
+            <span class="more-link">Mehr erfahren <i class='bx bx-right-arrow-alt'></i></span>
+          </a>
+          
+          <!-- Karte 3: Ansprechpartner -->
+          <a href="support_ansprechpartner.html" class="support-card">
+            <i class='bx bx-calendar-check'></i>
+            <h3>Ansprechpartner</h3>
+            <p>Ihre Kontaktpersonen für Beratung, Anmeldung und Studium.</p>
+            <span class="more-link">Mehr erfahren <i class='bx bx-right-arrow-alt'></i></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ-Bereich -->
+    <section class="content-section" id="faq">
+      <div class="container">
+        <h2>Häufig gestellte Fragen</h2>
+        <p class="section-subtitle">Hier finden Sie schnelle Antworten auf die am häufigsten gestellten Fragen.</p>
+        
+        <div class="faq-tabs">
+          <button class="faq-tab active" data-category="all">Alle Fragen</button>
+          <button class="faq-tab" data-category="admission">Anmeldung & Zulassung</button>
+          <button class="faq-tab" data-category="courses">Kursangebot</button>
+          <button class="faq-tab" data-category="payment">Zahlung & Förderung</button>
+          <button class="faq-tab" data-category="certificate">Abschluss & Zertifikate</button>
+        </div>
+        
+        <div class="faq-container">
+          <!-- FAQ Item 1 -->
+          <div class="faq-item" data-category="admission">
+            <div class="faq-question">
+              Welche Voraussetzungen muss ich für die Teilnahme erfüllen?
+              <i class='bx bx-chevron-down'></i>
+            </div>
+            <div class="faq-answer">
+              <p>Für die Teilnahme an unseren Executive Seminaren sind in der Regel mindestens 3 Jahre Berufserfahrung sowie eine Führungsposition oder angestrebte Führungsrolle erforderlich. Für spezifische Programme können weitere Voraussetzungen gelten. Detaillierte Informationen finden Sie auf der jeweiligen Programmseite oder kontaktieren Sie unser Zulassungsteam.</p>
+            </div>
+          </div>
+          
+          <!-- FAQ Item 2 -->
+          <div class="faq-item" data-category="admission">
+            <div class="faq-question">
+              Wie läuft der Bewerbungsprozess ab?
+              <i class='bx bx-chevron-down'></i>
+            </div>
+            <div class="faq-answer">
+              <p>Der Bewerbungsprozess besteht aus folgenden Schritten:</p>
+              <ol>
+                <li>Online-Bewerbung über unsere Website mit Lebenslauf und Motivationsschreiben</li>
+                <li>Prüfung Ihrer Unterlagen durch unser Zulassungskomitee</li>
+                <li>Bei positiver Vorauswahl: Einladung zum persönlichen oder virtuellen Interview</li>
+                <li>Zulassungsentscheidung und Zusendung der Anmeldeunterlagen</li>
+                <li>Bestätigung Ihrer Teilnahme durch Zahlung der Anmeldegebühr</li>
+              </ol>
+              <p>Der gesamte Prozess dauert in der Regel 2-3 Wochen.</p>
+            </div>
+          </div>
+          
+          <!-- FAQ Item 3 -->
+          <div class="faq-item" data-category="courses">
+            <div class="faq-question">
+              Werden die Kurse in Präsenz oder online angeboten?
+              <i class='bx bx-chevron-down'></i>
+            </div>
+            <div class="faq-answer">
+              <p>Wir bieten je nach Programm verschiedene Formate an:</p>
+              <ul>
+                <li><strong>Präsenzformate:</strong> Intensive Lernerfahrung vor Ort mit direktem Austausch und Networking</li>
+                <li><strong>Hybridformate:</strong> Kombination aus Präsenz- und Onlinephasen für maximale Flexibilität</li>
+                <li><strong>Online-Formate:</strong> Vollständig digitale Programme mit interaktiven Live-Sessions</li>
+              </ul>
+              <p>Detaillierte Informationen zum Format finden Sie auf der jeweiligen Programmseite.</p>
+            </div>
+          </div>
+          
+          <!-- FAQ Item 4 -->
+          <div class="faq-item" data-category="courses">
+            <div class="faq-question">
+              Wie sind die Programme zeitlich strukturiert?
+              <i class='bx bx-chevron-down'></i>
+            </div>
+            <div class="faq-answer">
+              <p>Unsere Programme sind berufsbegleitend konzipiert und bieten verschiedene zeitliche Strukturen:</p>
+              <ul>
+                <li><strong>Executive Seminare:</strong> Kompakte 2-5 Tage Intensivseminare</li>
+                <li><strong>Zertifikatsprogramme:</strong> Modulare Programme über 3-6 Monate mit monatlichen Modulen</li>
+                <li><strong>Executive Education Programme:</strong> Längere Programme über 9-12 Monate mit flexiblen Lernphasen</li>
+              </ul>
+              <p>Die genauen Termine werden frühzeitig bekannt gegeben, sodass Sie Ihre beruflichen Verpflichtungen entsprechend planen können.</p>
+            </div>
+          </div>
+          
+          <!-- FAQ Item 5 -->
+          <div class="faq-item" data-category="payment">
+            <div class="faq-question">
+              Welche Zahlungsmöglichkeiten gibt es?
+              <i class='bx bx-chevron-down'></i>
+            </div>
+            <div class="faq-answer">
+              <p>Wir bieten folgende Zahlungsmöglichkeiten an:</p>
+              <ul>
+                <li>Einmalzahlung (mit Frühbucherrabatt)</li>
+                <li>Ratenzahlung (in 2-4 Raten je nach Programm)</li>
+                <li>Rechnungsstellung an Ihr Unternehmen</li>
+              </ul>
+              <p>Alle Zahlungen können per Überweisung oder Kreditkarte erfolgen. Bei Fragen zu individuellen Zahlungsvereinbarungen kontaktieren Sie bitte unser Finanzteam.</p>
+            </div>
+          </div>
+          
+          <!-- FAQ Item 6 -->
+          <div class="faq-item" data-category="payment">
+            <div class="faq-question">
+              Gibt es Fördermöglichkeiten oder Stipendien?
+              <i class='bx bx-chevron-down'></i>
+            </div>
+            <div class="faq-answer">
+              <p>Ja, wir bieten verschiedene Fördermöglichkeiten:</p>
+              <ul>
+                <li><strong>Stipendien für Führungskräfte:</strong> Leistungsbasierte Teilstipendien für herausragende Kandidaten</li>
+                <li><strong>Diversity-Stipendien:</strong> Zur Förderung von Diversität in Führungspositionen</li>
+                <li><strong>Unternehmensrabatte:</strong> Bei Anmeldung mehrerer Teilnehmer aus einem Unternehmen</li>
+              </ul>
+              <p>Zudem können unsere Programme in vielen Fällen steuerlich abgesetzt werden. Für persönliche Beratung zu Fördermöglichkeiten kontaktieren Sie bitte unser Beratungsteam.</p>
+            </div>
+          </div>
+          
+          <!-- FAQ Item 7 -->
+          <div class="faq-item" data-category="certificate">
+            <div class="faq-question">
+              Welche Abschlüsse und Zertifikate erhalte ich?
+              <i class='bx bx-chevron-down'></i>
+            </div>
+            <div class="faq-answer">
+              <p>Je nach Programm erhalten Sie folgende Abschlüsse:</p>
+              <ul>
+                <li><strong>Teilnahmezertifikat:</strong> Für Executive Seminare mit Bestätigung der behandelten Inhalte</li>
+                <li><strong>Executive Certificate:</strong> Nach erfolgreichem Abschluss eines Zertifikatsprogramms mit Credit Points</li>
+                <li><strong>Executive Diploma:</strong> Nach Abschluss umfassenderer Programme mit Prüfungsleistungen</li>
+              </ul>
+              <p>Alle Zertifikate werden von der imtxAI Business School in Zusammenarbeit mit der Universität St. Gallen ausgestellt und sind international anerkannt.</p>
+            </div>
+          </div>
+          
+          <!-- FAQ Item 8 -->
+          <div class="faq-item" data-category="certificate">
+            <div class="faq-question">
+              Sind die Abschlüsse international anerkannt?
+              <i class='bx bx-chevron-down'></i>
+            </div>
+            <div class="faq-answer">
+              <p>Ja, alle unsere Abschlüsse und Zertifikate sind international anerkannt. Die imtxAI Business School arbeitet eng mit der Universität St. Gallen zusammen, die weltweit zu den renommiertesten Wirtschaftsuniversitäten zählt. Unsere Programme entsprechen internationalen Qualitätsstandards und werden regelmäßig akkreditiert.</p>
+              <p>Die erworbenen Kompetenzen können in vielen Fällen auch als Credit Points für weiterführende akademische Programme angerechnet werden. Details zur Anrechenbarkeit erfahren Sie bei unserem akademischen Beratungsteam.</p>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- Kontakt-CTA -->
+    <section class="content-section">
+      <div class="container">
+        <div class="support-cta">
+          <h3>Ihre Frage nicht gefunden?</h3>
+          <p>Unser Support-Team steht Ihnen jederzeit zur Verfügung, um Ihre individuellen Fragen zu beantworten und Sie zu unterstützen.</p>
+          <a href="kontakt.html" class="cta-button">Kontakt aufnehmen</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer einbinden -->
+  <div id="footer-container"></div>
+
+  <!-- Dynamisches Laden der globalen Komponenten -->
+  <script>
+    // Navigation laden
+    fetch('components/globals/navigation_ohnesub.html?t=' + new Date().getTime())
+      .then(response => {
+        if (!response.ok) {
+          console.error('Fehler beim Laden der Navigation:', response.status);
+          // Fallback zum includes-Verzeichnis versuchen
+          return fetch('components/includes/navigation_ohnesub.html?t=' + new Date().getTime())
+            .then(resp => {
+              if (!resp.ok) {
+                console.error('Auch includes-Pfad fehlgeschlagen:', resp.status);
+                return '';
+              }
+              return resp.text();
+            });
+        }
+        return response.text();
+      })
+      .then(data => {
+        console.log('Navigation geladen');
+        if (data) {
+          document.getElementById('navigation-container').innerHTML = data;
+          
+          // Mobile Navigation initialisieren (neu)
+          const navScript = document.createElement('script');
+          navScript.src = 'assets/js/mobile-nav.js?t=' + new Date().getTime();
+          document.body.appendChild(navScript);
+          
+          // Research-Link als aktiv markieren
+          setTimeout(() => {
+            document.querySelectorAll('.nav-link').forEach(link => {
+              if (link.textContent.trim() === 'Research') {
+                console.log('Aktiviere Research-Link:', link);
+                link.classList.add('active');
+              }
+            });
+          }, 200);
+        }
+      })
+      .catch(error => console.error('Fehler beim Laden der Navigation:', error));
+
+    // Sidebar laden
+    fetch('components/globals/sidebar.html?t=' + new Date().getTime())
+      .then(response => {
+        if (!response.ok) {
+          console.error('Fehler beim Laden der Sidebar:', response.status);
+          // Fallback zum includes-Verzeichnis versuchen
+          return fetch('components/includes/sidebar.html?t=' + new Date().getTime())
+            .then(resp => {
+              if (!resp.ok) {
+                console.error('Auch includes-Pfad fehlgeschlagen:', resp.status);
+                return '';
+              }
+              return resp.text();
+            });
+        }
+        return response.text();
+      })
+      .then(data => {
+        console.log('Sidebar geladen');
+        if (data) document.getElementById('sidebar-container').innerHTML = data;
+      })
+      .catch(error => console.error('Fehler beim Laden der Sidebar:', error));
+
+    // Footer laden
+    fetch('components/globals/footer.html?t=' + new Date().getTime())
+      .then(response => {
+        if (!response.ok) {
+          console.error('Fehler beim Laden des Footers:', response.status);
+          // Fallback zum includes-Verzeichnis versuchen
+          return fetch('components/includes/footer.html?t=' + new Date().getTime())
+            .then(resp => {
+              if (!resp.ok) {
+                console.error('Auch includes-Pfad fehlgeschlagen:', resp.status);
+                return '';
+              }
+              return resp.text();
+            });
+        }
+        return response.text();
+      })
+      .then(data => {
+        console.log('Footer geladen');
+        if (data) document.getElementById('footer-container').innerHTML = data;
+      })
+      .catch(error => console.error('Fehler beim Laden des Footers:', error));
+  </script>
+
+  <!-- FAQ-Tab und Accordion Funktionalität -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // FAQ Accordion Funktionalität
+      const faqItems = document.querySelectorAll('.faq-item');
+      
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        
+        question.addEventListener('click', () => {
+          // Toggle aktives Accordion-Item
+          const isActive = item.classList.contains('active');
+          
+          // Schließe alle aktiven Elemente
+          faqItems.forEach(faqItem => {
+            faqItem.classList.remove('active');
+          });
+          
+          // Öffne das geklickte Element, wenn es nicht bereits aktiv war
+          if (!isActive) {
+            item.classList.add('active');
+          }
+        });
+      });
+      
+      // FAQ Tabs Funktionalität
+      const faqTabs = document.querySelectorAll('.faq-tab');
+      
+      faqTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          // Aktiver Tab-Status
+          faqTabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          
+          const category = tab.getAttribute('data-category');
+          
+          // Filtern der FAQ-Items
+          faqItems.forEach(item => {
+            if (category === 'all' || item.getAttribute('data-category') === category) {
+              item.style.display = 'block';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+  </script>
+
+  <!-- Script zur Aktivierung des aktuellen Menüpunkts -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('Research-Seite geladen, markiere Research-Link als aktiv');
+      
+      // Wir verwenden ein Interval, um sicherzustellen, dass die Navigation geladen ist
+      let attempts = 0;
+      const maxAttempts = 50; // 5 Sekunden bei 100ms Interval
+      
+      const checkAndActivate = setInterval(function() {
+        attempts++;
+        
+        // Alle Navigationslinks finden
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        if (navLinks.length > 0) {
+          console.log('Navigationslinks gefunden, suche nach Research-Link');
+          
+          // Entferne die active-Klasse von allen Links
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+          });
+          
+          // Setze die active-Klasse für den Research-Link
+          let researchLinkFound = false;
+          navLinks.forEach(link => {
+            if (link.textContent.trim() === 'Research') {
+              console.log('Research-Link gefunden:', link);
+              link.classList.add('active');
+              researchLinkFound = true;
+            }
+          });
+          
+          if (researchLinkFound) {
+            // Interval stoppen, wenn alles erledigt ist
+            clearInterval(checkAndActivate);
+          } else if (attempts >= maxAttempts) {
+            console.error('Research-Link konnte nach mehreren Versuchen nicht gefunden werden');
+            clearInterval(checkAndActivate);
+          }
+        } else if (attempts >= maxAttempts) {
+          console.error('Navigationslinks konnten nach mehreren Versuchen nicht gefunden werden');
+          clearInterval(checkAndActivate);
+        }
+      }, 100);
+    });
+  </script>
+</body>
+</html> 

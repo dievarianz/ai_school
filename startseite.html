@@ -1156,6 +1156,24 @@
       border: 2px solid #17a689;
     }
 
+    /* Purple Border bei Hover für Managementseminare */
+    .track-card[data-category="managementseminare"]:hover {
+      border: 2px solid var(--imt-purple);
+    }
+
+    /* Purple Button Hover für Managementseminare Filter */
+    .tracks-variant-3 .filter-btn[data-filter="managementseminare"]:hover {
+      border-color: var(--imt-purple);
+      color: var(--imt-purple);
+    }
+
+    /* Purple Active Button für Managementseminare Filter */
+    .tracks-variant-3 .filter-btn[data-filter="managementseminare"].active {
+      background: var(--imt-purple);
+      color: white;
+      border-color: var(--imt-purple);
+    }
+
     /* Teal Button Hover für Programme Filter */
     .tracks-variant-3 .filter-btn[data-filter="programme"]:hover {
       border-color: #17a689;
@@ -1243,22 +1261,22 @@
       <div class="container">
         <div class="tracks-header">
           <h2 class="tracks-title">Unsere Tracks</h2>
-          <p class="tracks-subtitle">Entdecken Sie unsere praxisorientierten Einzelseminare und Programme, die Management-Know-how mit KI-Kompetenz verbinden</p>
+          <p class="tracks-subtitle">Entdecken Sie unsere praxisorientierten Managementseminare und Programme, die Management-Know-how mit KI-Kompetenz verbinden</p>
         </div>
         
         <div class="track-filters">
           <button class="filter-btn active" data-filter="alle">Alle</button>
-          <button class="filter-btn" data-filter="einzelseminare">Einzelseminare</button>
+          <button class="filter-btn" data-filter="managementseminare">Managementseminare</button>
           <button class="filter-btn" data-filter="programme">Programme</button>
         </div>
         
         <div class="tracks-container">
           <div class="scroll-container">
             <!-- Card 1 -->
-            <div class="track-card" data-category="einzelseminare">
+            <div class="track-card" data-category="managementseminare">
               <a href="programm-seite.html" class="card-link" aria-label="AI in Business Strategy & Transformation Details"></a>
               <div class="card-header">
-                <span class="track-category category-strategy">Einzelseminar</span>
+                <span class="track-category category-strategy">Managementseminar</span>
                 <h3 class="track-title">AI in Business Strategy & Transformation</h3>
               </div>
               <div class="card-body">
@@ -1282,10 +1300,10 @@
             </div>
             
             <!-- Card 2 -->
-            <div class="track-card" data-category="einzelseminare">
+            <div class="track-card" data-category="managementseminare">
               <a href="programm-seite.html" class="card-link" aria-label="Intelligent Financial Analytics Details"></a>
               <div class="card-header">
-                <span class="track-category category-strategy">Einzelseminar</span>
+                <span class="track-category category-strategy">Managementseminar</span>
                 <h3 class="track-title">Intelligent Financial Analytics</h3>
               </div>
               <div class="card-body">
@@ -1309,10 +1327,10 @@
             </div>
             
             <!-- Card 3 -->
-            <div class="track-card" data-category="einzelseminare">
+            <div class="track-card" data-category="managementseminare">
               <a href="programm-seite.html" class="card-link" aria-label="Intelligent Marketing & Customer Analytics Details"></a>
               <div class="card-header">
-                <span class="track-category category-strategy">Einzelseminar</span>
+                <span class="track-category category-strategy">Managementseminar</span>
                 <h3 class="track-title">Intelligent Marketing & Customer Analytics</h3>
               </div>
               <div class="card-body">
@@ -1336,10 +1354,10 @@
             </div>
             
             <!-- Card 4 -->
-            <div class="track-card" data-category="einzelseminare">
+            <div class="track-card" data-category="managementseminare">
               <a href="programm-seite.html" class="card-link" aria-label="AI & ML Fundamentals für Manager Details"></a>
               <div class="card-header">
-                <span class="track-category category-strategy">Einzelseminar</span>
+                <span class="track-category category-strategy">Managementseminar</span>
                 <h3 class="track-title">AI & ML Fundamentals für Manager</h3>
               </div>
               <div class="card-body">
@@ -1363,10 +1381,10 @@
             </div>
             
             <!-- Card 5 -->
-            <div class="track-card" data-category="einzelseminare">
+            <div class="track-card" data-category="managementseminare">
               <a href="programm-seite.html" class="card-link" aria-label="AI Leadership & Change Management Details"></a>
               <div class="card-header">
-                <span class="track-category category-strategy">Einzelseminar</span>
+                <span class="track-category category-strategy">Managementseminar</span>
                 <h3 class="track-title">AI Leadership & Change Management</h3>
               </div>
               <div class="card-body">
@@ -1639,36 +1657,33 @@
     document.addEventListener('DOMContentLoaded', function() {
       // Track scroll functionality
       const scrollContainer = document.querySelector('.tracks-variant-3 .scroll-container');
-      const scrollLeftBtn = document.getElementById('scroll-left');
-      const scrollRightBtn = document.getElementById('scroll-right');
+      const scrollLeftBtn = document.querySelector('.scroll-left');
+      const scrollRightBtn = document.querySelector('.scroll-right');
       
       if (scrollContainer && scrollLeftBtn && scrollRightBtn) {
-        // Dynamisch die Kartenbreite berechnen
+        // Dynamische Berechnung der Scroll-Menge basierend auf der Viewport-Breite
         const calculateScrollAmount = () => {
-          // Für mobile Geräte - volle Breite einer Karte
+          // Auf mobilen Geräten präziser scrollen
           if (window.innerWidth <= 768) {
-            const card = scrollContainer.querySelector('.track-card');
-            const cardWidth = card.offsetWidth;
-            const cardMargin = parseInt(window.getComputedStyle(card).marginRight) || 0;
-            // Scroll um die volle Breite einer Karte plus etwas Abstand
-            return cardWidth + cardMargin + 30; // Extra Padding damit die nächste Karte vollständig sichtbar ist
+            // Mobile: Eine Card pro Scroll
+            return scrollContainer.querySelector('.track-card').offsetWidth + 16;
           } else {
-            // Auf Desktop den ursprünglichen Wert verwenden
-            return 375;
+            // Desktop: Zwei Cards pro Scroll
+            return (scrollContainer.querySelector('.track-card').offsetWidth + 16) * 2;
           }
         };
         
-        // Prüfen ob Scrollen möglich ist
-        const updateScrollButtons = function() {
-          // Prüfen ob nach links gescrollt werden kann
+        // Überprüfung, ob die Scroll-Buttons aktiviert oder deaktiviert sein sollten
+        const updateScrollButtons = () => {
+          const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+          
           if (scrollContainer.scrollLeft <= 0) {
             scrollLeftBtn.classList.add('disabled');
           } else {
             scrollLeftBtn.classList.remove('disabled');
           }
           
-          // Prüfen ob nach rechts gescrollt werden kann
-          if (scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth - 10) {
+          if (scrollContainer.scrollLeft >= maxScrollLeft - 5) {
             scrollRightBtn.classList.add('disabled');
           } else {
             scrollRightBtn.classList.remove('disabled');
