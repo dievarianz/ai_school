@@ -501,6 +501,11 @@
     .then(data => {
       if (data) {
         document.getElementById('navigation-container').innerHTML = data;
+        
+        // Mobile Navigation initialisieren
+        const navScript = document.createElement('script');
+        navScript.src = 'assets/js/mobile-nav.js?t=' + new Date().getTime();
+        document.body.appendChild(navScript);
       }
     })
     .catch(error => console.error('Fehler beim Laden der Navigation:', error));
