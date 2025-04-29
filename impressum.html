@@ -257,12 +257,12 @@
     .catch(error => console.error('Fehler beim Laden der Navigation:', error));
   
   // Sidebar laden
-  fetch('components/globals/sidebar.html?t=' + new Date().getTime())
+  fetch('components/globals/sidebar_other.html?t=' + new Date().getTime())
     .then(response => {
       if (!response.ok) {
         console.error('Fehler beim Laden der Sidebar:', response.status);
         // Fallback zum globals-Verzeichnis versuchen
-        return fetch('components/includes/sidebar.html?t=' + new Date().getTime())
+        return fetch('components/includes/sidebar_other.html?t=' + new Date().getTime())
           .then(resp => {
             if (!resp.ok) {
               console.error('Auch globals-Pfad fehlgeschlagen:', resp.status);

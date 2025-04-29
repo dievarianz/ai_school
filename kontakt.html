@@ -355,6 +355,9 @@
 <body>
   <!-- Navigation einbinden -->
   <div id="navigation-container"></div>
+  
+  <!-- Sidebar einbinden -->
+  <div id="sidebar-container"></div>
 
   <!-- Hauptinhalt -->
   <main>
@@ -584,6 +587,29 @@
         }
       })
       .catch(error => console.error('Fehler beim Laden der Navigation:', error));
+
+    // Sidebar laden
+    fetch('components/globals/sidebar_other.html?t=' + new Date().getTime())
+      .then(response => {
+        if (!response.ok) {
+          console.error('Fehler beim Laden der Sidebar:', response.status);
+          // Fallback zum includes-Verzeichnis versuchen
+          return fetch('components/includes/sidebar_other.html?t=' + new Date().getTime())
+            .then(resp => {
+              if (!resp.ok) {
+                console.error('Auch includes-Pfad fehlgeschlagen:', resp.status);
+                return '';
+              }
+              return resp.text();
+            });
+        }
+        return response.text();
+      })
+      .then(data => {
+        console.log('Sidebar geladen');
+        if (data) document.getElementById('sidebar-container').innerHTML = data;
+      })
+      .catch(error => console.error('Fehler beim Laden der Sidebar:', error));
 
     // Footer laden
     fetch('components/globals/footer.html?t=' + new Date().getTime())

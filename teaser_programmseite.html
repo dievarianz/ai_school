@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>Teaser Alternativen für Programmseite</title>
+  
+  <style>
+    :root {
+      --font-sans: -apple-system, BlinkMacSystemFont, "San Francisco", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      --color-text: #1d1d1f;
+      --imt-purple: #6e45e2;
+      --spacing: 24px;
+      --radius: 16px;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: var(--font-sans);
+      color: var(--color-text);
+      line-height: 1.5;
+      padding: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    h1 {
+      margin-bottom: 30px;
+      font-size: 1.8rem;
+      text-align: center;
+    }
+    
+    .teaser-examples {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+    
+    .teaser-option {
+      border: 1px solid #eee;
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    
+    .teaser-option h2 {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      color: var(--imt-purple);
+    }
+    
+    .teaser-preview {
+      background-color: #f5f5f7;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    
+    .teaser-code {
+      background-color: #f5f5f7;
+      padding: 15px;
+      border-radius: 8px;
+      font-family: monospace;
+      font-size: 14px;
+      white-space: pre-wrap;
+      overflow-x: auto;
+    }
+    
+    /* Teaser-Stile */
+    .teaser-ribbon {
+      background-color: var(--imt-purple);
+      color: white;
+      text-align: center;
+      padding: 8px 15px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 15px;
+      border-radius: 4px;
+    }
+    
+    .teaser-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--imt-purple), #9c27b0);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .teaser-alert {
+      display: flex;
+      align-items: center;
+      background-color: rgba(110, 69, 226, 0.1);
+      border-left: 3px solid var(--imt-purple);
+      padding: 8px 12px;
+      margin-bottom: 15px;
+      font-size: 0.85rem;
+    }
+    
+    .teaser-alert i {
+      margin-right: 8px;
+      color: var(--imt-purple);
+    }
+    
+    .teaser-floating {
+      position: absolute;
+      top: -15px;
+      left: 0;
+      right: 0;
+      text-align: center;
+    }
+    
+    .teaser-floating span {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--imt-purple), #9c27b0);
+      color: white;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    
+    .teaser-pulse {
+      display: inline-flex;
+      align-items: center;
+      color: var(--imt-purple);
+      font-weight: 500;
+      font-size: 0.85rem;
+      margin-bottom: 15px;
+    }
+    
+    .teaser-pulse::before {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--imt-purple);
+      margin-right: 8px;
+      animation: pulse 1.5s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { opacity: 0.4; }
+      50% { opacity: 1; }
+      100% { opacity: 0.4; }
+    }
+    
+    /* Neue Teaser-Stile */
+    .teaser-corner-ribbon {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: linear-gradient(135deg, var(--imt-purple), #9c27b0);
+      color: white;
+      padding: 8px 30px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      transform: rotate(45deg) translateX(30px) translateY(-20px);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 1;
+    }
+    
+    .teaser-tag {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--imt-purple);
+      color: var(--imt-purple);
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      margin-bottom: 15px;
+    }
+    
+    .teaser-tag::before {
+      content: "";
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--imt-purple);
+      margin-right: 8px;
+    }
+    
+    .teaser-underline {
+      display: inline-block;
+      color: var(--imt-purple);
+      font-weight: 500;
+      font-size: 0.85rem;
+      margin-bottom: 15px;
+      border-bottom: 2px solid var(--imt-purple);
+      padding-bottom: 3px;
+    }
+    
+    .teaser-toast {
+      display: flex;
+      align-items: center;
+      background-color: #fff;
+      padding: 10px 15px;
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      font-size: 0.85rem;
+      margin-bottom: 15px;
+    }
+    
+    .teaser-toast-icon {
+      background-color: var(--imt-purple);
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 10px;
+      color: white;
+      font-size: 12px;
+      font-weight: bold;
+    }
+    
+    .teaser-mini-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 15px;
+    }
+    
+    .teaser-mini-bar-text {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--imt-purple);
+      padding: 0 10px;
+    }
+    
+    .teaser-mini-bar::before,
+    .teaser-mini-bar::after {
+      content: "";
+      height: 1px;
+      background-color: var(--imt-purple);
+      flex-grow: 1;
+      opacity: 0.5;
+    }
+    
+    /* New Teaser Styles */
+    .teaser-countdown {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 15px;
+      font-size: 0.85rem;
+      color: var(--imt-purple);
+      font-weight: 500;
+    }
+    
+    .teaser-countdown-box {
+      background-color: var(--imt-purple);
+      color: white;
+      width: 22px;
+      height: 22px;
+      border-radius: 4px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 2px;
+      font-size: 0.7rem;
+      font-weight: bold;
+    }
+    
+    .teaser-spotlight {
+      position: relative;
+      background: linear-gradient(120deg, rgba(110, 69, 226, 0.1), rgba(156, 39, 176, 0.1));
+      border-radius: 6px;
+      padding: 8px 15px;
+      margin-bottom: 15px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--imt-purple);
+      text-align: center;
+      overflow: hidden;
+    }
+    
+    .teaser-spotlight::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 60%);
+      opacity: 0.6;
+      animation: spotlight 3s infinite linear;
+      pointer-events: none;
+    }
+    
+    @keyframes spotlight {
+      0% { transform: translate(-30%, -30%) rotate(0deg); }
+      100% { transform: translate(-30%, -30%) rotate(360deg); }
+    }
+    
+    .teaser-dot-border {
+      position: relative;
+      padding: 8px 15px;
+      margin-bottom: 15px;
+      text-align: center;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--imt-purple);
+    }
+    
+    .teaser-dot-border::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 2px dashed var(--imt-purple);
+      border-radius: 4px;
+      opacity: 0.6;
+    }
+    
+    .teaser-bubble {
+      display: inline-block;
+      position: relative;
+      background-color: var(--imt-purple);
+      color: white;
+      padding: 8px 15px;
+      border-radius: 18px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 25px;
+    }
+    
+    .teaser-bubble::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 20px;
+      width: 15px;
+      height: 15px;
+      background-color: var(--imt-purple);
+      transform: rotate(45deg);
+      clip-path: polygon(0% 0%, 100% 100%, 0% 100%);
+    }
+    
+    .teaser-gradient-text {
+      display: inline-block;
+      margin-bottom: 15px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      background: linear-gradient(135deg, var(--imt-purple), #9c27b0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+      padding: 3px 0;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      body {
+        padding: 15px;
+      }
+      
+      .teaser-examples {
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Teaser-Alternativen für die Programmseite</h1>
+  
+  <div class="teaser-examples">
+    <!-- Option 1: Ribbon Teaser -->
+    <div class="teaser-option">
+      <h2>Option 1: Ribbon Teaser</h2>
+      <div class="teaser-preview">
+        <div class="teaser-ribbon">
+          Nur noch wenige Plätze verfügbar
+        </div>
+        <h3 style="text-align: center; font-size: 1.6rem;">Integrated Management and Strategy</h3>
+      </div>
+      <div class="teaser-code">
+&lt;div class="teaser-ribbon"&gt;
+  Nur noch wenige Plätze verfügbar
+&lt;/div&gt;</div>
+    </div>
+    
+    <!-- Option 2: Badge Teaser -->
+    <div class="teaser-option">
+      <h2>Option 2: Badge Teaser</h2>
+      <div class="teaser-preview" style="text-align: center;">
+        <div class="teaser-badge">
+          🔥 Nur noch wenige Plätze
+        </div>
+        <h3 style="text-align: center; font-size: 1.6rem;">Integrated Management and Strategy</h3>
+      </div>
+      <div class="teaser-code">
+&lt;div class="teaser-badge"&gt;
+  🔥 Nur noch wenige Plätze
+&lt;/div&gt;</div>
+    </div>
+    
+    <!-- Option 3: Alert Teaser -->
+    <div class="teaser-option">
+      <h2>Option 3: Alert Teaser mit Icon</h2>
+      <div class="teaser-preview">
+        <div class="teaser-alert">
+          <i class="bx bx-bell"></i>
+          <span>Nur noch wenige Plätze verfügbar</span>
+        </div>
+        <h3 style="text-align: center; font-size: 1.6rem;">Integrated Management and Strategy</h3>
+      </div>
+      <div class="teaser-code">
+&lt;div class="teaser-alert"&gt;
+  &lt;i class="bx bx-bell"&gt;&lt;/i&gt;
+  &lt;span&gt;Nur noch wenige Plätze verfügbar&lt;/span&gt;
+&lt;/div&gt;</div>
+    </div>
+    
+    <!-- Option 4: Floating Teaser -->
+    <div class="teaser-option">
+      <h2>Option 4: Floating Teaser</h2>
+      <div class="teaser-preview" style="padding-top: 30px; text-align: center;">
+        <div class="teaser-floating">
+          <span>Nur noch wenige Plätze</span>
+        </div>
+        <h3 style="text-align: center; font-size: 1.6rem;">Integrated Management and Strategy</h3>
+      </div>
+      <div class="teaser-code">
+&lt;div class="teaser-floating"&gt;
+  &lt;span&gt;Nur noch wenige Plätze&lt;/span&gt;
+&lt;/div&gt;</div>
+    </div>
+    
+    <!-- Option 5: Pulse Teaser -->
+    <div class="teaser-option">
+      <h2>Option 5: Pulse Teaser</h2>
+      <div class="teaser-preview" style="text-align: center;">
+        <div class="teaser-pulse">
+          Nur noch wenige Plätze verfügbar
+        </div>
+        <h3 style="text-align: center; font-size: 1.6rem;">Integrated Management and Strategy</h3>
+      </div>
+      <div class="teaser-code">
+&lt;div class="teaser-pulse"&gt;
+  Nur noch wenige Plätze verfügbar
+&lt;/div&gt;</div>
+    </div>
+    
+    <!-- Option 6: Corner Ribbon Teaser -->
+    <div class="teaser-option">
+      <h2>Option 6: Corner Ribbon Teaser</h2>
+      <div class="teaser-preview" style="padding-top: 15px; overflow: hidden; text-align: center;">
+        <div class="teaser-corner-ribbon">
+          Nur noch wenige Plätze
+        </div>
+        <h3 style="text-align: center; font-size: 1.6rem; padding-top: 5px;">Integrated Management and Strategy</h3>
+      </div>
+      <div class="teaser-code">
+&lt;div class="teaser-corner-ribbon"&gt;
+  Nur noch wenige Plätze
+&lt;/div&gt;</div>
+    </div>
+    
+    <!-- Option 7: Tag Teaser -->
+    <div class="teaser-option">
+      <h2>Option 7: Tag Teaser</h2>
+      <div class="teaser-preview" style="text-align: center;">
+        <div class="teaser-tag">
+          Nur noch wenige Plätze
+        </div>
+        <h3 style="text-align: center; font-size: 1.6rem;">Integrated Management and Strategy</h3>
+      </div>
+      <div class="teaser-code">
+&lt;div class="teaser-tag"&gt;
+  Nur noch wenige Plätze
+&lt;/div&gt;</div>
+    </div>
+    
+    <!-- Option 8: Underline Teaser -->
+    <div class="teaser-option">
+      <h2>Option 8: Underline Teaser</h2>
+      <div class="teaser-preview" style="text-align: center;">
+        <div class="teaser-underline">
+          Nur noch wenige Plätze verfügbar
+        </div>
+        <h3 style="text-align: center; font-size: 1.6rem;">Integrated Management and Strategy</h3>
+      </div>
+      <div class="teaser-code">
+&lt;div class="teaser-underline"&gt;
+  Nur noch wenige Plätze verfügbar
+&lt;/div&gt;</div>
+    </div>
+    
+    <!-- Option 9: Toast Teaser -->
+    <div class="teaser-option">
+      <h2>Option 9: Toast Teaser</h2>
+      <div class="teaser-preview">
+        <div class="teaser-toast">
+          <div class="teaser-toast-icon">!</div>
+          <span>Nur noch wenige Plätze verfügbar</span>
+        </div>
+        <h3 style="text-align: center; font-size: 1.6rem;">Integrated Management and Strategy</h3>
+      </div>
+      <div class="teaser-code">
+&lt;div class="teaser-toast"&gt;
+  &lt;div class="teaser-toast-icon"&gt;!&lt;/div&gt;
+  &lt;span&gt;Nur noch wenige Plätze verfügbar&lt;/span&gt;
+&lt;/div&gt;</div>
+    </div>
+    
+    <!-- Option 10: Mini-Bar Teaser -->
+    <div class="teaser-option">
+      <h2>Option 10: Mini-Bar Teaser</h2>
+      <div class="teaser-preview">
+        <div class="teaser-mini-bar">
+          <span class="teaser-mini-bar-text">Nur noch wenige Plätze</span>
+        </div>
+        <h3 style="text-align: center; font-size: 1.6rem;">Integrated Management and Strategy</h3>
+      </div>
+      <div class="teaser-code">
+&lt;div class="teaser-mini-bar"&gt;
+  &lt;span class="teaser-mini-bar-text"&gt;Nur noch wenige Plätze&lt;/span&gt;
+&lt;/div&gt;</div>
+    </div>
+    
+    <!-- Option 11: Countdown Teaser -->
+    <div class="teaser-option">
+      <h2>Option 11: Countdown Teaser</h2>
+      <div class="teaser-preview" style="text-align: center;">
+        <div class="teaser-countdown">
+          Nur noch <div class="teaser-countdown-box">5</div> Plätze verfügbar
+        </div>
+        <h3 style="text-align: center; font-size: 1.6rem;">Integrated Management and Strategy</h3>
+      </div>
+      <div class="teaser-code">
+&lt;div class="teaser-countdown"&gt;
+  Nur noch &lt;div class="teaser-countdown-box"&gt;5&lt;/div&gt; Plätze verfügbar
+&lt;/div&gt;</div>
+    </div>
+    
+    <!-- Option 12: Spotlight Teaser -->
+    <div class="teaser-option">
+      <h2>Option 12: Spotlight Teaser</h2>
+      <div class="teaser-preview">
+        <div class="teaser-spotlight">
+          Nur noch wenige Plätze verfügbar
+        </div>
+        <h3 style="text-align: center; font-size: 1.6rem;">Integrated Management and Strategy</h3>
+      </div>
+      <div class="teaser-code">
+&lt;div class="teaser-spotlight"&gt;
+  Nur noch wenige Plätze verfügbar
+&lt;/div&gt;</div>
+    </div>
+    
+    <!-- Option 13: Dot Border Teaser -->
+    <div class="teaser-option">
+      <h2>Option 13: Dot Border Teaser</h2>
+      <div class="teaser-preview">
+        <div class="teaser-dot-border">
+          Nur noch wenige Plätze verfügbar
+        </div>
+        <h3 style="text-align: center; font-size: 1.6rem;">Integrated Management and Strategy</h3>
+      </div>
+      <div class="teaser-code">
+&lt;div class="teaser-dot-border"&gt;
+  Nur noch wenige Plätze verfügbar
+&lt;/div&gt;</div>
+    </div>
+    
+    <!-- Option 14: Bubble Teaser -->
+    <div class="teaser-option">
+      <h2>Option 14: Bubble Teaser</h2>
+      <div class="teaser-preview" style="text-align: left; padding-left: 15px;">
+        <div class="teaser-bubble">
+          Nur noch wenige Plätze verfügbar
+        </div>
+        <h3 style="text-align: center; font-size: 1.6rem;">Integrated Management and Strategy</h3>
+      </div>
+      <div class="teaser-code">
+&lt;div class="teaser-bubble"&gt;
+  Nur noch wenige Plätze verfügbar
+&lt;/div&gt;</div>
+    </div>
+    
+    <!-- Option 15: Gradient Text Teaser -->
+    <div class="teaser-option">
+      <h2>Option 15: Gradient Text Teaser</h2>
+      <div class="teaser-preview" style="text-align: center;">
+        <div class="teaser-gradient-text">
+          ✨ Nur noch wenige Plätze verfügbar ✨
+        </div>
+        <h3 style="text-align: center; font-size: 1.6rem;">Integrated Management and Strategy</h3>
+      </div>
+      <div class="teaser-code">
+&lt;div class="teaser-gradient-text"&gt;
+  ✨ Nur noch wenige Plätze verfügbar ✨
+&lt;/div&gt;</div>
+    </div>
+  </div>
+</body>
+</html> 

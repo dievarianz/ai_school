@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Integrated Management and Strategy</title>
+<title>Integrated Management and Strategy | St.Gallen imt Business School</title>
 
 <!-- ============ STYLES ============ -->
 <style>
@@ -147,6 +147,163 @@
     );
     opacity: 0.05;
     z-index: 1;
+  }
+
+  /* Toast Teaser Stil */
+  .teaser-toast {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px 15px;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .teaser-toast-icon {
+    background-color: var(--imt-purple);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  /* CSS for Gradient Text Teaser */
+  .teaser-gradient-text {
+    display: inline-block;
+    margin-bottom: 15px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, var(--imt-purple), #9c27b0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    padding: 3px 0;
+    text-align: center;
+    width: 100%;
+  }
+  
+  /* Sparkle animation for the sparkle symbols */
+  .sparkle-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .sparkle-wrapper::before,
+  .sparkle-wrapper::after {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .sparkle-wrapper::before {
+    animation: sparkle-1 3s infinite;
+  }
+  
+  .sparkle-wrapper::after {
+    animation: sparkle-2 2.5s infinite;
+    animation-delay: 0.3s;
+  }
+  
+  .sparkle-wrapper .dot-1,
+  .sparkle-wrapper .dot-2,
+  .sparkle-wrapper .dot-3 {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .sparkle-wrapper .dot-1 {
+    animation: sparkle-3 3.5s infinite;
+    animation-delay: 0.7s;
+  }
+  
+  .sparkle-wrapper .dot-2 {
+    animation: sparkle-4 2.8s infinite;
+    animation-delay: 1.2s;
+  }
+  
+  .sparkle-wrapper .dot-3 {
+    animation: sparkle-5 3.2s infinite;
+    animation-delay: 1.9s;
+  }
+  
+  @keyframes sparkle-1 {
+    0%, 100% { opacity: 0; transform: translate(0, 0) scale(1); }
+    10% { opacity: 0.8; transform: translate(-5px, -5px) scale(1.2); }
+    20% { opacity: 0; transform: translate(-8px, -8px) scale(0.8); }
+  }
+  
+  @keyframes sparkle-2 {
+    0%, 100% { opacity: 0; transform: translate(0, 0) scale(1); }
+    10% { opacity: 0.8; transform: translate(5px, -5px) scale(1.1); }
+    20% { opacity: 0; transform: translate(8px, -8px) scale(0.9); }
+  }
+  
+  @keyframes sparkle-3 {
+    0%, 100% { opacity: 0; transform: translate(0, 0) scale(1); }
+    10% { opacity: 0.8; transform: translate(0px, -7px) scale(1.2); }
+    20% { opacity: 0; transform: translate(0px, -10px) scale(0.8); }
+  }
+  
+  @keyframes sparkle-4 {
+    0%, 100% { opacity: 0; transform: translate(0, 0) scale(1); }
+    10% { opacity: 0.8; transform: translate(-6px, 2px) scale(1.1); }
+    20% { opacity: 0; transform: translate(-9px, 4px) scale(0.9); }
+  }
+  
+  @keyframes sparkle-5 {
+    0%, 100% { opacity: 0; transform: translate(0, 0) scale(1); }
+    10% { opacity: 0.8; transform: translate(6px, 4px) scale(1.2); }
+    20% { opacity: 0; transform: translate(9px, 6px) scale(0.8); }
+  }
+  
+  /* Simple sparkle effect for the emoji */
+  .star-twinkle {
+    display: inline-block;
+    position: relative;
+  }
+  
+  .star-left {
+    animation: twinkle-left 3s ease-in-out infinite;
+  }
+  
+  .star-right {
+    animation: twinkle-right 2.5s ease-in-out infinite;
+  }
+  
+  @keyframes twinkle-left {
+    0%, 100% { opacity: 1; filter: brightness(1); }
+    25% { opacity: 1; filter: brightness(1.3); }
+    50% { opacity: 0.9; filter: brightness(1); }
+    75% { opacity: 1; filter: brightness(1.2); }
+  }
+  
+  @keyframes twinkle-right {
+    0%, 100% { opacity: 1; filter: brightness(1); }
+    30% { opacity: 1; filter: brightness(1.2); }
+    60% { opacity: 0.9; filter: brightness(1); }
+    80% { opacity: 1; filter: brightness(1.3); }
   }
 
   #hero .container {
@@ -1074,6 +1231,107 @@
       margin: 24px auto;
     }
   }
+
+  /* Spotlight Teaser */
+  .teaser-spotlight {
+    position: relative;
+    background: linear-gradient(120deg, rgba(110, 69, 226, 0.1), rgba(156, 39, 176, 0.1));
+    border-radius: 6px;
+    padding: 8px 15px;
+    margin-bottom: 15px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--imt-purple);
+    text-align: center;
+    overflow: hidden;
+  }
+  
+  .teaser-spotlight::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 60%);
+    opacity: 0.6;
+    animation: spotlight 3s infinite linear;
+    pointer-events: none;
+  }
+  
+  @keyframes spotlight {
+    0% { transform: translate(-30%, -30%) rotate(0deg); }
+    100% { transform: translate(-30%, -30%) rotate(360deg); }
+  }
+
+  /* Bubble Teaser Style */
+  .teaser-bubble {
+    display: inline-block;
+    position: relative;
+    background-color: var(--imt-purple);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 18px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+  
+  .teaser-bubble::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 20px;
+    width: 15px;
+    height: 15px;
+    background-color: var(--imt-purple);
+    transform: rotate(45deg);
+    clip-path: polygon(0% 0%, 100% 100%, 0% 100%);
+  }
+
+  /* Floating Teaser Style */
+  .teaser-floating {
+    position: absolute;
+    top: -15px;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+  
+  .teaser-floating span {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--imt-purple), #9c27b0);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  
+  /* Tag Teaser Style */
+  .teaser-tag {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--imt-purple);
+    color: var(--imt-purple);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+  }
+  
+  .teaser-tag::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--imt-purple);
+    margin-right: 8px;
+  }
 </style>
 
 <!-- BoxIcons für Icons -->
@@ -1095,6 +1353,13 @@
   <!-- Hero-Sektion aus der index.html -->
   <section id="hero">
     <div class="container" style="position: relative;">
+      <!-- Tag Teaser über der Überschrift -->
+      <div style="text-align: center; margin-bottom: 15px;">
+        <div class="teaser-tag">
+          Nur noch wenige Plätze verfügbar
+        </div>
+      </div>
+      
       <h1 style="margin-top: 40px;"> Integrated Management and Strategy </h1>
 
       <!-- Button zwischen Überschrift und Info-Boxen -->
@@ -1106,28 +1371,28 @@
         <!-- Location Box -->
         <div class="info-box">
           <i class="bx bx-map"></i>
-          <span class="info-label">LOCATION</span>
+          <span class="info-label">Ort</span>
           <span class="info-value">St. Gallen</span>
         </div>
 
         <!-- Length Box -->
         <div class="info-box">
           <i class="bx bx-time"></i>
-          <span class="info-label">LENGTH</span>
+          <span class="info-label">Dauer</span>
           <span class="info-value">3 Tage</span>
         </div>
 
         <!-- Fee Box -->
         <div class="info-box">
           <i class="bx bx-euro"></i>
-          <span class="info-label">FEE</span>
+          <span class="info-label">Investition</span>
           <span class="info-value">2500 €</span>
         </div>
 
         <!-- Next Start Box -->
         <div class="info-box">
           <i class="bx bx-calendar"></i>
-          <span class="info-label">NEXT START</span>
+          <span class="info-label">Start</span>
           <span class="info-value">25.5.2025</span>
         </div>
       </div>
