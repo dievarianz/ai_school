@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Research Alternativen | imtxAI Business School</title>
+
+  <!-- ============ STYLES ============ -->
+  <style>
+    :root{
+      --font-sans:-apple-system,BlinkMacSystemFont,"San Francisco","Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+      --color-text:#1d1d1f;
+      --color-muted:#6e6e73;
+      --color-card-bg:#f5f5f7;
+      --color-accent2:#970289;
+      --color-badge:#e2b245;
+      --color-badge-hover:#d4a535;
+      --spacing:24px;
+      --radius:16px;
+      --max-width:1200px;
+      --imt-purple: #6e45e2;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--color-text);
+      background: #fff;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      /* Padding für fixierte Navigation */
+      padding-top: 64px;
+      transition: padding-top 0.3s ease;
+    }
+    
+    /* When subnav is active, increase body padding */
+    body.has-subnav {
+      padding-top: 110px;
+    }
+    
+    @media (max-width: 1024px) {
+      body.has-subnav {
+        padding-top: 64px;
+      }
+    }
+
+    /* Basis Styling für Container */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--spacing);
+      width: 100%;
+    }
+
+    /* Hauptinhalt der Seite */
+    main {
+      position: relative;
+    }
+
+    /* Allgemeine Typografie */
+    h1, h2, h3, h4, h5, h6 {
+      margin-bottom: 1rem;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.25rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--imt-purple);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Hero-Sektion */
+    .hero {
+      background-color: #f5f5f7;
+      padding: 60px 0;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--imt-purple);
+      clip-path: polygon(
+        0 0, 
+        calc(100% - 50px) 0, 
+        100% 50px, 
+        100% 100%, 
+        50px 100%, 
+        0 calc(100% - 50px)
+      );
+      opacity: 0.05;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--color-muted);
+      max-width: 800px;
+      margin: 0 auto 2rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .content-section {
+      padding: 80px 0;
+    }
+
+    .content-section:first-child {
+      padding-top: 50px;
+    }
+
+    .content-section h2 {
+      text-align: left;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .section-subtitle {
+      color: var(--color-muted);
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+      text-align: left;
+      max-width: 800px;
+      margin-left: 0;
+      margin-right: auto;
+    }
+
+    /* Research Highlights */
+    .highlights-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 60px;
+    }
+
+    .highlight-box {
+      background: linear-gradient(135deg, rgba(110, 69, 226, 0.1) 0%, rgba(110, 69, 226, 0.05) 100%);
+      border-radius: var(--radius);
+      padding: 30px;
+      border-left: 4px solid var(--imt-purple);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .highlight-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .highlight-box h3 {
+      font-size: 1.2rem;
+      color: var(--imt-purple);
+      margin-bottom: 12px;
+    }
+
+    .highlight-box p {
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+    }
+
+    .highlight-meta {
+      font-size: 0.85rem;
+      color: var(--color-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: auto;
+    }
+
+    /* Tab Controls */
+    .research-tabs {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 32px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .research-tab {
+      padding: 8px 16px;
+      border-radius: 6px;
+      border: 2px solid transparent;
+      font-weight: 500;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .research-tab:hover {
+      border-color: #ccc;
+    }
+
+    .research-tab.active {
+      background: var(--imt-purple);
+      color: white;
+      border-color: var(--imt-purple);
+    }
+
+    /* Publication List with Filters */
+    .research-list {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .research-item {
+      border-bottom: 1px solid #eee;
+      padding: 24px 0;
+      transition: background-color 0.2s ease;
+    }
+
+    .research-item:hover {
+      background-color: rgba(245, 245, 247, 0.5);
+    }
+
+    .research-item h3 {
+      font-size: 1.3rem;
+      color: var(--imt-purple);
+      margin-bottom: 8px;
+    }
+
+    .research-item-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+      color: var(--color-muted);
+    }
+
+    .research-item-meta span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .research-item-meta i {
+      font-size: 1.1rem;
+    }
+
+    .research-item-desc {
+      margin-bottom: 16px;
+    }
+
+    .research-item-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .research-tag {
+      background-color: rgba(110, 69, 226, 0.1);
+      color: var(--imt-purple);
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .research-item-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 16px;
+    }
+
+    .research-item-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 500;
+    }
+
+    /* Faculty info for Design 3 */
+    .faculty-badge {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .faculty-badge img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .faculty-badge span {
+      font-weight: 500;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .highlights-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .research-tabs {
+        gap: 8px;
+      }
+      
+      .research-tab {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+
+  <!-- BoxIcons für Icons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+</head>
+<body>
+
+<!-- Navigation einbinden -->
+<div id="navigation-container"></div>
+
+<!-- Sidebar einbinden -->
+<div id="sidebar-container"></div>
+
+<!-- Hauptinhalt -->
+<main>
+  <!-- Hero-Sektion -->
+  <section class="hero">
+    <div class="container">
+      <h1>Research Alternativen</h1>
+      <p>Entdecken Sie die Forschung unserer Fakultät in den Bereichen KI, Machine Learning, Digitale Transformation und Nachhaltige Technologien.</p>
+    </div>
+  </section>
+
+  <!-- Main Section: List with Research Highlights -->
+  <section class="content-section" id="main-design">
+    <div class="container">
+      <h2>Forschungs-Highlights</h2>
+      <p class="section-subtitle">Die wichtigsten Veröffentlichungen unserer Fakultät im Überblick.</p>
+      
+      <!-- Research Highlights -->
+      <div class="highlights-container">
+        <!-- Highlight 1 -->
+        <div class="highlight-box">
+          <h3>Künstliche Intelligenz in der strategischen Unternehmensführung</h3>
+          <p>Framework für die Integration von KI in die Geschäftsmodellentwicklung mittelständischer Unternehmen.</p>
+          <div class="highlight-meta">
+            <i class='bx bx-calendar'></i> Januar 2023 | <i class='bx bx-user'></i> Prof. Dr. Maria Schmidt
+          </div>
+        </div>
+        
+        <!-- Highlight 2 -->
+        <div class="highlight-box">
+          <h3>Machine Learning zur Prognose von Markttrends</h3>
+          <p>ML-Algorithmen für die Vorhersage von Markttrends während wirtschaftlicher Unsicherheit.</p>
+          <div class="highlight-meta">
+            <i class='bx bx-calendar'></i> April 2023 | <i class='bx bx-user'></i> Dr. Michael Bauer
+          </div>
+        </div>
+        
+        <!-- Highlight 3 -->
+        <div class="highlight-box">
+          <h3>Nachhaltige Transformation durch digitale Geschäftsmodelle</h3>
+          <p>Framework für die Integration von ESG-Kriterien in digitale Transformationsprozesse.</p>
+          <div class="highlight-meta">
+            <i class='bx bx-calendar'></i> Juni 2023 | <i class='bx bx-user'></i> Prof. Dr. Eva Schneider
+          </div>
+        </div>
+      </div>
+      
+      <h2>Publikationsliste</h2>
+      <p class="section-subtitle">Eine übersichtliche Liste unserer Forschungspublikationen mit Filtermöglichkeiten nach Forschungsbereichen.</p>
+      
+      <div class="research-tabs">
+        <div class="research-tab active">Alle Bereiche</div>
+        <div class="research-tab">KI & Machine Learning</div>
+        <div class="research-tab">Digitale Transformation</div>
+        <div class="research-tab">Nachhaltigkeit</div>
+        <div class="research-tab">Business Analytics</div>
+      </div>
+      
+      <div class="research-list">
+        <!-- Research Item 1 -->
+        <div class="research-item">
+          <h3>Künstliche Intelligenz in der strategischen Unternehmensführung</h3>
+          <div class="research-item-meta">
+            <span><i class='bx bx-calendar'></i> Januar 2023</span>
+            <span><i class='bx bx-book'></i> Journal of AI in Business</span>
+            <span><i class='bx bx-link'></i> DOI: 10.1234/ai.2023.001</span>
+          </div>
+          <p class="research-item-desc">Diese Studie untersucht die Auswirkungen von KI-Systemen auf strategische Entscheidungsprozesse in mittelständischen Unternehmen und entwickelt ein Framework für die Integration von KI in die Geschäftsmodellentwicklung.</p>
+          <div class="research-item-tags">
+            <span class="research-tag">KI-Strategie</span>
+            <span class="research-tag">Business Intelligence</span>
+            <span class="research-tag">Mittelstand</span>
+          </div>
+          <div class="research-item-footer">
+            <div class="faculty-badge">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Prof. Dr. Maria Schmidt">
+              <span>Prof. Dr. Maria Schmidt</span>
+            </div>
+            <a href="#" class="research-item-link">Details <i class='bx bx-right-arrow-alt'></i></a>
+          </div>
+        </div>
+        
+        <!-- Research Item 2 -->
+        <div class="research-item">
+          <h3>Machine Learning zur Prognose von Markttrends in volatilen Märkten</h3>
+          <div class="research-item-meta">
+            <span><i class='bx bx-calendar'></i> April 2023</span>
+            <span><i class='bx bx-book'></i> International Journal of Business Analytics</span>
+            <span><i class='bx bx-link'></i> DOI: 10.1234/ijba.2023.042</span>
+          </div>
+          <p class="research-item-desc">Eine innovative Methode zur Nutzung von ML-Algorithmen für die Vorhersage von Markttrends während wirtschaftlicher Unsicherheit, mit Fallstudien aus der Post-Pandemie-Ära.</p>
+          <div class="research-item-tags">
+            <span class="research-tag">Machine Learning</span>
+            <span class="research-tag">Prognosemodelle</span>
+            <span class="research-tag">Marktanalyse</span>
+          </div>
+          <div class="research-item-footer">
+            <div class="faculty-badge">
+              <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Dr. Michael Bauer">
+              <span>Dr. Michael Bauer</span>
+            </div>
+            <a href="#" class="research-item-link">Details <i class='bx bx-right-arrow-alt'></i></a>
+          </div>
+        </div>
+        
+        <!-- Research Item 3 -->
+        <div class="research-item">
+          <h3>Nachhaltige Transformation durch digitale Geschäftsmodelle</h3>
+          <div class="research-item-meta">
+            <span><i class='bx bx-calendar'></i> Juni 2023</span>
+            <span><i class='bx bx-book'></i> Sustainability Science Journal</span>
+            <span><i class='bx bx-link'></i> DOI: 10.1234/ssj.2023.06</span>
+          </div>
+          <p class="research-item-desc">Diese Forschung analysiert, wie digitale Geschäftsmodelle zur Erreichung von Nachhaltigkeitszielen beitragen können und präsentiert einen Framework für die Integration von ESG-Kriterien in digitale Transformationsprozesse.</p>
+          <div class="research-item-tags">
+            <span class="research-tag">Nachhaltigkeit</span>
+            <span class="research-tag">Digitale Transformation</span>
+            <span class="research-tag">ESG</span>
+          </div>
+          <div class="research-item-footer">
+            <div class="faculty-badge">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Prof. Dr. Eva Schneider">
+              <span>Prof. Dr. Eva Schneider</span>
+            </div>
+            <a href="#" class="research-item-link">Details <i class='bx bx-right-arrow-alt'></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Alternative 1: Tabbed Research Categories -->
+  <section class="content-section" id="alternative1" style="display: none;">
+    <div class="container">
+      <h2>Alternative 1: Kategorie-basierte Tabs</h2>
+      <p class="section-subtitle">Eine kategoriebasierte Darstellung, bei der die Publikationen direkt in thematischen Tabs organisiert sind.</p>
+      
+      <style>
+        /* Styles für Alternative 1 */
+        .alt1-tabs {
+          display: flex;
+          border-bottom: 1px solid #ddd;
+          margin-bottom: 30px;
+          overflow-x: auto;
+          scrollbar-width: thin;
+        }
+        
+        .alt1-tab {
+          padding: 15px 25px;
+          font-weight: 500;
+          cursor: pointer;
+          white-space: nowrap;
+          position: relative;
+          color: var(--color-muted);
+        }
+        
+        .alt1-tab.active {
+          color: var(--imt-purple);
+          font-weight: 600;
+        }
+        
+        .alt1-tab.active::after {
+          content: '';
+          position: absolute;
+          bottom: -1px;
+          left: 0;
+          width: 100%;
+          height: 3px;
+          background-color: var(--imt-purple);
+        }
+        
+        .alt1-tab-content {
+          display: none;
+        }
+        
+        .alt1-tab-content.active {
+          display: block;
+        }
+        
+        .alt1-publication {
+          background-color: var(--color-card-bg);
+          border-radius: var(--radius);
+          padding: 25px;
+          margin-bottom: 20px;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+        
+        .alt1-publication:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .alt1-pub-header {
+          display: flex;
+          align-items: flex-start;
+          margin-bottom: 15px;
+          gap: 15px;
+        }
+        
+        .alt1-pub-icon {
+          width: 40px;
+          height: 40px;
+          background-color: rgba(110, 69, 226, 0.1);
+          color: var(--imt-purple);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 10px;
+          font-size: 1.4rem;
+          flex-shrink: 0;
+        }
+        
+        .alt1-pub-main {
+          flex-grow: 1;
+        }
+        
+        .alt1-pub-title {
+          font-size: 1.2rem;
+          font-weight: 600;
+          margin-bottom: 8px;
+        }
+        
+        .alt1-pub-meta {
+          font-size: 0.85rem;
+          color: var(--color-muted);
+          margin-bottom: 15px;
+        }
+        
+        .alt1-pub-meta span {
+          display: inline-block;
+          margin-right: 12px;
+        }
+        
+        .alt1-pub-abstract {
+          margin-bottom: 20px;
+          font-size: 0.95rem;
+        }
+        
+        .alt1-pub-footer {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          border-top: 1px solid rgba(0,0,0,0.05);
+          padding-top: 15px;
+        }
+        
+        .alt1-authors {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+        }
+        
+        .alt1-author-avatar {
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          object-fit: cover;
+          border: 2px solid white;
+          margin-left: -10px;
+        }
+        
+        .alt1-author-avatar:first-child {
+          margin-left: 0;
+        }
+        
+        .alt1-authors-count {
+          font-size: 0.85rem;
+          color: var(--color-muted);
+          margin-left: 5px;
+        }
+        
+        .alt1-pub-links a {
+          display: inline-flex;
+          align-items: center;
+          margin-left: 15px;
+          font-size: 0.9rem;
+          font-weight: 500;
+        }
+        
+        .alt1-pub-links a i {
+          margin-right: 5px;
+        }
+        
+        @media (max-width: 768px) {
+          .alt1-pub-header {
+            flex-direction: column;
+          }
+          
+          .alt1-pub-footer {
+            flex-direction: column;
+            gap: 15px;
+            align-items: flex-start;
+          }
+        }
+      </style>
+      
+      <div class="alt1-tabs">
+        <div class="alt1-tab active">KI & Machine Learning</div>
+        <div class="alt1-tab">Digitale Transformation</div>
+        <div class="alt1-tab">Nachhaltigkeit</div>
+        <div class="alt1-tab">Business Analytics</div>
+        <div class="alt1-tab">Alle Publikationen</div>
+      </div>
+      
+      <div class="alt1-tab-content active">
+        <!-- KI & ML Tab Content -->
+        <div class="alt1-publication">
+          <div class="alt1-pub-header">
+            <div class="alt1-pub-icon">
+              <i class='bx bx-brain'></i>
+            </div>
+            <div class="alt1-pub-main">
+              <h3 class="alt1-pub-title">Künstliche Intelligenz in der strategischen Unternehmensführung</h3>
+              <div class="alt1-pub-meta">
+                <span><i class='bx bx-calendar'></i> Januar 2023</span>
+                <span><i class='bx bx-book'></i> Journal of AI in Business</span>
+                <span><i class='bx bx-hash'></i> DOI: 10.1234/ai.2023.001</span>
+              </div>
+              <div class="alt1-pub-abstract">
+                Diese Studie untersucht die Auswirkungen von KI-Systemen auf strategische Entscheidungsprozesse in mittelständischen Unternehmen und entwickelt ein Framework für die Integration von KI in die Geschäftsmodellentwicklung.
+              </div>
+            </div>
+          </div>
+          <div class="alt1-pub-footer">
+            <div class="alt1-authors">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="alt1-author-avatar" alt="Prof. Dr. Maria Schmidt">
+              <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="alt1-author-avatar" alt="Dr. Thomas Weber">
+              <span class="alt1-authors-count">2 Autoren</span>
+            </div>
+            <div class="alt1-pub-links">
+              <a href="#"><i class='bx bx-file-pdf'></i> PDF</a>
+              <a href="#"><i class='bx bx-link-external'></i> Webseite</a>
+              <a href="#"><i class='bx bx-share-alt'></i> Teilen</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="alt1-publication">
+          <div class="alt1-pub-header">
+            <div class="alt1-pub-icon">
+              <i class='bx bx-scatter-chart'></i>
+            </div>
+            <div class="alt1-pub-main">
+              <h3 class="alt1-pub-title">Machine Learning zur Prognose von Markttrends in volatilen Märkten</h3>
+              <div class="alt1-pub-meta">
+                <span><i class='bx bx-calendar'></i> April 2023</span>
+                <span><i class='bx bx-book'></i> International Journal of Business Analytics</span>
+                <span><i class='bx bx-hash'></i> DOI: 10.1234/ijba.2023.042</span>
+              </div>
+              <div class="alt1-pub-abstract">
+                Eine innovative Methode zur Nutzung von ML-Algorithmen für die Vorhersage von Markttrends während wirtschaftlicher Unsicherheit, mit Fallstudien aus der Post-Pandemie-Ära.
+              </div>
+            </div>
+          </div>
+          <div class="alt1-pub-footer">
+            <div class="alt1-authors">
+              <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="alt1-author-avatar" alt="Dr. Michael Bauer">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="alt1-author-avatar" alt="Sarah Chen">
+              <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="alt1-author-avatar" alt="Prof. Dr. Andreas Müller">
+              <span class="alt1-authors-count">3 Autoren</span>
+            </div>
+            <div class="alt1-pub-links">
+              <a href="#"><i class='bx bx-file-pdf'></i> PDF</a>
+              <a href="#"><i class='bx bx-link-external'></i> Webseite</a>
+              <a href="#"><i class='bx bx-share-alt'></i> Teilen</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Alternative 2: Academic Journal Style -->
+  <section class="content-section" id="alternative2" style="display: none;">
+    <div class="container">
+      <h2>Alternative 2: Academic Journal Style</h2>
+      <p class="section-subtitle">Eine formelle Darstellung im akademischen Publikationsstil mit Zitierhinweisen und detaillierten Metadaten.</p>
+      
+      <style>
+        /* Styles für Alternative 2 */
+        .academic-controls {
+          margin-bottom: 30px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 15px;
+        }
+        
+        .academic-search {
+          position: relative;
+          flex-grow: 1;
+          max-width: 400px;
+        }
+        
+        .academic-search input {
+          width: 100%;
+          padding: 12px 15px 12px 40px;
+          border-radius: 8px;
+          border: 1px solid #ddd;
+          font-size: 0.95rem;
+          outline: none;
+          transition: all 0.2s ease;
+        }
+        
+        .academic-search input:focus {
+          border-color: var(--imt-purple);
+          box-shadow: 0 0 0 3px rgba(110, 69, 226, 0.1);
+        }
+        
+        .academic-search i {
+          position: absolute;
+          left: 12px;
+          top: 50%;
+          transform: translateY(-50%);
+          color: var(--color-muted);
+          font-size: 1.1rem;
+        }
+        
+        .academic-filters {
+          display: flex;
+          gap: 10px;
+        }
+        
+        .academic-filter {
+          padding: 8px 15px;
+          background-color: #f5f5f7;
+          border-radius: 6px;
+          font-size: 0.9rem;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          cursor: pointer;
+          transition: all 0.2s ease;
+        }
+        
+        .academic-filter:hover {
+          background-color: rgba(110, 69, 226, 0.1);
+        }
+        
+        .academic-filter i {
+          font-size: 1.1rem;
+        }
+        
+        .academic-papers {
+          counter-reset: paper;
+        }
+        
+        .academic-paper {
+          padding: 30px 0;
+          border-bottom: 1px solid #eee;
+          position: relative;
+        }
+        
+        .academic-paper:before {
+          counter-increment: paper;
+          content: counter(paper) ".";
+          position: absolute;
+          left: -30px;
+          top: 30px;
+          font-weight: 600;
+          color: var(--color-muted);
+          font-size: 1rem;
+        }
+        
+        .academic-paper-title {
+          font-size: 1.3rem;
+          font-weight: 600;
+          margin-bottom: 15px;
+          color: var(--imt-purple);
+        }
+        
+        .academic-authors {
+          font-size: 0.95rem;
+          margin-bottom: 15px;
+        }
+        
+        .academic-journal {
+          font-style: italic;
+          color: var(--color-muted);
+          font-size: 0.95rem;
+          margin-bottom: 20px;
+        }
+        
+        .academic-abstract {
+          font-size: 0.95rem;
+          border-left: 3px solid rgba(110, 69, 226, 0.3);
+          padding-left: 20px;
+          margin-bottom: 20px;
+        }
+        
+        .academic-abstract-title {
+          font-weight: 600;
+          margin-bottom: 10px;
+        }
+        
+        .academic-metadata {
+          margin-top: 20px;
+          background-color: var(--color-card-bg);
+          padding: 15px;
+          border-radius: var(--radius);
+          font-size: 0.9rem;
+        }
+        
+        .academic-metadata-title {
+          font-weight: 600;
+          margin-bottom: 10px;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+        
+        .academic-metadata-row {
+          display: flex;
+          margin-bottom: 8px;
+        }
+        
+        .academic-metadata-label {
+          font-weight: 500;
+          width: 120px;
+          flex-shrink: 0;
+        }
+        
+        .academic-metadata-value {
+          color: var(--color-muted);
+        }
+        
+        .academic-cite {
+          margin-top: 15px;
+          font-size: 0.9rem;
+        }
+        
+        .academic-cite-title {
+          font-weight: 600;
+          margin-bottom: 10px;
+        }
+        
+        .academic-cite-formats {
+          display: flex;
+          gap: 8px;
+        }
+        
+        .academic-cite-format {
+          padding: 5px 10px;
+          background-color: rgba(110, 69, 226, 0.1);
+          border-radius: 4px;
+          cursor: pointer;
+          transition: all 0.2s ease;
+        }
+        
+        .academic-cite-format:hover {
+          background-color: rgba(110, 69, 226, 0.2);
+        }
+        
+        .academic-cite-text {
+          margin-top: 10px;
+          padding: 10px;
+          background-color: #f0f0f2;
+          border-radius: 4px;
+          font-family: monospace;
+          font-size: 0.85rem;
+          color: var(--color-muted);
+        }
+        
+        @media (max-width: 768px) {
+          .academic-controls {
+            flex-direction: column;
+            align-items: stretch;
+          }
+          
+          .academic-search {
+            max-width: none;
+          }
+          
+          .academic-filters {
+            justify-content: space-between;
+          }
+          
+          .academic-paper:before {
+            left: 0;
+            top: 5px;
+            position: relative;
+            display: block;
+            margin-bottom: 10px;
+          }
+        }
+      </style>
+      
+      <div class="academic-controls">
+        <div class="academic-search">
+          <i class='bx bx-search'></i>
+          <input type="text" placeholder="Nach Titel, Autor oder Schlüsselwörtern suchen...">
+        </div>
+        <div class="academic-filters">
+          <div class="academic-filter">
+            <i class='bx bx-sort'></i> Sortieren
+          </div>
+          <div class="academic-filter">
+            <i class='bx bx-filter'></i> Filter
+          </div>
+          <div class="academic-filter">
+            <i class='bx bx-export'></i> Exportieren
+          </div>
+        </div>
+      </div>
+      
+      <div class="academic-papers">
+        <!-- Academic Paper 1 -->
+        <div class="academic-paper">
+          <h3 class="academic-paper-title">Künstliche Intelligenz in der strategischen Unternehmensführung</h3>
+          <p class="academic-authors">Schmidt, M., Weber, T.</p>
+          <p class="academic-journal">Journal of AI in Business, 15(2), 112-128 (2023)</p>
+          
+          <div class="academic-abstract">
+            <div class="academic-abstract-title">Abstract</div>
+            <p>Diese Studie untersucht die Auswirkungen von KI-Systemen auf strategische Entscheidungsprozesse in mittelständischen Unternehmen und entwickelt ein Framework für die Integration von KI in die Geschäftsmodellentwicklung. Basierend auf einer qualitativen Analyse von 25 Fallstudien identifizieren wir kritische Erfolgsfaktoren und typische Implementierungsbarrieren.</p>
+          </div>
+          
+          <div class="research-item-tags">
+            <span class="research-tag">KI-Strategie</span>
+            <span class="research-tag">Business Intelligence</span>
+            <span class="research-tag">Mittelstand</span>
+          </div>
+          
+          <div class="academic-metadata">
+            <div class="academic-metadata-title">
+              <i class='bx bx-info-circle'></i> Metadata
+            </div>
+            <div class="academic-metadata-row">
+              <div class="academic-metadata-label">DOI:</div>
+              <div class="academic-metadata-value">10.1234/ai.2023.001</div>
+            </div>
+            <div class="academic-metadata-row">
+              <div class="academic-metadata-label">Veröffentlicht:</div>
+              <div class="academic-metadata-value">15. Januar 2023</div>
+            </div>
+            <div class="academic-metadata-row">
+              <div class="academic-metadata-label">Seiten:</div>
+              <div class="academic-metadata-value">112-128</div>
+            </div>
+            <div class="academic-metadata-row">
+              <div class="academic-metadata-label">Typ:</div>
+              <div class="academic-metadata-value">Peer-reviewed Article</div>
+            </div>
+          </div>
+          
+          <div class="academic-cite">
+            <div class="academic-cite-title">Zitieren als:</div>
+            <div class="academic-cite-formats">
+              <div class="academic-cite-format">APA</div>
+              <div class="academic-cite-format">MLA</div>
+              <div class="academic-cite-format">Chicago</div>
+              <div class="academic-cite-format">BibTeX</div>
+            </div>
+            <div class="academic-cite-text">
+              Schmidt, M., & Weber, T. (2023). Künstliche Intelligenz in der strategischen Unternehmensführung. Journal of AI in Business, 15(2), 112-128. https://doi.org/10.1234/ai.2023.001
+            </div>
+          </div>
+        </div>
+        
+        <!-- Academic Paper 2 -->
+        <div class="academic-paper">
+          <h3 class="academic-paper-title">Machine Learning zur Prognose von Markttrends in volatilen Märkten</h3>
+          <p class="academic-authors">Bauer, M., Chen, S., Müller, A.</p>
+          <p class="academic-journal">International Journal of Business Analytics, 8(4), 201-215 (2023)</p>
+          
+          <div class="academic-abstract">
+            <div class="academic-abstract-title">Abstract</div>
+            <p>Diese Arbeit präsentiert eine innovative Methode zur Nutzung von ML-Algorithmen für die Vorhersage von Markttrends während wirtschaftlicher Unsicherheit. Wir evaluieren verschiedene maschinelle Lernansätze anhand von Fallstudien aus der Post-Pandemie-Ära und demonstrieren, wie die Kombination von Long Short-Term Memory Netzwerken und Gradient Boosting die Prognosegenauigkeit signifikant verbessern kann.</p>
+          </div>
+          
+          <div class="research-item-tags">
+            <span class="research-tag">Machine Learning</span>
+            <span class="research-tag">Prognosemodelle</span>
+            <span class="research-tag">Marktanalyse</span>
+          </div>
+          
+          <div class="academic-metadata">
+            <div class="academic-metadata-title">
+              <i class='bx bx-info-circle'></i> Metadata
+            </div>
+            <div class="academic-metadata-row">
+              <div class="academic-metadata-label">DOI:</div>
+              <div class="academic-metadata-value">10.1234/ijba.2023.042</div>
+            </div>
+            <div class="academic-metadata-row">
+              <div class="academic-metadata-label">Veröffentlicht:</div>
+              <div class="academic-metadata-value">08. April 2023</div>
+            </div>
+            <div class="academic-metadata-row">
+              <div class="academic-metadata-label">Seiten:</div>
+              <div class="academic-metadata-value">201-215</div>
+            </div>
+            <div class="academic-metadata-row">
+              <div class="academic-metadata-label">Typ:</div>
+              <div class="academic-metadata-value">Peer-reviewed Article</div>
+            </div>
+          </div>
+          
+          <div class="academic-cite">
+            <div class="academic-cite-title">Zitieren als:</div>
+            <div class="academic-cite-formats">
+              <div class="academic-cite-format">APA</div>
+              <div class="academic-cite-format">MLA</div>
+              <div class="academic-cite-format">Chicago</div>
+              <div class="academic-cite-format">BibTeX</div>
+            </div>
+            <div class="academic-cite-text">
+              Bauer, M., Chen, S., & Müller, A. (2023). Machine Learning zur Prognose von Markttrends in volatilen Märkten. International Journal of Business Analytics, 8(4), 201-215. https://doi.org/10.1234/ijba.2023.042
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer einbinden -->
+<div id="footer-container"></div>
+
+<!-- Design Selector -->
+<div class="design-selector" style="position: fixed; bottom: 20px; right: 20px; background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); padding: 10px; border-radius: 8px; z-index: 100;">
+  <p style="margin-bottom: 10px; font-weight: bold;">Design auswählen:</p>
+  <select id="design-switch" style="padding: 5px; width: 100%;">
+    <option value="main-design">Hauptdesign: Liste mit Highlights</option>
+    <option value="alternative1">Alternative 1: Kategorie-Tabs</option>
+    <option value="alternative2">Alternative 2: Academic Journal</option>
+  </select>
+</div>
+
+<!-- ============ SCRIPTS ============ -->
+<script>
+  // Navigation laden
+  fetch('components/globals/navigation_ohnesub.html?t=' + new Date().getTime())
+    .then(response => {
+      if (!response.ok) {
+        console.error('Fehler beim Laden der Navigation:', response.status);
+        // Fallback zum globals-Verzeichnis versuchen
+        return fetch('components/includes/navigation_ohnesub.html?t=' + new Date().getTime())
+          .then(resp => {
+            if (!resp.ok) {
+              console.error('Auch globals-Pfad fehlgeschlagen:', resp.status);
+              return '';
+            }
+            return resp.text();
+          });
+      }
+      return response.text();
+    })
+    .then(data => {
+      if (data) {
+        document.getElementById('navigation-container').innerHTML = data;
+      }
+    })
+    .catch(error => console.error('Fehler beim Laden der Navigation:', error));
+  
+  // Sidebar laden
+  fetch('components/globals/sidebar.html?t=' + new Date().getTime())
+    .then(response => {
+      if (!response.ok) {
+        console.error('Fehler beim Laden der Sidebar:', response.status);
+        // Fallback zum globals-Verzeichnis versuchen
+        return fetch('components/includes/sidebar.html?t=' + new Date().getTime())
+          .then(resp => {
+            if (!resp.ok) {
+              console.error('Auch globals-Pfad fehlgeschlagen:', resp.status);
+              return '';
+            }
+            return resp.text();
+          });
+      }
+      return response.text();
+    })
+    .then(data => {
+      if (data) document.getElementById('sidebar-container').innerHTML = data;
+    })
+    .catch(error => console.error('Fehler beim Laden der Sidebar:', error));
+  
+  // Footer laden
+  fetch('components/globals/footer.html?t=' + new Date().getTime())
+    .then(response => {
+      if (!response.ok) {
+        console.error('Fehler beim Laden des Footers:', response.status);
+        // Fallback zum globals-Verzeichnis versuchen
+        return fetch('components/includes/footer.html?t=' + new Date().getTime())
+          .then(resp => {
+            if (!resp.ok) {
+              console.error('Auch globals-Pfad fehlgeschlagen:', resp.status);
+              return '';
+            }
+            return resp.text();
+          });
+      }
+      return response.text();
+    })
+    .then(data => {
+      if (data) document.getElementById('footer-container').innerHTML = data;
+    })
+    .catch(error => console.error('Fehler beim Laden des Footers:', error));
+
+  // Tab Filter Interaktion
+  document.addEventListener('DOMContentLoaded', function() {
+    const tabs = document.querySelectorAll('.research-tab');
+    
+    tabs.forEach(tab => {
+      tab.addEventListener('click', function() {
+        // Remove active class from all tabs
+        tabs.forEach(t => t.classList.remove('active'));
+        
+        // Add active class to clicked tab
+        this.classList.add('active');
+        
+        // In a real implementation, this would filter the research items
+        console.log('Filter selected:', this.textContent);
+      });
+    });
+    
+    // Alternative 1 Tab Interaktion
+    const alt1Tabs = document.querySelectorAll('.alt1-tab');
+    
+    alt1Tabs.forEach(tab => {
+      tab.addEventListener('click', function() {
+        // Remove active class from all tabs
+        alt1Tabs.forEach(t => t.classList.remove('active'));
+        
+        // Add active class to clicked tab
+        this.classList.add('active');
+      });
+    });
+    
+    // Design Switcher
+    const designSwitch = document.getElementById('design-switch');
+    const designSections = document.querySelectorAll('section.content-section');
+    
+    designSwitch.addEventListener('change', function() {
+      const selectedDesign = this.value;
+      
+      // Hide all designs
+      designSections.forEach(section => {
+        section.style.display = 'none';
+      });
+      
+      // Show selected design
+      document.getElementById(selectedDesign).style.display = 'block';
+    });
+    
+    // Alternative 2 Cite Format Interaktion
+    const citeFormats = document.querySelectorAll('.academic-cite-format');
+    
+    citeFormats.forEach(format => {
+      format.addEventListener('click', function() {
+        // In a real implementation, this would change the citation format
+        console.log('Citation format selected:', this.textContent);
+      });
+    });
+  });
+</script>
+</body>
+</html> 

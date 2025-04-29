@@ -100,24 +100,24 @@
       text-decoration: underline;
     }
 
-    /* Hero-Sektion */
-    .hero {
+    /* Simpler header styles */
+    .page-header {
       background-color: #f5f5f7;
       padding: 60px 0;
       text-align: center;
     }
 
-    .hero h1 {
+    .page-header h1 {
       font-size: 2.5rem;
       font-weight: 700;
       margin-bottom: 1.5rem;
     }
 
-    .hero p {
+    .page-header p {
       font-size: 1.2rem;
       color: var(--color-muted);
       max-width: 800px;
-      margin: 0 auto 2rem;
+      margin: 0 auto;
     }
 
     .content-section {
@@ -145,715 +145,471 @@
       margin-right: auto;
     }
 
-    /* Support Cards */
-    .support-grid {
+    /* Research Highlights */
+    .highlights-container {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 24px;
-      margin-top: 40px;
       margin-bottom: 60px;
     }
 
-    /* Card styling for both div and a versions */
-    .support-card {
+    .highlight-box {
       background: var(--color-card-bg);
+      border-radius: var(--radius);
       padding: 30px;
-      border-radius: var(--radius);
+      transition: box-shadow 0.3s ease;
       border: 2px solid transparent;
-      transition: all 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      position: relative;
-      cursor: pointer;
-      text-decoration: none; /* Ensure links don't have underlines */
-      color: inherit; /* Inherit text color instead of link color */
     }
 
-    .support-card:hover {
-      border-color: var(--color-accent2);
+    .highlight-box:hover {
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+      border: 2px solid var(--imt-purple);
     }
 
-    .support-card i {
-      font-size: 32px;
-      margin-bottom: 16px;
-      color: var(--imt-purple);
-    }
-    
-    .support-card h3 {
-      margin-bottom: 12px;
+    .highlight-box h3 {
       font-size: 1.2rem;
+      color: var(--imt-purple);
+      margin-bottom: 12px;
     }
 
-    .support-card p {
-      color: var(--color-muted);
+    .highlight-box p {
       font-size: 0.95rem;
-      margin-bottom: 16px;
+      margin-bottom: 15px;
     }
 
-    .support-card a {
+    .highlight-meta {
+      font-size: 0.85rem;
+      color: var(--color-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
       margin-top: auto;
-      display: inline-flex;
-      align-items: center;
-      color: var(--imt-purple);
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.9rem;
-      position: relative;
-      z-index: 2;
-    }
-    
-    .support-card a:hover {
-      text-decoration: none !important;
-    }
-    
-    .support-card a i {
-      font-size: 1rem;
-      margin-left: 6px;
-      margin-bottom: 0;
-      transition: transform 0.2s ease;
-      transform: translateY(1px);
-      display: inline-block;
-    }
-    
-    .support-card a:hover i {
-      transform: translateX(4px) translateY(1px);
-    }
-    
-    .support-card-link {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-      border-radius: var(--radius);
     }
 
-    /* Ensure the support-card-link is clickable */
-    .support-card {
-      position: relative;
-      cursor: pointer;
-    }
-    
-    .support-card > *:not(.support-card-link) {
-      pointer-events: none;
-      position: relative;
-      z-index: 2;
-    }
-    
-    .support-card-link {
-      z-index: 3;
-    }
-    
-    /* Allow clicks on the "Mehr erfahren" link while keeping card clickable */
-    .support-card .more-link {
-      pointer-events: auto;
+    /* Tab Controls */
+    .research-tabs {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 32px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #eee;
     }
 
-    /* FAQ Styles */
-    .faq-container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .faq-item {
-      margin-bottom: 16px;
-      border-radius: 12px;
-      overflow: hidden;
-      background: var(--color-card-bg);
-      transition: all 0.3s ease;
+    .research-tab {
+      padding: 8px 16px;
+      border-radius: 6px;
       border: 2px solid transparent;
-    }
-
-    .faq-item:hover {
-      border-color: var(--color-accent2);
-    }
-
-    .faq-question {
-      padding: 16px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      font-weight: 500;
       cursor: pointer;
-      font-weight: 600;
-      position: relative;
+      white-space: nowrap;
+      transition: all 0.2s ease;
     }
 
-    .faq-question i {
-      font-size: 24px;
-      transition: transform 0.3s ease;
+    .research-tab:hover {
+      border-color: #ccc;
+    }
+
+    .research-tab.active {
+      background: var(--imt-purple);
+      color: white;
+      border-color: var(--imt-purple);
+    }
+
+    /* Publication List with Filters */
+    .research-list {
+      width: 100%;
+      margin: 0;
+    }
+
+    .research-item {
+      border-bottom: 1px solid #eee;
+      padding: 24px 0;
+      transition: background-color 0.2s ease;
+    }
+
+    .research-item:hover {
+      background-color: rgba(245, 245, 247, 0.5);
+    }
+
+    .research-item h3 {
+      font-size: 1.3rem;
       color: var(--imt-purple);
+      margin-bottom: 8px;
     }
 
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease, padding 0.3s ease;
-      padding: 0 24px;
-    }
-
-    .faq-item.active .faq-answer {
-      max-height: 500px;
-      padding: 0 24px 24px;
-    }
-
-    .faq-item.active .faq-question i {
-      transform: rotate(180deg);
-    }
-
-    /* Category Tabs */
-    .faq-tabs {
+    .research-item-meta {
       display: flex;
-      justify-content: flex-start;
-      margin-bottom: 40px;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+      color: var(--color-muted);
+    }
+
+    .research-item-meta span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .research-item-meta i {
+      font-size: 1.1rem;
+    }
+
+    .research-item-desc {
+      margin-bottom: 16px;
+    }
+
+    .research-item-tags {
+      display: flex;
+      gap: 8px;
       flex-wrap: wrap;
     }
 
-    .faq-tab {
-      padding: 8px 20px;
-      margin: 0 8px 8px;
-      background: transparent;
-      border: none;
-      border-radius: 20px;
-      cursor: pointer;
-      font-size: 0.95rem;
-      transition: all 0.3s ease;
-      color: var(--color-text);
-      background: var(--color-card-bg);
-    }
-
-    .faq-tab.active {
-      background: var(--imt-purple);
-      color: white;
-    }
-
-    .faq-tab:hover:not(.active) {
-      background: #e8e8e8;
-    }
-
-    /* Contact Support Section */
-    .support-cta {
-      text-align: left;
-      margin-top: 60px;
-      padding: 40px;
-      background: var(--color-card-bg);
-      border-radius: var(--radius);
-    }
-
-    .support-cta h3 {
-      font-size: 1.3rem;
-      margin-bottom: 16px;
-    }
-
-    .support-cta p {
-      margin-bottom: 24px;
-      max-width: 600px;
-      margin-left: 0;
-      margin-right: auto;
-    }
-
-    .cta-button {
-      background: linear-gradient(to right, var(--imt-purple), #9c27b0);
-      color: white;
-      border: none;
-      border-radius: 8px;
-      padding: 12px 24px;
-      font-size: 1rem;
+    .research-tag {
+      background-color: rgba(110, 69, 226, 0.1);
+      color: var(--imt-purple);
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 0.8rem;
       font-weight: 500;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      text-decoration: none;
-      display: inline-block;
     }
 
-    .cta-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(106, 69, 226, 0.2);
-      text-decoration: none;
+    .research-item-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 16px;
     }
 
+    .research-item-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 500;
+    }
+
+    .research-item-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 500;
+      text-decoration: none;
+      padding-right: 15px;
+    }
+    
+    .research-item-link i {
+      transition: transform 0.2s ease;
+      transform: translateY(1px);
+    }
+    
+    .research-item-link:hover {
+      text-decoration: none;
+    }
+    
+    .research-item-link:hover i {
+      transform: translate(3px, 1px);
+    }
+
+    /* Faculty info */
+    .faculty-badge {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .faculty-badge img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .faculty-badge span {
+      font-weight: 500;
+    }
+
+    /* Responsive adjustments */
     @media (max-width: 768px) {
-      h1 {
-        font-size: 2rem;
-      }
-
-      h2 {
-        font-size: 1.75rem;
-      }
-
-      h3 {
-        font-size: 1.25rem;
-      }
-
-      .container {
-        padding: 0 16px;
-      }
-      
-      .support-grid {
+      .highlights-container {
         grid-template-columns: 1fr;
       }
       
-      .faq-tabs {
-        flex-direction: column;
-        align-items: center;
+      .research-tabs {
+        gap: 8px;
       }
       
-      .faq-tab {
-        width: 100%;
-        max-width: 300px;
-        margin-bottom: 8px;
+      .research-tab {
+        padding: 6px 12px;
+        font-size: 0.9rem;
       }
-    }
-
-    /* Style for "Mehr erfahren" link/span */
-    .more-link {
-      margin-top: auto;
-      display: inline-flex;
-      align-items: center;
-      color: var(--imt-purple);
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.9rem;
-      position: relative;
-    }
-    
-    .support-card:hover .more-link {
-      text-decoration: none !important;
-    }
-    
-    .more-link i {
-      font-size: 1rem;
-      margin-left: 6px;
-      margin-bottom: 0;
-      transition: transform 0.2s ease;
-      transform: translateY(1px);
-      display: inline-block;
-    }
-    
-    .support-card:hover .more-link i {
-      transform: translateX(4px) translateY(1px);
-    }
-
-    /* Ensure no text is underlined in cards */
-    a.support-card,
-    a.support-card:hover,
-    a.support-card:focus {
-      text-decoration: none !important;
-    }
-    
-    a.support-card h3,
-    a.support-card p,
-    a.support-card span,
-    a.support-card * {
-      text-decoration: none !important;
-    }
-    
-    a.support-card:hover h3,
-    a.support-card:hover p,
-    a.support-card:hover span,
-    a.support-card:hover * {
-      text-decoration: none !important;
     }
   </style>
 
   <!-- BoxIcons für Icons -->
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-  <!-- Font Awesome für die Icons -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-  
+
   <!-- Favicon -->
   <link rel="icon" href="assets/favicon.png" type="image/png">
 </head>
 <body>
-  <!-- Dynamisches Laden der Navigation -->
-  <div id="navigation-container"></div>
-  
-  <!-- Sidebar einbinden -->
-  <div id="sidebar-container"></div>
 
-  <!-- Hauptinhalt -->
-  <main>
-    <!-- Support-Kategorien -->
-    <section class="content-section">
-      <div class="container">
-        <h2>St. Gallen imt Business School Research</h2>
-        <p class="section-subtitle">Wählen Sie aus einer unserer Support-Kategorien oder durchsuchen Sie unsere häufig gestellten Fragen.</p>
+<!-- Navigation einbinden -->
+<div id="navigation-container"></div>
+
+<!-- Sidebar einbinden -->
+<div id="sidebar-container"></div>
+
+<!-- Hauptinhalt -->
+<main>
+  <!-- Main Research Section -->
+  <section class="content-section">
+    <div class="container">
+      <h2>Forschungs-Highlights</h2>
+      <p class="section-subtitle">Die wichtigsten Veröffentlichungen unserer Fakultät im Überblick.</p>
+      
+      <!-- Research Highlights -->
+      <div class="highlights-container">
+        <!-- Highlight 1 -->
+        <div class="highlight-box">
+          <h3>Künstliche Intelligenz in der strategischen Unternehmensführung</h3>
+          <p>Framework für die Integration von KI in die Geschäftsmodellentwicklung mittelständischer Unternehmen.</p>
+          <div class="highlight-meta">
+            <i class='bx bx-calendar'></i> Januar 2023 | <i class='bx bx-user'></i> Prof. Dr. Maria Schmidt
+          </div>
+        </div>
         
-        <div class="support-grid">
-          <!-- Karte 1: Über St. Gallen IMT -->
-          <a href="support_aboutimt.html" class="support-card">
-            <i class='bx bx-laptop'></i>
-            <h3>Über St. Gallen IMT</h3>
-            <p>Unsere Geschichte, Mission und Vision der KI-Weiterbildung.</p>
-            <span class="more-link">Mehr erfahren <i class='bx bx-right-arrow-alt'></i></span>
-          </a>
-          
-          <!-- Karte 2: Kursinformationen -->
-          <a href="support_kursinformationen.html" class="support-card">
-            <i class='bx bx-book-open'></i>
-            <h3>Kursinformationen</h3>
-            <p>Informationen zu Kursinhalten, Materialien und Lernfortschritt.</p>
-            <span class="more-link">Mehr erfahren <i class='bx bx-right-arrow-alt'></i></span>
-          </a>
-          
-          <!-- Karte 3: Ansprechpartner -->
-          <a href="support_ansprechpartner.html" class="support-card">
-            <i class='bx bx-calendar-check'></i>
-            <h3>Ansprechpartner</h3>
-            <p>Ihre Kontaktpersonen für Beratung, Anmeldung und Studium.</p>
-            <span class="more-link">Mehr erfahren <i class='bx bx-right-arrow-alt'></i></span>
-          </a>
+        <!-- Highlight 2 -->
+        <div class="highlight-box">
+          <h3>Machine Learning zur Prognose von Markttrends</h3>
+          <p>ML-Algorithmen für die Vorhersage von Markttrends während wirtschaftlicher Unsicherheit.</p>
+          <div class="highlight-meta">
+            <i class='bx bx-calendar'></i> April 2023 | <i class='bx bx-user'></i> Dr. Michael Bauer
+          </div>
+        </div>
+        
+        <!-- Highlight 3 -->
+        <div class="highlight-box">
+          <h3>Nachhaltige Transformation durch digitale Geschäftsmodelle</h3>
+          <p>Framework für die Integration von ESG-Kriterien in digitale Transformationsprozesse.</p>
+          <div class="highlight-meta">
+            <i class='bx bx-calendar'></i> Juni 2023 | <i class='bx bx-user'></i> Prof. Dr. Eva Schneider
+          </div>
         </div>
       </div>
-    </section>
-
-    <!-- FAQ-Bereich -->
-    <section class="content-section" id="faq">
-      <div class="container">
-        <h2>Häufig gestellte Fragen</h2>
-        <p class="section-subtitle">Hier finden Sie schnelle Antworten auf die am häufigsten gestellten Fragen.</p>
-        
-        <div class="faq-tabs">
-          <button class="faq-tab active" data-category="all">Alle Fragen</button>
-          <button class="faq-tab" data-category="admission">Anmeldung & Zulassung</button>
-          <button class="faq-tab" data-category="courses">Kursangebot</button>
-          <button class="faq-tab" data-category="payment">Zahlung & Förderung</button>
-          <button class="faq-tab" data-category="certificate">Abschluss & Zertifikate</button>
+      
+      <h2>Publikationsliste</h2>
+      <p class="section-subtitle">Eine übersichtliche Liste unserer Forschungspublikationen.</p>
+      
+      <div class="research-list">
+        <!-- Research Item 1 -->
+        <div class="research-item">
+          <h3>Künstliche Intelligenz in der strategischen Unternehmensführung</h3>
+          <div class="research-item-meta">
+            <span><i class='bx bx-calendar'></i> Januar 2023</span>
+            <span><i class='bx bx-book'></i> Journal of AI in Business</span>
+            <span><i class='bx bx-link'></i> DOI: 10.1234/ai.2023.001</span>
+          </div>
+          <p class="research-item-desc">Diese Studie untersucht die Auswirkungen von KI-Systemen auf strategische Entscheidungsprozesse in mittelständischen Unternehmen und entwickelt ein Framework für die Integration von KI in die Geschäftsmodellentwicklung.</p>
+          <div class="research-item-tags">
+            <span class="research-tag">KI-Strategie</span>
+            <span class="research-tag">Business Intelligence</span>
+            <span class="research-tag">Mittelstand</span>
+          </div>
+          <div class="research-item-footer">
+            <div class="faculty-badge">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Prof. Dr. Maria Schmidt">
+              <span>Prof. Dr. Maria Schmidt</span>
+            </div>
+            <a href="#" class="research-item-link">Details <i class='bx bx-right-arrow-alt'></i></a>
+          </div>
         </div>
         
-        <div class="faq-container">
-          <!-- FAQ Item 1 -->
-          <div class="faq-item" data-category="admission">
-            <div class="faq-question">
-              Welche Voraussetzungen muss ich für die Teilnahme erfüllen?
-              <i class='bx bx-chevron-down'></i>
-            </div>
-            <div class="faq-answer">
-              <p>Für die Teilnahme an unseren Executive Seminaren sind in der Regel mindestens 3 Jahre Berufserfahrung sowie eine Führungsposition oder angestrebte Führungsrolle erforderlich. Für spezifische Programme können weitere Voraussetzungen gelten. Detaillierte Informationen finden Sie auf der jeweiligen Programmseite oder kontaktieren Sie unser Zulassungsteam.</p>
-            </div>
+        <!-- Research Item 2 -->
+        <div class="research-item">
+          <h3>Machine Learning zur Prognose von Markttrends in volatilen Märkten</h3>
+          <div class="research-item-meta">
+            <span><i class='bx bx-calendar'></i> April 2023</span>
+            <span><i class='bx bx-book'></i> International Journal of Business Analytics</span>
+            <span><i class='bx bx-link'></i> DOI: 10.1234/ijba.2023.042</span>
           </div>
-          
-          <!-- FAQ Item 2 -->
-          <div class="faq-item" data-category="admission">
-            <div class="faq-question">
-              Wie läuft der Bewerbungsprozess ab?
-              <i class='bx bx-chevron-down'></i>
-            </div>
-            <div class="faq-answer">
-              <p>Der Bewerbungsprozess besteht aus folgenden Schritten:</p>
-              <ol>
-                <li>Online-Bewerbung über unsere Website mit Lebenslauf und Motivationsschreiben</li>
-                <li>Prüfung Ihrer Unterlagen durch unser Zulassungskomitee</li>
-                <li>Bei positiver Vorauswahl: Einladung zum persönlichen oder virtuellen Interview</li>
-                <li>Zulassungsentscheidung und Zusendung der Anmeldeunterlagen</li>
-                <li>Bestätigung Ihrer Teilnahme durch Zahlung der Anmeldegebühr</li>
-              </ol>
-              <p>Der gesamte Prozess dauert in der Regel 2-3 Wochen.</p>
-            </div>
+          <p class="research-item-desc">Eine innovative Methode zur Nutzung von ML-Algorithmen für die Vorhersage von Markttrends während wirtschaftlicher Unsicherheit, mit Fallstudien aus der Post-Pandemie-Ära.</p>
+          <div class="research-item-tags">
+            <span class="research-tag">Machine Learning</span>
+            <span class="research-tag">Prognosemodelle</span>
+            <span class="research-tag">Marktanalyse</span>
           </div>
-          
-          <!-- FAQ Item 3 -->
-          <div class="faq-item" data-category="courses">
-            <div class="faq-question">
-              Werden die Kurse in Präsenz oder online angeboten?
-              <i class='bx bx-chevron-down'></i>
+          <div class="research-item-footer">
+            <div class="faculty-badge">
+              <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Dr. Michael Bauer">
+              <span>Dr. Michael Bauer</span>
             </div>
-            <div class="faq-answer">
-              <p>Wir bieten je nach Programm verschiedene Formate an:</p>
-              <ul>
-                <li><strong>Präsenzformate:</strong> Intensive Lernerfahrung vor Ort mit direktem Austausch und Networking</li>
-                <li><strong>Hybridformate:</strong> Kombination aus Präsenz- und Onlinephasen für maximale Flexibilität</li>
-                <li><strong>Online-Formate:</strong> Vollständig digitale Programme mit interaktiven Live-Sessions</li>
-              </ul>
-              <p>Detaillierte Informationen zum Format finden Sie auf der jeweiligen Programmseite.</p>
-            </div>
+            <a href="#" class="research-item-link">Details <i class='bx bx-right-arrow-alt'></i></a>
           </div>
-          
-          <!-- FAQ Item 4 -->
-          <div class="faq-item" data-category="courses">
-            <div class="faq-question">
-              Wie sind die Programme zeitlich strukturiert?
-              <i class='bx bx-chevron-down'></i>
-            </div>
-            <div class="faq-answer">
-              <p>Unsere Programme sind berufsbegleitend konzipiert und bieten verschiedene zeitliche Strukturen:</p>
-              <ul>
-                <li><strong>Executive Seminare:</strong> Kompakte 2-5 Tage Intensivseminare</li>
-                <li><strong>Zertifikatsprogramme:</strong> Modulare Programme über 3-6 Monate mit monatlichen Modulen</li>
-                <li><strong>Executive Education Programme:</strong> Längere Programme über 9-12 Monate mit flexiblen Lernphasen</li>
-              </ul>
-              <p>Die genauen Termine werden frühzeitig bekannt gegeben, sodass Sie Ihre beruflichen Verpflichtungen entsprechend planen können.</p>
-            </div>
+        </div>
+        
+        <!-- Research Item 3 -->
+        <div class="research-item">
+          <h3>Nachhaltige Transformation durch digitale Geschäftsmodelle</h3>
+          <div class="research-item-meta">
+            <span><i class='bx bx-calendar'></i> Juni 2023</span>
+            <span><i class='bx bx-book'></i> Sustainability Science Journal</span>
+            <span><i class='bx bx-link'></i> DOI: 10.1234/ssj.2023.06</span>
           </div>
-          
-          <!-- FAQ Item 5 -->
-          <div class="faq-item" data-category="payment">
-            <div class="faq-question">
-              Welche Zahlungsmöglichkeiten gibt es?
-              <i class='bx bx-chevron-down'></i>
-            </div>
-            <div class="faq-answer">
-              <p>Wir bieten folgende Zahlungsmöglichkeiten an:</p>
-              <ul>
-                <li>Einmalzahlung (mit Frühbucherrabatt)</li>
-                <li>Ratenzahlung (in 2-4 Raten je nach Programm)</li>
-                <li>Rechnungsstellung an Ihr Unternehmen</li>
-              </ul>
-              <p>Alle Zahlungen können per Überweisung oder Kreditkarte erfolgen. Bei Fragen zu individuellen Zahlungsvereinbarungen kontaktieren Sie bitte unser Finanzteam.</p>
-            </div>
+          <p class="research-item-desc">Diese Forschung analysiert, wie digitale Geschäftsmodelle zur Erreichung von Nachhaltigkeitszielen beitragen können und präsentiert einen Framework für die Integration von ESG-Kriterien in digitale Transformationsprozesse.</p>
+          <div class="research-item-tags">
+            <span class="research-tag">Nachhaltigkeit</span>
+            <span class="research-tag">Digitale Transformation</span>
+            <span class="research-tag">ESG</span>
           </div>
-          
-          <!-- FAQ Item 6 -->
-          <div class="faq-item" data-category="payment">
-            <div class="faq-question">
-              Gibt es Fördermöglichkeiten oder Stipendien?
-              <i class='bx bx-chevron-down'></i>
+          <div class="research-item-footer">
+            <div class="faculty-badge">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Prof. Dr. Eva Schneider">
+              <span>Prof. Dr. Eva Schneider</span>
             </div>
-            <div class="faq-answer">
-              <p>Ja, wir bieten verschiedene Fördermöglichkeiten:</p>
-              <ul>
-                <li><strong>Stipendien für Führungskräfte:</strong> Leistungsbasierte Teilstipendien für herausragende Kandidaten</li>
-                <li><strong>Diversity-Stipendien:</strong> Zur Förderung von Diversität in Führungspositionen</li>
-                <li><strong>Unternehmensrabatte:</strong> Bei Anmeldung mehrerer Teilnehmer aus einem Unternehmen</li>
-              </ul>
-              <p>Zudem können unsere Programme in vielen Fällen steuerlich abgesetzt werden. Für persönliche Beratung zu Fördermöglichkeiten kontaktieren Sie bitte unser Beratungsteam.</p>
-            </div>
+            <a href="#" class="research-item-link">Details <i class='bx bx-right-arrow-alt'></i></a>
           </div>
-          
-          <!-- FAQ Item 7 -->
-          <div class="faq-item" data-category="certificate">
-            <div class="faq-question">
-              Welche Abschlüsse und Zertifikate erhalte ich?
-              <i class='bx bx-chevron-down'></i>
-            </div>
-            <div class="faq-answer">
-              <p>Je nach Programm erhalten Sie folgende Abschlüsse:</p>
-              <ul>
-                <li><strong>Teilnahmezertifikat:</strong> Für Executive Seminare mit Bestätigung der behandelten Inhalte</li>
-                <li><strong>Executive Certificate:</strong> Nach erfolgreichem Abschluss eines Zertifikatsprogramms mit Credit Points</li>
-                <li><strong>Executive Diploma:</strong> Nach Abschluss umfassenderer Programme mit Prüfungsleistungen</li>
-              </ul>
-              <p>Alle Zertifikate werden von der imtxAI Business School in Zusammenarbeit mit der Universität St. Gallen ausgestellt und sind international anerkannt.</p>
-            </div>
-          </div>
-          
-          <!-- FAQ Item 8 -->
-          <div class="faq-item" data-category="certificate">
-            <div class="faq-question">
-              Sind die Abschlüsse international anerkannt?
-              <i class='bx bx-chevron-down'></i>
-            </div>
-            <div class="faq-answer">
-              <p>Ja, alle unsere Abschlüsse und Zertifikate sind international anerkannt. Die imtxAI Business School arbeitet eng mit der Universität St. Gallen zusammen, die weltweit zu den renommiertesten Wirtschaftsuniversitäten zählt. Unsere Programme entsprechen internationalen Qualitätsstandards und werden regelmäßig akkreditiert.</p>
-              <p>Die erworbenen Kompetenzen können in vielen Fällen auch als Credit Points für weiterführende akademische Programme angerechnet werden. Details zur Anrechenbarkeit erfahren Sie bei unserem akademischen Beratungsteam.</p>
-            </div>
-          </div>
-          
         </div>
       </div>
-    </section>
+    </div>
+  </section>
+</main>
 
-    <!-- Kontakt-CTA -->
-    <section class="content-section">
-      <div class="container">
-        <div class="support-cta">
-          <h3>Ihre Frage nicht gefunden?</h3>
-          <p>Unser Support-Team steht Ihnen jederzeit zur Verfügung, um Ihre individuellen Fragen zu beantworten und Sie zu unterstützen.</p>
-          <a href="kontakt.html" class="cta-button">Kontakt aufnehmen</a>
-        </div>
-      </div>
-    </section>
-  </main>
+<!-- Footer einbinden -->
+<div id="footer-container"></div>
 
-  <!-- Footer einbinden -->
-  <div id="footer-container"></div>
-
-  <!-- Dynamisches Laden der globalen Komponenten -->
-  <script>
-    // Navigation laden
-    fetch('components/globals/navigation_ohnesub.html?t=' + new Date().getTime())
-      .then(response => {
-        if (!response.ok) {
-          console.error('Fehler beim Laden der Navigation:', response.status);
-          // Fallback zum includes-Verzeichnis versuchen
-          return fetch('components/includes/navigation_ohnesub.html?t=' + new Date().getTime())
-            .then(resp => {
-              if (!resp.ok) {
-                console.error('Auch includes-Pfad fehlgeschlagen:', resp.status);
-                return '';
-              }
-              return resp.text();
-            });
-        }
-        return response.text();
-      })
-      .then(data => {
-        console.log('Navigation geladen');
-        if (data) {
-          document.getElementById('navigation-container').innerHTML = data;
-          
-          // Mobile Navigation initialisieren (neu)
-          const navScript = document.createElement('script');
-          navScript.src = 'assets/js/mobile-nav.js?t=' + new Date().getTime();
-          document.body.appendChild(navScript);
-          
-          // Research-Link als aktiv markieren
-          setTimeout(() => {
-            document.querySelectorAll('.nav-link').forEach(link => {
-              if (link.textContent.trim() === 'Research') {
-                console.log('Aktiviere Research-Link:', link);
-                link.classList.add('active');
-              }
-            });
-          }, 200);
-        }
-      })
-      .catch(error => console.error('Fehler beim Laden der Navigation:', error));
-
-    // Sidebar laden
-    fetch('components/globals/sidebar.html?t=' + new Date().getTime())
-      .then(response => {
-        if (!response.ok) {
-          console.error('Fehler beim Laden der Sidebar:', response.status);
-          // Fallback zum includes-Verzeichnis versuchen
-          return fetch('components/includes/sidebar.html?t=' + new Date().getTime())
-            .then(resp => {
-              if (!resp.ok) {
-                console.error('Auch includes-Pfad fehlgeschlagen:', resp.status);
-                return '';
-              }
-              return resp.text();
-            });
-        }
-        return response.text();
-      })
-      .then(data => {
-        console.log('Sidebar geladen');
-        if (data) document.getElementById('sidebar-container').innerHTML = data;
-      })
-      .catch(error => console.error('Fehler beim Laden der Sidebar:', error));
-
-    // Footer laden
-    fetch('components/globals/footer.html?t=' + new Date().getTime())
-      .then(response => {
-        if (!response.ok) {
-          console.error('Fehler beim Laden des Footers:', response.status);
-          // Fallback zum includes-Verzeichnis versuchen
-          return fetch('components/includes/footer.html?t=' + new Date().getTime())
-            .then(resp => {
-              if (!resp.ok) {
-                console.error('Auch includes-Pfad fehlgeschlagen:', resp.status);
-                return '';
-              }
-              return resp.text();
-            });
-        }
-        return response.text();
-      })
-      .then(data => {
-        console.log('Footer geladen');
-        if (data) document.getElementById('footer-container').innerHTML = data;
-      })
-      .catch(error => console.error('Fehler beim Laden des Footers:', error));
-  </script>
-
-  <!-- FAQ-Tab und Accordion Funktionalität -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // FAQ Accordion Funktionalität
-      const faqItems = document.querySelectorAll('.faq-item');
-      
-      faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
-        
-        question.addEventListener('click', () => {
-          // Toggle aktives Accordion-Item
-          const isActive = item.classList.contains('active');
-          
-          // Schließe alle aktiven Elemente
-          faqItems.forEach(faqItem => {
-            faqItem.classList.remove('active');
-          });
-          
-          // Öffne das geklickte Element, wenn es nicht bereits aktiv war
-          if (!isActive) {
-            item.classList.add('active');
-          }
-        });
-      });
-      
-      // FAQ Tabs Funktionalität
-      const faqTabs = document.querySelectorAll('.faq-tab');
-      
-      faqTabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-          // Aktiver Tab-Status
-          faqTabs.forEach(t => t.classList.remove('active'));
-          tab.classList.add('active');
-          
-          const category = tab.getAttribute('data-category');
-          
-          // Filtern der FAQ-Items
-          faqItems.forEach(item => {
-            if (category === 'all' || item.getAttribute('data-category') === category) {
-              item.style.display = 'block';
-            } else {
-              item.style.display = 'none';
+<!-- ============ SCRIPTS ============ -->
+<script>
+  // Navigation laden
+  fetch('components/globals/navigation_ohnesub.html?t=' + new Date().getTime())
+    .then(response => {
+      if (!response.ok) {
+        console.error('Fehler beim Laden der Navigation:', response.status);
+        // Fallback zum globals-Verzeichnis versuchen
+        return fetch('components/includes/navigation_ohnesub.html?t=' + new Date().getTime())
+          .then(resp => {
+            if (!resp.ok) {
+              console.error('Auch globals-Pfad fehlgeschlagen:', resp.status);
+              return '';
             }
+            return resp.text();
           });
-        });
+      }
+      return response.text();
+    })
+    .then(data => {
+      if (data) {
+        document.getElementById('navigation-container').innerHTML = data;
+      }
+    })
+    .catch(error => console.error('Fehler beim Laden der Navigation:', error));
+  
+  // Sidebar laden
+  fetch('components/globals/sidebar.html?t=' + new Date().getTime())
+    .then(response => {
+      if (!response.ok) {
+        console.error('Fehler beim Laden der Sidebar:', response.status);
+        // Fallback zum globals-Verzeichnis versuchen
+        return fetch('components/includes/sidebar.html?t=' + new Date().getTime())
+          .then(resp => {
+            if (!resp.ok) {
+              console.error('Auch globals-Pfad fehlgeschlagen:', resp.status);
+              return '';
+            }
+            return resp.text();
+          });
+      }
+      return response.text();
+    })
+    .then(data => {
+      if (data) document.getElementById('sidebar-container').innerHTML = data;
+    })
+    .catch(error => console.error('Fehler beim Laden der Sidebar:', error));
+  
+  // Footer laden
+  fetch('components/globals/footer.html?t=' + new Date().getTime())
+    .then(response => {
+      if (!response.ok) {
+        console.error('Fehler beim Laden des Footers:', response.status);
+        // Fallback zum globals-Verzeichnis versuchen
+        return fetch('components/includes/footer.html?t=' + new Date().getTime())
+          .then(resp => {
+            if (!resp.ok) {
+              console.error('Auch globals-Pfad fehlgeschlagen:', resp.status);
+              return '';
+            }
+            return resp.text();
+          });
+      }
+      return response.text();
+    })
+    .then(data => {
+      if (data) document.getElementById('footer-container').innerHTML = data;
+    })
+    .catch(error => console.error('Fehler beim Laden des Footers:', error));
+
+  // Tab Filter Interaktion
+  document.addEventListener('DOMContentLoaded', function() {
+    const tabs = document.querySelectorAll('.research-tab');
+    
+    tabs.forEach(tab => {
+      tab.addEventListener('click', function() {
+        // Remove active class from all tabs
+        tabs.forEach(t => t.classList.remove('active'));
+        
+        // Add active class to clicked tab
+        this.classList.add('active');
+        
+        // In a real implementation, this would filter the research items
+        console.log('Filter selected:', this.textContent);
       });
     });
-  </script>
-
-  <!-- Script zur Aktivierung des aktuellen Menüpunkts -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      console.log('Research-Seite geladen, markiere Research-Link als aktiv');
+    
+    // Script zur Aktivierung des aktuellen Menüpunkts
+    console.log('Research-Seite geladen, markiere Research-Link als aktiv');
+    
+    // Wir verwenden ein Interval, um sicherzustellen, dass die Navigation geladen ist
+    let attempts = 0;
+    const maxAttempts = 50; // 5 Sekunden bei 100ms Interval
+    
+    const checkAndActivate = setInterval(function() {
+      attempts++;
       
-      // Wir verwenden ein Interval, um sicherzustellen, dass die Navigation geladen ist
-      let attempts = 0;
-      const maxAttempts = 50; // 5 Sekunden bei 100ms Interval
+      // Alle Navigationslinks finden
+      const navLinks = document.querySelectorAll('.nav-link');
       
-      const checkAndActivate = setInterval(function() {
-        attempts++;
+      if (navLinks.length > 0) {
+        console.log('Navigationslinks gefunden, suche nach Research-Link');
         
-        // Alle Navigationslinks finden
-        const navLinks = document.querySelectorAll('.nav-link');
+        // Entferne die active-Klasse von allen Links
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+        });
         
-        if (navLinks.length > 0) {
-          console.log('Navigationslinks gefunden, suche nach Research-Link');
-          
-          // Entferne die active-Klasse von allen Links
-          navLinks.forEach(link => {
-            link.classList.remove('active');
-          });
-          
-          // Setze die active-Klasse für den Research-Link
-          let researchLinkFound = false;
-          navLinks.forEach(link => {
-            if (link.textContent.trim() === 'Research') {
-              console.log('Research-Link gefunden:', link);
-              link.classList.add('active');
-              researchLinkFound = true;
-            }
-          });
-          
-          if (researchLinkFound) {
-            // Interval stoppen, wenn alles erledigt ist
-            clearInterval(checkAndActivate);
-          } else if (attempts >= maxAttempts) {
-            console.error('Research-Link konnte nach mehreren Versuchen nicht gefunden werden');
-            clearInterval(checkAndActivate);
+        // Setze die active-Klasse für den Research-Link
+        let researchLinkFound = false;
+        navLinks.forEach(link => {
+          if (link.textContent.trim() === 'Research') {
+            console.log('Research-Link gefunden:', link);
+            link.classList.add('active');
+            researchLinkFound = true;
           }
+        });
+        
+        if (researchLinkFound) {
+          // Interval stoppen, wenn alles erledigt ist
+          clearInterval(checkAndActivate);
         } else if (attempts >= maxAttempts) {
-          console.error('Navigationslinks konnten nach mehreren Versuchen nicht gefunden werden');
+          console.error('Research-Link konnte nach mehreren Versuchen nicht gefunden werden');
           clearInterval(checkAndActivate);
         }
-      }, 100);
-    });
-  </script>
+      } else if (attempts >= maxAttempts) {
+        console.error('Navigationslinks konnten nach mehreren Versuchen nicht gefunden werden');
+        clearInterval(checkAndActivate);
+      }
+    }, 100);
+  });
+</script>
 </body>
 </html> 
