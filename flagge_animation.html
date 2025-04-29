@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schweizer Flagge - Animationsvorschläge</title>
+  <style>
+    :root {
+      --swiss-red: #ff0000;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #f5f5f7;
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+    }
+    
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2rem;
+      color: #333;
+    }
+    
+    .flags-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .flag-demo {
+      background: white;
+      border-radius: 16px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+    
+    .flag-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    
+    .animation-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 160px;
+      width: 100%;
+      position: relative;
+    }
+    
+    /* Basisstile für die Schweizer Flagge */
+    .swiss-flag {
+      position: relative;
+      width: 80px;
+      height: 80px;
+      background-color: var(--swiss-red);
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+    
+    .swiss-flag::after {
+      content: "";
+      position: absolute;
+      background-color: white;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 48px;
+      height: 48px;
+      clip-path: polygon(0% 33%, 33% 33%, 33% 0%, 66% 0%, 66% 33%, 100% 33%, 100% 66%, 66% 66%, 66% 100%, 33% 100%, 33% 66%, 0% 66%);
+    }
+    
+    /* 1. Wehende Flagge Animation */
+    @keyframes wave {
+      0% {
+        transform: rotate(0deg);
+      }
+      25% {
+        transform: rotate(5deg);
+      }
+      75% {
+        transform: rotate(-5deg);
+      }
+      100% {
+        transform: rotate(0deg);
+      }
+    }
+    
+    .flag-waving {
+      animation: wave 2s ease-in-out infinite;
+      transform-origin: center left;
+    }
+    
+    /* 2. Pulsierende Flagge Animation */
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+    
+    .flag-pulsing {
+      animation: pulse 2s ease-in-out infinite;
+    }
+    
+    /* 3. Rotierende Flagge Animation */
+    @keyframes rotate {
+      0% {
+        transform: rotateY(0deg);
+      }
+      100% {
+        transform: rotateY(360deg);
+      }
+    }
+    
+    .flag-rotating {
+      animation: rotate 3s linear infinite;
+      transform-style: preserve-3d;
+    }
+    
+    /* 4. Leuchtende Flagge Animation */
+    @keyframes glow {
+      0% {
+        box-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
+      }
+      50% {
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
+      }
+      100% {
+        box-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
+      }
+    }
+    
+    .flag-glowing {
+      animation: glow 2s ease-in-out infinite;
+    }
+    
+    /* 5. 3D-Flip Animation */
+    @keyframes flip {
+      0% {
+        transform: perspective(400px) rotateY(0);
+      }
+      100% {
+        transform: perspective(400px) rotateY(180deg);
+      }
+    }
+    
+    .flag-flipping {
+      animation: flip 3s linear infinite;
+      transform-style: preserve-3d;
+      backface-visibility: visible;
+    }
+    
+    .flag-flipping::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: var(--swiss-red);
+      border-radius: 4px;
+      backface-visibility: hidden;
+      transform: rotateY(180deg);
+    }
+    
+    /* 6. Schwebende Flagge Animation */
+    @keyframes float {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+    
+    .flag-floating {
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    /* CSS-Code Anzeige */
+    .code-container {
+      margin-top: 20px;
+      width: 100%;
+    }
+    
+    .code-block {
+      background-color: #f5f5f7;
+      border-radius: 8px;
+      padding: 15px;
+      font-family: monospace;
+      font-size: 14px;
+      white-space: pre-wrap;
+      overflow-x: auto;
+      color: #333;
+    }
+    
+    .comment {
+      color: #6e6e73;
+    }
+    
+    @media (max-width: 768px) {
+      .flags-container {
+        grid-template-columns: 1fr;
+      }
+      
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Schweizer Flagge - Animationsvorschläge</h1>
+  
+  <div class="flags-container">
+    <!-- Vorschlag 1: Wehende Flagge -->
+    <div class="flag-demo">
+      <h2 class="flag-title">1. Wehende Flagge</h2>
+      <div class="animation-container">
+        <div class="swiss-flag flag-waving"></div>
+      </div>
+      <div class="code-container">
+        <div class="code-block"><span class="comment">/* CSS */</span>
+@keyframes wave {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(5deg); }
+  75% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.flag-waving {
+  animation: wave 2s ease-in-out infinite;
+  transform-origin: center left;
+}</div>
+      </div>
+    </div>
+    
+    <!-- Vorschlag 2: Pulsierende Flagge -->
+    <div class="flag-demo">
+      <h2 class="flag-title">2. Pulsierende Flagge</h2>
+      <div class="animation-container">
+        <div class="swiss-flag flag-pulsing"></div>
+      </div>
+      <div class="code-container">
+        <div class="code-block"><span class="comment">/* CSS */</span>
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.flag-pulsing {
+  animation: pulse 2s ease-in-out infinite;
+}</div>
+      </div>
+    </div>
+    
+    <!-- Vorschlag 3: Rotierende Flagge -->
+    <div class="flag-demo">
+      <h2 class="flag-title">3. Rotierende Flagge</h2>
+      <div class="animation-container">
+        <div class="swiss-flag flag-rotating"></div>
+      </div>
+      <div class="code-container">
+        <div class="code-block"><span class="comment">/* CSS */</span>
+@keyframes rotate {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(360deg); }
+}
+
+.flag-rotating {
+  animation: rotate 3s linear infinite;
+  transform-style: preserve-3d;
+}</div>
+      </div>
+    </div>
+    
+    <!-- Vorschlag 4: Leuchtende Flagge -->
+    <div class="flag-demo">
+      <h2 class="flag-title">4. Leuchtende Flagge</h2>
+      <div class="animation-container">
+        <div class="swiss-flag flag-glowing"></div>
+      </div>
+      <div class="code-container">
+        <div class="code-block"><span class="comment">/* CSS */</span>
+@keyframes glow {
+  0% { box-shadow: 0 0 5px rgba(255, 0, 0, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(255, 0, 0, 0.7); }
+  100% { box-shadow: 0 0 5px rgba(255, 0, 0, 0.3); }
+}
+
+.flag-glowing {
+  animation: glow 2s ease-in-out infinite;
+}</div>
+      </div>
+    </div>
+    
+    <!-- Vorschlag 5: 3D-Flip Animation -->
+    <div class="flag-demo">
+      <h2 class="flag-title">5. 3D-Flip Animation</h2>
+      <div class="animation-container">
+        <div class="swiss-flag flag-flipping"></div>
+      </div>
+      <div class="code-container">
+        <div class="code-block"><span class="comment">/* CSS */</span>
+@keyframes flip {
+  0% { transform: perspective(400px) rotateY(0); }
+  100% { transform: perspective(400px) rotateY(180deg); }
+}
+
+.flag-flipping {
+  animation: flip 3s linear infinite;
+  transform-style: preserve-3d;
+}</div>
+      </div>
+    </div>
+    
+    <!-- Vorschlag 6: Schwebende Flagge -->
+    <div class="flag-demo">
+      <h2 class="flag-title">6. Schwebende Flagge</h2>
+      <div class="animation-container">
+        <div class="swiss-flag flag-floating"></div>
+      </div>
+      <div class="code-container">
+        <div class="code-block"><span class="comment">/* CSS */</span>
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+.flag-floating {
+  animation: float 3s ease-in-out infinite;
+}</div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Alternative 1: Skewed Waving Flagge -->
+  <div class="flag-demo">
+    <h2 class="flag-title">Alternative 1: Skewed Waving</h2>
+    <div class="animation-container">
+      <div class="swiss-flag flag-skew-wave"></div>
+    </div>
+    <div class="code-container">
+      <div class="code-block"><span class="comment">/* CSS */</span>
+@keyframes skew-wave {
+  0% { transform: skew(0deg, 0deg); }
+  25% { transform: skew(5deg, 2deg); }
+  50% { transform: skew(0deg, 0deg); }
+  75% { transform: skew(-5deg, -2deg); }
+  100% { transform: skew(0deg, 0deg); }
+}
+
+.flag-skew-wave {
+  animation: skew-wave 3s ease-in-out infinite;
+}</div>
+    </div>
+  </div>
+  
+  <!-- Variation 1: Schnellere Skewed Waving Flagge -->
+  <div class="flag-demo">
+    <h2 class="flag-title">Schnellere Skewed Waving</h2>
+    <div class="animation-container">
+      <div class="swiss-flag flag-skew-wave-fast"></div>
+    </div>
+    <div class="code-container">
+      <div class="code-block"><span class="comment">/* CSS */</span>
+@keyframes skew-wave-fast {
+  0% { transform: skew(0deg, 0deg); }
+  25% { transform: skew(5deg, 2deg); }
+  50% { transform: skew(0deg, 0deg); }
+  75% { transform: skew(-5deg, -2deg); }
+  100% { transform: skew(0deg, 0deg); }
+}
+
+.flag-skew-wave-fast {
+  animation: skew-wave-fast 1.5s ease-in-out infinite;
+}</div>
+    </div>
+  </div>
+  
+  <!-- Variation 2: Stärkere Skewed Waving Flagge -->
+  <div class="flag-demo">
+    <h2 class="flag-title">Stärkere Skewed Waving</h2>
+    <div class="animation-container">
+      <div class="swiss-flag flag-skew-wave-strong"></div>
+    </div>
+    <div class="code-container">
+      <div class="code-block"><span class="comment">/* CSS */</span>
+@keyframes skew-wave-strong {
+  0% { transform: skew(0deg, 0deg); }
+  25% { transform: skew(8deg, 3deg); }
+  50% { transform: skew(0deg, 0deg); }
+  75% { transform: skew(-8deg, -3deg); }
+  100% { transform: skew(0deg, 0deg); }
+}
+
+.flag-skew-wave-strong {
+  animation: skew-wave-strong 2s ease-in-out infinite;
+}</div>
+    </div>
+  </div>
+  
+  <!-- Variation 3: Unregelmässige Skewed Waving Flagge -->
+  <div class="flag-demo">
+    <h2 class="flag-title">Unregelmässige Skewed Waving</h2>
+    <div class="animation-container">
+      <div class="swiss-flag flag-skew-wave-irregular"></div>
+    </div>
+    <div class="code-container">
+      <div class="code-block"><span class="comment">/* CSS */</span>
+@keyframes skew-wave-irregular {
+  0% { transform: skew(0deg, 0deg); }
+  20% { transform: skew(6deg, 2deg); }
+  40% { transform: skew(2deg, 1deg); }
+  60% { transform: skew(-3deg, -1deg); }
+  80% { transform: skew(-7deg, -3deg); }
+  100% { transform: skew(0deg, 0deg); }
+}
+
+.flag-skew-wave-irregular {
+  animation: skew-wave-irregular 2.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}</div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Additional CSS for the new animations */
+  .flag-skew-wave {
+    animation: skew-wave 3s ease-in-out infinite;
+  }
+  
+  @keyframes skew-wave {
+    0% { transform: skew(0deg, 0deg); }
+    25% { transform: skew(5deg, 2deg); }
+    50% { transform: skew(0deg, 0deg); }
+    75% { transform: skew(-5deg, -2deg); }
+    100% { transform: skew(0deg, 0deg); }
+  }
+  
+  .flag-skew-wave-fast {
+    animation: skew-wave-fast 1.5s ease-in-out infinite;
+  }
+  
+  @keyframes skew-wave-fast {
+    0% { transform: skew(0deg, 0deg); }
+    25% { transform: skew(5deg, 2deg); }
+    50% { transform: skew(0deg, 0deg); }
+    75% { transform: skew(-5deg, -2deg); }
+    100% { transform: skew(0deg, 0deg); }
+  }
+  
+  .flag-skew-wave-strong {
+    animation: skew-wave-strong 2s ease-in-out infinite;
+  }
+  
+  @keyframes skew-wave-strong {
+    0% { transform: skew(0deg, 0deg); }
+    25% { transform: skew(8deg, 3deg); }
+    50% { transform: skew(0deg, 0deg); }
+    75% { transform: skew(-8deg, -3deg); }
+    100% { transform: skew(0deg, 0deg); }
+  }
+  
+  .flag-skew-wave-irregular {
+    animation: skew-wave-irregular 2.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+  
+  @keyframes skew-wave-irregular {
+    0% { transform: skew(0deg, 0deg); }
+    20% { transform: skew(6deg, 2deg); }
+    40% { transform: skew(2deg, 1deg); }
+    60% { transform: skew(-3deg, -1deg); }
+    80% { transform: skew(-7deg, -3deg); }
+    100% { transform: skew(0deg, 0deg); }
+  }
+</style>
+</body>
+</html> 

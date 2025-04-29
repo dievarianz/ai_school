@@ -27,6 +27,8 @@
     <div class="nav-container">
       <a href="startseite.html" class="nav-logo" data-base-href="startseite.html">
         <img src="assets/pictures/imt_logo.png" alt="StGallen Integrated imt Business School">
+        <span class="made-in-text">Made in Switzerland</span>
+        <div class="swiss-flag-mini"></div>
       </a>
       
       <div class="nav-menu">
@@ -92,6 +94,7 @@
     --radius: 16px;
     --max-width: 1200px;
     --imt-purple: #6e45e2;
+    --swiss-red: #ff0000;
   }
 
   /* Navigation Wrapper und Container */
@@ -469,6 +472,47 @@
       background: var(--color-accent2);
       color: white;
     }
+  }
+
+  /* Swiss Flag Mini */
+  .swiss-flag-mini {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    background-color: var(--swiss-red);
+    border-radius: 2px;
+    margin-left: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation: wave 4s ease-in-out infinite;
+    transform-origin: center left;
+  }
+  
+  .swiss-flag-mini::after {
+    content: "";
+    position: absolute;
+    background-color: white;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 14px;
+    height: 14px;
+    clip-path: polygon(0% 33%, 33% 33%, 33% 0%, 66% 0%, 66% 33%, 100% 33%, 100% 66%, 66% 66%, 66% 100%, 33% 100%, 33% 66%, 0% 66%);
+  }
+  
+  @keyframes wave {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(3deg); }
+    75% { transform: rotate(-3deg); }
+    100% { transform: rotate(0deg); }
+  }
+
+  .made-in-text {
+    font-size: 0.75rem;
+    color: var(--color-muted);
+    margin-left: 12px;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
   }
 </style>
 
