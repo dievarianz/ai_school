@@ -25,37 +25,40 @@
 <div class="nav-wrapper">
   <nav class="main-nav">
     <div class="nav-container">
-      <a href="startseite.html" class="nav-logo">
+      <a href="startseite.html" class="nav-logo" data-base-href="startseite.html">
         <img src="assets/pictures/imt_logo.png" alt="StGallen Integrated imt Business School">
       </a>
       
       <div class="nav-menu">
-        <a href="startseite.html" class="nav-link">St. Gallen imt</a>
+        <a href="startseite.html" class="nav-link" data-base-href="startseite.html">St. Gallen imt</a>
         <div class="nav-item">
           <a href="#" class="nav-link toggle-subnav">Programme<svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           <div class="program-dropdown">
             <!-- Erste Spalte: Einzelseminare -->
             <div class="menu-column">
               <h3>Managementseminare</h3>
-              <a href="programm-seite.html" class="program-option" id="business-strategy-option">AI in Business Strategy & Digital Transformation</a>
-              <a href="programm-seite2.html" class="program-option" id="decision-making-option">xAI-Augmented Decision Making</a>
-              <a href="programm-seite3.html" class="program-option" id="financial-analytics-option">xAI in Financial Analytics</a>
-              <a href="programm-seite4.html" class="program-option" id="marketing-analytics-option">xAI-driven Marketing & Customer Analytics</a>
+              <a href="integrated_management_strategy.html" class="program-option" id="integrated-management-option" data-base-href="integrated_management_strategy.html" data-parent-folder="managementseminare">Integrated Management and Strategy</a>
+              <a href="financial_management.html" class="program-option" id="financial-management-option" data-base-href="financial_management.html" data-parent-folder="managementseminare">Financial Management</a>
+              <a href="inspirational_leadership.html" class="program-option" id="inspirational-leadership-option" data-base-href="inspirational_leadership.html" data-parent-folder="managementseminare">Inspirational Leadership</a>
+              <a href="marketing_sales_brand_communication.html" class="program-option" id="marketing-sales-option" data-base-href="marketing_sales_brand_communication.html" data-parent-folder="managementseminare">Marketing, Sales and Brand Communication</a>
+              <a href="intelligent_process_automation.html" class="program-option" id="process-automation-option" data-base-href="intelligent_process_automation.html" data-parent-folder="managementseminare">Intelligent Process Automation</a>
+              <a href="ki_business_strategy_digital_transformation.html" class="program-option" id="ki-business-strategy-option" data-base-href="ki_business_strategy_digital_transformation.html" data-parent-folder="managementseminare">KI in Business Strategy & Digital Transformation</a>
+              <a href="ki_augmented_decision_making.html" class="program-option" id="ki-decision-making-option" data-base-href="ki_augmented_decision_making.html" data-parent-folder="managementseminare">KI-Augmented Decision Making</a>
             </div>
             
             <!-- Zweite Spalte: Programme -->
             <div class="menu-column">
               <h3>Programme</h3>
-              <a href="programm-seite5.html" class="program-option">StGallen imt xAI Management Programm</a>
-              <a href="programm-seite6.html" class="program-option">StGallen imt xAI Certified Management CAS</a>
-              <a href="programm-seite7.html" class="program-option">StGallen Fast‑Track xAI Programm</a>
+              <a href="programm-seite5.html" class="program-option" data-base-href="programm-seite5.html">StGallen imt xAI Management Programm</a>
+              <a href="programm-seite6.html" class="program-option" data-base-href="programm-seite6.html">StGallen imt xAI Certified Management CAS</a>
+              <a href="programm-seite7.html" class="program-option" data-base-href="programm-seite7.html">StGallen Fast‑Track xAI Programm</a>
             </div>
           </div>
         </div>
-        <a href="netzwerk.html" class="nav-link">Netzwerk</a>
-        <a href="research.html" class="nav-link">Research</a>
-        <a href="support.html" class="nav-link">Support</a>
-        <a href="kontakt.html" class="nav-link">Kontakt</a>
+        <a href="netzwerk.html" class="nav-link" data-base-href="netzwerk.html">Netzwerk</a>
+        <a href="research.html" class="nav-link" data-base-href="research.html">Research</a>
+        <a href="support.html" class="nav-link" data-base-href="support.html">Support</a>
+        <a href="kontakt.html" class="nav-link" data-base-href="kontakt.html">Kontakt</a>
       </div>
       
       <div class="lang-select">
@@ -211,7 +214,7 @@
     opacity: 0;
     visibility: hidden;
     transition: all 0.2s ease;
-    min-width: 600px;
+    min-width: 850px;
     margin-top: 8px;
     z-index: 1000;
     display: flex;
@@ -469,9 +472,12 @@
   }
 </style>
 
-<!-- JavaScript für aktive Programm-Optionen -->
+<!-- JavaScript für aktive Programm-Optionen und Pfadkorrektur -->
 <script>
   document.addEventListener('DOMContentLoaded', function() {
+    // Pfadkorrektur für verschiedene Verzeichnisebenen
+    adjustNavigationPaths();
+    
     // Aktuelle URL ermitteln
     const currentPath = window.location.pathname;
     const currentPage = currentPath.substring(currentPath.lastIndexOf('/') + 1);
@@ -542,6 +548,74 @@
           return;
         }
       });
+    }
+  });
+  
+  // Funktion zur Pfadkorrektur je nach Position im Verzeichnisbaum
+  function adjustNavigationPaths() {
+    const currentPath = window.location.pathname;
+    const inManagementSeminarFolder = currentPath.includes('/managementseminare/');
+    
+    // Links für allgemeine Navigation anpassen
+    document.querySelectorAll('[data-base-href]').forEach(link => {
+      const baseHref = link.getAttribute('data-base-href');
+      let newHref = baseHref;
+      
+      // Wenn wir im Managementseminare-Ordner sind, passen wir die Pfade entsprechend an
+      if (inManagementSeminarFolder) {
+        const parentFolder = link.getAttribute('data-parent-folder');
+        
+        if (parentFolder === 'managementseminare') {
+          // Wenn der Link zu einem Managementseminar führt, entfernen wir den Ordnerpfad
+          newHref = baseHref;
+        } else {
+          // Für alle anderen Links fügen wir den relativen Pfad nach oben hinzu
+          newHref = '../' + baseHref;
+        }
+      } else {
+        // Wenn wir im Root-Verzeichnis sind
+        const parentFolder = link.getAttribute('data-parent-folder');
+        if (parentFolder) {
+          newHref = parentFolder + '/' + baseHref;
+        }
+      }
+      
+      link.setAttribute('href', newHref);
+    });
+  }
+</script>
+
+<!-- Path correction script -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Detect page location and fix paths
+    const currentPath = window.location.pathname;
+    const inManagementSeminarFolder = currentPath.includes('/managementseminare/');
+    
+    // Only adjust links if we're in the managementseminare folder
+    if (inManagementSeminarFolder) {
+      // Fix managementseminare links by removing the folder prefix
+      document.querySelectorAll('.menu-column a[href^="managementseminare/"]').forEach(link => {
+        const originalHref = link.getAttribute('href');
+        // Extract just the filename
+        const fileName = originalHref.replace('managementseminare/', '');
+        // Set the correct relative path
+        link.setAttribute('href', fileName);
+      });
+      
+      // Fix main navigation links to point back up one level
+      document.querySelectorAll('.nav-menu > a:not(.toggle-subnav)').forEach(link => {
+        const originalHref = link.getAttribute('href');
+        if (originalHref && !originalHref.startsWith('#') && !originalHref.startsWith('http')) {
+          link.setAttribute('href', '../' + originalHref);
+        }
+      });
+      
+      // Fix the logo link to point to homepage
+      const logoLink = document.querySelector('.nav-logo');
+      if (logoLink) {
+        logoLink.setAttribute('href', '../startseite.html');
+      }
     }
   });
 </script>
