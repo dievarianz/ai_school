@@ -1534,6 +1534,45 @@
       margin: 0 auto;
       text-align: center;
     }
+
+    /* Füge die Tooltip-Stile zum CSS hinzu, direkt nach .error-message.visible */
+    .error-message.visible {
+      display: block;
+    }
+
+    /* Tooltip Error Styles */
+    .tooltip-container {
+      position: relative;
+    }
+
+    .error-tooltip {
+      position: absolute;
+      bottom: calc(100% + 10px);
+      left: 20px;
+      background: #e74c3c;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 6px;
+      font-size: 14px;
+      z-index: 10;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      white-space: nowrap;
+      display: none;
+    }
+
+    .error-tooltip::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 15px;
+      border-width: 6px;
+      border-style: solid;
+      border-color: #e74c3c transparent transparent transparent;
+    }
+
+    .error-tooltip.visible {
+      display: block;
+    }
   </style>
 
   <!-- BoxIcons für Icons -->
@@ -1566,21 +1605,24 @@
           
           <div class="hero-actions">
             <div class="program-selector">
-              <div class="custom-select">
-                <div class="select-selected">Wählen Sie Ihr Programm</div>
-                <div class="select-items select-hide">
-                  <div class="select-category">Managementseminare</div>
-                  <div class="select-item" data-value="integrated_management_strategy.html">Integrated Management and Strategy</div>
-                  <div class="select-item" data-value="financial_management.html">Financial Management</div>
-                  <div class="select-item" data-value="inspirational_leadership.html">Inspirational Leadership</div>
-                  <div class="select-item" data-value="marketing_sales_brand_communication.html">Marketing, Sales and Brand Communication</div>
-                  <div class="select-item" data-value="intelligent_process_automation.html">Intelligent Process Automation</div>
-                  <div class="select-item" data-value="ki_business_strategy_digital_transformation.html">KI in Business Strategy &amp; Digital Transformation</div>
-                  <div class="select-item" data-value="ki_augmented_decision_making.html">KI-Augemented Decision Making</div>
-                  <div class="select-category programme-category">Programme</div>
-                  <div class="select-item" data-value="programm-seite5.html">StGallen imt Management Programm</div>
-                  <div class="select-item" data-value="programm-seite6.html">StGallen imt Certified Management CAS</div>
-                  <div class="select-item" data-value="programm-seite7.html">StGallen Fast‑Track MBA Programm</div>
+              <div class="tooltip-container">
+                <div class="error-tooltip">Bitte wählen Sie einen Track aus</div>
+                <div class="custom-select">
+                  <div class="select-selected">Wählen Sie Ihr Programm</div>
+                  <div class="select-items select-hide">
+                    <div class="select-category">Managementseminare</div>
+                    <div class="select-item" data-value="integrated_management_strategy.html">Integrated Management and Strategy</div>
+                    <div class="select-item" data-value="financial_management.html">Financial Management</div>
+                    <div class="select-item" data-value="inspirational_leadership.html">Inspirational Leadership</div>
+                    <div class="select-item" data-value="marketing_sales_brand_communication.html">Marketing, Sales and Brand Communication</div>
+                    <div class="select-item" data-value="intelligent_process_automation.html">Intelligent Process Automation</div>
+                    <div class="select-item" data-value="ki_business_strategy_digital_transformation.html">KI in Business Strategy &amp; Digital Transformation</div>
+                    <div class="select-item" data-value="ki_augmented_decision_making.html">KI-Augemented Decision Making</div>
+                    <div class="select-category programme-category">Programme</div>
+                    <div class="select-item" data-value="management_programm.html">StGallen imt Management Programm</div>
+                    <div class="select-item" data-value="management_programm_cas.html">StGallen imt Certified Management CAS</div>
+                    <div class="select-item" data-value="fast_track_mba.html">StGallen Fast‑Track MBA Programm</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -2307,14 +2349,7 @@
       const selectedElement = selectElement.querySelector('.select-selected');
       const items = selectElement.querySelector('.select-items');
       const programLink = document.getElementById('program-link');
-      const programSelector = document.querySelector('.program-selector');
-      
-      // Add error message element before the custom-select
-      const errorMessage = document.createElement('div');
-      errorMessage.className = 'error-message';
-      errorMessage.textContent = 'Wählen Sie einen Track aus';
-      // Insert as first child of program-selector
-      programSelector.insertBefore(errorMessage, programSelector.firstChild);
+      const errorTooltip = document.querySelector('.error-tooltip');
       
       // Set default state
       let trackSelected = false;
@@ -2325,7 +2360,7 @@
           
           // Show error styling
           selectedElement.classList.add('error');
-          errorMessage.classList.add('visible');
+          errorTooltip.classList.add('visible');
           
           // Show dropdown
           items.classList.remove('select-hide');
@@ -2334,7 +2369,7 @@
           // Remove error styling after 3 seconds
           setTimeout(() => {
             selectedElement.classList.remove('error');
-            errorMessage.classList.remove('visible');
+            errorTooltip.classList.remove('visible');
           }, 3000);
         }
       });
@@ -2347,7 +2382,7 @@
         
         // Remove error styling when dropdown is opened
         selectedElement.classList.remove('error');
-        errorMessage.classList.remove('visible');
+        errorTooltip.classList.remove('visible');
         
         // Ensure dropdown is fully visible when opening upwards
         const dropdown = items;
@@ -2384,7 +2419,7 @@
           
           // Remove any error styling
           selectedElement.classList.remove('error');
-          errorMessage.classList.remove('visible');
+          errorTooltip.classList.remove('visible');
         });
       });
       
