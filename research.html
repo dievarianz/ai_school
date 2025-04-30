@@ -203,6 +203,76 @@
       margin-top: auto;
     }
 
+    /* Alt3 Highlights Style - Grid mit Overlay */
+    .alt3-highlights {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      margin-bottom: 30px;
+    }
+
+    .alt3-highlight-box {
+      position: relative;
+      height: 350px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .alt3-highlight-box:hover {
+      border-color: var(--imt-purple);
+    }
+
+    .alt3-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.3s ease;
+    }
+
+    .alt3-highlight-box:hover .alt3-image {
+      opacity: 0.95;
+    }
+
+    .alt3-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+      color: white;
+      padding: 30px 20px;
+      transition: opacity 0.3s ease;
+    }
+
+    .alt3-highlight-box:hover .alt3-overlay {
+      opacity: 0.95;
+    }
+
+    .alt3-highlight-box h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: white;
+    }
+
+    .alt3-highlight-box p {
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+      opacity: 0.9;
+    }
+
+    .alt3-meta {
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .alt3-meta i {
+      color: var(--color-badge);
+    }
+
     /* Tab Controls */
     .research-tabs {
       display: flex;
@@ -348,9 +418,13 @@
     }
 
     /* Responsive adjustments */
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
       .highlights-container {
         grid-template-columns: 1fr;
+      }
+      
+      .alt3-highlights {
+        grid-template-columns: repeat(2, 1fr);
       }
       
       .research-tabs {
@@ -360,6 +434,21 @@
       .research-tab {
         padding: 6px 12px;
         font-size: 0.9rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .highlights-container, .alt3-highlights {
+        grid-template-columns: 1fr;
+      }
+      
+      .research-tabs {
+        gap: 6px;
+      }
+      
+      .research-tab {
+        padding: 5px 10px;
+        font-size: 0.85rem;
       }
     }
   </style>
@@ -387,31 +476,43 @@
       <p class="section-subtitle">Die wichtigsten Veröffentlichungen unserer Fakultät im Überblick.</p>
       
       <!-- Research Highlights -->
-      <div class="highlights-container">
+      <div class="alt3-highlights">
         <!-- Highlight 1 -->
-        <div class="highlight-box">
-          <h3>Künstliche Intelligenz in der strategischen Unternehmensführung</h3>
-          <p>Framework für die Integration von KI in die Geschäftsmodellentwicklung mittelständischer Unternehmen.</p>
-          <div class="highlight-meta">
-            <i class='bx bx-user'></i> Prof. Dr. Maria Schmidt
+        <div class="alt3-highlight-box">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Prof. Dr. Maria Schmidt" class="alt3-image">
+          <div class="alt3-overlay">
+            <h3>Künstliche Intelligenz in der strategischen Unternehmensführung</h3>
+            <p>Framework für die Integration von KI in die Geschäftsmodellentwicklung mittelständischer Unternehmen.</p>
+            <div class="alt3-meta">
+              <i class='bx bx-user'></i>
+              <span>Prof. Dr. Maria Schmidt</span>
+            </div>
           </div>
         </div>
         
         <!-- Highlight 2 -->
-        <div class="highlight-box">
-          <h3>Machine Learning zur Prognose von Markttrends</h3>
-          <p>ML-Algorithmen für die Vorhersage von Markttrends während wirtschaftlicher Unsicherheit.</p>
-          <div class="highlight-meta">
-            <i class='bx bx-user'></i> Dr. Michael Bauer
+        <div class="alt3-highlight-box">
+          <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Dr. Michael Bauer" class="alt3-image">
+          <div class="alt3-overlay">
+            <h3>Machine Learning zur Prognose von Markttrends</h3>
+            <p>ML-Algorithmen für die Vorhersage von Markttrends während wirtschaftlicher Unsicherheit.</p>
+            <div class="alt3-meta">
+              <i class='bx bx-user'></i>
+              <span>Dr. Michael Bauer</span>
+            </div>
           </div>
         </div>
         
         <!-- Highlight 3 -->
-        <div class="highlight-box">
-          <h3>Nachhaltige Transformation durch digitale Geschäftsmodelle</h3>
-          <p>Framework für die Integration von ESG-Kriterien in digitale Transformationsprozesse.</p>
-          <div class="highlight-meta">
-            <i class='bx bx-user'></i> Prof. Dr. Eva Schneider
+        <div class="alt3-highlight-box">
+          <img src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Prof. Dr. Eva Schneider" class="alt3-image">
+          <div class="alt3-overlay">
+            <h3>Nachhaltige Transformation durch digitale Geschäftsmodelle</h3>
+            <p>Framework für die Integration von ESG-Kriterien in digitale Transformationsprozesse.</p>
+            <div class="alt3-meta">
+              <i class='bx bx-user'></i>
+              <span>Prof. Dr. Eva Schneider</span>
+            </div>
           </div>
         </div>
       </div>
@@ -482,7 +583,7 @@
           </div>
           <div class="research-item-footer">
             <div class="faculty-badge">
-              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Prof. Dr. Eva Schneider">
+              <img src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Prof. Dr. Eva Schneider">
               <span>Prof. Dr. Eva Schneider</span>
             </div>
             <a href="#" class="research-item-link">Details <i class='bx bx-right-arrow-alt'></i></a>
