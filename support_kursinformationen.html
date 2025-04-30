@@ -322,34 +322,76 @@
       background: linear-gradient(to right, var(--imt-purple), #9c27b0);
       color: white;
       border: none;
-      border-radius: 8px;
-      padding: 16px 28px;
-      font-size: 1rem;
-      font-weight: 500;
+      border-radius: 12px;
+      padding: 20px 24px;
+      font-size: 1.1rem;
+      font-weight: 600;
       cursor: pointer;
-      transition: all 0.2s ease;
-      display: inline-flex;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       width: 100%;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(106, 69, 226, 0.15);
+      position: relative;
+      overflow: hidden;
+      min-height: 120px;
+    }
+    
+    .download-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, rgba(255,255,255,0.1), rgba(255,255,255,0.2));
+      transform: translateX(-100%);
+      transition: transform 0.6s ease;
     }
     
     .programme-btn {
       background: linear-gradient(to right, #17a689, #0d8b73);
+      box-shadow: 0 4px 6px rgba(23, 166, 137, 0.15);
     }
     
     .download-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(106, 69, 226, 0.2);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 15px rgba(106, 69, 226, 0.25);
+    }
+    
+    .download-btn:hover::before {
+      transform: translateX(100%);
     }
     
     .programme-btn:hover {
-      box-shadow: 0 6px 12px rgba(23, 166, 137, 0.2);
+      box-shadow: 0 8px 15px rgba(23, 166, 137, 0.25);
     }
     
     .download-btn i {
-      margin-right: 10px;
-      font-size: 1.2rem;
+      margin-bottom: 8px;
+      font-size: 1.4rem;
+      transition: transform 0.3s ease;
+    }
+    
+    .download-btn:hover i {
+      transform: translateY(-3px);
+    }
+    
+    .download-btn .btn-main-text {
+      margin-bottom: 4px;
+      display: block;
+      width: 100%;
+    }
+    
+    .download-btn .btn-sub-text {
+      font-size: 0.85rem;
+      opacity: 0.9;
+      font-weight: 500;
+      display: block;
+      width: 100%;
     }
     
     .error-message {
@@ -548,6 +590,24 @@
       .modal-container {
         padding: 20px;
       }
+      
+      .download-btn {
+        padding: 16px 20px;
+        min-height: 110px;
+      }
+      
+      .download-btn i {
+        font-size: 1.3rem;
+        margin-bottom: 6px;
+      }
+      
+      .download-btn .btn-main-text {
+        font-size: 1rem;
+      }
+      
+      .download-btn .btn-sub-text {
+        font-size: 0.8rem;
+      }
     }
   </style>
 
@@ -631,7 +691,8 @@
                 <p class="download-info-desc">Entwickeln Sie ein ganzheitliches Verständnis für Management und Strategieentwicklung in der digitalisierten Geschäftswelt. Die Broschüre bietet einen detaillierten Überblick über Inhalte und Lernziele.</p>
                 <button class="download-btn">
                   <i class='bx bx-download'></i>
-                  Broschüre herunterladen (PDF, 2.1 MB)
+                  <span class="btn-main-text">Broschüre herunterladen</span>
+                  <span class="btn-sub-text">(PDF, 2.1 MB)</span>
                 </button>
               </div>
               
@@ -654,7 +715,8 @@
                 <p class="download-info-desc">Vertiefen Sie Ihre Kenntnisse im Finanzmanagement und lernen Sie moderne Techniken zur Finanzplanung und -kontrolle. Die Broschüre enthält alle Details zum Kursinhalt und den Dozenten.</p>
                 <button class="download-btn">
                   <i class='bx bx-download'></i>
-                  Broschüre herunterladen (PDF, 2.2 MB)
+                  <span class="btn-main-text">Broschüre herunterladen</span>
+                  <span class="btn-sub-text">(PDF, 2.2 MB)</span>
                 </button>
               </div>
               
@@ -677,7 +739,8 @@
                 <p class="download-info-desc">Entwickeln Sie Ihre Führungskompetenzen und lernen Sie, wie Sie Teams inspirieren und zu Höchstleistungen motivieren können. Die Broschüre enthält alle relevanten Informationen zum Seminar.</p>
                 <button class="download-btn">
                   <i class='bx bx-download'></i>
-                  Broschüre herunterladen (PDF, 2.3 MB)
+                  <span class="btn-main-text">Broschüre herunterladen</span>
+                  <span class="btn-sub-text">(PDF, 2.3 MB)</span>
                 </button>
               </div>
               
@@ -700,7 +763,8 @@
                 <p class="download-info-desc">Optimieren Sie Ihre Marketing- und Kommunikationsstrategien und erfahren Sie, wie Sie Ihre Marke erfolgreich positionieren. Die Broschüre enthält detaillierte Informationen zu den Modulen.</p>
                 <button class="download-btn">
                   <i class='bx bx-download'></i>
-                  Broschüre herunterladen (PDF, 2.5 MB)
+                  <span class="btn-main-text">Broschüre herunterladen</span>
+                  <span class="btn-sub-text">(PDF, 2.5 MB)</span>
                 </button>
               </div>
               
@@ -723,7 +787,8 @@
                 <p class="download-info-desc">Lernen Sie, wie intelligente Prozessautomatisierung Ihr Unternehmen effizienter gestalten und Ressourcen optimieren kann. Die Broschüre enthält alle Details zum Kursinhalt.</p>
                 <button class="download-btn">
                   <i class='bx bx-download'></i>
-                  Broschüre herunterladen (PDF, 2.2 MB)
+                  <span class="btn-main-text">Broschüre herunterladen</span>
+                  <span class="btn-sub-text">(PDF, 2.2 MB)</span>
                 </button>
               </div>
               
@@ -746,7 +811,8 @@
                 <p class="download-info-desc">Entwickeln Sie eine umfassende KI-Strategie für Ihr Unternehmen und gestalten Sie aktiv die digitale Transformation. In dieser Broschüre finden Sie detaillierte Informationen zu Inhalten, Lernzielen und Dozenten.</p>
                 <button class="download-btn">
                   <i class='bx bx-download'></i>
-                  Broschüre herunterladen (PDF, 2.4 MB)
+                  <span class="btn-main-text">Broschüre herunterladen</span>
+                  <span class="btn-sub-text">(PDF, 2.4 MB)</span>
                 </button>
               </div>
               
@@ -769,7 +835,8 @@
                 <p class="download-info-desc">Lernen Sie, wie KI-gestützte Entscheidungsprozesse Ihnen helfen, fundiertere und effektivere Entscheidungen zu treffen. Die Broschüre enthält alle Informationen zu Kursinhalten und Methoden.</p>
                 <button class="download-btn">
                   <i class='bx bx-download'></i>
-                  Broschüre herunterladen (PDF, 2.3 MB)
+                  <span class="btn-main-text">Broschüre herunterladen</span>
+                  <span class="btn-sub-text">(PDF, 2.3 MB)</span>
                 </button>
               </div>
               
@@ -793,7 +860,8 @@
                 <p class="download-info-desc">Umfassendes Programm zur Integration von KI in strategische Managementprozesse mit zertifiziertem Abschluss. Die Broschüre enthält den vollständigen Lehrplan, Modulübersicht, Dozentenprofile und Teilnahmebedingungen.</p>
                 <button class="download-btn programme-btn">
                   <i class='bx bx-download'></i>
-                  Broschüre herunterladen (PDF, 5.8 MB)
+                  <span class="btn-main-text">Broschüre herunterladen</span>
+                  <span class="btn-sub-text">(PDF, 5.8 MB)</span>
                 </button>
               </div>
               
@@ -816,7 +884,8 @@
                 <p class="download-info-desc">Certificate of Advanced Studies mit vertieftem Management-Know-how und anerkanntem akademischen Abschluss. Die Broschüre bietet umfassende Informationen zum Studiengang, den Modulen und dem Abschluss.</p>
                 <button class="download-btn programme-btn">
                   <i class='bx bx-download'></i>
-                  Broschüre herunterladen (PDF, 6.2 MB)
+                  <span class="btn-main-text">Broschüre herunterladen</span>
+                  <span class="btn-sub-text">(PDF, 6.2 MB)</span>
                 </button>
               </div>
               
@@ -839,7 +908,8 @@
                 <p class="download-info-desc">Beschleunigtes Programm mit Fokus auf Management und Technologie für aufstrebende Führungskräfte. Die Broschüre enthält alle Informationen zum Curriculum, Zeitaufwand und Abschluss.</p>
                 <button class="download-btn programme-btn">
                   <i class='bx bx-download'></i>
-                  Broschüre herunterladen (PDF, 4.8 MB)
+                  <span class="btn-main-text">Broschüre herunterladen</span>
+                  <span class="btn-sub-text">(PDF, 4.8 MB)</span>
                 </button>
               </div>
 

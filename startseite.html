@@ -275,10 +275,73 @@
 
     /* Hero-Sektion */
     .hero {
-      background: #fff;
-      padding: 50px 0 120px;
+      background: linear-gradient(to bottom, #f9f9ff, #fff);
+      padding: 80px 0 120px;
       position: relative;
       overflow: hidden;
+    }
+
+    /* Animierte Wellenlinien für Hero-Hintergrund */
+    .hero .wave-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      opacity: 0,6;
+    }
+
+    .hero .wave {
+      position: absolute;
+      width: 200%;
+      height: 0;
+      left: -50%;
+      border-radius: 100%;
+      border: 1px solid rgba(110, 69, 226, 0.15);
+    }
+
+    .hero .wave-1 {
+      top: 20%;
+      height: 200px;
+      animation: wave-animate 54s infinite linear;
+    }
+
+    .hero .wave-2 {
+      top: 40%;
+      height: 180px;
+      animation: wave-animate 157s infinite linear reverse;
+      border-color: rgba(151, 2, 137, 0.1);
+    }
+
+    .hero .wave-3 {
+      top: 60%;
+      height: 260px;
+      animation: wave-animate 160s infinite linear;
+      border-color: rgba(110, 69, 226, 0.1);
+    }
+
+    .hero .wave-4 {
+      top: 70%;
+      height: 140px;
+      animation: wave-animate 138s infinite linear reverse;
+      border-color: rgba(151, 2, 137, 0.1);
+    }
+
+    .hero .wave-5 {
+      bottom: 10%;
+      height: 180px;
+      animation: wave-animate 116s infinite linear;
+      border-color: rgba(110, 69, 226, 0.1);
+    }
+
+    @keyframes wave-animate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
     }
 
     .hero-pattern {
@@ -302,6 +365,50 @@
       right: -100px;
       z-index: 0;
     }
+    
+    /* Partikelhintergrund */
+    .particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      opacity: 0.6;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background-color: var(--imt-purple);
+      border-radius: 50%;
+      opacity: 0.5;
+    }
+
+    .particle:nth-child(1) { top: 10%; left: 20%; animation: float1 15s infinite linear; }
+    .particle:nth-child(2) { top: 30%; left: 70%; animation: float2 20s infinite linear; }
+    .particle:nth-child(3) { top: 50%; left: 10%; animation: float3 18s infinite linear; }
+    .particle:nth-child(4) { top: 70%; left: 50%; animation: float4 12s infinite linear; }
+    .particle:nth-child(5) { top: 85%; left: 80%; animation: float5 16s infinite linear; }
+    .particle:nth-child(6) { top: 20%; left: 90%; animation: float6 14s infinite linear; }
+    .particle:nth-child(7) { top: 40%; left: 30%; animation: float7 22s infinite linear; }
+    .particle:nth-child(8) { top: 60%; left: 85%; animation: float8 19s infinite linear; }
+    .particle:nth-child(9) { top: 90%; left: 15%; animation: float9 21s infinite linear; }
+    .particle:nth-child(10) { top: 15%; left: 60%; animation: float10 17s infinite linear; }
+
+    @keyframes float1 { 0% { transform: translate(0, 0); } 50% { transform: translate(40px, 20px); } 100% { transform: translate(0, 0); } }
+    @keyframes float2 { 0% { transform: translate(0, 0); } 50% { transform: translate(-30px, 30px); } 100% { transform: translate(0, 0); } }
+    @keyframes float3 { 0% { transform: translate(0, 0); } 50% { transform: translate(20px, -20px); } 100% { transform: translate(0, 0); } }
+    @keyframes float4 { 0% { transform: translate(0, 0); } 50% { transform: translate(-20px, -10px); } 100% { transform: translate(0, 0); } }
+    @keyframes float5 { 0% { transform: translate(0, 0); } 50% { transform: translate(10px, 40px); } 100% { transform: translate(0, 0); } }
+    @keyframes float6 { 0% { transform: translate(0, 0); } 50% { transform: translate(-40px, 10px); } 100% { transform: translate(0, 0); } }
+    @keyframes float7 { 0% { transform: translate(0, 0); } 50% { transform: translate(30px, -30px); } 100% { transform: translate(0, 0); } }
+    @keyframes float8 { 0% { transform: translate(0, 0); } 50% { transform: translate(-15px, 25px); } 100% { transform: translate(0, 0); } }
+    @keyframes float9 { 0% { transform: translate(0, 0); } 50% { transform: translate(25px, -15px); } 100% { transform: translate(0, 0); } }
+    @keyframes float10 { 0% { transform: translate(0, 0); } 50% { transform: translate(-25px, -25px); } 100% { transform: translate(0, 0); } }
 
     .hero-content {
       text-align: center;
@@ -1593,8 +1700,13 @@
   <main>
     <!-- Hero-Sektion -->
     <section class="hero">
-      <div class="hero-pattern"></div>
-      <div class="hero-pattern-2"></div>
+      <div class="wave-container">
+        <div class="wave wave-1"></div>
+        <div class="wave wave-2"></div>
+        <div class="wave wave-3"></div>
+        <div class="wave wave-4"></div>
+        <div class="wave wave-5"></div>
+      </div>
       <div class="container">
         <div class="hero-content">
           <span class="hero-eyebrow">
@@ -2051,44 +2163,44 @@
             <!-- Faculty Members -->
             <div class="faculty-card">
               <div class="faculty-image-container">
-                <img src="assets/faculty/list.png" alt="Prof. Dr. Sebastian List" class="faculty-image">
+                <img src="assets/faculty/list.png" alt="Stefan List" class="faculty-image">
               </div>
               <div class="faculty-info">
-                <h4 class="faculty-name">Prof. Dr. Sebastian List</h4>
-                <div class="faculty-position">Digitale Transformation</div>
+                <h4 class="faculty-name">Stefan List</h4>
+                <div class="faculty-position">Guest Lecturer</div>
                 <div class="faculty-company">Technische Universität Berlin</div>
               </div>
             </div>
             
             <div class="faculty-card">
               <div class="faculty-image-container">
-                <img src="assets/faculty/lueder_tockenbuerger.png" alt="Dr. Annika Lüder-Tockenbürger" class="faculty-image">
+                <img src="assets/faculty/lueder_tockenbuerger.png" alt="Dr. Lüder Tockenbürger" class="faculty-image">
               </div>
               <div class="faculty-info">
-                <h4 class="faculty-name">Dr. Annika Lüder-Tockenbürger</h4>
-                <div class="faculty-position">AI Research Lead</div>
+                <h4 class="faculty-name">Dr. Lüder Tockenbürger</h4>
+                <div class="faculty-position">Executive Coach</div>
                 <div class="faculty-company">BioTech AG</div>
               </div>
             </div>
             
             <div class="faculty-card">
               <div class="faculty-image-container">
-                <img src="assets/faculty/verebes.jpg" alt="Dr. Peter Verebes" class="faculty-image">
+                <img src="assets/faculty/verebes.jpg" alt="Martin Verebes" class="faculty-image">
               </div>
               <div class="faculty-info">
-                <h4 class="faculty-name">Dr. Peter Verebes</h4>
-                <div class="faculty-position">CTO</div>
+                <h4 class="faculty-name">Martin Verebes</h4>
+                <div class="faculty-position">Guest Lecturer</div>
                 <div class="faculty-company">AI Security Systems</div>
               </div>
             </div>
             
             <div class="faculty-card">
               <div class="faculty-image-container">
-                <img src="assets/faculty/von_berchem.jpg" alt="Prof. Dr. Franziska von Berchem" class="faculty-image">
+                <img src="assets/faculty/von_berchem.jpg" alt="Dr. Sascha von Berchem" class="faculty-image">
               </div>
               <div class="faculty-info">
-                <h4 class="faculty-name">Prof. Dr. Franziska von Berchem</h4>
-                <div class="faculty-position">AI Ethics Pioneer</div>
+                <h4 class="faculty-name">Dr. Sascha von Berchem</h4>
+                <div class="faculty-position">Guest Lecturer</div>
                 <div class="faculty-company">Universität München</div>
               </div>
             </div>

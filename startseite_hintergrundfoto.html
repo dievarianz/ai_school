@@ -1,0 +1,1908 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Startseite mit Hintergrundfoto-Varianten | St.Gallen imt Business School</title>
+
+  <!-- ============ STYLES ============ -->
+  <style>
+    :root{
+      --font-sans:-apple-system,BlinkMacSystemFont,"San Francisco","Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+      --color-text:#1d1d1f;
+      --color-muted:#6e6e73;
+      --color-card-bg:#f5f5f7;
+      --color-accent2:#970289;
+      --color-badge:#e2b245;
+      --color-badge-hover:#d4a535;
+      --spacing:24px;
+      --radius:16px;
+      --max-width:1200px;
+      --imt-purple: #6e45e2;
+      --swiss-red: #ff0000;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--color-text);
+      background: #fff;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      /* Padding für fixierte Navigation */
+      padding-top: 64px;
+      transition: padding-top 0.3s ease;
+    }
+    
+    /* Basis Styling für Container */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--spacing);
+      width: 100%;
+    }
+
+    /* Allgemeine Typografie */
+    h1, h2, h3, h4, h5, h6 {
+      margin-bottom: 1rem;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.25rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--imt-purple);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page-title {
+      text-align: center;
+      padding: 40px 0;
+      background-color: var(--color-card-bg);
+      margin-bottom: 40px;
+    }
+
+    .section-title {
+      margin-top: 40px;
+      border-bottom: 2px solid var(--color-card-bg);
+      padding-bottom: 10px;
+      margin-bottom: 30px;
+      color: var(--imt-purple);
+    }
+
+    /* Basis-Hero-Stil von der bestehenden Startseite */
+    .hero-content {
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-eyebrow {
+      color: var(--imt-purple);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1.5rem;
+      display: inline-block;
+      font-size: 0.9rem;
+    }
+
+    .hero-title {
+      font-size: 4rem;
+      line-height: 1.1;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero-subtitle {
+      font-size: 1.4rem;
+      color: var(--color-muted);
+      margin-bottom: 2.5rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-bottom: 60px;
+      align-items: center;
+    }
+
+    .hero-btn {
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+
+    .hero-btn-primary {
+      background: linear-gradient(to right, var(--imt-purple), #9c27b0);
+      color: white;
+      border: none;
+      white-space: nowrap;
+    }
+
+    .hero-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(106, 69, 226, 0.2);
+      text-decoration: none;
+    }
+
+    .arrow-icon {
+      font-family: system-ui;
+      margin-left: 8px;
+    }
+
+    /* ------------------------------
+       VARIANTE 7: Animierter Partikelhintergrund
+    ------------------------------ */
+    .hero-variant-7 {
+      background: linear-gradient(to bottom, #f9f9ff, #fff);
+      padding: 80px 0 120px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-variant-7 .particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      opacity: 0.6;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .hero-variant-7 .particle {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background-color: var(--imt-purple);
+      border-radius: 50%;
+      opacity: 0.5;
+    }
+
+    .hero-variant-7 .particle:nth-child(1) { top: 10%; left: 20%; animation: float1 15s infinite linear; }
+    .hero-variant-7 .particle:nth-child(2) { top: 30%; left: 70%; animation: float2 20s infinite linear; }
+    .hero-variant-7 .particle:nth-child(3) { top: 50%; left: 10%; animation: float3 18s infinite linear; }
+    .hero-variant-7 .particle:nth-child(4) { top: 70%; left: 50%; animation: float4 12s infinite linear; }
+    .hero-variant-7 .particle:nth-child(5) { top: 85%; left: 80%; animation: float5 16s infinite linear; }
+    .hero-variant-7 .particle:nth-child(6) { top: 20%; left: 90%; animation: float6 14s infinite linear; }
+    .hero-variant-7 .particle:nth-child(7) { top: 40%; left: 30%; animation: float7 22s infinite linear; }
+    .hero-variant-7 .particle:nth-child(8) { top: 60%; left: 85%; animation: float8 19s infinite linear; }
+    .hero-variant-7 .particle:nth-child(9) { top: 90%; left: 15%; animation: float9 21s infinite linear; }
+    .hero-variant-7 .particle:nth-child(10) { top: 15%; left: 60%; animation: float10 17s infinite linear; }
+
+    @keyframes float1 { 0% { transform: translate(0, 0); } 50% { transform: translate(40px, 20px); } 100% { transform: translate(0, 0); } }
+    @keyframes float2 { 0% { transform: translate(0, 0); } 50% { transform: translate(-30px, 30px); } 100% { transform: translate(0, 0); } }
+    @keyframes float3 { 0% { transform: translate(0, 0); } 50% { transform: translate(20px, -20px); } 100% { transform: translate(0, 0); } }
+    @keyframes float4 { 0% { transform: translate(0, 0); } 50% { transform: translate(-20px, -10px); } 100% { transform: translate(0, 0); } }
+    @keyframes float5 { 0% { transform: translate(0, 0); } 50% { transform: translate(10px, 40px); } 100% { transform: translate(0, 0); } }
+    @keyframes float6 { 0% { transform: translate(0, 0); } 50% { transform: translate(-40px, 10px); } 100% { transform: translate(0, 0); } }
+    @keyframes float7 { 0% { transform: translate(0, 0); } 50% { transform: translate(30px, -30px); } 100% { transform: translate(0, 0); } }
+    @keyframes float8 { 0% { transform: translate(0, 0); } 50% { transform: translate(-15px, 25px); } 100% { transform: translate(0, 0); } }
+    @keyframes float9 { 0% { transform: translate(0, 0); } 50% { transform: translate(25px, -15px); } 100% { transform: translate(0, 0); } }
+    @keyframes float10 { 0% { transform: translate(0, 0); } 50% { transform: translate(-25px, -25px); } 100% { transform: translate(0, 0); } }
+
+    /* Elemente für Programm-Selector und Brands */
+    .program-selector {
+      flex: 1;
+      max-width: 460px;
+      text-align: left;
+      position: relative;
+    }
+
+    .custom-select {
+      position: relative;
+      font-family: var(--font-sans);
+      width: 100%;
+    }
+
+    .select-selected {
+      background: white;
+      color: var(--color-text);
+      padding: 12px 16px;
+      border-radius: 8px;
+      border: 2px solid var(--imt-purple);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+      font-weight: 500;
+    }
+
+    .select-selected:after {
+      content: '';
+      width: 10px;
+      height: 10px;
+      border: 2px solid var(--color-muted);
+      border-width: 0 2px 2px 0;
+      display: inline-block;
+      transform: rotate(45deg) translateY(-2px);
+      margin-left: 10px;
+      transition: transform 0.2s ease;
+    }
+
+    .select-selected.select-arrow-active:after {
+      transform: rotate(-135deg) translateY(-2px);
+    }
+
+    .select-items {
+      position: absolute;
+      background-color: white;
+      top: calc(100% + 8px);
+      left: 0;
+      right: 0;
+      z-index: 99;
+      border-radius: 8px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+      max-height: 300px;
+      overflow-y: auto;
+    }
+
+    .select-hide {
+      display: none;
+    }
+
+    .select-category {
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--imt-purple);
+      padding: 12px 16px 8px;
+      border-bottom: none;
+      background-color: #f9f9fb;
+      pointer-events: none;
+    }
+
+    .programme-category {
+      color: #17a689 !important;
+    }
+
+    .select-item {
+      color: var(--color-text);
+      padding: 12px 16px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-weight: 400;
+      border-bottom: 1px solid #f5f5f7;
+    }
+
+    .select-item:last-child {
+      border-bottom: none;
+    }
+
+    .select-item:hover {
+      background-color: var(--color-card-bg);
+      color: var(--imt-purple);
+    }
+
+    .tooltip-container {
+      position: relative;
+    }
+
+    .error-tooltip {
+      position: absolute;
+      top: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #ff3b30;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 0.875rem;
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      z-index: 100;
+    }
+
+    .error-tooltip::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -6px;
+      border-width: 6px;
+      border-style: solid;
+      border-color: #ff3b30 transparent transparent transparent;
+    }
+
+    .error-tooltip.visible {
+      opacity: 1;
+      visibility: visible;
+      top: -45px;
+    }
+
+    .hero-brands-text {
+      font-size: 0.9rem;
+      color: var(--color-muted);
+      margin-bottom: 15px;
+      font-weight: 500;
+    }
+
+    .hero-brands {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .hero-brands img {
+      height: 30px;
+      opacity: 0.7;
+      transition: opacity 0.2s ease;
+      filter: grayscale(100%);
+    }
+
+    .hero-brands img:hover {
+      opacity: 1;
+      filter: grayscale(0%);
+    }
+
+    /* Responsive Anpassungen */
+    @media (max-width: 768px) {
+      .hero-variant-7 {
+        padding: 60px 0 100px;
+      }
+      
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.1rem;
+      }
+      
+      .hero-actions {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .program-selector {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="page-title">
+    <div class="container">
+      <h1>Varianten für animierte Hintergründe im Hero-Bereich</h1>
+      <p>Verschiedene Möglichkeiten, um animierte Elemente in den Hero-Bereich zu integrieren</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <h2 class="section-title">Variante 7: Animierter Partikelhintergrund</h2>
+      <p>Ein lebendiger, moderner Hintergrund mit animierten Partikeln, die ein Gefühl von Innovation und Dynamik vermitteln - passend für eine auf KI und Technologie fokussierte Business School.</p>
+    </div>
+
+    <!-- Variante 7: Animierter Partikelhintergrund -->
+    <section class="hero-variant-7">
+      <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+      </div>
+      <div class="container">
+        <div class="hero-content">
+          <span class="hero-eyebrow">
+            St. Gallen imt Business School
+          </span>
+          <h1 class="hero-title">Exzellenz in Management und Technologie</h1>
+          <p class="hero-subtitle">Zukunftsweisende Weiterbildung an der Schnittstelle von Management und Technologie für die Führungskräfte von morgen.</p>
+          
+          <div class="hero-actions">
+            <div class="program-selector">
+              <div class="tooltip-container">
+                <div class="error-tooltip">Bitte wählen Sie ein Programm aus</div>
+                <div class="custom-select">
+                  <div class="select-selected">Wählen Sie Ihr Programm</div>
+                  <div class="select-items select-hide">
+                    <div class="select-category">Managementseminare</div>
+                    <div class="select-item" data-value="integrated_management_strategy.html">Integrated Management and Strategy</div>
+                    <div class="select-item" data-value="financial_management.html">Financial Management</div>
+                    <div class="select-item" data-value="inspirational_leadership.html">Inspirational Leadership</div>
+                    <div class="select-item" data-value="marketing_sales_brand_communication.html">Marketing, Sales and Brand Communication</div>
+                    <div class="select-item" data-value="intelligent_process_automation.html">Intelligent Process Automation</div>
+                    <div class="select-item" data-value="ki_business_strategy_digital_transformation.html">KI in Business Strategy &amp; Digital Transformation</div>
+                    <div class="select-item" data-value="ki_augmented_decision_making.html">KI-Augemented Decision Making</div>
+                    <div class="select-category programme-category">Programme</div>
+                    <div class="select-item" data-value="management_programm.html">StGallen imt Management Programm</div>
+                    <div class="select-item" data-value="management_programm_cas.html">StGallen imt Certified Management CAS</div>
+                    <div class="select-item" data-value="fast_track_mba.html">StGallen Fast‑Track MBA Programm</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a href="#" class="hero-btn hero-btn-primary" id="program-link">
+              Programm entdecken <span class="arrow-icon">→</span>
+            </a>
+          </div>
+          
+          <p class="hero-brands-text">Vertrauen unserer Kompetenz</p>
+          <div class="hero-brands">
+            <img src="assets/companies/google.png" alt="Google">
+            <img src="assets/companies/hp.png" alt="HP">
+            <img src="assets/companies/unilever.png" alt="Unilever">
+            <img src="assets/companies/sap.png" alt="SAP">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <h2 class="section-title">Variante 8: Fließende Farbverläufe</h2>
+      <p>Ein moderner Hintergrund mit sanft animierten Farbverläufen, die fließend ineinander übergehen und eine dynamische, aber nicht ablenkende visuelle Erfahrung bieten.</p>
+    </div>
+
+    <!-- Variante 8: Fließende Farbverläufe -->
+    <style>
+      .hero-variant-8 {
+        background: linear-gradient(to bottom, #f9f9ff, #fff);
+        padding: 80px 0 120px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-variant-8 .gradient-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0.7;
+        background: linear-gradient(-45deg, #ee7752, #e73c7e, #6e45e2, #23d5ab);
+        background-size: 400% 400%;
+        animation: gradientFlow 15s ease infinite;
+      }
+
+      @keyframes gradientFlow {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+
+      .hero-variant-8::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.85);
+        z-index: 1;
+      }
+    </style>
+
+    <section class="hero-variant-8">
+      <div class="gradient-background"></div>
+      <div class="container">
+        <div class="hero-content">
+          <span class="hero-eyebrow">
+            St. Gallen imt Business School
+          </span>
+          <h1 class="hero-title">Exzellenz in Management und Technologie</h1>
+          <p class="hero-subtitle">Zukunftsweisende Weiterbildung an der Schnittstelle von Management und Technologie für die Führungskräfte von morgen.</p>
+          
+          <div class="hero-actions">
+            <div class="program-selector">
+              <div class="tooltip-container">
+                <div class="error-tooltip">Bitte wählen Sie ein Programm aus</div>
+                <div class="custom-select">
+                  <div class="select-selected">Wählen Sie Ihr Programm</div>
+                  <div class="select-items select-hide">
+                    <div class="select-category">Managementseminare</div>
+                    <div class="select-item" data-value="integrated_management_strategy.html">Integrated Management and Strategy</div>
+                    <div class="select-item" data-value="financial_management.html">Financial Management</div>
+                    <div class="select-item" data-value="inspirational_leadership.html">Inspirational Leadership</div>
+                    <div class="select-item" data-value="marketing_sales_brand_communication.html">Marketing, Sales and Brand Communication</div>
+                    <div class="select-item" data-value="intelligent_process_automation.html">Intelligent Process Automation</div>
+                    <div class="select-item" data-value="ki_business_strategy_digital_transformation.html">KI in Business Strategy &amp; Digital Transformation</div>
+                    <div class="select-item" data-value="ki_augmented_decision_making.html">KI-Augemented Decision Making</div>
+                    <div class="select-category programme-category">Programme</div>
+                    <div class="select-item" data-value="management_programm.html">StGallen imt Management Programm</div>
+                    <div class="select-item" data-value="management_programm_cas.html">StGallen imt Certified Management CAS</div>
+                    <div class="select-item" data-value="fast_track_mba.html">StGallen Fast‑Track MBA Programm</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a href="#" class="hero-btn hero-btn-primary" id="program-link">
+              Programm entdecken <span class="arrow-icon">→</span>
+            </a>
+          </div>
+          
+          <p class="hero-brands-text">Vertrauen unserer Kompetenz</p>
+          <div class="hero-brands">
+            <img src="assets/companies/google.png" alt="Google">
+            <img src="assets/companies/hp.png" alt="HP">
+            <img src="assets/companies/unilever.png" alt="Unilever">
+            <img src="assets/companies/sap.png" alt="SAP">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <h2 class="section-title">Variante 9: Animierte geometrische Formen</h2>
+      <p>Ein dynamisches Design mit schwebenden und sich langsam drehenden geometrischen Formen, die ein Gefühl von Innovation und Präzision vermitteln.</p>
+    </div>
+
+    <!-- Variante 9: Animierte geometrische Formen -->
+    <style>
+      .hero-variant-9 {
+        background: linear-gradient(to bottom, #f5f7ff, #fff);
+        padding: 80px 0 120px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-variant-9 .geometric-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        overflow: hidden;
+      }
+
+      .hero-variant-9 .geometric-shape {
+        position: absolute;
+        opacity: 0.15;
+        pointer-events: none;
+        transform-origin: center;
+      }
+
+      .hero-variant-9 .shape-1 {
+        width: 120px;
+        height: 120px;
+        border: 4px solid var(--imt-purple);
+        top: 15%;
+        left: 10%;
+        animation: rotate 20s linear infinite, float-slow 15s ease-in-out infinite;
+      }
+
+      .hero-variant-9 .shape-2 {
+        width: 80px;
+        height: 80px;
+        background-color: var(--imt-purple);
+        border-radius: 50%;
+        top: 70%;
+        left: 15%;
+        animation: float-medium 18s ease-in-out infinite;
+      }
+
+      .hero-variant-9 .shape-3 {
+        width: 0;
+        height: 0;
+        border-left: 60px solid transparent;
+        border-right: 60px solid transparent;
+        border-bottom: 104px solid rgba(110, 69, 226, 0.7);
+        top: 30%;
+        right: 15%;
+        animation: rotate 25s linear infinite reverse, float-fast 12s ease-in-out infinite;
+      }
+
+      .hero-variant-9 .shape-4 {
+        width: 150px;
+        height: 150px;
+        border: 5px solid rgba(151, 2, 137, 0.5);
+        border-radius: 30px;
+        bottom: 20%;
+        right: 20%;
+        animation: rotate 30s linear infinite, float-slow 20s ease-in-out infinite reverse;
+      }
+
+      .hero-variant-9 .shape-5 {
+        width: 70px;
+        height: 70px;
+        background-color: rgba(151, 2, 137, 0.3);
+        transform: rotate(45deg);
+        top: 20%;
+        left: 70%;
+        animation: float-medium 15s ease-in-out infinite;
+      }
+
+      @keyframes rotate {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+
+      @keyframes float-slow {
+        0%, 100% { transform: translate(0, 0); }
+        50% { transform: translate(30px, 20px); }
+      }
+
+      @keyframes float-medium {
+        0%, 100% { transform: translate(0, 0); }
+        50% { transform: translate(-20px, 30px); }
+      }
+
+      @keyframes float-fast {
+        0%, 100% { transform: translate(0, 0); }
+        50% { transform: translate(-15px, -25px); }
+      }
+    </style>
+
+    <section class="hero-variant-9">
+      <div class="geometric-container">
+        <div class="geometric-shape shape-1"></div>
+        <div class="geometric-shape shape-2"></div>
+        <div class="geometric-shape shape-3"></div>
+        <div class="geometric-shape shape-4"></div>
+        <div class="geometric-shape shape-5"></div>
+      </div>
+      <div class="container">
+        <div class="hero-content">
+          <span class="hero-eyebrow">
+            St. Gallen imt Business School
+          </span>
+          <h1 class="hero-title">Exzellenz in Management und Technologie</h1>
+          <p class="hero-subtitle">Zukunftsweisende Weiterbildung an der Schnittstelle von Management und Technologie für die Führungskräfte von morgen.</p>
+          
+          <div class="hero-actions">
+            <div class="program-selector">
+              <div class="tooltip-container">
+                <div class="error-tooltip">Bitte wählen Sie ein Programm aus</div>
+                <div class="custom-select">
+                  <div class="select-selected">Wählen Sie Ihr Programm</div>
+                  <div class="select-items select-hide">
+                    <div class="select-category">Managementseminare</div>
+                    <div class="select-item" data-value="integrated_management_strategy.html">Integrated Management and Strategy</div>
+                    <div class="select-item" data-value="financial_management.html">Financial Management</div>
+                    <div class="select-item" data-value="inspirational_leadership.html">Inspirational Leadership</div>
+                    <div class="select-item" data-value="marketing_sales_brand_communication.html">Marketing, Sales and Brand Communication</div>
+                    <div class="select-item" data-value="intelligent_process_automation.html">Intelligent Process Automation</div>
+                    <div class="select-item" data-value="ki_business_strategy_digital_transformation.html">KI in Business Strategy &amp; Digital Transformation</div>
+                    <div class="select-item" data-value="ki_augmented_decision_making.html">KI-Augemented Decision Making</div>
+                    <div class="select-category programme-category">Programme</div>
+                    <div class="select-item" data-value="management_programm.html">StGallen imt Management Programm</div>
+                    <div class="select-item" data-value="management_programm_cas.html">StGallen imt Certified Management CAS</div>
+                    <div class="select-item" data-value="fast_track_mba.html">StGallen Fast‑Track MBA Programm</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a href="#" class="hero-btn hero-btn-primary" id="program-link">
+              Programm entdecken <span class="arrow-icon">→</span>
+            </a>
+          </div>
+          
+          <p class="hero-brands-text">Vertrauen unserer Kompetenz</p>
+          <div class="hero-brands">
+            <img src="assets/companies/google.png" alt="Google">
+            <img src="assets/companies/hp.png" alt="HP">
+            <img src="assets/companies/unilever.png" alt="Unilever">
+            <img src="assets/companies/sap.png" alt="SAP">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <h2 class="section-title">Variante 10: Animierte Netzwerklinien</h2>
+      <p>Eine moderne und technisch anmutende Darstellung mit animierten Netzwerklinien, die Verbindungen und Datenströme symbolisieren - ideal für eine Schule mit Technologie-Schwerpunkt.</p>
+    </div>
+
+    <!-- Variante 10: Animierte Netzwerklinien -->
+    <style>
+      .hero-variant-10 {
+        background: linear-gradient(to bottom, #f8f9ff, #fff);
+        padding: 80px 0 120px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-variant-10 .network-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
+
+      .hero-variant-10 .line {
+        position: absolute;
+        background: linear-gradient(90deg, transparent, var(--imt-purple), transparent);
+        height: 1px;
+        width: 150px;
+        opacity: 0;
+        animation: line-animate 6s linear infinite;
+      }
+
+      .hero-variant-10 .line:nth-child(1) {
+        top: 20%;
+        left: 10%;
+        transform: rotate(25deg);
+        animation-delay: 0s;
+      }
+
+      .hero-variant-10 .line:nth-child(2) {
+        top: 40%;
+        left: 20%;
+        width: 200px;
+        transform: rotate(-15deg);
+        animation-delay: 1s;
+      }
+
+      .hero-variant-10 .line:nth-child(3) {
+        top: 70%;
+        left: 15%;
+        width: 100px;
+        transform: rotate(45deg);
+        animation-delay: 2.5s;
+      }
+
+      .hero-variant-10 .line:nth-child(4) {
+        top: 30%;
+        right: 15%;
+        transform: rotate(-35deg);
+        animation-delay: 1.5s;
+      }
+
+      .hero-variant-10 .line:nth-child(5) {
+        top: 60%;
+        right: 20%;
+        width: 180px;
+        transform: rotate(10deg);
+        animation-delay: 3s;
+      }
+
+      .hero-variant-10 .node {
+        position: absolute;
+        background-color: var(--imt-purple);
+        border-radius: 50%;
+        opacity: 0.2;
+        z-index: 2;
+        transform-origin: center;
+        animation: pulse 4s ease-in-out infinite alternate;
+      }
+
+      .hero-variant-10 .node:nth-child(6) {
+        width: 12px;
+        height: 12px;
+        top: 20%;
+        left: 10%;
+        animation-delay: 0.5s;
+      }
+
+      .hero-variant-10 .node:nth-child(7) {
+        width: 18px;
+        height: 18px;
+        top: 40%;
+        left: 20%;
+        animation-delay: 1.5s;
+      }
+
+      .hero-variant-10 .node:nth-child(8) {
+        width: 15px;
+        height: 15px;
+        top: 70%;
+        left: 15%;
+        animation-delay: 2s;
+      }
+
+      .hero-variant-10 .node:nth-child(9) {
+        width: 14px;
+        height: 14px;
+        top: 30%;
+        right: 15%;
+        animation-delay: 0s;
+      }
+
+      .hero-variant-10 .node:nth-child(10) {
+        width: 16px;
+        height: 16px;
+        top: 60%;
+        right: 20%;
+        animation-delay: 3.5s;
+      }
+
+      @keyframes line-animate {
+        0% {
+          opacity: 0;
+          transform: translateX(-100px) rotate(var(--rotation));
+        }
+        20%, 80% {
+          opacity: 0.4;
+        }
+        100% {
+          opacity: 0;
+          transform: translateX(100px) rotate(var(--rotation));
+        }
+      }
+
+      @keyframes pulse {
+        0%, 100% {
+          transform: scale(1);
+          opacity: 0.2;
+        }
+        50% {
+          transform: scale(1.5);
+          opacity: 0.4;
+        }
+      }
+    </style>
+
+    <section class="hero-variant-10">
+      <div class="network-container">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="node"></div>
+        <div class="node"></div>
+        <div class="node"></div>
+        <div class="node"></div>
+        <div class="node"></div>
+      </div>
+      <div class="container">
+        <div class="hero-content">
+          <span class="hero-eyebrow">
+            St. Gallen imt Business School
+          </span>
+          <h1 class="hero-title">Exzellenz in Management und Technologie</h1>
+          <p class="hero-subtitle">Zukunftsweisende Weiterbildung an der Schnittstelle von Management und Technologie für die Führungskräfte von morgen.</p>
+          
+          <div class="hero-actions">
+            <div class="program-selector">
+              <div class="tooltip-container">
+                <div class="error-tooltip">Bitte wählen Sie ein Programm aus</div>
+                <div class="custom-select">
+                  <div class="select-selected">Wählen Sie Ihr Programm</div>
+                  <div class="select-items select-hide">
+                    <div class="select-category">Managementseminare</div>
+                    <div class="select-item" data-value="integrated_management_strategy.html">Integrated Management and Strategy</div>
+                    <div class="select-item" data-value="financial_management.html">Financial Management</div>
+                    <div class="select-item" data-value="inspirational_leadership.html">Inspirational Leadership</div>
+                    <div class="select-item" data-value="marketing_sales_brand_communication.html">Marketing, Sales and Brand Communication</div>
+                    <div class="select-item" data-value="intelligent_process_automation.html">Intelligent Process Automation</div>
+                    <div class="select-item" data-value="ki_business_strategy_digital_transformation.html">KI in Business Strategy &amp; Digital Transformation</div>
+                    <div class="select-item" data-value="ki_augmented_decision_making.html">KI-Augemented Decision Making</div>
+                    <div class="select-category programme-category">Programme</div>
+                    <div class="select-item" data-value="management_programm.html">StGallen imt Management Programm</div>
+                    <div class="select-item" data-value="management_programm_cas.html">StGallen imt Certified Management CAS</div>
+                    <div class="select-item" data-value="fast_track_mba.html">StGallen Fast‑Track MBA Programm</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a href="#" class="hero-btn hero-btn-primary" id="program-link">
+              Programm entdecken <span class="arrow-icon">→</span>
+            </a>
+          </div>
+          
+          <p class="hero-brands-text">Vertrauen unserer Kompetenz</p>
+          <div class="hero-brands">
+            <img src="assets/companies/google.png" alt="Google">
+            <img src="assets/companies/hp.png" alt="HP">
+            <img src="assets/companies/unilever.png" alt="Unilever">
+            <img src="assets/companies/sap.png" alt="SAP">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <h2 class="section-title">Variante 11: Animierte Wellenlinien</h2>
+      <p>Ein ruhiger, eleganter Hintergrund mit sanften, fließenden Wellenlinien, die eine Atmosphäre von Harmonie und Bewegung vermitteln - ideal für eine Business School mit Fokus auf fließende Entwicklung.</p>
+    </div>
+
+    <!-- Variante 11: Animierte Wellenlinien -->
+    <style>
+      .hero-variant-11 {
+        background: linear-gradient(to bottom, #f9f9ff, #fff);
+        padding: 80px 0 120px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-variant-11 .wave-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0.5;
+      }
+
+      .hero-variant-11 .wave {
+        position: absolute;
+        width: 200%;
+        height: 0;
+        left: -50%;
+        border-radius: 100%;
+        border: 1px solid rgba(110, 69, 226, 0.2);
+      }
+
+      .hero-variant-11 .wave-1 {
+        top: 20%;
+        height: 200px;
+        animation: wave-animate 18s infinite linear;
+      }
+
+      .hero-variant-11 .wave-2 {
+        top: 40%;
+        height: 180px;
+        animation: wave-animate 15s infinite linear reverse;
+        border-color: rgba(151, 2, 137, 0.15);
+      }
+
+      .hero-variant-11 .wave-3 {
+        top: 60%;
+        height: 260px;
+        animation: wave-animate 20s infinite linear;
+        border-color: rgba(110, 69, 226, 0.15);
+      }
+
+      .hero-variant-11 .wave-4 {
+        top: 70%;
+        height: 140px;
+        animation: wave-animate 12s infinite linear reverse;
+        border-color: rgba(151, 2, 137, 0.1);
+      }
+
+      .hero-variant-11 .wave-5 {
+        bottom: 10%;
+        height: 180px;
+        animation: wave-animate 16s infinite linear;
+        border-color: rgba(110, 69, 226, 0.08);
+      }
+
+      @keyframes wave-animate {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+
+    <section class="hero-variant-11">
+      <div class="wave-container">
+        <div class="wave wave-1"></div>
+        <div class="wave wave-2"></div>
+        <div class="wave wave-3"></div>
+        <div class="wave wave-4"></div>
+        <div class="wave wave-5"></div>
+      </div>
+      <div class="container">
+        <div class="hero-content">
+          <span class="hero-eyebrow">
+            St. Gallen imt Business School
+          </span>
+          <h1 class="hero-title">Exzellenz in Management und Technologie</h1>
+          <p class="hero-subtitle">Zukunftsweisende Weiterbildung an der Schnittstelle von Management und Technologie für die Führungskräfte von morgen.</p>
+          
+          <div class="hero-actions">
+            <div class="program-selector">
+              <div class="tooltip-container">
+                <div class="error-tooltip">Bitte wählen Sie ein Programm aus</div>
+                <div class="custom-select">
+                  <div class="select-selected">Wählen Sie Ihr Programm</div>
+                  <div class="select-items select-hide">
+                    <div class="select-category">Managementseminare</div>
+                    <div class="select-item" data-value="integrated_management_strategy.html">Integrated Management and Strategy</div>
+                    <div class="select-item" data-value="financial_management.html">Financial Management</div>
+                    <div class="select-item" data-value="inspirational_leadership.html">Inspirational Leadership</div>
+                    <div class="select-item" data-value="marketing_sales_brand_communication.html">Marketing, Sales and Brand Communication</div>
+                    <div class="select-item" data-value="intelligent_process_automation.html">Intelligent Process Automation</div>
+                    <div class="select-item" data-value="ki_business_strategy_digital_transformation.html">KI in Business Strategy &amp; Digital Transformation</div>
+                    <div class="select-item" data-value="ki_augmented_decision_making.html">KI-Augemented Decision Making</div>
+                    <div class="select-category programme-category">Programme</div>
+                    <div class="select-item" data-value="management_programm.html">StGallen imt Management Programm</div>
+                    <div class="select-item" data-value="management_programm_cas.html">StGallen imt Certified Management CAS</div>
+                    <div class="select-item" data-value="fast_track_mba.html">StGallen Fast‑Track MBA Programm</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a href="#" class="hero-btn hero-btn-primary" id="program-link">
+              Programm entdecken <span class="arrow-icon">→</span>
+            </a>
+          </div>
+          
+          <p class="hero-brands-text">Vertrauen unserer Kompetenz</p>
+          <div class="hero-brands">
+            <img src="assets/companies/google.png" alt="Google">
+            <img src="assets/companies/hp.png" alt="HP">
+            <img src="assets/companies/unilever.png" alt="Unilever">
+            <img src="assets/companies/sap.png" alt="SAP">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <h2 class="section-title">Variante 12: Morphende Formen</h2>
+      <p>Ein moderner, organischer Hintergrund mit sanft ineinander übergehenden Formen, die ein Gefühl von Transformation und kontinuierlicher Entwicklung vermitteln - passend für eine zukunftsorientierte Bildungseinrichtung.</p>
+    </div>
+
+    <!-- Variante 12: Morphende Formen -->
+    <style>
+      .hero-variant-12 {
+        background: linear-gradient(to bottom, #f7f7ff, #fff);
+        padding: 80px 0 120px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-variant-12 .morph-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      .hero-variant-12 .morph-blob {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(40px);
+        opacity: 0.05;
+        transform-origin: center;
+      }
+
+      .hero-variant-12 .blob-1 {
+        width: 500px;
+        height: 500px;
+        background-color: var(--imt-purple);
+        top: -150px;
+        left: -100px;
+        animation: morph1 25s ease-in-out infinite alternate;
+      }
+
+      .hero-variant-12 .blob-2 {
+        width: 600px;
+        height: 600px;
+        background-color: #9c27b0;
+        bottom: -200px;
+        right: -150px;
+        animation: morph2 30s ease-in-out infinite alternate;
+      }
+
+      .hero-variant-12 .blob-3 {
+        width: 300px;
+        height: 300px;
+        background-color: #673ab7;
+        top: 20%;
+        right: 15%;
+        animation: morph3 20s ease-in-out infinite alternate;
+      }
+
+      .hero-variant-12 .blob-4 {
+        width: 250px;
+        height: 250px;
+        background-color: var(--imt-purple);
+        bottom: 30%;
+        left: 10%;
+        animation: morph4 18s ease-in-out infinite alternate;
+      }
+
+      @keyframes morph1 {
+        0% {
+          border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+          transform: translate(0, 0) rotate(0deg);
+        }
+        33% {
+          border-radius: 70% 30% 50% 50% / 30% 50% 70% 40%;
+          transform: translate(30px, 30px) rotate(20deg);
+        }
+        66% {
+          border-radius: 40% 60% 30% 70% / 50% 30% 60% 40%;
+          transform: translate(-20px, 40px) rotate(-15deg);
+        }
+        100% {
+          border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+          transform: translate(20px, -30px) rotate(5deg);
+        }
+      }
+
+      @keyframes morph2 {
+        0% {
+          border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+          transform: translate(0, 0) rotate(0deg);
+        }
+        33% {
+          border-radius: 30% 60% 70% 40% / 50% 60% 30% 40%;
+          transform: translate(-40px, -20px) rotate(-10deg);
+        }
+        66% {
+          border-radius: 50% 50% 20% 80% / 25% 80% 30% 60%;
+          transform: translate(20px, -40px) rotate(15deg);
+        }
+        100% {
+          border-radius: 40% 60% 50% 40% / 40% 40% 60% 50%;
+          transform: translate(-30px, 30px) rotate(-5deg);
+        }
+      }
+
+      @keyframes morph3 {
+        0% {
+          border-radius: 40% 60% 50% 40% / 40% 40% 60% 50%;
+          transform: translate(0, 0) rotate(0deg);
+        }
+        50% {
+          border-radius: 60% 40% 30% 60% / 50% 60% 40% 40%;
+          transform: translate(-20px, 20px) rotate(10deg);
+        }
+        100% {
+          border-radius: 40% 40% 60% 30% / 60% 40% 50% 50%;
+          transform: translate(20px, -15px) rotate(-10deg);
+        }
+      }
+
+      @keyframes morph4 {
+        0% {
+          border-radius: 40% 40% 60% 30% / 60% 40% 50% 50%;
+          transform: translate(0, 0) rotate(0deg);
+        }
+        50% {
+          border-radius: 30% 60% 50% 40% / 40% 50% 30% 60%;
+          transform: translate(15px, -15px) rotate(-5deg);
+        }
+        100% {
+          border-radius: 50% 50% 40% 60% / 40% 60% 50% 40%;
+          transform: translate(-15px, 10px) rotate(5deg);
+        }
+      }
+    </style>
+
+    <section class="hero-variant-12">
+      <div class="morph-container">
+        <div class="morph-blob blob-1"></div>
+        <div class="morph-blob blob-2"></div>
+        <div class="morph-blob blob-3"></div>
+        <div class="morph-blob blob-4"></div>
+      </div>
+      <div class="container">
+        <div class="hero-content">
+          <span class="hero-eyebrow">
+            St. Gallen imt Business School
+          </span>
+          <h1 class="hero-title">Exzellenz in Management und Technologie</h1>
+          <p class="hero-subtitle">Zukunftsweisende Weiterbildung an der Schnittstelle von Management und Technologie für die Führungskräfte von morgen.</p>
+          
+          <div class="hero-actions">
+            <div class="program-selector">
+              <div class="tooltip-container">
+                <div class="error-tooltip">Bitte wählen Sie ein Programm aus</div>
+                <div class="custom-select">
+                  <div class="select-selected">Wählen Sie Ihr Programm</div>
+                  <div class="select-items select-hide">
+                    <div class="select-category">Managementseminare</div>
+                    <div class="select-item" data-value="integrated_management_strategy.html">Integrated Management and Strategy</div>
+                    <div class="select-item" data-value="financial_management.html">Financial Management</div>
+                    <div class="select-item" data-value="inspirational_leadership.html">Inspirational Leadership</div>
+                    <div class="select-item" data-value="marketing_sales_brand_communication.html">Marketing, Sales and Brand Communication</div>
+                    <div class="select-item" data-value="intelligent_process_automation.html">Intelligent Process Automation</div>
+                    <div class="select-item" data-value="ki_business_strategy_digital_transformation.html">KI in Business Strategy &amp; Digital Transformation</div>
+                    <div class="select-item" data-value="ki_augmented_decision_making.html">KI-Augemented Decision Making</div>
+                    <div class="select-category programme-category">Programme</div>
+                    <div class="select-item" data-value="management_programm.html">StGallen imt Management Programm</div>
+                    <div class="select-item" data-value="management_programm_cas.html">StGallen imt Certified Management CAS</div>
+                    <div class="select-item" data-value="fast_track_mba.html">StGallen Fast‑Track MBA Programm</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a href="#" class="hero-btn hero-btn-primary" id="program-link">
+              Programm entdecken <span class="arrow-icon">→</span>
+            </a>
+          </div>
+          
+          <p class="hero-brands-text">Vertrauen unserer Kompetenz</p>
+          <div class="hero-brands">
+            <img src="assets/companies/google.png" alt="Google">
+            <img src="assets/companies/hp.png" alt="HP">
+            <img src="assets/companies/unilever.png" alt="Unilever">
+            <img src="assets/companies/sap.png" alt="SAP">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container" style="margin-top: 50px; margin-bottom: 50px;">
+      <h2>JavaScript für interaktive Elemente</h2>
+      <p>Für die vollständige Funktionalität der Dropdown-Komponente und andere interaktive Elemente der Startseite ist das folgende JavaScript erforderlich:</p>
+      
+      <pre style="background: #f5f5f7; padding: 15px; border-radius: 8px; overflow-x: auto; margin: 20px 0;">
+// Dropdown-Funktion
+document.addEventListener('DOMContentLoaded', function() {
+  const selectElements = document.querySelectorAll('.custom-select');
+  
+  selectElements.forEach(select => {
+    const selectedDiv = select.querySelector('.select-selected');
+    const optionsDiv = select.querySelector('.select-items');
+    const options = optionsDiv.querySelectorAll('.select-item');
+    
+    // Dropdown Toggle
+    selectedDiv.addEventListener('click', function(e) {
+      e.stopPropagation();
+      this.classList.toggle('select-arrow-active');
+      optionsDiv.classList.toggle('select-hide');
+    });
+    
+    // Option Selection
+    options.forEach(option => {
+      option.addEventListener('click', function(e) {
+        e.stopPropagation();
+        selectedDiv.textContent = this.textContent;
+        selectedDiv.classList.remove('select-arrow-active');
+        optionsDiv.classList.add('select-hide');
+        
+        // Update Program Link
+        const programLink = document.getElementById('program-link');
+        if (programLink) {
+          programLink.href = this.getAttribute('data-value') || '#';
+        }
+      });
+    });
+    
+    // Close Dropdown on Outside Click
+    document.addEventListener('click', function() {
+      optionsDiv.classList.add('select-hide');
+      selectedDiv.classList.remove('select-arrow-active');
+    });
+  });
+});
+      </pre>
+    </div>
+  </main>
+
+  <!-- Script für Custom Select Dropdown und andere interaktive Elemente -->
+  <script>
+    // Diese Skript aktiviert alle interaktiven Elemente auf dieser Demoseite
+    document.addEventListener('DOMContentLoaded', function() {
+      const selectElements = document.querySelectorAll('.custom-select');
+      
+      selectElements.forEach(select => {
+        const selectedDiv = select.querySelector('.select-selected');
+        const optionsDiv = select.querySelector('.select-items');
+        const options = optionsDiv.querySelectorAll('.select-item');
+        
+        // Dropdown Toggle
+        selectedDiv.addEventListener('click', function(e) {
+          e.stopPropagation();
+          this.classList.toggle('select-arrow-active');
+          optionsDiv.classList.toggle('select-hide');
+        });
+        
+        // Option Selection
+        options.forEach(option => {
+          option.addEventListener('click', function(e) {
+            e.stopPropagation();
+            selectedDiv.textContent = this.textContent;
+            selectedDiv.classList.remove('select-arrow-active');
+            optionsDiv.classList.add('select-hide');
+            
+            // Update Program Link
+            const programLink = document.getElementById('program-link');
+            if (programLink) {
+              programLink.href = this.getAttribute('data-value') || '#';
+            }
+          });
+        });
+        
+        // Close Dropdown on Outside Click
+        document.addEventListener('click', function() {
+          document.querySelectorAll('.select-items').forEach(item => {
+            item.classList.add('select-hide');
+          });
+          document.querySelectorAll('.select-selected').forEach(selected => {
+            selected.classList.remove('select-arrow-active');
+          });
+        });
+      });
+    });
+  </script>
+
+  <!-- Neue Varianten -->
+  <div class="container" style="margin-top: 50px; margin-bottom: 30px;">
+    <h2 class="section-title">Variante 13: Pulsierende Wellenkreise</h2>
+    <p>Ein eleganter, subtiler Hintergrund mit pulsierenden Wellenkreisen, die an Wassertropfen erinnern und eine dynamische Atmosphäre schaffen - perfekt für eine innovative Business School.</p>
+  </div>
+
+  <!-- Variante 13: Pulsierende Wellenkreise -->
+  <style>
+    .hero-variant-13 {
+      background: linear-gradient(to bottom, #f9f9ff, #fff);
+      padding: 80px 0 120px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-variant-13 .ripple-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      opacity: 0.4;
+    }
+
+    .hero-variant-13 .ripple {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(110, 69, 226, 0.15);
+      transform-origin: center;
+      opacity: 0;
+    }
+
+    .hero-variant-13 .ripple-1 {
+      width: 120px;
+      height: 120px;
+      top: 30%;
+      left: 20%;
+      animation: ripple-effect 6s ease-out infinite;
+      animation-delay: 0s;
+    }
+
+    .hero-variant-13 .ripple-2 {
+      width: 100px;
+      height: 100px;
+      top: 55%;
+      left: 75%;
+      animation: ripple-effect 7s ease-out infinite;
+      animation-delay: 2s;
+    }
+
+    .hero-variant-13 .ripple-3 {
+      width: 80px;
+      height: 80px;
+      top: 70%;
+      left: 30%;
+      animation: ripple-effect 5s ease-out infinite;
+      animation-delay: 1s;
+    }
+
+    .hero-variant-13 .ripple-4 {
+      width: 140px;
+      height: 140px;
+      top: 20%;
+      left: 65%;
+      animation: ripple-effect 8s ease-out infinite;
+      animation-delay: 3s;
+    }
+
+    .hero-variant-13 .ripple-5 {
+      width: 90px;
+      height: 90px;
+      top: 45%;
+      left: 45%;
+      animation: ripple-effect 6.5s ease-out infinite;
+      animation-delay: 2.5s;
+      border-color: rgba(23, 166, 137, 0.15);
+    }
+
+    .hero-variant-13 .ripple-6 {
+      width: 160px;
+      height: 160px;
+      top: 60%;
+      left: 10%;
+      animation: ripple-effect 9s ease-out infinite;
+      animation-delay: 1.5s;
+      border-color: rgba(23, 166, 137, 0.15);
+    }
+
+    .hero-variant-13 .pulse {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: rgba(110, 69, 226, 0.2);
+      transform-origin: center;
+    }
+
+    .hero-variant-13 .pulse-1 {
+      top: 30%;
+      left: 20%;
+      animation: pulse-animate 6s ease-out infinite;
+    }
+
+    .hero-variant-13 .pulse-2 {
+      top: 55%;
+      left: 75%;
+      animation: pulse-animate 7s ease-out infinite;
+      animation-delay: 2s;
+    }
+
+    .hero-variant-13 .pulse-3 {
+      top: 70%;
+      left: 30%;
+      animation: pulse-animate 5s ease-out infinite;
+      animation-delay: 1s;
+    }
+
+    .hero-variant-13 .pulse-4 {
+      top: 20%;
+      left: 65%;
+      animation: pulse-animate 8s ease-out infinite;
+      animation-delay: 3s;
+    }
+
+    .hero-variant-13 .pulse-5 {
+      top: 45%;
+      left: 45%;
+      animation: pulse-animate 6.5s ease-out infinite;
+      animation-delay: 2.5s;
+      background-color: rgba(23, 166, 137, 0.2);
+    }
+
+    .hero-variant-13 .pulse-6 {
+      top: 60%;
+      left: 10%;
+      animation: pulse-animate 9s ease-out infinite;
+      animation-delay: 1.5s;
+      background-color: rgba(23, 166, 137, 0.2);
+    }
+
+    @keyframes ripple-effect {
+      0% {
+        transform: scale(0);
+        opacity: 0.8;
+      }
+      100% {
+        transform: scale(6);
+        opacity: 0;
+      }
+    }
+
+    @keyframes pulse-animate {
+      0% {
+        transform: scale(1);
+        opacity: 0.8;
+      }
+      50% {
+        transform: scale(1.2);
+        opacity: 0.5;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 0.8;
+      }
+    }
+  </style>
+
+  <section class="hero-variant-13">
+    <div class="ripple-container">
+      <div class="pulse pulse-1"></div>
+      <div class="pulse pulse-2"></div>
+      <div class="pulse pulse-3"></div>
+      <div class="pulse pulse-4"></div>
+      <div class="pulse pulse-5"></div>
+      <div class="pulse pulse-6"></div>
+      
+      <div class="ripple ripple-1"></div>
+      <div class="ripple ripple-2"></div>
+      <div class="ripple ripple-3"></div>
+      <div class="ripple ripple-4"></div>
+      <div class="ripple ripple-5"></div>
+      <div class="ripple ripple-6"></div>
+    </div>
+    <div class="container">
+      <div class="hero-content">
+        <span class="hero-eyebrow">
+          St. Gallen imt Business School
+        </span>
+        <h1 class="hero-title">Exzellenz in Management und Technologie</h1>
+        <p class="hero-subtitle">Zukunftsweisende Weiterbildung an der Schnittstelle von Management und Technologie für die Führungskräfte von morgen.</p>
+        
+        <div class="hero-actions">
+          <div class="program-selector">
+            <div class="tooltip-container">
+              <div class="error-tooltip">Bitte wählen Sie ein Programm aus</div>
+              <div class="custom-select">
+                <div class="select-selected">Wählen Sie Ihr Programm</div>
+                <div class="select-items select-hide">
+                  <div class="select-category">Managementseminare</div>
+                  <div class="select-item" data-value="integrated_management_strategy.html">Integrated Management and Strategy</div>
+                  <div class="select-item" data-value="financial_management.html">Financial Management</div>
+                  <div class="select-item" data-value="inspirational_leadership.html">Inspirational Leadership</div>
+                  <div class="select-item" data-value="marketing_sales_brand_communication.html">Marketing, Sales and Brand Communication</div>
+                  <div class="select-item" data-value="intelligent_process_automation.html">Intelligent Process Automation</div>
+                  <div class="select-item" data-value="ki_business_strategy_digital_transformation.html">KI in Business Strategy &amp; Digital Transformation</div>
+                  <div class="select-item" data-value="ki_augmented_decision_making.html">KI-Augemented Decision Making</div>
+                  <div class="select-category programme-category">Programme</div>
+                  <div class="select-item" data-value="management_programm.html">StGallen imt Management Programm</div>
+                  <div class="select-item" data-value="management_programm_cas.html">StGallen imt Certified Management CAS</div>
+                  <div class="select-item" data-value="fast_track_mba.html">StGallen Fast‑Track MBA Programm</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a href="#" class="hero-btn hero-btn-primary" id="program-link">
+            Programm entdecken <span class="arrow-icon">→</span>
+          </a>
+        </div>
+        
+        <p class="hero-brands-text">Vertrauen unserer Kompetenz</p>
+        <div class="hero-brands">
+          <img src="assets/companies/google.png" alt="Google">
+          <img src="assets/companies/hp.png" alt="HP">
+          <img src="assets/companies/unilever.png" alt="Unilever">
+          <img src="assets/companies/sap.png" alt="SAP">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container" style="margin-top: 50px; margin-bottom: 30px;">
+    <h2 class="section-title">Variante 14: Fließende Sinuswellen</h2>
+    <p>Ein eleganter Hintergrund mit sanften, fließenden Sinuswellen, die kontinuierlich über den Bildschirm laufen und eine harmonische Bewegung erzeugen - passend für eine professionelle Bildungseinrichtung.</p>
+  </div>
+
+  <!-- Variante 14: Fließende Sinuswellen -->
+  <style>
+    .hero-variant-14 {
+      background: linear-gradient(to bottom, #f9f9ff, #fff);
+      padding: 80px 0 120px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-variant-14 .sinewave-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      opacity: 0.3;
+    }
+
+    .hero-variant-14 .sinewave {
+      position: absolute;
+      width: 200%;
+      left: -50%;
+      height: 2px;
+      background: transparent;
+      overflow: hidden;
+    }
+
+    .hero-variant-14 .sinewave::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(110, 69, 226, 0.3) 30%, 
+        rgba(110, 69, 226, 0.5) 50%,
+        rgba(110, 69, 226, 0.3) 70%,
+        transparent 100%
+      );
+      animation: sinewave-move 15s linear infinite;
+    }
+
+    .hero-variant-14 .sinewave-1 {
+      top: 15%;
+      animation: sinewave-oscillate 8s ease-in-out infinite;
+    }
+
+    .hero-variant-14 .sinewave-2 {
+      top: 35%;
+      animation: sinewave-oscillate 7s ease-in-out infinite;
+      animation-delay: 0.5s;
+    }
+
+    .hero-variant-14 .sinewave-3 {
+      top: 55%;
+      animation: sinewave-oscillate 9s ease-in-out infinite;
+      animation-delay: 1s;
+    }
+
+    .hero-variant-14 .sinewave-4 {
+      top: 75%;
+      animation: sinewave-oscillate 6s ease-in-out infinite;
+      animation-delay: 1.5s;
+    }
+
+    .hero-variant-14 .sinewave-5 {
+      top: 25%;
+      animation: sinewave-oscillate 10s ease-in-out infinite;
+      animation-delay: 2s;
+    }
+
+    .hero-variant-14 .sinewave-6 {
+      top: 65%;
+      animation: sinewave-oscillate 12s ease-in-out infinite;
+      animation-delay: 2.5s;
+    }
+
+    .hero-variant-14 .sinewave-green::before {
+      background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(23, 166, 137, 0.3) 30%, 
+        rgba(23, 166, 137, 0.5) 50%,
+        rgba(23, 166, 137, 0.3) 70%,
+        transparent 100%
+      );
+    }
+
+    .hero-variant-14 .sinewave-2,
+    .hero-variant-14 .sinewave-5 {
+      height: 1px;
+    }
+
+    .hero-variant-14 .sinewave-3 {
+      height: 3px;
+    }
+
+    @keyframes sinewave-oscillate {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(30px);
+      }
+    }
+
+    @keyframes sinewave-move {
+      0% {
+        transform: translateX(-100%);
+      }
+      100% {
+        transform: translateX(100%);
+      }
+    }
+  </style>
+
+  <section class="hero-variant-14">
+    <div class="sinewave-container">
+      <div class="sinewave sinewave-1"></div>
+      <div class="sinewave sinewave-2 sinewave-green"></div>
+      <div class="sinewave sinewave-3"></div>
+      <div class="sinewave sinewave-4 sinewave-green"></div>
+      <div class="sinewave sinewave-5"></div>
+      <div class="sinewave sinewave-6 sinewave-green"></div>
+    </div>
+    <div class="container">
+      <div class="hero-content">
+        <span class="hero-eyebrow">
+          St. Gallen imt Business School
+        </span>
+        <h1 class="hero-title">Exzellenz in Management und Technologie</h1>
+        <p class="hero-subtitle">Zukunftsweisende Weiterbildung an der Schnittstelle von Management und Technologie für die Führungskräfte von morgen.</p>
+        
+        <div class="hero-actions">
+          <div class="program-selector">
+            <div class="tooltip-container">
+              <div class="error-tooltip">Bitte wählen Sie ein Programm aus</div>
+              <div class="custom-select">
+                <div class="select-selected">Wählen Sie Ihr Programm</div>
+                <div class="select-items select-hide">
+                  <div class="select-category">Managementseminare</div>
+                  <div class="select-item" data-value="integrated_management_strategy.html">Integrated Management and Strategy</div>
+                  <div class="select-item" data-value="financial_management.html">Financial Management</div>
+                  <div class="select-item" data-value="inspirational_leadership.html">Inspirational Leadership</div>
+                  <div class="select-item" data-value="marketing_sales_brand_communication.html">Marketing, Sales and Brand Communication</div>
+                  <div class="select-item" data-value="intelligent_process_automation.html">Intelligent Process Automation</div>
+                  <div class="select-item" data-value="ki_business_strategy_digital_transformation.html">KI in Business Strategy &amp; Digital Transformation</div>
+                  <div class="select-item" data-value="ki_augmented_decision_making.html">KI-Augemented Decision Making</div>
+                  <div class="select-category programme-category">Programme</div>
+                  <div class="select-item" data-value="management_programm.html">StGallen imt Management Programm</div>
+                  <div class="select-item" data-value="management_programm_cas.html">StGallen imt Certified Management CAS</div>
+                  <div class="select-item" data-value="fast_track_mba.html">StGallen Fast‑Track MBA Programm</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a href="#" class="hero-btn hero-btn-primary" id="program-link">
+            Programm entdecken <span class="arrow-icon">→</span>
+          </a>
+        </div>
+        
+        <p class="hero-brands-text">Vertrauen unserer Kompetenz</p>
+        <div class="hero-brands">
+          <img src="assets/companies/google.png" alt="Google">
+          <img src="assets/companies/hp.png" alt="HP">
+          <img src="assets/companies/unilever.png" alt="Unilever">
+          <img src="assets/companies/sap.png" alt="SAP">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container" style="margin-top: 50px; margin-bottom: 30px;">
+    <h2 class="section-title">Variante 15: Parallele Wellenschichten</h2>
+    <p>Ein moderner, mehrschichtiger Welleneffekt, der Tiefe und Dimension vermittelt durch überlappende, parallele Wellenformen - ideal für eine innovative Bildungseinrichtung mit mehreren Programmbereichen.</p>
+  </div>
+
+  <!-- Variante 15: Parallele Wellenschichten -->
+  <style>
+    .hero-variant-15 {
+      background: linear-gradient(to bottom, #f9f9ff, #fff);
+      padding: 80px 0 120px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-variant-15 .wave-layers-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      opacity: 0.4;
+    }
+
+    .hero-variant-15 .wave-layer {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-repeat: repeat-x;
+      background-position: 0 0;
+      left: 0;
+    }
+
+    .hero-variant-15 .wave-layer-1 {
+      top: 20%;
+      height: 50px;
+      background-image: url("data:image/svg+xml,%3Csvg width='1200' height='50' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,25 Q300,0 600,25 T1200,25' stroke='rgba(110, 69, 226, 0.1)' fill='none' stroke-width='1'/%3E%3C/svg%3E");
+      animation: wave-slide 40s linear infinite;
+    }
+
+    .hero-variant-15 .wave-layer-2 {
+      top: 30%;
+      height: 30px;
+      background-image: url("data:image/svg+xml,%3Csvg width='1600' height='30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,15 Q400,0 800,15 T1600,15' stroke='rgba(110, 69, 226, 0.15)' fill='none' stroke-width='1'/%3E%3C/svg%3E");
+      animation: wave-slide 35s linear infinite reverse;
+    }
+
+    .hero-variant-15 .wave-layer-3 {
+      top: 45%;
+      height: 40px;
+      background-image: url("data:image/svg+xml,%3Csvg width='1400' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,20 Q350,5 700,20 T1400,20' stroke='rgba(23, 166, 137, 0.1)' fill='none' stroke-width='1'/%3E%3C/svg%3E");
+      animation: wave-slide 30s linear infinite;
+    }
+
+    .hero-variant-15 .wave-layer-4 {
+      top: 60%;
+      height: 60px;
+      background-image: url("data:image/svg+xml,%3Csvg width='2000' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,30 Q500,10 1000,30 T2000,30' stroke='rgba(23, 166, 137, 0.15)' fill='none' stroke-width='1'/%3E%3C/svg%3E");
+      animation: wave-slide 45s linear infinite reverse;
+    }
+
+    .hero-variant-15 .wave-layer-5 {
+      top: 75%;
+      height: 35px;
+      background-image: url("data:image/svg+xml,%3Csvg width='1800' height='35' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,17.5 Q450,0 900,17.5 T1800,17.5' stroke='rgba(110, 69, 226, 0.1)' fill='none' stroke-width='1'/%3E%3C/svg%3E");
+      animation: wave-slide 50s linear infinite;
+    }
+
+    @keyframes wave-slide {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: 100% 0;
+      }
+    }
+  </style>
+
+  <section class="hero-variant-15">
+    <div class="wave-layers-container">
+      <div class="wave-layer wave-layer-1"></div>
+      <div class="wave-layer wave-layer-2"></div>
+      <div class="wave-layer wave-layer-3"></div>
+      <div class="wave-layer wave-layer-4"></div>
+      <div class="wave-layer wave-layer-5"></div>
+    </div>
+    <div class="container">
+      <div class="hero-content">
+        <span class="hero-eyebrow">
+          St. Gallen imt Business School
+        </span>
+        <h1 class="hero-title">Exzellenz in Management und Technologie</h1>
+        <p class="hero-subtitle">Zukunftsweisende Weiterbildung an der Schnittstelle von Management und Technologie für die Führungskräfte von morgen.</p>
+        
+        <div class="hero-actions">
+          <div class="program-selector">
+            <div class="tooltip-container">
+              <div class="error-tooltip">Bitte wählen Sie ein Programm aus</div>
+              <div class="custom-select">
+                <div class="select-selected">Wählen Sie Ihr Programm</div>
+                <div class="select-items select-hide">
+                  <div class="select-category">Managementseminare</div>
+                  <div class="select-item" data-value="integrated_management_strategy.html">Integrated Management and Strategy</div>
+                  <div class="select-item" data-value="financial_management.html">Financial Management</div>
+                  <div class="select-item" data-value="inspirational_leadership.html">Inspirational Leadership</div>
+                  <div class="select-item" data-value="marketing_sales_brand_communication.html">Marketing, Sales and Brand Communication</div>
+                  <div class="select-item" data-value="intelligent_process_automation.html">Intelligent Process Automation</div>
+                  <div class="select-item" data-value="ki_business_strategy_digital_transformation.html">KI in Business Strategy &amp; Digital Transformation</div>
+                  <div class="select-item" data-value="ki_augmented_decision_making.html">KI-Augemented Decision Making</div>
+                  <div class="select-category programme-category">Programme</div>
+                  <div class="select-item" data-value="management_programm.html">StGallen imt Management Programm</div>
+                  <div class="select-item" data-value="management_programm_cas.html">StGallen imt Certified Management CAS</div>
+                  <div class="select-item" data-value="fast_track_mba.html">StGallen Fast‑Track MBA Programm</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a href="#" class="hero-btn hero-btn-primary" id="program-link">
+            Programm entdecken <span class="arrow-icon">→</span>
+          </a>
+        </div>
+        
+        <p class="hero-brands-text">Vertrauen unserer Kompetenz</p>
+        <div class="hero-brands">
+          <img src="assets/companies/google.png" alt="Google">
+          <img src="assets/companies/hp.png" alt="HP">
+          <img src="assets/companies/unilever.png" alt="Unilever">
+          <img src="assets/companies/sap.png" alt="SAP">
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html> 
