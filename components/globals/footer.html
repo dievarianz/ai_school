@@ -46,7 +46,25 @@
 
   footer .footer-col {
     flex: 1;
-    min-width: 200px;
+    min-width: 180px;
+  }
+
+  /* Anpassungen für die relativen Breiten der Spalten */
+  footer .footer-col:first-child {
+    flex: 0.7;
+    min-width: 150px;
+  }
+
+  /* Programme-Spalte breiter */
+  footer .footer-col:nth-child(2) {
+    flex: 1.8;
+    min-width: 280px;
+  }
+
+  /* Netzwerk-Spalte schmaler */
+  footer .footer-col:nth-child(3) {
+    flex: 0.7;
+    min-width: 150px;
   }
 
   footer h3 {
@@ -108,16 +126,80 @@
   }
 
   /* Responsive Anpassungen für den Footer */
+  /* Desktop groß */
+  @media (min-width: 1025px) {
+    footer .footer-columns {
+      flex-wrap: nowrap;
+    }
+  }
+
+  /* Tablet und mittlere Bildschirme */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    footer .footer-columns {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    
+    /* Erste Reihe: Zwei Spalten */
+    footer .footer-col:first-child {
+      flex: 1;
+      min-width: 25%;
+      max-width: 25%;
+    }
+    
+    footer .footer-col:nth-child(2) {
+      flex: 3;
+      min-width: 65%;
+      max-width: 65%;
+    }
+    
+    /* Zweite Reihe: Zwei Spalten */
+    footer .footer-col:nth-child(3) {
+      flex: 1;
+      min-width: 25%;
+      max-width: 25%;
+      margin-top: 20px;
+    }
+    
+    footer .footer-col:nth-child(4) {
+      flex: 3;
+      min-width: 65%;
+      max-width: 65%;
+      margin-top: 20px;
+    }
+  }
+
+  /* Mobile Geräte */
   @media (max-width: 768px) {
     footer .footer-columns {
       flex-direction: column;
       gap: 20px;
     }
     
+    footer .footer-col, 
+    footer .footer-col:first-child,
+    footer .footer-col:nth-child(2),
+    footer .footer-col:nth-child(3) {
+      flex: 1;
+      min-width: 100%;
+      max-width: 100%;
+    }
+    
     footer .copyright {
       flex-direction: column;
       gap: 10px;
       text-align: center;
+    }
+  }
+
+  /* Spezielle Anpassungen für kleine Smartphones */
+  @media (max-width: 480px) {
+    footer {
+      padding: 40px 0 20px;
+    }
+    
+    footer .footer-col {
+      padding: 0;
     }
   }
 </style>

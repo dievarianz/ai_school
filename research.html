@@ -162,6 +162,18 @@
       display: flex;
       flex-direction: column;
       height: 100%;
+      width: 100%;
+    }
+
+    /* Sorgt für gleiche Boxgrößen im responsiven Design */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .highlights-container {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      
+      .highlight-box {
+        min-width: 0; /* Verhindert Überlauf bei langen Inhalten */
+      }
     }
 
     .highlight-box:hover {
@@ -173,6 +185,7 @@
       font-size: 1.2rem;
       color: var(--imt-purple);
       margin-bottom: 12px;
+      word-wrap: break-word; /* Ermöglicht Zeilenumbruch bei langen Titeln */
     }
 
     .highlight-box p {
