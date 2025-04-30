@@ -19,7 +19,7 @@
     --radius:16px;
     --max-width:1200px;
     --imt-purple: #6e45e2;
-    --imt-green: #17a689;
+    --imt-green: #4CB796;
   }
 
   * {
@@ -137,7 +137,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--imt-green);
+    background-color: white;
     clip-path: polygon(
       0 0, 
       calc(100% - 50px) 0, 
@@ -661,7 +661,7 @@
   }
 
   .flip-link:hover i {
-    color: var(--color-accent2);
+    color: var(--imt-green);
   }
 
   .flip-link span {
@@ -671,7 +671,7 @@
   /* Hover Effekte */
   .flipper .front:hover,
   .flipper .back:hover {
-    border-color: var(--color-accent2);
+    border-color: var(--imt-green);
   }
 
   .flipper .front:hover i {
@@ -719,7 +719,7 @@
   }
 
   .stat-card:hover {
-    border-color: var(--imt-purple);
+    border-color: var(--imt-green);
   }
 
   .stat-icon {
@@ -858,7 +858,7 @@
   }
   
   .gallery-item:hover {
-    border-color: var(--imt-purple);
+    border-color: var(--imt-green);
   }
   
   .gallery-item img {
@@ -909,7 +909,7 @@
   }
 
   .faculty-card:hover {
-    border-color: var(--color-accent2);
+    border-color: var(--imt-green);
   }
 
   .faculty-card img {
@@ -928,7 +928,7 @@
   }
 
   .faculty-title {
-    color: var(--color-accent2);
+    color: var(--imt-green);
     font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -1075,6 +1075,190 @@
       margin: 24px auto;
     }
   }
+
+  /* -------- Sidebar Navigation mit Content -------- */
+  .module-tabs-v6 {
+    max-width: 900px;
+    margin: 0 auto 60px;
+    display: flex;
+    gap: 30px;
+    align-items: stretch; /* Ensure both elements stretch to match the tallest */
+  }
+  
+  .sidebar-nav-v6 {
+    width: 280px;
+    flex-shrink: 0;
+    flex-grow: 0; /* Prevent growing */
+    background: var(--color-card-bg);
+    border-radius: var(--radius);
+    box-shadow: none;
+    overflow: hidden;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+  }
+  
+  .sidebar-nav-v6:hover {
+    border-color: transparent;
+  }
+  
+  .sidebar-tab-v6 {
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+    position: relative;
+  }
+  
+  .sidebar-tab-v6.active {
+    background: rgba(76, 183, 150, 0.1);
+    border-left-color: var(--imt-green);
+  }
+  
+  .sidebar-tab-v6.active .sidebar-number-v6 {
+    background: var(--imt-green);
+    color: white;
+  }
+  
+  .sidebar-tab-v6.active .sidebar-title-v6 {
+    color: var(--imt-green);
+    font-weight: 600;
+  }
+  
+  .sidebar-tab-v6:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    right: 20px;
+    height: 1px;
+    background: #f0f0f0;
+  }
+  
+  .sidebar-number-v6 {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-right: 12px;
+    transition: all 0.3s ease;
+    background: var(--color-card-bg);
+    color: var(--color-muted);
+  }
+  
+  .sidebar-tab-v6.active .sidebar-number-v6 {
+    background: var(--imt-green);
+    color: white;
+  }
+  
+  .sidebar-title-v6 {
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--color-text);
+    transition: color 0.3s ease;
+  }
+  
+  .sidebar-tab-v6.active .sidebar-title-v6 {
+    color: var(--imt-green);
+    font-weight: 600;
+  }
+  
+  .sidebar-tab-v6:hover:not(.active) {
+    background: rgba(76, 183, 150, 0.05);
+  }
+  
+  .content-container-v6 {
+    flex-grow: 1;
+    background: var(--color-card-bg);
+    border-radius: var(--radius);
+    box-shadow: none;
+    overflow: hidden;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+  }
+  
+  .content-container-v6:hover {
+    border-color: var(--imt-green);
+  }
+  
+  .content-panel-v6 {
+    display: none;
+    padding: 30px;
+    animation: fadeIn 0.4s ease;
+  }
+  
+  .content-panel-v6.active {
+    display: block;
+  }
+  
+  .content-title-v6 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #6e6e73; /* Gray color */
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .module-tabs-v6 {
+      flex-direction: column;
+    }
+    
+    .sidebar-nav-v6 {
+      width: 100%;
+    }
+  }
+
+  /* Animation */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Overrides for alignment in management_programm.html */
+  .module-tabs-v6 {
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .content-container-v6 {
+    max-width: calc(100% - 310px);
+  }
+  
+  @media (max-width: 768px) {
+    .content-container-v6 {
+      max-width: 100%;
+    }
+  }
+
+  /* Custom list styling with checkmark icons */
+  .content-panel-v6 ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .content-panel-v6 li {
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 12px;
+  }
+  
+  /* We no longer need this since we're using inline icons */
+  /* .content-panel-v6 li::before {
+    font-family: 'boxicons';
+    content: '\f00c';
+    position: absolute;
+    left: 0;
+    color: #a0a0a0;
+    font-size: 18px;
+  } */
 </style>
 
 <!-- BoxIcons für Icons -->
@@ -1287,6 +1471,81 @@
           </div>
         </div>
         <button aria-label="Weiter" class="slider-btn next"></button>
+      </div>
+    </section>
+
+    <!-- Programmmodule mit Sidebar Navigation -->
+    <section>
+      <div class="container">
+        <h2 style="font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600; text-align: left !important; color: var(--color-text);">Programmmodule</h2>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Entdecken Sie die Module, des StGallen imt Management Programms.</p>
+        
+        <div class="module-tabs-v6">
+          <div class="sidebar-nav-v6">
+            <div class="sidebar-tab-v6 active" data-tab="1">
+              <div class="sidebar-number-v6">01</div>
+              <div class="sidebar-title-v6">Integrated Management</div>
+            </div>
+            <div class="sidebar-tab-v6" data-tab="2">
+              <div class="sidebar-number-v6">02</div>
+              <div class="sidebar-title-v6">Financial Management</div>
+            </div>
+            <div class="sidebar-tab-v6" data-tab="3">
+              <div class="sidebar-number-v6">03</div>
+              <div class="sidebar-title-v6">Inspirational Leadership</div>
+            </div>
+            <div class="sidebar-tab-v6" data-tab="4">
+              <div class="sidebar-number-v6">04</div>
+              <div class="sidebar-title-v6">Marketing & Brand</div>
+            </div>
+          </div>
+          
+          <div class="content-container-v6">
+            <div class="content-panel-v6 active" data-content="1">
+              <h3 class="content-title-v6">Integrated Management and Strategy</h3>
+              <p>In diesem Modul erlernen Sie, wie Sie einen ganzheitlichen Managementansatz entwickeln und Geschäftsstrategien erfolgreich implementieren können. Behandelt werden zentrale Konzepte wie:</p>
+              <ul>
+                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Strategische Positionierung und Wettbewerbsvorteile</li>
+                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Integriertes Management in der VUCA-Welt</li>
+                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Entwicklung von nachhaltigen Geschäftsmodellen</li>
+                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Strategische Analyse und Entscheidungsfindung</li>
+              </ul>
+            </div>
+            
+            <div class="content-panel-v6" data-content="2">
+              <h3 class="content-title-v6">Financial Management</h3>
+              <p>Dieses Modul vermittelt Ihnen ein umfassendes Verständnis finanzieller Konzepte und deren Anwendung im Unternehmenskontext. Zu den Inhalten gehören:</p>
+              <ul>
+                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Finanzanalyse und Kennzahleninterpretation</li>
+                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Investitionsbewertung und -entscheidungen</li>
+                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Cashflow-Management und Unternehmensfinanzierung</li>
+                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Finanzielle Risikobewertung und -absicherung</li>
+              </ul>
+            </div>
+            
+            <div class="content-panel-v6" data-content="3">
+              <h3 class="content-title-v6">Inspirational Leadership</h3>
+              <p>In diesem Modul entwickeln Sie Ihre Führungskompetenzen weiter und lernen, wie Sie Teams inspirieren und motivieren. Themenschwerpunkte sind:</p>
+              <ul>
+                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Moderne Führungsstile und deren Wirksamkeit</li>
+                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Emotionale Intelligenz und ihre Bedeutung für Führungskräfte</li>
+                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Change Management und Transformationsführung</li>
+                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Team-Building und Konfliktmanagement</li>
+              </ul>
+            </div>
+            
+            <div class="content-panel-v6" data-content="4">
+              <h3 class="content-title-v6">Marketing, Sales and Brand Communication</h3>
+              <p>Dieses Modul konzentriert sich auf moderne Marketingstrategien und effektive Markenführung. Sie befassen sich mit:</p>
+              <ul>
+                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Strategische Markenpositionierung und -entwicklung</li>
+                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Integrierte Marketingkommunikation</li>
+                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Digitales Marketing und Omnichannel-Strategien</li>
+                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Verkaufspsychologie und Customer Journey Optimierung</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -2153,6 +2412,37 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
     });
+  });
+</script>
+
+<!-- JavaScript für die Sidebar-Navigation Funktionalität -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Sidebar-Navigation Tabs
+    initSidebarTabs();
+    
+    function initSidebarTabs() {
+      const sidebarTabs = document.querySelectorAll('.sidebar-tab-v6');
+      const contentPanels = document.querySelectorAll('.content-panel-v6');
+      
+      sidebarTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const tabId = tab.getAttribute('data-tab');
+          
+          // Aktiven Tab setzen
+          sidebarTabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          
+          // Aktiven Content setzen
+          contentPanels.forEach(panel => {
+            panel.classList.remove('active');
+            if (panel.getAttribute('data-content') === tabId) {
+              panel.classList.add('active');
+            }
+          });
+        });
+      });
+    }
   });
 </script>
 </body>

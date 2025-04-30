@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Testimonial Designvorschläge | St.Gallen imt Business School</title>
+
+<!-- ============ STYLES ============ -->
+<style>
+  :root{
+    --font-sans:-apple-system,BlinkMacSystemFont,"San Francisco","Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+    --color-text:#1d1d1f;
+    --color-muted:#6e6e73;
+    --color-card-bg:#f5f5f7;
+    --color-accent2:#4CB796;
+    --color-badge:#e2b245;
+    --color-badge-hover:#d4a535;
+    --spacing:24px;
+    --radius:16px;
+    --max-width:1200px;
+    --imt-purple: #6e45e2;
+    --imt-green: #4CB796;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-text);
+    background: #fff;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Padding für fixierte Navigation */
+    padding-top: 64px;
+    transition: padding-top 0.3s ease;
+  }
+
+  /* Basis Styling für Container */
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing);
+    width: 100%;
+  }
+
+  /* Hauptinhalt der Seite */
+  main {
+    position: relative;
+  }
+
+  /* Allgemeine Typografie */
+  h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 1rem;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1.25rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+
+  a {
+    color: var(--imt-green);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Boxicon Styling */
+  .bx {
+    vertical-align: middle;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .section-description {
+    text-align: center;
+    color: var(--color-muted);
+    max-width: 700px;
+    margin: 0 auto 3rem;
+  }
+
+  .content-section {
+    padding: 80px 0;
+  }
+
+  /* Gemeinsame Testimonial-Elemente */
+  .testimonial-author {
+    font-weight: 600;
+    display: block;
+  }
+
+  .testimonial-position {
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--color-muted);
+    display: block;
+  }
+
+  .testimonial-program {
+    font-size: 0.85rem;
+    color: var(--imt-green);
+    margin-top: 5px;
+    display: block;
+  }
+
+  .testimonial-quote {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  /* ============ DESIGN 1: Karten mit Schatten ============ */
+  .testimonials-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 70px;
+  }
+
+  .testimonial-card {
+    background-color: white;
+    border-radius: var(--radius);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    border: 2px solid transparent;
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    border-color: var(--imt-green);
+  }
+
+  .testimonial-card-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .testimonial-card-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+    border: 3px solid var(--imt-green);
+  }
+
+  .testimonial-card-info {
+    flex: 1;
+  }
+
+  .testimonial-card-quote {
+    position: relative;
+    padding-left: 25px;
+  }
+  
+  .testimonial-card-quote::before {
+    content: """;
+    position: absolute;
+    left: 0;
+    top: -15px;
+    font-size: 60px;
+    color: var(--imt-green);
+    opacity: 0.3;
+    line-height: 1;
+  }
+
+  /* ============ DESIGN 2: Quoten mit Fokussierter Hintergrundfarbe ============ */
+  .testimonials-quotes {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-bottom: 70px;
+  }
+
+  .testimonial-quote-box {
+    background-color: var(--color-card-bg);
+    border-radius: var(--radius);
+    padding: 40px;
+    position: relative;
+    transition: transform 0.3s ease;
+    overflow: hidden;
+  }
+
+  .testimonial-quote-box:hover {
+    transform: scale(1.02);
+  }
+
+  .testimonial-quote-box::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 5px;
+    background: var(--imt-green);
+    transition: width 0.3s ease;
+  }
+
+  .testimonial-quote-box:hover::after {
+    width: 8px;
+  }
+
+  .testimonial-quote-content {
+    font-size: 1.3rem;
+    font-style: italic;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .testimonial-quote-author-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .testimonial-quote-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+  }
+
+  .giant-quote {
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    font-size: 150px;
+    color: rgba(0, 0, 0, 0.03);
+    font-family: Georgia, serif;
+    line-height: 1;
+    z-index: 0;
+  }
+
+  /* ============ DESIGN 3: Überlappendes Karussell ============ */
+  .testimonials-carousel {
+    position: relative;
+    margin-bottom: 70px;
+    min-height: 300px;
+  }
+
+  .testimonial-carousel-track {
+    display: flex;
+    gap: 20px;
+    padding: 20px 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+
+  .testimonial-carousel-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .testimonial-carousel-item {
+    flex: 0 0 auto;
+    width: 380px;
+    scroll-snap-align: start;
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    padding: 25px;
+    position: relative;
+    transition: all 0.3s ease;
+    border-top: 5px solid var(--imt-green);
+  }
+
+  .testimonial-carousel-item:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  .testimonial-carousel-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+
+  .testimonial-carousel-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-right: 15px;
+  }
+
+  .testimonial-carousel-content {
+    position: relative;
+    padding-top: 15px;
+  }
+
+  .testimonial-carousel-content::before {
+    content: """;
+    position: absolute;
+    left: 0;
+    top: -10px;
+    font-size: 40px;
+    color: var(--imt-green);
+    opacity: 0.4;
+  }
+
+  .testimonial-carousel-nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
+  }
+
+  .carousel-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #ddd;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .carousel-dot.active {
+    background-color: var(--imt-green);
+  }
+
+  /* ============ DESIGN 4: Grid-Layout mit Video-Option ============ */
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    gap: 40px;
+    margin-bottom: 70px;
+  }
+
+  .testimonial-grid-item {
+    background: linear-gradient(to bottom right, #fcfcfc, #f5f5f7);
+    border-radius: var(--radius);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #eee;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .testimonial-grid-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.05);
+  }
+
+  .testimonial-video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+  }
+
+  .testimonial-video-container iframe,
+  .testimonial-video-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .testimonial-play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .testimonial-play-button:hover {
+    background-color: var(--imt-green);
+  }
+
+  .testimonial-play-button i {
+    color: var(--imt-green);
+    font-size: 24px;
+    margin-left: 5px;
+  }
+
+  .testimonial-play-button:hover i {
+    color: white;
+  }
+
+  .testimonial-grid-content {
+    padding: 25px;
+    flex: 1;
+  }
+
+  .testimonial-grid-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+
+  .testimonial-grid-avatar-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .testimonial-grid-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+    border: 3px solid var(--imt-green);
+  }
+
+  .testimonial-logo {
+    height: 40px;
+    width: auto;
+    opacity: 0.7;
+  }
+
+  .testimonial-grid-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+    margin-top: 15px;
+  }
+
+  /* Responsive Anpassungen */
+  @media (max-width: 768px) {
+    .testimonials-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .testimonials-cards {
+      grid-template-columns: 1fr;
+    }
+
+    .testimonial-carousel-item {
+      width: 90%;
+    }
+
+    .testimonial-quote-box {
+      padding: 30px;
+    }
+  }
+</style>
+
+<!-- BoxIcons für Icons -->
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+<!-- Favicon -->
+<link rel="icon" href="assets/favicon.png" type="image/png">
+</head>
+<body>
+
+<!-- Hauptinhalt -->
+<main>
+  <!-- Einleitung -->
+  <section class="content-section">
+    <div class="container">
+      <h1>Testimonial Designvorschläge</h1>
+      <p>Hier finden Sie vier verschiedene Gestaltungsvorschläge für Testimonials ehemaliger Teilnehmer, die in die Programmseiten integriert werden können.</p>
+    </div>
+  </section>
+
+  <!-- ========== DESIGN 1: Karten mit Schatten ========== -->
+  <section class="content-section" style="background-color: #f9f9f9; padding-top: 60px; padding-bottom: 60px;">
+    <div class="container">
+      <h2 class="section-title">Variante 1: Karten mit Schatten</h2>
+      <p class="section-description">Elegante Karten mit Hover-Effekt und Schatten, die Testimonials in einem sauberen, modernen Design präsentieren.</p>
+      
+      <div class="testimonials-cards">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card">
+          <div class="testimonial-card-header">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Anna Müller" class="testimonial-card-avatar">
+            <div class="testimonial-card-info">
+              <span class="testimonial-author">Anna Müller</span>
+              <span class="testimonial-position">Marketing Director, TechCorp GmbH</span>
+              <span class="testimonial-program">Certified Management CAS, 2022</span>
+            </div>
+          </div>
+          <div class="testimonial-card-quote">
+            <p class="testimonial-quote">Das CAS-Programm hat meine Karriere auf das nächste Level gebracht. Die praxisnahen Fallstudien und das Netzwerk, das ich aufbauen konnte, sind unbezahlbar.</p>
+          </div>
+        </div>
+        
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card">
+          <div class="testimonial-card-header">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Thomas Weber" class="testimonial-card-avatar">
+            <div class="testimonial-card-info">
+              <span class="testimonial-author">Thomas Weber</span>
+              <span class="testimonial-position">CEO, Innovate Solutions</span>
+              <span class="testimonial-program">Fast-Track MBA, 2021</span>
+            </div>
+          </div>
+          <div class="testimonial-card-quote">
+            <p class="testimonial-quote">Der Fast-Track MBA hat mir genau die strategischen Fähigkeiten vermittelt, die ich brauchte, um mein Unternehmen durch die digitale Transformation zu führen.</p>
+          </div>
+        </div>
+        
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card">
+          <div class="testimonial-card-header">
+            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Julia Schmidt" class="testimonial-card-avatar">
+            <div class="testimonial-card-info">
+              <span class="testimonial-author">Julia Schmidt</span>
+              <span class="testimonial-position">CFO, Global Finance AG</span>
+              <span class="testimonial-program">Management Programm, 2023</span>
+            </div>
+          </div>
+          <div class="testimonial-card-quote">
+            <p class="testimonial-quote">Die Dozenten sind absolute Experten auf ihrem Gebiet. Ich konnte das Gelernte direkt in meinem Arbeitsalltag anwenden und sehe täglich den Mehrwert.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DESIGN 2: Quoten mit Fokussierter Hintergrundfarbe ========== -->
+  <section class="content-section">
+    <div class="container">
+      <h2 class="section-title">Variante 2: Hervorgehobene Zitate</h2>
+      <p class="section-description">Großzügig formatierte Zitate mit subtilen Design-Elementen, die die Aussagen der Teilnehmer in den Mittelpunkt stellen.</p>
+      
+      <div class="testimonials-quotes">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-quote-box">
+          <div class="giant-quote">"</div>
+          <p class="testimonial-quote-content">Das St.Gallen Management Programm hat mir einen umfassenden Überblick über moderne Führungsmethoden vermittelt. Besonders wertvoll war der Austausch mit den anderen Teilnehmern aus verschiedenen Branchen.</p>
+          <div class="testimonial-quote-author-container">
+            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Markus Fischer" class="testimonial-quote-avatar">
+            <div>
+              <span class="testimonial-author">Markus Fischer</span>
+              <span class="testimonial-position">Head of Operations, IndustrieWerk AG</span>
+              <span class="testimonial-program">Management Programm, 2022</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Testimonial 2 -->
+        <div class="testimonial-quote-box">
+          <div class="giant-quote">"</div>
+          <p class="testimonial-quote-content">Die praxisnahe Ausbildung und das internationale Netzwerk haben mir neue Perspektiven eröffnet. Die Inhalte des CAS-Programms waren perfekt auf die aktuellen Herausforderungen im Management abgestimmt.</p>
+          <div class="testimonial-quote-author-container">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Sophia Wagner" class="testimonial-quote-avatar">
+            <div>
+              <span class="testimonial-author">Sophia Wagner</span>
+              <span class="testimonial-position">Senior Project Manager, TechAdvance GmbH</span>
+              <span class="testimonial-program">Certified Management CAS, 2023</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DESIGN 3: Überlappendes Karussell ========== -->
+  <section class="content-section" style="background-color: #f9f9f9; padding-top: 60px; padding-bottom: 60px;">
+    <div class="container">
+      <h2 class="section-title">Variante 3: Testimonial-Karussell</h2>
+      <p class="section-description">Ein interaktives Karussell, das mehrere Testimonials in einem kompakten, scrollbaren Format darstellt.</p>
+      
+      <div class="testimonials-carousel">
+        <div class="testimonial-carousel-track">
+          <!-- Testimonial 1 -->
+          <div class="testimonial-carousel-item">
+            <div class="testimonial-carousel-header">
+              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Alexander Becker" class="testimonial-carousel-avatar">
+              <div>
+                <span class="testimonial-author">Alexander Becker</span>
+                <span class="testimonial-position">Managing Director, Future Group</span>
+                <span class="testimonial-program">Fast-Track MBA, 2022</span>
+              </div>
+            </div>
+            <div class="testimonial-carousel-content">
+              <p class="testimonial-quote">Der Fast-Track MBA hat meine Erwartungen übertroffen. Die Kombination aus theoretischem Wissen und praktischer Anwendung ist perfekt ausbalanciert.</p>
+            </div>
+          </div>
+          
+          <!-- Testimonial 2 -->
+          <div class="testimonial-carousel-item">
+            <div class="testimonial-carousel-header">
+              <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Nina Huber" class="testimonial-carousel-avatar">
+              <div>
+                <span class="testimonial-author">Nina Huber</span>
+                <span class="testimonial-position">Head of Digital Marketing, MediaGroup</span>
+                <span class="testimonial-program">Management Programm, 2023</span>
+              </div>
+            </div>
+            <div class="testimonial-carousel-content">
+              <p class="testimonial-quote">Die Dozenten bringen nicht nur akademisches Wissen mit, sondern auch wertvolle Erfahrungen aus der Praxis. Das macht den Unterschied.</p>
+            </div>
+          </div>
+          
+          <!-- Testimonial 3 -->
+          <div class="testimonial-carousel-item">
+            <div class="testimonial-carousel-header">
+              <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Lukas Schmid" class="testimonial-carousel-avatar">
+              <div>
+                <span class="testimonial-author">Lukas Schmid</span>
+                <span class="testimonial-position">CTO, TechInnovations AG</span>
+                <span class="testimonial-program">Certified Management CAS, 2021</span>
+              </div>
+            </div>
+            <div class="testimonial-carousel-content">
+              <p class="testimonial-quote">Als Techniker habe ich durch das CAS-Programm wertvolle Managementfähigkeiten erworben, die mir geholfen haben, in eine Führungsposition aufzusteigen.</p>
+            </div>
+          </div>
+          
+          <!-- Testimonial 4 -->
+          <div class="testimonial-carousel-item">
+            <div class="testimonial-carousel-header">
+              <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Martina Berger" class="testimonial-carousel-avatar">
+              <div>
+                <span class="testimonial-author">Martina Berger</span>
+                <span class="testimonial-position">HR Director, Global Services</span>
+                <span class="testimonial-program">Management Programm, 2022</span>
+              </div>
+            </div>
+            <div class="testimonial-carousel-content">
+              <p class="testimonial-quote">Die flexible Struktur des Programms ermöglichte es mir, Beruf und Weiterbildung optimal zu vereinbaren. Eine Investition, die sich voll ausgezahlt hat.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-carousel-nav">
+          <div class="carousel-dot active"></div>
+          <div class="carousel-dot"></div>
+          <div class="carousel-dot"></div>
+          <div class="carousel-dot"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DESIGN 4: Grid-Layout mit Video-Option ========== -->
+  <section class="content-section">
+    <div class="container">
+      <h2 class="section-title">Variante 4: Video-Testimonials</h2>
+      <p class="section-description">Kombiniert textbasierte Testimonials mit der Option, Video-Feedback von Absolventen einzubinden, für eine dynamischere Darstellung.</p>
+      
+      <div class="testimonials-grid">
+        <!-- Testimonial mit Video 1 -->
+        <div class="testimonial-grid-item">
+          <div class="testimonial-video-container">
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Video Thumbnail">
+            <div class="testimonial-play-button">
+              <i class='bx bx-play'></i>
+            </div>
+          </div>
+          <div class="testimonial-grid-content">
+            <div class="testimonial-grid-header">
+              <div class="testimonial-grid-avatar-container">
+                <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Christine Maier" class="testimonial-grid-avatar">
+                <div>
+                  <span class="testimonial-author">Christine Maier</span>
+                  <span class="testimonial-position">COO, FinanceGroup AG</span>
+                </div>
+              </div>
+              <img src="assets/companies/google.png" alt="Company Logo" class="testimonial-logo">
+            </div>
+            <p class="testimonial-quote">Der MBA hat mir die strategischen Tools gegeben, die ich brauchte, um unser Unternehmen durch die digitale Transformation zu führen. Die Kombination aus Theorie und Praxis war perfekt.</p>
+            <div class="testimonial-grid-footer">
+              <span class="testimonial-program">Fast-Track MBA, 2022</span>
+              <a href="#" class="testimonial-more-link">Vollständiges Interview <i class='bx bx-right-arrow-alt'></i></a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Testimonial mit Video 2 -->
+        <div class="testimonial-grid-item">
+          <div class="testimonial-video-container">
+            <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Video Thumbnail">
+            <div class="testimonial-play-button">
+              <i class='bx bx-play'></i>
+            </div>
+          </div>
+          <div class="testimonial-grid-content">
+            <div class="testimonial-grid-header">
+              <div class="testimonial-grid-avatar-container">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Stefan Neumann" class="testimonial-grid-avatar">
+                <div>
+                  <span class="testimonial-author">Stefan Neumann</span>
+                  <span class="testimonial-position">Gründer & CEO, NexGen Tech</span>
+                </div>
+              </div>
+              <img src="assets/companies/sap.png" alt="Company Logo" class="testimonial-logo">
+            </div>
+            <p class="testimonial-quote">Das Management Programm hat mir geholfen, mein Startup erfolgreich zu skalieren. Die Dozenten haben mich durch ihren Erfahrungsschatz und praxisnahe Beratung inspiriert.</p>
+            <div class="testimonial-grid-footer">
+              <span class="testimonial-program">Management Programm, 2023</span>
+              <a href="#" class="testimonial-more-link">Vollständiges Interview <i class='bx bx-right-arrow-alt'></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- JavaScript für interaktive Elemente -->
+<script>
+  // Einfaches Karussell-Skript
+  document.addEventListener('DOMContentLoaded', function() {
+    const dots = document.querySelectorAll('.carousel-dot');
+    
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        // Aktive Klasse entfernen
+        document.querySelector('.carousel-dot.active').classList.remove('active');
+        
+        // Aktive Klasse hinzufügen
+        dot.classList.add('active');
+        
+        // In der vollständigen Implementierung würde hier das Karussell bewegt werden
+        const track = document.querySelector('.testimonial-carousel-track');
+        const items = document.querySelectorAll('.testimonial-carousel-item');
+        const itemWidth = items[0].offsetWidth + 20; // +20 für den Gap
+        
+        track.scrollTo({
+          left: itemWidth * index,
+          behavior: 'smooth'
+        });
+      });
+    });
+    
+    // Video Play Button Simulation
+    const playButtons = document.querySelectorAll('.testimonial-play-button');
+    
+    playButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        alert('In der finalen Implementierung würde hier ein Video abgespielt werden.');
+      });
+    });
+  });
+</script>
+</body>
+</html> 

@@ -1362,8 +1362,18 @@
       transition: all 0.2s ease;
     }
     
-    .select-items .select-item:nth-child(n+6):hover {
+    /* Die Programme StGallen Management Programm, CAS, und Fast-Track MBA verwenden Grün */
+    .select-items .select-item[data-value="management_programm.html"]:hover,
+    .select-items .select-item[data-value="management_programm_cas.html"]:hover,
+    .select-items .select-item[data-value="fast_track_mba.html"]:hover {
       color: #17a689;
+    }
+    
+    /* Die KI-Programme verwenden Lila wie die anderen Einzelseminare */
+    .select-items .select-item[data-value="intelligent_process_automation.html"]:hover,
+    .select-items .select-item[data-value="ki_business_strategy_digital_transformation.html"]:hover,
+    .select-items .select-item[data-value="ki_augmented_decision_making.html"]:hover {
+      color: var(--imt-purple);
     }
 
     .sv-innovation-academy-section {
