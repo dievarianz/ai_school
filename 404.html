@@ -35,10 +35,29 @@
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    padding: 40px 20px;
+    padding: 0;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+  }
+
+  /* Header mit Logo */
+  .header {
+    padding: 15px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+
+  .header-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  .logo {
+    height: 40px;
+    width: auto;
+    display: block;
   }
 
   /* Basis Styling für Container */
@@ -50,12 +69,12 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   /* Typografie */
   h1, h2, h3, h4, h5, h6 {
-    margin-bottom: 1rem;
+    margin-bottom: 0.7rem;
     font-weight: 600;
     line-height: 1.2;
   }
@@ -68,12 +87,12 @@
 
   h2 {
     font-size: 2rem;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1rem;
   }
 
   h3 {
     font-size: 1.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
   }
 
   p {
@@ -96,20 +115,20 @@
     min-height: 70vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    padding: 50px 20px;
+    padding: 40px 20px 40px 20px;
   }
 
   .error-title {
     font-size: 2.5rem;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     color: var(--color-text);
   }
 
   .error-subtitle {
     font-size: 1.4rem;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     color: var(--color-muted);
     text-align: center;
   }
@@ -161,7 +180,7 @@
   .error-buttons {
     display: flex;
     gap: 15px;
-    margin-top: 20px;
+    margin-top: 15px;
     flex-wrap: wrap;
     justify-content: center;
   }
@@ -169,7 +188,7 @@
   .error-number {
     font-size: 8rem;
     font-weight: 800;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     background: linear-gradient(135deg, var(--imt-purple) 0%, #9c27b0 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -193,33 +212,7 @@
   }
 
   .error-alt1 .error-text {
-    margin-bottom: 40px;
-  }
-
-  .error-alt1 .error-icon {
-    font-size: 110px;
-    margin-bottom: 30px;
-    color: var(--imt-purple);
-    opacity: 0.8;
-  }
-  
-  .error-alt1 .pulse {
-    animation: pulse 2s infinite;
-  }
-  
-  @keyframes pulse {
-    0% {
-      transform: scale(1);
-      opacity: 0.8;
-    }
-    50% {
-      transform: scale(1.05);
-      opacity: 1;
-    }
-    100% {
-      transform: scale(1);
-      opacity: 0.8;
-    }
+    margin-bottom: 25px;
   }
 
   @media (max-width: 768px) {
@@ -234,6 +227,10 @@
     .error-subtitle {
       font-size: 1.2rem;
     }
+    
+    .error-section {
+      padding-top: 30px;
+    }
   }
 </style>
 
@@ -241,13 +238,17 @@
 <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 </head>
 <body>
+  <header class="header">
+    <div class="header-container">
+      <a href="startseite.html">
+        <img src="assets/pictures/imt_logo.png" alt="St.Gallen imt Business School" class="logo">
+      </a>
+    </div>
+  </header>
+  
   <div class="container">
     <div class="error-section">
       <div class="error-alt1">
-        <div class="error-icon pulse">
-          <i class='bx bx-search-alt'></i>
-        </div>
-        
         <div class="error-number">404</div>
         
         <div class="error-text">
