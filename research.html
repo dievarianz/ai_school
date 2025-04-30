@@ -244,33 +244,37 @@
       color: white;
       padding: 30px 20px;
       transition: opacity 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      min-height: 60%;
     }
 
     .alt3-highlight-box:hover .alt3-overlay {
       opacity: 0.95;
     }
 
-    .alt3-highlight-box h3 {
-      font-size: 1.2rem;
+    .alt3-overlay h3 {
+      font-size: 1.3rem;
       margin-bottom: 10px;
       color: white;
     }
 
-    .alt3-highlight-box p {
-      font-size: 0.9rem;
+    .alt3-overlay p {
+      font-size: 0.95rem;
       margin-bottom: 15px;
-      opacity: 0.9;
+      flex-grow: 1;
     }
 
     .alt3-meta {
-      font-size: 0.85rem;
       display: flex;
       align-items: center;
       gap: 8px;
+      font-size: 0.9rem;
+      margin-top: auto;
     }
 
     .alt3-meta i {
-      color: var(--color-badge);
+      font-size: 1.1rem;
     }
 
     /* Tab Controls */
