@@ -810,7 +810,7 @@
   
   /* Section styles */
   #participants {
-    padding: 80px 0;
+    padding: 60px 0;
     position: relative;
   }
   
@@ -824,7 +824,7 @@
   
   /* Impressionen Section */
   #impressionen {
-    padding: 80px 0;
+    padding: 60px 0;
     position: relative;
   }
   
@@ -1312,6 +1312,94 @@
       grid-template-columns: 1fr;
     }
   }
+
+  /* Tabs Design für Starttermine */
+  .dates-tabs {
+    margin-top: 40px;
+    margin-bottom: 0; /* Reduziert von 60px auf 0 */
+  }
+
+  .tabs-nav {
+    display: flex;
+    border-bottom: 2px solid #e5e5e7;
+    margin-bottom: 20px;
+  }
+
+  .tab-button {
+    padding: 12px 24px;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-muted);
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+
+  .tab-button.active {
+    color: var(--imt-green);
+  }
+
+  .tab-button.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--imt-green);
+  }
+
+  .tab-content {
+    padding: 20px 0;
+  }
+
+  .tab-pane {
+    display: none;
+  }
+
+  .tab-pane.active {
+    display: block;
+  }
+
+  .date-module {
+    margin-bottom: 24px;
+  }
+
+  .date-module h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--imt-green);
+  }
+
+  .date-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+
+  .date-table th, .date-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #e5e5e7;
+    width: 50%;
+  }
+
+  .date-table th {
+    font-weight: 600;
+    color: var(--color-muted);
+  }
+  
+  .dates-heading {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--imt-green);
+  }
 </style>
 
 <!-- BoxIcons für Icons -->
@@ -1528,7 +1616,7 @@
     </section>
 
     <!-- Programmmodule mit Sidebar Navigation -->
-    <section>
+    <section style="padding: 60px 0;">
       <div class="container">
         <h2 style="font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600; text-align: left !important; color: var(--color-text);">Programmmodule</h2>
         <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Entdecken Sie die Module, des StGallen imt Management Programms.</p>
@@ -1602,8 +1690,184 @@
       </div>
     </section>
 
+    <!-- Programm Informationen -->
+    <section id="program-info" class="content-section" style="padding: 60px 0;">
+      <div class="container">
+        <h2 style="font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600; text-align: left !important; color: var(--color-text);">Programm Informationen</h2>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Alle wichtigen Details zum StGallen imt Management Programm auf einen Blick.</p>
+        
+        <div class="program-info-grid">
+          <!-- Box 1: Ort -->
+          <div class="program-info-box">
+            <i class='bx bx-map program-info-icon'></i>
+            <div class="program-info-label">Ort</div>
+            <div class="program-info-value">St. Gallen</div>
+          </div>
+          
+          <!-- Box 2: Dauer -->
+          <div class="program-info-box">
+            <i class='bx bx-time program-info-icon'></i>
+            <div class="program-info-label">Dauer</div>
+            <div class="program-info-value">3 Tage</div>
+          </div>
+
+          <!-- Box 3: Einstieg -->
+          <div class="program-info-box">
+            <i class='bx bx-log-in program-info-icon'></i>
+            <div class="program-info-label">Einstieg</div>
+          <div class="program-info-value">Flexibel</div>
+          </div>  
+
+          <!-- Box 6: Sprache -->
+          <div class="program-info-box">
+            <i class='bx bx-globe program-info-icon'></i>
+            <div class="program-info-label">Sprache</div>
+            <div class="program-info-value">Deutsch</div>
+          </div>
+
+
+           <!-- Box 8: Programmtyp -->
+           <div class="program-info-box">
+            <i class='bx bx-book-open program-info-icon'></i>
+            <div class="program-info-label">Programmtyp</div>
+            <div class="program-info-value">Programm</div>
+          </div>
+
+          <!-- Box 4: ECTS -->
+            <div class="program-info-box">
+            <i class='bx bx-award program-info-icon'></i>
+            <div class="program-info-label">ECTS</div>
+            <div class="program-info-value">6</div>
+          </div>
+
+        
+          <!-- Box 7: Zielgruppe -->
+          <div class="program-info-box">
+            <i class='bx bx-group program-info-icon'></i>
+            <div class="program-info-label">Zielgruppe</div>
+            <div class="program-info-value" style="font-size: 0.9rem;">Führungskräfte, Executives, ManagerInnen</div>
+          </div>
+
+          <!-- Box 3: Investition -->
+          <div class="program-info-box">
+             <i class='bx bx-money program-info-icon'></i>
+            <div class="program-info-label">Investition</div>
+            <div class="program-info-value">2.300 CHF</div>
+           </div>
+
+          <!-- Box 9: Netzwerk -->
+          <div class="program-info-box">
+            <i class='bx bx-network-chart program-info-icon'></i>
+            <div class="program-info-label">Netzwerk</div>
+            <div class="program-info-value">Alumni</div>
+          </div>
+        </div>
+        
+        <!-- Starttermine - Tab Design -->
+        <div class="dates-tabs">
+          <h3 class="dates-heading"><i class='bx bx-calendar-alt' style="margin-right: 8px;"></i>Verfügbare Starttermine</h3>
+          <div class="tabs-nav">
+            <button class="tab-button active" data-target="tab-2025">2025</button>
+            <button class="tab-button" data-target="tab-2026">2026</button>
+          </div>
+
+          <div class="tab-content">
+            <!-- Tab 2025 -->
+            <div class="tab-pane active" id="tab-2025">
+              <div class="date-module">
+                <h4>Integrative Management and Strategy</h4>
+                <table class="date-table">
+                  <tr>
+                    <td>05.-07.05.2025</td>
+                  </tr>
+                  <tr>
+                    <td>06.-08.10.2025</td>
+                  </tr>
+                </table>
+              </div>
+
+              <div class="date-module">
+                <h4>Inspirational Leadership</h4>
+                <table class="date-table">
+                  <tr>
+                    <td>08.-10.05.2025</td>
+                  </tr>
+                  <tr>
+                    <td>09.-11.10.2025</td>
+                  </tr>
+                </table>
+              </div>
+
+              <div class="date-module">
+                <h4>Financial Management</h4>
+                <table class="date-table">
+                  <tr>
+                    <td>26.-28.06.2025</td>
+                  </tr>
+                  <tr>
+                    <td>04.-06.12.2025</td>
+                  </tr>
+                </table>
+              </div>
+
+              <div class="date-module">
+                <h4>Marketing, Sales & Brand Communication</h4>
+                <table class="date-table">
+                  <tr>
+                    <td>23.-25.06.2025</td>
+                  </tr>
+                  <tr>
+                    <td>01.-03.12.2025</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+            <!-- Tab 2026 -->
+            <div class="tab-pane" id="tab-2026">
+              <div class="date-module">
+                <h4>Integrative Management and Strategy</h4>
+                <table class="date-table">
+                  <tr>
+                    <td>20.-22.04.2026</td>
+                  </tr>
+                </table>
+              </div>
+
+              <div class="date-module">
+                <h4>Inspirational Leadership</h4>
+                <table class="date-table">
+                  <tr>
+                    <td>23.-25.04.2026</td>
+                  </tr>
+                </table>
+              </div>
+
+              <div class="date-module">
+                <h4>Financial Management</h4>
+                <table class="date-table">
+                  <tr>
+                    <td>18.-20.06.2026</td>
+                  </tr>
+                </table>
+              </div>
+
+              <div class="date-module">
+                <h4>Marketing, Sales & Brand Communication</h4>
+                <table class="date-table">
+                  <tr>
+                    <td>15.-17.06.2026</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Informationen über Teilnehmer -->
-    <section id="participants">
+    <section id="participants" style="padding: 60px 0;">
       <div class="container">
         <h2>Information über Teilnehmer</h2>
         <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Unser Executive Seminar StGallen imt Management Programm bringt erfahrene Führungskräfte aus verschiedenen Branchen und Ländern zusammen.</p>
@@ -1662,88 +1926,8 @@
       </div>
     </section>
 
-    <!-- Programm Informationen -->
-    <section id="program-info" class="content-section" style="padding: 60px 0;">
-      <div class="container">
-        <h2 style="font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600; text-align: left !important; color: var(--color-text);">Programm Informationen</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Alle wichtigen Details zum StGallen imt Management Programm auf einen Blick.</p>
-        
-        <div class="program-info-grid">
-          <!-- Box 1: Ort -->
-          <div class="program-info-box">
-            <i class='bx bx-map program-info-icon'></i>
-            <div class="program-info-label">Ort</div>
-            <div class="program-info-value">St. Gallen</div>
-          </div>
-          
-          <!-- Box 2: Dauer -->
-          <div class="program-info-box">
-            <i class='bx bx-time program-info-icon'></i>
-            <div class="program-info-label">Dauer</div>
-            <div class="program-info-value">3 Tage</div>
-          </div>
-          
-          <!-- Box 3: Investition -->
-          <div class="program-info-box">
-            <i class='bx bx-money program-info-icon'></i>
-            <div class="program-info-label">Investition</div>
-            <div class="program-info-value">2.300 CHF</div>
-          </div>
-          
-          <!-- Box 4: Start -->
-          <div class="program-info-box">
-            <i class='bx bx-calendar program-info-icon'></i>
-            <div class="program-info-label">Start</div>
-            <div class="program-info-value">25.05.2025</div>
-          </div>
-
-          <!-- Box 5: ECTS -->
-          <div class="program-info-box">
-            <i class='bx bx-award program-info-icon'></i>
-            <div class="program-info-label">ECTS</div>
-            <div class="program-info-value">6</div>
-          </div>
-
-          <!-- Box 6: Einstieg -->
-          <div class="program-info-box">
-            <i class='bx bx-log-in program-info-icon'></i>
-            <div class="program-info-label">Einstieg</div>
-            <div class="program-info-value">Flexibel</div>
-          </div>
-
-          <!-- Box 7: Sprache -->
-          <div class="program-info-box">
-            <i class='bx bx-globe program-info-icon'></i>
-            <div class="program-info-label">Sprache</div>
-            <div class="program-info-value">Deutsch</div>
-          </div>
-
-          <!-- Box 8: Zielgruppe -->
-          <div class="program-info-box">
-            <i class='bx bx-group program-info-icon'></i>
-            <div class="program-info-label">Zielgruppe</div>
-            <div class="program-info-value" style="font-size: 0.9rem;">Führungskräfte, Executives, ManagerInnen</div>
-          </div>
-
-          <!-- Box 9: Programmtyp -->
-          <div class="program-info-box">
-            <i class='bx bx-book-open program-info-icon'></i>
-            <div class="program-info-label">Programmtyp</div>
-            <div class="program-info-value">Programm</div>
-          </div>
-
-          <!-- Box 10: Netzwerk -->
-          <div class="program-info-box">
-            <i class='bx bx-network-chart program-info-icon'></i>
-            <div class="program-info-label">Netzwerk</div>
-            <div class="program-info-value">Alumni</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Einblicke & Impressionen -->
-    <section id="impressionen">
+    <section id="impressionen" style="padding: 60px 0;">
       <div class="container">
         <h2>Einblicke & Impressionen</h2>
         <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Tauchen Sie ein in die Atmosphäre unseres Executive Seminars – von inspirierenden Workshops über exklusive Firmenbesuche bei Google bis zu intensiven Lernerfahrungen in St. Gallen.</p>
@@ -1781,8 +1965,8 @@
       </div>
     </section>
 
-    <!-- Faculty & Experts Section -->
-    <section id="faculty">
+    <!-- Faculty & Experts -->
+    <section id="faculty" style="padding: 60px 0;">
       <div class="container">
         <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Faculty & Experts</h2>
         <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Lernen Sie von führenden Experten aus Wissenschaft und Praxis – profitieren Sie von jahrelanger Erfahrung in KI und digitaler Transformation.</p>
@@ -1828,7 +2012,7 @@
     </section>
 
     <!-- IMT Advisor Section -->
-    <section id="contact">
+    <section id="contact" style="padding: 60px 0;">
       <div class="container">
         <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Advisor</h2>
         <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Ihr persönlicher Ansprechpartner für alle Fragen rund um das Executive Seminar AI in Business Strategy & Digital Transformation – profitieren Sie von seiner langjährigen Expertise in der digitalen Transformation.</p>
@@ -1846,7 +2030,7 @@
     </section>
 
     <!-- Broschüre Herunterladen Section -->
-    <section id="broschuere">
+    <section id="broschuere" style="padding: 60px 0;">
       <div class="container">
         <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Kostenlos Broschüre herunterladen</h2>
         <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Laden Sie jetzt die ausführliche Programmbroschüre zum Executive Seminar AI in Business Strategy & Digital Transformation herunter – mit allen Details zu Inhalten, Methoden und Ihrem Lernerfolg.</p>
@@ -2577,6 +2761,31 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   });
+</script>
+
+<!-- Skript für Tabs Funktionalität für Starttermine -->
+<script>
+// Tabs Funktionalität für Starttermine
+document.addEventListener('DOMContentLoaded', function() {
+  const tabButtons = document.querySelectorAll('.tab-button');
+  tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Entferne active class von allen tabs
+      tabButtons.forEach(btn => btn.classList.remove('active'));
+      
+      // Füge active class zum geklickten tab hinzu
+      button.classList.add('active');
+      
+      // Verstecke alle Tab-Panes
+      const tabPanes = document.querySelectorAll('.tab-pane');
+      tabPanes.forEach(pane => pane.classList.remove('active'));
+      
+      // Zeige die entsprechende Tab-Pane
+      const targetId = button.getAttribute('data-target');
+      document.getElementById(targetId).classList.add('active');
+    });
+  });
+});
 </script>
 </body>
 </html> 

@@ -487,6 +487,7 @@
     scroll-behavior: smooth;
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE and Edge */
+    transition: transform 0.3s ease;
   }
 
   .slider-track::-webkit-scrollbar {
@@ -573,6 +574,7 @@
   /* Flip-Card Styles */
   .slide {
     flex: 0 0 280px;
+    min-width: 280px;
     height: 280px;
     perspective: 1200px;
     margin-bottom: var(--spacing);
@@ -648,26 +650,20 @@
   }
 
   .flip-link i {
-    font-size: 24px;
-    transition: transform 0.3s ease;
-    color: var(--color-muted);
     margin-bottom: 0;
+    font-size: 24px;
+    opacity: 0.6;
   }
 
   .flip-link:hover {
-    text-decoration: none;
+    color: var(--imt-green);
     transform: scale(1.1);
   }
 
   .flip-link:hover i {
-    color: var(--color-accent2);
+    opacity: 1;
   }
 
-  .flip-link span {
-    display: none;
-  }
-
-  /* Hover Effekte */
   .flipper .front:hover,
   .flipper .back:hover {
     border-color: var(--imt-green);
@@ -675,18 +671,78 @@
 
   .flipper .front:hover i {
     opacity: 1;
-    /* transform: scale(1.1); */ /* Entfernt */
   }
 
-  /* Icon Colors */
-  .icon-brain { color: #9C27B0; } /* Violett für KI/Gehirn */
-  .icon-trend { color: #2196F3; } /* Blau für Business/Wachstum */
-  .icon-data { color: #4CAF50; } /* Grün für Daten */
-  .icon-cube { color: #FF9800; } /* Orange für Innovation */
-  .icon-crown { color: #F44336; } /* Rot für Leadership */
-  .icon-slider { color: #00BCD4; } /* Türkis für Technologie */
-  .icon-expand { color: #795548; } /* Braun für Skalierung */
+  /* Hover-Effekt für Karten */
+  .flipper:hover .front {
+    border-color: var(--imt-green);
+  }
+
+  .flipper:hover .front i.icon-brain {
+    color: #9c27b0;
+  }
+
+  .flipper:hover .front i.icon-trend {
+    color: #03a9f4;
+  }
+
+  .flipper:hover .front i.icon-data {
+    color: #4CAF50;
+  }
+
+  .flipper:hover .front i.icon-cube {
+    color: #f44336;
+  }
+
+  .flipper:hover .front i.icon-crown {
+    color: #ffc107;
+  }
+
+  .flipper:hover .front i.icon-slider {
+    color: #00bcd4;
+  }
+
+  .flipper:hover .front i.icon-expand {
+    color: #ff9800;
+  }
   
+  .flipper:hover .front i.icon-megaphone {
+    color: #e91e63;
+  }
+
+  /* Icon-Farben */
+  i.icon-brain {
+    color: #9c27b0;
+  }
+
+  i.icon-trend {
+    color: #03a9f4;
+  }
+
+  i.icon-data {
+    color: #4CAF50;
+  }
+
+  i.icon-cube {
+    color: #f44336;
+  }
+
+  i.icon-crown {
+    color: #ffc107;
+  }
+
+  i.icon-slider {
+    color: #00bcd4;
+  }
+
+  i.icon-expand {
+    color: #ff9800;
+  }
+  
+  i.icon-megaphone {
+    color: #e91e63;
+  }
+
   /* Stats Grid Styles */
   .color-brain { color: #9C27B0; }
   .color-trend { color: #2196F3; }
@@ -809,7 +865,7 @@
   
   /* Section styles */
   #participants {
-    padding: 80px 0;
+    padding: 60px 0;
     position: relative;
   }
   
@@ -823,7 +879,7 @@
   
   /* Impressionen Section */
   #impressionen {
-    padding: 80px 0;
+    padding: 60px 0;
     position: relative;
   }
   
@@ -958,7 +1014,7 @@
 
   /* IMT Advisor Section */
   #contact {
-    padding: 80px 0;
+    padding: 60px 0;
     position: relative;
   }
   
@@ -1074,6 +1130,373 @@
       margin: 24px auto;
     }
   }
+
+  /* Desktop styles */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  /* -------- Sidebar Navigation mit Content -------- */
+  .module-tabs-v6 {
+    max-width: 900px;
+    margin: 0 auto 60px;
+    display: flex;
+    gap: 30px;
+    align-items: stretch; /* Ensure both elements stretch to match the tallest */
+  }
+  
+  .sidebar-nav-v6 {
+    width: 280px;
+    flex-shrink: 0;
+    flex-grow: 0; /* Prevent growing */
+    background: var(--color-card-bg);
+    border-radius: var(--radius);
+    box-shadow: none;
+    overflow: hidden;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+  }
+  
+  .sidebar-nav-v6:hover {
+    border-color: transparent;
+  }
+  
+  .sidebar-tab-v6 {
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+    position: relative;
+  }
+  
+  .sidebar-tab-v6.active {
+    background: rgba(76, 183, 150, 0.1);
+    border-left-color: var(--imt-green);
+  }
+  
+  .sidebar-tab-v6.active .sidebar-number-v6 {
+    background: var(--imt-green);
+    color: white;
+  }
+  
+  .sidebar-tab-v6.active .sidebar-title-v6 {
+    color: var(--imt-green);
+    font-weight: 600;
+  }
+  
+  .sidebar-tab-v6:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    right: 20px;
+    height: 1px;
+    background: #f0f0f0;
+  }
+  
+  .sidebar-number-v6 {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-right: 12px;
+    transition: all 0.3s ease;
+    background: var(--color-card-bg);
+    color: var(--color-muted);
+  }
+  
+  .sidebar-tab-v6.active .sidebar-number-v6 {
+    background: var(--imt-green);
+    color: white;
+  }
+  
+  .sidebar-title-v6 {
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--color-text);
+    transition: color 0.3s ease;
+  }
+  
+  .sidebar-tab-v6.active .sidebar-title-v6 {
+    color: var(--imt-green);
+    font-weight: 600;
+  }
+  
+  .sidebar-tab-v6:hover:not(.active) {
+    background: rgba(76, 183, 150, 0.05);
+  }
+  
+  .content-container-v6 {
+    flex-grow: 1;
+    background: var(--color-card-bg);
+    border-radius: var(--radius);
+    box-shadow: none;
+    overflow: hidden;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+  }
+  
+  .content-container-v6:hover {
+    border-color: var(--imt-green);
+  }
+  
+  .content-panel-v6 {
+    display: none;
+    padding: 30px;
+    animation: fadeIn 0.4s ease;
+  }
+  
+  .content-panel-v6.active {
+    display: block;
+  }
+  
+  .content-title-v6 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #6e6e73; /* Gray color */
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  /* Overrides for alignment in management_programm.html */
+  .module-tabs-v6 {
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .content-container-v6 {
+    max-width: calc(100% - 310px);
+  }
+  
+  /* Custom list styling with checkmark icons */
+  .content-panel-v6 ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .content-panel-v6 li {
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .module-tabs-v6 {
+      flex-direction: column;
+    }
+    
+    .sidebar-nav-v6 {
+      width: 100%;
+    }
+
+    .content-container-v6 {
+      max-width: 100%;
+    }
+  }
+
+  /* Animation */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Mobile styles */
+  @media (max-width: 600px) {
+    .stats-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+      padding: 0 16px;
+    }
+
+    .stat-card {
+      padding: 24px 16px;
+      min-height: 160px;
+    }
+
+    .stat-icon {
+      margin-bottom: 12px;
+    }
+
+    .stat-icon svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    .stat-value {
+      font-size: 2.5rem;
+      margin: 8px 0;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      max-width: 200px;
+    }
+  }
+  
+  /* Program Info Styles */
+  .program-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+  
+  .program-info-box {
+    background-color: white;
+    border-radius: var(--radius);
+    border: 2px solid transparent;
+    text-align: center;
+    padding: 24px 20px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.07), 0 1px 3px rgba(0,0,0,0.06);
+  }
+  
+  .program-info-box:hover {
+    border-color: var(--imt-green);
+  }
+  
+  .program-info-icon {
+    color: var(--imt-green);
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+  
+  .program-info-label {
+    text-transform: uppercase;
+    color: var(--color-muted);
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+  
+  .program-info-value {
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: var(--color-text);
+  }
+  
+  @media (max-width: 768px) {
+    .program-info-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .program-info-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Tabs Design für Starttermine */
+  .dates-tabs {
+    margin-top: 40px;
+    margin-bottom: 0; /* Reduziert von 60px auf 0 */
+  }
+
+  .tabs-nav {
+    display: flex;
+    border-bottom: 2px solid #e5e5e7;
+    margin-bottom: 20px;
+  }
+
+  .tab-button {
+    padding: 12px 24px;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-muted);
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+
+  .tab-button.active {
+    color: var(--imt-green);
+  }
+
+  .tab-button.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--imt-green);
+  }
+
+  .tab-content {
+    padding: 20px 0;
+  }
+
+  .tab-pane {
+    display: none;
+  }
+
+  .tab-pane.active {
+    display: block;
+  }
+
+  .date-module {
+    margin-bottom: 24px;
+  }
+
+  .date-module h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--imt-green);
+  }
+
+  .date-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+
+  .date-table th, .date-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #e5e5e7;
+    width: 50%;
+  }
+
+  .date-table th {
+    font-weight: 600;
+    color: var(--color-muted);
+  }
+  
+  .dates-heading {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--imt-green);
+  }
+  
+  /* Section styles */
+  #participants {
+    padding: 60px 0;
+    position: relative;
+  }
+
+  /* Faculty Section */
+  #faculty {
+    padding: 60px 0;
+    position: relative;
+  }
 </style>
 
 <!-- BoxIcons für Icons -->
@@ -1140,24 +1563,24 @@
     <section id="module-content" class="content-section">
       <h2>StGallen imt Certified Management Programm CAS</h2>
       
-      <p class="section-subtitle">Entdecken Sie die sieben Schlüsselmodule unseres Executive Seminars – von KI-Grundlagen bis zur erfolgreichen Implementierung in Ihrem Unternehmen.</p>
+      <p class="section-subtitle">Entdecken Sie die sieben Schlüsselmodule unseres CAS-Programms – von Integrated Management bis Sustainable Business Development.</p>
       
       <div class="slider-container">
         <button aria-label="Zurück" class="slider-btn prev" disabled></button>
         <div class="slider-track">
           <!-- Box 1 -->
-          <div class="slide flip-container">
+          <div class="slide">
             <div class="flipper">
               <div class="front">
                 <i class='bx bx-brain icon-brain' style="font-size: 32px; margin-bottom: 16px; opacity: 0.85;"></i>
-                <h3>Konzepte &amp; strategische Relevanz von KI</h3>
-                <p>KI verstehen – jenseits des Hypes. Fundiertes Wissen für strategische Entscheidungen.</p>
+                <h3>Integrated Management and Strategy</h3>
+                <p>Strategisches Management umfassend verstehen und implementieren.</p>
                 <a class="flip-link" href="#">
                   <i class='bx bx-plus-circle'></i>
                 </a>
               </div>
               <div class="back">
-                <p>Ein strukturierter Überblick über zentrale KI-Begriffe und Konzepte wird vermittelt. Die Relevanz für das eigene Unternehmen und die Branche wird herausgearbeitet.</p>
+                <p>In diesem Modul erlernen Sie strategische Positionierung, Wettbewerbsvorteile und die Entwicklung nachhaltiger Geschäftsmodelle in der VUCA-Welt.</p>
                 <a class="flip-link" href="#">
                   <i class='bx bx-minus-circle'></i>
                 </a>
@@ -1166,18 +1589,18 @@
           </div>
           
           <!-- Box 2 -->
-          <div class="slide flip-container">
+          <div class="slide">
             <div class="flipper">
               <div class="front">
                 <i class='bx bx-trending-up icon-trend' style="font-size: 32px; margin-bottom: 16px; opacity: 0.85;"></i>
-                <h3>Strategische Einsatzfelder und Business Impact von KI</h3>
-                <p>Wo KI echten Mehrwert schafft – datenbasiert, skalierbar, relevant</p>
+                <h3>Financial Management</h3>
+                <p>Finanzielle Konzepte und deren Anwendung im Unternehmenskontext verstehen.</p>
                 <a class="flip-link" href="#">
                   <i class='bx bx-plus-circle'></i>
                 </a>
               </div>
               <div class="back">
-                <p>Konkrete Anwendungsbereiche von KI zur Wertschöpfung, Effizienzsteigerung und Kundenbindung werden analysiert. Best-Practice-Beispiele aus verschiedenen Branchen werden diskutiert.</p>
+                <p>Dieses Modul vermittelt Finanzanalyse, Investitionsbewertung, Cashflow-Management und Risikobewertung für fundierte finanzielle Entscheidungen.</p>
                 <a class="flip-link" href="#">
                   <i class='bx bx-minus-circle'></i>
                 </a>
@@ -1186,18 +1609,18 @@
           </div>
           
           <!-- Box 3 -->
-          <div class="slide flip-container">
+          <div class="slide">
             <div class="flipper">
               <div class="front">
-                <i class='bx bx-data icon-data' style="font-size: 32px; margin-bottom: 16px; opacity: 0.85;"></i>
-                <h3>Datenstrategie als Enabler für KI</h3>
-                <p>KI funktioniert nur mit Daten – die richtige Strategie macht den Unterschied.</p>
+                <i class='bx bx-crown icon-crown' style="font-size: 32px; margin-bottom: 16px; opacity: 0.85;"></i>
+                <h3>Inspirational Leadership</h3>
+                <p>Teams inspirieren und erfolgreich durch Veränderungen führen.</p>
                 <a class="flip-link" href="#">
                   <i class='bx bx-plus-circle'></i>
                 </a>
               </div>
               <div class="back">
-                <p>Die Entwicklung einer effektiven Datenstrategie als Grundlage für KI-Initiativen wird vermittelt. Teilnehmer lernen, welche Daten relevant sind und wie sie zugänglich gemacht werden können.</p>
+                <p>Entwickeln Sie Ihre Führungskompetenzen mit Fokus auf moderne Führungsstile, emotionale Intelligenz, Change Management und effektives Team-Building.</p>
                 <a class="flip-link" href="#">
                   <i class='bx bx-minus-circle'></i>
                 </a>
@@ -1206,18 +1629,18 @@
           </div>
           
           <!-- Box 4 -->
-          <div class="slide flip-container">
+          <div class="slide">
             <div class="flipper">
               <div class="front">
-                <i class='bx bx-cube icon-cube' style="font-size: 32px; margin-bottom: 16px; opacity: 0.85;"></i>
-                <h3>Geschäftsmodellinnovation durch KI</h3>
-                <p>KI verändert nicht nur Abläufe, sondern ganze Geschäftsmodelle.</p>
+                <i class='bx bxs-megaphone icon-megaphone' style="font-size: 32px; margin-bottom: 16px; opacity: 0.85;"></i>
+                <h3>Marketing, Sales & Brand Communication</h3>
+                <p>Moderne Marketingstrategien und effektive Markenführung meistern.</p>
                 <a class="flip-link" href="#">
                   <i class='bx bx-plus-circle'></i>
                 </a>
               </div>
               <div class="back">
-                <p>Teilnehmer erarbeiten, wie KI bestehende Geschäftsmodelle transformieren und neue kreieren kann. Methodiken zur systematischen Innovation werden angewandt.</p>
+                <p>Erlernen Sie strategische Markenpositionierung, integrierte Marketingkommunikation, digitale Strategien und Customer Journey Optimierung.</p>
                 <a class="flip-link" href="#">
                   <i class='bx bx-minus-circle'></i>
                 </a>
@@ -1226,18 +1649,18 @@
           </div>
           
           <!-- Box 5 -->
-          <div class="slide flip-container">
+          <div class="slide">
             <div class="flipper">
               <div class="front">
-                <i class='bx bx-crown icon-crown' style="font-size: 32px; margin-bottom: 16px; opacity: 0.85;"></i>
-                <h3>Leadership & Organisationsentwicklung im KI-Zeitalter</h3>
-                <p>KI verändert Führung, Zusammenarbeit und Unternehmensstrukturen.</p>
+                <i class='bx bx-data icon-data' style="font-size: 32px; margin-bottom: 16px; opacity: 0.85;"></i>
+                <h3>Digital Business Transformation</h3>
+                <p>Die digitale Transformation verstehen und erfolgreich umsetzen.</p>
                 <a class="flip-link" href="#">
                   <i class='bx bx-plus-circle'></i>
                 </a>
               </div>
               <div class="back">
-                <p>Notwendige Führungskompetenzen und organisatorische Veränderungen für erfolgreiche KI-Integration werden vermittelt. Die Bedeutung von Change Management wird hervorgehoben.</p>
+                <p>Lernen Sie bewährte Methoden und Strategien für die digitale Transformation Ihres Unternehmens. Schwerpunkte sind Prozessoptimierung und Change Management.</p>
                 <a class="flip-link" href="#">
                   <i class='bx bx-minus-circle'></i>
                 </a>
@@ -1246,18 +1669,18 @@
           </div>
           
           <!-- Box 6 -->
-          <div class="slide flip-container">
+          <div class="slide">
             <div class="flipper">
               <div class="front">
                 <i class='bx bx-slider icon-slider' style="font-size: 32px; margin-bottom: 16px; opacity: 0.85;"></i>
-                <h3>Roadmap zur KI-Transformation</h3>
-                <p>Der strukturierte Weg zur erfolgreichen KI-Integration – von der Vision zur Umsetzung.</p>
+                <h3>Strategic Innovation Management</h3>
+                <p>Innovationen systematisch fördern und in die Unternehmensstrategie integrieren.</p>
                 <a class="flip-link" href="#">
                   <i class='bx bx-plus-circle'></i>
                 </a>
               </div>
               <div class="back">
-                <p>Ein systematisches Vorgehen für den KI-Transformationsprozess wird erarbeitet. Methoden zur Priorisierung von Initiativen, Kompetenzaufbau und kultureller Integration werden vermittelt.</p>
+                <p>Erlernen Sie, wie Sie Innovationsprozesse strukturieren und Kreativität im Unternehmen strategisch verankern können. Methoden zur Ideenfindung und -bewertung werden vermittelt.</p>
                 <a class="flip-link" href="#">
                   <i class='bx bx-minus-circle'></i>
                 </a>
@@ -1266,18 +1689,18 @@
           </div>
           
           <!-- Box 7 -->
-          <div class="slide flip-container">
+          <div class="slide">
             <div class="flipper">
               <div class="front">
-                <i class='bx bx-expand icon-expand' style="font-size: 32px; margin-bottom: 16px; opacity: 0.85;"></i>
-                <h3>Skalierung & Governance von KI-Initiativen</h3>
-                <p>Pilotprojekte sind erst der Anfang – jetzt wird skaliert.</p>
+                <i class='bx bx-cube icon-cube' style="font-size: 32px; margin-bottom: 16px; opacity: 0.85;"></i>
+                <h3>Sustainable Business Development</h3>
+                <p>Nachhaltigkeit als strategischen Erfolgsfaktor in Geschäftsmodelle integrieren.</p>
                 <a class="flip-link" href="#">
                   <i class='bx bx-plus-circle'></i>
                 </a>
               </div>
               <div class="back">
-                <p>Vorgehensweisen zur Skalierung und institutionellen Verankerung von KI werden aufgezeigt. Strukturen zur Governance, ethische Leitlinien und Erfolgsmetriken werden diskutiert.</p>
+                <p>Entdecken Sie, wie Sie Nachhaltigkeit als Wettbewerbsvorteil nutzen können. Strategien zur Integration von ESG-Kriterien in alle Geschäftsbereiche werden entwickelt.</p>
                 <a class="flip-link" href="#">
                   <i class='bx bx-minus-circle'></i>
                 </a>
@@ -1289,313 +1712,550 @@
       </div>
     </section>
 
-    <!-- Informationen über Teilnehmer -->
-    <section id="participants">
+    <!-- Programmmodule mit Sidebar Navigation -->
+    <section style="padding: 60px 0;">
       <div class="container">
-        <h2>Information über Teilnehmer</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Unser Executive Seminar StGallen imt Certified Management Programm CAS bringt erfahrene Führungskräfte aus verschiedenen Branchen und Ländern zusammen.</p>
-        <div class="stats-grid">
-            <!-- Berufserfahrung -->
-            <div class="stat-card">
-                <div class="stat-icon">
-                    <svg viewBox="0 0 24 24" class="color-brain">
-                        <rect x="3" y="4" width="18" height="18" rx="2"/>
-                        <path d="M16 2v4M8 2v4M3 10h18"/>
-                        <path d="M8 14h8M8 17h5"/>
-                    </svg>
-                </div>
-                <div class="stat-value" data-target="12">0</div>
-                <div class="stat-label">Jahre Berufserfahrung</div>
-            </div>
-
-            <!-- Senior C-Level -->
-            <div class="stat-card">
-                <div class="stat-icon">
-                    <svg viewBox="0 0 24 24" class="color-trend">
-                        <rect x="3" y="8" width="18" height="12" rx="2"/>
-                        <path d="M8 8V6a2 2 0 012-2h4a2 2 0 012 2v2"/>
-                        <path d="M12 12v4"/>
-                    </svg>
-                </div>
-                <div class="stat-value" data-target="35" data-suffix="%">0%</div>
-                <div class="stat-label">Teilnehmer mit Senior C-Level</div>
-            </div>
-
-            <!-- Durchschnittsalter -->
-            <div class="stat-card">
-                <div class="stat-icon">
-                    <svg viewBox="0 0 24 24" class="color-data">
-                        <circle cx="12" cy="8" r="5"/>
-                        <path d="M20 21v-2a8 8 0 00-16 0v2"/>
-                    </svg>
-                </div>
-                <div class="stat-value" data-target="42">0</div>
-                <div class="stat-label">Durchschnittsalter</div>
-            </div>
-
-            <!-- Nationalitäten -->
-            <div class="stat-card">
-                <div class="stat-icon">
-                    <svg viewBox="0 0 24 24" class="color-cube">
-                        <circle cx="12" cy="12" r="10"/>
-                        <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
-                        <path d="M2 12h20"/>
-                    </svg>
-                </div>
-                <div class="stat-value" data-target="15">0</div>
-                <div class="stat-label">Nationalitäten</div>
-            </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Einblicke & Impressionen -->
-    <section id="impressionen">
-      <div class="container">
-        <h2>Einblicke & Impressionen</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Tauchen Sie ein in die Atmosphäre unseres Executive Seminars – von inspirierenden Workshops über exklusive Firmenbesuche bei Google bis zu intensiven Lernerfahrungen in St. Gallen.</p>
-        <div class="gallery">
-          <!-- 1: Großes, hochformatiges Bild -->
-          <div class="gallery-item item1">
-            <img src="assets/IMG_1.webp" alt="Seniorin mit AirPods">
-          </div>
-
-          <!-- 2: Smartwatch -->
-          <div class="gallery-item item2">
-            <img src="assets/IMG_2.webp" alt="Smartwatch">
-          </div>
-
-          <!-- 3: Smartphone Videocall -->
-          <div class="gallery-item item3">
-            <img src="assets/IMG_3.webp" alt="Videocall auf Smartphone">
-          </div>
-
-          <!-- 4: Gruppe mit Smartphones -->
-          <div class="gallery-item item4">
-            <img src="assets/IMG_4.webp" alt="Zwei Personen mit Smartphones">
-          </div>
-
-          <!-- 5: Tablet am Tisch -->
-          <div class="gallery-item item5">
-            <img src="assets/IMG_6.webp" alt="Person mit Tablet">
-          </div>
-
-          <!-- 6: Person am Desktop -->
-          <div class="gallery-item item6">
-            <img src="assets/IMG_5.webp" alt="Person mit Kopfhörern">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Faculty & Experts Section -->
-    <section id="faculty">
-      <div class="container">
-        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Faculty & Experts</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Lernen Sie von führenden Experten aus Wissenschaft und Praxis – profitieren Sie von jahrelanger Erfahrung in KI und digitaler Transformation.</p>
+        <h2 style="font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600; text-align: left !important; color: var(--color-text);">Programmmodule</h2>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Entdecken Sie die Module des StGallen imt Management Programm CAS.</p>
         
-        <div class="faculty-grid">
-            <div class="faculty-card">
-                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Prof. Dr. Maria Schmidt"/>
-                <div class="faculty-info">
-                    <h3 class="faculty-name">Prof. Dr. Maria Schmidt</h3>
-                    <div class="faculty-title">Professorin für KI & Business Innovation</div>
-                    <p class="faculty-description">Expertin für KI-gestützte Geschäftsmodelle mit über 15 Jahren Erfahrung in der Transformation von Unternehmen.</p>
-                </div>
+        <div class="module-tabs-v6">
+          <div class="sidebar-nav-v6">
+            <div class="sidebar-tab-v6 active" data-tab="1">
+              <div class="sidebar-number-v6">01</div>
+              <div class="sidebar-title-v6">Integrated Management</div>
             </div>
-            
-            <div class="faculty-card">
-                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Dr. Thomas Weber"/>
-                <div class="faculty-info">
-                    <h3 class="faculty-name">Dr. Thomas Weber</h3>
-                    <div class="faculty-title">Chief Innovation Officer, TechCorp</div>
-                    <p class="faculty-description">Pionier in der Integration von KI in traditionelle Geschäftsprozesse. Leitet erfolgreich digitale Transformationsprojekte.</p>
-                </div>
+            <div class="sidebar-tab-v6" data-tab="2">
+              <div class="sidebar-number-v6">02</div>
+              <div class="sidebar-title-v6">Financial Management</div>
             </div>
-            
-            <div class="faculty-card">
-                <img src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Sarah Chen"/>
-                <div class="faculty-info">
-                    <h3 class="faculty-name">Sarah Chen</h3>
-                    <div class="faculty-title">Head of AI Strategy, GlobalTech</div>
-                    <p class="faculty-description">Verbindet akademische Expertise mit praktischer Erfahrung in der Implementierung von KI-Lösungen.</p>
-                </div>
+            <div class="sidebar-tab-v6" data-tab="3">
+              <div class="sidebar-number-v6">03</div>
+              <div class="sidebar-title-v6">Inspirational Leadership</div>
             </div>
-            
-            <div class="faculty-card">
-                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Dr. Michael Bauer"/>
-                <div class="faculty-info">
-                    <h3 class="faculty-name">Dr. Michael Bauer</h3>
-                    <div class="faculty-title">Digital Transformation Expert</div>
-                    <p class="faculty-description">Berät internationale Unternehmen bei der strategischen Ausrichtung ihrer KI-Initiativen.</p>
-                </div>
+            <div class="sidebar-tab-v6" data-tab="4">
+              <div class="sidebar-number-v6">04</div>
+              <div class="sidebar-title-v6">Marketing & Brand</div>
             </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- IMT Advisor Section -->
-    <section id="contact">
-      <div class="container">
-        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Advisor</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Ihr persönlicher Ansprechpartner für alle Fragen rund um das Executive Seminar StGallen imt Certified Management Programm CAS – profitieren Sie von seiner langjährigen Expertise in der digitalen Transformation.</p>
-        
-        <div class="contact-info">
-          <img alt="Monika Dutkiewicz" src="https://lirp.cdn-website.com/d603a072/dms3rep/multi/opt/Monika-Dutkiewiecz-70a9e6ff-bb2e6919-9188df2f-1920w.jpeg"/>
-          <div class="contact-details">
-            <h3>Monika Dutkiewicz</h3>
-            <p style="margin-bottom: 0;">Ansprechpartner StGallen imt Certified Management Programm CAS</p>
-            <p style="margin-bottom: 0; margin-top: 0;"><a href="mailto:monika.dutkiewicz@imt.ch" style="color: #9c27b0;">monika.dutkiewicz@imt.ch</a></p>
-            <p style="margin-bottom: 0; margin-top: 0;">+41 71 224 72 22</p>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Broschüre Herunterladen Section -->
-    <section id="broschuere">
-      <div class="container">
-        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Kostenlos Broschüre herunterladen</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Laden Sie jetzt die ausführliche Programmbroschüre zum Executive Seminar StGallen imt Certified Management Programm CAS herunter – mit allen Details zu Inhalten, Methoden und Ihrem Lernerfolg.</p>
-        <div style="display: flex; gap: 32px; align-items: stretch; flex-wrap: wrap; margin-top: 32px;">
           
-          <!-- Formular -->
-          <div style="flex: 1 1 400px; background: #f5f5f7; padding: 32px; border-radius: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
-            <form id="brochure-form" method="post" novalidate>
-              <input name="firstname" placeholder="Vorname" style="width: 100%; padding: 12px; margin-bottom: 18px; border-radius: 8px; border: 1px solid #ccc;" type="text" required/>
-              <input name="lastname" placeholder="Nachname" style="width: 100%; padding: 12px; margin-bottom: 18px; border-radius: 8px; border: 1px solid #ccc;" type="text" required/>
-              <input name="email" placeholder="E-Mail" style="width: 100%; padding: 12px; margin-bottom: 18px; border-radius: 8px; border: 1px solid #ccc;" type="email" required/>
-              
-              <!-- Country Select -->
-              <div style="position: relative; margin-bottom: 18px;">
-                <select name="country" required style="width: 100%; padding: 12px; padding-right: 40px; font-size: 1rem; border-radius: 8px; border: 1px solid #ccc; appearance: none; -webkit-appearance: none;">
-                  <option value="">Land wählen</option>
-                  <option value="AD">Andorra</option>
-                  <option value="AR">Argentinien</option>
-                  <option value="AU">Australien</option>
-                  <option value="BH">Bahrain</option>
-                  <option value="BE">Belgien</option>
-                  <option value="BR">Brasilien</option>
-                  <option value="BN">Brunei</option>
-                  <option value="CL">Chile</option>
-                  <option value="CN">China</option>
-                  <option value="DK">Dänemark</option>
-                  <option value="DE">Deutschland</option>
-                  <option value="EE">Estland</option>
-                  <option value="FI">Finnland</option>
-                  <option value="FR">Frankreich</option>
-                  <option value="GI">Gibraltar</option>
-                  <option value="GR">Griechenland</option>
-                  <option value="HK">Hongkong</option>
-                  <option value="IN">Indien</option>
-                  <option value="ID">Indonesien</option>
-                  <option value="IE">Irland</option>
-                  <option value="IS">Island</option>
-                  <option value="IL">Israel</option>
-                  <option value="IT">Italien</option>
-                  <option value="JP">Japan</option>
-                  <option value="JO">Jordanien</option>
-                  <option value="CA">Kanada</option>
-                  <option value="CO">Kolumbien</option>
-                  <option value="HR">Kroatien</option>
-                  <option value="QA">Katar</option>
-                  <option value="KW">Kuwait</option>
-                  <option value="LB">Libanon</option>
-                  <option value="LI">Liechtenstein</option>
-                  <option value="LU">Luxemburg</option>
-                  <option value="MO">Macau</option>
-                  <option value="MY">Malaysia</option>
-                  <option value="MT">Malta</option>
-                  <option value="MX">Mexiko</option>
-                  <option value="MC">Monaco</option>
-                  <option value="NL">Niederlande</option>
-                  <option value="NZ">Neuseeland</option>
-                  <option value="NO">Norwegen</option>
-                  <option value="OM">Oman</option>
-                  <option value="AT">Österreich</option>
-                  <option value="PK">Pakistan</option>
-                  <option value="PA">Panama</option>
-                  <option value="PE">Peru</option>
-                  <option value="PH">Philippinen</option>
-                  <option value="PL">Polen</option>
-                  <option value="PT">Portugal</option>
-                  <option value="PR">Puerto Rico</option>
-                  <option value="RO">Rumänien</option>
-                  <option value="RU">Russland</option>
-                  <option value="SM">San Marino</option>
-                  <option value="SA">Saudi-Arabien</option>
-                  <option value="SE">Schweden</option>
-                  <option value="CH">Schweiz</option>
-                  <option value="SG">Singapur</option>
-                  <option value="SK">Slowakei</option>
-                  <option value="SI">Slowenien</option>
-                  <option value="ES">Spanien</option>
-                  <option value="ZA">Südafrika</option>
-                  <option value="KR">Südkorea</option>
-                  <option value="TW">Taiwan</option>
-                  <option value="TH">Thailand</option>
-                  <option value="TR">Türkei</option>
-                  <option value="CZ">Tschechische Republik</option>
-                  <option value="UA">Ukraine</option>
-                  <option value="HU">Ungarn</option>
-                  <option value="AE">Vereinigte Arabische Emirate</option>
-                  <option value="GB">Vereinigtes Königreich</option>
-                  <option value="US">Vereinigte Staaten</option>
-                  <option value="VN">Vietnam</option>
-                  <option value="CY">Zypern</option>
-                  <option value="OTHER">Andere</option>
-                </select>
-                <div style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); pointer-events: none;">
-                  <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1 1L6 6L11 1" stroke="#888888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </div>
-              </div>
-
-              <!-- Checkbox für E-Mail-Zustimmung -->
-              <div style="margin-bottom: 16px;">
-                <label style="display: flex; align-items: flex-start; gap: 8px; cursor: pointer;">
-                  <input type="checkbox" name="email_consent" style="margin-top: 3px;">
-                  <span style="font-size: 0.9rem; color: var(--color-muted);">
-                    Ich stimme zu, Informationen per E-Mail zu Angeboten der IMT Business School zu erhalten.
-                  </span>
-                </label>
-              </div>
-
-              <!-- Submit Button -->
-              <div style="text-align: center; width: 100%;">
-                <button type="submit" class="cta-button" style="margin: 0 auto;">
-                  Jetzt Kostenlos Broschüre herunterladen <span class="arrow-icon">→</span>
-                </button>
-              </div>
-
-              <!-- Info Lines under the button -->
-              <div style="margin-top: 24px; display: flex; flex-direction: column; gap: 12px;">
-                <div style="display: flex; align-items: center; gap: 8px;">
-                  <i class='bx bx-group' style="font-size: 20px;"></i>
-                  <span id="downloads-today" style="font-size: 0.9rem; color: var(--color-muted);"><strong>7</strong> Executives haben die Broschüre heute bereits heruntergeladen</span>
-                </div>
-                <div style="display: flex; align-items: center; gap: 8px;">
-                  <i class='bx bx-shield' style="font-size: 20px;"></i>
-                  <span style="font-size: 0.9rem; color: var(--color-muted);">Ihre Daten sind bei uns sicher - wir versenden keine unerlaubte Werbung</span>
-                </div>
-              </div>
-            </form>
-
-            <!-- Download-Ready Section (initially hidden) -->
-            <div id="download-ready" class="hidden" style="text-align: center; margin-top: 24px;">
-              <h3 style="margin-bottom: 16px;">Vielen Dank für Ihr Interesse!</h3>
-              <p style="margin-bottom: 24px;">Ihre Broschüre steht zum Download bereit.</p>
-              <a href="assets/broschueren/management_programm_cas.pdf" download class="cta-button">
-                Broschüre herunterladen <span class="arrow-icon">→</span>
-              </a>
+          <div class="content-container-v6">
+            <div class="content-panel-v6 active" data-content="1">
+              <h3 class="content-title-v6">Integrated Management and Strategy</h3>
+              <p>In diesem Modul erlernen Sie, wie Sie einen ganzheitlichen Managementansatz entwickeln und Geschäftsstrategien erfolgreich implementieren können. Behandelt werden zentrale Konzepte wie:</p>
+              <ul>
+                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Strategische Positionierung und Wettbewerbsvorteile</li>
+                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Integriertes Management in der VUCA-Welt</li>
+                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Entwicklung von nachhaltigen Geschäftsmodellen</li>
+                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Strategische Analyse und Entscheidungsfindung</li>
+              </ul>
+            </div>
+            
+            <div class="content-panel-v6" data-content="2">
+              <h3 class="content-title-v6">Financial Management</h3>
+              <p>Dieses Modul vermittelt Ihnen ein umfassendes Verständnis finanzieller Konzepte und deren Anwendung im Unternehmenskontext. Zu den Inhalten gehören:</p>
+              <ul>
+                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Finanzanalyse und Kennzahleninterpretation</li>
+                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Investitionsbewertung und -entscheidungen</li>
+                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Cashflow-Management und Unternehmensfinanzierung</li>
+                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Finanzielle Risikobewertung und -absicherung</li>
+              </ul>
+            </div>
+            
+            <div class="content-panel-v6" data-content="3">
+              <h3 class="content-title-v6">Inspirational Leadership</h3>
+              <p>In diesem Modul entwickeln Sie Ihre Führungskompetenzen weiter und lernen, wie Sie Teams inspirieren und motivieren. Themenschwerpunkte sind:</p>
+              <ul>
+                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Moderne Führungsstile und deren Wirksamkeit</li>
+                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Emotionale Intelligenz und ihre Bedeutung für Führungskräfte</li>
+                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Change Management und Transformationsführung</li>
+                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Team-Building und Konfliktmanagement</li>
+              </ul>
+            </div>
+            
+            <div class="content-panel-v6" data-content="4">
+              <h3 class="content-title-v6">Marketing, Sales and Brand Communication</h3>
+              <p>Dieses Modul konzentriert sich auf moderne Marketingstrategien und effektive Markenführung. Sie befassen sich mit:</p>
+              <ul>
+                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Strategische Markenpositionierung und -entwicklung</li>
+                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Integrierte Marketingkommunikation</li>
+                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Digitales Marketing und Omnichannel-Strategien</li>
+                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Verkaufspsychologie und Customer Journey Optimierung</li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
     </section>
-
   </div>
+
+  <!-- Programm Informationen -->
+  <section id="program-info" class="content-section" style="padding: 60px 0;">
+    <div class="container">
+      <h2 style="font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600; text-align: left !important; color: var(--color-text);">Programm Informationen</h2>
+      <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Alle wichtigen Details zum StGallen imt Management Programm CAS auf einen Blick.</p>
+      
+      <div class="program-info-grid">
+        <!-- Box 1: Ort -->
+        <div class="program-info-box">
+          <i class='bx bx-map program-info-icon'></i>
+          <div class="program-info-label">Ort</div>
+          <div class="program-info-value">St. Gallen</div>
+        </div>
+        
+        <!-- Box 2: Dauer -->
+        <div class="program-info-box">
+          <i class='bx bx-time program-info-icon'></i>
+          <div class="program-info-label">Dauer</div>
+          <div class="program-info-value">12 Tage</div>
+        </div>
+
+        <!-- Box 3: Einstieg -->
+        <div class="program-info-box">
+          <i class='bx bx-log-in program-info-icon'></i>
+          <div class="program-info-label">Einstieg</div>
+          <div class="program-info-value">Flexibel</div>
+        </div>  
+
+        <!-- Box 6: Sprache -->
+        <div class="program-info-box">
+          <i class='bx bx-globe program-info-icon'></i>
+          <div class="program-info-label">Sprache</div>
+          <div class="program-info-value">Deutsch</div>
+        </div>
+
+
+         <!-- Box 8: Programmtyp -->
+         <div class="program-info-box">
+          <i class='bx bx-book-open program-info-icon'></i>
+          <div class="program-info-label">Programmtyp</div>
+          <div class="program-info-value">CAS</div>
+        </div>
+
+        <!-- Box 4: ECTS -->
+          <div class="program-info-box">
+          <i class='bx bx-award program-info-icon'></i>
+          <div class="program-info-label">ECTS</div>
+          <div class="program-info-value">12</div>
+        </div>
+
+      
+        <!-- Box 7: Zielgruppe -->
+        <div class="program-info-box">
+          <i class='bx bx-group program-info-icon'></i>
+          <div class="program-info-label">Zielgruppe</div>
+          <div class="program-info-value" style="font-size: 0.9rem;">Führungskräfte, Executives, ManagerInnen</div>
+        </div>
+
+        <!-- Box 3: Investition -->
+        <div class="program-info-box">
+           <i class='bx bx-money program-info-icon'></i>
+          <div class="program-info-label">Investition</div>
+          <div class="program-info-value">8.100 CHF</div>
+         </div>
+
+        <!-- Box 9: Netzwerk -->
+        <div class="program-info-box">
+          <i class='bx bx-network-chart program-info-icon'></i>
+          <div class="program-info-label">Netzwerk</div>
+          <div class="program-info-value">Alumni</div>
+        </div>
+      </div>
+      
+      <!-- Starttermine - Tab Design -->
+      <div class="dates-tabs">
+        <h3 class="dates-heading"><i class='bx bx-calendar-alt' style="margin-right: 8px;"></i>Verfügbare Starttermine</h3>
+        <div class="tabs-nav">
+          <button class="tab-button active" data-target="tab-2025">2025</button>
+          <button class="tab-button" data-target="tab-2026">2026</button>
+        </div>
+
+        <div class="tab-content">
+          <!-- Tab 2025 -->
+          <div class="tab-pane active" id="tab-2025">
+            <div class="date-module">
+              <h4>Integrative Management and Strategy</h4>
+              <table class="date-table">
+                <tr>
+                  <td>05.-07.05.2025</td>
+                </tr>
+                <tr>
+                  <td>06.-08.10.2025</td>
+                </tr>
+              </table>
+            </div>
+
+            <div class="date-module">
+              <h4>Inspirational Leadership</h4>
+              <table class="date-table">
+                <tr>
+                  <td>08.-10.05.2025</td>
+                </tr>
+                <tr>
+                  <td>09.-11.10.2025</td>
+                </tr>
+              </table>
+            </div>
+
+            <div class="date-module">
+              <h4>Financial Management</h4>
+              <table class="date-table">
+                <tr>
+                  <td>26.-28.06.2025</td>
+                </tr>
+                <tr>
+                  <td>04.-06.12.2025</td>
+                </tr>
+              </table>
+            </div>
+
+            <div class="date-module">
+              <h4>Marketing, Sales & Brand Communication</h4>
+              <table class="date-table">
+                <tr>
+                  <td>23.-25.06.2025</td>
+                </tr>
+                <tr>
+                  <td>01.-03.12.2025</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+
+          <!-- Tab 2026 -->
+          <div class="tab-pane" id="tab-2026">
+            <div class="date-module">
+              <h4>Integrative Management and Strategy</h4>
+              <table class="date-table">
+                <tr>
+                  <td>20.-22.04.2026</td>
+                </tr>
+              </table>
+            </div>
+
+            <div class="date-module">
+              <h4>Inspirational Leadership</h4>
+              <table class="date-table">
+                <tr>
+                  <td>23.-25.04.2026</td>
+                </tr>
+              </table>
+            </div>
+
+            <div class="date-module">
+              <h4>Financial Management</h4>
+              <table class="date-table">
+                <tr>
+                  <td>18.-20.06.2026</td>
+                </tr>
+              </table>
+            </div>
+
+            <div class="date-module">
+              <h4>Marketing, Sales & Brand Communication</h4>
+              <table class="date-table">
+                <tr>
+                  <td>15.-17.06.2026</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Informationen über Teilnehmer -->
+  <section id="participants" style="padding: 60px 0;">
+    <div class="container">
+      <h2>Information über Teilnehmer</h2>
+      <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Unser Executive Seminar StGallen imt Certified Management Programm CAS bringt erfahrene Führungskräfte aus verschiedenen Branchen und Ländern zusammen.</p>
+      <div class="stats-grid">
+          <!-- Berufserfahrung -->
+          <div class="stat-card">
+              <div class="stat-icon">
+                  <svg viewBox="0 0 24 24" class="color-brain">
+                      <rect x="3" y="4" width="18" height="18" rx="2"/>
+                      <path d="M16 2v4M8 2v4M3 10h18"/>
+                      <path d="M8 14h8M8 17h5"/>
+                  </svg>
+              </div>
+              <div class="stat-value" data-target="12">0</div>
+              <div class="stat-label">Jahre Berufserfahrung</div>
+          </div>
+
+          <!-- Senior C-Level -->
+          <div class="stat-card">
+              <div class="stat-icon">
+                  <svg viewBox="0 0 24 24" class="color-trend">
+                      <rect x="3" y="8" width="18" height="12" rx="2"/>
+                      <path d="M8 8V6a2 2 0 012-2h4a2 2 0 012 2v2"/>
+                      <path d="M12 12v4"/>
+                  </svg>
+              </div>
+              <div class="stat-value" data-target="35" data-suffix="%">0%</div>
+              <div class="stat-label">Teilnehmer mit Senior C-Level</div>
+          </div>
+
+          <!-- Durchschnittsalter -->
+          <div class="stat-card">
+              <div class="stat-icon">
+                  <svg viewBox="0 0 24 24" class="color-data">
+                      <circle cx="12" cy="8" r="5"/>
+                      <path d="M20 21v-2a8 8 0 00-16 0v2"/>
+                  </svg>
+              </div>
+              <div class="stat-value" data-target="42">0</div>
+              <div class="stat-label">Durchschnittsalter</div>
+          </div>
+
+          <!-- Nationalitäten -->
+          <div class="stat-card">
+              <div class="stat-icon">
+                  <svg viewBox="0 0 24 24" class="color-cube">
+                      <circle cx="12" cy="12" r="10"/>
+                      <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+                      <path d="M2 12h20"/>
+                  </svg>
+              </div>
+              <div class="stat-value" data-target="15">0</div>
+              <div class="stat-label">Nationalitäten</div>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Einblicke & Impressionen -->
+  <section id="impressionen" style="padding: 60px 0;">
+    <div class="container">
+      <h2>Einblicke & Impressionen</h2>
+      <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Hier finden Sie einige Fotos und Videos von unseren Executive Seminaren.</p>
+      
+      <div class="gallery">
+        <div class="gallery-item item1">
+          <img src="assets/IMG_1.webp" alt="Seniorin mit AirPods">
+        </div>
+        <div class="gallery-item item2">
+          <img src="assets/IMG_2.webp" alt="Smartwatch">
+        </div>
+        <div class="gallery-item item3">
+          <img src="assets/IMG_3.webp" alt="Videocall auf Smartphone">
+        </div>
+        <div class="gallery-item item4">
+          <img src="assets/IMG_4.webp" alt="Zwei Personen mit Smartphones">
+        </div>
+        <div class="gallery-item item5">
+          <img src="assets/IMG_6.webp" alt="Person mit Tablet">
+        </div>
+        <div class="gallery-item item6">
+          <img src="assets/IMG_5.webp" alt="Person mit Kopfhörern">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Faculty & Experts -->
+  <section id="faculty" style="padding: 60px 0;">
+    <div class="container">
+      <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Faculty & Experts</h2>
+      <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Lernen Sie von führenden Experten aus Wissenschaft und Praxis – profitieren Sie von jahrelanger Erfahrung in KI und digitaler Transformation.</p>
+      
+      <div class="faculty-grid">
+        <div class="faculty-card">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Prof. Dr. Maria Schmidt"/>
+          <div class="faculty-info">
+            <h3 class="faculty-name">Prof. Dr. Maria Schmidt</h3>
+            <div class="faculty-title">Professorin für KI & Business Innovation</div>
+            <p class="faculty-description">Expertin für KI-gestützte Geschäftsmodelle mit über 15 Jahren Erfahrung in der Transformation von Unternehmen.</p>
+          </div>
+        </div>
+        <div class="faculty-card">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Dr. Thomas Weber"/>
+          <div class="faculty-info">
+            <h3 class="faculty-name">Dr. Thomas Weber</h3>
+            <div class="faculty-title">Chief Innovation Officer, TechCorp</div>
+            <p class="faculty-description">Pionier in der Integration von KI in traditionelle Geschäftsprozesse. Leitet erfolgreich digitale Transformationsprojekte.</p>
+          </div>
+        </div>
+        <div class="faculty-card">
+          <img src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Sarah Chen"/>
+          <div class="faculty-info">
+            <h3 class="faculty-name">Sarah Chen</h3>
+            <div class="faculty-title">Head of AI Strategy, GlobalTech</div>
+            <p class="faculty-description">Verbindet akademische Expertise mit praktischer Erfahrung in der Implementierung von KI-Lösungen.</p>
+          </div>
+        </div>
+        <div class="faculty-card">
+          <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Dr. Michael Bauer"/>
+          <div class="faculty-info">
+            <h3 class="faculty-name">Dr. Michael Bauer</h3>
+            <div class="faculty-title">Digital Transformation Expert</div>
+            <p class="faculty-description">Berät internationale Unternehmen bei der strategischen Ausrichtung ihrer KI-Initiativen.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMT Advisor -->
+  <section id="contact" style="padding: 60px 0;">
+    <div class="container">
+      <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Advisor</h2>
+      <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Ihr persönlicher Ansprechpartner für alle Fragen rund um das StGallen imt Certified Management Programm CAS – profitieren Sie von ihrer langjährigen Expertise.</p>
+      
+      <div class="contact-info">
+        <img alt="Monika Dutkiewicz" src="https://lirp.cdn-website.com/d603a072/dms3rep/multi/opt/Monika-Dutkiewiecz-70a9e6ff-bb2e6919-9188df2f-1920w.jpeg"/>
+        <div class="contact-details">
+          <h3>Monika Dutkiewicz</h3>
+          <p style="margin-bottom: 0;">Ansprechpartner StGallen imt Certified Management Programm CAS</p>
+          <p style="margin-bottom: 0; margin-top: 0;"><a href="mailto:monika.dutkiewicz@imt.ch" style="color: #9c27b0;">monika.dutkiewicz@imt.ch</a></p>
+          <p style="margin-bottom: 0; margin-top: 0;">+41 71 224 72 22</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Broschüre Herunterladen Section -->
+  <section id="broschuere" style="padding: 60px 0;">
+    <div class="container">
+      <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Kostenlos Broschüre herunterladen</h2>
+      <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Laden Sie jetzt die ausführliche Programmbroschüre zum StGallen imt Certified Management Programm CAS herunter – mit allen Details zu Inhalten, Methoden und Ihrem Lernerfolg.</p>
+      <div style="display: flex; gap: 32px; align-items: stretch; flex-wrap: wrap; margin-top: 32px;">
+        
+        <!-- Formular -->
+        <div style="flex: 1 1 400px; background: #f5f5f7; padding: 32px; border-radius: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
+          <form id="brochure-form" method="post" novalidate>
+            <input name="firstname" placeholder="Vorname" style="width: 100%; padding: 12px; margin-bottom: 18px; border-radius: 8px; border: 1px solid #ccc;" type="text" required/>
+            <input name="lastname" placeholder="Nachname" style="width: 100%; padding: 12px; margin-bottom: 18px; border-radius: 8px; border: 1px solid #ccc;" type="text" required/>
+            <input name="email" placeholder="E-Mail" style="width: 100%; padding: 12px; margin-bottom: 18px; border-radius: 8px; border: 1px solid #ccc;" type="email" required/>
+            
+            <!-- Country Select -->
+            <div style="position: relative; margin-bottom: 18px;">
+              <select name="country" required style="width: 100%; padding: 12px; padding-right: 40px; font-size: 1rem; border-radius: 8px; border: 1px solid #ccc; appearance: none; -webkit-appearance: none;">
+                <option value="">Land wählen</option>
+                <option value="AD">Andorra</option>
+                <option value="AR">Argentinien</option>
+                <option value="AU">Australien</option>
+                <option value="BH">Bahrain</option>
+                <option value="BE">Belgien</option>
+                <option value="BR">Brasilien</option>
+                <option value="BN">Brunei</option>
+                <option value="CL">Chile</option>
+                <option value="CN">China</option>
+                <option value="DK">Dänemark</option>
+                <option value="DE">Deutschland</option>
+                <option value="EE">Estland</option>
+                <option value="FI">Finnland</option>
+                <option value="FR">Frankreich</option>
+                <option value="GI">Gibraltar</option>
+                <option value="GR">Griechenland</option>
+                <option value="HK">Hongkong</option>
+                <option value="IN">Indien</option>
+                <option value="ID">Indonesien</option>
+                <option value="IE">Irland</option>
+                <option value="IS">Island</option>
+                <option value="IL">Israel</option>
+                <option value="IT">Italien</option>
+                <option value="JP">Japan</option>
+                <option value="JO">Jordanien</option>
+                <option value="CA">Kanada</option>
+                <option value="CO">Kolumbien</option>
+                <option value="HR">Kroatien</option>
+                <option value="QA">Katar</option>
+                <option value="KW">Kuwait</option>
+                <option value="LB">Libanon</option>
+                <option value="LI">Liechtenstein</option>
+                <option value="LU">Luxemburg</option>
+                <option value="MO">Macau</option>
+                <option value="MY">Malaysia</option>
+                <option value="MT">Malta</option>
+                <option value="MX">Mexiko</option>
+                <option value="MC">Monaco</option>
+                <option value="NL">Niederlande</option>
+                <option value="NZ">Neuseeland</option>
+                <option value="NO">Norwegen</option>
+                <option value="OM">Oman</option>
+                <option value="AT">Österreich</option>
+                <option value="PK">Pakistan</option>
+                <option value="PA">Panama</option>
+                <option value="PE">Peru</option>
+                <option value="PH">Philippinen</option>
+                <option value="PL">Polen</option>
+                <option value="PT">Portugal</option>
+                <option value="PR">Puerto Rico</option>
+                <option value="RO">Rumänien</option>
+                <option value="RU">Russland</option>
+                <option value="SM">San Marino</option>
+                <option value="SA">Saudi-Arabien</option>
+                <option value="SE">Schweden</option>
+                <option value="CH">Schweiz</option>
+                <option value="SG">Singapur</option>
+                <option value="SK">Slowakei</option>
+                <option value="SI">Slowenien</option>
+                <option value="ES">Spanien</option>
+                <option value="ZA">Südafrika</option>
+                <option value="KR">Südkorea</option>
+                <option value="TW">Taiwan</option>
+                <option value="TH">Thailand</option>
+                <option value="TR">Türkei</option>
+                <option value="CZ">Tschechische Republik</option>
+                <option value="UA">Ukraine</option>
+                <option value="HU">Ungarn</option>
+                <option value="AE">Vereinigte Arabische Emirate</option>
+                <option value="GB">Vereinigtes Königreich</option>
+                <option value="US">Vereinigte Staaten</option>
+                <option value="VN">Vietnam</option>
+                <option value="CY">Zypern</option>
+                <option value="OTHER">Andere</option>
+              </select>
+              <div style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); pointer-events: none;">
+                <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 1L6 6L11 1" stroke="#888888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Checkbox für E-Mail-Zustimmung -->
+            <div style="margin-bottom: 16px;">
+              <label style="display: flex; align-items: flex-start; gap: 8px; cursor: pointer;">
+                <input type="checkbox" name="email_consent" style="margin-top: 3px;">
+                <span style="font-size: 0.9rem; color: var(--color-muted);">
+                  Ich stimme zu, Informationen per E-Mail zu Angeboten der IMT Business School zu erhalten.
+                </span>
+              </label>
+            </div>
+
+            <!-- Submit Button -->
+            <div style="text-align: center; width: 100%;">
+              <button type="submit" class="cta-button" style="margin: 0 auto;">
+                Jetzt Kostenlos Broschüre herunterladen <span class="arrow-icon">→</span>
+              </button>
+            </div>
+
+            <!-- Info Lines under the button -->
+            <div style="margin-top: 24px; display: flex; flex-direction: column; gap: 12px;">
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <i class='bx bx-group' style="font-size: 20px;"></i>
+                <span id="downloads-today" style="font-size: 0.9rem; color: var(--color-muted);"><strong>7</strong> Executives haben die Broschüre heute bereits heruntergeladen</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <i class='bx bx-shield' style="font-size: 20px;"></i>
+                <span style="font-size: 0.9rem; color: var(--color-muted);">Ihre Daten sind bei uns sicher - wir versenden keine unerlaubte Werbung</span>
+              </div>
+            </div>
+          </form>
+
+          <!-- Download-Ready Section (initially hidden) -->
+          <div id="download-ready" class="hidden" style="text-align: center; margin-top: 24px;">
+            <h3 style="margin-bottom: 16px;">Vielen Dank für Ihr Interesse!</h3>
+            <p style="margin-bottom: 24px;">Ihre Broschüre steht zum Download bereit.</p>
+            <a href="assets/broschueren/management_programm_cas.pdf" download class="cta-button">
+              Broschüre herunterladen <span class="arrow-icon">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
 
 <!-- Footer einbinden -->
@@ -2151,6 +2811,136 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         });
       }
+    });
+  });
+</script>
+
+<!-- JavaScript für die Sidebar-Navigation Funktionalität -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Sidebar-Navigation Tabs
+    initSidebarTabs();
+    
+    function initSidebarTabs() {
+      const sidebarTabs = document.querySelectorAll('.sidebar-tab-v6');
+      const contentPanels = document.querySelectorAll('.content-panel-v6');
+      
+      sidebarTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const tabId = tab.getAttribute('data-tab');
+          
+          // Aktiven Tab setzen
+          sidebarTabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          
+          // Aktiven Content setzen
+          contentPanels.forEach(panel => {
+            panel.classList.remove('active');
+            if (panel.getAttribute('data-content') === tabId) {
+              panel.classList.add('active');
+            }
+          });
+        });
+      });
+    }
+    
+    // Flip-Card Funktionalität
+    const cards = document.querySelectorAll('.slide');
+    cards.forEach(card => {
+      card.addEventListener('click', function(e) {
+        // Verhindere, dass der Klick auf den Flip-Link das Umdrehen auslöst
+        if (e.target.closest('.flip-link') || e.target.classList.contains('bx')) {
+          e.stopPropagation();
+          card.classList.toggle('flipped');
+          return;
+        }
+        
+        // Flipping-Effekt beim Klick auf die Karte
+        card.classList.toggle('flipped');
+      });
+    });
+    
+    // Funktionalität für den Slider
+    initSlider();
+    
+    function initSlider() {
+      const track = document.querySelector('.slider-track');
+      const prevButton = document.querySelector('.slider-btn.prev');
+      const nextButton = document.querySelector('.slider-btn.next');
+      const slideWidth = 280 + 24; // Breite einer Slide plus Gap
+      
+      // Überprüfen, ob die Slider-Buttons existieren
+      if (track && prevButton && nextButton) {
+        // Initiale Button-Status setzen
+        checkButtonStatus();
+
+        // Dynamische Berechnung der Scroll-Menge basierend auf der Viewport-Breite
+        const calculateScrollAmount = () => {
+          // Auf mobilen Geräten präziser scrollen
+          if (window.innerWidth <= 768) {
+            const slide = track.querySelector('.slide');
+            if (!slide) return slideWidth;
+            
+            // Nur eine Slide anzeigen pro Scroll
+            return slide.offsetWidth + parseInt(getComputedStyle(track).gap);
+          } else {
+            // Auf Desktop ein angemessenes Scrolling
+            return slideWidth;
+          }
+        };
+
+        // Event-Listener für die Buttons
+        prevButton.addEventListener('click', () => {
+          track.scrollBy({ left: -calculateScrollAmount(), behavior: 'smooth' });
+          setTimeout(checkButtonStatus, 350);
+        });
+
+        nextButton.addEventListener('click', () => {
+          track.scrollBy({ left: calculateScrollAmount(), behavior: 'smooth' });
+          setTimeout(checkButtonStatus, 350);
+        });
+
+        // Überprüft, ob die Prev/Next Buttons aktiviert oder deaktiviert sein sollten
+        function checkButtonStatus() {
+          const scrollPosition = track.scrollLeft;
+          const maxScrollLeft = track.scrollWidth - track.clientWidth;
+
+          prevButton.disabled = scrollPosition <= 0;
+          nextButton.disabled = scrollPosition >= maxScrollLeft;
+        }
+
+        // Beim Scrollen den Button-Status aktualisieren
+        track.addEventListener('scroll', checkButtonStatus);
+        
+        // Beim Resize die Berechnung aktualisieren
+        window.addEventListener('resize', checkButtonStatus);
+      }
+    }
+  });
+</script>
+
+<!-- JavaScript für die Date-Tabs -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Date-Tabs Funktionalität
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabPanes = document.querySelectorAll('.tab-pane');
+    
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Aktiven Button-Status setzen
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        
+        // Aktiven Tab-Content anzeigen
+        const target = button.getAttribute('data-target');
+        tabPanes.forEach(pane => {
+          pane.classList.remove('active');
+          if (pane.id === target) {
+            pane.classList.add('active');
+          }
+        });
+      });
     });
   });
 </script>
