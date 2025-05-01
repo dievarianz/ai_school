@@ -365,13 +365,24 @@
       cursor: pointer;
       transition: all 0.2s ease;
       text-decoration: none;
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
     }
 
     .cta-button:hover {
       transform: translateY(-2px);
       box-shadow: 0 6px 12px rgba(106, 69, 226, 0.2);
       text-decoration: none;
+    }
+    
+    .cta-button i {
+      margin-left: 8px;
+      font-size: 1.2rem;
+      transition: transform 0.2s ease;
+    }
+    
+    .cta-button:hover i {
+      transform: translateX(4px);
     }
 
     @media (max-width: 768px) {
@@ -456,6 +467,34 @@
     a.support-card:hover * {
       text-decoration: none !important;
     }
+
+    @media (min-width: 769px) {
+      .faq-question {
+        justify-content: flex-start;
+        padding-left: 24px;
+      }
+      
+      .faq-question i {
+        margin-left: auto;
+      }
+      
+      .faq-container {
+        max-width: 1000px;
+        margin: 0;
+      }
+      
+      .faq-item {
+        width: 100%;
+      }
+      
+      .faq-answer {
+        padding-left: 24px;
+      }
+      
+      .faq-item.active .faq-answer {
+        padding: 0 24px 24px 24px;
+      }
+    }
   </style>
 
   <!-- BoxIcons für Icons -->
@@ -485,16 +524,16 @@
           <!-- Karte 1: Über St. Gallen IMT -->
           <a href="support_aboutimt.html" class="support-card">
             <i class='bx bx-laptop'></i>
-            <h3>Über St. Gallen IMT</h3>
-            <p>Unsere Geschichte, Mission und Vision der KI-Weiterbildung.</p>
+            <h3>Über St. Gallen IMT Business School</h3>
+            <p>Unsere Geschichte, Mission und Vision.</p>
             <span class="more-link">Mehr erfahren <i class='bx bx-right-arrow-alt'></i></span>
           </a>
           
           <!-- Karte 2: Kursinformationen -->
           <a href="support_kursinformationen.html" class="support-card">
             <i class='bx bx-book-open'></i>
-            <h3>Kursinformationen</h3>
-            <p>Informationen zu Kursinhalten, Materialien und Lernfortschritt.</p>
+            <h3>Programminformationen</h3>
+            <p>Informationen zu den Managementseminaren und Programmen der StGallen IMT Business School.</p>
             <span class="more-link">Mehr erfahren <i class='bx bx-right-arrow-alt'></i></span>
           </a>
           
@@ -502,7 +541,7 @@
           <a href="support_ansprechpartner.html" class="support-card">
             <i class='bx bx-calendar-check'></i>
             <h3>Ansprechpartner</h3>
-            <p>Ihre Kontaktpersonen für Beratung, Anmeldung und Studium.</p>
+            <p>Persönliche Beratung und Kontakt - bei Fragen zu Anmeldung, Ablauf oder individuellen Anliegen.</p>
             <span class="more-link">Mehr erfahren <i class='bx bx-right-arrow-alt'></i></span>
           </a>
         </div>
@@ -661,7 +700,7 @@
         <div class="support-cta">
           <h3>Ihre Frage nicht gefunden?</h3>
           <p>Unser Support-Team steht Ihnen jederzeit zur Verfügung, um Ihre individuellen Fragen zu beantworten und Sie zu unterstützen.</p>
-          <a href="kontakt.html" class="cta-button">Kontakt aufnehmen</a>
+          <a href="kontakt.html" class="cta-button">Kontakt aufnehmen <i class='bx bx-right-arrow-alt'></i></a>
         </div>
       </div>
     </section>
