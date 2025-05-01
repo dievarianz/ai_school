@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Heritage Designvorschläge | St.Gallen imt Business School</title>
+
+<!-- ============ STYLES ============ -->
+<style>
+  :root{
+    --font-sans:-apple-system,BlinkMacSystemFont,"San Francisco","Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+    --color-text:#1d1d1f;
+    --color-muted:#6e6e73;
+    --color-card-bg:#f5f5f7;
+    --color-accent2:#4CB796;
+    --color-badge:#e2b245;
+    --color-badge-hover:#d4a535;
+    --spacing:24px;
+    --radius:16px;
+    --max-width:1200px;
+    --imt-purple: #6e45e2;
+    --imt-green: #4CB796;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-text);
+    background: #fff;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding-top: 64px;
+    transition: padding-top 0.3s ease;
+  }
+
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing);
+    width: 100%;
+  }
+
+  main {
+    position: relative;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 1rem;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1.25rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+
+  a {
+    color: var(--imt-green);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .section-description {
+    text-align: center;
+    color: var(--color-muted);
+    max-width: 700px;
+    margin: 0 auto 3rem;
+  }
+
+  .content-section {
+    padding: 80px 0;
+  }
+
+  .bx {
+    vertical-align: middle;
+  }
+
+  /* Milestone common elements */
+  .milestone-year {
+    font-weight: bold;
+    color: var(--imt-purple);
+  }
+
+  .milestone-title {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .milestone-description {
+    color: var(--color-muted);
+  }
+
+  /* ============ DESIGN 1: Vertical Timeline ============ */
+  .heritage-timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .timeline-center-line {
+    position: absolute;
+    width: 4px;
+    background-color: var(--imt-purple);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+    border-radius: 2px;
+  }
+
+  .timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    width: 50%;
+    box-sizing: border-box;
+  }
+
+  .timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border: 4px solid var(--imt-purple);
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+  }
+
+  .timeline-left {
+    left: 0;
+  }
+
+  .timeline-right {
+    left: 50%;
+  }
+
+  .timeline-left::after {
+    right: -10px;
+  }
+
+  .timeline-right::after {
+    left: -10px;
+  }
+
+  .timeline-content {
+    padding: 20px;
+    background-color: white;
+    border-radius: var(--radius);
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .timeline-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  }
+
+  /* ============ DESIGN 2: Horizontal Scrollable Timeline ============ */
+  .heritage-horizontal {
+    display: flex;
+    overflow-x: auto;
+    padding: 30px 0;
+    gap: 30px;
+    position: relative;
+    margin-bottom: 30px;
+  }
+
+  .heritage-horizontal::before {
+    content: '';
+    position: absolute;
+    height: 4px;
+    background-color: var(--imt-purple);
+    top: 70px;
+    left: 0;
+    right: 0;
+    z-index: 0;
+  }
+
+  .horizontal-item {
+    flex: 0 0 300px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .horizontal-dot {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border: 4px solid var(--imt-purple);
+    border-radius: 50%;
+    margin: 0 auto 30px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .horizontal-content {
+    background-color: white;
+    border-radius: var(--radius);
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .horizontal-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  }
+
+  /* ============ DESIGN 3: Card-Based History ============ */
+  .heritage-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+  }
+
+  .heritage-card {
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: white;
+  }
+
+  .heritage-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+  }
+
+  .heritage-card-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+
+  .heritage-card-content {
+    padding: 20px;
+  }
+
+  .heritage-card-year {
+    display: inline-block;
+    background-color: var(--imt-purple);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+  }
+
+  /* ============ DESIGN 4: Accordion Style Milestones ============ */
+  .heritage-accordion {
+    max-width: 800px;
+    margin: 0 auto 50px;
+  }
+
+  .accordion-item {
+    margin-bottom: 15px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  .accordion-header {
+    background-color: white;
+    padding: 15px 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 5px solid var(--imt-purple);
+    transition: background-color 0.3s ease;
+  }
+
+  .accordion-header:hover {
+    background-color: #f8f8f8;
+  }
+
+  .accordion-title {
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .accordion-content {
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+  }
+
+  .accordion-content.active {
+    max-height: 500px;
+    padding: 20px;
+  }
+
+  /* ============ DESIGN 5: Grid-Based Achievement Showcase ============ */
+  .heritage-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-bottom: 50px;
+  }
+
+  .grid-item {
+    background-color: white;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display: flex;
+    min-height: 250px;
+    transition: transform 0.3s ease;
+  }
+
+  .grid-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+  }
+
+  .grid-image {
+    flex: 0 0 40%;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .grid-content {
+    flex: 1;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .timeline-center-line {
+      left: 40px;
+    }
+    
+    .timeline-item {
+      width: 100%;
+      padding-left: 70px;
+      padding-right: 25px;
+    }
+    
+    .timeline-right {
+      left: 0;
+    }
+    
+    .timeline-left::after, .timeline-right::after {
+      left: 30px;
+    }
+    
+    .heritage-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .grid-item {
+      flex-direction: column;
+    }
+    
+    .grid-image {
+      height: 180px;
+      flex: none;
+    }
+  }
+</style>
+
+<!-- BoxIcons für Icons -->
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+<!-- Favicon -->
+<link rel="icon" href="assets/favicon.png" type="image/png">
+</head>
+<body>
+
+<!-- Hauptinhalt -->
+<main>
+  <!-- Einleitung -->
+  <section class="content-section">
+    <div class="container">
+      <h1>Heritage Designvorschläge</h1>
+      <p>Hier finden Sie verschiedene Gestaltungsvorschläge, um die Geschichte und Entwicklung der St.Gallen imt Business School visuell darzustellen.</p>
+    </div>
+  </section>
+
+  <!-- ========== DESIGN 1: Vertical Timeline ========== -->
+  <section class="content-section" style="background-color: #f9f9f9; padding-top: 60px; padding-bottom: 60px;">
+    <div class="container">
+      <h2 class="section-title">Variante 1: Vertikale Zeitleiste</h2>
+      <p class="section-description">Eine klassische, vertikale Zeitleiste, die Meilensteine in chronologischer Reihenfolge präsentiert.</p>
+      
+      <div class="heritage-timeline">
+        <div class="timeline-center-line"></div>
+        
+        <!-- Milestone 1 -->
+        <div class="timeline-item timeline-left">
+          <div class="timeline-content">
+            <div class="milestone-year">1995</div>
+            <h3 class="milestone-title">Gründung der St.Gallen imt Business School</h3>
+            <p class="milestone-description">Die Business School wurde mit dem Ziel gegründet, praxisnahe Management-Ausbildung mit akademischer Exzellenz zu verbinden.</p>
+          </div>
+        </div>
+        
+        <!-- Milestone 2 -->
+        <div class="timeline-item timeline-right">
+          <div class="timeline-content">
+            <div class="milestone-year">2000</div>
+            <h3 class="milestone-title">Einführung des Executive MBA Programms</h3>
+            <p class="milestone-description">Das erste Executive MBA Programm wird eingeführt und etabliert sich schnell als eines der führenden Programme in Europa.</p>
+          </div>
+        </div>
+        
+        <!-- Milestone 3 -->
+        <div class="timeline-item timeline-left">
+          <div class="timeline-content">
+            <div class="milestone-year">2008</div>
+            <h3 class="milestone-title">Internationale Akkreditierung</h3>
+            <p class="milestone-description">Die Business School erhält ihre erste internationale Akkreditierung und stärkt damit ihre Position im globalen Bildungsmarkt.</p>
+          </div>
+        </div>
+        
+        <!-- Milestone 4 -->
+        <div class="timeline-item timeline-right">
+          <div class="timeline-content">
+            <div class="milestone-year">2015</div>
+            <h3 class="milestone-title">Eröffnung des Innovation Campus</h3>
+            <p class="milestone-description">Mit dem neuen Campus wird ein Zentrum für Innovation und Entrepreneurship geschaffen, das Studierende und Startups zusammenbringt.</p>
+          </div>
+        </div>
+        
+        <!-- Milestone 5 -->
+        <div class="timeline-item timeline-left">
+          <div class="timeline-content">
+            <div class="milestone-year">2023</div>
+            <h3 class="milestone-title">Launch der Digital Leadership Academy</h3>
+            <p class="milestone-description">Als Antwort auf die digitale Transformation wird die Digital Leadership Academy gegründet, um Führungskräfte auf die Herausforderungen der Digitalisierung vorzubereiten.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DESIGN 2: Horizontal Scrollable Timeline ========== -->
+  <section class="content-section">
+    <div class="container">
+      <h2 class="section-title">Variante 2: Horizontale Zeitleiste</h2>
+      <p class="section-description">Eine scrollbare, horizontale Zeitleiste für eine kompakte Darstellung der wichtigsten Meilensteine.</p>
+      
+      <div class="heritage-horizontal">
+        <!-- Milestone 1 -->
+        <div class="horizontal-item">
+          <div class="horizontal-dot"></div>
+          <div class="horizontal-content">
+            <div class="milestone-year">1995</div>
+            <h3 class="milestone-title">Gründung</h3>
+            <p class="milestone-description">Die St.Gallen imt Business School wird gegründet, um praxisnahe Management-Ausbildung anzubieten.</p>
+          </div>
+        </div>
+        
+        <!-- Milestone 2 -->
+        <div class="horizontal-item">
+          <div class="horizontal-dot"></div>
+          <div class="horizontal-content">
+            <div class="milestone-year">2000</div>
+            <h3 class="milestone-title">Executive MBA</h3>
+            <p class="milestone-description">Einführung des ersten Executive MBA Programms.</p>
+          </div>
+        </div>
+        
+        <!-- Milestone 3 -->
+        <div class="horizontal-item">
+          <div class="horizontal-dot"></div>
+          <div class="horizontal-content">
+            <div class="milestone-year">2008</div>
+            <h3 class="milestone-title">Akkreditierung</h3>
+            <p class="milestone-description">Erhalt der ersten internationalen Akkreditierung.</p>
+          </div>
+        </div>
+        
+        <!-- Milestone 4 -->
+        <div class="horizontal-item">
+          <div class="horizontal-dot"></div>
+          <div class="horizontal-content">
+            <div class="milestone-year">2015</div>
+            <h3 class="milestone-title">Innovation Campus</h3>
+            <p class="milestone-description">Eröffnung des neuen Innovation Campus.</p>
+          </div>
+        </div>
+        
+        <!-- Milestone 5 -->
+        <div class="horizontal-item">
+          <div class="horizontal-dot"></div>
+          <div class="horizontal-content">
+            <div class="milestone-year">2023</div>
+            <h3 class="milestone-title">Digital Leadership</h3>
+            <p class="milestone-description">Launch der Digital Leadership Academy.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DESIGN 3: Card-Based History ============ -->
+  <section class="content-section" style="background-color: #f9f9f9; padding-top: 60px; padding-bottom: 60px;">
+    <div class="container">
+      <h2 class="section-title">Variante 3: History Cards</h2>
+      <p class="section-description">Bildbasierte Karten, die Meilensteine mit visuellen Elementen hervorheben.</p>
+      
+      <div class="heritage-cards">
+        <!-- Card 1 -->
+        <div class="heritage-card">
+          <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Gründung" class="heritage-card-image">
+          <div class="heritage-card-content">
+            <span class="heritage-card-year">1995</span>
+            <h3 class="milestone-title">Gründung der Business School</h3>
+            <p class="milestone-description">Die St.Gallen imt Business School wird mit dem Ziel gegründet, praxisnahe Management-Ausbildung mit akademischer Exzellenz zu verbinden.</p>
+          </div>
+        </div>
+        
+        <!-- Card 2 -->
+        <div class="heritage-card">
+          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Executive MBA" class="heritage-card-image">
+          <div class="heritage-card-content">
+            <span class="heritage-card-year">2000</span>
+            <h3 class="milestone-title">Executive MBA Programm</h3>
+            <p class="milestone-description">Das erste Executive MBA Programm wird eingeführt und etabliert sich schnell als eines der führenden Programme in Europa.</p>
+          </div>
+        </div>
+        
+        <!-- Card 3 -->
+        <div class="heritage-card">
+          <img src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Akkreditierung" class="heritage-card-image">
+          <div class="heritage-card-content">
+            <span class="heritage-card-year">2008</span>
+            <h3 class="milestone-title">Internationale Akkreditierung</h3>
+            <p class="milestone-description">Die Business School erhält ihre erste internationale Akkreditierung und stärkt damit ihre Position im globalen Bildungsmarkt.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DESIGN 4: Accordion Style Milestones ============ -->
+  <section class="content-section">
+    <div class="container">
+      <h2 class="section-title">Variante 4: Accordion Meilensteine</h2>
+      <p class="section-description">Ein platzsparendes Accordion-Design, das Details zu jedem Meilenstein auf Klick offenbart.</p>
+      
+      <div class="heritage-accordion">
+        <!-- Accordion Item 1 -->
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <div class="accordion-title">
+              <span class="milestone-year">1995</span>
+              <span>Gründung der St.Gallen imt Business School</span>
+            </div>
+            <i class='bx bx-chevron-down'></i>
+          </div>
+          <div class="accordion-content">
+            <p>Die Business School wurde mit dem Ziel gegründet, praxisnahe Management-Ausbildung mit akademischer Exzellenz zu verbinden. Von Anfang an stand die Verbindung von Theorie und Praxis im Mittelpunkt.</p>
+            <p>Mit nur 25 Studierenden im ersten Jahrgang legte die Schule den Grundstein für ihre spätere Entwicklung zu einer international anerkannten Bildungsinstitution.</p>
+          </div>
+        </div>
+        
+        <!-- Accordion Item 2 -->
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <div class="accordion-title">
+              <span class="milestone-year">2000</span>
+              <span>Einführung des Executive MBA Programms</span>
+            </div>
+            <i class='bx bx-chevron-down'></i>
+          </div>
+          <div class="accordion-content">
+            <p>Das erste Executive MBA Programm wird eingeführt und etabliert sich schnell als eines der führenden Programme in Europa. Die innovative Struktur und der praxisnahe Ansatz zogen Führungskräfte aus der ganzen Welt an.</p>
+            <p>Der Erfolg des Programms führte zu einer raschen Expansion des Angebots und einer wachsenden internationalen Reputation.</p>
+          </div>
+        </div>
+        
+        <!-- Accordion Item 3 -->
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <div class="accordion-title">
+              <span class="milestone-year">2008</span>
+              <span>Internationale Akkreditierung</span>
+            </div>
+            <i class='bx bx-chevron-down'></i>
+          </div>
+          <div class="accordion-content">
+            <p>Die Business School erhält ihre erste internationale Akkreditierung und stärkt damit ihre Position im globalen Bildungsmarkt. Diese Anerkennung bestätigte die hohe Qualität der angebotenen Programme und des Lehrpersonals.</p>
+            <p>In den folgenden Jahren kamen weitere prestigeträchtige Akkreditierungen hinzu, die das Engagement der Schule für Exzellenz in der Lehre unterstrichen.</p>
+          </div>
+        </div>
+        
+        <!-- Accordion Item 4 -->
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <div class="accordion-title">
+              <span class="milestone-year">2015</span>
+              <span>Eröffnung des Innovation Campus</span>
+            </div>
+            <i class='bx bx-chevron-down'></i>
+          </div>
+          <div class="accordion-content">
+            <p>Mit dem neuen Campus wird ein Zentrum für Innovation und Entrepreneurship geschaffen, das Studierende und Startups zusammenbringt. Die moderne Architektur und die technologische Ausstattung spiegeln die zukunftsorientierte Ausrichtung der Business School wider.</p>
+            <p>Der Campus wurde schnell zu einem Treffpunkt für Innovatoren und Unternehmer, die von der inspirierenden Umgebung und dem Wissensaustausch profitierten.</p>
+          </div>
+        </div>
+        
+        <!-- Accordion Item 5 -->
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <div class="accordion-title">
+              <span class="milestone-year">2023</span>
+              <span>Launch der Digital Leadership Academy</span>
+            </div>
+            <i class='bx bx-chevron-down'></i>
+          </div>
+          <div class="accordion-content">
+            <p>Als Antwort auf die digitale Transformation wird die Digital Leadership Academy gegründet, um Führungskräfte auf die Herausforderungen der Digitalisierung vorzubereiten. Das innovative Curriculum verbindet technologisches Verständnis mit strategischem Denken und Führungskompetenzen.</p>
+            <p>Die Academy arbeitet eng mit Technologieunternehmen und Digitalexperten zusammen, um praxisnahe Inhalte zu entwickeln und Teilnehmern Zugang zu den neuesten Trends und Entwicklungen zu bieten.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DESIGN 5: Grid-Based Achievement Showcase ============ -->
+  <section class="content-section" style="background-color: #f9f9f9; padding-top: 60px; padding-bottom: 60px;">
+    <div class="container">
+      <h2 class="section-title">Variante 5: Achievement Grid</h2>
+      <p class="section-description">Ein modernes Grid-Layout, das Text und Bilder kombiniert, um die wichtigsten Errungenschaften hervorzuheben.</p>
+      
+      <div class="heritage-grid">
+        <!-- Grid Item 1 -->
+        <div class="grid-item">
+          <div class="grid-image" style="background-image: url('https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+          <div class="grid-content">
+            <div class="milestone-year">1995 - 2000</div>
+            <h3 class="milestone-title">Die Anfangsjahre</h3>
+            <p class="milestone-description">Von der Gründung bis zur Etablierung als anerkannte Business School mit innovativen Lehrkonzepten.</p>
+          </div>
+        </div>
+        
+        <!-- Grid Item 2 -->
+        <div class="grid-item">
+          <div class="grid-content">
+            <div class="milestone-year">2000 - 2010</div>
+            <h3 class="milestone-title">Internationale Expansion</h3>
+            <p class="milestone-description">Eine Dekade des Wachstums mit neuen Programmen und internationaler Anerkennung.</p>
+          </div>
+          <div class="grid-image" style="background-image: url('https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+        </div>
+        
+        <!-- Grid Item 3 -->
+        <div class="grid-item">
+          <div class="grid-image" style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+          <div class="grid-content">
+            <div class="milestone-year">2010 - 2020</div>
+            <h3 class="milestone-title">Innovation und Digitalisierung</h3>
+            <p class="milestone-description">Fokus auf digitale Transformation und innovative Lehrkonzepte für die Führungskräfte der Zukunft.</p>
+          </div>
+        </div>
+        
+        <!-- Grid Item 4 -->
+        <div class="grid-item">
+          <div class="grid-content">
+            <div class="milestone-year">Ab 2020</div>
+            <h3 class="milestone-title">Zukunft gestalten</h3>
+            <p class="milestone-description">Mit zukunftsweisenden Programmen und einem globalen Netzwerk bereitet die Business School Führungskräfte auf die Herausforderungen der nächsten Dekade vor.</p>
+          </div>
+          <div class="grid-image" style="background-image: url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- JavaScript für interaktive Elemente -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Accordion Functionality
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+    
+    accordionHeaders.forEach(header => {
+      header.addEventListener('click', function() {
+        const content = this.nextElementSibling;
+        const icon = this.querySelector('.bx');
+        
+        // Toggle active class
+        content.classList.toggle('active');
+        
+        // Toggle icon
+        if (content.classList.contains('active')) {
+          icon.classList.replace('bx-chevron-down', 'bx-chevron-up');
+        } else {
+          icon.classList.replace('bx-chevron-up', 'bx-chevron-down');
+        }
+        
+        // Close other accordions
+        const allContents = document.querySelectorAll('.accordion-content');
+        const allIcons = document.querySelectorAll('.accordion-header .bx');
+        
+        allContents.forEach((item, index) => {
+          if (item !== content && item.classList.contains('active')) {
+            item.classList.remove('active');
+            allIcons[index].classList.replace('bx-chevron-up', 'bx-chevron-down');
+          }
+        });
+      });
+    });
+
+    // Add smooth scrolling for horizontal timeline
+    const horizontalTimeline = document.querySelector('.heritage-horizontal');
+    if (horizontalTimeline) {
+      let isDown = false;
+      let startX;
+      let scrollLeft;
+
+      horizontalTimeline.addEventListener('mousedown', (e) => {
+        isDown = true;
+        horizontalTimeline.style.cursor = 'grabbing';
+        startX = e.pageX - horizontalTimeline.offsetLeft;
+        scrollLeft = horizontalTimeline.scrollLeft;
+      });
+
+      horizontalTimeline.addEventListener('mouseleave', () => {
+        isDown = false;
+        horizontalTimeline.style.cursor = 'grab';
+      });
+
+      horizontalTimeline.addEventListener('mouseup', () => {
+        isDown = false;
+        horizontalTimeline.style.cursor = 'grab';
+      });
+
+      horizontalTimeline.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - horizontalTimeline.offsetLeft;
+        const walk = (x - startX) * 2;
+        horizontalTimeline.scrollLeft = scrollLeft - walk;
+      });
+    }
+  });
+</script>
+</body>
+</html> 
