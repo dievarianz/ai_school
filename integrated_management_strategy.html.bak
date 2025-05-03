@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Financial Management | St.Gallen imt Business School</title>
+<title>Integrated Management and Strategy | St.Gallen imt Business School</title>
 
 <!-- ============ STYLES ============ -->
 <style>
@@ -115,6 +115,60 @@
     overflow: hidden;
   }
 
+  /* Programm Informationen Styles */
+  .program-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+  
+  .program-info-box {
+    background-color: white;
+    border-radius: var(--radius);
+    border: 2px solid transparent;
+    text-align: center;
+    padding: 24px 20px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.07), 0 1px 3px rgba(0,0,0,0.06);
+  }
+  
+  .program-info-box:hover {
+    border-color: var(--imt-purple);
+  }
+  
+  .program-info-icon {
+    color: var(--imt-purple);
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+  
+  .program-info-label {
+    text-transform: uppercase;
+    color: var(--color-muted);
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+  
+  .program-info-value {
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: var(--color-text);
+  }
+  
+  @media (max-width: 768px) {
+    .program-info-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .program-info-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
   #hero::before {
     content: '';
     position: absolute;
@@ -123,7 +177,7 @@
     width: 100%;
     height: 100%;
     background: 
-        url('assets/pictures/hero_financial_management.jpg')
+        url('assets/pictures/hero_integrated_management_strategy.jpg')
         center/cover no-repeat;
     opacity: 0.20;
     z-index: 0;
@@ -147,6 +201,163 @@
     );
     opacity: 0.05;
     z-index: 1;
+  }
+
+  /* Toast Teaser Stil */
+  .teaser-toast {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px 15px;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .teaser-toast-icon {
+    background-color: var(--imt-purple);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  /* CSS for Gradient Text Teaser */
+  .teaser-gradient-text {
+    display: inline-block;
+    margin-bottom: 15px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, var(--imt-purple), #9c27b0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    padding: 3px 0;
+    text-align: center;
+    width: 100%;
+  }
+  
+  /* Sparkle animation for the sparkle symbols */
+  .sparkle-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .sparkle-wrapper::before,
+  .sparkle-wrapper::after {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .sparkle-wrapper::before {
+    animation: sparkle-1 3s infinite;
+  }
+  
+  .sparkle-wrapper::after {
+    animation: sparkle-2 2.5s infinite;
+    animation-delay: 0.3s;
+  }
+  
+  .sparkle-wrapper .dot-1,
+  .sparkle-wrapper .dot-2,
+  .sparkle-wrapper .dot-3 {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .sparkle-wrapper .dot-1 {
+    animation: sparkle-3 3.5s infinite;
+    animation-delay: 0.7s;
+  }
+  
+  .sparkle-wrapper .dot-2 {
+    animation: sparkle-4 2.8s infinite;
+    animation-delay: 1.2s;
+  }
+  
+  .sparkle-wrapper .dot-3 {
+    animation: sparkle-5 3.2s infinite;
+    animation-delay: 1.9s;
+  }
+  
+  @keyframes sparkle-1 {
+    0%, 100% { opacity: 0; transform: translate(0, 0) scale(1); }
+    10% { opacity: 0.8; transform: translate(-5px, -5px) scale(1.2); }
+    20% { opacity: 0; transform: translate(-8px, -8px) scale(0.8); }
+  }
+  
+  @keyframes sparkle-2 {
+    0%, 100% { opacity: 0; transform: translate(0, 0) scale(1); }
+    10% { opacity: 0.8; transform: translate(5px, -5px) scale(1.1); }
+    20% { opacity: 0; transform: translate(8px, -8px) scale(0.9); }
+  }
+  
+  @keyframes sparkle-3 {
+    0%, 100% { opacity: 0; transform: translate(0, 0) scale(1); }
+    10% { opacity: 0.8; transform: translate(0px, -7px) scale(1.2); }
+    20% { opacity: 0; transform: translate(0px, -10px) scale(0.8); }
+  }
+  
+  @keyframes sparkle-4 {
+    0%, 100% { opacity: 0; transform: translate(0, 0) scale(1); }
+    10% { opacity: 0.8; transform: translate(-6px, 2px) scale(1.1); }
+    20% { opacity: 0; transform: translate(-9px, 4px) scale(0.9); }
+  }
+  
+  @keyframes sparkle-5 {
+    0%, 100% { opacity: 0; transform: translate(0, 0) scale(1); }
+    10% { opacity: 0.8; transform: translate(6px, 4px) scale(1.2); }
+    20% { opacity: 0; transform: translate(9px, 6px) scale(0.8); }
+  }
+  
+  /* Simple sparkle effect for the emoji */
+  .star-twinkle {
+    display: inline-block;
+    position: relative;
+  }
+  
+  .star-left {
+    animation: twinkle-left 3s ease-in-out infinite;
+  }
+  
+  .star-right {
+    animation: twinkle-right 2.5s ease-in-out infinite;
+  }
+  
+  @keyframes twinkle-left {
+    0%, 100% { opacity: 1; filter: brightness(1); }
+    25% { opacity: 1; filter: brightness(1.3); }
+    50% { opacity: 0.9; filter: brightness(1); }
+    75% { opacity: 1; filter: brightness(1.2); }
+  }
+  
+  @keyframes twinkle-right {
+    0%, 100% { opacity: 1; filter: brightness(1); }
+    30% { opacity: 1; filter: brightness(1.2); }
+    60% { opacity: 0.9; filter: brightness(1); }
+    80% { opacity: 1; filter: brightness(1.3); }
   }
 
   #hero .container {
@@ -1075,50 +1286,111 @@
     }
   }
 
-  /* Programm Informationen Styles */
-  .program-info-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-    margin-bottom: 40px;
-  }
-  
-  .program-info-box {
-    background-color: white;
-    border-radius: var(--radius);
-    border: 2px solid transparent;
-    text-align: center;
-    padding: 24px 20px;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.07), 0 1px 3px rgba(0,0,0,0.06);
-  }
-  
-  .program-info-box:hover {
-    border-color: var(--imt-purple);
-  }
-  
-  .program-info-icon {
+  /* Spotlight Teaser */
+  .teaser-spotlight {
+    position: relative;
+    background: linear-gradient(120deg, rgba(110, 69, 226, 0.1), rgba(156, 39, 176, 0.1));
+    border-radius: 6px;
+    padding: 8px 15px;
+    margin-bottom: 15px;
+    font-size: 0.85rem;
+    font-weight: 500;
     color: var(--imt-purple);
-    font-size: 28px;
+    text-align: center;
+    overflow: hidden;
+  }
+  
+  .teaser-spotlight::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 60%);
+    opacity: 0.6;
+    animation: spotlight 3s infinite linear;
+    pointer-events: none;
+  }
+  
+  @keyframes spotlight {
+    0% { transform: translate(-30%, -30%) rotate(0deg); }
+    100% { transform: translate(-30%, -30%) rotate(360deg); }
+  }
+
+  /* Bubble Teaser Style */
+  .teaser-bubble {
+    display: inline-block;
+    position: relative;
+    background-color: var(--imt-purple);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 18px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+  
+  .teaser-bubble::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 20px;
+    width: 15px;
+    height: 15px;
+    background-color: var(--imt-purple);
+    transform: rotate(45deg);
+    clip-path: polygon(0% 0%, 100% 100%, 0% 100%);
+  }
+
+  /* Floating Teaser Style */
+  .teaser-floating {
+    position: absolute;
+    top: -15px;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+  
+  .teaser-floating span {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--imt-purple), #9c27b0);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  
+  /* Tag Teaser Style */
+  .teaser-tag {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--imt-purple);
+    color: var(--imt-purple);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 500;
     margin-bottom: 15px;
   }
   
-  .program-info-label {
-    text-transform: uppercase;
-    color: var(--color-muted);
-    font-size: 0.8rem;
-    margin-bottom: 8px;
-  }
-  
-  .program-info-value {
-    font-weight: 600;
-    color: var(--color-text);
+  .teaser-tag::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--imt-purple);
+    margin-right: 8px;
   }
 
   /* Tabs Design für Starttermine */
   .dates-tabs {
     margin-top: 40px;
-    margin-bottom: 0; /* Reduziert von 60px auf 0 */
+    margin-bottom: 0;
   }
 
   .tabs-nav {
@@ -1203,6 +1475,68 @@
     border-bottom: 2px solid var(--imt-purple);
   }
 
+  /* Datums-Karten Styles */
+  .dates-container {
+    margin-top: 40px;
+    margin-bottom: 60px;
+  }
+
+  .dates-heading {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--imt-purple);
+  }
+
+  .date-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  .date-card {
+    background-color: var(--color-card-bg);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .date-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  }
+
+  .date-card h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--imt-purple);
+  }
+
+  .date-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .date-list li {
+    display: flex;
+    margin-bottom: 8px;
+    align-items: center;
+  }
+
+  .date-year {
+    font-weight: 600;
+    margin-right: 12px;
+    min-width: 40px;
+  }
+
+  .date-value {
+    color: var(--color-text);
+  }
+
   #hero::before {
 </style>
 
@@ -1225,7 +1559,14 @@
   <!-- Hero-Sektion aus der index.html -->
   <section id="hero">
     <div class="container" style="position: relative;">
-      <h1 style="margin-top: 40px;">Financial Management</h1>
+      <!-- Tag Teaser über der Überschrift -->
+      <div style="text-align: center; margin-bottom: 5px;">
+        <div class="teaser-tag">
+          Nur noch wenige Plätze verfügbar
+        </div>
+      </div>
+      
+      <h1 style="margin-top: 10px;"> Integrated Management and Strategy </h1>
 
       <!-- Button zwischen Überschrift und Info-Boxen -->
       <a href="#broschuere">
@@ -1233,32 +1574,32 @@
       </a>
 
       <div class="info-grid">
-        <!-- Ort Box -->
+        <!-- Location Box -->
         <div class="info-box">
           <i class="bx bx-map"></i>
           <span class="info-label">Ort</span>
           <span class="info-value">St. Gallen</span>
         </div>
 
-        <!-- Dauer Box -->
+        <!-- Length Box -->
         <div class="info-box">
           <i class="bx bx-time"></i>
           <span class="info-label">Dauer</span>
           <span class="info-value">3 Tage</span>
         </div>
 
-        <!-- Sprache Box -->
+        <!-- Fee Box -->
         <div class="info-box">
-          <i class="bx bx-globe"></i>
-          <span class="info-label">Sprache</span>
-          <span class="info-value">Deutsch</span>
+          <i class="bx bx-euro"></i>
+          <span class="info-label">Investition</span>
+          <span class="info-value">2500 €</span>
         </div>
 
-        <!-- Starttermin Box -->
+        <!-- Next Start Box -->
         <div class="info-box">
           <i class="bx bx-calendar"></i>
-          <span class="info-label">Starttermin</span>
-          <span class="info-value">05.05.2025</span>
+          <span class="info-label">Start</span>
+          <span class="info-value">25.5.2025</span>
         </div>
       </div>
     </div>
@@ -1268,9 +1609,9 @@
   <div class="container">
     <!-- Module-Content Sektion -->
     <section id="module-content" class="content-section">
-      <h2>Financial Management</h2>
+      <h2>Integrated Management and Strategy</h2>
       
-      <p class="section-subtitle">Entdecken Sie die sieben Schlüsselmodule unseres Executive Seminars – von KI-Grundlagen bis zur erfolgreichen Implementierung in Ihrem Unternehmen.</p>
+      <p class="section-subtitle">Entdecken Sie die sieben Schlüsselmodule unseres Executive Seminars – von Management-Grundlagen bis zur erfolgreichen Implementierung von Strategien in Ihrem Unternehmen.</p>
       
       <div class="slider-container">
         <button aria-label="Zurück" class="slider-btn prev" disabled></button>
@@ -1423,7 +1764,7 @@
     <section id="program-info" class="content-section" style="padding: 60px 0;">
       <div class="container">
         <h2 style="font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600; text-align: left !important; color: var(--color-text);">Programm Informationen</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Alle wichtigen Details zum Financial Management Programm auf einen Blick.</p>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Alle wichtigen Details zum Integrated Management and Strategy Programm auf einen Blick.</p>
         
         <div class="program-info-grid">
           <!-- Box 1: Ort -->
@@ -1454,6 +1795,21 @@
             <div class="program-info-value">Deutsch</div>
           </div>
 
+
+           <!-- Box 8: Programmtyp -->
+           <div class="program-info-box">
+            <i class='bx bx-book-open program-info-icon'></i>
+            <div class="program-info-label">Programmtyp</div>
+            <div class="program-info-value">Seminar</div>
+          </div>
+
+          <!-- Box 4: ECTS -->
+            <div class="program-info-box">
+            <i class='bx bx-award program-info-icon'></i>
+            <div class="program-info-label">ECTS</div>
+            <div class="program-info-value">2</div>
+          </div>
+
         
           <!-- Box 7: Zielgruppe -->
           <div class="program-info-box">
@@ -1464,10 +1820,10 @@
 
           <!-- Box 3: Investition -->
           <div class="program-info-box">
-            <i class='bx bx-money program-info-icon'></i>
+             <i class='bx bx-money program-info-icon'></i>
             <div class="program-info-label">Investition</div>
             <div class="program-info-value">2500 €</div>
-          </div>
+           </div>
 
           <!-- Box 9: Netzwerk -->
           <div class="program-info-box">
@@ -1477,44 +1833,65 @@
           </div>
         </div>
         
-        <!-- Starttermine - Tab Design -->
-        <div class="dates-tabs">
+        <!-- Starttermine - Karten Design -->
+        <div class="dates-container">
           <h3 class="dates-heading"><i class='bx bx-calendar-alt' style="margin-right: 8px;"></i>Verfügbare Starttermine</h3>
-          <div class="tabs-nav">
-            <button class="tab-button active" data-target="tab-2025">2025</button>
-            <button class="tab-button" data-target="tab-2026">2026</button>
-          </div>
-
-          <div class="tab-content">
-            <!-- Tab 2025 -->
-            <div class="tab-pane active" id="tab-2025">
-              <div class="date-module">
-                <table class="date-table">
-                  <tr>
-                    <td>05.-07.05.2025</td>
-                  </tr>
-                  <tr>
-                    <td>06.-08.10.2025</td>
-                  </tr>
-                </table>
-              </div>
+          <div class="date-cards">
+            <!-- Karte 1 -->
+            <div class="date-card">
+              <h4>Integrated Management and Strategy</h4>
+              <ul class="date-list">
+                <li>
+                  <span class="date-year">2025:</span>
+                  <span class="date-value">05.-07.05.2025</span>
+                </li>
+                <li>
+                  <span class="date-year">2025:</span>
+                  <span class="date-value">06.-08.10.2025</span>
+                </li>
+                <li>
+                  <span class="date-year">2026:</span>
+                  <span class="date-value">20.-22.04.2026</span>
+                </li>
+              </ul>
             </div>
 
-            <!-- Tab 2026 -->
-            <div class="tab-pane" id="tab-2026">
-              <div class="date-module">
-                <table class="date-table">
-                  <tr>
-                    <td>20.-22.04.2026</td>
-                  </tr>
-                  <tr>
-                    <td>23.-25.04.2026</td>
-                  </tr>
-                  <tr>
-                    <td>18.-20.06.2026</td>
-                  </tr>
-                </table>
-              </div>
+            <!-- Karte 2 -->
+            <div class="date-card">
+              <h4>Strategisches Denken</h4>
+              <ul class="date-list">
+                <li>
+                  <span class="date-year">2025:</span>
+                  <span class="date-value">08.-10.05.2025</span>
+                </li>
+                <li>
+                  <span class="date-year">2025:</span>
+                  <span class="date-value">09.-11.10.2025</span>
+                </li>
+                <li>
+                  <span class="date-year">2026:</span>
+                  <span class="date-value">23.-25.04.2026</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Karte 3 -->
+            <div class="date-card">
+              <h4>Führung und Management</h4>
+              <ul class="date-list">
+                <li>
+                  <span class="date-year">2025:</span>
+                  <span class="date-value">26.-28.06.2025</span>
+                </li>
+                <li>
+                  <span class="date-year">2025:</span>
+                  <span class="date-value">04.-06.12.2025</span>
+                </li>
+                <li>
+                  <span class="date-year">2026:</span>
+                  <span class="date-value">18.-20.06.2026</span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -1525,7 +1902,7 @@
     <section id="participants">
       <div class="container">
         <h2>Information über Teilnehmer</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Unser Executive Seminar Financial Management bringt erfahrene Führungskräfte aus verschiedenen Branchen und Ländern zusammen.</p>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Unser Executive Seminar KI in Business Strategy & Digital Transformation bringt erfahrene Führungskräfte aus verschiedenen Branchen und Ländern zusammen.</p>
         <div class="stats-grid">
             <!-- Berufserfahrung -->
             <div class="stat-card">
@@ -1670,13 +2047,13 @@
     <section id="contact">
       <div class="container">
         <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Advisor</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Ihr persönlicher Ansprechpartner für alle Fragen rund um das Executive Seminar Financial Management – profitieren Sie von seiner langjährigen Expertise in der digitalen Transformation.</p>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Ihr persönlicher Ansprechpartner für alle Fragen rund um das Executive Seminar Integrated Management and Strategy – profitieren Sie von seiner langjährigen Expertise in der Unternehmensführung und Strategieentwicklung.</p>
         
         <div class="contact-info">
           <img alt="Monika Dutkiewicz" src="https://lirp.cdn-website.com/d603a072/dms3rep/multi/opt/Monika-Dutkiewiecz-70a9e6ff-bb2e6919-9188df2f-1920w.jpeg"/>
           <div class="contact-details">
             <h3>Monika Dutkiewicz</h3>
-            <p style="margin-bottom: 0;">Ansprechpartner KI in Business Strategy & Digital Transformation</p>
+            <p style="margin-bottom: 0;">Ansprechpartner Integrated Management and Strategy</p>
             <p style="margin-bottom: 0; margin-top: 0;"><a href="mailto:monika.dutkiewicz@imt.ch" style="color: #9c27b0;">monika.dutkiewicz@imt.ch</a></p>
             <p style="margin-bottom: 0; margin-top: 0;">+41 71 224 72 22</p>
           </div>
@@ -1688,7 +2065,7 @@
     <section id="broschuere">
       <div class="container">
         <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Kostenlos Broschüre herunterladen</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Laden Sie jetzt die ausführliche Programmbroschüre zum Executive Seminar Financial Management herunter – mit allen Details zu Inhalten, Methoden und Ihrem Lernerfolg.</p>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Laden Sie jetzt die ausführliche Programmbroschüre zum Executive Seminar Integrated Management and Strategy herunter – mit allen Details zu Inhalten, Methoden und Ihrem Lernerfolg.</p>
         <div style="display: flex; gap: 32px; align-items: stretch; flex-wrap: wrap; margin-top: 32px;">
           
           <!-- Formular -->
@@ -1818,7 +2195,7 @@
             <div id="download-ready" class="hidden" style="text-align: center; margin-top: 24px;">
               <h3 style="margin-bottom: 16px;">Vielen Dank für Ihr Interesse!</h3>
               <p style="margin-bottom: 24px;">Ihre Broschüre steht zum Download bereit.</p>
-              <a href="assets/broschueren/financial_management.pdf" download class="cta-button">
+              <a href="assets/broschueren/integrated_management_strategy.pdf" download class="cta-button">
                 Broschüre herunterladen <span class="arrow-icon">→</span>
               </a>
             </div>
@@ -2127,7 +2504,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Collect form data
             const formData = {
-                programm: "Financial Management",
+                programm: "Integrated Management and Strategy",
                 vorname: form.querySelector('[name="firstname"]').value,
                 nachname: form.querySelector('[name="lastname"]').value,
                 email: form.querySelector('[name="email"]').value,
@@ -2300,8 +2677,8 @@ document.addEventListener('DOMContentLoaded', () => {
           // Programm-Titel setzen
           const programTitle = document.querySelector('.program-title');
           if (programTitle) {
-            programTitle.textContent = "Financial Management";
-            programTitle.href = "programm-seite.html";
+            programTitle.textContent = "Integrated Management and Strategy";
+            programTitle.href = "integrated_management_strategy.html";
           }
         }
         
@@ -2411,6 +2788,5 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 </script>
-
 </body>
 </html> 
