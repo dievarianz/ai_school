@@ -248,6 +248,19 @@
     }
   }
 
+  /* Tag Teaser Style */
+  .teaser-tag {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--imt-purple);
+    color: var(--imt-purple);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+  }
+
   /* Info-Boxen exakt wie in index.html */
   .info-grid {
     display: flex;
@@ -1202,6 +1215,103 @@
     padding-bottom: 8px;
     border-bottom: 2px solid var(--imt-purple);
   }
+
+  /* Date List Styles */
+  .date-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .date-list-item {
+    border-bottom: 1px solid #eee;
+    padding: 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .date-list-item:last-child {
+    border-bottom: none;
+  }
+  
+  .date-list-info {
+    display: flex;
+    align-items: center;
+    flex: 1;
+  }
+  
+  /* Verbesserte Ausrichtung für Desktop-Ansicht */
+  .date-info-content {
+    display: flex;
+    align-items: center;
+    flex: 1;
+  }
+  
+  .date-text {
+    width: 180px;
+    padding-right: 10px;
+  }
+  
+  .date-location {
+    width: 120px;
+    color: var(--color-muted);
+    font-size: 0.9rem;
+    margin-left: 10px;
+  }
+  
+  .date-icon {
+    margin-right: 15px;
+    margin-bottom: 0;
+    font-size: 2rem;
+    color: var(--imt-purple);
+  }
+  
+  /* Mobile Styles für Date List */
+  @media (max-width: 768px) {
+    .date-list-item {
+      flex-direction: column;
+      padding: 20px 0;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .date-list-info {
+      flex-direction: row;
+      align-items: flex-start;
+      margin-bottom: 15px;
+      width: 100%;
+    }
+    
+    .date-list-info i.date-icon {
+      margin-right: 15px;
+      margin-bottom: 0;
+      font-size: 2rem;
+      color: var(--imt-purple);
+    }
+    
+    .date-info-content {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      align-items: flex-start;
+    }
+    
+    .date-text {
+      width: auto;
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      line-height: 1.3;
+      padding-right: 0;
+    }
+    
+    .date-location {
+      width: auto;
+      margin-left: 0;
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+  }
 </style>
 
 <!-- BoxIcons für Icons -->
@@ -1223,7 +1333,14 @@
   <!-- Hero-Sektion aus der index.html -->
   <section id="hero">
     <div class="container" style="position: relative;">
-      <h1 style="margin-top: 40px;">KI in Business Strategy and Business Transformation</h1>
+      <!-- Tag Teaser über der Überschrift -->
+      <div style="text-align: center; margin-bottom: 5px;">
+        <div class="teaser-tag">
+          Managementseminar
+        </div>
+      </div>
+      
+      <h1 style="margin-top: 10px;">KI in Business Strategy and Business Transformation</h1>
 
       <!-- Button zwischen Überschrift und Info-Boxen -->
       <a href="#broschuere">
@@ -1420,7 +1537,7 @@
     <!-- Programm Informationen -->
     <section id="program-info" class="content-section" style="padding: 60px 0;">
       <div class="container">
-        <h2 style="font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600; text-align: left !important; color: var(--color-text);">Programm Informationen</h2>
+        <h2 style="font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600; text-align: left !important; color: var(--color-text);">Programm-Informationen</h2>
         <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Alle wichtigen Details zum KI Business Strategy and Digital Transformation Programm auf einen Blick.</p>
         
         <div class="program-info-grid">
@@ -1487,31 +1604,64 @@
             <!-- Tab 2025 -->
             <div class="tab-pane active" id="tab-2025">
               <div class="date-module">
-                <table class="date-table">
-                  <tr>
-                    <td>05.-07.05.2025</td>
-                  </tr>
-                  <tr>
-                    <td>06.-08.10.2025</td>
-                  </tr>
-                </table>
+                <ul class="date-list">
+                  <li class="date-list-item">
+                    <div class="date-list-info">
+                      <i class="bx bx-calendar-alt date-icon"></i>
+                      <div class="date-info-content">
+                        <span class="date-text">05.-07.05.2025</span>
+                        <span class="date-location">(St. Gallen)</span>
+                      </div>
+                    </div>
+                  </li>
+                  
+                  <li class="date-list-item">
+                    <div class="date-list-info">
+                      <i class="bx bx-calendar-alt date-icon"></i>
+                      <div class="date-info-content">
+                        <span class="date-text">06.-08.10.2025</span>
+                        <span class="date-location">(Online)</span>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
               </div>
             </div>
 
             <!-- Tab 2026 -->
             <div class="tab-pane" id="tab-2026">
               <div class="date-module">
-                <table class="date-table">
-                  <tr>
-                    <td>20.-22.04.2026</td>
-                  </tr>
-                  <tr>
-                    <td>23.-25.04.2026</td>
-                  </tr>
-                  <tr>
-                    <td>18.-20.06.2026</td>
-                  </tr>
-                </table>
+                <ul class="date-list">
+                  <li class="date-list-item">
+                    <div class="date-list-info">
+                      <i class="bx bx-calendar-alt date-icon"></i>
+                      <div class="date-info-content">
+                        <span class="date-text">20.-22.04.2026</span>
+                        <span class="date-location">(St. Gallen)</span>
+                      </div>
+                    </div>
+                  </li>
+                  
+                  <li class="date-list-item">
+                    <div class="date-list-info">
+                      <i class="bx bx-calendar-alt date-icon"></i>
+                      <div class="date-info-content">
+                        <span class="date-text">23.-25.04.2026</span>
+                        <span class="date-location">(Online)</span>
+                      </div>
+                    </div>
+                  </li>
+                  
+                  <li class="date-list-item">
+                    <div class="date-list-info">
+                      <i class="bx bx-calendar-alt date-icon"></i>
+                      <div class="date-info-content">
+                        <span class="date-text">18.-20.06.2026</span>
+                        <span class="date-location">(St. Gallen)</span>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
@@ -1621,7 +1771,7 @@
     <!-- Faculty & Experts Section -->
     <section id="faculty">
       <div class="container">
-        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Faculty & Experts</h2>
+        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Akademische Leitung</h2>
         <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Lernen Sie von führenden Experten aus Wissenschaft und Praxis – profitieren Sie von jahrelanger Erfahrung in KI und digitaler Transformation.</p>
         
         <div class="faculty-grid">

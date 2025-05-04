@@ -202,6 +202,46 @@
       padding: 0;
     }
   }
+
+  /* Made in Switzerland Text und Flag im Footer */
+  .made-in-swiss {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    gap: 8px;
+    padding-left: 0;
+  }
+
+  .made-in-text {
+    font-size: 0.9rem;
+    color: var(--color-muted);
+    margin-left: 0;
+  }
+
+  .swiss-flag-mini {
+    width: 18px;
+    height: 18px;
+    background-color: var(--swiss-red, #ff0000);
+    border-radius: 2px;
+    position: relative;
+  }
+
+  .swiss-flag-mini:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    clip-path: polygon(0 33%, 33% 33%, 33% 0, 67% 0, 67% 33%, 100% 33%, 100% 67%, 67% 67%, 67% 100%, 33% 100%, 33% 67%, 0 67%);
+  }
+
+  /* Füge die Variable für die Schweizer Flaggenfarbe hinzu, falls nicht definiert */
+  :root {
+    --swiss-red: #ff0000;
+  }
 </style>
 
 <footer>
@@ -209,6 +249,10 @@
     <div class="footer-columns">
       <div class="footer-col">
         <h3>StGallen<br/>imt Business School</h3>
+        <div class="made-in-swiss">
+          <span class="made-in-text">Swiss Made</span>
+          <div class="swiss-flag-mini"></div>
+        </div>
       </div>
       <div class="footer-col">
         <h3>Programme</h3>
@@ -243,7 +287,7 @@
         </ul>
         <h3 style="margin-top: 20px;">Support</h3>
         <ul>
-          <li><a href="support_aboutimt.html">Über St. Gallen IMT</a></li>
+          <li><a href="support_aboutimt.html">Über StGallen</a></li>
           <li><a href="support_kursinformationen.html">Programminformationen</a></li>
           <li><a href="support_ansprechpartner.html">Ansprechpartner</a></li>
           <li><a href="support.html#faq">FAQ</a></li>
@@ -253,8 +297,8 @@
         <h3>Kontakt</h3>
         <ul>
           <li><a href="kontakt.html">Unverbindlichen Termin buchen</a></li>
-          <li><a href="tel:+41712776000">Tel.: +41 71 277 60 00</a></li>
           <li><a href="mailto:info@imtschool.ch">E-Mail: info@imtschool.ch</a></li>
+          <li><a href="kontakt.html">Tel.: +41 71 277 60 00</a></li>
         </ul>
         
         <h3 style="margin-top: 30px;">Rechtliche Hinweise</h3>

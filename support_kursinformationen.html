@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Kursinformationen | imtxAI Business School</title>
+  <title>Programminformationen</title>
 
   <!-- ============ STYLES ============ -->
   <style>
@@ -261,7 +261,8 @@
       color: var(--imt-purple);
     }
     
-    .select-items .select-item:nth-child(n+6):hover {
+    /* Modified selector to exclude specific management seminars */
+    .select-items .select-item:not([data-value="intelligent-process-automation"]):not([data-value="ki-business-strategy"]):not([data-value="ki-augmented-decision-making"]):nth-child(n+6):hover {
       color: #17a689;
     }
     
@@ -633,7 +634,7 @@
           <a href="support.html" class="back-link"><i class='bx bx-arrow-back'></i> Zurück zur Support-Übersicht</a>
         </div>
         
-        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Kursinformationen</h2>
+        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Programminformationen</h2>
         <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Hier finden Sie alle Informationen zu unseren Kursen und Lehrinhalten.</p>
         
         <!-- Broschüren-Download Sektion -->
@@ -646,12 +647,12 @@
             
             <div class="download-container">
               <div class="download-selector">
-                <label for="track-select" style="display: block; margin-bottom: 8px; font-weight: 500;">Wählen Sie einen Track oder ein Programm:</label>
+                <label for="track-select" style="display: block; margin-bottom: 8px; font-weight: 500;">Wählen Sie ein Managementseminar oder ein Programm:</label>
                 
                 <div class="custom-select">
                   <div class="select-selected">Bitte wählen Sie eine Option</div>
                   <div class="select-items select-hide">
-                    <div class="select-category">Einzelseminare</div>
+                    <div class="select-category">Managementseminare</div>
                     <div class="select-item" data-value="integrated-management-strategy">Integrated Management and Strategy</div>
                     <div class="select-item" data-value="financial-management">Financial Management</div>
                     <div class="select-item" data-value="inspirational-leadership">Inspirational Leadership</div>

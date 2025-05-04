@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Financial Management | St.Gallen imt Business School</title>
+<title>Integrated Management and Strategy | St.Gallen imt Business School</title>
 
 <!-- ============ STYLES ============ -->
 <style>
@@ -115,6 +115,60 @@
     overflow: hidden;
   }
 
+  /* Programm Informationen Styles */
+  .program-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+  
+  .program-info-box {
+    background-color: white;
+    border-radius: var(--radius);
+    border: 2px solid transparent;
+    text-align: center;
+    padding: 24px 20px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.07), 0 1px 3px rgba(0,0,0,0.06);
+  }
+  
+  .program-info-box:hover {
+    border-color: var(--imt-purple);
+  }
+  
+  .program-info-icon {
+    color: var(--imt-purple);
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+  
+  .program-info-label {
+    text-transform: uppercase;
+    color: var(--color-muted);
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+  
+  .program-info-value {
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: var(--color-text);
+  }
+  
+  @media (max-width: 768px) {
+    .program-info-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .program-info-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
   #hero::before {
     content: '';
     position: absolute;
@@ -123,7 +177,7 @@
     width: 100%;
     height: 100%;
     background: 
-        url('assets/pictures/hero_financial_management.jpg')
+        url('assets/pictures/hero_integrated_management_strategy.jpg')
         center/cover no-repeat;
     opacity: 0.20;
     z-index: 0;
@@ -147,6 +201,163 @@
     );
     opacity: 0.05;
     z-index: 1;
+  }
+
+  /* Toast Teaser Stil */
+  .teaser-toast {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px 15px;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .teaser-toast-icon {
+    background-color: var(--imt-purple);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  /* CSS for Gradient Text Teaser */
+  .teaser-gradient-text {
+    display: inline-block;
+    margin-bottom: 15px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, var(--imt-purple), #9c27b0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    padding: 3px 0;
+    text-align: center;
+    width: 100%;
+  }
+  
+  /* Sparkle animation for the sparkle symbols */
+  .sparkle-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .sparkle-wrapper::before,
+  .sparkle-wrapper::after {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .sparkle-wrapper::before {
+    animation: sparkle-1 3s infinite;
+  }
+  
+  .sparkle-wrapper::after {
+    animation: sparkle-2 2.5s infinite;
+    animation-delay: 0.3s;
+  }
+  
+  .sparkle-wrapper .dot-1,
+  .sparkle-wrapper .dot-2,
+  .sparkle-wrapper .dot-3 {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .sparkle-wrapper .dot-1 {
+    animation: sparkle-3 3.5s infinite;
+    animation-delay: 0.7s;
+  }
+  
+  .sparkle-wrapper .dot-2 {
+    animation: sparkle-4 2.8s infinite;
+    animation-delay: 1.2s;
+  }
+  
+  .sparkle-wrapper .dot-3 {
+    animation: sparkle-5 3.2s infinite;
+    animation-delay: 1.9s;
+  }
+  
+  @keyframes sparkle-1 {
+    0%, 100% { opacity: 0; transform: translate(0, 0) scale(1); }
+    10% { opacity: 0.8; transform: translate(-5px, -5px) scale(1.2); }
+    20% { opacity: 0; transform: translate(-8px, -8px) scale(0.8); }
+  }
+  
+  @keyframes sparkle-2 {
+    0%, 100% { opacity: 0; transform: translate(0, 0) scale(1); }
+    10% { opacity: 0.8; transform: translate(5px, -5px) scale(1.1); }
+    20% { opacity: 0; transform: translate(8px, -8px) scale(0.9); }
+  }
+  
+  @keyframes sparkle-3 {
+    0%, 100% { opacity: 0; transform: translate(0, 0) scale(1); }
+    10% { opacity: 0.8; transform: translate(0px, -7px) scale(1.2); }
+    20% { opacity: 0; transform: translate(0px, -10px) scale(0.8); }
+  }
+  
+  @keyframes sparkle-4 {
+    0%, 100% { opacity: 0; transform: translate(0, 0) scale(1); }
+    10% { opacity: 0.8; transform: translate(-6px, 2px) scale(1.1); }
+    20% { opacity: 0; transform: translate(-9px, 4px) scale(0.9); }
+  }
+  
+  @keyframes sparkle-5 {
+    0%, 100% { opacity: 0; transform: translate(0, 0) scale(1); }
+    10% { opacity: 0.8; transform: translate(6px, 4px) scale(1.2); }
+    20% { opacity: 0; transform: translate(9px, 6px) scale(0.8); }
+  }
+  
+  /* Simple sparkle effect for the emoji */
+  .star-twinkle {
+    display: inline-block;
+    position: relative;
+  }
+  
+  .star-left {
+    animation: twinkle-left 3s ease-in-out infinite;
+  }
+  
+  .star-right {
+    animation: twinkle-right 2.5s ease-in-out infinite;
+  }
+  
+  @keyframes twinkle-left {
+    0%, 100% { opacity: 1; filter: brightness(1); }
+    25% { opacity: 1; filter: brightness(1.3); }
+    50% { opacity: 0.9; filter: brightness(1); }
+    75% { opacity: 1; filter: brightness(1.2); }
+  }
+  
+  @keyframes twinkle-right {
+    0%, 100% { opacity: 1; filter: brightness(1); }
+    30% { opacity: 1; filter: brightness(1.2); }
+    60% { opacity: 0.9; filter: brightness(1); }
+    80% { opacity: 1; filter: brightness(1.3); }
   }
 
   #hero .container {
@@ -246,19 +457,6 @@
     #hero h1 {
       text-align: center !important; /* Erzwinge Zentrierung auf Mobilgeräten */
     }
-  }
-
-  /* Tag Teaser Style */
-  .teaser-tag {
-    display: inline-flex;
-    align-items: center;
-    border: 1px solid var(--imt-purple);
-    color: var(--imt-purple);
-    padding: 4px 10px;
-    border-radius: 4px;
-    font-size: 0.75rem;
-    font-weight: 500;
-    margin-bottom: 15px;
   }
 
   /* Info-Boxen exakt wie in index.html */
@@ -948,8 +1146,9 @@
   }
 
   .faculty-description {
-    color: var(--color-muted);
+    margin-top: 8px;
     font-size: 0.9rem;
+    color: var(--color-muted);
     line-height: 1.4;
   }
 
@@ -1088,45 +1287,108 @@
     }
   }
 
-  /* Programm Informationen Styles */
-  .program-info-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-    margin-bottom: 40px;
-  }
-  
-  .program-info-box {
-    background-color: white;
-    border-radius: var(--radius);
-    border: 2px solid transparent;
-    text-align: center;
-    padding: 24px 20px;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.07), 0 1px 3px rgba(0,0,0,0.06);
-  }
-  
-  .program-info-box:hover {
-    border-color: var(--imt-purple);
-  }
-  
-  .program-info-icon {
+  /* Spotlight Teaser */
+  .teaser-spotlight {
+    position: relative;
+    background: linear-gradient(120deg, rgba(110, 69, 226, 0.1), rgba(156, 39, 176, 0.1));
+    border-radius: 6px;
+    padding: 8px 15px;
+    margin-bottom: 15px;
+    font-size: 0.85rem;
+    font-weight: 500;
     color: var(--imt-purple);
-    font-size: 28px;
+    text-align: center;
+    overflow: hidden;
+  }
+  
+  .teaser-spotlight::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 60%);
+    opacity: 0.6;
+    animation: spotlight 3s infinite linear;
+    pointer-events: none;
+  }
+  
+  @keyframes spotlight {
+    0% { transform: translate(-30%, -30%) rotate(0deg); }
+    100% { transform: translate(-30%, -30%) rotate(360deg); }
+  }
+
+  /* Bubble Teaser Style */
+  .teaser-bubble {
+    display: inline-block;
+    position: relative;
+    background-color: var(--imt-purple);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 18px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+  
+  .teaser-bubble::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 20px;
+    width: 15px;
+    height: 15px;
+    background-color: var(--imt-purple);
+    transform: rotate(45deg);
+    clip-path: polygon(0% 0%, 100% 100%, 0% 100%);
+  }
+
+  /* Floating Teaser Style */
+  .teaser-floating {
+    position: absolute;
+    top: -15px;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+  
+  .teaser-floating span {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--imt-purple), #9c27b0);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  
+  /* Tag Teaser Style */
+  .teaser-tag {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--imt-purple);
+    color: var(--imt-purple);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 500;
     margin-bottom: 15px;
   }
   
-  .program-info-label {
-    text-transform: uppercase;
-    color: var(--color-muted);
-    font-size: 0.8rem;
-    margin-bottom: 8px;
+  /* Punkt für "Nur noch wenige Plätze verfügbar" - für "Managementseminar" deaktiviert
+  .teaser-tag::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--imt-purple);
+    margin-right: 8px;
   }
-  
-  .program-info-value {
-    font-weight: 600;
-    color: var(--color-text);
-  }
+  */
 
   /* Tabs Design für Starttermine */
   .dates-tabs {
@@ -1224,12 +1486,92 @@
     width: 100%;
     height: 100%;
     background: 
-        url('assets/pictures/hero_financial_management.jpg')
+        url('assets/pictures/hero_integrated_management_strategy.jpg')
         center/cover no-repeat;
     opacity: 0.20;
     z-index: 0;
   }
 
+  /* Styles for the Registration System */
+  .date-icon {
+    color: var(--imt-purple);
+    font-size: 1.5rem;
+    margin-right: 15px;
+  }
+
+  .date-text {
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+
+  .date-location {
+    color: var(--color-muted);
+    font-size: 0.9rem;
+    margin-left: 10px;
+  }
+
+  .date-places {
+    background-color: #e9f7f2;
+    color: #4CB796;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-left: 15px;
+  }
+
+  .date-places.limited {
+    background-color: #fff2e6;
+    color: #ff9f0a;
+  }
+
+  .date-places.full {
+    background-color: #ffeaeb;
+    color: #ff3b30;
+  }
+
+  /* Registration Buttons */
+  .register-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    border: none;
+  }
+
+  .register-btn-primary {
+    background: linear-gradient(to right, var(--imt-purple), #9c27b0);
+    color: white;
+  }
+
+  .register-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(106, 69, 226, 0.2);
+    text-decoration: none;
+  }
+
+  .register-btn-secondary {
+    background: transparent;
+    color: var(--color-text);
+    border: 2px solid #ddd;
+  }
+
+  .register-btn-secondary:hover {
+    background: #f5f5f7;
+    text-decoration: none;
+  }
+
+  .register-btn i {
+    margin-right: 6px;
+  }
+  
   /* Date List Styles */
   .date-list {
     list-style: none;
@@ -1274,19 +1616,257 @@
     margin-left: 10px;
   }
   
-  .date-icon {
-    margin-right: 15px;
-    margin-bottom: 0;
-    font-size: 2rem;
+  .date-places {
+    width: 160px;
+    background-color: #e9f7f2;
+    color: #4CB796;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-left: 15px;
+    text-align: center;
+  }
+  
+  .date-list-action {
+    margin-left: 20px;
+  }
+  
+  /* Modal Styles */
+  .combined-modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+  }
+  
+  .signup-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .signup-header {
+    background: linear-gradient(135deg, var(--imt-purple), #9c27b0);
+    color: white;
+    padding: 20px 30px;
+    position: relative;
+  }
+  
+  .signup-title {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+  }
+  
+  .signup-subtitle {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin-bottom: 20px;
+  }
+  
+  .progress-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-top: 25px;
+  }
+  
+  .progress-bar {
+    position: absolute;
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.7);
+    top: 50%;
+    transform: translateY(-50%);
+    transition: width 0.3s ease;
+    z-index: 1;
+  }
+  
+  .step {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    position: relative;
+    z-index: 2;
+    margin-right: 30%;
+    transition: background-color 0.3s ease;
+  }
+  
+  .step:last-child {
+    margin-right: 0;
+  }
+  
+  .step.active {
+    background-color: white;
     color: var(--imt-purple);
   }
   
-  /* Mobile Styles für Date List */
+  .step.completed {
+    background-color: white;
+    color: var(--imt-purple);
+  }
+  
+  .signup-body {
+    padding: 30px;
+  }
+  
+  .step-title {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+  }
+  
+  .form-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .form-col {
+    flex: 1;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+  }
+  
+  .form-control:focus {
+    border-color: var(--imt-purple);
+    outline: none;
+  }
+  
+  .signup-footer {
+    padding: 20px 30px;
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  /* Course Options */
+  .course-option {
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .course-option.selected {
+    border-color: var(--imt-purple);
+    box-shadow: 0 4px 10px rgba(106, 69, 226, 0.1);
+  }
+  
+  .course-option-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .course-option-title {
+    font-size: 1.1rem;
+    margin: 0;
+  }
+  
+  .course-option-price {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--imt-purple);
+  }
+  
+  .course-option-features {
+    margin-top: 15px;
+  }
+  
+  .feature-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  
+  .feature-icon {
+    color: var(--imt-purple);
+    margin-right: 10px;
+  }
+  
+  /* Confirmation Message */
+  .confirmation-message {
+    text-align: center;
+    padding: 30px 0;
+  }
+  
+  .confirmation-icon {
+    font-size: 4rem;
+    color: #4CB796;
+    margin-bottom: 20px;
+  }
+  
+  .confirmation-title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+  
+  .confirmation-text {
+    font-size: 1.1rem;
+    color: var(--color-muted);
+    margin-bottom: 25px;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  /* Mobile Optimierungen für Registrierung */
   @media (max-width: 768px) {
+    /* Überschriften und Container */
+    .dates-heading {
+      font-size: 1.3rem;
+      padding-bottom: 12px;
+      margin-bottom: 20px;
+    }
+    
+    .dates-tabs {
+      margin-top: 30px;
+    }
+    
+    /* Listendarstellung */
     .date-list-item {
       flex-direction: column;
       padding: 20px 0;
       border-bottom: 1px solid #eee;
+    }
+    
+    .date-list-item:last-child {
+      border-bottom: none;
     }
     
     .date-list-info {
@@ -1325,6 +1905,80 @@
       margin-bottom: 8px;
       font-size: 1rem;
     }
+    
+    .date-places {
+      width: auto;
+      margin-left: 0;
+      font-size: 0.9rem;
+      padding: 6px 12px;
+      display: inline-block;
+      text-align: left;
+    }
+    
+    .date-list-action {
+      margin-left: 0;
+      width: 100%;
+    }
+    
+    .register-btn {
+      width: 100%;
+      padding: 14px 20px;
+      font-size: 1.1rem;
+      border-radius: 10px;
+    }
+    
+    /* Verbesserte Tab Navigation */
+    .tabs-nav {
+      display: flex;
+    }
+    
+    .tab-button {
+      flex: 1;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+    
+    /* Modal-Optimierungen für Mobile */
+    .signup-container {
+      margin: 15px;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    
+    .signup-header {
+      padding: 15px;
+    }
+    
+    .signup-title {
+      font-size: 1.3rem;
+    }
+    
+    .signup-subtitle {
+      font-size: 0.9rem;
+    }
+    
+    .signup-body {
+      padding: 20px 15px;
+    }
+    
+    .form-row {
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    .signup-footer {
+      padding: 15px;
+    }
+    
+    .course-option {
+      padding: 15px;
+    }
+    
+    .step {
+      width: 25px;
+      height: 25px;
+      font-size: 0.9rem;
+    }
   }
 </style>
 
@@ -1354,7 +2008,7 @@
         </div>
       </div>
       
-      <h1 style="margin-top: 10px;">Financial Management</h1>
+      <h1 style="margin-top: 10px;"> Integrated Management and Strategy </h1>
 
       <!-- Button zwischen Überschrift und Info-Boxen -->
       <a href="#broschuere">
@@ -1386,7 +2040,7 @@
         <!-- Starttermin Box -->
         <div class="info-box">
           <i class="bx bx-calendar-alt"></i>
-          <span class="info-label">Starttermin</span>
+          <span class="info-label">Start</span>
           <span class="info-value">05.05.2025</span>
         </div>
       </div>
@@ -1397,9 +2051,9 @@
   <div class="container">
     <!-- Module-Content Sektion -->
     <section id="module-content" class="content-section">
-      <h2>Financial Management</h2>
+      <h2>Integrated Management and Strategy</h2>
       
-      <p class="section-subtitle">Entdecken Sie die sieben Schlüsselmodule unseres Executive Seminars – von KI-Grundlagen bis zur erfolgreichen Implementierung in Ihrem Unternehmen.</p>
+      <p class="section-subtitle">Entdecken Sie die sieben Schlüsselmodule unseres Executive Seminars – von Management-Grundlagen bis zur erfolgreichen Implementierung von Strategien in Ihrem Unternehmen.</p>
       
       <div class="slider-container">
         <button aria-label="Zurück" class="slider-btn prev" disabled></button>
@@ -1551,8 +2205,8 @@
     <!-- Programm Informationen -->
     <section id="program-info" class="content-section" style="padding: 60px 0;">
       <div class="container">
-        <h2 style="font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600; text-align: left !important; color: var(--color-text);">Programm-Informationen</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Alle wichtigen Details zum Financial Management Programm auf einen Blick.</p>
+        <h2 style="font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600; text-align: left !important; color: var(--color-text);">Programm Informationen</h2>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Alle wichtigen Details zum Integrated Management and Strategy Programm auf einen Blick.</p>
         
         <div class="program-info-grid">
           <!-- Box 1: Ort -->
@@ -1569,20 +2223,20 @@
             <div class="program-info-value">3 Tage</div>
           </div>
 
-          <!-- Box 6: Sprache -->
+          <!-- Box 3: Sprache (getauscht mit Einstieg) -->
           <div class="program-info-box">
             <i class='bx bx-globe program-info-icon'></i>
             <div class="program-info-label">Sprache</div>
             <div class="program-info-value">Deutsch</div>
-          </div>
+          </div>  
 
-          <!-- Box 3: Starttermin-->
+          <!-- Box 4: Starttermin (getauscht mit Sprache) -->
           <div class="program-info-box">
             <i class='bx bx-calendar-alt program-info-icon'></i>
             <div class="program-info-label">Starttermin</div>
             <div class="program-info-value">25.5.2025</div>
-          </div>  
-
+          </div>
+        
           <!-- Box 7: Zielgruppe -->
           <div class="program-info-box">
             <i class='bx bx-group program-info-icon'></i>
@@ -1592,10 +2246,10 @@
 
           <!-- Box 3: Investition -->
           <div class="program-info-box">
-            <i class='bx bx-money program-info-icon'></i>
+             <i class='bx bx-money program-info-icon'></i>
             <div class="program-info-label">Investition</div>
             <div class="program-info-value">2500 €</div>
-          </div>
+           </div>
 
           <!-- Box 9: Netzwerk -->
           <div class="program-info-box">
@@ -1624,7 +2278,13 @@
                       <div class="date-info-content">
                         <span class="date-text">05.-07.05.2025</span>
                         <span class="date-location">(St. Gallen)</span>
+                        <span class="date-places">12 Plätze verfügbar</span>
                       </div>
+                    </div>
+                    <div class="date-list-action">
+                      <button class="register-btn register-btn-primary combined-open-btn" data-date="05.-07.05.2025" data-location="St. Gallen">
+                        <i class="bx bx-plus-circle"></i> Anmelden
+                      </button>
                     </div>
                   </li>
                   
@@ -1634,7 +2294,29 @@
                       <div class="date-info-content">
                         <span class="date-text">06.-08.10.2025</span>
                         <span class="date-location">(Online)</span>
+                        <span class="date-places limited">Nur noch 3 Plätze</span>
                       </div>
+                    </div>
+                    <div class="date-list-action">
+                      <button class="register-btn register-btn-primary combined-open-btn" data-date="06.-08.10.2025" data-location="Online">
+                        <i class="bx bx-plus-circle"></i> Anmelden
+                      </button>
+                    </div>
+                  </li>
+                  
+                  <li class="date-list-item">
+                    <div class="date-list-info">
+                      <i class="bx bx-calendar-alt date-icon"></i>
+                      <div class="date-info-content">
+                        <span class="date-text">10.-12.12.2025</span>
+                        <span class="date-location">(St. Gallen)</span>
+                        <span class="date-places full">Ausgebucht</span>
+                      </div>
+                    </div>
+                    <div class="date-list-action">
+                      <button class="register-btn register-btn-secondary combined-open-btn" data-date="10.-12.12.2025" data-location="St. Gallen" data-waitlist="true">
+                        <i class="bx bx-time"></i> Warteliste
+                      </button>
                     </div>
                   </li>
                 </ul>
@@ -1651,7 +2333,13 @@
                       <div class="date-info-content">
                         <span class="date-text">20.-22.04.2026</span>
                         <span class="date-location">(St. Gallen)</span>
+                        <span class="date-places">15 Plätze verfügbar</span>
                       </div>
+                    </div>
+                    <div class="date-list-action">
+                      <button class="register-btn register-btn-primary combined-open-btn" data-date="20.-22.04.2026" data-location="St. Gallen">
+                        <i class="bx bx-plus-circle"></i> Anmelden
+                      </button>
                     </div>
                   </li>
                   
@@ -1661,7 +2349,13 @@
                       <div class="date-info-content">
                         <span class="date-text">23.-25.04.2026</span>
                         <span class="date-location">(Online)</span>
+                        <span class="date-places">20 Plätze verfügbar</span>
                       </div>
+                    </div>
+                    <div class="date-list-action">
+                      <button class="register-btn register-btn-primary combined-open-btn" data-date="23.-25.04.2026" data-location="Online">
+                        <i class="bx bx-plus-circle"></i> Anmelden
+                      </button>
                     </div>
                   </li>
                   
@@ -1671,7 +2365,13 @@
                       <div class="date-info-content">
                         <span class="date-text">18.-20.06.2026</span>
                         <span class="date-location">(St. Gallen)</span>
+                        <span class="date-places">18 Plätze verfügbar</span>
                       </div>
+                    </div>
+                    <div class="date-list-action">
+                      <button class="register-btn register-btn-primary combined-open-btn" data-date="18.-20.06.2026" data-location="St. Gallen">
+                        <i class="bx bx-plus-circle"></i> Anmelden
+                      </button>
                     </div>
                   </li>
                 </ul>
@@ -1681,12 +2381,153 @@
         </div>
       </div>
     </section>
+    
+    <!-- Mehrstufiges Anmeldeformular (als Modal) -->
+    <div class="combined-modal-overlay" id="combinedRegistrationModal">
+      <div class="signup-container" style="max-width: 800px; position: relative; margin: 50px auto;">
+        <div class="signup-header">
+          <h3 class="signup-title">Anmeldung zum Integrated Management and Strategy Seminar</h3>
+          <p class="signup-subtitle">Starttermin: <span id="combinedModalDate">05.-07.05.2025</span> in <span id="combinedModalLocation">St. Gallen</span></p>
+          
+          <div class="progress-container">
+            <div class="progress-bar" style="width: 33%;"></div>
+            <div class="step active">1</div>
+            <div class="step">2</div>
+            <div class="step">3</div>
+          </div>
+          
+          <button class="modal-close" id="combinedModalClose" style="position: absolute; top: 15px; right: 20px; color: white; font-size: 1.5rem; background: none; border: none; cursor: pointer;">&times;</button>
+        </div>
+        
+        <div class="signup-body">
+          <!-- Schritt 1: Persönliche Daten -->
+          <div class="step-content active" id="combinedStep1">
+            <h4 class="step-title">Persönliche Informationen</h4>
+            
+            <form id="combinedRegistrationForm">
+              <div class="form-row">
+                <div class="form-col">
+                  <div class="form-group">
+                    <label class="form-label" for="combinedFirstName">Vorname*</label>
+                    <input type="text" class="form-control" id="combinedFirstName" required>
+                  </div>
+                </div>
+                <div class="form-col">
+                  <div class="form-group">
+                    <label class="form-label" for="combinedLastName">Nachname*</label>
+                    <input type="text" class="form-control" id="combinedLastName" required>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label class="form-label" for="combinedEmail">E-Mail-Adresse*</label>
+                <input type="email" class="form-control" id="combinedEmail" required>
+              </div>
+              
+              <div class="form-row">
+                <div class="form-col">
+                  <div class="form-group">
+                    <label class="form-label" for="combinedPhone">Telefonnummer*</label>
+                    <input type="tel" class="form-control" id="combinedPhone" required>
+                  </div>
+                </div>
+                <div class="form-col">
+                  <div class="form-group">
+                    <label class="form-label" for="combinedPosition">Position*</label>
+                    <input type="text" class="form-control" id="combinedPosition" required>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label class="form-label" for="combinedCompany">Unternehmen*</label>
+                <input type="text" class="form-control" id="combinedCompany" required>
+              </div>
+            </form>
+          </div>
+          
+          <!-- Schritt 2: Programmoptionen (ausgeblendet) -->
+          <div class="step-content" id="combinedStep2" style="display: none;">
+            <h4 class="step-title">Programmoptionen</h4>
+            <p>Bitte wählen Sie Ihre bevorzugte Programmoption:</p>
+            
+            <div class="course-option selected">
+              <div class="course-option-header">
+                <h5 class="course-option-title">Basis-Programm</h5>
+                <div class="course-option-price">€ 3.950</div>
+              </div>
+              <p>3-tägiges Intensivprogramm mit allen Grundlagenmodulen</p>
+              <div class="course-option-features">
+                <div class="feature-item">
+                  <i class="feature-icon bx bx-check"></i>
+                  <span>Teilnahme am gesamten Programm</span>
+                </div>
+                <div class="feature-item">
+                  <i class="feature-icon bx bx-check"></i>
+                  <span>Umfangreiche Kursmaterialien</span>
+                </div>
+                <div class="feature-item">
+                  <i class="feature-icon bx bx-check"></i>
+                  <span>Verpflegung inkludiert</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="course-option">
+              <div class="course-option-header">
+                <h5 class="course-option-title">Premium-Programm</h5>
+                <div class="course-option-price">€ 4.950</div>
+              </div>
+              <p>3-tägiges Programm mit zusätzlichem Coaching und Networking-Event</p>
+              <div class="course-option-features">
+                <div class="feature-item">
+                  <i class="feature-icon bx bx-check"></i>
+                  <span>Alles aus dem Basis-Programm</span>
+                </div>
+                <div class="feature-item">
+                  <i class="feature-icon bx bx-check"></i>
+                  <span>2 Stunden individuelles Coaching</span>
+                </div>
+                <div class="feature-item">
+                  <i class="feature-icon bx bx-check"></i>
+                  <span>Exklusives Networking-Dinner</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Besondere Hinweise für Warteliste -->
+            <div id="waitlistInfo" style="display: none; margin-top: 20px; padding: 15px; background-color: #f8f9fa; border-radius: 8px; border-left: 4px solid var(--imt-purple);">
+              <h5 style="margin-top: 0;">Anmeldung für Warteliste</h5>
+              <p>Da der gewünschte Termin bereits ausgebucht ist, werden Sie auf die Warteliste gesetzt. Wir kontaktieren Sie, sobald ein Platz frei wird.</p>
+            </div>
+          </div>
+          
+          <!-- Schritt 3: Bestätigung (ausgeblendet) -->
+          <div class="step-content" id="combinedStep3" style="display: none;">
+            <div class="confirmation-message">
+              <i class="confirmation-icon bx bx-check-circle"></i>
+              <h4 class="confirmation-title">Vielen Dank für Ihre Anmeldung!</h4>
+              <p class="confirmation-text">Wir haben Ihre Anmeldung erhalten und werden uns in Kürze bei Ihnen melden.</p>
+              <button class="register-btn register-btn-primary" id="closeModalBtn">
+                Abschließen
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="signup-footer">
+          <button class="register-btn register-btn-secondary" id="combinedPrevBtn" style="visibility: hidden;">Zurück</button>
+          <button class="register-btn register-btn-primary" id="combinedNextBtn">Weiter</button>
+        </div>
+      </div>
+    </div>
 
     <!-- Informationen über Teilnehmer -->
     <section id="participants">
       <div class="container">
         <h2>Information über Teilnehmer</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Unser Executive Seminar Financial Management bringt erfahrene Führungskräfte aus verschiedenen Branchen und Ländern zusammen.</p>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Unser Executive Seminar KI in Business Strategy & Digital Transformation bringt erfahrene Führungskräfte aus verschiedenen Branchen und Ländern zusammen.</p>
         <div class="stats-grid">
             <!-- Berufserfahrung -->
             <div class="stat-card">
@@ -1784,7 +2625,7 @@
     <!-- Faculty & Experts Section -->
     <section id="faculty">
       <div class="container">
-        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Akademische Leitung</h2>
+        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Faculty & Experts</h2>
         <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Lernen Sie von führenden Experten aus Wissenschaft und Praxis – profitieren Sie von jahrelanger Erfahrung in KI und digitaler Transformation.</p>
         
         <div class="faculty-grid">
@@ -1831,13 +2672,13 @@
     <section id="contact">
       <div class="container">
         <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Ansprechpartner</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Ihr persönlicher Ansprechpartner für alle Fragen rund um das Managementseminar Financial Management – profitieren Sie von seiner langjährigen Expertise in der digitalen Transformation.</p>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Ihr persönlicher Ansprechpartner für alle Fragen rund um das Executive Seminar Integrated Management and Strategy – profitieren Sie von seiner langjährigen Expertise in der Unternehmensführung und Strategieentwicklung.</p>
         
         <div class="contact-info">
           <img alt="Monika Dutkiewicz" src="https://lirp.cdn-website.com/d603a072/dms3rep/multi/opt/Monika-Dutkiewiecz-70a9e6ff-bb2e6919-9188df2f-1920w.jpeg"/>
           <div class="contact-details">
             <h3>Monika Dutkiewicz</h3>
-            <p style="margin-bottom: 0;">Ansprechpartner KI in Business Strategy & Digital Transformation</p>
+            <p style="margin-bottom: 0;">Ansprechpartner Integrated Management and Strategy</p>
             <p style="margin-bottom: 0; margin-top: 0;"><a href="mailto:monika.dutkiewicz@imt.ch" style="color: #9c27b0;">monika.dutkiewicz@imt.ch</a></p>
             <p style="margin-bottom: 0; margin-top: 0;">+41 71 224 72 22</p>
           </div>
@@ -1849,7 +2690,7 @@
     <section id="broschuere">
       <div class="container">
         <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Kostenlos Broschüre herunterladen</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Laden Sie jetzt die ausführliche Programmbroschüre zum Executive Seminar Financial Management herunter – mit allen Details zu Inhalten, Methoden und Ihrem Lernerfolg.</p>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Laden Sie jetzt die ausführliche Programmbroschüre zum Executive Seminar Integrated Management and Strategy herunter – mit allen Details zu Inhalten, Methoden und Ihrem Lernerfolg.</p>
         <div style="display: flex; gap: 32px; align-items: stretch; flex-wrap: wrap; margin-top: 32px;">
           
           <!-- Formular -->
@@ -1979,7 +2820,7 @@
             <div id="download-ready" class="hidden" style="text-align: center; margin-top: 24px;">
               <h3 style="margin-bottom: 16px;">Vielen Dank für Ihr Interesse!</h3>
               <p style="margin-bottom: 24px;">Ihre Broschüre steht zum Download bereit.</p>
-              <a href="assets/broschueren/financial_management.pdf" download class="cta-button">
+              <a href="assets/broschueren/integrated_management_strategy.pdf" download class="cta-button">
                 Broschüre herunterladen <span class="arrow-icon">→</span>
               </a>
             </div>
@@ -2288,7 +3129,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Collect form data
             const formData = {
-                programm: "Financial Management",
+                programm: "Integrated Management and Strategy",
                 vorname: form.querySelector('[name="firstname"]').value,
                 nachname: form.querySelector('[name="lastname"]').value,
                 email: form.querySelector('[name="email"]').value,
@@ -2461,8 +3302,8 @@ document.addEventListener('DOMContentLoaded', () => {
           // Programm-Titel setzen
           const programTitle = document.querySelector('.program-title');
           if (programTitle) {
-            programTitle.textContent = "Financial Management";
-            programTitle.href = "programm-seite.html";
+            programTitle.textContent = "Integrated Management and Strategy";
+            programTitle.href = "integrated_management_strategy.html";
           }
         }
         
@@ -2573,5 +3414,189 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
+<!-- Tracking & Cookie Consent Script-->
+<script src="assets/js/cookie-consent.js" defer></script>
+
+<!-- Registration System JavaScript -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Tab-Funktionalität für Daten
+    const tabButtons = document.querySelectorAll('.tab-button');
+    tabButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        // Aktive Klasse von allen Tabs entfernen
+        tabButtons.forEach(b => b.classList.remove('active'));
+        
+        // Aktive Klasse zum geklickten Tab hinzufügen
+        this.classList.add('active');
+        
+        // Alle Tab-Inhalte ausblenden
+        const tabPanes = document.querySelectorAll('.tab-pane');
+        tabPanes.forEach(pane => pane.classList.remove('active'));
+        
+        // Ausgewählten Tab-Inhalt anzeigen
+        const targetId = this.getAttribute('data-target');
+        document.getElementById(targetId).classList.add('active');
+      });
+    });
+    
+    // Funktionalität für Anmelde-Modal
+    const openButtons = document.querySelectorAll('.combined-open-btn');
+    const modalOverlay = document.getElementById('combinedRegistrationModal');
+    const modalClose = document.getElementById('combinedModalClose');
+    const modalDate = document.getElementById('combinedModalDate');
+    const modalLocation = document.getElementById('combinedModalLocation');
+    const waitlistInfo = document.getElementById('waitlistInfo');
+    
+    // Modal öffnen
+    openButtons.forEach(btn => {
+      btn.addEventListener('click', function() {
+        modalDate.textContent = this.getAttribute('data-date');
+        modalLocation.textContent = this.getAttribute('data-location');
+        
+        if (this.getAttribute('data-waitlist') === 'true') {
+          waitlistInfo.style.display = 'block';
+        } else {
+          waitlistInfo.style.display = 'none';
+        }
+        
+        modalOverlay.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    
+    // Modal schließen
+    modalClose.addEventListener('click', function() {
+      modalOverlay.style.display = 'none';
+      document.body.style.overflow = 'auto';
+      resetModal();
+    });
+    
+    document.getElementById('closeModalBtn')?.addEventListener('click', function() {
+      modalOverlay.style.display = 'none';
+      document.body.style.overflow = 'auto';
+      resetModal();
+    });
+    
+    // Modal schließen, wenn außerhalb geklickt wird
+    modalOverlay.addEventListener('click', function(e) {
+      if (e.target === modalOverlay) {
+        modalOverlay.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        resetModal();
+      }
+    });
+    
+    // Multi-Step-Funktionalität
+    const nextBtn = document.getElementById('combinedNextBtn');
+    const prevBtn = document.getElementById('combinedPrevBtn');
+    let currentStep = 1;
+    
+    // Weiter-Button
+    nextBtn.addEventListener('click', function() {
+      if (currentStep < 3) {
+        // Aktuellen Schritt ausblenden
+        document.getElementById('combinedStep' + currentStep).style.display = 'none';
+        
+        // Zum nächsten Schritt wechseln
+        currentStep++;
+        
+        // Neuen Schritt anzeigen
+        document.getElementById('combinedStep' + currentStep).style.display = 'block';
+        
+        // Progress aktualisieren
+        updateProgress();
+        
+        // Button-Status aktualisieren
+        updateButtons();
+        
+        // Button-Text für letzten Schritt ändern
+        if (currentStep === 3) {
+          nextBtn.style.display = 'none';
+        }
+      }
+    });
+    
+    // Zurück-Button
+    prevBtn.addEventListener('click', function() {
+      if (currentStep > 1) {
+        // Aktuellen Schritt ausblenden
+        document.getElementById('combinedStep' + currentStep).style.display = 'none';
+        
+        // Zum vorherigen Schritt wechseln
+        currentStep--;
+        
+        // Vorherigen Schritt anzeigen
+        document.getElementById('combinedStep' + currentStep).style.display = 'block';
+        
+        // Progress aktualisieren
+        updateProgress();
+        
+        // Button-Status aktualisieren
+        updateButtons();
+        
+        // Weiter-Button wieder anzeigen, wenn wir nicht mehr im letzten Schritt sind
+        nextBtn.style.display = 'block';
+      }
+    });
+    
+    // Hilfsfunktion zum Aktualisieren der Fortschrittsanzeige
+    function updateProgress() {
+      // Progress-Bar aktualisieren
+      const progressBar = document.querySelector('.progress-bar');
+      progressBar.style.width = ((currentStep - 1) / 2 * 100) + '%';
+      
+      // Step-Indikatoren aktualisieren
+      const steps = document.querySelectorAll('.step');
+      steps.forEach((step, index) => {
+        if (index + 1 < currentStep) {
+          step.classList.add('completed');
+          step.classList.remove('active');
+        } else if (index + 1 === currentStep) {
+          step.classList.add('active');
+          step.classList.remove('completed');
+        } else {
+          step.classList.remove('active', 'completed');
+        }
+      });
+    }
+    
+    // Hilfsfunktion zum Aktualisieren der Button-Sichtbarkeit
+    function updateButtons() {
+      if (currentStep === 1) {
+        prevBtn.style.visibility = 'hidden';
+      } else {
+        prevBtn.style.visibility = 'visible';
+      }
+    }
+    
+    // Hilfsfunktion zum Zurücksetzen des Modals
+    function resetModal() {
+      // Zurück zum ersten Schritt
+      document.getElementById('combinedStep' + currentStep).style.display = 'none';
+      currentStep = 1;
+      document.getElementById('combinedStep1').style.display = 'block';
+      
+      // Progress zurücksetzen
+      updateProgress();
+      
+      // Buttons zurücksetzen
+      updateButtons();
+      nextBtn.style.display = 'block';
+      
+      // Formular zurücksetzen
+      document.getElementById('combinedRegistrationForm').reset();
+    }
+    
+    // Kursoptionen Auswahl
+    const courseOptions = document.querySelectorAll('.course-option');
+    courseOptions.forEach(option => {
+      option.addEventListener('click', function() {
+        courseOptions.forEach(opt => opt.classList.remove('selected'));
+        this.classList.add('selected');
+      });
+    });
+  });
+</script>
 </body>
 </html> 

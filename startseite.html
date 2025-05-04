@@ -1173,7 +1173,7 @@
       box-shadow: none;
       transition: all 0.3s ease;
       border: 1px solid #f0f0f0;
-      aspect-ratio: 16/10;
+      height: 150px;
     }
     
     .partner-item:hover {
@@ -1183,27 +1183,22 @@
     }
     
     .partner-logo {
-      max-width: 100%;
-      max-height: 70px;
-      filter: grayscale(100%);
-      opacity: 0.7;
-      transition: all 0.3s;
-    }
-    
-    .partner-item:hover .partner-logo {
-      filter: grayscale(0);
-      opacity: 1;
+      max-width: 80%;
+      max-height: 80%;
+      object-fit: contain;
     }
     
     .faculty-section {
       margin-top: 60px;
     }
     
-    .faculty-title {
-      font-size: 28px;
+    h3.faculty-title {
+      font-size: 0.9rem;
       font-weight: 600;
-      color: #1C1C1C;
-      margin-bottom: 30px;
+      color: var(--imt-purple);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1.5rem;
       text-align: center;
     }
     
@@ -2130,13 +2125,13 @@
       <div class="container">
         <div class="network-intro">
           <h2 class="network-title">In bester Gesellschaft</h2>
-          <p class="network-description">Die StGallen IMT Business School arbeitet mit führenden Unternehmen, renommierten Universitäten und Experten zusammen, um Ihnen das beste Bildungserlebnis zu bieten.</p>
+          <p class="network-description">Die StGallen imt Business School arbeitet mit führenden Unternehmen, renommierten Universitäten und Experten zusammen, um Ihnen das beste Bildungserlebnis zu bieten.</p>
         </div>
         
         <div class="network-filter">
           <button class="filter-btn active">Alle</button>
           <button class="filter-btn">Unternehmen</button>
-          <button class="filter-btn">Universitäten</button>
+          <button class="filter-btn">Akademische Partner</button>
         </div>
         
         <div class="partners">
@@ -2150,19 +2145,19 @@
           <div class="partner-item" data-category="unternehmen">
             <img src="assets/companies/bayer.png" alt="Bayer" class="partner-logo">
           </div>
-          <div class="partner-item" data-category="universitäten">
-            <img src="assets/universities/eth.png" alt="ETH Zürich" class="partner-logo">
+          <div class="partner-item" data-category="akademische partner">
+            <img src="assets/universities/stockholm.png" alt="Stockholm University" class="partner-logo">
           </div>
           <div class="partner-item" data-category="unternehmen">
-            <img src="assets/companies/amazon.png" alt="Amazon" class="partner-logo">
+            <img src="assets/companies/salesforce.png" alt="Salesforce" class="partner-logo">
           </div>
           <div class="partner-item" data-category="unternehmen">
-            <img src="assets/companies/ibm.png" alt="IBM" class="partner-logo">
+            <img src="assets/companies/wittenstein.png" alt="Wittenstein" class="partner-logo">
           </div>
-          <div class="partner-item" data-category="universitäten">
-            <img src="assets/universities/harvard.png" alt="Harvard University" class="partner-logo">
+          <div class="partner-item" data-category="akademische partner">
+            <img src="assets/universities/cracow.jpg" alt="Cracow University" class="partner-logo">
           </div>
-          <div class="partner-item" data-category="universitäten">
+          <div class="partner-item" data-category="akademische partner">
             <img src="assets/universities/steinbeis.jpg" alt="Hochschule Steinbeis" class="partner-logo">
           </div>
         </div>
@@ -2173,57 +2168,58 @@
           <div class="faculty-grid">
             <!-- Faculty Members -->
             <div class="faculty-card">
-              <div class="faculty-image-container">
-                <img src="assets/faculty/abegglen.webp" alt="Prof. Dr. Christian Abegglen" class="faculty-image">
-              </div>
+              <img src="assets/faculty/abegglen.webp" alt="Prof. Dr. Christian Abegglen"/>
               <div class="faculty-info">
-                <h4 class="faculty-name">Prof. Dr. Christian Abegglen</h4>
-                <div class="faculty-position">Präsident</div>
-                <div class="faculty-company">StGallen imt Business School</div>
+                  <h3 class="faculty-name">Prof. Dr. Christian Abegglen</h3>
+                  <div class="faculty-title">Präsident</div>
               </div>
             </div>
             
             <div class="faculty-card">
-              <div class="faculty-image-container">
-                <img src="assets/faculty/bula.jpg" alt="Prof. Dr. Dr. h.c. Piotr Bula" class="faculty-image">
-              </div>
+              <img src="assets/faculty/bula.jpg" alt="Prof. Dr. Dr. h.c. Piotr Bula"/>
               <div class="faculty-info">
-                <h4 class="faculty-name">Prof. Dr. Dr. h.c. Piotr Bula</h4>
-                <div class="faculty-position">Executive Council</div>
-                <div class="faculty-company">StGallen imt Business School</div>
+                  <h3 class="faculty-name">Prof. Dr. Dr. h.c. Piotr Bula</h3>
+                  <div class="faculty-title">Executive Council</div>
               </div>
             </div>
             
             <div class="faculty-card">
-              <div class="faculty-image-container">
-                <img src="assets/faculty/pawlak.webp" alt="Dr. Christopher Pawlak" class="faculty-image">
-              </div>
+              <img src="assets/faculty/pawlak.webp" alt="Dr. Christopher Pawlak"/>
               <div class="faculty-info">
-                <h4 class="faculty-name">Dr. Christopher Pawlak</h4>
-                <div class="faculty-position">Executive Council</div>
-                <div class="faculty-company">StGallen imt Business School</div>
+                  <h3 class="faculty-name">Dr. Christopher Pawlak</h3>
+                  <div class="faculty-title">Executive Council</div>
               </div>
             </div>
             
             <div class="faculty-card">
-              <div class="faculty-image-container">
-                <img src="assets/faculty/bassewitz.webp" alt="Dr. Ulrich von Bassewitz" class="faculty-image">
-              </div>
+              <img src="assets/faculty/bassewitz.webp" alt="Dr. Ulrich von Bassewitz"/>
               <div class="faculty-info">
-                <h4 class="faculty-name">Dr. Ulrich von Bassewitz</h4>
-                <div class="faculty-position">Executive Council</div>
-                <div class="faculty-company">StGallen imt Business School</div>
+                  <h3 class="faculty-name">Dr. Ulrich von Bassewitz</h3>
+                  <div class="faculty-title">Executive Council</div>
               </div>
             </div>
                         
             <div class="faculty-card">
-              <div class="faculty-image-container">
-                <img src="assets/faculty/aho.jpg" alt="Monika Aho" class="faculty-image">
-              </div>
+              <img src="assets/faculty/aho.jpg" alt="Monika Aho"/>
               <div class="faculty-info">
-                <h4 class="faculty-name">Monika Aho</h4>
-                <div class="faculty-position">Guest Lecturer</div>
-                <div class="faculty-company">StGallen imt Business School</div>
+                  <h3 class="faculty-name">Monika Aho</h3>
+                  <div class="faculty-title">Guest Lecturer</div>
+              </div>
+            </div>
+            
+            <div class="faculty-card">
+              <img src="assets/faculty/kolesnikova.webp" alt="Anastasiia Kolesnikova"/>
+              <div class="faculty-info">
+                  <h3 class="faculty-name">Anastasiia Kolesnikova</h3>
+                  <div class="faculty-title">Guest Lecturer</div>
+              </div>
+            </div>
+
+            <div class="faculty-card">
+              <img src="assets/faculty/edlund.png" alt="Dr. Jan Roy Edlund"/>
+              <div class="faculty-info">
+                  <h3 class="faculty-name">Dr. Jan Roy Edlund</h3>
+                  <div class="faculty-title">Executive Coach</div>
               </div>
             </div>
           </div>
@@ -2458,18 +2454,33 @@
             // Aktive Klasse zum geklickten Button hinzufügen
             this.classList.add('active');
             
-            const filterValue = this.textContent.trim().toLowerCase();
+            // Filterwert basierend auf Button-Text
+            let filterValue = this.textContent.trim().toLowerCase();
             
-            // Partner-Items filtern
-            partnerItems.forEach(item => {
-              const category = item.getAttribute('data-category');
-              
-              if (filterValue === 'alle' || category === filterValue) {
-                item.style.display = 'flex';
-              } else {
-                item.style.display = 'none';
-              }
-            });
+            // Spezielle Zuordnung für "Akademische Partner" zu "akademische partner"
+            if (filterValue === 'akademische partner') {
+              // Partner-Items filtern für Akademische Partner
+              partnerItems.forEach(item => {
+                const category = item.getAttribute('data-category');
+                
+                if (filterValue === 'alle' || category === 'akademische partner') {
+                  item.style.display = 'flex';
+                } else {
+                  item.style.display = 'none';
+                }
+              });
+            } else {
+              // Standard-Filterung für andere Kategorien
+              partnerItems.forEach(item => {
+                const category = item.getAttribute('data-category');
+                
+                if (filterValue === 'alle' || category === filterValue) {
+                  item.style.display = 'flex';
+                } else {
+                  item.style.display = 'none';
+                }
+              });
+            }
           });
         });
       }
