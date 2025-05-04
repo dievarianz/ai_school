@@ -187,7 +187,7 @@
   }
   
   .testimonial-card-quote::before {
-    content: """;
+    content: "\201C";
     position: absolute;
     left: 0;
     top: -15px;
@@ -323,7 +323,7 @@
   }
 
   .testimonial-carousel-content::before {
-    content: """;
+    content: "\201C";
     position: absolute;
     left: 0;
     top: -10px;
@@ -464,6 +464,463 @@
     margin-top: 15px;
   }
 
+  /* ============ DESIGN 6: Einfache Zitat-Karten ============ */
+  .quote-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+  
+  .quote-card {
+    width: calc(50% - 15px);
+    min-width: 300px;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.3s ease;
+    border: 2px solid transparent;
+  }
+  
+  .quote-card:hover {
+    transform: none;
+    border-color: var(--imt-purple);
+    box-shadow: none;
+  }
+  
+  .quote-content {
+    padding: 30px 25px;
+    position: relative;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .quote-text {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: #333;
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .quote-text::before {
+    content: "\201C";
+    position: absolute;
+    left: -15px;
+    top: -10px;
+    font-size: 80px;
+    color: #4CB796;
+    opacity: 0.2;
+    z-index: -1;
+  }
+  
+  .quote-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    background-color: #fafafa;
+  }
+  
+  .quote-person {
+    display: flex;
+    align-items: center;
+  }
+  
+  .quote-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 12px;
+    border: none;
+  }
+  
+  .quote-author {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 3px;
+    display: block;
+  }
+  
+  .quote-position {
+    font-size: 0.8rem;
+    color: #666;
+    display: block;
+  }
+  
+  .quote-company {
+    height: 35px;
+    width: auto;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+  }
+  
+  .quote-card:hover .quote-company {
+    opacity: 1;
+  }
+  
+  @media (max-width: 768px) {
+    .quote-cards {
+      flex-direction: column;
+    }
+    
+    .quote-card {
+      width: 100%;
+    }
+  }
+
+  /* ============ DESIGN 7: Modernes Zitat-Styling ============ */
+  .modern-quotes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+  }
+  
+  .modern-quote-card {
+    background-color: white;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+    transition: border-color 0.3s ease;
+    border: 2px solid transparent;
+  }
+  
+  .modern-quote-card:hover {
+    border-color: var(--imt-purple);
+    box-shadow: none;
+  }
+  
+  .modern-quote-content {
+    padding: 40px 30px 25px;
+    position: relative;
+  }
+  
+  .modern-quote-mark {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    font-family: 'Georgia', serif;
+    font-size: 120px;
+    line-height: 0;
+    height: 40px;
+    color: var(--imt-purple);
+    opacity: 0.1;
+  }
+  
+  .modern-quote-text {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--color-text);
+    padding-bottom: 25px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .modern-quote-author {
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .modern-person {
+    display: flex;
+    align-items: center;
+  }
+  
+  .modern-avatar {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+  }
+  
+  .modern-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--color-text);
+    display: block;
+  }
+  
+  .modern-position {
+    font-size: 0.85rem;
+    color: var(--color-muted);
+    display: block;
+  }
+  
+  .modern-company {
+    height: 40px;
+    width: auto;
+    opacity: 0.7;
+  }
+  
+  .modern-quote-card:hover .modern-company {
+    opacity: 1;
+  }
+
+  /* ============ DESIGN 8: Minimalistisches Zitat-Design ============ */
+  .minimal-quotes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 35px;
+    margin-bottom: 40px;
+  }
+  
+  .minimal-quote-card {
+    background-color: white;
+    border-radius: var(--radius);
+    padding: 35px;
+    position: relative;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease;
+    border-top: 4px solid transparent;
+  }
+  
+  .minimal-quote-card:hover {
+    border-top-color: var(--imt-green);
+    transform: translateY(-5px);
+  }
+  
+  .minimal-quote-mark {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 80px;
+    color: var(--imt-green);
+    opacity: 0.1;
+    font-family: 'Georgia', serif;
+    line-height: 0;
+  }
+  
+  .minimal-quote-text {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .minimal-quote-author {
+    position: relative;
+    padding-top: 25px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .minimal-quote-author::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 3px;
+    background-color: var(--imt-green);
+    transition: width 0.3s ease;
+  }
+  
+  .minimal-quote-card:hover .minimal-quote-author::before {
+    width: 60px;
+  }
+  
+  .minimal-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+    border: 2px solid #f5f5f7;
+    transition: border-color 0.3s ease;
+  }
+  
+  .minimal-quote-card:hover .minimal-avatar {
+    border-color: var(--imt-green);
+  }
+  
+  .minimal-author-info {
+    flex: 1;
+  }
+  
+  .minimal-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 3px;
+    display: block;
+  }
+  
+  .minimal-position {
+    font-size: 0.8rem;
+    color: var(--color-muted);
+    display: block;
+  }
+  
+  .minimal-program {
+    color: var(--imt-green);
+    font-size: 0.75rem;
+    margin-top: 3px;
+    display: block;
+  }
+  
+  .minimal-company-logo {
+    height: 35px;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+  }
+  
+  .minimal-quote-card:hover .minimal-company-logo {
+    opacity: 1;
+  }
+
+  /* ============ DESIGN 9: Gradientes Zitat-Layout ============ */
+  .gradient-quotes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+  }
+  
+  .gradient-quote-card {
+    border-radius: var(--radius);
+    overflow: hidden;
+    position: relative;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+  }
+  
+  .gradient-quote-card:hover {
+    border-color: var(--imt-purple);
+  }
+  
+  .gradient-quote-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: linear-gradient(to bottom right, #ffffff, #f8f9fa);
+    position: relative;
+    z-index: 1;
+  }
+  
+  .gradient-quote-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--imt-purple) 0%, var(--imt-green) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 0;
+  }
+  
+  .gradient-quote-card:hover::before {
+    opacity: 0.03;
+  }
+  
+  .gradient-quote-content {
+    padding: 40px 30px 25px;
+    position: relative;
+    flex: 1;
+  }
+  
+  .gradient-quote-icon {
+    position: absolute;
+    top: -15px;
+    right: 25px;
+    font-size: 4rem;
+    color: var(--imt-purple);
+    opacity: 0.1;
+    transition: transform 0.3s ease;
+  }
+  
+  .gradient-quote-card:hover .gradient-quote-icon {
+    transform: rotate(10deg);
+  }
+  
+  .gradient-quote-text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--color-text);
+    font-weight: 400;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .gradient-quote-footer {
+    background-color: #fafafa;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #f0f0f0;
+  }
+  
+  .gradient-person {
+    display: flex;
+    align-items: center;
+  }
+  
+  .gradient-avatar-container {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 15px;
+    border: 3px solid white;
+    transition: all 0.3s ease;
+  }
+  
+  .gradient-quote-card:hover .gradient-avatar-container {
+    border-color: #f5f5f7;
+  }
+  
+  .gradient-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .gradient-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .gradient-name {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 2px;
+  }
+  
+  .gradient-position {
+    font-size: 0.85rem;
+    color: var(--color-muted);
+  }
+  
+  .gradient-program {
+    font-size: 0.8rem;
+    color: var(--imt-purple);
+    margin-top: 2px;
+  }
+  
+  .gradient-company {
+    height: 40px;
+    width: auto;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+  }
+  
+  .gradient-quote-card:hover .gradient-company {
+    opacity: 1;
+  }
+
   /* Responsive Anpassungen */
   @media (max-width: 768px) {
     .testimonials-grid {
@@ -480,6 +937,18 @@
 
     .testimonial-quote-box {
       padding: 30px;
+    }
+
+    .modern-quotes {
+      grid-template-columns: 1fr;
+    }
+    
+    .minimal-quotes {
+      grid-template-columns: 1fr;
+    }
+    
+    .gradient-quotes {
+      grid-template-columns: 1fr;
     }
   }
 </style>
@@ -731,6 +1200,192 @@
             <div class="testimonial-grid-footer">
               <span class="testimonial-program">Management Programm, 2023</span>
               <a href="#" class="testimonial-more-link">Vollständiges Interview <i class='bx bx-right-arrow-alt'></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DESIGN 6: Einfache Zitat-Karten ========== -->
+  <section class="content-section">
+    <div class="container">
+      <h2 class="section-title">Variante 6: Einfache Zitat-Karten</h2>
+      <p class="section-description">Eine reduzierte Variante mit elegantem Zitat oben und Personen- sowie Unternehmensdarstellung unten.</p>
+      
+      <div class="quote-cards">
+        <!-- Quote Card 1 -->
+        <div class="quote-card">
+          <div class="quote-content">
+            <p class="quote-text">Der MBA hat mir die strategischen Tools gegeben, die ich brauchte, um unser Unternehmen durch die digitale Transformation zu führen.</p>
+          </div>
+          <div class="quote-footer">
+            <div class="quote-person">
+              <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Christine Maier" class="quote-avatar">
+              <div>
+                <span class="quote-author">Christine Maier</span>
+                <span class="quote-position">COO, FinanceGroup AG</span>
+              </div>
+            </div>
+            <img src="assets/companies/google.png" alt="Company" class="quote-company">
+          </div>
+        </div>
+        
+        <!-- Quote Card 2 -->
+        <div class="quote-card">
+          <div class="quote-content">
+            <p class="quote-text">Das Management Programm hat mir geholfen, mein Startup erfolgreich zu skalieren. Die Dozenten haben mich durch ihre Expertise inspiriert.</p>
+          </div>
+          <div class="quote-footer">
+            <div class="quote-person">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Stefan Neumann" class="quote-avatar">
+              <div>
+                <span class="quote-author">Stefan Neumann</span>
+                <span class="quote-position">Gründer & CEO, NexGen Tech</span>
+              </div>
+            </div>
+            <img src="assets/companies/sap.png" alt="Company" class="quote-company">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DESIGN 7: Modernes Zitat-Styling ========== -->
+  <section class="content-section" style="background-color: #f9f9f9; padding-top: 60px; padding-bottom: 60px;">
+    <div class="container">
+      <h2 class="section-title">Variante 7: Modernes Zitat-Styling</h2>
+      <p class="section-description">Ein modernes Zitat-Styling mit großen Anführungszeichen und eleganter Typografie für ein zeitgemäßes Design.</p>
+      
+      <div class="modern-quotes">
+        <!-- Modern Quote 1 -->
+        <div class="modern-quote-card">
+          <div class="modern-quote-content">
+            <div class="modern-quote-mark">&ldquo;</div>
+            <p class="modern-quote-text">Der MBA hat mir die strategischen Tools gegeben, die ich brauchte, um unser Unternehmen durch die digitale Transformation zu führen. Die Kombination aus Theorie und Praxis war perfekt.</p>
+          </div>
+          <div class="modern-quote-author">
+            <div class="modern-person">
+              <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Christine Maier" class="modern-avatar">
+              <div>
+                <span class="modern-name">Christine Maier</span>
+                <span class="modern-position">COO, FinanceGroup AG</span>
+              </div>
+            </div>
+            <img src="assets/companies/google.png" alt="Google" class="modern-company">
+          </div>
+        </div>
+        
+        <!-- Modern Quote 2 -->
+        <div class="modern-quote-card">
+          <div class="modern-quote-content">
+            <div class="modern-quote-mark">&ldquo;</div>
+            <p class="modern-quote-text">Das Management Programm hat mir geholfen, mein Startup erfolgreich zu skalieren. Die Dozenten haben mich durch ihren Erfahrungsschatz und praxisnahe Beratung inspiriert.</p>
+          </div>
+          <div class="modern-quote-author">
+            <div class="modern-person">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Stefan Neumann" class="modern-avatar">
+              <div>
+                <span class="modern-name">Stefan Neumann</span>
+                <span class="modern-position">Gründer & CEO, NexGen Tech</span>
+              </div>
+            </div>
+            <img src="assets/companies/sap.png" alt="SAP" class="modern-company">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DESIGN 8: Minimalistisches Zitat-Design ========== -->
+  <section class="content-section">
+    <div class="container">
+      <h2 class="section-title">Variante 8: Minimalistisches Zitat-Design</h2>
+      <p class="section-description">Ein reduziertes, elegantes Design mit subtilen Hover-Effekten und typografischem Fokus auf die Aussagen.</p>
+      
+      <div class="minimal-quotes">
+        <!-- Minimal Quote 1 -->
+        <div class="minimal-quote-card">
+          <div class="minimal-quote-mark">"</div>
+          <p class="minimal-quote-text">Die praxisorientierte Methodik des CAS-Programms hat mir ermöglicht, das Gelernte sofort in meinem Arbeitsalltag anzuwenden. Der Return on Investment war unmittelbar spürbar.</p>
+          <div class="minimal-quote-author">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Maria Schneider" class="minimal-avatar">
+            <div class="minimal-author-info">
+              <span class="minimal-name">Maria Schneider</span>
+              <span class="minimal-position">Marketing Director, Digital Solutions AG</span>
+              <span class="minimal-program">Certified Management CAS, 2023</span>
+            </div>
+            <img src="assets/companies/google.png" alt="Company" class="minimal-company-logo">
+          </div>
+        </div>
+        
+        <!-- Minimal Quote 2 -->
+        <div class="minimal-quote-card">
+          <div class="minimal-quote-mark">"</div>
+          <p class="minimal-quote-text">Der MBA hat meine Denkweise verändert und mir einen ganzheitlichen Blick auf Business-Strategien vermittelt. Das internationale Netzwerk, das ich aufgebaut habe, ist unbezahlbar.</p>
+          <div class="minimal-quote-author">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Alexander Müller" class="minimal-avatar">
+            <div class="minimal-author-info">
+              <span class="minimal-name">Alexander Müller</span>
+              <span class="minimal-position">CFO, Global Finance</span>
+              <span class="minimal-program">Fast-Track MBA, 2022</span>
+            </div>
+            <img src="assets/companies/sap.png" alt="Company" class="minimal-company-logo">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DESIGN 9: Gradientes Zitat-Layout ========== -->
+  <section class="content-section" style="background-color: #f9f9f9; padding-top: 60px; padding-bottom: 60px;">
+    <div class="container">
+      <h2 class="section-title">Variante 9: Gradientes Zitat-Layout</h2>
+      <p class="section-description">Moderne Zitat-Karten mit subtilen Farbverläufen und eleganten Interaktionseffekten für eine hochwertige Darstellung.</p>
+      
+      <div class="gradient-quotes">
+        <!-- Gradient Quote 1 -->
+        <div class="gradient-quote-card">
+          <div class="gradient-quote-inner">
+            <div class="gradient-quote-content">
+              <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
+              <p class="gradient-quote-text">Durch das Management Programm konnte ich meine Führungskompetenzen auf ein neues Level bringen. Die praktischen Fallstudien und der Austausch mit Fachexperten haben mir wertvolle Einblicke gegeben.</p>
+            </div>
+            <div class="gradient-quote-footer">
+              <div class="gradient-person">
+                <div class="gradient-avatar-container">
+                  <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Laura Weber" class="gradient-avatar">
+                </div>
+                <div class="gradient-info">
+                  <span class="gradient-name">Laura Weber</span>
+                  <span class="gradient-position">Head of Innovation, TechVision GmbH</span>
+                  <span class="gradient-program">Management Programm, 2022</span>
+                </div>
+              </div>
+              <img src="assets/companies/google.png" alt="Company" class="gradient-company">
+            </div>
+          </div>
+        </div>
+        
+        <!-- Gradient Quote 2 -->
+        <div class="gradient-quote-card">
+          <div class="gradient-quote-inner">
+            <div class="gradient-quote-content">
+              <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
+              <p class="gradient-quote-text">Der CAS hat mir nicht nur theoretisches Wissen vermittelt, sondern mich auch befähigt, komplexe Geschäftsentscheidungen strukturiert und strategisch anzugehen. Ein absoluter Game-Changer für meine Karriere.</p>
+            </div>
+            <div class="gradient-quote-footer">
+              <div class="gradient-person">
+                <div class="gradient-avatar-container">
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Markus Berger" class="gradient-avatar">
+                </div>
+                <div class="gradient-info">
+                  <span class="gradient-name">Markus Berger</span>
+                  <span class="gradient-position">COO, Swiss Solutions AG</span>
+                  <span class="gradient-program">Certified Management CAS, 2023</span>
+                </div>
+              </div>
+              <img src="assets/companies/sap.png" alt="Company" class="gradient-company">
             </div>
           </div>
         </div>

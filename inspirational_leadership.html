@@ -19,6 +19,7 @@
     --radius:16px;
     --max-width:1200px;
     --imt-purple: #6e45e2;
+    --imt-green: #4CAF50;
   }
 
   * {
@@ -154,7 +155,7 @@
     z-index: 2;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     #hero {
       padding: 40px 0;
     }
@@ -238,7 +239,7 @@
     100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
   }
 
-  @media(max-width: 768px) {
+  @media(max-width: 968px) {
     .availability-badge {
       display: none;
     }
@@ -386,7 +387,7 @@
   }
 
   /* Responsive Anpassungen */
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     h1 {
       font-size: 2rem;
     }
@@ -419,7 +420,7 @@
     text-align: center;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     .section-subtitle {
       font-size: 0.95rem;
       margin-bottom: 32px;
@@ -451,7 +452,7 @@
     text-align: center !important;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     h2, .section-subtitle {
       text-align: left !important;
     }
@@ -474,7 +475,7 @@
     text-align: left !important;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     #module-content h2 {
       font-size: 1.7rem;
     }
@@ -568,7 +569,7 @@
     display: none;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     .slider-container {
       padding-bottom: 72px;
     }
@@ -775,7 +776,7 @@
   }
 
   /* Tablet styles */
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     .stats-grid {
       gap: 20px;
       padding: 0 20px;
@@ -889,7 +890,7 @@
   .item6 { grid-column: 4; grid-row: 2; }
 
   /* Responsive Design */
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     .gallery {
       grid-template-columns: 1fr;
       grid-template-rows: repeat(6, minmax(200px, auto));
@@ -953,7 +954,7 @@
     line-height: 1.4;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     .faculty-grid {
       grid-template-columns: 1fr;
       gap: 24px;
@@ -1008,7 +1009,7 @@
     font-size: 1.1rem;
   }
   
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     .contact-info {
       text-align: center;
     }
@@ -1064,7 +1065,7 @@
     display: inline-block;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     .info-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -1282,7 +1283,7 @@
   }
   
   /* Mobile Styles für Date List */
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     .date-list-item {
       flex-direction: column;
       padding: 20px 0;
@@ -1324,6 +1325,157 @@
       margin-left: 0;
       margin-bottom: 8px;
       font-size: 1rem;
+    }
+  }
+
+  /* Teilnehmerstimmen */
+  .gradient-quotes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+  }
+  
+  .gradient-quote-card {
+    border-radius: var(--radius);
+    overflow: hidden;
+    position: relative;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+  }
+  
+  .gradient-quote-card:hover {
+    border-color: var(--imt-purple);
+  }
+  
+  .gradient-quote-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: linear-gradient(to bottom right, #ffffff, #f8f9fa);
+    position: relative;
+    z-index: 1;
+  }
+  
+  .gradient-quote-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--imt-purple) 0%, var(--imt-green) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 0;
+  }
+  
+  .gradient-quote-card:hover::before {
+    opacity: 0.03;
+  }
+  
+  .gradient-quote-content {
+    padding: 40px 30px 25px;
+    position: relative;
+    flex: 1;
+  }
+  
+  .gradient-quote-icon {
+    position: absolute;
+    top: -15px;
+    right: 25px;
+    font-size: 4rem;
+    color: var(--imt-purple);
+    opacity: 0.1;
+    transition: transform 0.3s ease;
+  }
+  
+  .gradient-quote-card:hover .gradient-quote-icon {
+    transform: rotate(10deg);
+  }
+  
+  .gradient-quote-text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--color-text);
+    font-weight: 400;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .gradient-quote-footer {
+    background-color: #fafafa;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #f0f0f0;
+  }
+  
+  .gradient-person {
+    display: flex;
+    align-items: center;
+  }
+  
+  .gradient-avatar-container {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 15px;
+    border: 3px solid white;
+    transition: all 0.3s ease;
+  }
+  
+  .gradient-quote-card:hover .gradient-avatar-container {
+    border-color: #f5f5f7;
+  }
+  
+  .gradient-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .gradient-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .gradient-name {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 2px;
+  }
+  
+  .gradient-position {
+    font-size: 0.85rem;
+    color: var(--color-muted);
+    min-height: 40px; /* Ensure consistent height */
+    display: flex;
+    align-items: center;
+  }
+  
+  .gradient-program {
+    font-size: 0.8rem;
+    color: var(--imt-purple);
+    margin-top: 2px;
+  }
+  
+  .gradient-company {
+    height: 40px;
+    width: auto;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+  }
+  
+  .gradient-quote-card:hover .gradient-company {
+    opacity: 1;
+  }
+  
+  @media (max-width: 968px) {
+    .gradient-quotes {
+      grid-template-columns: 1fr;
     }
   }
 </style>
@@ -1776,6 +1928,62 @@
           <!-- 6: Person am Desktop -->
           <div class="gallery-item item6">
             <img src="assets/IMG_5.webp" alt="Person mit Kopfhörern">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Teilnehmerstimmen -->
+    <section class="content-section">
+      <div class="container">
+        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Teilnehmerstimmen</h2>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Erfahren Sie, wie unsere Absolventen vom Executive Seminar Inspirational Leadership profitieren und die gelernten Konzepte in ihrem beruflichen Alltag umsetzen.</p>
+        
+        <div class="gradient-quotes">
+          <!-- Gradient Quote 1 -->
+          <div class="gradient-quote-card">
+            <div class="gradient-quote-inner">
+              <div class="gradient-quote-content">
+                <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
+                <p class="gradient-quote-text">Durch das Executive Seminar Inspirational Leadership konnte ich meine Führungskompetenzen entscheidend verbessern. Die praxisnahen Fallstudien und der intensive Austausch mit Führungskräften aus verschiedenen Branchen haben mir völlig neue Perspektiven eröffnet.</p>
+              </div>
+              <div class="gradient-quote-footer">
+                <div class="gradient-person">
+                  <div class="gradient-avatar-container">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Julia Müller" class="gradient-avatar">
+                  </div>
+                  <div class="gradient-info">
+                    <span class="gradient-name">Julia Müller</span>
+                    <span class="gradient-position">Chief Strategy Officer, Swiss Innovation Group</span>
+                    <span class="gradient-program">Inspirational Leadership, 2023</span>
+                  </div>
+                </div>
+                <img src="assets/companies/google.png" alt="Company" class="gradient-company">
+              </div>
+            </div>
+          </div>
+          
+          <!-- Gradient Quote 2 -->
+          <div class="gradient-quote-card">
+            <div class="gradient-quote-inner">
+              <div class="gradient-quote-content">
+                <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
+                <p class="gradient-quote-text">Das Seminar hat meine Erwartungen übertroffen. Die Dozenten vermitteln nicht nur akademisches Wissen, sondern teilen ihre reichhaltige Praxiserfahrung. Die Integration von Führungstechniken in unser Unternehmen ist dank der im Seminar erlernten Methoden nun viel strukturierter.</p>
+              </div>
+              <div class="gradient-quote-footer">
+                <div class="gradient-person">
+                  <div class="gradient-avatar-container">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Thomas Weber" class="gradient-avatar">
+                  </div>
+                  <div class="gradient-info">
+                    <span class="gradient-name">Thomas Weber</span>
+                    <span class="gradient-position">CEO, Digital Solutions AG</span>
+                    <span class="gradient-program">Inspirational Leadership, 2022</span>
+                  </div>
+                </div>
+                <img src="assets/companies/sap.png" alt="Company" class="gradient-company">
+              </div>
+            </div>
           </div>
         </div>
       </div>
