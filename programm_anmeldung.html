@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Programm Anmeldung - StGallen imt Business School</title>
+
+  <!-- STYLES -->
+  <style>
+    :root{
+      --font-sans:-apple-system,BlinkMacSystemFont,"San Francisco","Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+      --color-text:#1d1d1f;
+      --color-muted:#6e6e73;
+      --color-card-bg:#f5f5f7;
+      --color-accent2:#970289;
+      --color-badge:#e2b245;
+      --color-badge-hover:#d4a535;
+      --spacing:24px;
+      --radius:16px;
+      --max-width:1200px;
+      --imt-purple: #6e45e2;
+      --swiss-red: #ff0000;
+      --imt-green: #4CB796;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--color-text);
+      background: #fff;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      padding: 50px 20px;
+    }
+
+    h1, h2, h3, h4, h5 {
+      margin-bottom: 1rem;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--imt-purple);
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 40px;
+      background-color: #fff;
+      border-radius: var(--radius);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    }
+    
+    /* Gemeinsame Komponenten */
+    .date-icon {
+      color: var(--imt-purple);
+      font-size: 1.5rem;
+      margin-right: 15px;
+    }
+
+    .date-text {
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .date-location {
+      color: var(--color-muted);
+      font-size: 0.9rem;
+      margin-left: 10px;
+    }
+
+    .date-places {
+      background-color: #e9f7f2;
+      color: var(--imt-green);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-left: 15px;
+    }
+
+    .date-places.limited {
+      background-color: #fff2e6;
+      color: #ff9f0a;
+    }
+
+    .date-places.full {
+      background-color: #ffeaeb;
+      color: #ff3b30;
+    }
+
+    /* Button Styles */
+    .register-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 120px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      border: none;
+    }
+
+    .register-btn-primary {
+      background: linear-gradient(to right, var(--imt-purple), #9c27b0);
+      color: white;
+    }
+
+    .register-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(106, 69, 226, 0.2);
+      text-decoration: none;
+    }
+
+    .register-btn-secondary {
+      background: transparent;
+      color: var(--color-text);
+      border: 2px solid #ddd;
+    }
+
+    .register-btn-secondary:hover {
+      background: #f5f5f7;
+      text-decoration: none;
+    }
+
+    .register-btn i {
+      margin-right: 6px;
+    }
+    
+    /* Styles für das Tabellendesign */
+    .program-dates {
+      margin-top: 30px;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .date-tabs {
+      display: flex;
+      border-bottom: 1px solid #e1e1e1;
+      margin-bottom: 20px;
+    }
+    
+    .date-tab {
+      padding: 10px 20px;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--color-muted);
+      cursor: pointer;
+      position: relative;
+      transition: color 0.2s ease;
+    }
+    
+    .date-tab.active {
+      color: var(--imt-purple);
+    }
+    
+    .date-tab.active::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background-color: var(--imt-purple);
+    }
+    
+    .date-content {
+      display: none;
+    }
+    
+    .date-content.active {
+      display: block;
+    }
+    
+    .date-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .date-list-item {
+      border-bottom: 1px solid #eee;
+      padding: 15px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .date-list-item:last-child {
+      border-bottom: none;
+    }
+    
+    .date-list-info {
+      display: flex;
+      align-items: center;
+      flex: 1;
+    }
+    
+    .date-list-action {
+      margin-left: 20px;
+    }
+        
+    /* Mehrstufiges Anmeldeverfahren */
+    .combined-modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      animation: fadeIn 0.3s ease;
+    }
+    
+    .signup-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+    
+    .signup-header {
+      padding: 25px 30px;
+      background: linear-gradient(to right, var(--imt-purple), #9c27b0);
+      color: white;
+    }
+    
+    .signup-title {
+      font-size: 1.5rem;
+      margin: 0;
+    }
+    
+    .signup-subtitle {
+      font-size: 1rem;
+      opacity: 0.9;
+      margin-top: 5px;
+    }
+    
+    .progress-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 25px;
+      position: relative;
+    }
+    
+    .progress-container::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 2px;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.3);
+      z-index: 1;
+    }
+    
+    .progress-bar {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 2px;
+      width: 0%;
+      background-color: white;
+      z-index: 2;
+      transition: width 0.3s ease;
+    }
+    
+    .step {
+      width: 35px;
+      height: 35px;
+      background-color: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      position: relative;
+      z-index: 3;
+      transition: background-color 0.3s ease;
+    }
+    
+    .step.active {
+      background-color: white;
+      color: var(--imt-purple);
+    }
+    
+    .step.completed {
+      background-color: white;
+      color: var(--imt-purple);
+    }
+    
+    .step-content {
+      display: none;
+    }
+    
+    .step-content.active {
+      display: block;
+    }
+    
+    .signup-body {
+      padding: 30px;
+    }
+    
+    .signup-footer {
+      padding: 20px 30px;
+      border-top: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+      background-color: #f9f9f9;
+    }
+    
+    .step-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: var(--imt-purple);
+    }
+    
+    .form-row {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    
+    .form-col {
+      flex: 1;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--color-text);
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 12px 15px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background-color: #fff;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    
+    .form-control:focus {
+      border-color: var(--imt-purple);
+      box-shadow: 0 0 0 3px rgba(110, 69, 226, 0.1);
+      outline: none;
+    }
+    
+    .course-option {
+      border: 1px solid #eee;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 15px;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    
+    .course-option:hover {
+      border-color: var(--imt-purple);
+      background-color: rgba(110, 69, 226, 0.02);
+    }
+    
+    .course-option.selected {
+      border-color: var(--imt-purple);
+      background-color: rgba(110, 69, 226, 0.05);
+    }
+    
+    .course-option-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    
+    .course-option-title {
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+    
+    .course-option-price {
+      font-weight: 600;
+      color: var(--imt-purple);
+    }
+    
+    .course-option-features {
+      margin-top: 15px;
+    }
+    
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+    
+    .feature-icon {
+      color: var(--imt-green);
+      margin-right: 10px;
+      font-size: 1.1rem;
+      margin-top: 2px;
+    }
+    
+    .confirmation-message {
+      text-align: center;
+      padding: 40px 20px;
+    }
+    
+    .confirmation-icon {
+      font-size: 4rem;
+      color: var(--imt-green);
+      margin-bottom: 20px;
+    }
+    
+    .confirmation-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    
+    .confirmation-text {
+      font-size: 1.1rem;
+      color: var(--color-muted);
+      margin-bottom: 30px;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes slideIn {
+      from { transform: translate(-50%, -60%); opacity: 0; }
+      to { transform: translate(-50%, -50%); opacity: 1; }
+    }
+    
+    @media (max-width: 768px) {
+      .form-row {
+        flex-direction: column;
+        gap: 0;
+      }
+      
+      .date-list-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .date-list-info {
+        margin-bottom: 10px;
+      }
+      
+      .date-list-action {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
+  </style>
+
+  <!-- BoxIcons für Icons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <!-- Font Awesome für die Teaser-Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+</head>
+<body>
+  <div class="container">
+    <h1>Programm Anmeldung</h1>
+    <p style="text-align: center; margin-bottom: 40px;">Tabellendesign mit mehrstufiger Anmeldung</p>
+    
+    <div class="design-preview">
+      <h3><i class="bx bx-calendar"></i> Verfügbare Starttermine</h3>
+      
+      <div class="program-dates">
+        <div class="date-tabs">
+          <div class="date-tab active" data-tab="tab-2025">2025</div>
+          <div class="date-tab" data-tab="tab-2026">2026</div>
+        </div>
+        
+        <div class="date-content active" id="tab-2025">
+          <ul class="date-list">
+            <li class="date-list-item">
+              <div class="date-list-info">
+                <i class="bx bx-calendar-alt date-icon"></i>
+                <span class="date-text">05.-07.05.2025</span>
+                <span class="date-location">(St. Gallen)</span>
+                <span class="date-places">12 Plätze verfügbar</span>
+              </div>
+              <div class="date-list-action">
+                <button class="register-btn register-btn-primary combined-open-btn" data-date="05.-07.05.2025" data-location="St. Gallen">
+                  <i class="bx bx-plus-circle"></i> Anmelden
+                </button>
+              </div>
+            </li>
+            
+            <li class="date-list-item">
+              <div class="date-list-info">
+                <i class="bx bx-calendar-alt date-icon"></i>
+                <span class="date-text">06.-08.10.2025</span>
+                <span class="date-location">(Online)</span>
+                <span class="date-places limited">Nur noch 3 Plätze</span>
+              </div>
+              <div class="date-list-action">
+                <button class="register-btn register-btn-primary combined-open-btn" data-date="06.-08.10.2025" data-location="Online">
+                  <i class="bx bx-plus-circle"></i> Anmelden
+                </button>
+              </div>
+            </li>
+            
+            <li class="date-list-item">
+              <div class="date-list-info">
+                <i class="bx bx-calendar-alt date-icon"></i>
+                <span class="date-text">10.-12.12.2025</span>
+                <span class="date-location">(St. Gallen)</span>
+                <span class="date-places full">Ausgebucht</span>
+              </div>
+              <div class="date-list-action">
+                <button class="register-btn register-btn-secondary combined-open-btn" data-date="10.-12.12.2025" data-location="St. Gallen" data-waitlist="true">
+                  <i class="bx bx-time"></i> Warteliste
+                </button>
+              </div>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="date-content" id="tab-2026">
+          <ul class="date-list">
+            <li class="date-list-item">
+              <div class="date-list-info">
+                <i class="bx bx-calendar-alt date-icon"></i>
+                <span class="date-text">02.-04.02.2026</span>
+                <span class="date-location">(St. Gallen)</span>
+                <span class="date-places">15 Plätze verfügbar</span>
+              </div>
+              <div class="date-list-action">
+                <button class="register-btn register-btn-primary combined-open-btn" data-date="02.-04.02.2026" data-location="St. Gallen">
+                  <i class="bx bx-plus-circle"></i> Anmelden
+                </button>
+              </div>
+            </li>
+            
+            <li class="date-list-item">
+              <div class="date-list-info">
+                <i class="bx bx-calendar-alt date-icon"></i>
+                <span class="date-text">15.-17.06.2026</span>
+                <span class="date-location">(Online)</span>
+                <span class="date-places">20 Plätze verfügbar</span>
+              </div>
+              <div class="date-list-action">
+                <button class="register-btn register-btn-primary combined-open-btn" data-date="15.-17.06.2026" data-location="Online">
+                  <i class="bx bx-plus-circle"></i> Anmelden
+                </button>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Mehrstufiges Anmeldeformular (als Modal) -->
+      <div class="combined-modal-overlay" id="combinedRegistrationModal">
+        <div class="signup-container" style="max-width: 800px; position: relative; margin: 50px auto;">
+          <div class="signup-header">
+            <h3 class="signup-title">Anmeldung zum Integrated Management and Strategy Seminar</h3>
+            <p class="signup-subtitle">Starttermin: <span id="combinedModalDate">05.-07.05.2025</span> in <span id="combinedModalLocation">St. Gallen</span></p>
+            
+            <div class="progress-container">
+              <div class="progress-bar" style="width: 33%;"></div>
+              <div class="step active">1</div>
+              <div class="step">2</div>
+              <div class="step">3</div>
+            </div>
+            
+            <!-- Schließen-Button in die Header-Ecke -->
+            <button class="modal-close" id="combinedModalClose" style="position: absolute; top: 15px; right: 20px; color: white; font-size: 1.5rem; background: none; border: none; cursor: pointer;">&times;</button>
+          </div>
+          
+          <div class="signup-body">
+            <!-- Schritt 1: Persönliche Daten -->
+            <div class="step-content active" id="combinedStep1">
+              <h4 class="step-title">Persönliche Informationen</h4>
+              
+              <form id="combinedRegistrationForm">
+                <div class="form-row">
+                  <div class="form-col">
+                    <div class="form-group">
+                      <label class="form-label" for="combinedFirstName">Vorname*</label>
+                      <input type="text" class="form-control" id="combinedFirstName" required>
+                    </div>
+                  </div>
+                  <div class="form-col">
+                    <div class="form-group">
+                      <label class="form-label" for="combinedLastName">Nachname*</label>
+                      <input type="text" class="form-control" id="combinedLastName" required>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <label class="form-label" for="combinedEmail">E-Mail-Adresse*</label>
+                  <input type="email" class="form-control" id="combinedEmail" required>
+                </div>
+                
+                <div class="form-row">
+                  <div class="form-col">
+                    <div class="form-group">
+                      <label class="form-label" for="combinedPhone">Telefonnummer*</label>
+                      <input type="tel" class="form-control" id="combinedPhone" required>
+                    </div>
+                  </div>
+                  <div class="form-col">
+                    <div class="form-group">
+                      <label class="form-label" for="combinedPosition">Position*</label>
+                      <input type="text" class="form-control" id="combinedPosition" required>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <label class="form-label" for="combinedCompany">Unternehmen*</label>
+                  <input type="text" class="form-control" id="combinedCompany" required>
+                </div>
+              </form>
+            </div>
+            
+            <!-- Schritt 2: Programmoptionen (ausgeblendet) -->
+            <div class="step-content" id="combinedStep2" style="display: none;">
+              <h4 class="step-title">Programmoptionen</h4>
+              <p>Bitte wählen Sie Ihre bevorzugte Programmoption:</p>
+              
+              <div class="course-option selected">
+                <div class="course-option-header">
+                  <h5 class="course-option-title">Basis-Programm</h5>
+                  <div class="course-option-price">€ 3.950</div>
+                </div>
+                <p>3-tägiges Intensivprogramm mit allen Grundlagenmodulen</p>
+                <div class="course-option-features">
+                  <div class="feature-item">
+                    <i class="feature-icon bx bx-check"></i>
+                    <span>Teilnahme am gesamten Programm</span>
+                  </div>
+                  <div class="feature-item">
+                    <i class="feature-icon bx bx-check"></i>
+                    <span>Umfangreiche Kursmaterialien</span>
+                  </div>
+                  <div class="feature-item">
+                    <i class="feature-icon bx bx-check"></i>
+                    <span>Verpflegung inkludiert</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="course-option">
+                <div class="course-option-header">
+                  <h5 class="course-option-title">Premium-Programm</h5>
+                  <div class="course-option-price">€ 4.950</div>
+                </div>
+                <p>3-tägiges Programm mit zusätzlichem Coaching und Networking-Event</p>
+                <div class="course-option-features">
+                  <div class="feature-item">
+                    <i class="feature-icon bx bx-check"></i>
+                    <span>Alles aus dem Basis-Programm</span>
+                  </div>
+                  <div class="feature-item">
+                    <i class="feature-icon bx bx-check"></i>
+                    <span>2 Stunden individuelles Coaching</span>
+                  </div>
+                  <div class="feature-item">
+                    <i class="feature-icon bx bx-check"></i>
+                    <span>Exklusives Networking-Dinner</span>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Besondere Hinweise für Warteliste -->
+              <div id="waitlistInfo" style="display: none; margin-top: 20px; padding: 15px; background-color: #f8f9fa; border-radius: 8px; border-left: 4px solid var(--imt-purple);">
+                <h5 style="margin-top: 0;">Anmeldung für Warteliste</h5>
+                <p>Da der gewünschte Termin bereits ausgebucht ist, werden Sie auf die Warteliste gesetzt. Wir kontaktieren Sie, sobald ein Platz frei wird.</p>
+              </div>
+            </div>
+            
+            <!-- Schritt 3: Bestätigung (ausgeblendet) -->
+            <div class="step-content" id="combinedStep3" style="display: none;">
+              <div class="confirmation-message">
+                <i class="confirmation-icon bx bx-check-circle"></i>
+                <h4 class="confirmation-title">Vielen Dank für Ihre Anmeldung!</h4>
+                <p class="confirmation-text">Wir haben Ihre Anmeldung erhalten und werden uns in Kürze bei Ihnen melden.</p>
+                <button class="register-btn register-btn-primary" id="closeModalBtn">
+                  Abschließen
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="signup-footer">
+            <button class="register-btn register-btn-secondary" id="combinedPrevBtn" style="visibility: hidden;">Zurück</button>
+            <button class="register-btn register-btn-primary" id="combinedNextBtn">Weiter</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript für Interaktionen -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Funktionalität für die kombinierte Lösung
+      const dateTabs = document.querySelectorAll('.date-tab');
+      const dateContents = document.querySelectorAll('.date-content');
+      
+      // Tab-Wechsel
+      dateTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+          // Aktiven Tab entfernen
+          dateTabs.forEach(t => t.classList.remove('active'));
+          
+          // Aktiven Content entfernen
+          dateContents.forEach(c => c.classList.remove('active'));
+          
+          // Neuen Tab aktivieren
+          this.classList.add('active');
+          
+          // Neuen Content anzeigen
+          const tabId = this.getAttribute('data-tab');
+          document.getElementById(tabId).classList.add('active');
+        });
+      });
+      
+      // Modal-Funktionalität für die kombinierte Lösung
+      const combinedOpenBtns = document.querySelectorAll('.combined-open-btn');
+      const combinedModalOverlay = document.getElementById('combinedRegistrationModal');
+      const combinedModalClose = document.getElementById('combinedModalClose');
+      const combinedModalDate = document.getElementById('combinedModalDate');
+      const combinedModalLocation = document.getElementById('combinedModalLocation');
+      const waitlistInfo = document.getElementById('waitlistInfo');
+      
+      // Combined Modal öffnen
+      combinedOpenBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          // Daten in das Modal eintragen
+          combinedModalDate.textContent = this.getAttribute('data-date');
+          combinedModalLocation.textContent = this.getAttribute('data-location');
+          
+          // Prüfen, ob es sich um eine Warteliste handelt
+          if (this.getAttribute('data-waitlist') === 'true') {
+            waitlistInfo.style.display = 'block';
+          } else {
+            waitlistInfo.style.display = 'none';
+          }
+          
+          // Modal öffnen
+          combinedModalOverlay.style.display = 'block';
+          document.body.style.overflow = 'hidden'; // Scroll verhindern
+        });
+      });
+      
+      // Combined Modal schließen
+      combinedModalClose.addEventListener('click', function() {
+        combinedModalOverlay.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        resetCombinedModal();
+      });
+      
+      document.getElementById('closeModalBtn')?.addEventListener('click', function() {
+        combinedModalOverlay.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        resetCombinedModal();
+      });
+      
+      // Modal schließen, wenn außerhalb geklickt wird
+      combinedModalOverlay.addEventListener('click', function(e) {
+        if (e.target === combinedModalOverlay) {
+          combinedModalOverlay.style.display = 'none';
+          document.body.style.overflow = 'auto';
+          resetCombinedModal();
+        }
+      });
+      
+      // Multi-Step-Funktionalität für kombinierte Lösung
+      const combinedNextBtn = document.getElementById('combinedNextBtn');
+      const combinedPrevBtn = document.getElementById('combinedPrevBtn');
+      let combinedCurrentStep = 1;
+      
+      if (combinedNextBtn && combinedPrevBtn) {
+        // Weiter-Button
+        combinedNextBtn.addEventListener('click', function() {
+          if (combinedCurrentStep < 3) {
+            // Aktuellen Schritt ausblenden
+            document.getElementById('combinedStep' + combinedCurrentStep).style.display = 'none';
+            
+            // Zum nächsten Schritt wechseln
+            combinedCurrentStep++;
+            
+            // Neuen Schritt anzeigen
+            document.getElementById('combinedStep' + combinedCurrentStep).style.display = 'block';
+            
+            // Progress aktualisieren
+            updateCombinedProgress();
+            
+            // Button-Status aktualisieren
+            updateCombinedButtons();
+            
+            // Button-Text für letzten Schritt ändern
+            if (combinedCurrentStep === 3) {
+              combinedNextBtn.style.display = 'none';
+            }
+          }
+        });
+        
+        // Zurück-Button
+        combinedPrevBtn.addEventListener('click', function() {
+          if (combinedCurrentStep > 1) {
+            // Aktuellen Schritt ausblenden
+            document.getElementById('combinedStep' + combinedCurrentStep).style.display = 'none';
+            
+            // Zum vorherigen Schritt wechseln
+            combinedCurrentStep--;
+            
+            // Vorherigen Schritt anzeigen
+            document.getElementById('combinedStep' + combinedCurrentStep).style.display = 'block';
+            
+            // Progress aktualisieren
+            updateCombinedProgress();
+            
+            // Button-Status aktualisieren
+            updateCombinedButtons();
+            
+            // Weiter-Button wieder anzeigen, wenn wir nicht mehr im letzten Schritt sind
+            combinedNextBtn.style.display = 'block';
+            combinedNextBtn.textContent = 'Weiter';
+          }
+        });
+        
+        // Hilfsfunktion zum Aktualisieren der Fortschrittsanzeige für Combined Solution
+        function updateCombinedProgress() {
+          // Progress-Bar aktualisieren
+          const progressBar = document.querySelector('#combinedRegistrationModal .progress-bar');
+          progressBar.style.width = ((combinedCurrentStep - 1) / 2 * 100) + '%';
+          
+          // Step-Indikatoren aktualisieren
+          const steps = document.querySelectorAll('#combinedRegistrationModal .step');
+          steps.forEach((step, index) => {
+            if (index + 1 < combinedCurrentStep) {
+              step.classList.add('completed');
+              step.classList.remove('active');
+            } else if (index + 1 === combinedCurrentStep) {
+              step.classList.add('active');
+              step.classList.remove('completed');
+            } else {
+              step.classList.remove('active', 'completed');
+            }
+          });
+        }
+        
+        // Hilfsfunktion zum Aktualisieren der Button-Sichtbarkeit für Combined Solution
+        function updateCombinedButtons() {
+          if (combinedCurrentStep === 1) {
+            combinedPrevBtn.style.visibility = 'hidden';
+          } else {
+            combinedPrevBtn.style.visibility = 'visible';
+          }
+          
+          if (combinedCurrentStep === 3) {
+            combinedNextBtn.textContent = 'Abschließen';
+          } else {
+            combinedNextBtn.textContent = 'Weiter';
+          }
+        }
+        
+        // Funktion zum Zurücksetzen des Combined Modals
+        function resetCombinedModal() {
+          // Alle Schritte zurücksetzen
+          document.getElementById('combinedStep1').style.display = 'block';
+          document.getElementById('combinedStep2').style.display = 'none';
+          document.getElementById('combinedStep3').style.display = 'none';
+          
+          // Step auf 1 zurücksetzen
+          combinedCurrentStep = 1;
+          
+          // Progress zurücksetzen
+          const progressBar = document.querySelector('#combinedRegistrationModal .progress-bar');
+          progressBar.style.width = '33%';
+          
+          // Step-Indikatoren zurücksetzen
+          const steps = document.querySelectorAll('#combinedRegistrationModal .step');
+          steps.forEach((step, index) => {
+            if (index === 0) {
+              step.classList.add('active');
+              step.classList.remove('completed');
+            } else {
+              step.classList.remove('active', 'completed');
+            }
+          });
+          
+          // Buttons zurücksetzen
+          combinedPrevBtn.style.visibility = 'hidden';
+          combinedNextBtn.style.display = 'block';
+          combinedNextBtn.textContent = 'Weiter';
+          
+          // Formular zurücksetzen
+          document.getElementById('combinedRegistrationForm').reset();
+        }
+      }
+      
+      // Klick-Funktion für Kursoptionen
+      const courseOptions = document.querySelectorAll('.course-option');
+      courseOptions.forEach(option => {
+        option.addEventListener('click', function() {
+          // Alle Selektionen entfernen
+          courseOptions.forEach(opt => opt.classList.remove('selected'));
+          
+          // Diese Option selektieren
+          this.classList.add('selected');
+        });
+      });
+    });
+  </script>
+</body>
+</html> 
