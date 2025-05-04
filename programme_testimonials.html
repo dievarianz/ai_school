@@ -921,13 +921,219 @@
     opacity: 1;
   }
 
+  /* ============ DESIGN 5: Zitat-Testimonials mit Bild und Logo ============ */
+  .testimonials-quote-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    gap: 40px;
+    margin-bottom: 70px;
+  }
+
+  .testimonial-quote-grid-item {
+    background: linear-gradient(to bottom right, #fcfcfc, #f5f5f7);
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid #eee;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 30px;
+    position: relative;
+  }
+
+  .testimonial-quote-grid-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.05);
+  }
+
+  .testimonial-quote-content {
+    position: relative;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    padding: 0 15px;
+  }
+
+  .testimonial-quote-mark {
+    position: absolute;
+    font-size: 80px;
+    color: #e1e1e6;
+    z-index: 0;
+    line-height: 1;
+    font-family: Georgia, serif;
+  }
+
+  .testimonial-quote-mark-left {
+    top: -15px;
+    left: -10px;
+  }
+
+  .testimonial-quote-mark-right {
+    bottom: -50px;
+    right: -5px;
+  }
+
+  .testimonial-quote-text {
+    position: relative;
+    z-index: 1;
+  }
+
+  .testimonial-quote-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .testimonial-quote-person {
+    display: flex;
+    align-items: center;
+  }
+
+  .testimonial-quote-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+    border: 3px solid var(--imt-green);
+  }
+
+  .testimonial-quote-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .testimonial-quote-author {
+    font-weight: 600;
+    margin-bottom: 3px;
+  }
+
+  .testimonial-quote-position {
+    font-size: 0.85rem;
+    color: var(--color-muted);
+  }
+
+  .testimonial-quote-logo {
+    height: 40px;
+    width: auto;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+  }
+
+  .testimonial-quote-grid-item:hover .testimonial-quote-logo {
+    opacity: 1;
+  }
+
+  /* ============ DESIGN 10: Video-Testimonial Card mit Zitat ============ */
+  .video-quote-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    gap: 40px;
+    margin-bottom: 70px;
+  }
+
+  .video-quote-card {
+    background: linear-gradient(to bottom right, #fcfcfc, #f5f5f7);
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid #eee;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .video-quote-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.05);
+  }
+  
+  .video-quote-content {
+    padding: 30px;
+    position: relative;
+  }
+  
+  .video-quote-quote {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    position: relative;
+    padding: 0 25px;
+    margin-bottom: 30px;
+  }
+  
+  .video-quote-quote::before {
+    content: "\201C";
+    position: absolute;
+    left: -10px;
+    top: -10px;
+    font-size: 60px;
+    color: var(--imt-green);
+    opacity: 0.2;
+    font-family: Georgia, serif;
+  }
+  
+  .video-quote-quote::after {
+    content: "\201D";
+    position: absolute;
+    right: -10px;
+    bottom: -40px;
+    font-size: 60px;
+    color: var(--imt-green);
+    opacity: 0.2;
+    font-family: Georgia, serif;
+  }
+  
+  .video-quote-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+  }
+  
+  .video-quote-person {
+    display: flex;
+    align-items: center;
+  }
+  
+  .video-quote-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+    border: 3px solid var(--imt-green);
+  }
+  
+  .video-quote-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .video-quote-author {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 2px;
+  }
+  
+  .video-quote-position {
+    font-size: 0.85rem;
+    color: var(--color-muted);
+  }
+  
+  .video-quote-logo {
+    height: 40px;
+    width: auto;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+  }
+  
+  .video-quote-card:hover .video-quote-logo {
+    opacity: 1;
+  }
+
   /* Responsive Anpassungen */
   @media (max-width: 768px) {
-    .testimonials-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .testimonials-cards {
+    .testimonials-grid,
+    .testimonials-cards,
+    .testimonials-quote-grid,
+    .video-quote-cards {
       grid-template-columns: 1fr;
     }
 
@@ -949,6 +1155,18 @@
     
     .gradient-quotes {
       grid-template-columns: 1fr;
+    }
+
+    .testimonial-quote-footer,
+    .video-quote-footer {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .testimonial-quote-logo,
+    .video-quote-logo {
+      margin-top: 15px;
+      align-self: flex-start;
     }
   }
 </style>
@@ -1207,6 +1425,54 @@
     </div>
   </section>
 
+  <!-- ========== DESIGN 5: Zitat-Testimonials mit Bild und Logo ========== -->
+  <section class="content-section" style="background-color: #f9f9f9; padding-top: 60px; padding-bottom: 60px;">
+    <div class="container">
+      <h2 class="section-title">Variante 5: Zitat-Testimonials</h2>
+      <p class="section-description">Eleganate Testimonials mit Zitaten, Personenbild links und Unternehmenslogo rechts für eine klare, optisch ansprechende Darstellung.</p>
+      
+      <div class="testimonials-quote-grid">
+        <!-- Zitat-Testimonial 1 -->
+        <div class="testimonial-quote-grid-item">
+          <div class="testimonial-quote-content">
+            <div class="testimonial-quote-mark testimonial-quote-mark-left">&ldquo;</div>
+            <div class="testimonial-quote-mark testimonial-quote-mark-right">&rdquo;</div>
+            <p class="testimonial-quote-text">Das Seminar hat meine Erwartungen übertroffen. Die Dozenten vermitteln nicht nur akademisches Wissen, sondern teilen ihre reichhaltige Praxiserfahrung. Die Integration von KI-Strategien in unser Unternehmen ist dank der im Seminar erlernten Methoden nun viel strukturierter.</p>
+          </div>
+          <div class="testimonial-quote-footer">
+            <div class="testimonial-quote-person">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Thomas Weber" class="testimonial-quote-avatar">
+              <div class="testimonial-quote-info">
+                <span class="testimonial-quote-author">Thomas Weber</span>
+                <span class="testimonial-quote-position">CEO, Digital Solutions AG</span>
+              </div>
+            </div>
+            <img src="assets/companies/sap.png" alt="Company Logo" class="testimonial-quote-logo">
+          </div>
+        </div>
+        
+        <!-- Zitat-Testimonial 2 -->
+        <div class="testimonial-quote-grid-item">
+          <div class="testimonial-quote-content">
+            <div class="testimonial-quote-mark testimonial-quote-mark-left">&ldquo;</div>
+            <div class="testimonial-quote-mark testimonial-quote-mark-right">&rdquo;</div>
+            <p class="testimonial-quote-text">Durch das Executive Seminar Integrated Management and Strategy konnte ich meine strategischen Fähigkeiten entscheidend verbessern. Die praxisnahen Fallstudien und der intensive Austausch mit Führungskräften aus verschiedenen Branchen haben mir völlig neue Perspektiven eröffnet.</p>
+          </div>
+          <div class="testimonial-quote-footer">
+            <div class="testimonial-quote-person">
+              <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Julia Müller" class="testimonial-quote-avatar">
+              <div class="testimonial-quote-info">
+                <span class="testimonial-quote-author">Julia Müller</span>
+                <span class="testimonial-quote-position">Chief Strategy Officer, Swiss Innovation Group</span>
+              </div>
+            </div>
+            <img src="assets/companies/google.png" alt="Company Logo" class="testimonial-quote-logo">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ========== DESIGN 6: Einfache Zitat-Karten ========== -->
   <section class="content-section">
     <div class="container">
@@ -1386,6 +1652,50 @@
                 </div>
               </div>
               <img src="assets/companies/sap.png" alt="Company" class="gradient-company">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DESIGN 10: Video-Testimonial Card mit Zitat ========== -->
+  <section class="content-section">
+    <div class="container">
+      <h2 class="section-title">Variante 10: Video-Testimonial Card mit Zitat</h2>
+      <p class="section-description">Kompakte Testimonial-Karten mit Zitat, Personenbild und Logo in einer eleganten, platzsparenden Anordnung.</p>
+      
+      <div class="video-quote-cards">
+        <!-- Video Quote Card 1 -->
+        <div class="video-quote-card">
+          <div class="video-quote-content">
+            <p class="video-quote-quote">Das Seminar hat meine Erwartungen übertroffen. Die Dozenten vermitteln nicht nur akademisches Wissen, sondern teilen ihre reichhaltige Praxiserfahrung. Die Integration von KI-Strategien in unser Unternehmen ist dank der im Seminar erlernten Methoden nun viel strukturierter.</p>
+            <div class="video-quote-footer">
+              <div class="video-quote-person">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Thomas Weber" class="video-quote-avatar">
+                <div class="video-quote-info">
+                  <span class="video-quote-author">Thomas Weber</span>
+                  <span class="video-quote-position">CEO, Digital Solutions AG</span>
+                </div>
+              </div>
+              <img src="assets/companies/sap.png" alt="Company Logo" class="video-quote-logo">
+            </div>
+          </div>
+        </div>
+        
+        <!-- Video Quote Card 2 -->
+        <div class="video-quote-card">
+          <div class="video-quote-content">
+            <p class="video-quote-quote">Durch das Executive Seminar Integrated Management and Strategy konnte ich meine strategischen Fähigkeiten entscheidend verbessern. Die praxisnahen Fallstudien und der intensive Austausch mit Führungskräften aus verschiedenen Branchen haben mir völlig neue Perspektiven eröffnet.</p>
+            <div class="video-quote-footer">
+              <div class="video-quote-person">
+                <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Julia Müller" class="video-quote-avatar">
+                <div class="video-quote-info">
+                  <span class="video-quote-author">Julia Müller</span>
+                  <span class="video-quote-position">Chief Strategy Officer, Swiss Innovation Group</span>
+                </div>
+              </div>
+              <img src="assets/companies/google.png" alt="Company Logo" class="video-quote-logo">
             </div>
           </div>
         </div>

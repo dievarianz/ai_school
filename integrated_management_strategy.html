@@ -2008,6 +2008,106 @@
     color: var(--imt-purple);
     margin-top: 2px;
   }
+
+  .gradient-quote-footer {
+    background-color: #fafafa;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #f0f0f0;
+  }
+  
+  .gradient-person {
+    display: flex;
+    align-items: center;
+  }
+  
+  .gradient-avatar-container {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 15px;
+    border: 3px solid white;
+    transition: all 0.3s ease;
+  }
+  
+  .gradient-quote-card:hover .gradient-avatar-container {
+    border-color: #f5f5f7;
+  }
+  
+  .gradient-avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .gradient-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .gradient-name {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 2px;
+  }
+  
+  .gradient-position {
+    font-size: 0.85rem;
+    color: var(--color-muted);
+    min-height: 40px; /* Ensure consistent height */
+    display: flex;
+    align-items: center;
+  }
+  
+  .gradient-program {
+    font-size: 0.8rem;
+    color: var(--imt-purple);
+    margin-top: 2px;
+  }
+  
+  .gradient-company {
+    height: 40px;
+    width: auto;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+  }
+  
+  .gradient-quote-card:hover .gradient-company {
+    opacity: 1;
+  }
+  
+  @media (max-width: 768px) {
+    .gradient-quotes {
+      grid-template-columns: 1fr;
+    }
+    
+    .gradient-quote-footer {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .gradient-person {
+      margin-bottom: 15px;
+      width: 100%;
+    }
+    
+    .gradient-info {
+      flex: 1;
+    }
+    
+    .gradient-company {
+      align-self: flex-start;
+      margin-top: 5px;
+    }
+    
+    .gradient-position {
+      min-height: unset;
+      margin-bottom: 5px;
+    }
+  }
 </style>
 
 <!-- Favicon -->
@@ -2766,6 +2866,29 @@
           @media (max-width: 768px) {
             .gradient-quotes {
               grid-template-columns: 1fr;
+            }
+            .gradient-quote-footer {
+              flex-direction: column;
+              align-items: flex-start;
+            }
+            
+            .gradient-person {
+              margin-bottom: 15px;
+              width: 100%;
+            }
+            
+            .gradient-info {
+              flex: 1;
+            }
+            
+            .gradient-company {
+              align-self: flex-start;
+              margin-top: 5px;
+            }
+            
+            .gradient-position {
+              min-height: unset;
+              margin-bottom: 5px;
             }
           }
         </style>

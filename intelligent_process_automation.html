@@ -1464,7 +1464,36 @@
       grid-template-columns: 1fr;
     }
   }
-</style>
+
+          @media (max-width: 768px) {
+            .gradient-quotes {
+              grid-template-columns: 1fr;
+            }
+            .gradient-quote-footer {
+              flex-direction: column;
+              align-items: flex-start;
+            }
+            
+            .gradient-person {
+              margin-bottom: 15px;
+              width: 100%;
+            }
+            
+            .gradient-info {
+              flex: 1;
+            }
+            
+            .gradient-company {
+              align-self: flex-start;
+              margin-top: 5px;
+            }
+            
+            .gradient-position {
+              min-height: unset;
+              margin-bottom: 5px;
+            }
+          }
+        </style>
 
 <!-- BoxIcons für Icons -->
 <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">

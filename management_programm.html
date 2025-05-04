@@ -1413,7 +1413,7 @@
     font-size: 0.9rem;
     margin-left: 10px;
   }
-
+  
   /* Date List Styles */
   .date-list {
     list-style: none;
@@ -1608,7 +1608,36 @@
       grid-template-columns: 1fr;
     }
   }
-</style>
+
+          @media (max-width: 768px) {
+            .gradient-quotes {
+              grid-template-columns: 1fr;
+            }
+            .gradient-quote-footer {
+              flex-direction: column;
+              align-items: flex-start;
+            }
+            
+            .gradient-person {
+              margin-bottom: 15px;
+              width: 100%;
+            }
+            
+            .gradient-info {
+              flex: 1;
+            }
+            
+            .gradient-company {
+              align-self: flex-start;
+              margin-top: 5px;
+            }
+            
+            .gradient-position {
+              min-height: unset;
+              margin-bottom: 5px;
+            }
+          }
+        </style>
 
 <!-- BoxIcons für Icons -->
 <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
@@ -2119,30 +2148,30 @@
               <div class="gradient-quote-content">
                 <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
                 <p class="gradient-quote-text">Durch das Management Programm konnte ich meine strategischen Fähigkeiten entscheidend verbessern. Die praxisnahen Fallstudien und der intensive Austausch mit Führungskräften aus verschiedenen Branchen haben mir völlig neue Perspektiven eröffnet.</p>
-              </div>
+                </div>
               <div class="gradient-quote-footer">
                 <div class="gradient-person">
                   <div class="gradient-avatar-container">
                     <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Julia Müller" class="gradient-avatar">
-                  </div>
+            </div>
                   <div class="gradient-info">
                     <span class="gradient-name">Julia Müller</span>
                     <span class="gradient-position">Chief Strategy Officer, Swiss Innovation Group</span>
                     <span class="gradient-program">Management Programm, 2023</span>
-                  </div>
                 </div>
+            </div>
                 <img src="assets/companies/google.png" alt="Company" class="gradient-company">
               </div>
+                </div>
             </div>
-          </div>
-          
+            
           <!-- Gradient Quote 2 -->
           <div class="gradient-quote-card">
             <div class="gradient-quote-inner">
               <div class="gradient-quote-content">
                 <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
                 <p class="gradient-quote-text">Das Seminar hat meine Erwartungen übertroffen. Die Dozenten vermitteln nicht nur akademisches Wissen, sondern teilen ihre reichhaltige Praxiserfahrung. Die Integration von Managementstrategien in unser Unternehmen ist dank der im Seminar erlernten Methoden nun viel strukturierter.</p>
-              </div>
+                </div>
               <div class="gradient-quote-footer">
                 <div class="gradient-person">
                   <div class="gradient-avatar-container">
@@ -2157,7 +2186,7 @@
                 <img src="assets/companies/sap.png" alt="Company" class="gradient-company">
               </div>
             </div>
-          </div>
+            </div>
         </div>
       </div>
     </section>
