@@ -3178,17 +3178,30 @@
     .then(data => {
       if (data) {
         document.getElementById('navigation-container').innerHTML = data;
+        console.log('Navigation loaded into DOM');
+        
+        // Log details about the menu structure to help debugging
+        console.log('Navigation container:', document.getElementById('navigation-container'));
+        console.log('Mobile menu button selector:', document.querySelector('.mobile-menu-btn'));
         
         // Mobile Navigation direkt initialisieren statt externe Datei
         setTimeout(function() {
           const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
           const navMenu = document.querySelector('.nav-menu');
           
+          console.log('Mobile Menu Setup: Button found =', !!mobileMenuBtn, 'Menu found =', !!navMenu);
+          
           if (mobileMenuBtn && navMenu) {
             // Single Event Handler für den Menü-Button
             mobileMenuBtn.addEventListener('click', function(e) {
-              e.preventDefault();
+              // Nur verhindern, dass der Browser zum Anfang der Seite scrollt
+              if (e.target.tagName === 'A') {
+                e.preventDefault();
+              }
+              
+              console.log('Mobile menu button clicked, toggling active state');
               navMenu.classList.toggle('active');
+              console.log('Menu is now:', navMenu.classList.contains('active') ? 'active' : 'inactive');
               
               // Sprachauswahl hinzufügen - nur wenn sie noch nicht existiert
               if (navMenu.classList.contains('active') && !document.querySelector('.mobile-lang-section')) {
@@ -3202,6 +3215,7 @@
                   </div>
                 `;
                 navMenu.appendChild(langSection);
+                console.log('Language section added to mobile menu');
               }
             });
             
@@ -3220,8 +3234,24 @@
                 });
               }
             });
+          } else {
+            console.error('Mobile menu elements not found, retrying...');
+            // Try again after a short delay if elements weren't found
+            setTimeout(() => {
+              const retryMobileMenuBtn = document.querySelector('.mobile-menu-btn');
+              const retryNavMenu = document.querySelector('.nav-menu');
+              
+              console.log('Retry Mobile Menu Setup: Button found =', !!retryMobileMenuBtn, 'Menu found =', !!retryNavMenu);
+              
+              if (retryMobileMenuBtn && retryNavMenu) {
+                retryMobileMenuBtn.addEventListener('click', function() {
+                  console.log('Retry mobile menu button clicked');
+                  retryNavMenu.classList.toggle('active');
+                });
+              }
+            }, 500);
           }
-        }, 100); // Kurzes Delay für DOM-Update
+        }, 300); // Erhöht von 100ms auf 300ms für besseres Timing
       }
     })
     .catch(error => console.error('Fehler beim Laden der Navigation:', error));
@@ -3670,27 +3700,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navMenu = document.querySelector('.nav-menu');
     
-    if (mobileMenuBtn && navMenu) {
-      mobileMenuBtn.addEventListener('click', function() {
-        navMenu.classList.toggle('active');
-        
-        // Sprachauswahl hinzufügen - nur wenn sie noch nicht existiert
-        if (navMenu.classList.contains('active') && !document.querySelector('.mobile-lang-section')) {
-          const langSection = document.createElement('div');
-          langSection.className = 'mobile-lang-section';
-          langSection.innerHTML = `
-            <div class="lang-title">Sprache</div>
-            <div class="mobile-lang-options">
-              <a href="?lang=de" class="mobile-lang-option active">Deutsch</a>
-              <a href="?lang=en" class="mobile-lang-option">English</a>
-            </div>
-          `;
-          navMenu.appendChild(langSection);
-        }
-      });
-    }
-    
-    // Dropdown Toggle auf Mobilgeräten
+    // Dropdown Toggle auf Mobilgeräten (Behalten wir bei, aber entfernen den doppelten Menu-Toggle)
     const navItems = document.querySelectorAll('.nav-item');
     navItems.forEach(item => {
       const toggleLink = item.querySelector('.toggle-subnav');
