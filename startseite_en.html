@@ -243,22 +243,57 @@
     
     /* Fix for language dropdown display issues */
     .mobile-lang-section {
-      display: none;
+      margin-top: 15px;
+      padding: 15px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
     
-    @media (max-width: 900px) {
-      .mobile-lang-section {
-        display: block !important;
-        margin-top: 20px;
-        padding-top: 20px;
-        border-top: 1px solid rgba(0, 0, 0, 0.1);
-      }
+    .lang-title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      color: rgba(255, 255, 255, 0.6);
     }
     
+    .mobile-lang-options {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .mobile-lang-option {
+      color: white;
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding: 5px 0;
+      opacity: 0.7;
+      transition: opacity 0.2s ease;
+    }
+    
+    .mobile-lang-option.active {
+      opacity: 1;
+      font-weight: 600;
+      position: relative;
+    }
+    
+    .mobile-lang-option.active::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 2px;
+      background-color: white;
+    }
+    /* End of language display fix */
+    
+    /* Remove conflicting rule that hides the language switcher */
+    /*
     .lang-title, 
     .nav-wrapper .mobile-lang-section:not(.mobile-lang-options) {
       display: none !important;
     }
+    */
     /* End of language display fix */
     
     .section-tag {
@@ -2246,8 +2281,8 @@
         </div>
         
         <div class="section-link">
-          <a href="netzwerk.html" class="view-all-btn">
-            Discover entire network <i class="bx bx-right-arrow-alt"></i>
+          <a href="netzwerk_en.html" class="view-all-btn">
+            Discover our startseite_en.html network <i class="bx bx-right-arrow-alt"></i>
           </a>
         </div>
       </div>
@@ -2317,6 +2352,41 @@
           const navScript = document.createElement('script');
           navScript.src = 'assets/js/mobile-nav.js?t=' + new Date().getTime();
           document.body.appendChild(navScript);
+          
+          // Special handling for language switcher in English homepage
+          setTimeout(() => {
+            // Specifically ensure mobile language selector is available
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (mobileMenuBtn && navMenu) {
+              // Manually check if the language section already exists
+              let existingLangSection = document.querySelector('.mobile-lang-section');
+              
+              if (!existingLangSection) {
+                // Add the language section to the mobile menu
+                const langSection = document.createElement('div');
+                langSection.className = 'mobile-lang-section';
+                langSection.style.display = 'none'; // Initially hidden
+                langSection.innerHTML = `
+                  <div class="lang-title">Language</div>
+                  <div class="mobile-lang-options">
+                    <a href="#" class="mobile-lang-option" data-lang="de" onclick="switchLanguage('de'); return false;">Deutsch</a>
+                    <a href="#" class="mobile-lang-option active" data-lang="en" onclick="switchLanguage('en'); return false;">English</a>
+                  </div>
+                `;
+                navMenu.appendChild(langSection);
+                
+                // Update the click handler for mobile menu button
+                mobileMenuBtn.addEventListener('click', function() {
+                  const langSection = document.querySelector('.mobile-lang-section');
+                  if (langSection) {
+                    langSection.style.display = navMenu.classList.contains('active') ? 'block' : 'none';
+                  }
+                });
+              }
+            }
+          }, 1000);
           
           // Mark home page link as active
           setTimeout(() => {
@@ -2658,17 +2728,8 @@
           // Set correct target link for German
           if (isEnglish) {
             // From English to German: page_en.html -> page.html
-            const germanPage = currentPage.replace('_en.html', '.html');
-            deLinkDesktop.setAttribute('href', germanPage);
-            
-            // Add reload handler for language-specific components
-            deLinkDesktop.addEventListener('click', function(e) {
-              e.preventDefault(); // Prevent default navigation
-              // Store language preference in session storage
-              sessionStorage.setItem('preferredLanguage', 'de');
-              // Force redirect to the German page
-              window.location.href = germanPage;
-            });
+            deLinkDesktop.setAttribute('href', '#');
+            deLinkDesktop.setAttribute('onclick', "switchLanguage('de'); return false;");
             
             // Mark English as active
             enLinkDesktop.classList.add('active');
@@ -2679,17 +2740,8 @@
             deLinkDesktop.setAttribute('href', '#');
             
             // Set link for English
-            const englishPage = currentPage.replace('.html', '_en.html');
-            enLinkDesktop.setAttribute('href', englishPage);
-            
-            // Add reload handler for language-specific components
-            enLinkDesktop.addEventListener('click', function(e) {
-              e.preventDefault(); // Prevent default navigation
-              // Store language preference in session storage
-              sessionStorage.setItem('preferredLanguage', 'en');
-              // Force redirect to the English page
-              window.location.href = englishPage;
-            });
+            enLinkDesktop.setAttribute('href', '#');
+            enLinkDesktop.setAttribute('onclick', "switchLanguage('en'); return false;");
           }
         } else {
           // Try to find and set up language links if they don't have IDs yet
@@ -2717,38 +2769,31 @@
             link.classList.add('active');
           }
           
-          // Set correct target link
+          // Set onclick handler using the global switchLanguage function
+          link.setAttribute('href', '#');
+          link.setAttribute('onclick', `switchLanguage('${lang}'); return false;`);
+        });
+      }
+      
+      // Add global switchLanguage function if it doesn't exist yet
+      if (typeof window.switchLanguage !== 'function') {
+        window.switchLanguage = function(lang) {
+          const currentPath = window.location.pathname;
+          const currentPage = currentPath.substring(currentPath.lastIndexOf('/') + 1);
+          const isEnglish = currentPage.includes('_en');
+          
+          // Store language preference
+          sessionStorage.setItem('preferredLanguage', lang);
+          
+          // Navigate to the appropriate language version
           if (lang === 'en' && !isEnglish) {
             // From German to English
-            const englishPage = currentPage.replace('.html', '_en.html');
-            link.setAttribute('href', englishPage);
-            
-            // Add reload handler for language-specific components
-            link.addEventListener('click', function(e) {
-              e.preventDefault(); // Prevent default navigation
-              // Store language preference in session storage
-              sessionStorage.setItem('preferredLanguage', 'en');
-              // Force redirect to the English page
-              window.location.href = englishPage;
-            });
+            window.location.href = currentPage.replace('.html', '_en.html');
           } else if (lang === 'de' && isEnglish) {
             // From English to German
-            const germanPage = currentPage.replace('_en.html', '.html');
-            link.setAttribute('href', germanPage);
-            
-            // Add reload handler for language-specific components
-            link.addEventListener('click', function(e) {
-              e.preventDefault(); // Prevent default navigation
-              // Store language preference in session storage
-              sessionStorage.setItem('preferredLanguage', 'de');
-              // Force redirect to the German page
-              window.location.href = germanPage;
-            });
-          } else {
-            // Stay on same language
-            link.setAttribute('href', '#');
+            window.location.href = currentPage.replace('_en.html', '.html');
           }
-        });
+        };
       }
       
       // Monitor the mobile menu and update language selection when opened
@@ -2781,39 +2826,105 @@
                     link.classList.remove('active');
                   }
                   
-                  // Set correct target link
-                  if (lang === 'en' && !isEnglish) {
-                    // From German to English
-                    const englishPage = currentPage.replace('.html', '_en.html');
-                    link.setAttribute('href', englishPage);
-                    
-                    // Add reload handler with direct navigation
-                    link.addEventListener('click', function(e) {
-                      e.preventDefault();
-                      sessionStorage.setItem('preferredLanguage', 'en');
-                      window.location.href = englishPage;
-                    });
-                  } else if (lang === 'de' && isEnglish) {
-                    // From English to German
-                    const germanPage = currentPage.replace('_en.html', '.html');
-                    link.setAttribute('href', germanPage);
-                    
-                    // Add reload handler with direct navigation
-                    link.addEventListener('click', function(e) {
-                      e.preventDefault();
-                      sessionStorage.setItem('preferredLanguage', 'de');
-                      window.location.href = germanPage;
-                    });
-                  } else {
-                    // Stay on same language
-                    link.setAttribute('href', '#');
-                  }
+                  // Set onclick handler using the global switchLanguage function
+                  link.setAttribute('href', '#');
+                  link.setAttribute('onclick', `switchLanguage('${lang}'); return false;`);
                 });
               }
             }, 100);
           });
         }
       }
+    });
+  </script>
+  
+  <!-- Fix for mobile language switcher on English homepage -->
+  <script>
+    // This script specifically targets the mobile language switcher issue on startseite_en.html
+    document.addEventListener('DOMContentLoaded', function() {
+      // Poll every 100ms for 5 seconds to ensure the mobile menu is ready
+      let attempts = 0;
+      const maxAttempts = 50;
+      
+      function checkAndFixMobileMenu() {
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        // Stop if we've tried too many times or we can't find the elements
+        attempts++;
+        if (attempts > maxAttempts || !mobileMenuBtn || !navMenu) {
+          console.log('Stopping mobile menu language switcher fix attempts', attempts);
+          return;
+        }
+        
+        // Check if the language section already exists
+        const existingLangSection = document.querySelector('.mobile-lang-section');
+        
+        if (!existingLangSection) {
+          console.log('Adding language section to mobile menu');
+          
+          // Create and add the language section
+          const langSection = document.createElement('div');
+          langSection.className = 'mobile-lang-section';
+          langSection.style.display = 'none';
+          langSection.style.marginTop = '15px';
+          langSection.style.padding = '15px';
+          langSection.style.borderTop = '1px solid rgba(255, 255, 255, 0.1)';
+          
+          langSection.innerHTML = `
+            <div class="lang-title" style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; color: rgba(255, 255, 255, 0.6);">Language</div>
+            <div class="mobile-lang-options" style="display: flex; gap: 15px;">
+              <a href="#" class="mobile-lang-option" data-lang="de" onclick="switchLanguage('de'); return false;" style="color: white; text-decoration: none; font-size: 0.9rem; opacity: 0.7;">Deutsch</a>
+              <a href="#" class="mobile-lang-option active" data-lang="en" onclick="switchLanguage('en'); return false;" style="color: white; text-decoration: none; font-size: 0.9rem; opacity: 1; font-weight: 600;">English</a>
+            </div>
+          `;
+          
+          navMenu.appendChild(langSection);
+          
+          // Make the language section visible when menu is opened
+          mobileMenuBtn.addEventListener('click', function() {
+            setTimeout(function() {
+              const langSectionAdded = document.querySelector('.mobile-lang-section');
+              if (langSectionAdded) {
+                langSectionAdded.style.display = navMenu.classList.contains('active') ? 'block' : 'none';
+              }
+            }, 50);
+          });
+          
+          // Ensure switchLanguage function exists
+          if (typeof window.switchLanguage !== 'function') {
+            window.switchLanguage = function(lang) {
+              const currentPath = window.location.pathname;
+              const currentPage = currentPath.substring(currentPath.lastIndexOf('/') + 1);
+              
+              // Store language preference
+              sessionStorage.setItem('preferredLanguage', lang);
+              
+              // Navigate to the appropriate language version
+              if (lang === 'de') {
+                window.location.href = currentPage.replace('_en.html', '.html');
+              }
+            };
+          }
+          
+          console.log('Language section added to mobile menu');
+        } else {
+          // If it exists but is not visible when menu is opened, fix that
+          console.log('Language section exists, ensuring it will be visible');
+          mobileMenuBtn.addEventListener('click', function() {
+            setTimeout(function() {
+              existingLangSection.style.display = navMenu.classList.contains('active') ? 'block' : 'none';
+            }, 50);
+          });
+        }
+      }
+      
+      // Initial check
+      setTimeout(checkAndFixMobileMenu, 500);
+      
+      // Also run after nav script likely has loaded
+      setTimeout(checkAndFixMobileMenu, 1500);
+      setTimeout(checkAndFixMobileMenu, 3000);
     });
   </script>
 </body>

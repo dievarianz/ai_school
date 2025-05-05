@@ -1,0 +1,299 @@
+// Mobile Navigation Script
+// Version 3.1 - Mobile Programs menu fix
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Prevent multiple initializations
+  if (window.mobileNavInitialized === true) {
+    return;
+  }
+  
+  // Mark as initialized
+  window.mobileNavInitialized = true;
+  
+  // Basic elements
+  const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+  const navMenu = document.querySelector('.nav-menu');
+  
+  if (!mobileMenuBtn || !navMenu) {
+    console.error('Mobile navigation elements not found');
+    return;
+  }
+  
+  // Get current language
+  const currentPath = window.location.pathname;
+  const currentPage = currentPath.substring(currentPath.lastIndexOf('/') + 1);
+  const pageIsEnglish = currentPage.includes('_en');
+  
+  // Add special class to body for debugging
+  document.body.classList.add('mobile-nav-initialized');
+  
+  // 1. ENSURE LANGUAGE SECTION EXISTS
+  // First check if the mobile language section already exists
+  let mobileLangSection = navMenu.querySelector('.mobile-lang-section');
+  
+  // If it doesn't exist or is hidden with display:none, create/update it
+  if (!mobileLangSection) {
+    // Create the language section if it doesn't exist
+    mobileLangSection = document.createElement('div');
+    mobileLangSection.className = 'mobile-lang-section';
+    mobileLangSection.innerHTML = `
+      <div class="lang-title">${pageIsEnglish ? 'Language' : 'Sprache'}</div>
+      <div class="mobile-lang-options">
+        <a href="#" class="mobile-lang-option ${!pageIsEnglish ? 'active' : ''}" data-lang="de">Deutsch</a>
+        <a href="#" class="mobile-lang-option ${pageIsEnglish ? 'active' : ''}" data-lang="en">English</a>
+      </div>
+    `;
+    navMenu.appendChild(mobileLangSection);
+  } else {
+    // Make sure it's visible
+    mobileLangSection.style.display = 'block';
+    
+    // Update language options active state
+    const deLangOption = mobileLangSection.querySelector('[data-lang="de"]');
+    const enLangOption = mobileLangSection.querySelector('[data-lang="en"]');
+    
+    if (deLangOption && enLangOption) {
+      deLangOption.classList.toggle('active', !pageIsEnglish);
+      enLangOption.classList.toggle('active', pageIsEnglish);
+    }
+  }
+  
+  // Ensure the language section has the proper styling
+  const styleEl = document.createElement('style');
+  styleEl.innerHTML = `
+    .mobile-lang-section {
+      width: 100%;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      display: block !important;
+    }
+    
+    .lang-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--color-text);
+      display: block !important;
+    }
+    
+    .mobile-lang-options {
+      display: flex;
+      gap: 12px;
+    }
+    
+    .mobile-lang-option {
+      font-size: 0.95rem;
+      color: var(--color-text);
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      background: var(--color-card-bg);
+      transition: all 0.2s ease;
+    }
+    
+    .mobile-lang-option.active {
+      background: var(--imt-purple);
+      color: white;
+    }
+    
+    @media (min-width: 1025px) {
+      .mobile-lang-section {
+        display: none !important;
+      }
+    }
+    
+    @media (max-width: 1024px) {
+      .program-dropdown {
+        display: none;
+        position: static !important;
+        transform: none !important;
+        box-shadow: none !important;
+        min-width: unset !important;
+        width: 100% !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+      
+      .program-dropdown.active {
+        display: block !important;
+      }
+      
+      .nav-item:hover .program-dropdown {
+        display: none !important;
+      }
+      
+      .nav-menu {
+        height: calc(100vh - 64px) !important;
+        overflow-y: auto !important;
+      }
+      
+      /* Make toggle links more clickable */
+      .toggle-subnav {
+        cursor: pointer !important;
+        user-select: none !important;
+        -webkit-user-select: none !important;
+        -moz-user-select: none !important;
+        -ms-user-select: none !important;
+      }
+    }
+  `;
+  document.head.appendChild(styleEl);
+  
+  // 2. MOBILE MENU TOGGLE
+  mobileMenuBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    navMenu.classList.toggle('active');
+  });
+  
+  // 3. PROGRAM DROPDOWN TOGGLE - Simplified for direct click handling
+  const toggleLinks = document.querySelectorAll('.toggle-subnav');
+  
+  // Direct function to handle toggle clicks
+  function handleToggleClick(e) {
+    // Only for mobile view
+    if (window.innerWidth <= 1024) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      const navItem = this.closest('.nav-item');
+      if (!navItem) return;
+      
+      const dropdown = navItem.querySelector('.program-dropdown');
+      if (!dropdown) return;
+      
+      // Close other open dropdowns first
+      document.querySelectorAll('.program-dropdown.active').forEach(other => {
+        if (other !== dropdown) {
+          other.classList.remove('active');
+        }
+      });
+      
+      // Toggle this dropdown
+      dropdown.classList.toggle('active');
+      
+      // Log for debugging
+      console.log('Toggle clicked, dropdown active:', dropdown.classList.contains('active'));
+    }
+  }
+  
+  toggleLinks.forEach(link => {
+    // Remove any existing click handlers
+    const newLink = link.cloneNode(true);
+    if (link.parentNode) {
+      link.parentNode.replaceChild(newLink, link);
+    }
+    
+    // Add new direct click handler
+    newLink.addEventListener('click', handleToggleClick);
+    
+    // Also add touch events for mobile
+    newLink.addEventListener('touchend', handleToggleClick);
+  });
+  
+  // 4. LANGUAGE SWITCHER FUNCTIONALITY
+  const setupLangButtons = function(container) {
+    if (!container) return;
+    
+    const langButtons = container.querySelectorAll('.mobile-lang-option');
+    
+    langButtons.forEach(btn => {
+      // Remove existing event listeners
+      const newBtn = btn.cloneNode(true);
+      btn.parentNode.replaceChild(newBtn, btn);
+      
+      // Add new click handler
+      newBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const lang = this.getAttribute('data-lang');
+        if (!lang) return;
+        
+        // Store language preference
+        sessionStorage.setItem('preferredLanguage', lang);
+        
+        // Handle redirect
+        if (lang === 'en' && !currentPage.includes('_en')) {
+          // German to English
+          window.location.href = currentPage.replace('.html', '_en.html');
+        } else if (lang === 'de' && currentPage.includes('_en')) {
+          // English to German
+          window.location.href = currentPage.replace('_en.html', '.html');
+        }
+      });
+    });
+  };
+  
+  // Setup language buttons
+  setupLangButtons(mobileLangSection);
+  
+  // Desktop language switcher
+  const setupDesktopLangSwitcher = function() {
+    const deLinkDesktop = document.getElementById('lang-de-link');
+    const enLinkDesktop = document.getElementById('lang-en-link');
+    
+    if (!deLinkDesktop || !enLinkDesktop) return;
+    
+    const isEnglish = currentPage.includes('_en');
+    
+    // Set active states
+    deLinkDesktop.classList.toggle('active', !isEnglish);
+    enLinkDesktop.classList.toggle('active', isEnglish);
+    
+    // Set URLs and handlers
+    if (isEnglish) {
+      // On English page
+      const germanPage = currentPage.replace('_en.html', '.html');
+      deLinkDesktop.setAttribute('href', germanPage);
+      
+      // Clear and set click handler
+      const newDeLink = deLinkDesktop.cloneNode(true);
+      deLinkDesktop.parentNode.replaceChild(newDeLink, deLinkDesktop);
+      newDeLink.addEventListener('click', function() {
+        sessionStorage.setItem('preferredLanguage', 'de');
+      });
+      
+      // Disable English link
+      enLinkDesktop.setAttribute('href', '#');
+    } else {
+      // On German page
+      const englishPage = currentPage.replace('.html', '_en.html');
+      enLinkDesktop.setAttribute('href', englishPage);
+      
+      // Clear and set click handler
+      const newEnLink = enLinkDesktop.cloneNode(true);
+      enLinkDesktop.parentNode.replaceChild(newEnLink, enLinkDesktop);
+      newEnLink.addEventListener('click', function() {
+        sessionStorage.setItem('preferredLanguage', 'en');
+      });
+      
+      // Disable German link
+      deLinkDesktop.setAttribute('href', '#');
+    }
+  };
+  
+  // Initialize desktop language switcher
+  setupDesktopLangSwitcher();
+  
+  // Fix for mobile Programs menu - ensure proper click handling
+  // Run this with a slight delay to ensure DOM is fully ready
+  setTimeout(function() {
+    // Reattach event listeners to make sure they work
+    const allToggles = document.querySelectorAll('.toggle-subnav');
+    allToggles.forEach(toggle => {
+      toggle.addEventListener('click', handleToggleClick);
+      toggle.addEventListener('touchend', handleToggleClick);
+    });
+    
+    // Force check language section visibility
+    if (mobileLangSection) {
+      if (window.innerWidth <= 1024) {
+        mobileLangSection.style.display = 'block';
+      } else {
+        mobileLangSection.style.display = 'none';
+      }
+    }
+    
+    console.log('Mobile navigation fully initialized');
+  }, 500);
+}); 

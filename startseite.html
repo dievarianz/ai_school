@@ -2638,17 +2638,8 @@
           // Korrekten Ziel-Link für Deutsch setzen
           if (isEnglish) {
             // Von englisch zu deutsch: page_en.html -> page.html
-            const germanPage = currentPage.replace('_en.html', '.html');
-            deLinkDesktop.setAttribute('href', germanPage);
-            
-            // Click-Handler mit direkter Navigation hinzufügen
-            deLinkDesktop.addEventListener('click', function(e) {
-              e.preventDefault(); // Standard-Navigation verhindern
-              // Sprachpräferenz im Session-Storage speichern
-              sessionStorage.setItem('preferredLanguage', 'de');
-              // Zur deutschen Seite umleiten
-              window.location.href = germanPage;
-            });
+            deLinkDesktop.setAttribute('href', '#');
+            deLinkDesktop.setAttribute('onclick', "switchLanguage('de'); return false;");
             
             // Englisch als aktiv markieren
             enLinkDesktop.classList.add('active');
@@ -2659,17 +2650,8 @@
             deLinkDesktop.setAttribute('href', '#');
             
             // Link für Englisch setzen
-            const englishPage = currentPage.replace('.html', '_en.html');
-            enLinkDesktop.setAttribute('href', englishPage);
-            
-            // Click-Handler mit direkter Navigation hinzufügen
-            enLinkDesktop.addEventListener('click', function(e) {
-              e.preventDefault(); // Standard-Navigation verhindern
-              // Sprachpräferenz im Session-Storage speichern
-              sessionStorage.setItem('preferredLanguage', 'en');
-              // Zur englischen Seite umleiten
-              window.location.href = englishPage;
-            });
+            enLinkDesktop.setAttribute('href', '#');
+            enLinkDesktop.setAttribute('onclick', "switchLanguage('en'); return false;");
           }
         } else {
           // Versuchen, Sprachlinks zu finden und einzurichten, wenn sie noch keine IDs haben
@@ -2697,38 +2679,31 @@
             link.classList.add('active');
           }
           
-          // Korrekten Ziel-Link setzen
+          // onclick-Handler mit der globalen switchLanguage-Funktion setzen
+          link.setAttribute('href', '#');
+          link.setAttribute('onclick', `switchLanguage('${lang}'); return false;`);
+        });
+      }
+      
+      // Globale switchLanguage-Funktion hinzufügen, falls sie noch nicht existiert
+      if (typeof window.switchLanguage !== 'function') {
+        window.switchLanguage = function(lang) {
+          const currentPath = window.location.pathname;
+          const currentPage = currentPath.substring(currentPath.lastIndexOf('/') + 1);
+          const isEnglish = currentPage.includes('_en');
+          
+          // Sprachpräferenz im Session-Storage speichern
+          sessionStorage.setItem('preferredLanguage', lang);
+          
+          // Zur entsprechenden Sprachversion navigieren
           if (lang === 'en' && !isEnglish) {
             // Von deutsch zu englisch
-            const englishPage = currentPage.replace('.html', '_en.html');
-            link.setAttribute('href', englishPage);
-            
-            // Click-Handler mit direkter Navigation hinzufügen
-            link.addEventListener('click', function(e) {
-              e.preventDefault(); // Standard-Navigation verhindern
-              // Sprachpräferenz im Session-Storage speichern
-              sessionStorage.setItem('preferredLanguage', 'en');
-              // Zur englischen Seite umleiten
-              window.location.href = englishPage;
-            });
+            window.location.href = currentPage.replace('.html', '_en.html');
           } else if (lang === 'de' && isEnglish) {
             // Von englisch zu deutsch
-            const germanPage = currentPage.replace('_en.html', '.html');
-            link.setAttribute('href', germanPage);
-            
-            // Click-Handler mit direkter Navigation hinzufügen
-            link.addEventListener('click', function(e) {
-              e.preventDefault(); // Standard-Navigation verhindern
-              // Sprachpräferenz im Session-Storage speichern
-              sessionStorage.setItem('preferredLanguage', 'de');
-              // Zur deutschen Seite umleiten
-              window.location.href = germanPage;
-            });
-          } else {
-            // Bleibt auf gleicher Sprache
-            link.setAttribute('href', '#');
+            window.location.href = currentPage.replace('_en.html', '.html');
           }
-        });
+        };
       }
       
       // Überwacht das mobile Menü und aktualisiert die Sprachauswahl, wenn es geöffnet wird
@@ -2761,33 +2736,9 @@
                     link.classList.remove('active');
                   }
                   
-                  // Korrekten Ziel-Link setzen
-                  if (lang === 'en' && !isEnglish) {
-                    // Von deutsch zu englisch
-                    const englishPage = currentPage.replace('.html', '_en.html');
-                    link.setAttribute('href', englishPage);
-                    
-                    // Click-Handler mit direkter Navigation hinzufügen
-                    link.addEventListener('click', function(e) {
-                      e.preventDefault();
-                      sessionStorage.setItem('preferredLanguage', 'en');
-                      window.location.href = englishPage;
-                    });
-                  } else if (lang === 'de' && isEnglish) {
-                    // Von englisch zu deutsch
-                    const germanPage = currentPage.replace('_en.html', '.html');
-                    link.setAttribute('href', germanPage);
-                    
-                    // Click-Handler mit direkter Navigation hinzufügen
-                    link.addEventListener('click', function(e) {
-                      e.preventDefault();
-                      sessionStorage.setItem('preferredLanguage', 'de');
-                      window.location.href = germanPage;
-                    });
-                  } else {
-                    // Bleibt auf gleicher Sprache
-                    link.setAttribute('href', '#');
-                  }
+                  // onclick-Handler mit der globalen switchLanguage-Funktion setzen
+                  link.setAttribute('href', '#');
+                  link.setAttribute('onclick', `switchLanguage('${lang}'); return false;`);
                 });
               }
             }, 100);
