@@ -29,11 +29,11 @@
         <img src="assets/pictures/imt_logo.png" alt="StGallen Integrated imt Business School">
       </a>
       
-      <div class="nav-menu">
+      <div class="nav-menu" id="mobileNavMenu">
         <a href="startseite_en.html" class="nav-link" data-base-href="startseite_en.html">StGallen imt</a>
         <div class="nav-item">
-          <a href="#" class="nav-link toggle-subnav">Programs<svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-          <div class="program-dropdown">
+          <a href="#" class="nav-link toggle-subnav" onclick="mobileMenuToggle(event, this)">Programs<svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <div class="program-dropdown" id="mobile-program-dropdown">
             <!-- First column: Individual seminars -->
             <div class="menu-column">
               <h3>Management Seminars</h3>
@@ -61,11 +61,11 @@
         <a href="kontakt_en.html" class="nav-link" data-base-href="kontakt_en.html">Contact</a>
         
         <!-- Mobile language section - this is only for mobile view -->
-        <div class="mobile-lang-section" style="display:none;">
-          <div class="lang-title" style="display:none;">Language</div>
-          <div class="mobile-lang-options">
-            <a href="#" class="mobile-lang-option" data-lang="de">Deutsch</a>
-            <a href="#" class="mobile-lang-option active" data-lang="en">English</a>
+        <div class="only-mobile-lang-section">
+          <div class="only-mobile-lang-title">Language</div>
+          <div class="only-mobile-lang-options">
+            <a href="#" class="only-mobile-lang-option" data-lang="de" onclick="return switchLanguage('de', event);">Deutsch</a>
+            <a href="#" class="only-mobile-lang-option active" data-lang="en" onclick="return switchLanguage('en', event);">English</a>
           </div>
         </div>
       </div>
@@ -78,7 +78,7 @@
         </div>
       </div>
       
-      <button class="mobile-menu-btn" id="mobileMenuButton">
+      <button class="mobile-menu-btn" id="mobileMenuButton" onclick="toggleMobileMenu()">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="3" y1="9" x2="21" y2="9"></line>
           <line x1="3" y1="15" x2="21" y2="15"></line>
@@ -409,25 +409,30 @@
     }
     
     .program-dropdown {
-      position: static !important;
-      display: none !important;
-      opacity: 1 !important;
-      visibility: visible !important;
-      transform: none !important;
-      min-width: 100% !important;
-      width: 100% !important;
-      box-shadow: none !important;
-      padding: 16px 0 !important;
-      margin-top: 8px !important;
-      flex-direction: column !important;
+      position: static;
+      transform: none;
+      opacity: 1;
+      visibility: visible;
+      box-shadow: none;
+      padding: 12px 0;
+      min-width: auto;
+      width: 100%;
+      margin-top: 0;
+      display: none;
+      flex-direction: column;
+      gap: 12px;
+      border-left: none;
+      background: #f8f8f8;
+      border-radius: 8px;
+      left: 0;
     }
     
+    /* Important: Disable hover effect on mobile devices */
     .nav-item:hover .program-dropdown {
-      display: none !important;
-    }
-    
-    .program-dropdown.active {
-      display: block !important;
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+      display: none;
     }
     
     .menu-column {
@@ -465,24 +470,26 @@
       left: 0;
     }
     
-    .mobile-lang-section {
+    .only-mobile-lang-section {
       margin-top: 20px;
       padding-top: 20px;
       border-top: 1px solid rgba(0, 0, 0, 0.1);
+      display: block;
     }
     
-    .lang-title {
+    .only-mobile-lang-title {
       font-size: 0.9rem;
       color: var(--color-muted);
       margin-bottom: 12px;
+      display: block;
     }
     
-    .mobile-lang-options {
+    .only-mobile-lang-options {
       display: flex;
       gap: 8px;
     }
     
-    .mobile-lang-option {
+    .only-mobile-lang-option {
       padding: 8px 16px;
       background: var(--color-card-bg);
       border-radius: 30px;
@@ -491,9 +498,35 @@
       text-decoration: none;
     }
     
-    .mobile-lang-option.active {
+    .only-mobile-lang-option.active {
       background: var(--color-accent2);
       color: white;
+    }
+
+    /* Visible dropdown styles */
+    .program-dropdown.visible {
+      display: block !important;
+    }
+  }
+
+  @media (min-width: 1025px) {
+    /* Hide mobile language section in desktop view */
+    .only-mobile-lang-section {
+      display: none !important;
+    }
+    
+    /* Hide language elements in desktop view */
+    .Language:not(.only-mobile-lang-title),
+    body > div > .Language:not(.only-mobile-lang-title),
+    .nav-wrapper ~ .Language:not(.only-mobile-lang-title),
+    div[class^="Language"]:not(.only-mobile-lang-title),
+    span.Language:not(.only-mobile-lang-title),
+    .Sprache:not(.only-mobile-lang-title),
+    body > div > .Sprache:not(.only-mobile-lang-title),
+    .nav-wrapper ~ .Sprache:not(.only-mobile-lang-title),
+    div[class^="Sprache"]:not(.only-mobile-lang-title),
+    span.Sprache:not(.only-mobile-lang-title) {
+      display: none !important;
     }
   }
 
@@ -522,21 +555,46 @@
 
 <!-- JavaScript for active program options and path correction -->
 <script>
+  // Global variable to track menu status
+  var programMenuOpen = false;
+  
+  // Direct toggle function for mobile menu
+  function toggleMobileMenu() {
+    var navMenu = document.getElementById('mobileNavMenu');
+    if (navMenu) {
+      navMenu.classList.toggle('active');
+    }
+  }
+  
+  // Direct toggle for the Program menu
+  function mobileMenuToggle(event, element) {
+    // Only in mobile view
+    if (window.innerWidth <= 1024) {
+      event.preventDefault();
+      
+      // Get dropdown element
+      var dropdown = document.getElementById('mobile-program-dropdown');
+      
+      // Toggle status
+      programMenuOpen = !programMenuOpen;
+      
+      // Set display directly
+      if (programMenuOpen) {
+        dropdown.style.display = 'block';
+        dropdown.classList.add('visible');
+      } else {
+        dropdown.style.display = 'none';
+        dropdown.classList.remove('visible');
+      }
+    }
+  }
+
   document.addEventListener('DOMContentLoaded', function() {
     // Initialize language switching once the navigation is loaded
     setupLanguageSwitching();
-    monitorMobileMenu();
     
-    // Add IDs to the language links if they don't exist
-    const languageLinks = document.querySelectorAll('.lang-dropdown .program-option');
-    if (languageLinks.length >= 2) {
-      if (!languageLinks[0].id) languageLinks[0].id = 'lang-de-link';
-      if (!languageLinks[1].id) languageLinks[1].id = 'lang-en-link';
-      
-      // Update href attributes to use proper language switching
-      languageLinks[0].setAttribute('data-lang', 'de');
-      languageLinks[1].setAttribute('data-lang', 'en');
-    }
+    // Remove unwanted language elements
+    removePageLanguageElements();
     
     // Also initialize path correction
     adjustNavigationPaths();
@@ -613,6 +671,24 @@
       });
     }
   });
+  
+  // Function to directly remove the "Language" element at page level  
+  function removePageLanguageElements() {
+    // Search all top-level elements
+    const allDivs = document.querySelectorAll('body > div');
+    
+    allDivs.forEach(div => {
+      // Text contains "Language" or "Sprache" and is not the navigation
+      if (div.textContent && 
+          (div.textContent.includes('Language') || div.textContent.includes('Sprache')) && 
+          !div.id.includes('navigation') && 
+          !div.id.includes('sidebar') && 
+          !div.id.includes('footer') &&
+          !div.classList.contains('only-mobile-lang-section')) {
+        div.style.display = 'none';
+      }
+    });
+  }
   
   // Function for path correction depending on position in directory tree
   function adjustNavigationPaths() {
@@ -736,7 +812,7 @@
     }
     
     // Find mobile language selection links
-    const mobileLanguageOptions = document.querySelectorAll('.mobile-lang-option');
+    const mobileLanguageOptions = document.querySelectorAll('.only-mobile-lang-option');
     
     mobileLanguageOptions.forEach(link => {
       const lang = link.getAttribute('data-lang');
@@ -774,94 +850,35 @@
       }
     });
   }
-  
-  // Monitor the mobile menu and update language selection when opened
-  function monitorMobileMenu() {
-    // Find the mobile menu button and nav menu
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const navMenu = document.querySelector('.nav-menu');
-    
-    // If the button exists, add an event handler
-    if (mobileMenuBtn) {
-      mobileMenuBtn.addEventListener('click', function() {
-        // Toggle the active class on the menu
-        navMenu.classList.toggle('active');
-        
-        // Short delay to ensure the mobile-lang-section is inserted
-        setTimeout(function() {
-          const mobileLangOptions = document.querySelectorAll('.mobile-lang-option');
-          
-          // If options are found, update the links
-          if (mobileLangOptions.length > 0) {
-            // Get current page information
-            const currentPath = window.location.pathname;
-            const currentPage = currentPath.substring(currentPath.lastIndexOf('/') + 1);
-            const isEnglish = currentPage.includes('_en');
-            
-            mobileLangOptions.forEach(link => {
-              const lang = link.getAttribute('data-lang');
-              
-              // Mark current language
-              if ((lang === 'en' && isEnglish) || (lang === 'de' && !isEnglish)) {
-                link.classList.add('active');
-              } else {
-                link.classList.remove('active');
-              }
-              
-              // Set correct target link
-              if (lang === 'en' && !isEnglish) {
-                // From German to English
-                const englishPage = currentPage.replace('.html', '_en.html');
-                link.setAttribute('href', englishPage);
-                
-                // Add click handler to store language preference
-                link.addEventListener('click', function() {
-                  sessionStorage.setItem('preferredLanguage', 'en');
-                });
-              } else if (lang === 'de' && isEnglish) {
-                // From English to German
-                const germanPage = currentPage.replace('_en.html', '.html');
-                link.setAttribute('href', germanPage);
-                
-                // Add click handler to store language preference
-                link.addEventListener('click', function() {
-                  sessionStorage.setItem('preferredLanguage', 'de');
-                });
-              } else {
-                // Stay on same language
-                link.setAttribute('href', '#');
-              }
-            });
-          }
-        }, 100);
-      });
+</script>
+
+<!-- Direct function for language switching -->
+<script>
+  // Global function for language switching
+  function switchLanguage(lang, event) {
+    if (event) {
+      event.preventDefault();
     }
+    
+    // Get current page
+    const currentPath = window.location.pathname;
+    const currentPage = currentPath.substring(currentPath.lastIndexOf('/') + 1);
+    const isEnglish = currentPage.includes('_en');
+    
+    // Store language preference
+    sessionStorage.setItem('preferredLanguage', lang);
+    
+    // Navigate to corresponding language version
+    if (lang === 'en' && !isEnglish) {
+      // From German to English
+      window.location.href = currentPage.replace('.html', '_en.html');
+      return false;
+    } else if (lang === 'de' && isEnglish) {
+      // From English to German
+      window.location.href = currentPage.replace('_en.html', '.html');
+      return false;
+    }
+    
+    return false;
   }
-  
-  // Initialize everything on document load
-  document.addEventListener('DOMContentLoaded', function() {
-    setupLanguageSwitching();
-    monitorMobileMenu();
-    
-    // Add IDs to the language links if they don't exist
-    const languageLinks = document.querySelectorAll('.lang-dropdown .program-option');
-    if (languageLinks.length >= 2) {
-      if (!languageLinks[0].id) languageLinks[0].id = 'lang-de-link';
-      if (!languageLinks[1].id) languageLinks[1].id = 'lang-en-link';
-      
-      // Update href attributes to use proper language switching
-      languageLinks[0].setAttribute('data-lang', 'de');
-      languageLinks[1].setAttribute('data-lang', 'en');
-    }
-    
-    // Handle mobile menu button
-    const mobileMenuBtn = document.getElementById('mobileMenuButton');
-    const navMenu = document.querySelector('.nav-menu');
-    
-    if (mobileMenuBtn && navMenu) {
-      mobileMenuBtn.addEventListener('click', function() {
-        navMenu.classList.toggle('active');
-      });
-    }
-  });
 </script> 

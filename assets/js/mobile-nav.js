@@ -47,12 +47,12 @@
     
     // Stelle Sprachauswahl-Sektion sicher
     function ensureLanguageSection() {
-      if (!document.querySelector('.mobile-lang-section')) {
+      if (!document.querySelector('.only-mobile-lang-section')) {
         console.log("Creating language section");
         
         // Container erstellen
         const langSection = document.createElement('div');
-        langSection.className = 'mobile-lang-section';
+        langSection.className = 'only-mobile-lang-section';
         langSection.style.margin = '15px 0 0 0';
         langSection.style.padding = '15px';
         langSection.style.borderTop = '1px solid rgba(255, 255, 255, 0.1)';
@@ -60,6 +60,7 @@
         // Titel
         const langTitle = document.createElement('div');
         langTitle.textContent = pageIsEnglish ? 'Language' : 'Sprache';
+        langTitle.className = 'only-mobile-lang-title';
         langTitle.style.fontSize = '0.85rem';
         langTitle.style.textTransform = 'uppercase';
         langTitle.style.marginBottom = '10px';
@@ -67,6 +68,7 @@
         
         // Optionen-Container
         const langOptions = document.createElement('div');
+        langOptions.className = 'only-mobile-lang-options';
         langOptions.style.display = 'flex';
         langOptions.style.gap = '15px';
         
@@ -74,6 +76,10 @@
         const deOption = document.createElement('a');
         deOption.href = '#';
         deOption.textContent = 'Deutsch';
+        deOption.className = 'only-mobile-lang-option';
+        if (!pageIsEnglish) {
+          deOption.classList.add('active');
+        }
         deOption.style.color = 'white';
         deOption.style.textDecoration = 'none';
         if (!pageIsEnglish) {
@@ -92,6 +98,10 @@
         const enOption = document.createElement('a');
         enOption.href = '#';
         enOption.textContent = 'English';
+        enOption.className = 'only-mobile-lang-option';
+        if (pageIsEnglish) {
+          enOption.classList.add('active');
+        }
         enOption.style.color = 'white';
         enOption.style.textDecoration = 'none';
         if (pageIsEnglish) {
@@ -114,6 +124,27 @@
         navMenu.appendChild(langSection);
       }
     }
+    
+    // Entferne beliebige Sprache-Elemente außerhalb der Navigation
+    function removeOutsideLanguageElements() {
+      // Alle sichtbaren Elemente mit Sprache finden
+      document.querySelectorAll('body > div').forEach(div => {
+        if (div.textContent && 
+            (div.textContent.includes('Sprache') || div.textContent.includes('Language')) && 
+            !div.id.includes('navigation') && 
+            !div.id.includes('sidebar') && 
+            !div.id.includes('footer') &&
+            !div.classList.contains('only-mobile-lang-section')) {
+          div.style.display = 'none';
+          console.log('Hidden unwanted language element');
+        }
+      });
+    }
+    
+    // Sprachelemente entfernen
+    removeOutsideLanguageElements();
+    // Nochmal nach verzögerter Zeit ausführen
+    setTimeout(removeOutsideLanguageElements, 500);
     
     // Einfache Sprach-Wechsel-Funktion
     function switchToEnglish() {

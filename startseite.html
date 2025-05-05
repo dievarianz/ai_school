@@ -28,6 +28,21 @@
       margin: 0;
       padding: 0;
     }
+    
+    /* Ausblenden des Sprache-Elements außerhalb der Navigation auf Desktop-Größen */
+    @media (min-width: 1025px) {
+      body > .Sprache,
+      .nav-wrapper ~ .Sprache, 
+      body > div > .Sprache:not(.mobile-lang-section .Sprache),
+      nav ~ .Sprache,
+      div[class^="Sprache"],
+      span.Sprache,
+      #navigation-container ~ .Sprache,
+      #navigation-container ~ div:has(> .Sprache),
+      body > div:has(.Sprache):not(.nav-wrapper) {
+        display: none !important;
+      }
+    }
 
     body {
       font-family: var(--font-sans);
@@ -2239,6 +2254,77 @@
 
   <!-- Footer einbinden -->
   <div id="footer-container"></div>
+
+  <!-- Entferne "Sprache" Element im Desktop-Modus direkt per JavaScript -->
+  <script>
+    // Funktion, die wiederholt nach dem Element sucht und es entfernt
+    function removeLanguageElements() {
+      // Alle Top-Level-Divs durchsuchen
+      const allDivs = document.querySelectorAll('body > div');
+      
+      allDivs.forEach(div => {
+        // Text enthält "Sprache" und ist nicht die Navigation
+        if (div.textContent && 
+            div.textContent.includes('Sprache') && 
+            !div.id.includes('navigation') && 
+            !div.id.includes('sidebar') && 
+            !div.id.includes('footer')) {
+          console.log('Removing unwanted language element:', div);
+          div.style.display = 'none';
+          // Alternativ komplett entfernen:
+          // div.parentNode.removeChild(div);
+        }
+      });
+      
+      // Alle Elemente mit Klasse "Sprache" außerhalb der Navigation ausblenden
+      document.querySelectorAll('.Sprache').forEach(el => {
+        if (!el.closest('#navigation-container') && !el.closest('.mobile-lang-section')) {
+          el.style.display = 'none';
+        }
+      });
+      
+      // Auch Elemente mit Deutsch/English-Links außerhalb der Navigation prüfen
+      document.querySelectorAll('a').forEach(link => {
+        const parent = link.parentElement;
+        if (
+          // Link ist entweder Deutsch oder English
+          (link.textContent === 'Deutsch' || link.textContent === 'English') &&
+          // Und ist nicht in der Navigation oder der mobilen Sprachauswahl
+          !link.closest('#navigation-container') && 
+          !link.closest('.mobile-lang-section') &&
+          // Und der Eltern-Container enthält den Text "Sprache"
+          parent && parent.textContent.includes('Sprache')
+        ) {
+          // Den Container ausblenden
+          parent.style.display = 'none';
+          // Wenn es ein größerer Container ist, auch diesen ausblenden
+          if (parent.parentElement && parent.parentElement.textContent.includes('Sprache')) {
+            parent.parentElement.style.display = 'none';
+          }
+        }
+      });
+    }
+    
+    // Ausführen nach dem Laden
+    document.addEventListener('DOMContentLoaded', function() {
+      // Mehrmals ausführen, um auch dynamisch eingefügte Elemente zu erwischen
+      removeLanguageElements();
+      setTimeout(removeLanguageElements, 500);
+      setTimeout(removeLanguageElements, 1000);
+      setTimeout(removeLanguageElements, 2000);
+    });
+    
+    // Nach jedem Laden von Komponenten die Funktion erneut ausführen
+    const originalFetch = window.fetch;
+    window.fetch = function() {
+      return originalFetch.apply(this, arguments)
+        .then(response => {
+          // Nach jedem Fetch die Überprüfung erneut ausführen
+          setTimeout(removeLanguageElements, 200);
+          return response;
+        });
+    };
+  </script>
 
   <!-- Dynamisches Laden der globalen Komponenten -->
   <script>

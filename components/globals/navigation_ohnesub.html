@@ -59,6 +59,15 @@
         <a href="research.html" class="nav-link" data-base-href="research.html">Research</a>
         <a href="support.html" class="nav-link" data-base-href="support.html">Support</a>
         <a href="kontakt.html" class="nav-link" data-base-href="kontakt.html">Kontakt</a>
+        
+        <!-- Mobile Sprachauswahl - nur für die mobile Ansicht -->
+        <div class="only-mobile-lang-section">
+          <div class="only-mobile-lang-title">Sprache</div>
+          <div class="only-mobile-lang-options">
+            <a href="#" class="only-mobile-lang-option active" data-lang="de" onclick="return switchLanguage('de', event);">Deutsch</a>
+            <a href="#" class="only-mobile-lang-option" data-lang="en" onclick="return switchLanguage('en', event);">English</a>
+          </div>
+        </div>
       </div>
       
       <div class="lang-select">
@@ -319,6 +328,24 @@
   .Sprache {
     display: none !important;
   }
+  
+  /* Explizit die Sprache-Anzeige in der Desktop-Ansicht verbergen */
+  .nav-container > .Sprache,
+  div.Sprache,
+  span.Sprache,
+  .Sprache:not(.only-mobile-lang-title),
+  .nav-container > [class*="sprache"],
+  .nav-wrapper div[class*="sprache"]:not(.only-mobile-lang-title) {
+    display: none !important;
+  }
+
+  /* Direkte Unterdrückung des "Sprache Deutsch English" Elements auf Seitenebene */
+  .nav-wrapper ~ .Sprache,
+  body > .Sprache,
+  body > div > .Sprache:not(.only-mobile-lang-title),
+  nav ~ .Sprache {
+    display: none !important;
+  }
 
   /* Mobile Menu */
   .mobile-menu-btn {
@@ -434,30 +461,26 @@
       display: none; /* Versteckt die Sprachauswahl in der mobilen Ansicht */
     }
     
-    .lang-dropdown {
-      width: 100%;
-      right: auto;
-      left: 0;
-    }
-    
-    .mobile-lang-section {
+    .only-mobile-lang-section {
       margin-top: 20px;
       padding-top: 20px;
       border-top: 1px solid rgba(0, 0, 0, 0.1);
+      display: block;
     }
     
-    .lang-title {
+    .only-mobile-lang-title {
       font-size: 0.9rem;
       color: var(--color-muted);
       margin-bottom: 12px;
+      display: block;
     }
     
-    .mobile-lang-options {
+    .only-mobile-lang-options {
       display: flex;
       gap: 8px;
     }
     
-    .mobile-lang-option {
+    .only-mobile-lang-option {
       padding: 8px 16px;
       background: var(--color-card-bg);
       border-radius: 30px;
@@ -466,9 +489,25 @@
       text-decoration: none;
     }
     
-    .mobile-lang-option.active {
+    .only-mobile-lang-option.active {
       background: var(--color-accent2);
       color: white;
+    }
+  }
+
+  @media (min-width: 1025px) {
+    /* Ausblenden der mobilen Sprachauswahl in der Desktop-Ansicht */
+    .only-mobile-lang-section {
+      display: none !important;
+    }
+    
+    /* Ausblenden des Sprache-Elements in der Desktop-Ansicht */
+    .Sprache:not(.only-mobile-lang-title),
+    body > div > .Sprache:not(.only-mobile-lang-title),
+    .nav-wrapper ~ .Sprache:not(.only-mobile-lang-title),
+    div[class^="Sprache"]:not(.only-mobile-lang-title),
+    span.Sprache:not(.only-mobile-lang-title) {
+      display: none !important;
     }
   }
 
@@ -502,6 +541,28 @@
     align-items: center;
     font-weight: 500;
   }
+
+  /* Zusätzliche Regeln um unerwünschte Sprachanzeige zu verbergen */
+  body > div > .Sprache,
+  body > div[class*="sprache"],
+  body > div:has(> .Sprache),
+  body > div:has(> div > .Sprache),
+  nav ~ div:has(.Sprache),
+  div:has(> span:contains("Sprache")),
+  div.Sprache,
+  .Sprache:not(.only-mobile-lang-title *),
+  .Sprache ~ a[href^="index"],
+  body > .Sprache,
+  [class*="sprache"]:not(.only-mobile-lang-title *) {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+    overflow: hidden !important;
+    position: absolute !important;
+    pointer-events: none !important;
+  }
 </style>
 
 <!-- JavaScript für aktive Programm-Optionen und Pfadkorrektur -->
@@ -509,6 +570,9 @@
   document.addEventListener('DOMContentLoaded', function() {
     // Pfadkorrektur für verschiedene Verzeichnisebenen
     adjustNavigationPaths();
+    
+    // Explizit alle "Sprache" Elemente im Desktop-Modus entfernen
+    removePageLanguageElements();
     
     // Aktuelle URL ermitteln
     const currentPath = window.location.pathname;
@@ -657,7 +721,7 @@
     }
     
     // Links für mobile Sprachauswahl finden
-    const mobileLanguageOptions = document.querySelectorAll('.mobile-lang-option');
+    const mobileLanguageOptions = document.querySelectorAll('.only-mobile-lang-option');
     
     mobileLanguageOptions.forEach(link => {
       const lang = link.getAttribute('data-lang');
@@ -682,6 +746,24 @@
       } else {
         // Bleibt auf gleicher Sprache
         link.setAttribute('href', '#');
+      }
+    });
+  }
+
+  // Funktion zum direkten Entfernen des "Sprache"-Elements auf Seitenebene  
+  function removePageLanguageElements() {
+    // Alle top-level Elemente durchsuchen
+    const allDivs = document.querySelectorAll('body > div');
+    
+    allDivs.forEach(div => {
+      // Text enthält "Sprache" und ist nicht die Navigation
+      if (div.textContent && 
+          div.textContent.includes('Sprache') && 
+          !div.id.includes('navigation') && 
+          !div.id.includes('sidebar') && 
+          !div.id.includes('footer') &&
+          !div.classList.contains('only-mobile-lang-section')) {
+        div.style.display = 'none';
       }
     });
   }
@@ -720,4 +802,35 @@
       }
     }
   });
+</script>
+
+<!-- Direkte Funktion für den Sprachwechsel -->
+<script>
+  // Globale Funktion zum Wechseln der Sprache
+  function switchLanguage(lang, event) {
+    if (event) {
+      event.preventDefault();
+    }
+    
+    // Aktuelle Seite ermitteln
+    const currentPath = window.location.pathname;
+    const currentPage = currentPath.substring(currentPath.lastIndexOf('/') + 1);
+    const isEnglish = currentPage.includes('_en');
+    
+    // Sprachpräferenz im Session-Storage speichern
+    sessionStorage.setItem('preferredLanguage', lang);
+    
+    // Zur entsprechenden Sprachversion navigieren
+    if (lang === 'en' && !isEnglish) {
+      // Von deutsch zu englisch
+      window.location.href = currentPage.replace('.html', '_en.html');
+      return false;
+    } else if (lang === 'de' && isEnglish) {
+      // Von englisch zu deutsch
+      window.location.href = currentPage.replace('_en.html', '.html');
+      return false;
+    }
+    
+    return false;
+  }
 </script>
