@@ -351,7 +351,11 @@
   
   <!-- Favicon -->
   <link rel="icon" href="assets/favicon.png" type="image/png">
-</head>
+  
+  <!-- Language Switch Script - Early inclusion! -->
+  <script src="assets/js/language-switch.js"></script>
+
+  </head>
 <body>
   <!-- Include Navigation -->
   <div id="navigation-container"></div>
@@ -571,9 +575,32 @@
           document.getElementById('navigation-container').innerHTML = data;
           
           // Initialize mobile navigation
+          console.log('Adding mobile-nav.js script...');
           const navScript = document.createElement('script');
           navScript.src = 'assets/js/mobile-nav.js?t=' + new Date().getTime();
           document.body.appendChild(navScript);
+          console.log('Mobile-Nav script added!');
+          
+          // Mark Contact link as active
+          setTimeout(() => {
+            document.querySelectorAll('.nav-link').forEach(link => {
+              if (link.textContent.trim() === 'Contact') {
+                console.log('Activating Contact link:', link);
+                link.classList.add('active');
+              }
+            });
+          }, 200);
+          
+          // Initialize language switcher after navigation is loaded
+          setTimeout(() => {
+            if (typeof initLanguageSwitching === 'function') {
+              initLanguageSwitching();
+            } else if (window.switchLanguage) {
+              console.log('Language-switch.js already loaded, using global function');
+            } else {
+              console.warn('Language-switch functions not found!');
+            }
+          }, 300);
         }
       })
       .catch(error => console.error('Error loading navigation:', error));

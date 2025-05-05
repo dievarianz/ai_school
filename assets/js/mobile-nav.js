@@ -1,5 +1,5 @@
 // Mobile Navigation Script
-// Version 4.0 - Komplett vereinfachter Ansatz
+// Version 5.0 - Vereinfacht und kompatibel mit language-switch.js
 
 (function() {
   // Sofortige Ausführung nach dem Laden
@@ -11,7 +11,7 @@
   }
 
   function initMobileNav() {
-    console.log("Mobile Nav v4.0 init");
+    console.log("Mobile Nav v5.0 init");
     
     // Grundlegende Elemente finden
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
@@ -25,11 +25,6 @@
     
     console.log("Mobile menu elements found:", mobileMenuBtn, navMenu);
     
-    // Aktuelle Sprache ermitteln
-    const currentPath = window.location.pathname;
-    const currentPage = currentPath.substring(currentPath.lastIndexOf('/') + 1);
-    const pageIsEnglish = currentPage.includes('_en');
-    
     // EINFACHER ANSATZ: Direkter Event-Listener auf dem Button
     mobileMenuBtn.onclick = function(e) {
       console.log("Mobile menu button clicked");
@@ -40,8 +35,13 @@
       console.log("Menu toggle:", navMenu.classList.contains('active'));
       
       if (navMenu.classList.contains('active')) {
-        // Wenn Menü offen ist, stelle Sprachauswahl sicher
+        // Sprachsektion überprüfen
         ensureLanguageSection();
+        
+        // Notify language-switch.js that navigation is open
+        if (window.dispatchEvent) {
+          window.dispatchEvent(new CustomEvent('navigationOpened'));
+        }
       }
     };
     
@@ -50,21 +50,25 @@
       if (!document.querySelector('.only-mobile-lang-section')) {
         console.log("Creating language section");
         
+        // Aktuelle Sprache ermitteln
+        const currentPath = window.location.pathname;
+        const currentPage = currentPath.substring(currentPath.lastIndexOf('/') + 1);
+        const pageIsEnglish = currentPage.includes('_en');
+        
         // Container erstellen
         const langSection = document.createElement('div');
         langSection.className = 'only-mobile-lang-section';
         langSection.style.margin = '15px 0 0 0';
         langSection.style.padding = '15px';
-        langSection.style.borderTop = '1px solid rgba(255, 255, 255, 0.1)';
+        langSection.style.borderTop = '1px solid rgba(0, 0, 0, 0.1)';
         
         // Titel
         const langTitle = document.createElement('div');
         langTitle.textContent = pageIsEnglish ? 'Language' : 'Sprache';
         langTitle.className = 'only-mobile-lang-title';
         langTitle.style.fontSize = '0.85rem';
-        langTitle.style.textTransform = 'uppercase';
         langTitle.style.marginBottom = '10px';
-        langTitle.style.color = 'rgba(255, 255, 255, 0.7)';
+        langTitle.style.color = 'var(--color-muted)';
         
         // Optionen-Container
         const langOptions = document.createElement('div');
@@ -77,44 +81,20 @@
         deOption.href = '#';
         deOption.textContent = 'Deutsch';
         deOption.className = 'only-mobile-lang-option';
+        deOption.setAttribute('data-lang', 'de');
         if (!pageIsEnglish) {
           deOption.classList.add('active');
         }
-        deOption.style.color = 'white';
-        deOption.style.textDecoration = 'none';
-        if (!pageIsEnglish) {
-          deOption.style.fontWeight = 'bold';
-          deOption.style.opacity = '1';
-        } else {
-          deOption.style.opacity = '0.7';
-        }
-        deOption.onclick = function(e) {
-          e.preventDefault();
-          switchToGerman();
-          return false;
-        };
         
         // English-Option
         const enOption = document.createElement('a');
         enOption.href = '#';
         enOption.textContent = 'English';
         enOption.className = 'only-mobile-lang-option';
+        enOption.setAttribute('data-lang', 'en');
         if (pageIsEnglish) {
           enOption.classList.add('active');
         }
-        enOption.style.color = 'white';
-        enOption.style.textDecoration = 'none';
-        if (pageIsEnglish) {
-          enOption.style.fontWeight = 'bold';
-          enOption.style.opacity = '1';
-        } else {
-          enOption.style.opacity = '0.7';
-        }
-        enOption.onclick = function(e) {
-          e.preventDefault();
-          switchToEnglish();
-          return false;
-        };
         
         // Zusammenfügen
         langOptions.appendChild(deOption);
@@ -122,6 +102,13 @@
         langSection.appendChild(langTitle);
         langSection.appendChild(langOptions);
         navMenu.appendChild(langSection);
+        
+        // Wenn language-switch.js geladen ist, lassen wir es die Event-Handler setzen
+        setTimeout(() => {
+          if (window.dispatchEvent) {
+            window.dispatchEvent(new CustomEvent('navigationUpdated'));
+          }
+        }, 100);
       }
     }
     
@@ -145,19 +132,6 @@
     removeOutsideLanguageElements();
     // Nochmal nach verzögerter Zeit ausführen
     setTimeout(removeOutsideLanguageElements, 500);
-    
-    // Einfache Sprach-Wechsel-Funktion
-    function switchToEnglish() {
-      if (!pageIsEnglish) {
-        window.location.href = currentPage.replace('.html', '_en.html');
-      }
-    }
-    
-    function switchToGerman() {
-      if (pageIsEnglish) {
-        window.location.href = currentPage.replace('_en.html', '.html');
-      }
-    }
     
     // VEREINFACHTER DROPDOWN-MENU-HANDLER
     setTimeout(function() {
@@ -201,29 +175,6 @@
         };
       });
     }, 300);
-    
-    // Desktop-Sprachschalter
-    const deLinkDesktop = document.getElementById('lang-de-link');
-    const enLinkDesktop = document.getElementById('lang-en-link');
-    
-    if (deLinkDesktop && enLinkDesktop) {
-      // Setze aktiven Status
-      if (pageIsEnglish) {
-        enLinkDesktop.classList.add('active');
-        deLinkDesktop.onclick = function(e) {
-          e.preventDefault();
-          switchToGerman();
-          return false;
-        };
-      } else {
-        deLinkDesktop.classList.add('active');
-        enLinkDesktop.onclick = function(e) {
-          e.preventDefault();
-          switchToEnglish();
-          return false;
-        };
-      }
-    }
     
     console.log("Mobile Nav init complete");
   }

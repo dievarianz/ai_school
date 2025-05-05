@@ -463,10 +463,13 @@
 
   <!-- Favicon -->
   <link rel="icon" href="assets/favicon.png" type="image/png">
+  
+  <!-- Language Switch Script - Early inclusion! -->
+  <script src="assets/js/language-switch.js"></script>
 </head>
 <body>
 
-<!-- Include Navigation -->
+<!-- Navigation loading -->
 <div id="navigation-container"></div>
 
 <!-- Include Sidebar -->
@@ -767,16 +770,16 @@
 
 <!-- ============ SCRIPTS ============ -->
 <script>
-  // Load Navigation
+  // Load navigation
   fetch('components/globals/navigation_ohnesub_en.html?t=' + new Date().getTime())
     .then(response => {
       if (!response.ok) {
         console.error('Error loading navigation:', response.status);
-        // Try fallback to globals directory
+        // Try fallback to includes directory
         return fetch('components/includes/navigation_ohnesub_en.html?t=' + new Date().getTime())
           .then(resp => {
             if (!resp.ok) {
-              console.error('Globals path also failed:', resp.status);
+              console.error('Includes path failed too:', resp.status);
               return '';
             }
             return resp.text();
@@ -785,13 +788,35 @@
       return response.text();
     })
     .then(data => {
+      console.log('Navigation loaded');
       if (data) {
         document.getElementById('navigation-container').innerHTML = data;
         
-        // Initialize mobile navigation
+        // Initialize mobile navigation (new)
         const navScript = document.createElement('script');
         navScript.src = 'assets/js/mobile-nav.js?t=' + new Date().getTime();
         document.body.appendChild(navScript);
+        
+        // Mark Research link as active
+        setTimeout(() => {
+          document.querySelectorAll('.nav-link').forEach(link => {
+            if (link.textContent.trim() === 'Research') {
+              console.log('Activating Research link:', link);
+              link.classList.add('active');
+            }
+          });
+        }, 200);
+        
+        // Initialize language switcher after navigation is loaded
+        setTimeout(() => {
+          if (typeof initLanguageSwitching === 'function') {
+            initLanguageSwitching();
+          } else if (window.switchLanguage) {
+            console.log('Language-switch.js already loaded, using global function');
+          } else {
+            console.warn('Language-switch functions not found!');
+          }
+        }, 300);
       }
     })
     .catch(error => console.error('Error loading navigation:', error));

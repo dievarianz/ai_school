@@ -1729,7 +1729,11 @@
 
 <!-- Favicon -->
 <link rel="icon" href="assets/favicon.png" type="image/png">
-</head>
+
+  <!-- Language switching support -->
+  <script src="assets/js/language-switch.js?t=' + new Date().getTime()"></script>
+
+  </head>
 <body>
 
 <!-- Navigation einbinden -->
@@ -2539,7 +2543,17 @@
               }
             });
           }
-        }, 100); // Kurzes Delay für DOM-Update
+        }, 100);
+        // Sprachumschalter initialisieren, nachdem die Navigation geladen wurde
+        setTimeout(() => {
+          if (typeof initLanguageSwitching === 'function') {
+            initLanguageSwitching();
+          } else if (window.switchLanguage) {
+            console.log('Language-switch.js bereits geladen, verwende globale Funktion');
+          } else {
+            console.warn('Language-switch Funktionen nicht gefunden!');
+          }
+        }, 300); // Kurzes Delay für DOM-Update
       }
     })
     .catch(error => console.error('Fehler beim Laden der Navigation:', error));

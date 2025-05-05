@@ -617,7 +617,11 @@
   
   <!-- Favicon -->
   <link rel="icon" href="assets/favicon.png" type="image/png">
-</head>
+
+  <!-- Language switching support -->
+  <script src="assets/js/language-switch.js?t=' + new Date().getTime()"></script>
+
+  </head>
 <body>
   <!-- Dynamic loading of Navigation -->
   <div id="navigation-container"></div>
@@ -1090,6 +1094,17 @@
               }
             });
           }, 100);
+          
+          // Initialize language switcher after navigation is loaded
+          setTimeout(() => {
+            if (typeof initLanguageSwitching === 'function') {
+              initLanguageSwitching();
+            } else if (window.switchLanguage) {
+              console.log('Language-switch.js already loaded, using global function');
+            } else {
+              console.warn('Language-switch functions not found!');
+            }
+          }, 300);
         }
       })
       .catch(error => console.error('Error loading navigation:', error));

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Programminformationen</title>
+  <title>Programminformationen | St.Gallen imt Business School</title>
 
   <!-- ============ STYLES ============ -->
   <style>
@@ -1089,6 +1089,17 @@
               }
             });
           }, 200);
+          
+          // Sprachumschalter initialisieren, nachdem die Navigation geladen wurde
+          setTimeout(() => {
+            if (typeof initLanguageSwitching === 'function') {
+              initLanguageSwitching();
+            } else if (window.switchLanguage) {
+              console.log('Language-switch.js bereits geladen, verwende globale Funktion');
+            } else {
+              console.warn('Language-switch Funktionen nicht gefunden!');
+            }
+          }, 300);
         }
       })
       .catch(error => console.error('Fehler beim Laden der Navigation:', error));
@@ -1443,5 +1454,8 @@
       });
     });
   </script>
+  <!-- Language Switch Script -->
+  <script src="assets/js/language-switch.js"></script>
+  
 </body>
 </html> 
