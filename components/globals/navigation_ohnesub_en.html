@@ -1,80 +1,80 @@
-<!-- ============ NAVIGATION OHNE SUBNAVIGATION ============ -->
+<!-- ============ NAVIGATION WITHOUT SUBNAVIGATION ============ -->
 <!-- 
-  Diese Komponente dient als zentrale Navigation für alle Seiten der Website.
-  Im Gegensatz zur navigation.html fehlt hier die Subnavigation für die Tracks.
+  This component serves as the central navigation for all pages of the website.
+  Unlike navigation.html, this one lacks the subnavigation for tracks.
   
-  Um diese Komponente zu verwenden, gibt es zwei Möglichkeiten:
+  To use this component, there are two options:
   
-  1. Bei HTML-Dateien mit PHP-Unterstützung:
-     <?php include('components/includes/navigation_ohnesub.html'); ?>
+  1. For HTML files with PHP support:
+     <?php include('components/globals/navigation_ohnesub_en.html'); ?>
   
-  2. Bei reinen HTML-Dateien mit JavaScript:
+  2. For pure HTML files with JavaScript:
      <div id="navigation-container"></div>
      <script>
-       fetch('components/includes/navigation_ohnesub.html')
+       fetch('components/globals/navigation_ohnesub_en.html')
          .then(response => response.text())
          .then(data => {
            document.getElementById('navigation-container').innerHTML = data;
          });
      </script>
   
-  Änderungen an dieser Datei werden automatisch auf allen Seiten übernommen,
-  die diese Komponente einbinden.
+  Changes to this file will be automatically applied to all pages
+  that include this component.
 -->
 
 <div class="nav-wrapper">
   <nav class="main-nav">
     <div class="nav-container">
-      <a href="startseite.html" class="nav-logo" data-base-href="startseite.html">
+      <a href="startseite_en.html" class="nav-logo" data-base-href="startseite_en.html">
         <img src="assets/pictures/imt_logo.png" alt="StGallen Integrated imt Business School">
       </a>
       
       <div class="nav-menu">
-        <a href="startseite.html" class="nav-link" data-base-href="startseite.html">StGallen imt</a>
+        <a href="startseite_en.html" class="nav-link" data-base-href="startseite_en.html">StGallen imt</a>
         <div class="nav-item">
-          <a href="#" class="nav-link toggle-subnav">Programme<svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="#" class="nav-link toggle-subnav">Programs<svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           <div class="program-dropdown">
-            <!-- Erste Spalte: Einzelseminare -->
+            <!-- First column: Individual seminars -->
             <div class="menu-column">
-              <h3>Managementseminare</h3>
-              <a href="integrated_management_strategy.html" class="program-option" id="integrated-management-option" data-base-href="integrated_management_strategy.html" data-parent-folder="managementseminare">Integrated Management and Strategy</a>
-              <a href="financial_management.html" class="program-option" id="financial-management-option" data-base-href="financial_management.html" data-parent-folder="managementseminare">Financial Management</a>
-              <a href="inspirational_leadership.html" class="program-option" id="inspirational-leadership-option" data-base-href="inspirational_leadership.html" data-parent-folder="managementseminare">Inspirational Leadership</a>
-              <a href="marketing_sales_brand_communication.html" class="program-option" id="marketing-sales-option" data-base-href="marketing_sales_brand_communication.html" data-parent-folder="managementseminare">Marketing, Sales and Brand Communication</a>
-              <a href="intelligent_process_automation.html" class="program-option" id="process-automation-option" data-base-href="intelligent_process_automation.html" data-parent-folder="managementseminare">Intelligent Process Automation</a>
-              <a href="ki_business_strategy_digital_transformation.html" class="program-option" id="ki-business-strategy-option" data-base-href="ki_business_strategy_digital_transformation.html" data-parent-folder="managementseminare">KI in Business Strategy & Digital Transformation</a>
-              <a href="ki_augmented_decision_making.html" class="program-option" id="ki-decision-making-option" data-base-href="ki_augmented_decision_making.html" data-parent-folder="managementseminare">KI-Augmented Decision Making</a>
+              <h3>Management Seminars</h3>
+              <a href="integrated_management_strategy_en.html" class="program-option" id="integrated-management-option" data-base-href="integrated_management_strategy_en.html" data-parent-folder="managementseminare">Integrated Management and Strategy</a>
+              <a href="financial_management_en.html" class="program-option" id="financial-management-option" data-base-href="financial_management_en.html" data-parent-folder="managementseminare">Financial Management</a>
+              <a href="inspirational_leadership_en.html" class="program-option" id="inspirational-leadership-option" data-base-href="inspirational_leadership_en.html" data-parent-folder="managementseminare">Inspirational Leadership</a>
+              <a href="marketing_sales_brand_communication_en.html" class="program-option" id="marketing-sales-option" data-base-href="marketing_sales_brand_communication_en.html" data-parent-folder="managementseminare">Marketing, Sales and Brand Communication</a>
+              <a href="intelligent_process_automation_en.html" class="program-option" id="process-automation-option" data-base-href="intelligent_process_automation_en.html" data-parent-folder="managementseminare">Intelligent Process Automation</a>
+              <a href="ki_business_strategy_digital_transformation_en.html" class="program-option" id="ki-business-strategy-option" data-base-href="ki_business_strategy_digital_transformation_en.html" data-parent-folder="managementseminare">AI in Business Strategy & Digital Transformation</a>
+              <a href="ki_augmented_decision_making_en.html" class="program-option" id="ki-decision-making-option" data-base-href="ki_augmented_decision_making_en.html" data-parent-folder="managementseminare">AI-Augmented Decision Making</a>
             </div>
             
-            <!-- Zweite Spalte: Programme -->
+            <!-- Second column: Programs -->
             <div class="menu-column">
-              <h3>Programme</h3>
-              <a href="management_programm.html" class="program-option" data-base-href="management_programm.html">StGallen imt Management Programm</a>
-              <a href="management_programm_cas.html" class="program-option" data-base-href="management_programm_cas.html">StGallen imt Certified Management CAS</a>
-              <a href="fast_track_mba.html" class="program-option" data-base-href="fast_track_mba.html">StGallen Fast‑Track MBA Programm</a>
+              <h3>Programs</h3>
+              <a href="management_programm_en.html" class="program-option" data-base-href="management_programm_en.html">StGallen imt Management Program</a>
+              <a href="management_programm_cas_en.html" class="program-option" data-base-href="management_programm_cas_en.html">StGallen imt Certified Management CAS</a>
+              <a href="fast_track_mba_en.html" class="program-option" data-base-href="fast_track_mba_en.html">StGallen Fast‑Track MBA Program</a>
             </div>
           </div>
         </div>
-        <a href="netzwerk.html" class="nav-link" data-base-href="netzwerk.html">Netzwerk</a>
-        <a href="research.html" class="nav-link" data-base-href="research.html">Research</a>
-        <a href="support.html" class="nav-link" data-base-href="support.html">Support</a>
-        <a href="kontakt.html" class="nav-link" data-base-href="kontakt.html">Kontakt</a>
+        <a href="netzwerk_en.html" class="nav-link" data-base-href="netzwerk_en.html">Network</a>
+        <a href="research_en.html" class="nav-link" data-base-href="research_en.html">Research</a>
+        <a href="support_en.html" class="nav-link" data-base-href="support_en.html">Support</a>
+        <a href="kontakt_en.html" class="nav-link" data-base-href="kontakt_en.html">Contact</a>
         
-        <!-- Mobile language section -->
-        <div class="mobile-lang-section">
-          <div class="lang-title">Sprache</div>
+        <!-- Mobile language section - this is only for mobile view -->
+        <div class="mobile-lang-section" style="display:none;">
+          <div class="lang-title" style="display:none;">Language</div>
           <div class="mobile-lang-options">
-            <a href="#" class="mobile-lang-option active" data-lang="de">Deutsch</a>
-            <a href="#" class="mobile-lang-option" data-lang="en">English</a>
+            <a href="#" class="mobile-lang-option" data-lang="de">Deutsch</a>
+            <a href="#" class="mobile-lang-option active" data-lang="en">English</a>
           </div>
         </div>
       </div>
       
       <div class="lang-select">
-        <a href="#" class="nav-link">DE <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="#" class="nav-link">EN <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <div class="program-dropdown lang-dropdown">
-          <a href="#" id="lang-de-link" class="program-option active" data-lang="de">Deutsch</a>
-          <a href="#" id="lang-en-link" class="program-option" data-lang="en">English</a>
+          <a href="#" id="lang-de-link" class="program-option" data-lang="de">Deutsch</a>
+          <a href="#" id="lang-en-link" class="program-option active" data-lang="en">English</a>
         </div>
       </div>
       
@@ -103,7 +103,7 @@
     --imt-purple: #6e45e2;
   }
 
-  /* Navigation Wrapper und Container */
+  /* Navigation Wrapper and Container */
   .nav-wrapper {
     position: fixed;
     left: 0;
@@ -129,6 +129,28 @@
     padding: 0;
     position: relative;
   }
+
+  /* Fix for language display in English version */
+  .nav-container > .Language,
+  .nav-container > .Deutsch,
+  .nav-container > .English {
+    display: none !important;
+  }
+  
+  .mobile-lang-section {
+    display: none;
+  }
+  
+  /* Make sure mobile language section only appears in mobile view */
+  @media (max-width: 900px) {
+    .mobile-lang-section {
+      display: block;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+  }
+  /* End of fix */
 
   /* Main Navigation */
   .main-nav {
@@ -185,7 +207,7 @@
     text-decoration: none !important;
   }
 
-  /* Verhindert die Unterstreichung bei allen Navigationslinks */
+  /* Prevents underlining of all navigation links */
   .nav-menu a:hover {
     text-decoration: none !important;
   }
@@ -237,7 +259,7 @@
     transform: translateX(-50%) translateY(0);
   }
   
-  /* Spalten für Seminare und Programme */
+  /* Columns for seminars and programs */
   .menu-column {
     flex: 1;
   }
@@ -250,12 +272,12 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   }
   
-  /* Teal-Farbe für Programme-Überschrift */
+  /* Teal color for Programs heading */
   .menu-column:nth-child(2) h3 {
     color: #17a689;
   }
 
-  /* Stilregeln für alle Program-Options */
+  /* Style rules for all program options */
   .program-option {
     display: block;
     padding: 12px 16px;
@@ -273,22 +295,22 @@
     color: var(--color-accent2);
   }
   
-  /* Teal-Farbe für Programme-Options beim Hover */
+  /* Teal color for Program options on hover */
   .menu-column:nth-child(2) .program-option:hover {
     color: #17a689;
   }
   
-  /* Speziell markierte Option - direkt bei der HTML-Definition */
+  /* Specially marked option - directly in the HTML definition */
   .highlight-option {
     font-weight: 600;
     background-color: var(--color-card-bg);
     color: var(--color-accent2);
     border-left: 4px solid var(--color-accent2);
     padding-left: 12px;
-    border-radius: 0 8px 8px 0; /* Nur rechte Seite abgerundet */
+    border-radius: 0 8px 8px 0; /* Only right side rounded */
   }
   
-  /* Optionen für die Sprachauswahl */
+  /* Options for language selection */
   .lang-dropdown .program-option.active {
     font-weight: 600;
     background-color: var(--color-card-bg);
@@ -317,7 +339,7 @@
     transform: translateY(0) !important;
   }
 
-  /* Verstecke den Text "Sprache Deutsch English" in der nicht-mobilen Version */
+  /* Hide the text "Sprache Deutsch English" in the non-mobile version */
   .nav-container .lang-select + .sprache-text,
   .nav-container .lang-select ~ .sprache-text,
   .nav-container .sprache-text,
@@ -363,7 +385,7 @@
       gap: 12px;
       margin-right: 0;
       box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
-      overflow-y: auto; /* Ermöglicht Scrollen bei Überlauf */
+      overflow-y: auto; /* Enables scrolling on overflow */
     }
     
     .nav-menu.active {
@@ -387,30 +409,25 @@
     }
     
     .program-dropdown {
-      position: static;
-      transform: none;
-      opacity: 1;
-      visibility: visible;
-      box-shadow: none;
-      padding: 12px 0;
-      min-width: auto;
-      width: 100%;
-      margin-top: 0;
-      display: none;
-      flex-direction: column;
-      gap: 12px;
-      border-left: none;
-      background: #f8f8f8;
-      border-radius: 8px;
-      left: 0;
+      position: static !important;
+      display: none !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: none !important;
+      min-width: 100% !important;
+      width: 100% !important;
+      box-shadow: none !important;
+      padding: 16px 0 !important;
+      margin-top: 8px !important;
+      flex-direction: column !important;
     }
     
-    /* Wichtig: Deaktivierung des Hover-Effekts auf mobilen Geräten */
     .nav-item:hover .program-dropdown {
-      opacity: 1;
-      visibility: visible;
-      transform: none;
-      display: none;
+      display: none !important;
+    }
+    
+    .program-dropdown.active {
+      display: block !important;
     }
     
     .menu-column {
@@ -439,7 +456,7 @@
     }
     
     .lang-select {
-      display: none; /* Versteckt die Sprachauswahl in der mobilen Ansicht */
+      display: none; /* Hides language selection in mobile view */
     }
     
     .lang-dropdown {
@@ -503,7 +520,7 @@
   }
 </style>
 
-<!-- JavaScript für aktive Programm-Optionen und Pfadkorrektur -->
+<!-- JavaScript for active program options and path correction -->
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     // Initialize language switching once the navigation is loaded
@@ -524,34 +541,34 @@
     // Also initialize path correction
     adjustNavigationPaths();
     
-    // Aktuelle URL ermitteln
+    // Get current URL
     const currentPath = window.location.pathname;
     const currentPage = currentPath.substring(currentPath.lastIndexOf('/') + 1);
     const urlParams = new URLSearchParams(window.location.search);
     const programParam = urlParams.get('program');
     
-    // Falls wir auf einer der Programmseiten sind, fügen wir einen Programm-Parameter hinzu
-    // Diese Funktion läuft beim ersten Laden der Seite und speichert den Programmtitel
+    // If we're on one of the program pages, add a program parameter
+    // This function runs when the page first loads and saves the program title
     if (currentPage.startsWith('programm-seite') && !programParam) {
       try {
-        // Extrahiere den Titel der aktuellen Seite aus der H1
+        // Extract the title of the current page from the H1
         const pageH1 = document.querySelector('h1');
         
         if (pageH1) {
-          // Füge den aktuellen Programmtitel als URL-Parameter hinzu, ohne die Seite neu zu laden
+          // Add the current program title as a URL parameter without reloading the page
           const newUrl = new URL(window.location);
           newUrl.searchParams.set('program', pageH1.textContent.trim());
           window.history.replaceState({}, '', newUrl);
         }
       } catch (e) {
-        console.error('Fehler beim Hinzufügen des Programm-Parameters:', e);
+        console.error('Error adding program parameter:', e);
       }
     }
     
-    // Hole den aktualisierten Programm-Parameter
+    // Get the updated program parameter
     const updatedProgramParam = new URLSearchParams(window.location.search).get('program');
     
-    // Alle Programm-Optionen im Dropdown durchgehen
+    // Go through all program options in the dropdown
     const programOptions = document.querySelectorAll('.program-option');
     let hasHighlightedOption = false;
     
@@ -559,17 +576,17 @@
       const optionHref = option.getAttribute('href');
       const optionText = option.textContent.trim();
       
-      // Falls es einen spezifischen Programm-Parameter gibt, verwenden wir diesen
+      // If there's a specific program parameter, use it
       if (updatedProgramParam && optionText.toLowerCase().includes(updatedProgramParam.toLowerCase())) {
         option.classList.add('highlight-option');
         hasHighlightedOption = true;
         return;
       }
       
-      // Prüfen, ob der Link mit der aktuellen Seite übereinstimmt
+      // Check if the link matches the current page
       if (optionHref === currentPage) {
-        // Bei mehreren Links zur gleichen Seite (programm-seite4.html) 
-        // prüfen wir, ob die Seitentitel im HTML übereinstimmen
+        // For multiple links to the same page (programm-seite4.html)
+        // check if the page titles in the HTML match
         if (currentPage === "programm-seite4.html" && !hasHighlightedOption) {
           const pageTitle = document.title;
           if (pageTitle && pageTitle.includes(optionText)) {
@@ -577,15 +594,15 @@
             hasHighlightedOption = true;
           }
         } else if (!hasHighlightedOption) {
-          // Bei eindeutigen Seiten einfach hervorheben
+          // For unique pages, simply highlight
           option.classList.add('highlight-option');
           hasHighlightedOption = true;
         }
       }
     });
     
-    // Fallback: Wenn keine Option hervorgehoben wurde und wir auf einer Programmseite sind,
-    // heben wir die erste Option mit dem passenden Seitennamen hervor
+    // Fallback: If no option was highlighted and we're on a program page,
+    // highlight the first option with the matching page name
     if (!hasHighlightedOption && currentPage.startsWith('programm-seite')) {
       programOptions.forEach(option => {
         const optionHref = option.getAttribute('href');
@@ -597,29 +614,29 @@
     }
   });
   
-  // Funktion zur Pfadkorrektur je nach Position im Verzeichnisbaum
+  // Function for path correction depending on position in directory tree
   function adjustNavigationPaths() {
     const currentPath = window.location.pathname;
     const inManagementSeminarFolder = currentPath.includes('/managementseminare/');
     
-    // Links für allgemeine Navigation anpassen
+    // Adjust links for general navigation
     document.querySelectorAll('[data-base-href]').forEach(link => {
       const baseHref = link.getAttribute('data-base-href');
       let newHref = baseHref;
       
-      // Wenn wir im Managementseminare-Ordner sind, passen wir die Pfade entsprechend an
+      // If we're in the managementseminare folder, adjust paths accordingly
       if (inManagementSeminarFolder) {
         const parentFolder = link.getAttribute('data-parent-folder');
         
         if (parentFolder === 'managementseminare') {
-          // Wenn der Link zu einem Managementseminar führt, entfernen wir den Ordnerpfad
+          // If the link leads to a management seminar, remove the folder path
           newHref = baseHref;
         } else {
-          // Für alle anderen Links fügen wir den relativen Pfad nach oben hinzu
+          // For all other links, add the relative path up
           newHref = '../' + baseHref;
         }
       } else {
-        // Wenn wir im Root-Verzeichnis sind
+        // If we're in the root directory
         const parentFolder = link.getAttribute('data-parent-folder');
         if (parentFolder) {
           newHref = parentFolder + '/' + baseHref;
@@ -660,7 +677,7 @@
       // Fix the logo link to point to homepage
       const logoLink = document.querySelector('.nav-logo');
       if (logoLink) {
-        logoLink.setAttribute('href', '../startseite.html');
+        logoLink.setAttribute('href', '../startseite_en.html');
       }
     }
   });
@@ -668,24 +685,6 @@
 
 <!-- Script for language switching -->
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Initialize language switching once the navigation is loaded
-    setupLanguageSwitching();
-    monitorMobileMenu();
-    
-    // Add IDs to the language links if they don't exist
-    const languageLinks = document.querySelectorAll('.lang-dropdown .program-option');
-    if (languageLinks.length >= 2) {
-      if (!languageLinks[0].id) languageLinks[0].id = 'lang-de-link';
-      if (!languageLinks[1].id) languageLinks[1].id = 'lang-en-link';
-      
-      // Update href attributes to use proper language switching
-      languageLinks[0].setAttribute('data-lang', 'de');
-      languageLinks[1].setAttribute('data-lang', 'en');
-    }
-  });
-  
-  // Function to handle language switching
   function setupLanguageSwitching() {
     // Get current page information
     const currentPath = window.location.pathname;
@@ -708,6 +707,11 @@
         // From English to German: page_en.html -> page.html
         const germanPage = currentPage.replace('_en.html', '.html');
         deLinkDesktop.setAttribute('href', germanPage);
+        
+        // Add click handler to store language preference
+        deLinkDesktop.addEventListener('click', function() {
+          sessionStorage.setItem('preferredLanguage', 'de');
+        });
       } else {
         // Already on German, disable link
         deLinkDesktop.classList.add('active');
@@ -719,6 +723,11 @@
         // From German to English: page.html -> page_en.html
         const englishPage = currentPage.replace('.html', '_en.html');
         enLinkDesktop.setAttribute('href', englishPage);
+        
+        // Add click handler to store language preference
+        enLinkDesktop.addEventListener('click', function() {
+          sessionStorage.setItem('preferredLanguage', 'en');
+        });
       } else {
         // Already on English, disable link
         enLinkDesktop.classList.add('active');
@@ -732,7 +741,7 @@
     mobileLanguageOptions.forEach(link => {
       const lang = link.getAttribute('data-lang');
       
-      // First remove active class from all
+      // First remove all active classes
       link.classList.remove('active');
       
       // Mark current language
@@ -745,10 +754,20 @@
         // From German to English
         const englishPage = currentPage.replace('.html', '_en.html');
         link.setAttribute('href', englishPage);
+        
+        // Add click handler to store language preference
+        link.addEventListener('click', function() {
+          sessionStorage.setItem('preferredLanguage', 'en');
+        });
       } else if (lang === 'de' && isEnglish) {
         // From English to German
         const germanPage = currentPage.replace('_en.html', '.html');
         link.setAttribute('href', germanPage);
+        
+        // Add click handler to store language preference
+        link.addEventListener('click', function() {
+          sessionStorage.setItem('preferredLanguage', 'de');
+        });
       } else {
         // Stay on same language
         link.setAttribute('href', '#');
@@ -782,12 +801,11 @@
             mobileLangOptions.forEach(link => {
               const lang = link.getAttribute('data-lang');
               
-              // Remove active class from all
-              link.classList.remove('active');
-              
               // Mark current language
               if ((lang === 'en' && isEnglish) || (lang === 'de' && !isEnglish)) {
                 link.classList.add('active');
+              } else {
+                link.classList.remove('active');
               }
               
               // Set correct target link
@@ -795,10 +813,20 @@
                 // From German to English
                 const englishPage = currentPage.replace('.html', '_en.html');
                 link.setAttribute('href', englishPage);
+                
+                // Add click handler to store language preference
+                link.addEventListener('click', function() {
+                  sessionStorage.setItem('preferredLanguage', 'en');
+                });
               } else if (lang === 'de' && isEnglish) {
                 // From English to German
                 const germanPage = currentPage.replace('_en.html', '.html');
                 link.setAttribute('href', germanPage);
+                
+                // Add click handler to store language preference
+                link.addEventListener('click', function() {
+                  sessionStorage.setItem('preferredLanguage', 'de');
+                });
               } else {
                 // Stay on same language
                 link.setAttribute('href', '#');
@@ -810,9 +838,21 @@
     }
   }
   
-  // Initialize mobile menu monitoring
+  // Initialize everything on document load
   document.addEventListener('DOMContentLoaded', function() {
+    setupLanguageSwitching();
     monitorMobileMenu();
+    
+    // Add IDs to the language links if they don't exist
+    const languageLinks = document.querySelectorAll('.lang-dropdown .program-option');
+    if (languageLinks.length >= 2) {
+      if (!languageLinks[0].id) languageLinks[0].id = 'lang-de-link';
+      if (!languageLinks[1].id) languageLinks[1].id = 'lang-en-link';
+      
+      // Update href attributes to use proper language switching
+      languageLinks[0].setAttribute('data-lang', 'de');
+      languageLinks[1].setAttribute('data-lang', 'en');
+    }
     
     // Handle mobile menu button
     const mobileMenuBtn = document.getElementById('mobileMenuButton');
@@ -824,4 +864,4 @@
       });
     }
   });
-</script>
+</script> 

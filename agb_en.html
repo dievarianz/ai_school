@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Terms and Conditions | St.Gallen imt Business School</title>
+
+  <!-- ============ STYLES ============ -->
+  <style>
+    :root{
+      --font-sans:-apple-system,BlinkMacSystemFont,"San Francisco","Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+      --color-text:#1d1d1f;
+      --color-muted:#6e6e73;
+      --color-card-bg:#f5f5f7;
+      --color-accent2:#970289;
+      --color-badge:#e2b245;
+      --color-badge-hover:#d4a535;
+      --spacing:24px;
+      --radius:16px;
+      --max-width:1200px;
+      --imt-purple: #6e45e2;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--color-text);
+      background: #fff;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      /* Padding for fixed navigation */
+      padding-top: 64px;
+      transition: padding-top 0.3s ease;
+    }
+    
+    /* When subnav is active, increase body padding */
+    body.has-subnav {
+      padding-top: 110px;
+    }
+    
+    @media (max-width: 1024px) {
+      body.has-subnav {
+        padding-top: 64px;
+      }
+    }
+
+    /* Basic styling for container */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--spacing);
+      width: 100%;
+    }
+
+    /* Main content of the page */
+    main {
+      position: relative;
+    }
+
+    /* General typography */
+    h1, h2, h3, h4, h5, h6 {
+      margin-bottom: 1rem;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.25rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--imt-purple);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Content section */
+    .content-section {
+      padding: 80px 0;
+    }
+
+    .content-section:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    .content-section:first-child {
+      padding-top: 50px;
+    }
+    
+    /* Headings in content */
+    .content-section h2:not(:first-child) {
+      font-size: 1.3rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+      color: var(--color-text);
+    }
+    
+    /* Paragraph styling */
+    .content-section p {
+      color: var(--color-muted);
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 0.75rem;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.75rem;
+      }
+
+      h3 {
+        font-size: 1.25rem;
+      }
+
+      .container {
+        padding: 0 16px;
+      }
+      
+      .content-section {
+        padding: 40px 0;
+      }
+    }
+  </style>
+
+  <!-- BoxIcons for Icons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <!-- Font Awesome for Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+</head>
+<body>
+  <!-- Dynamic loading of navigation -->
+  <div id="navigation-container"></div>
+  
+  <!-- Sidebar integration -->
+  <div id="sidebar-container"></div>
+
+  <!-- Main content -->
+  <main>
+    <!-- Main content -->
+    <section class="content-section">
+      <div class="container">
+        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Terms and Conditions (T&C)</h2>
+        
+        <h2>1. Scope</h2>
+        <p>These terms and conditions apply to all seminars and programs offered by StGallen Integrated imt Business School AG/Co. imtxAI. In case of any uncertainties, please contact us.</p>
+        
+        <h2>2. Registration</h2>
+        <p>By registering, participants accept our terms and conditions. Registration can be done by mail, email, or via our website. Upon receipt of registration, we will send a confirmation, invoice, and further documents. Places are allocated in the order registrations are received.</p>
+        
+        <h2>3. Seminar Fees</h2>
+        <p>Unless otherwise stated, the seminar fee does not include hotel accommodation and meals. Hotel and meal costs are to be paid directly to the hotel.</p>
+        <p>The seminar fee will be invoiced upon registration and must be paid before the start of the seminar.</p>
+        
+        <h2>4. Cancellation / Withdrawal</h2>
+        <p>In case of cancellation, the following costs will be charged:</p>
+        <p>- Up to 30 days before seminar start: free of charge</p>
+        <p>- 29 to 15 days before seminar start: 50% of the seminar fee</p>
+        <p>- 14 to 8 days before seminar start: 75% of the seminar fee</p>
+        <p>- 7 to 0 days before seminar start or no-show: 100% of the seminar fee</p>
+        
+        <h2>5. Substitute Participants</h2>
+        <p>A substitute participant can be provided at any time without incurring additional costs.</p>
+        
+        <h2>6. Program Changes and Cancellation</h2>
+        <p>StGallen Integrated imt Business School AG reserves the right to make changes to the program and faculty. If there are too few participants, a seminar may be cancelled. In this case, all seminar fees already paid will be fully refunded.</p>
+        
+        <h2>7. Confidentiality and Copyright</h2>
+        <p>Participants agree to treat all information about companies disclosed during the seminar as confidential. The seminar materials are protected by copyright and may not be reproduced or shared with third parties.</p>
+        
+        <h2>8. Liability</h2>
+        <p>We do not accept liability for personal injury or property damage that occurs during our seminars, unless we are proven to have acted with intent or gross negligence.</p>
+        
+        <h2>9. Applicable Law</h2>
+        <p>Swiss law applies.</p>
+        
+        <h2>10. Invalidity</h2>
+        <p>If individual provisions of these terms and conditions are invalid or ineffective, this does not affect the validity of the remaining provisions and the terms and conditions as a whole.</p>
+        
+        <h2>11. Future Changes</h2>
+        <p>With the publication of new terms and conditions, all previous versions lose their validity.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer integration -->
+  <div id="footer-container"></div>
+
+  <!-- Dynamic loading of global components -->
+  <script>
+    // Load navigation
+    fetch('components/globals/navigation_ohnesub_en.html?t=' + new Date().getTime())
+      .then(response => {
+        if (!response.ok) {
+          console.error('Error loading navigation:', response.status);
+          // Try fallback to includes directory
+          return fetch('components/includes/navigation_ohnesub_en.html?t=' + new Date().getTime())
+            .then(resp => {
+              if (!resp.ok) {
+                console.error('Includes path also failed:', resp.status);
+                return '';
+              }
+              return resp.text();
+            });
+        }
+        return response.text();
+      })
+      .then(data => {
+        console.log('Navigation loaded');
+        if (data) {
+          document.getElementById('navigation-container').innerHTML = data;
+          
+          // Initialize mobile navigation
+          const navScript = document.createElement('script');
+          navScript.src = 'assets/js/mobile-nav.js?t=' + new Date().getTime();
+          document.body.appendChild(navScript);
+        }
+      })
+      .catch(error => console.error('Error loading navigation:', error));
+
+    // Load sidebar
+    fetch('components/globals/sidebar_other.html?t=' + new Date().getTime())
+      .then(response => {
+        if (!response.ok) {
+          console.error('Error loading sidebar:', response.status);
+          // Try fallback to includes directory
+          return fetch('components/includes/sidebar_other.html?t=' + new Date().getTime())
+            .then(resp => {
+              if (!resp.ok) {
+                console.error('Includes path also failed:', resp.status);
+                return '';
+              }
+              return resp.text();
+            });
+        }
+        return response.text();
+      })
+      .then(data => {
+        console.log('Sidebar loaded');
+        if (data) document.getElementById('sidebar-container').innerHTML = data;
+      })
+      .catch(error => console.error('Error loading sidebar:', error));
+
+    // Load footer
+    fetch('components/globals/footer.html?t=' + new Date().getTime())
+      .then(response => {
+        if (!response.ok) {
+          console.error('Error loading footer:', response.status);
+          // Try fallback to includes directory
+          return fetch('components/includes/footer.html?t=' + new Date().getTime())
+            .then(resp => {
+              if (!resp.ok) {
+                console.error('Includes path also failed:', resp.status);
+                return '';
+              }
+              return resp.text();
+            });
+        }
+        return response.text();
+      })
+      .then(data => {
+        console.log('Footer loaded');
+        if (data) document.getElementById('footer-container').innerHTML = data;
+      })
+      .catch(error => console.error('Error loading footer:', error));
+  </script>
+</body>
+</html> 

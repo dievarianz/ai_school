@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -32,27 +32,27 @@
     body {
       font-family: var(--font-sans);
       color: var(--color-text);
-      background: #fff;
+      background: #fff !important;
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      /* Padding für fixierte Navigation */
+      /* Padding for fixed navigation */
       padding-top: 64px;
       transition: padding-top 0.3s ease;
     }
     
     /* When subnav is active, increase body padding */
     body.has-subnav {
-      padding-top: 110px; /* Reduziert von 120px auf 110px */
+      padding-top: 110px; /* Reduced from 120px to 110px */
     }
     
     @media (max-width: 1024px) {
       body.has-subnav {
-        padding-top: 64px; /* Auf mobile zurück zu standard padding */
+        padding-top: 64px; /* Back to standard padding on mobile */
       }
     }
 
-    /* Basis Styling für Container */
+    /* Basis Styling for Container */
     .container {
       max-width: var(--max-width);
       margin: 0 auto;
@@ -60,12 +60,12 @@
       width: 100%;
     }
 
-    /* Hauptinhalt der Seite */
+    /* Main content of the page */
     main {
       position: relative;
     }
 
-    /* Allgemeine Typografie */
+    /* General Typography */
     h1, h2, h3, h4, h5, h6 {
       margin-bottom: 1rem;
       font-weight: 600;
@@ -105,7 +105,7 @@
     /* Teaser Styles */
     .courses-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr); /* Nur 2 Karten pro Zeile */
+      grid-template-columns: repeat(2, 1fr); /* Only 2 cards per row */
       gap: 30px;
       max-width: 1080px;
       margin: 60px auto 40px;
@@ -116,14 +116,14 @@
       border-radius: 18px;
       overflow: hidden;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
-      transition: transform 0.2s ease, border 0.2s ease; /* Dezenterer Übergang */
+      transition: transform 0.2s ease, border 0.2s ease; /* Less dramatic transition */
       border: 2px solid transparent;
       display: flex;
       flex-direction: column;
     }
     
     .course-card:hover {
-      transform: translateY(-3px); /* Dezentere Bewegung nach oben */
+      transform: translateY(-3px); /* Slightly move up */
       border: 2px solid #7b4bec;
     }
     
@@ -241,6 +241,26 @@
       margin-bottom: 20px;
     }
     
+    /* Fix for language dropdown display issues */
+    .mobile-lang-section {
+      display: none;
+    }
+    
+    @media (max-width: 900px) {
+      .mobile-lang-section {
+        display: block !important;
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+      }
+    }
+    
+    .lang-title, 
+    .nav-wrapper .mobile-lang-section:not(.mobile-lang-options) {
+      display: none !important;
+    }
+    /* End of language display fix */
+    
     .section-tag {
       display: inline-block;
       font-size: 14px;
@@ -274,7 +294,7 @@
       }
     }
 
-    /* Hero-Sektion */
+    /* Hero Section */
     .hero {
       background: linear-gradient(to bottom, #f9f9ff, #fff);
       padding: 80px 0 120px;
@@ -282,7 +302,7 @@
       overflow: hidden;
     }
 
-    /* Animierte Wellenlinien für Hero-Hintergrund */
+    /* Animated waves for Hero background */
     .hero .wave-container {
       position: absolute;
       top: 0;
@@ -367,7 +387,7 @@
       z-index: 0;
     }
     
-    /* Partikelhintergrund */
+    /* Particle background */
     .particles {
       position: absolute;
       top: 0;
@@ -638,7 +658,7 @@
       margin-bottom: 1rem;
     }
 
-    /* Animierte Schweizer Flagge */
+    /* Animated Swiss Flag */
     .swiss-flag {
       display: inline-block;
       width: 20px;
@@ -743,7 +763,7 @@
       }
     }
 
-    /* Behalte den alten Code für .hero-button, damit bestehender Code nicht bricht */
+    /* Keep old code for .hero-button, so existing code doesn't break */
     .hero-button {
       display: inline-flex;
       align-items: center;
@@ -778,7 +798,7 @@
       margin-bottom: 40px;
     }
 
-    /* Responsive Anpassungen */
+    /* Responsive adjustments */
     @media (max-width: 768px) {
       h1 {
         font-size: 2rem;
@@ -803,7 +823,7 @@
 
     .tracks-variant-3 {
       padding: 80px 0;
-      background: #fff;
+      background: #fff !important;
       position: relative;
     }
     
@@ -1095,7 +1115,7 @@
 
     .network-section {
       padding: 100px 0;
-      background: linear-gradient(to bottom, #fff, #f9f9fa);
+      background: linear-gradient(to bottom, #fff, #f9f9fa) !important;
     }
     
     .network-intro {
@@ -1302,12 +1322,12 @@
       pointer-events: none;
     }
 
-    /* Teal-Farbe für Programme-Kategorie im Dropdown */
+    /* Teal color for Program category in dropdown */
     .select-category:nth-child(5) {
       color: #17a689;
     }
 
-    /* Direktes Ansprechen der Programm-Kategorie über Klasse */
+    /* Direct access to Program category via class */
     .programme-category {
       color: #17a689 !important;
     }
@@ -1317,36 +1337,36 @@
       border-top: 1px solid #eee;
     }
 
-    /* Teal Border bei Hover für Programme */
+    /* Teal border on hover for Programs */
     .track-card[data-category="programme"]:hover {
       border: 2px solid #17a689;
     }
 
-    /* Purple Border bei Hover für Managementseminare */
+    /* Purple border on hover for Management Seminars */
     .track-card[data-category="managementseminare"]:hover {
       border: 2px solid var(--imt-purple);
     }
 
-    /* Purple Button Hover für Managementseminare Filter */
+    /* Purple button hover for Management Seminars filter */
     .tracks-variant-3 .filter-btn[data-filter="managementseminare"]:hover {
       border-color: var(--imt-purple);
       color: var(--imt-purple);
     }
 
-    /* Purple Active Button für Managementseminare Filter */
+    /* Purple active button for Management Seminars filter */
     .tracks-variant-3 .filter-btn[data-filter="managementseminare"].active {
       background: var(--imt-purple);
       color: white;
       border-color: var(--imt-purple);
     }
 
-    /* Teal Button Hover für Programme Filter */
+    /* Teal button hover for Programs filter */
     .tracks-variant-3 .filter-btn[data-filter="programme"]:hover {
       border-color: #17a689;
       color: #17a689;
     }
 
-    /* Teal Active Button für Programme Filter */
+    /* Teal active button for Programs filter */
     .tracks-variant-3 .filter-btn[data-filter="programme"].active {
       background: #17a689;
       color: white;
@@ -1374,7 +1394,7 @@
 
     .sv-innovation-academy-section {
       padding: 80px 0;
-      background: #fff;
+      background: #fff !important;
     }
     
     .sv-gradient-teaser-v3 {
@@ -1718,38 +1738,38 @@
           <span class="hero-eyebrow">
             StGallen imt Business School
           </span>
-          <h1 class="hero-title">Exzellenz in Management und Technologie</h1>
-          <p class="hero-subtitle">Zukunftsweisende Weiterbildung an der Schnittstelle von Management und Technologie für die Führungskräfte von morgen.</p>
+          <h1 class="hero-title">Excellence in Management and Technology</h1>
+          <p class="hero-subtitle">Forward-thinking education at the intersection of management and technology for tomorrow's leaders.</p>
           
           <div class="hero-actions">
             <div class="program-selector">
               <div class="tooltip-container">
-                <div class="error-tooltip">Bitte wählen Sie ein Programm aus</div>
+                <div class="error-tooltip">Please select a program</div>
                 <div class="custom-select">
-                  <div class="select-selected">Wählen Sie Ihr Programm</div>
+                  <div class="select-selected">Choose your program</div>
                   <div class="select-items select-hide">
-                    <div class="select-category">Managementseminare</div>
+                    <div class="select-category">Management Seminars</div>
                     <div class="select-item" data-value="integrated_management_strategy.html">Integrated Management and Strategy</div>
                     <div class="select-item" data-value="financial_management.html">Financial Management</div>
                     <div class="select-item" data-value="inspirational_leadership.html">Inspirational Leadership</div>
                     <div class="select-item" data-value="marketing_sales_brand_communication.html">Marketing, Sales and Brand Communication</div>
                     <div class="select-item" data-value="intelligent_process_automation.html">Intelligent Process Automation</div>
-                    <div class="select-item" data-value="ki_business_strategy_digital_transformation.html">KI in Business Strategy &amp; Digital Transformation</div>
-                    <div class="select-item" data-value="ki_augmented_decision_making.html">KI-Augemented Decision Making</div>
-                    <div class="select-category programme-category">Programme</div>
-                    <div class="select-item" data-value="management_programm.html">StGallen imt Management Programm</div>
+                    <div class="select-item" data-value="ki_business_strategy_digital_transformation.html">AI in Business Strategy &amp; Digital Transformation</div>
+                    <div class="select-item" data-value="ki_augmented_decision_making.html">AI-Augmented Decision Making</div>
+                    <div class="select-category programme-category">Programs</div>
+                    <div class="select-item" data-value="management_programm.html">StGallen imt Management Program</div>
                     <div class="select-item" data-value="management_programm_cas.html">StGallen imt Certified Management CAS</div>
-                    <div class="select-item" data-value="fast_track_mba.html">StGallen Fast‑Track MBA Programm</div>
+                    <div class="select-item" data-value="fast_track_mba.html">StGallen Fast‑Track MBA Program</div>
                   </div>
                 </div>
               </div>
             </div>
             <a href="#" class="hero-btn hero-btn-primary" id="program-link">
-              Programm entdecken <span class="arrow-icon">→</span>
+              Explore program <span class="arrow-icon">→</span>
             </a>
           </div>
           
-          <p class="hero-brands-text">Vertrauen unserer Kompetenz</p>
+          <p class="hero-brands-text">Trusted by</p>
           <div class="hero-brands">
             <img src="assets/companies/google.png" alt="Google">
             <img src="assets/companies/hp.png" alt="HP">
@@ -1764,14 +1784,14 @@
     <section class="tracks-variant-3">
       <div class="container">
         <div class="tracks-header">
-          <h2 class="tracks-title">Unsere Programme</h2>
-          <p class="tracks-subtitle">Entdecken Sie unsere praxisorientierten Managementseminare und Programme, die Management-Know-how mit Technologie-Kompetenz verbinden</p>
+          <h2 class="tracks-title">Our Programs</h2>
+          <p class="tracks-subtitle">Discover our practice-oriented management seminars and programs that combine management expertise with technology competence</p>
         </div>
         
         <div class="track-filters">
-          <button class="filter-btn active" data-filter="alle">Alle</button>
-          <button class="filter-btn" data-filter="managementseminare">Managementseminare</button>
-          <button class="filter-btn" data-filter="programme">Programme</button>
+          <button class="filter-btn active" data-filter="alle">All</button>
+          <button class="filter-btn" data-filter="managementseminare">Management Seminars</button>
+          <button class="filter-btn" data-filter="programme">Programs</button>
         </div>
         
         <div class="tracks-container">
@@ -1780,26 +1800,26 @@
             <div class="track-card" data-category="managementseminare">
               <a href="integrated_management_strategy.html" class="card-link" aria-label="Integrated Management and Strategy Details"></a>
               <div class="card-header">
-                <span class="track-category category-strategy">Managementseminar</span>
+                <span class="track-category category-strategy">Management Seminar</span>
                 <h3 class="track-title">Integrated Management and Strategy</h3>
               </div>
               <div class="card-body">
                 <div class="info-section">
                   <div class="card-row">
                     <i class="bx bx-map"></i>
-                    <span>St. Gallen oder Online</span>
+                    <span>St. Gallen or Online</span>
                   </div>
                   <div class="card-row">
                     <i class="bx bx-time"></i>
-                    <span>3 Tage</span>
+                    <span>3 days</span>
                   </div>
                   <div class="card-row">
                     <i class="bx bx-calendar"></i>
                     <span>01.06.2025</span>
                   </div>
                 </div>
-                <p class="track-description">Entwickeln Sie ein ganzheitliches Verständnis für Management und Strategieentwicklung in der digitalisierten Geschäftswelt.</p>
-                <a href="integrated_management_strategy.html" class="track-link" style="position: relative; z-index: 2;">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
+                <p class="track-description">Develop a holistic understanding of management and strategy development in the digitalized business world.</p>
+                <a href="integrated_management_strategy.html" class="track-link" style="position: relative; z-index: 2;">Learn more <i class="bx bx-right-arrow-alt"></i></a>
               </div>
             </div>
             
@@ -1807,7 +1827,7 @@
             <div class="track-card" data-category="managementseminare">
               <a href="financial_management.html" class="card-link" aria-label="Financial Management Details"></a>
               <div class="card-header">
-                <span class="track-category category-strategy">Managementseminar</span>
+                <span class="track-category category-strategy">Management Seminar</span>
                 <h3 class="track-title">Financial Management</h3>
               </div>
               <div class="card-body">
@@ -1818,15 +1838,15 @@
                   </div>
                   <div class="card-row">
                     <i class="bx bx-time"></i>
-                    <span>3 Tage</span>
+                    <span>3 days</span>
                   </div>
                   <div class="card-row">
                     <i class="bx bx-calendar"></i>
                     <span>01.06.2025</span>
                   </div>
                 </div>
-                <p class="track-description">Vertiefen Sie Ihre Kenntnisse im Finanzmanagement und lernen Sie moderne Techniken zur Finanzplanung und -kontrolle.</p>
-                <a href="financial_management.html" class="track-link" style="position: relative; z-index: 2;">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
+                <p class="track-description">Deepen your knowledge in financial management and learn modern techniques for financial planning and control.</p>
+                <a href="financial_management.html" class="track-link" style="position: relative; z-index: 2;">Learn more <i class="bx bx-right-arrow-alt"></i></a>
               </div>
             </div>
             
@@ -1834,26 +1854,26 @@
             <div class="track-card" data-category="managementseminare">
               <a href="inspirational_leadership.html" class="card-link" aria-label="Inspirational Leadership Details"></a>
               <div class="card-header">
-                <span class="track-category category-strategy">Managementseminar</span>
+                <span class="track-category category-strategy">Management Seminar</span>
                 <h3 class="track-title">Inspirational Leadership</h3>
               </div>
               <div class="card-body">
                 <div class="info-section">
                   <div class="card-row">
                     <i class="bx bx-map"></i>
-                    <span>St. Gallen oder Online</span>
+                    <span>St. Gallen or Online</span>
                   </div>
                   <div class="card-row">
                     <i class="bx bx-time"></i>
-                    <span>3 Tage</span>
+                    <span>3 days</span>
                   </div>
                   <div class="card-row">
                     <i class="bx bx-calendar"></i>
                     <span>01.06.2025</span>
                   </div>
                 </div>
-                <p class="track-description">Entwickeln Sie Ihre Führungskompetenzen und lernen Sie, wie Sie Teams inspirieren und zu Höchstleistungen motivieren können.</p>
-                <a href="inspirational_leadership.html" class="track-link" style="position: relative; z-index: 2;">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
+                <p class="track-description">Develop your leadership skills and learn how to inspire teams and motivate them to achieve peak performance.</p>
+                <a href="inspirational_leadership.html" class="track-link" style="position: relative; z-index: 2;">Learn more <i class="bx bx-right-arrow-alt"></i></a>
               </div>
             </div>
             
@@ -1861,7 +1881,7 @@
             <div class="track-card" data-category="managementseminare">
               <a href="marketing_sales_brand_communication.html" class="card-link" aria-label="Marketing, Sales and Brand Communication Details"></a>
               <div class="card-header">
-                <span class="track-category category-strategy">Managementseminar</span>
+                <span class="track-category category-strategy">Management Seminar</span>
                 <h3 class="track-title">Marketing, Sales and Brand Communication</h3>
               </div>
               <div class="card-body">
@@ -1872,15 +1892,15 @@
                   </div>
                   <div class="card-row">
                     <i class="bx bx-time"></i>
-                    <span>3 Tage</span>
+                    <span>3 days</span>
                   </div>
                   <div class="card-row">
                     <i class="bx bx-calendar"></i>
                     <span>01.06.2025</span>
                   </div>
                 </div>
-                <p class="track-description">Optimieren Sie Ihre Marketing- und Kommunikationsstrategien und erfahren Sie, wie Sie Ihre Marke erfolgreich positionieren.</p>
-                <a href="marketing_sales_brand_communication.html" class="track-link" style="position: relative; z-index: 2;">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
+                <p class="track-description">Optimize your marketing and communication strategies and learn how to successfully position your brand.</p>
+                <a href="marketing_sales_brand_communication.html" class="track-link" style="position: relative; z-index: 2;">Learn more <i class="bx bx-right-arrow-alt"></i></a>
               </div>
             </div>
             
@@ -1888,7 +1908,7 @@
             <div class="track-card" data-category="managementseminare">
               <a href="intelligent_process_automation.html" class="card-link" aria-label="Intelligent Process Automation Details"></a>
               <div class="card-header">
-                <span class="track-category category-strategy">Managementseminar</span>
+                <span class="track-category category-strategy">Management Seminar</span>
                 <h3 class="track-title">Intelligent Process Automation</h3>
               </div>
               <div class="card-body">
@@ -1899,24 +1919,24 @@
                   </div>
                   <div class="card-row">
                     <i class="bx bx-time"></i>
-                    <span>3 Tage</span>
+                    <span>3 days</span>
                   </div>
                   <div class="card-row">
                     <i class="bx bx-calendar"></i>
                     <span>01.06.2025</span>
                   </div>
                 </div>
-                <p class="track-description">Lernen Sie, wie intelligente Prozessautomatisierung Ihr Unternehmen effizienter gestalten und Ressourcen optimieren kann.</p>
-                <a href="intelligent_process_automation.html" class="track-link" style="position: relative; z-index: 2;">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
+                <p class="track-description">Learn how intelligent process automation can make your company more efficient and optimize resources.</p>
+                <a href="intelligent_process_automation.html" class="track-link" style="position: relative; z-index: 2;">Learn more <i class="bx bx-right-arrow-alt"></i></a>
               </div>
             </div>
             
             <!-- Card 6 -->
             <div class="track-card" data-category="managementseminare">
-              <a href="ki_business_strategy_digital_transformation.html" class="card-link" aria-label="KI in Business Strategy & Digital Transformation Details"></a>
+              <a href="ki_business_strategy_digital_transformation.html" class="card-link" aria-label="AI in Business Strategy & Digital Transformation Details"></a>
               <div class="card-header">
-                <span class="track-category category-strategy">Managementseminar</span>
-                <h3 class="track-title">KI in Business Strategy & Digital Transformation</h3>
+                <span class="track-category category-strategy">Management Seminar</span>
+                <h3 class="track-title">AI in Business Strategy & Digital Transformation</h3>
               </div>
               <div class="card-body">
                 <div class="info-section">
@@ -1926,105 +1946,105 @@
                   </div>
                   <div class="card-row">
                     <i class="bx bx-time"></i>
-                    <span>3 Tage</span>
+                    <span>3 days</span>
                   </div>
                   <div class="card-row">
                     <i class="bx bx-calendar"></i>
                     <span>01.06.2025</span>
                   </div>
                 </div>
-                <p class="track-description">Entwickeln Sie eine umfassende KI-Strategie für Ihr Unternehmen und gestalten Sie aktiv die digitale Transformation.</p>
-                <a href="ki_business_strategy_digital_transformation.html" class="track-link" style="position: relative; z-index: 2;">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
+                <p class="track-description">Develop a comprehensive AI strategy for your company and actively shape digital transformation.</p>
+                <a href="ki_business_strategy_digital_transformation.html" class="track-link" style="position: relative; z-index: 2;">Learn more <i class="bx bx-right-arrow-alt"></i></a>
               </div>
             </div>
             
             <!-- Card 7 -->
             <div class="track-card" data-category="managementseminare">
-              <a href="ki_augmented_decision_making.html" class="card-link" aria-label="KI-Augemented Decision Making Details"></a>
+              <a href="ki_augmented_decision_making.html" class="card-link" aria-label="AI-Augmented Decision Making Details"></a>
               <div class="card-header">
-                <span class="track-category category-strategy">Managementseminar</span>
-                <h3 class="track-title">KI-Augemented Decision Making</h3>
+                <span class="track-category category-strategy">Management Seminar</span>
+                <h3 class="track-title">AI-Augmented Decision Making</h3>
               </div>
               <div class="card-body">
                 <div class="info-section">
                   <div class="card-row">
                     <i class="bx bx-map"></i>
-                    <span>St. Gallen oder Online</span>
+                    <span>St. Gallen or Online</span>
                   </div>
                   <div class="card-row">
                     <i class="bx bx-time"></i>
-                    <span>3 Tage</span>
+                    <span>3 days</span>
                   </div>
                   <div class="card-row">
                     <i class="bx bx-calendar"></i>
                     <span>01.06.2025</span>
                   </div>
                 </div>
-                <p class="track-description">Lernen Sie, wie KI-gestützte Entscheidungsprozesse Ihnen helfen, fundiertere und effektivere Entscheidungen zu treffen.</p>
-                <a href="ki_augmented_decision_making.html" class="track-link" style="position: relative; z-index: 2;">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
+                <p class="track-description">Learn how AI-supported decision-making processes help you make more informed and effective decisions.</p>
+                <a href="ki_augmented_decision_making.html" class="track-link" style="position: relative; z-index: 2;">Learn more <i class="bx bx-right-arrow-alt"></i></a>
               </div>
             </div>
             
-            <!-- Card 8: Programm - beibehalten -->
+            <!-- Card 8: Program -->
             <div class="track-card" data-category="programme">
-              <a href="management_programm.html" class="card-link" aria-label="StGallen imt Management Programm Details"></a>
+              <a href="management_programm.html" class="card-link" aria-label="StGallen imt Management Program Details"></a>
               <div class="card-header">
-                <span class="track-category category-program">Programm</span>
-                <h3 class="track-title">StGallen imt Management Programm</h3>
+                <span class="track-category category-program">Program</span>
+                <h3 class="track-title">StGallen imt Management Program</h3>
               </div>
               <div class="card-body">
                 <div class="info-section">
                   <div class="card-row">
                     <i class="bx bx-map"></i>
-                    <span>St. Gallen oder Online</span>
+                    <span>St. Gallen or Online</span>
                   </div>
                   <div class="card-row">
                     <i class="bx bx-time"></i>
-                    <span>12 Tage</span>
+                    <span>12 days</span>
                   </div>
                   <div class="card-row">
                     <i class="bx bx-calendar"></i>
                     <span>05.06.2025</span>
                   </div>
                 </div>
-                <p class="track-description">Umfassendes Programm zur Integration von KI in strategische Managementprozesse mit zertifiziertem Abschluss.</p>
-                <a href="programm-seite.html" class="track-link" style="position: relative; z-index: 2;">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
+                <p class="track-description">Comprehensive program for integrating AI into strategic management processes with certified completion.</p>
+                <a href="programm-seite.html" class="track-link" style="position: relative; z-index: 2;">Learn more <i class="bx bx-right-arrow-alt"></i></a>
               </div>
             </div>
             
-            <!-- Card 9: Programm - Certified Management CAS -->
+            <!-- Card 9: Program - Certified Management CAS -->
             <div class="track-card" data-category="programme">
               <a href="management_programm_cas.html" class="card-link" aria-label="StGallen imt Certified Management CAS Details"></a>
               <div class="card-header">
-                <span class="track-category category-program">Programm</span>
+                <span class="track-category category-program">Program</span>
                 <h3 class="track-title">StGallen imt Certified Management CAS</h3>
               </div>
               <div class="card-body">
                 <div class="info-section">
                   <div class="card-row">
                     <i class="bx bx-map"></i>
-                    <span>St. Gallen oder Online</span>
+                    <span>St. Gallen or Online</span>
                   </div>
                   <div class="card-row">
                     <i class="bx bx-time"></i>
-                    <span>15 Tage</span>
+                    <span>15 days</span>
                   </div>
                   <div class="card-row">
                     <i class="bx bx-calendar"></i>
                     <span>15.07.2025</span>
                   </div>
                 </div>
-                <p class="track-description">Certificate of Advanced Studies mit vertieftem Management-Know-how und anerkanntem akademischen Abschluss.</p>
-                <a href="programm-seite6.html" class="track-link" style="position: relative; z-index: 2;">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
+                <p class="track-description">Certificate of Advanced Studies with in-depth management know-how and recognized academic degree.</p>
+                <a href="programm-seite6.html" class="track-link" style="position: relative; z-index: 2;">Learn more <i class="bx bx-right-arrow-alt"></i></a>
               </div>
             </div>
             
-            <!-- Card 10: Programm - Fast-Track MBA -->
+            <!-- Card 10: Program - Fast-Track MBA -->
             <div class="track-card" data-category="programme">
-              <a href="fast_track_mba.html" class="card-link" aria-label="StGallen Fast‑Track MBA Programm Details"></a>
+              <a href="fast_track_mba.html" class="card-link" aria-label="StGallen Fast‑Track MBA Program Details"></a>
               <div class="card-header">
-                <span class="track-category category-program">Programm</span>
-                <h3 class="track-title">StGallen Fast‑Track MBA Programm</h3>
+                <span class="track-category category-program">Program</span>
+                <h3 class="track-title">StGallen Fast‑Track MBA Program</h3>
               </div>
               <div class="card-body">
                 <div class="info-section">
@@ -2034,15 +2054,15 @@
                   </div>
                   <div class="card-row">
                     <i class="bx bx-time"></i>
-                    <span>18 Monate</span>
+                    <span>18 months</span>
                   </div>
                   <div class="card-row">
                     <i class="bx bx-calendar"></i>
                     <span>01.09.2025</span>
                   </div>
                 </div>
-                <p class="track-description">Beschleunigtes MBA-Programm mit Fokus auf Management und Technologie für aufstrebende Führungskräfte.</p>
-                <a href="programm-seite7.html" class="track-link" style="position: relative; z-index: 2;">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
+                <p class="track-description">Accelerated MBA program focusing on management and technology for aspiring executives.</p>
+                <a href="programm-seite7.html" class="track-link" style="position: relative; z-index: 2;">Learn more <i class="bx bx-right-arrow-alt"></i></a>
               </div>
             </div>
           </div>
@@ -2064,7 +2084,7 @@
       <div class="container">
         <div class="tracks-header">
           <h2 class="tracks-title">Silicon Valley Innovation Academy</h2>
-          <p class="tracks-subtitle">Verbinden Sie eine einzigartige Reise ins Silicon Valley mit einem MBA in Kollaboration mit der StGallen imt Business School</p>
+          <p class="tracks-subtitle">Combine a unique journey to Silicon Valley with an MBA in collaboration with StGallen imt Business School</p>
         </div>
         
         <div class="sv-gradient-teaser-v3">
@@ -2072,11 +2092,11 @@
           <div class="sv-gradient-v3-container">
             <div class="sv-gradient-v3-header">
               <div class="sv-gradient-v3-header-content">
-                <h2 class="sv-gradient-v3-title">Die Faszination des Silicon Valleys</h2>
-                <p class="sv-gradient-v3-subtitle">Verbinden Sie eine einzigartige Reise ins Silicon Valley mit einem MBA in Kollaboration mit der StGallen imt Business School</p>
+                <h2 class="sv-gradient-v3-title">The Fascination of Silicon Valley</h2>
+                <p class="sv-gradient-v3-subtitle">Combine a unique journey to Silicon Valley with an MBA in collaboration with StGallen imt Business School</p>
               </div>
               <div class="sv-gradient-v3-date-badge">
-                <div class="sv-gradient-v3-date">12. - 22. Juni 2025</div>
+                <div class="sv-gradient-v3-date">June 12-22, 2025</div>
                 <div class="sv-gradient-v3-location">San Francisco, USA</div>
               </div>
             </div>
@@ -2085,26 +2105,26 @@
               <div class="sv-gradient-v3-feature">
                 <i class="sv-gradient-v3-feature-icon bx bx-bulb"></i>
                 <h4 class="sv-gradient-v3-feature-title">Innovation Academy</h4>
-                <p class="sv-gradient-v3-feature-text">Zweiwöchige Academy mit praxisnahen, von Experten geleiteten Sessions zu Innovationsmanagement und Corporate Venturing.</p>
+                <p class="sv-gradient-v3-feature-text">Two-week academy with practical, expert-led sessions on innovation management and corporate venturing.</p>
               </div>
               <div class="sv-gradient-v3-feature">
                 <i class="sv-gradient-v3-feature-icon bx bx-network-chart"></i>
                 <h4 class="sv-gradient-v3-feature-title">Open Innovation</h4>
-                <p class="sv-gradient-v3-feature-text">Erweitern Sie Ihre Kompetenzen und erhalten Sie exklusiven Zugang zum Innovationsökosystem des Silicon Valley.</p>
+                <p class="sv-gradient-v3-feature-text">Expand your competencies and gain exclusive access to Silicon Valley's innovation ecosystem.</p>
               </div>
               <div class="sv-gradient-v3-feature">
                 <i class="sv-gradient-v3-feature-icon bx bx-group"></i>
                 <h4 class="sv-gradient-v3-feature-title">Networking</h4>
-                <p class="sv-gradient-v3-feature-text">Hochkarätige Networking-Möglichkeiten mit Venture Capitalists, Startups und führenden Technologieunternehmen.</p>
+                <p class="sv-gradient-v3-feature-text">High-caliber networking opportunities with venture capitalists, startups, and leading technology companies.</p>
               </div>
             </div>
             
             <div class="sv-gradient-v3-footer">
-              <p class="sv-gradient-v3-footer-text">Nutzen Sie diese Erfahrung als Sprungbrett für ein Fast-Track Executive MBA und profitieren Sie von unserem einzigartigen Programm.</p>
+              <p class="sv-gradient-v3-footer-text">Use this experience as a springboard for a Fast-Track Executive MBA and benefit from our unique program.</p>
               
               <div class="sv-gradient-v3-partner-container">
                 <div class="sv-gradient-v3-partner">
-                  <span>In Zusammenarbeit mit</span>
+                  <span>In collaboration with</span>
                   <a href="https://www.plugandplaytechcenter.com/industries/goal/innovation-academy" target="_blank">
                     <img src="assets/pictures/plug_play_logo.png" alt="Plug and Play Logo">
                   </a>
@@ -2112,7 +2132,7 @@
               </div>
               
               <div style="width: 100%; display: flex; justify-content: center;">
-                <a href="https://www.plugandplaytechcenter.com/industries/goal/innovation-academy" class="sv-gradient-v3-cta" target="_blank">Programm entdecken <span class="arrow-icon">→</span></a>
+                <a href="https://www.plugandplaytechcenter.com/industries/goal/innovation-academy" class="sv-gradient-v3-cta" target="_blank">Discover program <span class="arrow-icon">→</span></a>
               </div>
             </div>
           </div>
@@ -2120,18 +2140,18 @@
       </div>
     </section>
 
-    <!-- Netzwerk-Sektion: In bester Gesellschaft -->
+    <!-- Network section: In good company -->
     <section class="network-section">
       <div class="container">
         <div class="network-intro">
-          <h2 class="network-title">In bester Gesellschaft</h2>
-          <p class="network-description">Die StGallen imt Business School arbeitet mit führenden Unternehmen, renommierten Universitäten und Experten zusammen, um Ihnen das beste Bildungserlebnis zu bieten.</p>
+          <h2 class="network-title">In Good Company</h2>
+          <p class="network-description">StGallen imt Business School works with leading companies, renowned universities, and experts to provide you with the best educational experience.</p>
         </div>
         
         <div class="network-filter">
-          <button class="filter-btn active">Alle</button>
-          <button class="filter-btn">Unternehmen</button>
-          <button class="filter-btn">Akademische Partner</button>
+          <button class="filter-btn active">All</button>
+          <button class="filter-btn">Companies</button>
+          <button class="filter-btn">Academic Partners</button>
         </div>
         
         <div class="partners">
@@ -2163,7 +2183,7 @@
         </div>
         
         <div class="faculty-section">
-          <h3 class="faculty-title">Unsere Dozenten &amp; Experten</h3>
+          <h3 class="faculty-title">Our Lecturers &amp; Experts</h3>
           
           <div class="faculty-grid">
             <!-- Faculty Members -->
@@ -2171,7 +2191,7 @@
               <img src="assets/faculty/abegglen.webp" alt="Prof. Dr. Christian Abegglen"/>
               <div class="faculty-info">
                   <h3 class="faculty-name">Prof. Dr. Christian Abegglen</h3>
-                  <div class="faculty-title">Präsident</div>
+                  <div class="faculty-title">President</div>
               </div>
             </div>
             
@@ -2227,7 +2247,7 @@
         
         <div class="section-link">
           <a href="netzwerk.html" class="view-all-btn">
-            Gesamtes Netzwerk entdecken <i class="bx bx-right-arrow-alt"></i>
+            Discover entire network <i class="bx bx-right-arrow-alt"></i>
           </a>
         </div>
       </div>
@@ -2240,47 +2260,47 @@
   <!-- Footer einbinden -->
   <div id="footer-container"></div>
 
-  <!-- Dynamisches Laden der globalen Komponenten -->
+  <!-- Dynamic loading of global components -->
   <script>
-    // Gespeicherte Spracheinstellung überprüfen
+    // Check for stored language preference
     const storedLanguage = sessionStorage.getItem('preferredLanguage');
     
-    // Bestimme die aktuelle Sprache anhand der URL
+    // Determine current language based on the page URL
     const currentPath = window.location.pathname;
     const currentPage = currentPath.substring(currentPath.lastIndexOf('/') + 1);
     const pageIsEnglish = currentPage.includes('_en');
     
-    // Wenn gespeicherte Präferenz nicht mit aktueller Seite übereinstimmt, umleiten
+    // If stored preference doesn't match current page, redirect
     if (storedLanguage) {
       const shouldBeEnglish = storedLanguage === 'en';
       
-      // Bei Bedarf umleiten
+      // Redirect if needed
       if (shouldBeEnglish !== pageIsEnglish) {
         if (shouldBeEnglish) {
-          // Zu Englisch wechseln
+          // Switch to English
           window.location.href = currentPage.replace('.html', '_en.html');
         } else {
-          // Zu Deutsch wechseln
+          // Switch to German
           window.location.href = currentPage.replace('_en.html', '.html');
         }
       }
     }
     
-    // Mit normalem Laden fortfahren - aktuelle Seitesprache verwenden
+    // Continue with normal loading - use current page language
     const isEnglish = pageIsEnglish;
     const langSuffix = isEnglish ? '_en' : '';
     
-    // Navigation laden
+    // Load navigation
     fetch(`components/globals/navigation_ohnesub${langSuffix}.html?t=${new Date().getTime()}`)
       .then(response => {
         if (!response.ok) {
-          console.error(`Fehler beim Laden der Navigation: ${response.status}`);
-          // Fallback auf includes Verzeichnis versuchen
+          console.error(`Error loading navigation: ${response.status}`);
+          // Try fallback to includes directory
           return fetch(`components/includes/navigation_ohnesub${langSuffix}.html?t=${new Date().getTime()}`)
             .then(resp => {
               if (!resp.ok) {
-                console.error('Includes-Pfad auch fehlgeschlagen, versuche Standard-Sprache:', resp.status);
-                // Letzter Ausweg: Versuche die Standard-Sprachversion
+                console.error('Includes path also failed, try default language version:', resp.status);
+                // Last resort: Try the default language version
                 return fetch(`components/includes/navigation_ohnesub.html?t=${new Date().getTime()}`);
               }
               return resp.text();
@@ -2289,28 +2309,28 @@
         return response.text();
       })
       .then(data => {
-        console.log('Navigation geladen');
+        console.log('Navigation loaded');
         if (data) {
           document.getElementById('navigation-container').innerHTML = data;
           
-          // Mobile Navigation initialisieren
+          // Initialize mobile navigation
           const navScript = document.createElement('script');
           navScript.src = 'assets/js/mobile-nav.js?t=' + new Date().getTime();
           document.body.appendChild(navScript);
           
-          // Startseiten-Link als aktiv markieren
+          // Mark home page link as active
           setTimeout(() => {
-            // Verwende den passenden Startseiten-Link je nach Sprache
+            // Use the appropriate home page link based on language
             const homePage = isEnglish ? 'startseite_en.html' : 'startseite.html';
             const homeLink = document.querySelector(`.nav-link[href="${homePage}"]`);
             if (homeLink) {
-              console.log('Aktiviere Startseiten-Link:', homeLink);
+              console.log('Activating home page link:', homeLink);
               homeLink.classList.add('active');
             } else {
-              console.error('Startseiten-Link nicht gefunden! Suche nach allen Links:', document.querySelectorAll('.nav-menu a'));
+              console.error('Home page link not found! Looking for all links:', document.querySelectorAll('.nav-menu a'));
             }
             
-            // Sprachumschaltung initialisieren, nachdem die Navigation geladen wurde
+            // Initialize language switching after navigation is loaded
             if (typeof setupLanguageSwitching === 'function') {
               setupLanguageSwitching();
               monitorMobileMenu();
@@ -2318,19 +2338,19 @@
           }, 200);
         }
       })
-      .catch(error => console.error('Fehler beim Laden der Navigation:', error));
+      .catch(error => console.error('Error loading navigation:', error));
 
-    // Sidebar laden
+    // Load sidebar
     fetch(`components/globals/sidebar_other${langSuffix}.html?t=${new Date().getTime()}`)
       .then(response => {
         if (!response.ok) {
-          console.error(`Fehler beim Laden der Sidebar: ${response.status}`);
-          // Fallback auf includes Verzeichnis versuchen
+          console.error(`Error loading sidebar: ${response.status}`);
+          // Try fallback to includes directory
           return fetch(`components/includes/sidebar_other${langSuffix}.html?t=${new Date().getTime()}`)
             .then(resp => {
               if (!resp.ok) {
-                console.error('Includes-Pfad auch fehlgeschlagen, versuche Standard-Sprache:', resp.status);
-                // Letzter Ausweg: Versuche die Standard-Sprachversion
+                console.error('Includes path also failed, try default language version:', resp.status);
+                // Last resort: Try the default language version
                 return fetch(`components/includes/sidebar_other.html?t=${new Date().getTime()}`);
               }
               return resp.text();
@@ -2339,22 +2359,22 @@
         return response.text();
       })
       .then(data => {
-        console.log('Sidebar geladen');
+        console.log('Sidebar loaded');
         if (data) document.getElementById('sidebar-container').innerHTML = data;
       })
-      .catch(error => console.error('Fehler beim Laden der Sidebar:', error));
+      .catch(error => console.error('Error loading sidebar:', error));
 
-    // Footer laden
+    // Load footer
     fetch(`components/globals/footer${langSuffix}.html?t=${new Date().getTime()}`)
       .then(response => {
         if (!response.ok) {
-          console.error(`Fehler beim Laden des Footers: ${response.status}`);
-          // Fallback auf includes Verzeichnis versuchen
+          console.error(`Error loading footer: ${response.status}`);
+          // Try fallback to includes directory
           return fetch(`components/includes/footer${langSuffix}.html?t=${new Date().getTime()}`)
             .then(resp => {
               if (!resp.ok) {
-                console.error('Includes-Pfad auch fehlgeschlagen, versuche Standard-Sprache:', resp.status);
-                // Letzter Ausweg: Versuche die Standard-Sprachversion
+                console.error('Includes path also failed, try default language version:', resp.status);
+                // Last resort: Try the default language version
                 return fetch(`components/includes/footer.html?t=${new Date().getTime()}`);
               }
               return resp.text();
@@ -2363,10 +2383,10 @@
         return response.text();
       })
       .then(data => {
-        console.log('Footer geladen');
+        console.log('Footer loaded');
         if (data) document.getElementById('footer-container').innerHTML = data;
       })
-      .catch(error => console.error('Fehler beim Laden des Footers:', error));
+      .catch(error => console.error('Error loading footer:', error));
   </script>
 
   <!-- Script für die Track Scroll-Funktionalität und Filter -->
@@ -2608,145 +2628,145 @@
     });
   </script>
 
-  <!-- Script für Sprachumschaltung -->
+  <!-- Script for Language Switching -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Warten bis die Navigation vollständig geladen ist
+      // Wait until navigation is fully loaded
       setTimeout(function() {
         setupLanguageSwitching();
         monitorMobileMenu();
       }, 500);
       
-      // Funktion zum Einrichten der Sprachumschaltung
+      // Function to set up language switching
       function setupLanguageSwitching() {
-        // Aktuelle Seite ermitteln
+        // Determine current page
         const currentPath = window.location.pathname;
         const currentPage = currentPath.substring(currentPath.lastIndexOf('/') + 1);
         
-        // Prüfen, ob wir auf einer englischen oder deutschen Seite sind
+        // Check if we're on English or German page
         const isEnglish = currentPage.includes('_en');
         
-        // Links für Desktop-Sprachauswahl finden
+        // Find links for desktop language selection
         const deLinkDesktop = document.getElementById('lang-de-link');
         const enLinkDesktop = document.getElementById('lang-en-link');
         
         if (deLinkDesktop && enLinkDesktop) {
-          // Zuerst beide active classes entfernen
+          // First remove both active classes
           deLinkDesktop.classList.remove('active');
           enLinkDesktop.classList.remove('active');
           
-          // Korrekten Ziel-Link für Deutsch setzen
+          // Set correct target link for German
           if (isEnglish) {
-            // Von englisch zu deutsch: page_en.html -> page.html
+            // From English to German: page_en.html -> page.html
             const germanPage = currentPage.replace('_en.html', '.html');
             deLinkDesktop.setAttribute('href', germanPage);
             
-            // Click-Handler mit direkter Navigation hinzufügen
+            // Add reload handler for language-specific components
             deLinkDesktop.addEventListener('click', function(e) {
-              e.preventDefault(); // Standard-Navigation verhindern
-              // Sprachpräferenz im Session-Storage speichern
+              e.preventDefault(); // Prevent default navigation
+              // Store language preference in session storage
               sessionStorage.setItem('preferredLanguage', 'de');
-              // Zur deutschen Seite umleiten
+              // Force redirect to the German page
               window.location.href = germanPage;
             });
             
-            // Englisch als aktiv markieren
+            // Mark English as active
             enLinkDesktop.classList.add('active');
             enLinkDesktop.setAttribute('href', '#');
           } else {
-            // Bereits auf deutsch, Link deaktivieren
+            // Already on German, disable link
             deLinkDesktop.classList.add('active');
             deLinkDesktop.setAttribute('href', '#');
             
-            // Link für Englisch setzen
+            // Set link for English
             const englishPage = currentPage.replace('.html', '_en.html');
             enLinkDesktop.setAttribute('href', englishPage);
             
-            // Click-Handler mit direkter Navigation hinzufügen
+            // Add reload handler for language-specific components
             enLinkDesktop.addEventListener('click', function(e) {
-              e.preventDefault(); // Standard-Navigation verhindern
-              // Sprachpräferenz im Session-Storage speichern
+              e.preventDefault(); // Prevent default navigation
+              // Store language preference in session storage
               sessionStorage.setItem('preferredLanguage', 'en');
-              // Zur englischen Seite umleiten
+              // Force redirect to the English page
               window.location.href = englishPage;
             });
           }
         } else {
-          // Versuchen, Sprachlinks zu finden und einzurichten, wenn sie noch keine IDs haben
+          // Try to find and set up language links if they don't have IDs yet
           const languageLinks = document.querySelectorAll('.lang-dropdown .program-option');
           if (languageLinks.length >= 2) {
             if (!languageLinks[0].id) languageLinks[0].id = 'lang-de-link';
             if (!languageLinks[1].id) languageLinks[1].id = 'lang-en-link';
             
-            // Nach dem Setzen der IDs erneut versuchen
+            // Try again after setting IDs
             setTimeout(setupLanguageSwitching, 200);
           }
         }
         
-        // Links für mobile Sprachauswahl finden
+        // Find links for mobile language selection
         const mobileLanguageOptions = document.querySelectorAll('.mobile-lang-option');
         
         mobileLanguageOptions.forEach(link => {
           const lang = link.getAttribute('data-lang');
           
-          // Zuerst alle active classes entfernen
+          // First remove all active classes
           link.classList.remove('active');
           
-          // Aktuelle Sprache markieren
+          // Mark current language
           if ((lang === 'en' && isEnglish) || (lang === 'de' && !isEnglish)) {
             link.classList.add('active');
           }
           
-          // Korrekten Ziel-Link setzen
+          // Set correct target link
           if (lang === 'en' && !isEnglish) {
-            // Von deutsch zu englisch
+            // From German to English
             const englishPage = currentPage.replace('.html', '_en.html');
             link.setAttribute('href', englishPage);
             
-            // Click-Handler mit direkter Navigation hinzufügen
+            // Add reload handler for language-specific components
             link.addEventListener('click', function(e) {
-              e.preventDefault(); // Standard-Navigation verhindern
-              // Sprachpräferenz im Session-Storage speichern
+              e.preventDefault(); // Prevent default navigation
+              // Store language preference in session storage
               sessionStorage.setItem('preferredLanguage', 'en');
-              // Zur englischen Seite umleiten
+              // Force redirect to the English page
               window.location.href = englishPage;
             });
           } else if (lang === 'de' && isEnglish) {
-            // Von englisch zu deutsch
+            // From English to German
             const germanPage = currentPage.replace('_en.html', '.html');
             link.setAttribute('href', germanPage);
             
-            // Click-Handler mit direkter Navigation hinzufügen
+            // Add reload handler for language-specific components
             link.addEventListener('click', function(e) {
-              e.preventDefault(); // Standard-Navigation verhindern
-              // Sprachpräferenz im Session-Storage speichern
+              e.preventDefault(); // Prevent default navigation
+              // Store language preference in session storage
               sessionStorage.setItem('preferredLanguage', 'de');
-              // Zur deutschen Seite umleiten
+              // Force redirect to the German page
               window.location.href = germanPage;
             });
           } else {
-            // Bleibt auf gleicher Sprache
+            // Stay on same language
             link.setAttribute('href', '#');
           }
         });
       }
       
-      // Überwacht das mobile Menü und aktualisiert die Sprachauswahl, wenn es geöffnet wird
+      // Monitor the mobile menu and update language selection when opened
       function monitorMobileMenu() {
-        // Das mobile Menü und den Button finden
+        // Find the mobile menu button and nav menu
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navMenu = document.querySelector('.nav-menu');
         
-        // Wenn der Button existiert, einen Event-Handler hinzufügen
+        // If the button exists, add an event handler
         if (mobileMenuBtn) {
           mobileMenuBtn.addEventListener('click', function() {
-            // Kurze Verzögerung, um sicherzustellen, dass die mobile-lang-section eingefügt wurde
+            // Short delay to ensure the mobile-lang-section is inserted
             setTimeout(function() {
               const mobileLangOptions = document.querySelectorAll('.mobile-lang-option');
               
-              // Wenn die Options gefunden wurden, die Links aktualisieren
+              // If options are found, update the links
               if (mobileLangOptions.length > 0) {
-                // Aktuelle Seite ermitteln
+                // Determine current page
                 const currentPath = window.location.pathname;
                 const currentPage = currentPath.substring(currentPath.lastIndexOf('/') + 1);
                 const isEnglish = currentPage.includes('_en');
@@ -2754,38 +2774,38 @@
                 mobileLangOptions.forEach(link => {
                   const lang = link.getAttribute('data-lang');
                   
-                  // Aktuelle Sprache markieren
+                  // Mark current language
                   if ((lang === 'en' && isEnglish) || (lang === 'de' && !isEnglish)) {
                     link.classList.add('active');
                   } else {
                     link.classList.remove('active');
                   }
                   
-                  // Korrekten Ziel-Link setzen
+                  // Set correct target link
                   if (lang === 'en' && !isEnglish) {
-                    // Von deutsch zu englisch
+                    // From German to English
                     const englishPage = currentPage.replace('.html', '_en.html');
                     link.setAttribute('href', englishPage);
                     
-                    // Click-Handler mit direkter Navigation hinzufügen
+                    // Add reload handler with direct navigation
                     link.addEventListener('click', function(e) {
                       e.preventDefault();
                       sessionStorage.setItem('preferredLanguage', 'en');
                       window.location.href = englishPage;
                     });
                   } else if (lang === 'de' && isEnglish) {
-                    // Von englisch zu deutsch
+                    // From English to German
                     const germanPage = currentPage.replace('_en.html', '.html');
                     link.setAttribute('href', germanPage);
                     
-                    // Click-Handler mit direkter Navigation hinzufügen
+                    // Add reload handler with direct navigation
                     link.addEventListener('click', function(e) {
                       e.preventDefault();
                       sessionStorage.setItem('preferredLanguage', 'de');
                       window.location.href = germanPage;
                     });
                   } else {
-                    // Bleibt auf gleicher Sprache
+                    // Stay on same language
                     link.setAttribute('href', '#');
                   }
                 });

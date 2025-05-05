@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Privacy Policy | St.Gallen imt Business School</title>
+
+  <!-- ============ STYLES ============ -->
+  <style>
+    :root{
+      --font-sans:-apple-system,BlinkMacSystemFont,"San Francisco","Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+      --color-text:#1d1d1f;
+      --color-muted:#6e6e73;
+      --color-card-bg:#f5f5f7;
+      --color-accent2:#970289;
+      --color-badge:#e2b245;
+      --color-badge-hover:#d4a535;
+      --spacing:24px;
+      --radius:16px;
+      --max-width:1200px;
+      --imt-purple: #6e45e2;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--color-text);
+      background: #fff;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      /* Padding for fixed navigation */
+      padding-top: 64px;
+      transition: padding-top 0.3s ease;
+    }
+    
+    /* When subnav is active, increase body padding */
+    body.has-subnav {
+      padding-top: 110px;
+    }
+    
+    @media (max-width: 1024px) {
+      body.has-subnav {
+        padding-top: 64px;
+      }
+    }
+
+    /* Basic styling for container */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--spacing);
+      width: 100%;
+    }
+
+    /* Main content of the page */
+    main {
+      position: relative;
+    }
+
+    /* General typography */
+    h1, h2, h3, h4, h5, h6 {
+      margin-bottom: 1rem;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.25rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--imt-purple);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Content section */
+    .content-section {
+      padding: 80px 0;
+    }
+
+    .content-section:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    .content-section:first-child {
+      padding-top: 50px;
+    }
+    
+    /* Headings in content should look like in netzwerk.html */
+    .content-section h2:not(:first-child) {
+      font-size: 1.3rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+      color: var(--color-text);
+    }
+    
+    /* Style paragraphs like in netzwerk.html */
+    .content-section p {
+      color: var(--color-muted);
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 0.75rem;
+    }
+    
+    .address-block {
+      background-color: var(--color-card-bg);
+      padding: 24px;
+      border-radius: var(--radius);
+      margin-bottom: 2rem;
+    }
+    
+    .address-block p {
+      margin-bottom: 0.5rem;
+    }
+    
+    .address-block h2 {
+      font-size: 1.3rem;
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      color: var(--color-text);
+    }
+    
+    /* Styling for lists */
+    .content-section ul {
+      margin-bottom: 1.5rem;
+      padding-left: 1.5rem;
+      color: var(--color-muted);
+    }
+    
+    .content-section li {
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+    
+    @media (max-width: 768px) {
+      .content-section {
+        padding: 40px 0;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      h2 {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+
+  <!-- BoxIcons for Icons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <!-- Font Awesome for Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+</head>
+<body>
+  <!-- Dynamic loading of navigation -->
+  <div id="navigation-container"></div>
+  
+  <!-- Sidebar integration -->
+  <div id="sidebar-container"></div>
+
+  <!-- Main content -->
+  <main>
+    <!-- Main content -->
+    <section class="content-section">
+      <div class="container">
+        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Privacy Policy</h2>
+        
+        <div class="address-block">
+          <h2>StGallen imt Business School xAI</h2>
+          <p>Data Protection Officer</p>
+          <p>Dufourstrasse 150</p>
+          <p>9000 St.Gallen</p>
+          <p>Phone: <a href="tel:+41712776000">+41 71 277 60 00</a></p>
+          <p>Email: <a href="mailto:info@imtschool.ch">info@imtschool.ch</a></p>
+          <p>Website: <a href="http://www.imtschool.ch/" target="_blank">http://www.imtschool.ch/</a></p>
+        </div>
+        
+        <h2>General Information</h2>
+        <p>Based on Article 13 of the Swiss Federal Constitution and the data protection provisions of the Swiss Confederation (Federal Data Protection Act, FADP), every person has the right to privacy and protection against misuse of their personal data. We take the protection of your personal data very seriously. We treat your personal data confidentially and in accordance with legal data protection regulations and this privacy policy.</p>
+        <p>Please note that as a Swiss institution, we are subject to Swiss law, but as a provider of services and products in the EU area, we also comply with the GDPR.</p>
+        <p>In cooperation with our hosting providers, we make every effort to protect the databases as much as possible from unauthorized access, loss, misuse, or falsification.</p>
+        <p>We would like to point out that data transmission on the Internet (e.g., when communicating by email) may have security vulnerabilities. Complete protection of data from access by third parties is not possible.</p>
+        <p>By using this website, you consent to the collection, processing, and use of data in accordance with the following description. This website can generally be visited without registration. Data such as pages accessed or names of files accessed, date and time are stored on the server for statistical purposes without these data being directly related to your person. Personal data, in particular name, address, or email address, are collected as far as possible on a voluntary basis. No data will be passed on to third parties without your consent.</p>
+        
+        <h2>Processing of Personal Data</h2>
+        <p>Personal data refers to all information relating to an identified or identifiable person. A data subject is a person about whom personal data is processed. Processing includes any handling of personal data, regardless of the means and procedures used, in particular the storage, disclosure, acquisition, deletion, storage, modification, destruction, and use of personal data.</p>
+        <p>We process personal data in accordance with Swiss data protection law. Where and to the extent that the EU GDPR is applicable, we process personal data additionally on the following legal bases in connection with Art. 6 (1) GDPR:</p>
+        <ul>
+          <li>lit. a) Processing of personal data with the consent of the data subject.</li>
+          <li>lit. b) Processing of personal data for the performance of a contract with the data subject and for corresponding pre-contractual measures.</li>
+          <li>lit. c) Processing of personal data to comply with a legal obligation to which we are subject under applicable EU law or under applicable law of a country where the GDPR applies in whole or in part.</li>
+          <li>lit. d) Processing of personal data to protect the vital interests of the data subject or another natural person.</li>
+          <li>lit. f) Processing of personal data to pursue our legitimate interests or those of third parties, unless the fundamental freedoms and rights and interests of the data subject prevail. Legitimate interests include, in particular, our business interest in being able to provide our website, information security, the enforcement of our own legal claims, and compliance with Swiss law.</li>
+        </ul>
+        <p>We process personal data for the duration necessary for the respective purpose or purposes. For longer-term retention obligations due to legal and other obligations to which we are subject, we restrict processing accordingly.</p>
+        
+        <h2>Privacy Policy for Cookies</h2>
+        <p>This website uses cookies. Cookies are text files that contain data from visited websites or domains and are stored by a browser on the user's computer. A cookie is primarily used to store information about a user during or after their visit within an online service. Stored information can include, for example, language settings on a website, login status, a shopping cart, or where a video was watched. The term "cookies" also includes other technologies that fulfill the same functions as cookies (e.g., when user information is stored using pseudonymous online identifiers, also referred to as "user IDs").</p>
+        <p>The following cookie types and functions are distinguished:</p>
+        <ul>
+          <li><strong>Temporary cookies (also: session cookies)</strong>: Temporary cookies are deleted at the latest after a user leaves an online service and closes their browser.</li>
+          <li><strong>Permanent cookies</strong>: Permanent cookies remain stored even after the browser is closed. For example, the login status can be saved or preferred content can be displayed directly when the user revisits a website. The interests of users who are used for range measurement or marketing purposes can also be stored in such a cookie.</li>
+          <li><strong>First-party cookies</strong>: First-party cookies are set by ourselves.</li>
+          <li><strong>Third-party cookies</strong>: Third-party cookies are mainly used by advertisers (so-called third parties) to process user information.</li>
+          <li><strong>Necessary (also: essential or absolutely required) cookies</strong>: Cookies may be absolutely necessary for the operation of a website (e.g., to save logins or other user inputs or for security reasons).</li>
+          <li><strong>Statistics, marketing, and personalization cookies</strong>: Furthermore, cookies are usually also used in the context of range measurement and when a user's interests or behavior (e.g., viewing certain content, using functions, etc.) on individual websites are stored in a user profile. Such profiles are used to display content to users, for example, that corresponds to their potential interests. This procedure is also referred to as "tracking," i.e., tracking the potential interests of users. Insofar as we use cookies or "tracking" technologies, we will inform you separately in our privacy policy or in the context of obtaining consent.</li>
+        </ul>
+        <p>Notes on legal bases: The legal basis on which we process your personal data using cookies depends on whether we ask for your consent. If this is the case and you consent to the use of cookies, the legal basis for processing your data is your declared consent. Otherwise, the data processed with the help of cookies is processed on the basis of our legitimate interests (e.g., in the business operation of our online service and its improvement) or, if the use of cookies is necessary, to fulfill our contractual obligations.</p>
+
+        <h2>Third-Party Services</h2>
+        <p>This website may use Google Maps for embedding maps, Google Invisible reCAPTCHA for protection against bots and spam, and YouTube for embedding videos.</p>
+        <p>These services from the American Google LLC use cookies, among other things, and as a result, data is transferred to Google in the USA, whereby we assume that in this context no personal tracking takes place solely through the use of our website.</p>
+        <p>Google has committed to ensuring adequate data protection in accordance with the American-European and American-Swiss Privacy Shield.</p>
+        <p>Further information can be found in the <a href="https://policies.google.com/privacy?hl=en" target="_blank">Privacy Policy of Google</a>.</p>
+
+        <h2>Privacy Policy for Contact Form</h2>
+        <p>If you send us inquiries via the contact form, your details from the inquiry form, including the contact details you provided there, will be stored by us for the purpose of processing the inquiry and in case of follow-up questions. We do not share this data without your consent.</p>
+
+        <h2>Privacy Policy for Newsletter Data</h2>
+        <p>If you would like to receive the newsletter offered on this website, we require an email address from you as well as information that allows us to verify that you are the owner of the specified email address and that you agree to receive the newsletter. No further data is collected. We use this data exclusively for sending the requested information and do not pass it on to third parties.</p>
+        <p>You can revoke your consent to the storage of data, the email address, and its use for sending the newsletter at any time, for example via the "unsubscribe" link in the newsletter.</p>
+
+        <h2>Privacy Policy for Google Analytics</h2>
+        <p>This website uses Google Analytics, a web analytics service provided by Google Ireland Limited. If the controller for data processing on this website is located outside the European Economic Area or Switzerland, then Google Analytics data processing is carried out by Google LLC. Google LLC and Google Ireland Limited are hereinafter referred to as Google.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer integration -->
+  <div id="footer-container"></div>
+
+  <!-- Dynamic loading of global components -->
+  <script>
+    // Load navigation
+    fetch('components/globals/navigation_ohnesub_en.html?t=' + new Date().getTime())
+      .then(response => {
+        if (!response.ok) {
+          console.error('Error loading navigation:', response.status);
+          // Try fallback to includes directory
+          return fetch('components/includes/navigation_ohnesub_en.html?t=' + new Date().getTime())
+            .then(resp => {
+              if (!resp.ok) {
+                console.error('Includes path also failed:', resp.status);
+                return '';
+              }
+              return resp.text();
+            });
+        }
+        return response.text();
+      })
+      .then(data => {
+        console.log('Navigation loaded');
+        if (data) {
+          document.getElementById('navigation-container').innerHTML = data;
+          
+          // Initialize mobile navigation
+          const navScript = document.createElement('script');
+          navScript.src = 'assets/js/mobile-nav.js?t=' + new Date().getTime();
+          document.body.appendChild(navScript);
+        }
+      })
+      .catch(error => console.error('Error loading navigation:', error));
+
+    // Load sidebar
+    fetch('components/globals/sidebar_other.html?t=' + new Date().getTime())
+      .then(response => {
+        if (!response.ok) {
+          console.error('Error loading sidebar:', response.status);
+          // Try fallback to includes directory
+          return fetch('components/includes/sidebar_other.html?t=' + new Date().getTime())
+            .then(resp => {
+              if (!resp.ok) {
+                console.error('Includes path also failed:', resp.status);
+                return '';
+              }
+              return resp.text();
+            });
+        }
+        return response.text();
+      })
+      .then(data => {
+        console.log('Sidebar loaded');
+        if (data) document.getElementById('sidebar-container').innerHTML = data;
+      })
+      .catch(error => console.error('Error loading sidebar:', error));
+
+    // Load footer
+    fetch('components/globals/footer.html?t=' + new Date().getTime())
+      .then(response => {
+        if (!response.ok) {
+          console.error('Error loading footer:', response.status);
+          // Try fallback to includes directory
+          return fetch('components/includes/footer.html?t=' + new Date().getTime())
+            .then(resp => {
+              if (!resp.ok) {
+                console.error('Includes path also failed:', resp.status);
+                return '';
+              }
+              return resp.text();
+            });
+        }
+        return response.text();
+      })
+      .then(data => {
+        console.log('Footer loaded');
+        if (data) document.getElementById('footer-container').innerHTML = data;
+      })
+      .catch(error => console.error('Error loading footer:', error));
+  </script>
+</body>
+</html> 

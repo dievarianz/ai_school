@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>About StGallen imt Business School | StGallen imt Business School</title>
+
+  <!-- ============ STYLES ============ -->
+  <style>
+    :root{
+      --font-sans:-apple-system,BlinkMacSystemFont,"San Francisco","Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+      --color-text:#1d1d1f;
+      --color-muted:#6e6e73;
+      --color-card-bg:#f5f5f7;
+      --color-accent2:#970289;
+      --color-badge:#e2b245;
+      --color-badge-hover:#d4a535;
+      --spacing:24px;
+      --radius:16px;
+      --max-width:1200px;
+      --imt-purple: #6e45e2;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--color-text);
+      background: #fff;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      /* Padding for fixed navigation */
+      padding-top: 64px;
+      transition: padding-top 0.3s ease;
+    }
+    
+    /* When subnav is active, increase body padding */
+    body.has-subnav {
+      padding-top: 110px;
+    }
+    
+    @media (max-width: 1024px) {
+      body.has-subnav {
+        padding-top: 64px;
+      }
+    }
+
+    /* Basic styling for containers */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--spacing);
+      width: 100%;
+    }
+
+    /* Main content of the page */
+    main {
+      position: relative;
+    }
+
+    /* General typography */
+    h1, h2, h3, h4, h5, h6 {
+      margin-bottom: 1rem;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.25rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--imt-purple);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Back Link Styling */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      color: var(--imt-purple);
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 8px 12px;
+      border-radius: 6px;
+      background-color: var(--color-card-bg);
+      transition: all 0.2s ease;
+    }
+
+    .back-link i {
+      margin-right: 8px;
+      font-size: 18px;
+    }
+
+    .back-link:hover {
+      background-color: #e8e8ed;
+      text-decoration: none;
+    }
+
+    .content-section {
+      padding: 80px 0;
+    }
+
+    .content-section:first-child {
+      padding-top: 50px;
+    }
+
+    .content-section h2 {
+      text-align: left;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .section-subtitle {
+      color: var(--color-muted);
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+      text-align: left;
+      max-width: 800px;
+      margin-left: 0;
+      margin-right: auto;
+    }
+  </style>
+
+  <!-- BoxIcons for Icons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <!-- Font Awesome for Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+</head>
+<body>
+  <!-- Dynamic loading of Navigation -->
+  <div id="navigation-container"></div>
+  
+  <!-- Include Sidebar -->
+  <div id="sidebar-container"></div>
+
+  <!-- Main Content -->
+  <main>
+    <!-- About StGallen IMT -->
+    <section class="content-section">
+      <div class="container">
+        <div style="margin-bottom: 30px;">
+          <a href="support_en.html" class="back-link"><i class='bx bx-arrow-back'></i> Back to Support Overview</a>
+        </div>
+        
+        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">About StGallen imt Business School</h2>
+
+        
+        <p>StGallen imt Business School combines integrated management, technology, and practical knowledge into a holistic continuing education approach. Its goal: to empower leaders at all levels to master complex challenges, actively shape change, and ensure sustainable success.</p>
+        
+        <p>The foundation is the St. Gallen Integrated Management Framework – a proven thinking model that creates clarity, promotes strategic alignment, and enables companies to act effectively and with future orientation. In a world full of dynamics and uncertainty, it combines operational excellence with innovation capability.</p>
+        
+        <p>In the programs, sound theory, international best practices, and real challenges come together. Participants – whether aspiring talents, experienced executives, or entrepreneurial leaders – reflect on their leadership style, expand their perspectives, and develop practical solutions. They are accompanied by excellent instructors with extensive leadership experience.</p>
+        
+        <p>A strong, lifelong network of professionals, companies, and alumni creates space for exchange, inspiration, and new opportunities.</p>
+        
+        <p><strong>Excellence in Management and Technology</strong><br>
+        Forward-thinking continuing education at the intersection of management and technology – for leaders who shape change.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Include Footer -->
+  <div id="footer-container"></div>
+
+  <!-- Dynamic loading of global components -->
+  <script>
+    // Load Navigation
+    fetch('components/globals/navigation_ohnesub_en.html?t=' + new Date().getTime())
+      .then(response => {
+        if (!response.ok) {
+          console.error('Error loading navigation:', response.status);
+          // Try fallback to includes directory
+          return fetch('components/includes/navigation_ohnesub_en.html?t=' + new Date().getTime())
+            .then(resp => {
+              if (!resp.ok) {
+                console.error('Includes path also failed:', resp.status);
+                return '';
+              }
+              return resp.text();
+            });
+        }
+        return response.text();
+      })
+      .then(data => {
+        console.log('Navigation loaded');
+        if (data) {
+          document.getElementById('navigation-container').innerHTML = data;
+          
+          // Initialize mobile navigation (new)
+          const navScript = document.createElement('script');
+          navScript.src = 'assets/js/mobile-nav.js?t=' + new Date().getTime();
+          document.body.appendChild(navScript);
+          
+          // Mark Support link as active
+          setTimeout(() => {
+            document.querySelectorAll('.nav-link').forEach(link => {
+              if (link.textContent.trim() === 'Support') {
+                console.log('Activating Support link:', link);
+                link.classList.add('active');
+              }
+            });
+          }, 200);
+        }
+      })
+      .catch(error => console.error('Error loading navigation:', error));
+
+    // Load Sidebar
+    fetch('components/globals/sidebar_other_en.html?t=' + new Date().getTime())
+      .then(response => {
+        if (!response.ok) {
+          console.error('Error loading sidebar:', response.status);
+          // Try fallback to includes directory
+          return fetch('components/includes/sidebar_other_en.html?t=' + new Date().getTime())
+            .then(resp => {
+              if (!resp.ok) {
+                console.error('Includes path also failed:', resp.status);
+                return '';
+              }
+              return resp.text();
+            });
+        }
+        return response.text();
+      })
+      .then(data => {
+        console.log('Sidebar loaded');
+        if (data) document.getElementById('sidebar-container').innerHTML = data;
+      })
+      .catch(error => console.error('Error loading sidebar:', error));
+
+    // Load Footer
+    fetch('components/globals/footer_en.html?v=' + new Date().getTime())
+      .then(response => {
+        if (!response.ok) {
+          console.error('Error loading footer:', response.status);
+          // Try fallback to includes directory
+          return fetch('components/includes/footer_en.html?v=' + new Date().getTime())
+            .then(resp => {
+              if (!resp.ok) {
+                console.error('Includes path also failed:', resp.status);
+                return '';
+              }
+              return resp.text();
+            });
+        }
+        return response.text();
+      })
+      .then(data => {
+        console.log('Footer loaded');
+        if (data) document.getElementById('footer-container').innerHTML = data;
+      })
+      .catch(error => console.error('Error loading footer:', error));
+  </script>
+
+  <!-- Script to activate current menu item -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('Support page loaded, marking Support link as active');
+      
+      // We use an interval to ensure the navigation is loaded
+      let attempts = 0;
+      const maxAttempts = 50; // 5 seconds at 100ms interval
+      
+      const checkAndActivate = setInterval(function() {
+        attempts++;
+        
+        // Find all navigation links
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        if (navLinks.length > 0) {
+          console.log('Navigation links found, looking for Support link');
+          
+          // Remove the active class from all links
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+          });
+          
+          // Set the active class for the Support link
+          let supportLinkFound = false;
+          navLinks.forEach(link => {
+            if (link.textContent.trim() === 'Support') {
+              console.log('Support link found:', link);
+              link.classList.add('active');
+              supportLinkFound = true;
+            }
+          });
+          
+          if (supportLinkFound) {
+            // Stop interval when everything is done
+            clearInterval(checkAndActivate);
+          } else if (attempts >= maxAttempts) {
+            console.error('Support link could not be found after multiple attempts');
+            clearInterval(checkAndActivate);
+          }
+        } else if (attempts >= maxAttempts) {
+          console.error('Navigation links could not be found after multiple attempts');
+          clearInterval(checkAndActivate);
+        }
+      }, 100);
+    });
+  </script>
+</body>
+</html> 

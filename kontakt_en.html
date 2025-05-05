@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Contact | StGallen imt Business School</title>
+
+  <!-- ============ STYLES ============ -->
+  <style>
+    :root{
+      --font-sans:-apple-system,BlinkMacSystemFont,"San Francisco","Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+      --color-text:#1d1d1f;
+      --color-muted:#6e6e73;
+      --color-card-bg:#f5f5f7;
+      --color-accent2:#970289;
+      --color-badge:#e2b245;
+      --color-badge-hover:#d4a535;
+      --spacing:24px;
+      --radius:16px;
+      --max-width:1200px;
+      --imt-purple: #6e45e2;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--color-text);
+      background: #fff;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      /* Padding for fixed navigation */
+      padding-top: 64px;
+      transition: padding-top 0.3s ease;
+    }
+    
+    /* When subnav is active, increase body padding */
+    body.has-subnav {
+      padding-top: 110px;
+    }
+    
+    @media (max-width: 1024px) {
+      body.has-subnav {
+        padding-top: 64px;
+      }
+    }
+
+    /* Basic styling for containers */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--spacing);
+      width: 100%;
+    }
+
+    /* Main content of the page */
+    main {
+      position: relative;
+    }
+
+    /* General typography */
+    h1, h2, h3, h4, h5, h6 {
+      margin-bottom: 1rem;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.25rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--imt-purple);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Common form styling */
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: all 0.2s ease;
+      background-color: #fff;
+    }
+
+    .form-control:focus {
+      border-color: var(--imt-purple);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(110, 69, 226, 0.1);
+    }
+
+    textarea.form-control {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .invalid-input {
+      border-color: #ff3860 !important;
+      background-color: rgba(255, 56, 96, 0.05) !important;
+    }
+
+    .valid-input {
+      border-color: #23d160 !important;
+      background-color: rgba(35, 209, 96, 0.05) !important;
+    }
+
+    .error-message {
+      color: #ff3860;
+      font-size: 0.85rem;
+      margin-top: 5px;
+      display: none;
+    }
+
+    /* Select dropdown without standard browser arrow */
+    select.form-control {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
+    
+    /* Firefox-specific fix */
+    select.form-control::-ms-expand {
+      display: none;
+    }
+
+    .contact-form label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .contact-form .required::after {
+      content: "*";
+      color: #ff3860;
+      margin-left: 4px;
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(to right, var(--imt-purple), #9c27b0);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 24px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(106, 69, 226, 0.2);
+    }
+
+    /* Icon Styling */
+    .contact-icon {
+      display: inline-block;
+      font-size: 32px;
+      margin-bottom: 16px;
+      color: var(--imt-purple);
+      transition: all 0.2s ease;
+    }
+
+    /* Content-Section Styling */
+    .content-section {
+      padding: 80px 0;
+    }
+
+    .content-section:first-child {
+      padding-top: 50px;
+    }
+
+    .content-section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      text-align: left;
+    }
+
+    .section-subtitle {
+      color: var(--color-muted);
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+      text-align: left;
+    }
+
+    /* Contact page specific styles */
+    .contact-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 var(--spacing);
+    }
+
+    /* Form area */
+    .contact-form-container {
+      background: var(--color-card-bg);
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: none;
+      margin-bottom: 60px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .form-grid .form-group:last-child {
+      grid-column: span 2;
+    }
+
+    .submit-container {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    /* Contact cards area */
+    .contact-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .contact-card {
+      background: var(--color-card-bg);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: none;
+      text-align: center;
+      transition: border-color 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .contact-card:hover {
+      border-color: var(--color-accent2);
+    }
+
+    .contact-info-item h3 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .contact-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-grid .form-group:last-child {
+        grid-column: 1;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.75rem;
+      }
+
+      h3 {
+        font-size: 1.25rem;
+      }
+
+      .container {
+        padding: 0 16px;
+      }
+
+      .content-section {
+        padding: 50px 0;
+      }
+    }
+
+    /* Uniform arrow style for all buttons */
+    .arrow-icon {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-weight: 400;
+      font-size: 1.2rem;
+      margin-left: 8px;
+      display: inline-block;
+    }
+
+    /* Success Message Container */
+    .success-message {
+      display: none;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .success-message .check-icon {
+      font-size: 64px;
+      color: #23d160;
+      margin-bottom: 20px;
+    }
+
+    .success-message h3 {
+      font-size: 1.3rem;
+      margin-bottom: 16px;
+    }
+
+    .success-message p {
+      color: var(--color-muted);
+      margin-bottom: 0;
+    }
+  </style>
+
+  <!-- BoxIcons for Icons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <!-- Font Awesome for the Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+</head>
+<body>
+  <!-- Include Navigation -->
+  <div id="navigation-container"></div>
+  
+  <!-- Include Sidebar -->
+  <div id="sidebar-container"></div>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Contact Form Section -->
+    <section class="content-section">
+      <div class="container">
+        <h2>Contact Us</h2>
+        <p class="section-subtitle">Do you have questions about our programs or would you like to get in touch with us? We're here for you.</p>
+        
+        <!-- Contact Form -->
+        <div class="contact-form-container">
+          <form class="contact-form" id="contact-form" action="https://formsubmit.co/ajax/alexanderhillerb@googlemail.com" method="POST" novalidate>
+            <!-- FormSubmit Configuration -->
+            <input type="hidden" name="_subject" value="Contact Form StGallen IMT">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="/kontakt_en.html?success=true">
+            <input type="hidden" name="_honey" value="">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_format" value="json">
+            
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="firstName" class="required">First Name</label>
+                <input type="text" id="firstName" name="FirstName" class="form-control" required>
+                <div class="error-message">Please enter your first name.</div>
+              </div>
+              
+              <div class="form-group">
+                <label for="lastName" class="required">Last Name</label>
+                <input type="text" id="lastName" name="LastName" class="form-control" required>
+                <div class="error-message">Please enter your last name.</div>
+              </div>
+              
+              <div class="form-group">
+                <label for="email" class="required">Email</label>
+                <input type="email" id="email" name="email" class="form-control" required>
+                <div class="error-message">Please enter a valid email address.</div>
+              </div>
+              
+              <div class="form-group">
+                <label for="country" class="required">Country</label>
+                <div style="position: relative;">
+                  <select id="country" name="Country" class="form-control" required>
+                    <option value="">Select country</option>
+                    <option value="AD">Andorra</option>
+                    <option value="AR">Argentina</option>
+                    <option value="AU">Australia</option>
+                    <option value="BH">Bahrain</option>
+                    <option value="BE">Belgium</option>
+                    <option value="BR">Brazil</option>
+                    <option value="BN">Brunei</option>
+                    <option value="CL">Chile</option>
+                    <option value="CN">China</option>
+                    <option value="DK">Denmark</option>
+                    <option value="DE">Germany</option>
+                    <option value="EE">Estonia</option>
+                    <option value="FI">Finland</option>
+                    <option value="FR">France</option>
+                    <option value="GI">Gibraltar</option>
+                    <option value="GR">Greece</option>
+                    <option value="HK">Hong Kong</option>
+                    <option value="IN">India</option>
+                    <option value="ID">Indonesia</option>
+                    <option value="IE">Ireland</option>
+                    <option value="IS">Iceland</option>
+                    <option value="IL">Israel</option>
+                    <option value="IT">Italy</option>
+                    <option value="JP">Japan</option>
+                    <option value="JO">Jordan</option>
+                    <option value="CA">Canada</option>
+                    <option value="CO">Colombia</option>
+                    <option value="HR">Croatia</option>
+                    <option value="QA">Qatar</option>
+                    <option value="KW">Kuwait</option>
+                    <option value="LB">Lebanon</option>
+                    <option value="LI">Liechtenstein</option>
+                    <option value="LU">Luxembourg</option>
+                    <option value="MO">Macao</option>
+                    <option value="MY">Malaysia</option>
+                    <option value="MT">Malta</option>
+                    <option value="MX">Mexico</option>
+                    <option value="MC">Monaco</option>
+                    <option value="NL">Netherlands</option>
+                    <option value="NZ">New Zealand</option>
+                    <option value="NO">Norway</option>
+                    <option value="OM">Oman</option>
+                    <option value="AT">Austria</option>
+                    <option value="PK">Pakistan</option>
+                    <option value="PA">Panama</option>
+                    <option value="PE">Peru</option>
+                    <option value="PH">Philippines</option>
+                    <option value="PL">Poland</option>
+                    <option value="PT">Portugal</option>
+                    <option value="PR">Puerto Rico</option>
+                    <option value="RO">Romania</option>
+                    <option value="RU">Russia</option>
+                    <option value="SM">San Marino</option>
+                    <option value="SA">Saudi Arabia</option>
+                    <option value="SE">Sweden</option>
+                    <option value="CH">Switzerland</option>
+                    <option value="SG">Singapore</option>
+                    <option value="SK">Slovakia</option>
+                    <option value="SI">Slovenia</option>
+                    <option value="ES">Spain</option>
+                    <option value="ZA">South Africa</option>
+                    <option value="KR">South Korea</option>
+                    <option value="TW">Taiwan</option>
+                    <option value="TH">Thailand</option>
+                    <option value="TR">Turkey</option>
+                    <option value="CZ">Czech Republic</option>
+                    <option value="UA">Ukraine</option>
+                    <option value="HU">Hungary</option>
+                    <option value="AE">United Arab Emirates</option>
+                    <option value="GB">United Kingdom</option>
+                    <option value="US">United States</option>
+                    <option value="VN">Vietnam</option>
+                    <option value="CY">Cyprus</option>
+                    <option value="OTHER">Other</option>
+                  </select>
+                  <div style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); pointer-events: none;">
+                    <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1 1L6 6L11 1" stroke="#888888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="error-message">Please select a country.</div>
+              </div>
+              
+              <div class="form-group">
+                <label for="message" class="required">Message</label>
+                <textarea id="message" name="Message" class="form-control" required></textarea>
+                <div class="error-message">Please enter a message.</div>
+              </div>
+            </div>
+            
+            <div class="submit-container" style="text-align: center; width: 100%;">
+              <button type="submit" class="cta-button" style="margin: 0 auto;">
+                Send Message <span class="arrow-icon">→</span>
+              </button>
+            </div>
+          </form>
+          
+          <!-- Success Message -->
+          <div class="success-message" id="success-message">
+            <div class="check-icon">
+              <i class='bx bx-check-circle'></i>
+            </div>
+            <h3>Thank You for Your Message!</h3>
+            <p>We have received your inquiry and will get back to you as soon as possible.</p>
+          </div>
+        </div>
+        
+        <!-- Other Contact Options -->
+        <h2>Other Ways to Contact Us</h2>
+        <p class="section-subtitle">Choose your preferred way to get in touch with us.</p>
+        
+        <div class="contact-cards">
+          <!-- Phone -->
+          <div class="contact-card contact-info-item">
+            <i class='bx bx-phone contact-icon'></i>
+            <h3>Phone</h3>
+            <p>Call us directly:<br>+41 71 277 60 00</p>
+            <p style="margin-top: 15px; font-size: 0.9rem; color: var(--color-muted);">Monday - Friday<br>8:30 am - 5:00 pm</p>
+          </div>
+          
+          <!-- Email -->
+          <div class="contact-card contact-info-item">
+            <i class='bx bx-envelope contact-icon'></i>
+            <h3>Email</h3>
+            <p>Send us an email:<br><a href="mailto:info@imtschool.ch">info@imtschool.ch</a></p>
+            <p style="margin-top: 15px; font-size: 0.9rem; color: var(--color-muted);">We usually respond<br>within 24 hours</p>
+          </div>
+          
+          <!-- Location -->
+          <div class="contact-card contact-info-item">
+            <i class='bx bx-map contact-icon'></i>
+            <h3>Location</h3>
+            <p>StGallen imt Business School<br>Fürstenlandstrasse 41<br>9001 St. Gallen, Switzerland</p>
+            <p style="margin-top: 15px; font-size: 0.9rem;"><a href="https://goo.gl/maps/WGZz8Qft7fofNoDR7" target="_blank">View on Google Maps</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Include Footer -->
+  <div id="footer-container"></div>
+
+  <!-- Load Components Script -->
+  <script>
+    // Load Navigation
+    fetch('components/globals/navigation_ohnesub_en.html?t=' + new Date().getTime())
+      .then(response => {
+        if (!response.ok) {
+          console.error('Error loading navigation:', response.status);
+          // Try fallback to includes directory
+          return fetch('components/includes/navigation_ohnesub_en.html?t=' + new Date().getTime())
+            .then(resp => {
+              if (!resp.ok) {
+                console.error('Includes path also failed:', resp.status);
+                return '';
+              }
+              return resp.text();
+            });
+        }
+        return response.text();
+      })
+      .then(data => {
+        console.log('Navigation loaded');
+        if (data) {
+          document.getElementById('navigation-container').innerHTML = data;
+          
+          // Initialize mobile navigation
+          const navScript = document.createElement('script');
+          navScript.src = 'assets/js/mobile-nav.js?t=' + new Date().getTime();
+          document.body.appendChild(navScript);
+        }
+      })
+      .catch(error => console.error('Error loading navigation:', error));
+
+    // Load Sidebar
+    fetch('components/globals/sidebar_other_en.html?t=' + new Date().getTime())
+      .then(response => {
+        if (!response.ok) {
+          console.error('Error loading sidebar:', response.status);
+          // Try fallback to includes directory
+          return fetch('components/includes/sidebar_other_en.html?t=' + new Date().getTime())
+            .then(resp => {
+              if (!resp.ok) {
+                console.error('Includes path also failed:', resp.status);
+                return '';
+              }
+              return resp.text();
+            });
+        }
+        return response.text();
+      })
+      .then(data => {
+        console.log('Sidebar loaded');
+        if (data) document.getElementById('sidebar-container').innerHTML = data;
+      })
+      .catch(error => console.error('Error loading sidebar:', error));
+
+    // Load Footer
+    fetch('components/globals/footer_en.html?t=' + new Date().getTime())
+      .then(response => {
+        if (!response.ok) {
+          console.error('Error loading footer:', response.status);
+          // Try fallback to includes directory
+          return fetch('components/includes/footer_en.html?t=' + new Date().getTime())
+            .then(resp => {
+              if (!resp.ok) {
+                console.error('Includes path also failed:', resp.status);
+                return '';
+              }
+              return resp.text();
+            });
+        }
+        return response.text();
+      })
+      .then(data => {
+        console.log('Footer loaded');
+        if (data) document.getElementById('footer-container').innerHTML = data;
+      })
+      .catch(error => console.error('Error loading footer:', error));
+  </script>
+
+  <!-- Form Validation Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Check if the URL contains a success parameter
+      const urlParams = new URLSearchParams(window.location.search);
+      const success = urlParams.get('success');
+      
+      // Form and elements
+      const form = document.getElementById('contact-form');
+      const firstName = document.getElementById('firstName');
+      const lastName = document.getElementById('lastName');
+      const email = document.getElementById('email');
+      const country = document.getElementById('country');
+      const message = document.getElementById('message');
+      const submitButton = form.querySelector('button[type="submit"]');
+      const successMessage = document.getElementById('success-message');
+      
+      // Show success message directly if redirected from FormSubmit
+      if (success === 'true') {
+        form.style.display = 'none';
+        successMessage.style.display = 'block';
+      }
+      
+      // Track if a field has been edited
+      const touched = {
+        firstName: false,
+        lastName: false,
+        email: false,
+        country: false,
+        message: false
+      };
+      
+      // Event Listeners for all fields
+      firstName.addEventListener('input', function() {
+        touched.firstName = true;
+        validateField(firstName);
+      });
+      
+      lastName.addEventListener('input', function() {
+        touched.lastName = true;
+        validateField(lastName);
+      });
+      
+      email.addEventListener('input', function() {
+        touched.email = true;
+        validateField(email);
+      });
+      
+      country.addEventListener('change', function() {
+        touched.country = true;
+        validateField(country);
+      });
+      
+      message.addEventListener('input', function() {
+        touched.message = true;
+        validateField(message);
+      });
+      
+      // Validation when leaving a field
+      firstName.addEventListener('blur', function() {
+        touched.firstName = true;
+        validateField(firstName);
+      });
+      
+      lastName.addEventListener('blur', function() {
+        touched.lastName = true;
+        validateField(lastName);
+      });
+      
+      email.addEventListener('blur', function() {
+        touched.email = true;
+        validateField(email);
+      });
+      
+      country.addEventListener('blur', function() {
+        touched.country = true;
+        validateField(country);
+      });
+      
+      message.addEventListener('blur', function() {
+        touched.message = true;
+        validateField(message);
+      });
+      
+      // Function to validate a field
+      function validateField(field) {
+        const errorElement = field.nextElementSibling;
+        let isValid = true;
+        
+        // Only validate if the field has been edited
+        if (!touched[field.id]) {
+          return true;
+        }
+        
+        // Validation for empty fields
+        if (field.hasAttribute('required') && !field.value.trim()) {
+          isValid = false;
+        }
+        
+        // Special validation for Email
+        if (field.type === 'email' && field.value.trim()) {
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(field.value.trim())) {
+            isValid = false;
+          }
+        }
+        
+        // Special validation for the Country dropdown
+        if (field.id === 'country') {
+          if (!field.value || field.value === '' || field.value === 'Select country') {
+            isValid = false;
+          }
+        }
+        
+        // Visual display of validation
+        if (isValid) {
+          field.classList.remove('invalid-input');
+          field.classList.add('valid-input');
+          errorElement.style.display = 'none';
+        } else {
+          field.classList.add('invalid-input');
+          field.classList.remove('valid-input');
+          errorElement.style.display = 'block';
+        }
+        
+        return isValid;
+      }
+      
+      // Function to validate the entire form
+      function validateForm() {
+        let isValid = true;
+        
+        // Mark all fields as touched
+        touched.firstName = true;
+        touched.lastName = true;
+        touched.email = true;
+        touched.country = true;
+        touched.message = true;
+        
+        // Validation of all fields
+        if (!validateField(firstName)) isValid = false;
+        if (!validateField(lastName)) isValid = false;
+        if (!validateField(email)) isValid = false;
+        if (!validateField(country)) isValid = false;
+        if (!validateField(message)) isValid = false;
+        
+        return isValid;
+      }
+      
+      // Function to display an error message under the Submit button
+      function showSubmitError(message) {
+        const existingMessage = document.getElementById('incomplete-fields-message');
+        if (existingMessage) {
+          existingMessage.remove();
+        }
+        
+        const errorElement = document.createElement('div');
+        errorElement.id = 'incomplete-fields-message';
+        errorElement.style.color = '#ff3860';
+        errorElement.style.textAlign = 'center';
+        errorElement.style.marginTop = '15px';
+        errorElement.style.fontWeight = '500';
+        errorElement.textContent = message;
+        
+        submitButton.parentNode.appendChild(errorElement);
+        
+        setTimeout(() => {
+          if (errorElement.parentNode) {
+            errorElement.style.opacity = '0';
+            errorElement.style.transition = 'opacity 0.5s ease';
+            setTimeout(() => {
+              if (errorElement.parentNode) {
+                errorElement.remove();
+              }
+            }, 500);
+          }
+        }, 5000);
+      }
+      
+      // Capture the Submit event
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        console.log('Submit attempt:');
+        console.log('First Name:', firstName.value);
+        console.log('Last Name:', lastName.value);
+        console.log('Email:', email.value);
+        console.log('Country:', country.value);
+        console.log('Message:', message.value);
+        
+        // Validate all fields
+        const formIsValid = validateForm();
+        
+        // If the form is not valid
+        if (!formIsValid) {
+          console.log('Form is invalid!');
+          
+          // Focus on the first invalid field
+          if (!validateField(firstName)) {
+            firstName.focus();
+          } else if (!validateField(lastName)) {
+            lastName.focus();
+          } else if (!validateField(email)) {
+            email.focus();
+          } else if (!validateField(country)) {
+            country.focus();
+          } else if (!validateField(message)) {
+            message.focus();
+          }
+          
+          showSubmitError('Please fill in all required fields.');
+          return;
+        }
+        
+        // If the form is valid
+        console.log('Form is valid!');
+        
+        // Prepare FormData for submission
+        const formData = new FormData(form);
+        
+        // Show success display
+        form.style.display = 'none';
+        successMessage.style.display = 'block';
+        
+        // Send form
+        fetch('https://formsubmit.co/ajax/alexanderhillerb@googlemail.com', {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest'
+          }
+        })
+        .then(response => {
+          console.log('Server response:', response.status);
+          form.reset();
+          
+          if (!response.ok) {
+            console.error('Error sending:', response);
+          }
+        })
+        .catch(error => {
+          console.error('Error sending:', error);
+        });
+      });
+    });
+  </script>
+
+  <!-- Script to activate current menu item -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('Contact page loaded, marking Contact link as active');
+      
+      // We use an interval to ensure the navigation is loaded
+      let attempts = 0;
+      const maxAttempts = 50; // 5 seconds at 100ms interval
+      
+      const checkAndActivate = setInterval(function() {
+        attempts++;
+        
+        // Find all navigation links
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        if (navLinks.length > 0) {
+          console.log('Navigation links found, looking for Contact link');
+          
+          // Remove the active class from all links
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+          });
+          
+          // Set the active class for the Contact link
+          let contactLinkFound = false;
+          navLinks.forEach(link => {
+            if (link.textContent.trim() === 'Contact') {
+              console.log('Contact link found:', link);
+              link.classList.add('active');
+              contactLinkFound = true;
+            }
+          });
+          
+          if (contactLinkFound) {
+            // Stop interval when everything is done
+            clearInterval(checkAndActivate);
+          } else if (attempts >= maxAttempts) {
+            console.error('Contact link could not be found after multiple attempts');
+            clearInterval(checkAndActivate);
+          }
+        } else if (attempts >= maxAttempts) {
+          console.error('Navigation links could not be found after multiple attempts');
+          clearInterval(checkAndActivate);
+        }
+      }, 100);
+    });
+  </script>
+</body>
+</html> 

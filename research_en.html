@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Research | StGallen imt Business School</title>
+
+  <!-- ============ STYLES ============ -->
+  <style>
+    :root{
+      --font-sans:-apple-system,BlinkMacSystemFont,"San Francisco","Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+      --color-text:#1d1d1f;
+      --color-muted:#6e6e73;
+      --color-card-bg:#f5f5f7;
+      --color-accent2:#970289;
+      --color-badge:#e2b245;
+      --color-badge-hover:#d4a535;
+      --spacing:24px;
+      --radius:16px;
+      --max-width:1200px;
+      --imt-purple: #6e45e2;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--color-text);
+      background: #fff;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      /* Padding for fixed navigation */
+      padding-top: 64px;
+      transition: padding-top 0.3s ease;
+    }
+    
+    /* When subnav is active, increase body padding */
+    body.has-subnav {
+      padding-top: 110px;
+    }
+    
+    @media (max-width: 1024px) {
+      body.has-subnav {
+        padding-top: 64px;
+      }
+    }
+
+    /* Basic styling for containers */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--spacing);
+      width: 100%;
+    }
+
+    /* Main content of the page */
+    main {
+      position: relative;
+    }
+
+    /* General typography */
+    h1, h2, h3, h4, h5, h6 {
+      margin-bottom: 1rem;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.25rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--imt-purple);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Simpler header styles */
+    .page-header {
+      background-color: #f5f5f7;
+      padding: 60px 0;
+      text-align: center;
+    }
+
+    .page-header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    .page-header p {
+      font-size: 1.2rem;
+      color: var(--color-muted);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .content-section {
+      padding: 80px 0;
+    }
+
+    .content-section:first-child {
+      padding-top: 50px;
+    }
+
+    .content-section h2 {
+      text-align: left;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .section-subtitle {
+      color: var(--color-muted);
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+      text-align: left;
+      max-width: 800px;
+      margin-left: 0;
+      margin-right: auto;
+    }
+
+    /* Research Highlights */
+    .highlights-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 60px;
+    }
+
+    .highlight-box {
+      background: var(--color-card-bg);
+      border-radius: var(--radius);
+      padding: 30px;
+      transition: box-shadow 0.3s ease;
+      border: 2px solid transparent;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      width: 100%;
+    }
+
+    /* Ensures equal box sizes in responsive design */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .highlights-container {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      
+      .highlight-box {
+        min-width: 0; /* Prevents overflow with long content */
+      }
+    }
+
+    .highlight-box:hover {
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+      border: 2px solid var(--imt-purple);
+    }
+
+    .highlight-box h3 {
+      font-size: 1.2rem;
+      color: var(--imt-purple);
+      margin-bottom: 12px;
+      word-wrap: break-word; /* Enables line breaks for long titles */
+    }
+
+    .highlight-box p {
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+      flex-grow: 1;
+    }
+
+    .highlight-meta {
+      font-size: 0.85rem;
+      color: var(--color-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: auto;
+    }
+
+    /* Alt3 Highlights Style - Grid with Overlay */
+    .alt3-highlights {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      margin-bottom: 30px;
+    }
+
+    .alt3-highlight-box {
+      position: relative;
+      height: 350px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .alt3-highlight-box:hover {
+      border-color: var(--imt-purple);
+    }
+
+    .alt3-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.3s ease;
+    }
+
+    .alt3-highlight-box:hover .alt3-image {
+      opacity: 0.95;
+    }
+
+    .alt3-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.85), transparent);
+      color: white;
+      padding: 30px 20px;
+      transition: opacity 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: flex-start;
+    }
+
+    .alt3-highlight-box:hover .alt3-overlay {
+      opacity: 0.95;
+    }
+
+    .alt3-overlay h3 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: white;
+    }
+
+    .alt3-overlay p {
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+      flex-grow: 0;
+    }
+
+    .alt3-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      margin-top: auto;
+    }
+
+    .alt3-meta i {
+      font-size: 1.1rem;
+    }
+
+    /* Tab Controls */
+    .research-tabs {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 32px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .research-tab {
+      padding: 8px 16px;
+      border-radius: 6px;
+      border: 2px solid transparent;
+      font-weight: 500;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .research-tab:hover {
+      border-color: #ccc;
+    }
+
+    .research-tab.active {
+      background: var(--imt-purple);
+      color: white;
+      border-color: var(--imt-purple);
+    }
+
+    /* Publication List with Filters */
+    .research-list {
+      width: 100%;
+      margin: 0;
+    }
+
+    .research-item {
+      border-bottom: 1px solid #eee;
+      padding: 24px 0;
+      transition: background-color 0.2s ease;
+    }
+
+    .research-item:hover {
+      background-color: rgba(245, 245, 247, 0.5);
+    }
+
+    .research-item h3 {
+      font-size: 1.3rem;
+      color: var(--imt-purple);
+      margin-bottom: 8px;
+    }
+
+    .research-item-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+      color: var(--color-muted);
+    }
+
+    .research-item-meta span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .research-item-meta i {
+      font-size: 1.1rem;
+    }
+
+    .research-item-desc {
+      margin-bottom: 16px;
+    }
+
+    .research-item-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .research-tag {
+      background-color: rgba(110, 69, 226, 0.1);
+      color: var(--imt-purple);
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .research-item-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 16px;
+    }
+
+    .research-item-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 500;
+    }
+
+    .research-item-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 500;
+      text-decoration: none;
+      padding-right: 15px;
+    }
+    
+    .research-item-link i {
+      transition: transform 0.2s ease;
+      transform: translateY(1px);
+    }
+    
+    .research-item-link:hover {
+      text-decoration: none;
+    }
+    
+    .research-item-link:hover i {
+      transform: translate(3px, 1px);
+    }
+
+    /* Faculty info */
+    .faculty-badge {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .faculty-badge img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .faculty-badge span {
+      font-weight: 500;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 1024px) {
+      .highlights-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .alt3-highlights {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .research-tabs {
+        gap: 8px;
+      }
+      
+      .research-tab {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .highlights-container, .alt3-highlights {
+        grid-template-columns: 1fr;
+      }
+      
+      .research-tabs {
+        gap: 6px;
+      }
+      
+      .research-tab {
+        padding: 5px 10px;
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+
+  <!-- BoxIcons for Icons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+</head>
+<body>
+
+<!-- Include Navigation -->
+<div id="navigation-container"></div>
+
+<!-- Include Sidebar -->
+<div id="sidebar-container"></div>
+
+<!-- Main Content -->
+<main>
+  <!-- Main Research Section -->
+  <section class="content-section">
+    <div class="container">
+      <h2 id="Forschungs-Highlights">Research Highlights</h2>
+      <p class="section-subtitle">An overview of the most important publications from our faculty.</p>
+      
+      <!-- Research Highlights -->
+      <div class="alt3-highlights" style="margin-bottom: 100px;">
+        <!-- Highlight 1 -->
+        <div class="alt3-highlight-box">
+          <img src="assets/faculty/abegglen.webp" alt="Prof. Dr. Christian Abegglen" class="alt3-image">
+          <div class="alt3-overlay">
+            <h3>The Integrated Management Concept: Visions - Missions - Programs</h3>
+            <p>The holistic approach of the St. Gallen Management Concept as a standard work of management teaching for future-proof corporate management.</p>
+            <div class="alt3-meta">
+              <i class='bx bx-user'></i>
+              <span>Prof. Dr. Christian Abegglen</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Highlight 2 -->
+        <div class="alt3-highlight-box">
+          <img src="assets/faculty/bula.jpg" alt="Prof. Dr. Dr. h.c. Piotr Bula" class="alt3-image">
+          <div class="alt3-overlay">
+            <h3>Management, Organizations and Artificial Intelligence: Where Theory Meets Practice</h3>
+            <p>This book bridges academic research and practical guidelines to complement existing organizational management knowledge in the age of digital acceleration.</p>
+            <div class="alt3-meta">
+              <i class='bx bx-user'></i>
+              <span>Prof. Dr. Dr. h.c. Piotr Bula</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Highlight 3 -->
+        <div class="alt3-highlight-box">
+          <img src="assets/faculty/edlund.png" alt="Dr. Jan Roy Edlund" class="alt3-image">
+          <div class="alt3-overlay">
+            <h3>Monkey Management: How Managers Achieve More in Less Time</h3>
+            <p>A practical guide for effective management that enables leaders to identify when employees delegate their "monkeys" (tasks) back to managers and how to prevent this practice.</p>
+            <div class="alt3-meta">
+              <i class='bx bx-user'></i>
+              <span>Dr. Jan Roy Edlund</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Publication List Section -->
+      <h2 id="Publikationsliste">Publications List</h2>
+      <p class="section-subtitle">A chronological collection of our faculty's publications, including books, research papers, and case studies.</p>
+      
+      <!-- Publication List -->
+      <div class="research-list">
+        <!-- Research Item 1 (March 2023) -->
+        <div class="research-item">
+          <h3>Digital Leadership: Leading Successfully in the Digital Age</h3>
+          <div class="research-item-meta">
+            <span><i class='bx bx-calendar'></i> 2023</span>
+            <span><i class='bx bx-book'></i> Springer Gabler</span>
+            <span><i class='bx bx-link'></i> ISBN: 9783658371562</span>
+          </div>
+          <p class="research-item-desc">This book explores how digitalization is fundamentally changing leadership tasks and what skills leaders need to develop in order to lead successfully in the digital age. It examines the most important changes in leadership behavior and is aimed at both managers who want to optimize their leadership style and organizations that want to develop their leadership culture.</p>
+          <div class="research-item-tags">
+            <span class="research-tag">Digital Leadership</span>
+            <span class="research-tag">Digitalization</span>
+            <span class="research-tag">Leadership</span>
+          </div>
+          <div class="research-item-footer">
+            <div class="faculty-badge">
+              <img src="assets/faculty/bassewitz.webp" alt="Dr. Ulrich von Bassewitz">
+              <span>Dr. Ulrich von Bassewitz</span>
+            </div>
+            <a href="https://link.springer.com/book/10.1007/978-3-658-37156-2" class="research-item-link" target="_blank">Details <i class='bx bx-right-arrow-alt'></i></a>
+          </div>
+        </div>
+        
+        <!-- Research Item 2 (December 2022) -->
+        <div class="research-item">
+          <h3>Business Model Innovation: How to Create Innovative Business Models</h3>
+          <div class="research-item-meta">
+            <span><i class='bx bx-calendar'></i> 2022</span>
+            <span><i class='bx bx-book'></i> Springer Gabler</span>
+            <span><i class='bx bx-link'></i> DOI: 10.1007/978-3-658-38836-2</span>
+          </div>
+          <p class="research-item-desc">This practical guide provides a comprehensive foundation for developing innovative business models. It covers both the necessary theoretical background and implementation knowledge. The book is aimed at entrepreneurs, startups and innovative companies that want to realize new business ideas successfully and stand out from the competition.</p>
+          <div class="research-item-tags">
+            <span class="research-tag">Business Models</span>
+            <span class="research-tag">Innovation</span>
+            <span class="research-tag">Entrepreneurship</span>
+          </div>
+          <div class="research-item-footer">
+            <div class="faculty-badge">
+              <img src="assets/faculty/sitter.webp" alt="Dr. Alexander Sitter">
+              <span>Dr. Alexander Sitter</span>
+            </div>
+            <a href="https://link.springer.com/book/10.1007/978-3-658-38836-2" class="research-item-link" target="_blank">Details <i class='bx bx-right-arrow-alt'></i></a>
+          </div>
+        </div>
+        
+        <!-- Research Item 3 (2022) -->
+        <div class="research-item">
+          <h3>Digital Transformation of Companies: How Digital Technologies Successfully Transform Organizations</h3>
+          <div class="research-item-meta">
+            <span><i class='bx bx-calendar'></i> 2022</span>
+            <span><i class='bx bx-book'></i> Springer Gabler</span>
+            <span><i class='bx bx-link'></i> DOI: 10.1007/978-3-658-38841-6</span>
+          </div>
+          <p class="research-item-desc">This book provides a comprehensive guide for the digital transformation of companies. Based on current research, it presents practical tools, best practices and implementation strategies. The work is aimed at managers and specialists in all industries who are responsible for implementing digital transformation projects in their organizations.</p>
+          <div class="research-item-tags">
+            <span class="research-tag">Digital Transformation</span>
+            <span class="research-tag">Digitalization</span>
+            <span class="research-tag">Change Management</span>
+          </div>
+          <div class="research-item-footer">
+            <div class="faculty-badge">
+              <img src="assets/faculty/lueder_tockenbuerger.png" alt="Dr. Lüder Tockenbürger">
+              <span>Dr. Lüder Tockenbürger</span>
+            </div>
+            <a href="https://link.springer.com/book/10.1007/978-3-658-38841-6" class="research-item-link" target="_blank">Details <i class='bx bx-right-arrow-alt'></i></a>
+          </div>
+        </div>
+        
+        <!-- Research Item 4 (September 2022) -->
+        <div class="research-item">
+          <h3>Management, Organizations and Artificial Intelligence: Where Theory Meets Practice</h3>
+          <div class="research-item-meta">
+            <span><i class='bx bx-calendar'></i> 2022</span>
+            <span><i class='bx bx-book'></i> Routledge</span>
+            <span><i class='bx bx-link'></i> ISBN: 9781032025834</span>
+          </div>
+          <p class="research-item-desc">This book combines academic research with practical guidelines to complement existing knowledge about organizational management in the age of digital acceleration. It examines the development of Industry 4.0, artificial intelligence, AI 2.0, AI systems and platforms, as well as new paradigms of organizational management, business ecosystems and data processing models in AI-based organizations.</p>
+          <div class="research-item-tags">
+            <span class="research-tag">Artificial Intelligence</span>
+            <span class="research-tag">Industry 4.0</span>
+            <span class="research-tag">Digital Transformation</span>
+          </div>
+          <div class="research-item-footer">
+            <div class="faculty-badge">
+              <img src="assets/faculty/bula.jpg" alt="Prof. Dr. Dr. h.c. Piotr Bula">
+              <span>Prof. Dr. Dr. h.c. Piotr Bula</span>
+            </div>
+            <a href="https://www.routledge.com/Management-Organisations-and-Artificial-Intelligence-Where-Theory-Meets-Practice/Bula-Niedzielski/p/book/9781032025834" class="research-item-link" target="_blank">Details <i class='bx bx-right-arrow-alt'></i></a>
+          </div>
+        </div>
+        
+        <!-- Research Item 5 (October 2021) -->
+        <div class="research-item">
+          <h3>The Integrated Management Concept: Visions – Missions – Programs</h3>
+          <div class="research-item-meta">
+            <span><i class='bx bx-calendar'></i> 2021</span>
+            <span><i class='bx bx-book'></i> Campus Verlag</span>
+            <span><i class='bx bx-link'></i> ISBN: 9783593511719</span>
+          </div>
+          <p class="research-item-desc">The holistic approach of the St. Gallen Management Concept has sustainably influenced the thinking and actions of countless managers over the past 30 years. In this standard work of management teaching from the St. Gallen School, companies find the framework for future security – proven and yet more relevant than ever.</p>
+          <div class="research-item-tags">
+            <span class="research-tag">St. Gallen Management</span>
+            <span class="research-tag">Integrated Management</span>
+            <span class="research-tag">Corporate Management</span>
+          </div>
+          <div class="research-item-footer">
+            <div class="faculty-badge">
+              <img src="assets/faculty/abegglen.webp" alt="Prof. Dr. Christian Abegglen">
+              <span>Prof. Dr. Christian Abegglen</span>
+            </div>
+            <a href="https://www.campus.de/buecher-campus-verlag/business/management-unternehmensfuehrung/das_konzept_integriertes_management-15867.html" class="research-item-link" target="_blank">Details <i class='bx bx-right-arrow-alt'></i></a>
+          </div>
+        </div>
+        
+        <!-- Research Item 6 (March 2021) -->
+        <div class="research-item">
+          <h3>Reinventing Companies: The Thinking and Working Book Against Organized Stagnation</h3>
+          <div class="research-item-meta">
+            <span><i class='bx bx-calendar'></i> 2021</span>
+            <span><i class='bx bx-book'></i> Frankfurter Allgemeine Buch</span>
+            <span><i class='bx bx-link'></i> ISBN: 978-3-96251-087-9</span>
+          </div>
+          <p class="research-item-desc">The thinking and working book "Reinventing Companies" has already become a standard work for implementing the St. Gallen Management Concept in many companies. Using the "St. Gallen Management House" blueprint, readers review and design their own company under the guidance of the author – a unique method for company development and effective remedy against organized stagnation.</p>
+          <div class="research-item-tags">
+            <span class="research-tag">St. Gallen Management</span>
+            <span class="research-tag">Corporate Management</span>
+            <span class="research-tag">Organizational Development</span>
+          </div>
+          <div class="research-item-footer">
+            <div class="faculty-badge">
+              <img src="assets/faculty/abegglen.webp" alt="Prof. Dr. Christian Abegglen">
+              <span>Prof. Dr. Christian Abegglen</span>
+            </div>
+            <a href="https://fazbuch.de/produkt/unternehmen-neu-erfinden-2/" class="research-item-link" target="_blank">Details <i class='bx bx-right-arrow-alt'></i></a>
+          </div>
+        </div>
+        
+        <!-- Research Item 7 (March 2021) -->
+        <div class="research-item">
+          <h3>Controlling for Executives: Analyze - Evaluate - Decide</h3>
+          <div class="research-item-meta">
+            <span><i class='bx bx-calendar'></i> 2021</span>
+            <span><i class='bx bx-book'></i> Linde Verlag</span>
+            <span><i class='bx bx-link'></i> ISBN: 9783714303209</span>
+          </div>
+          <p class="research-item-desc">This textbook offers executives without classical controlling training a comprehensive insight into controlling. With a modular teaching concept, numerous examples and case studies, it enables self-study of the content and a generalist overall understanding. The 4th edition contains updates and extensions on the effects of digitalization on controlling.</p>
+          <div class="research-item-tags">
+            <span class="research-tag">Controlling</span>
+            <span class="research-tag">Management</span>
+            <span class="research-tag">Corporate Management</span>
+          </div>
+          <div class="research-item-footer">
+            <div class="faculty-badge">
+              <img src="assets/faculty/sitter.webp" alt="Dr. Alexander Sitter">
+              <span>Dr. Alexander Sitter</span>
+            </div>
+            <a href="https://shop.lindeverlag.at/buch/controlling-fuer-fuehrungskraefte-18868?page_id=1" class="research-item-link" target="_blank">Details <i class='bx bx-right-arrow-alt'></i></a>
+          </div>
+        </div>
+        
+        <!-- Research Item 8 (2017) -->
+        <div class="research-item">
+          <h3>Successful Business Succession: Mastering the Transition Both Personally and Professionally</h3>
+          <div class="research-item-meta">
+            <span><i class='bx bx-calendar'></i> 2017</span>
+            <span><i class='bx bx-book'></i> Springer Gabler</span>
+            <span><i class='bx bx-link'></i> DOI: 10.1007/978-3-658-16133-0</span>
+          </div>
+          <p class="research-item-desc">This specialized book describes, from the entrepreneur's perspective, considerations, instruments and processes that support the preparation of a business transfer. Based on the three leadership areas – self-leadership, corporate management, and stakeholder leadership – the author presents a pragmatic and holistic guide for developing one's own path to business succession.</p>
+          <div class="research-item-tags">
+            <span class="research-tag">Business Succession</span>
+            <span class="research-tag">Leadership</span>
+            <span class="research-tag">Family Business</span>
+          </div>
+          <div class="research-item-footer">
+            <div class="faculty-badge">
+              <img src="assets/faculty/bassewitz.webp" alt="Dr. Ulrich von Bassewitz">
+              <span>Dr. Ulrich von Bassewitz</span>
+            </div>
+            <a href="https://link.springer.com/book/10.1007/978-3-658-16133-0" class="research-item-link" target="_blank">Details <i class='bx bx-right-arrow-alt'></i></a>
+          </div>
+        </div>
+        
+        <!-- Research Item 9 (November 2016) -->
+        <div class="research-item">
+          <h3>Monkey Management: How Managers Achieve More in Less Time</h3>
+          <div class="research-item-meta">
+            <span><i class='bx bx-calendar'></i> 2016</span>
+            <span><i class='bx bx-book'></i> Hardcover Edition</span>
+            <span><i class='bx bx-link'></i> ISBN: 3952462926</span>
+          </div>
+          <p class="research-item-desc">This practice-oriented book presents strategies and tools that help leaders recognize how employees re-delegate their "monkeys" (problems, questions, tasks) back to the boss. The book shows concrete methods for how managers can work more effectively and better use their time by correctly assigning responsibilities.</p>
+          <div class="research-item-tags">
+            <span class="research-tag">Leadership</span>
+            <span class="research-tag">Time Management</span>
+            <span class="research-tag">Leadership Skills</span>
+          </div>
+          <div class="research-item-footer">
+            <div class="faculty-badge">
+              <img src="assets/faculty/edlund.png" alt="Dr. Jan Roy Edlund">
+              <span>Dr. Jan Roy Edlund</span>
+            </div>
+            <a href="https://www.amazon.de/Monkey-Management-Manager-weniger-erreichen/dp/3952462926" class="research-item-link" target="_blank">Details <i class='bx bx-right-arrow-alt'></i></a>
+          </div>
+        </div>
+        
+        <!-- Research Item 10 (2013) -->
+        <div class="research-item">
+          <h3>Practical Handbook for Healthcare: Successful Introduction and Development</h3>
+          <div class="research-item-meta">
+            <span><i class='bx bx-calendar'></i> 2013</span>
+            <span><i class='bx bx-book'></i> Hanser Verlag</span>
+            <span><i class='bx bx-link'></i> ISBN: 3446415564</span>
+          </div>
+          <p class="research-item-desc">A comprehensive handbook for professionals and executives in healthcare that provides practice-oriented methods and concepts for the successful implementation and development of processes and systems in the healthcare sector. The work combines theoretical foundations with concrete recommendations for action and best practices.</p>
+          <div class="research-item-tags">
+            <span class="research-tag">Healthcare</span>
+            <span class="research-tag">Process Management</span>
+            <span class="research-tag">Medical Technology</span>
+          </div>
+          <div class="research-item-footer">
+            <div class="faculty-badge">
+              <img src="assets/faculty/lueder_tockenbuerger.png" alt="Dr. Lüder Tockenbürger">
+              <span>Dr. Lüder Tockenbürger</span>
+            </div>
+            <a href="https://www.amazon.de/Praxishandbuch-Gesundheitswesen-Erfolgreich-einf%C3%BChren-entwickeln/dp/3446415564" class="research-item-link" target="_blank">Details <i class='bx bx-right-arrow-alt'></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Include Footer -->
+<div id="footer-container"></div>
+
+<!-- ============ SCRIPTS ============ -->
+<script>
+  // Load Navigation
+  fetch('components/globals/navigation_ohnesub_en.html?t=' + new Date().getTime())
+    .then(response => {
+      if (!response.ok) {
+        console.error('Error loading navigation:', response.status);
+        // Try fallback to globals directory
+        return fetch('components/includes/navigation_ohnesub_en.html?t=' + new Date().getTime())
+          .then(resp => {
+            if (!resp.ok) {
+              console.error('Globals path also failed:', resp.status);
+              return '';
+            }
+            return resp.text();
+          });
+      }
+      return response.text();
+    })
+    .then(data => {
+      if (data) {
+        document.getElementById('navigation-container').innerHTML = data;
+        
+        // Initialize mobile navigation
+        const navScript = document.createElement('script');
+        navScript.src = 'assets/js/mobile-nav.js?t=' + new Date().getTime();
+        document.body.appendChild(navScript);
+      }
+    })
+    .catch(error => console.error('Error loading navigation:', error));
+  
+  // Load Sidebar
+  fetch('components/globals/sidebar_other_en.html?t=' + new Date().getTime())
+    .then(response => {
+      if (!response.ok) {
+        console.error('Error loading sidebar:', response.status);
+        // Try fallback to globals directory
+        return fetch('components/includes/sidebar_other_en.html?t=' + new Date().getTime())
+          .then(resp => {
+            if (!resp.ok) {
+              console.error('Globals path also failed:', resp.status);
+              return '';
+            }
+            return resp.text();
+          });
+      }
+      return response.text();
+    })
+    .then(data => {
+      if (data) document.getElementById('sidebar-container').innerHTML = data;
+    })
+    .catch(error => console.error('Error loading sidebar:', error));
+  
+  // Load Footer
+  fetch('components/globals/footer_en.html?t=' + new Date().getTime())
+    .then(response => {
+      if (!response.ok) {
+        console.error('Error loading footer:', response.status);
+        // Try fallback to globals directory
+        return fetch('components/includes/footer_en.html?t=' + new Date().getTime())
+          .then(resp => {
+            if (!resp.ok) {
+              console.error('Globals path also failed:', resp.status);
+              return '';
+            }
+            return resp.text();
+          });
+      }
+      return response.text();
+    })
+    .then(data => {
+      if (data) document.getElementById('footer-container').innerHTML = data;
+    })
+    .catch(error => console.error('Error loading footer:', error));
+
+  // Tab Filter Interaction
+  document.addEventListener('DOMContentLoaded', function() {
+    const tabs = document.querySelectorAll('.research-tab');
+    
+    tabs.forEach(tab => {
+      tab.addEventListener('click', function() {
+        // Remove active class from all tabs
+        tabs.forEach(t => t.classList.remove('active'));
+        
+        // Add active class to clicked tab
+        this.classList.add('active');
+        
+        // Filter content based on tab clicked
+        const filter = this.getAttribute('data-filter');
+        const items = document.querySelectorAll('.research-item');
+        
+        items.forEach(item => {
+          if (filter === 'all') {
+            item.style.display = 'block';
+          } else {
+            const itemYear = item.querySelector('.research-item-meta span:first-child').textContent.trim().split(' ')[1];
+            item.style.display = (filter === itemYear) ? 'block' : 'none';
+          }
+        });
+      });
+    });
+  });
+</script>
+</body>
+</html> 
