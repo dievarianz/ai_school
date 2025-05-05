@@ -2127,7 +2127,6 @@
                   <div class="gradient-info">
                     <span class="gradient-name">Julia Müller</span>
                     <span class="gradient-position">Chief Strategy Officer, Swiss Innovation Group</span>
-                    <span class="gradient-program">Integrated Management and Strategy, 2023</span>
                   </div>
                 </div>
                 <img src="assets/companies/google.png" alt="Company" class="gradient-company">
@@ -2150,7 +2149,6 @@
                   <div class="gradient-info">
                     <span class="gradient-name">Thomas Weber</span>
                     <span class="gradient-position">CEO, Digital Solutions AG</span>
-                    <span class="gradient-program">Integrated Management and Strategy, 2022</span>
                   </div>
                 </div>
                 <img src="assets/companies/sap.png" alt="Company" class="gradient-company">
@@ -2961,6 +2959,36 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
+</script>
+
+<!-- Script für zufällige Galeriebilder -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Array mit allen verfügbaren Bildern
+    const availableImages = Array.from({length: 12}, (_, i) => `assets/IMG_${i + 1}.webp`);
+    
+    // Fisher-Yates Shuffle Algorithmus
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+    
+    // Bilder mischen und die ersten 6 auswählen
+    const selectedImages = shuffleArray([...availableImages]).slice(0, 6);
+    
+    // Galerie-Elemente auswählen
+    const galleryItems = document.querySelectorAll('.gallery-item img');
+    
+    // Bilder zuweisen
+    galleryItems.forEach((img, index) => {
+      if (index < selectedImages.length) {
+        img.src = selectedImages[index];
+      }
+    });
+  });
 </script>
 
 </body>
