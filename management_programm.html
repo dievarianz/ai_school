@@ -935,7 +935,7 @@
   /* ---------- Faculty & Experts ---------- */
   .faculty-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 32px;
     margin-top: 48px;
   }
@@ -2077,7 +2077,7 @@
                         <path d="M8 14h8M8 17h5"/>
                     </svg>
                 </div>
-                <div class="stat-value" data-target="12">0</div>
+                <div class="stat-value" data-target="7">0</div>
                 <div class="stat-label">Jahre Berufserfahrung</div>
             </div>
 
@@ -2090,7 +2090,7 @@
                         <path d="M12 12v4"/>
                     </svg>
                 </div>
-                <div class="stat-value" data-target="35" data-suffix="%">0%</div>
+                <div class="stat-value" data-target="17" data-suffix="%">0%</div>
                 <div class="stat-label">Teilnehmer mit Senior C-Level</div>
             </div>
 
@@ -2102,7 +2102,7 @@
                         <path d="M20 21v-2a8 8 0 00-16 0v2"/>
                     </svg>
                 </div>
-                <div class="stat-value" data-target="42">0</div>
+                <div class="stat-value" data-target="41">0</div>
                 <div class="stat-label">Durchschnittsalter</div>
             </div>
 
@@ -2115,7 +2115,7 @@
                         <path d="M2 12h20"/>
                     </svg>
                 </div>
-                <div class="stat-value" data-target="15">0</div>
+                <div class="stat-value" data-target="13">0</div>
                 <div class="stat-label">Nationalitäten</div>
             </div>
         </div>
@@ -2344,6 +2344,32 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Faculty & Experts Section -->
+    <section id="faculty" style="padding: 60px 0;">
+      <div class="container">
+        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Akademische Leitung</h2>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Lernen Sie von führenden Experten aus Wissenschaft und Praxis – profitieren Sie von jahrelanger Erfahrung in Management und Leadership.</p>
+        
+        <div class="faculty-grid">
+            <div class="faculty-card">
+              <img src="assets/faculty/abegglen.webp" alt="Prof. Dr. Christian Abegglen"/>
+              <div class="faculty-info">
+                  <h3 class="faculty-name">Prof. Dr. Christian Abegglen</h3>
+                  <div class="faculty-title">Präsident</div>
+              </div>
+            </div>
+
+            <div class="faculty-card">
+              <img src="assets/faculty/bula.jpg" alt="Prof. Dr. Dr. h.c. Piotr Bula"/>
+              <div class="faculty-info">
+                  <h3 class="faculty-name">Prof. Dr. Dr. h.c. Piotr Bula</h3>
+                  <div class="faculty-title">Executive Council</div>
+              </div>
+            </div>
         </div>
       </div>
     </section>

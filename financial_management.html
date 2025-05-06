@@ -937,7 +937,7 @@
   /* ---------- Faculty & Experts ---------- */
   .faculty-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 32px;
     margin-top: 48px;
   }
@@ -952,7 +952,7 @@
   }
 
   .faculty-card:hover {
-    border-color: var(--color-accent2);
+    border-color: var(--imt-green);
   }
 
   .faculty-card img {
@@ -971,7 +971,7 @@
   }
 
   .faculty-title {
-    color: var(--color-accent2);
+    color: var(--imt-green);
     font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -2153,7 +2153,7 @@
   /* ---------- Faculty & Experts ---------- */
   .faculty-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 32px;
     margin-top: 48px;
   }
@@ -2168,7 +2168,7 @@
   }
 
   .faculty-card:hover {
-    border-color: var(--color-accent2);
+    border-color: var(--imt-green);
   }
 
   .faculty-card img {
@@ -2187,7 +2187,7 @@
   }
 
   .faculty-title {
-    color: var(--color-accent2);
+    color: var(--imt-green);
     font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -3225,7 +3225,7 @@
                         <path d="M8 14h8M8 17h5"/>
                     </svg>
                 </div>
-                <div class="stat-value" data-target="12">0</div>
+                <div class="stat-value" data-target="16">0</div>
                 <div class="stat-label">Jahre Berufserfahrung</div>
             </div>
 
@@ -3238,7 +3238,7 @@
                         <path d="M12 12v4"/>
                     </svg>
                 </div>
-                <div class="stat-value" data-target="35" data-suffix="%">0%</div>
+                <div class="stat-value" data-target="22" data-suffix="%">0%</div>
                 <div class="stat-label">Teilnehmer mit Senior C-Level</div>
             </div>
 
@@ -3263,7 +3263,7 @@
                         <path d="M2 12h20"/>
                     </svg>
                 </div>
-                <div class="stat-value" data-target="15">0</div>
+                <div class="stat-value" data-target="7">0</div>
                 <div class="stat-label">Nationalitäten</div>
             </div>
         </div>
@@ -3500,43 +3500,23 @@
     <section id="faculty">
       <div class="container">
         <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Akademische Leitung</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Lernen Sie von führenden Experten aus Wissenschaft und Praxis – profitieren Sie von jahrelanger Erfahrung in KI und digitaler Transformation.</p>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Lernen Sie von führenden Experten aus Wissenschaft und Praxis – profitieren Sie von jahrelanger Erfahrung im Financial Management.</p>
         
         <div class="faculty-grid">
             <div class="faculty-card">
-                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Prof. Dr. Maria Schmidt"/>
-                <div class="faculty-info">
-                    <h3 class="faculty-name">Prof. Dr. Maria Schmidt</h3>
-                    <div class="faculty-title">Professorin für KI & Business Innovation</div>
-                    <p class="faculty-description">Expertin für KI-gestützte Geschäftsmodelle mit über 15 Jahren Erfahrung in der Transformation von Unternehmen.</p>
-                </div>
+              <img src="assets/faculty/abegglen.webp" alt="Prof. Dr. Christian Abegglen"/>
+              <div class="faculty-info">
+                  <h3 class="faculty-name">Prof. Dr. Christian Abegglen</h3>
+                  <div class="faculty-title">Präsident</div>
+              </div>
             </div>
-            
+
             <div class="faculty-card">
-                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Dr. Thomas Weber"/>
-                <div class="faculty-info">
-                    <h3 class="faculty-name">Dr. Thomas Weber</h3>
-                    <div class="faculty-title">Chief Innovation Officer, TechCorp</div>
-                    <p class="faculty-description">Pionier in der Integration von KI in traditionelle Geschäftsprozesse. Leitet erfolgreich digitale Transformationsprojekte.</p>
-                </div>
-            </div>
-            
-            <div class="faculty-card">
-                <img src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Sarah Chen"/>
-                <div class="faculty-info">
-                    <h3 class="faculty-name">Sarah Chen</h3>
-                    <div class="faculty-title">Head of AI Strategy, GlobalTech</div>
-                    <p class="faculty-description">Verbindet akademische Expertise mit praktischer Erfahrung in der Implementierung von KI-Lösungen.</p>
-                </div>
-            </div>
-            
-            <div class="faculty-card">
-                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Dr. Michael Bauer"/>
-                <div class="faculty-info">
-                    <h3 class="faculty-name">Dr. Michael Bauer</h3>
-                    <div class="faculty-title">Digital Transformation Expert</div>
-                    <p class="faculty-description">Berät internationale Unternehmen bei der strategischen Ausrichtung ihrer KI-Initiativen.</p>
-                </div>
+              <img src="assets/faculty/bula.jpg" alt="Prof. Dr. Dr. h.c. Piotr Bula"/>
+              <div class="faculty-info">
+                  <h3 class="faculty-name">Prof. Dr. Dr. h.c. Piotr Bula</h3>
+                  <div class="faculty-title">Executive Council</div>
+              </div>
             </div>
         </div>
       </div>
