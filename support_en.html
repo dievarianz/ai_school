@@ -506,9 +506,12 @@
   <link rel="icon" href="assets/favicon.png" type="image/png">
 
   <!-- Language switching support -->
-  <script src="assets/js/language-switch.js?t=' + new Date().getTime()"></script>
+  <script>
+    // Add timestamp to prevent caching
+    document.write('<script src="assets/js/language-switch.js?t=' + new Date().getTime() + '"><\/script>');
+  </script>
 
-  </head>
+</head>
 <body>
   <!-- Dynamic loading of Navigation -->
   <div id="navigation-container"></div>
@@ -776,6 +779,86 @@
               }
             });
           }, 200);
+          
+          // Initialize language switcher after navigation is loaded
+          setTimeout(() => {
+            if (typeof initLanguageSwitching === 'function') {
+              console.log("Calling initLanguageSwitching function");
+              initLanguageSwitching();
+              
+              // Double-check that event listeners are properly attached
+              setTimeout(() => {
+                const deLinkDesktop = document.getElementById('lang-de-link');
+                if (deLinkDesktop) {
+                  console.log("Found German link, ensuring event listener is attached");
+                  // Remove existing listeners to avoid duplicates
+                  const newLink = deLinkDesktop.cloneNode(true);
+                  if (deLinkDesktop.parentNode) {
+                    deLinkDesktop.parentNode.replaceChild(newLink, deLinkDesktop);
+                  }
+                  
+                  // Attach direct event listener
+                  newLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    console.log("German link clicked directly");
+                    window.location.href = 'support.html';
+                    return false;
+                  });
+                }
+                
+                // Also check mobile language option
+                const mobileDeLink = document.querySelector('.only-mobile-lang-option[data-lang="de"]');
+                if (mobileDeLink) {
+                  console.log("Found mobile German link, ensuring event listener is attached");
+                  // Remove existing listeners to avoid duplicates
+                  const newMobileLink = mobileDeLink.cloneNode(true);
+                  if (mobileDeLink.parentNode) {
+                    mobileDeLink.parentNode.replaceChild(newMobileLink, mobileDeLink);
+                  }
+                  
+                  // Attach direct event listener
+                  newMobileLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    console.log("Mobile German link clicked directly");
+                    window.location.href = 'support.html';
+                    return false;
+                  });
+                }
+              }, 500);
+            } else if (window.switchLanguage) {
+              console.log('Language-switch.js already loaded, using global function');
+              
+              // Ensure both desktop and mobile language links have proper handlers
+              document.querySelectorAll('[data-lang="de"]').forEach(link => {
+                // Remove existing listeners
+                const newLink = link.cloneNode(true);
+                if (link.parentNode) {
+                  link.parentNode.replaceChild(newLink, link);
+                }
+                
+                // Add direct handler
+                newLink.addEventListener('click', function(e) {
+                  e.preventDefault();
+                  console.log("German link clicked via direct handler");
+                  window.location.href = 'support.html';
+                  return false;
+                });
+              });
+            } else {
+              console.warn('Language-switch functions not found!');
+              // Failsafe: Add direct handlers to language links
+              console.log("Adding failsafe direct handlers to language links");
+              
+              document.querySelectorAll('[data-lang="de"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                  e.preventDefault();
+                  console.log("German link clicked via failsafe handler");
+                  window.location.href = 'support.html';
+                  return false;
+                });
+              });
+            }
+          }, 300);
         }
       })
       .catch(error => console.error('Error loading navigation:', error));
@@ -921,6 +1004,41 @@
           clearInterval(checkAndActivate);
         }
       }, 100);
+    });
+  </script>
+  
+  <!-- Direct language switching handlers -->
+  <script>
+    // Wait for DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      // Apply direct handlers for language switching as a last-resort backup
+      console.log('Adding direct language switch handlers');
+      
+      // Function to apply handlers to all new German language links
+      function applyGermanLinkHandlers() {
+        document.querySelectorAll('[data-lang="de"], #lang-de-link').forEach(link => {
+          // Remove existing handlers first
+          const newLink = link.cloneNode(true);
+          if (link.parentNode) {
+            link.parentNode.replaceChild(newLink, link);
+          }
+          
+          // Add direct handler that overrides everything else
+          newLink.addEventListener('click', function(e) {
+            console.log('German language link clicked (via direct handler)');
+            e.preventDefault();
+            e.stopPropagation();
+            window.location.href = 'support.html';
+            return false;
+          }, true);
+        });
+      }
+      
+      // Apply now
+      setTimeout(applyGermanLinkHandlers, 1000);
+      
+      // And also every 2 seconds to catch any newly loaded elements
+      setInterval(applyGermanLinkHandlers, 2000);
     });
   </script>
 </body>
