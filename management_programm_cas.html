@@ -959,9 +959,29 @@
       grid-template-rows: repeat(6, minmax(200px, auto));
       width: calc(100% - 40px);
       gap: 16px;
+          /* Safari-Fix: Verhindern der Überlagerung bei Safari Mobile */
+      aspect-ratio: auto;
+      height: auto;
+      margin-bottom: 30px;
+      /* Garantiert, dass die Galerie nicht über andere Elemente hinausragt */
+      overflow: hidden;
     }
     
-    .item1, .item2, .item3, .item4, .item5, .item6 {
+    /* Safari-spezifischer Fix */
+    @supports (-webkit-touch-callout: none) {
+      .gallery {
+        aspect-ratio: auto;
+        height: auto;
+        max-height: none;
+        margin-bottom: 40px;
+      }
+      
+      .gallery-item {
+        height: 200px;
+        min-height: 200px;
+        max-height: 200px;
+      }
+    }.item1, .item2, .item3, .item4, .item5, .item6 {
       grid-column: 1;
       grid-row: auto;
     }
@@ -1791,11 +1811,11 @@
           <span class="info-value">Deutsch</span>
         </div>
 
-        <!-- Next Start Box -->
+        <!-- Nächster Start Box -->
         <div class="info-box">
-          <i class="bx bx-calendar-alt program-info-icon"></i>
-          <span class="info-label">Starttermin</span>
-          <span class="info-value">Flexibel</span>
+          <i class="bx bx-award"></i>
+          <span class="info-label">ECTS</span>
+          <span class="info-value">12</span>
         </div>
       </div>
     </div>

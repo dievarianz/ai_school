@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>StGallen Fast‑Track MBA Programm | St.Gallen imt Business School</title>
+<title>KI in Business Strategy and Business Transformation | St.Gallen imt Business School</S></title>
 
 <!-- ============ STYLES ============ -->
 <style>
@@ -12,14 +12,13 @@
     --color-text:#1d1d1f;
     --color-muted:#6e6e73;
     --color-card-bg:#f5f5f7;
-    --color-accent2:#4CB796;
+    --color-accent2:#970289;
     --color-badge:#e2b245;
     --color-badge-hover:#d4a535;
     --spacing:24px;
     --radius:16px;
     --max-width:1200px;
     --imt-purple: #6e45e2;
-    --imt-green: #4CB796;
   }
 
   * {
@@ -92,7 +91,7 @@
   }
 
   a {
-    color: var(--imt-green);
+    color: var(--imt-purple);
     text-decoration: none;
     transition: color 0.2s ease;
   }
@@ -124,7 +123,7 @@
     width: 100%;
     height: 100%;
     background: 
-        url('assets/pictures/hero_fast_track_mba.jpg')
+        url('assets/pictures/hero_ki_business_strategy_digital_transformation.jpg')
         center/cover no-repeat;
     opacity: 0.20;
     z-index: 0;
@@ -155,7 +154,7 @@
     z-index: 2;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     #hero {
       padding: 40px 0;
     }
@@ -192,7 +191,7 @@
     left: auto !important; /* Explizit links auf auto setzen */
     width: 180px !important;
     height: 180px !important;
-    background: linear-gradient(135deg, var(--imt-green) 20%, #138b72 50%, #e2b245 100%) !important;
+    background: linear-gradient(135deg, #6e45e2 20%, #9c27b0 50%, #e2b245 100%) !important;
     border-radius: 40% 60% 70% 30% / 40% 50% 60% 50% !important;
     display: flex !important;
     align-items: center !important;
@@ -201,7 +200,7 @@
     font-size: 1.05rem !important;
     font-weight: 500 !important;
     color: white !important;
-    box-shadow: 0 8px 24px rgba(23, 166, 137, 0.3) !important;
+    box-shadow: 0 8px 24px rgba(110, 69, 226, 0.3) !important;
     animation: morph 8s ease-in-out infinite !important;
     padding: 20px !important;
     overflow: hidden !important;
@@ -239,7 +238,7 @@
     100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
   }
 
-  @media(max-width: 768px) {
+  @media(max-width: 968px) {
     .availability-badge {
       display: none;
     }
@@ -253,8 +252,8 @@
   .teaser-tag {
     display: inline-flex;
     align-items: center;
-    border: 1px solid var(--imt-green);
-    color: var(--imt-green);
+    border: 1px solid var(--imt-purple);
+    color: var(--imt-purple);
     padding: 4px 10px;
     border-radius: 4px;
     font-size: 0.75rem;
@@ -290,14 +289,14 @@
   
   .info-box:hover {
     background: rgba(255, 255, 255, 1) !important;
-    border-color: var(--imt-green) !important;
-    box-shadow: 0 4px 12px rgba(66, 184, 131, 0.15) !important;
+    border-color: var(--imt-purple) !important;
+    box-shadow: 0 4px 12px rgba(102, 36, 131, 0.15) !important;
   }
   
   /* BoxIcons statt SVG */
   .info-box i.bx {
     font-size: 24px !important;
-    color: var(--imt-green) !important;
+    color: var(--imt-purple) !important;
     margin-bottom: 16px !important;
   }
   
@@ -387,7 +386,7 @@
   }
 
   /* Responsive Anpassungen */
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     h1 {
       font-size: 2rem;
     }
@@ -420,7 +419,7 @@
     text-align: center;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     .section-subtitle {
       font-size: 0.95rem;
       margin-bottom: 32px;
@@ -452,7 +451,7 @@
     text-align: center !important;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     h2, .section-subtitle {
       text-align: left !important;
     }
@@ -475,7 +474,7 @@
     text-align: left !important;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     #module-content h2 {
       font-size: 1.7rem;
     }
@@ -569,7 +568,7 @@
     display: none;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     .slider-container {
       padding-bottom: 72px;
     }
@@ -684,7 +683,7 @@
   /* Hover Effekte */
   .flipper .front:hover,
   .flipper .back:hover {
-    border-color: var(--imt-green);
+    border-color: var(--color-accent2);
   }
 
   .flipper .front:hover i {
@@ -732,7 +731,7 @@
   }
 
   .stat-card:hover {
-    border-color: var(--imt-green);
+    border-color: var(--imt-purple);
   }
 
   .stat-icon {
@@ -776,7 +775,7 @@
   }
 
   /* Tablet styles */
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     .stats-grid {
       gap: 20px;
       padding: 0 20px;
@@ -823,7 +822,7 @@
   
   /* Section styles */
   #participants {
-    padding: 60px 0;
+    padding: 80px 0;
     position: relative;
   }
   
@@ -837,7 +836,7 @@
   
   /* Impressionen Section */
   #impressionen {
-    padding: 60px 0;
+    padding: 80px 0;
     position: relative;
   }
   
@@ -858,9 +857,6 @@
     width: calc(100% - 80px);
     max-width: 1280px;
     margin: 40px auto;
-    /* Neue Einstellungen für konsistente Größe */
-    height: auto;
-    aspect-ratio: 16/9;
   }
 
   /* Gemeinsame Styles für alle Bilder */
@@ -871,22 +867,17 @@
     background: #eee;
     border: 2px solid transparent;
     transition: border-color 0.3s ease;
-    /* Neue Einstellungen für konsistente Bildgrößen */
-    height: 100%;
-    display: flex;
   }
-
+  
   .gallery-item:hover {
-    border-color: var(--imt-green);
+    border-color: var(--imt-purple);
   }
-
+  
   .gallery-item img {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* Verhindert Verzerrung der Bilder */
-    object-position: center;
   }
 
   /* Positionsklassen */
@@ -898,7 +889,7 @@
   .item6 { grid-column: 4; grid-row: 2; }
 
   /* Responsive Design */
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     .gallery {
       grid-template-columns: 1fr;
       grid-template-rows: repeat(6, minmax(200px, auto));
@@ -926,7 +917,9 @@
         min-height: 200px;
         max-height: 200px;
       }
-    }.item1, .item2, .item3, .item4, .item5, .item6 {
+    }
+    
+    .item1, .item2, .item3, .item4, .item5, .item6 {
       grid-column: 1;
       grid-row: auto;
     }
@@ -950,7 +943,7 @@
   }
 
   .faculty-card:hover {
-    border-color: var(--imt-green);
+    border-color: var(--color-accent2);
   }
 
   .faculty-card img {
@@ -982,7 +975,7 @@
     line-height: 1.4;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     .faculty-grid {
       grid-template-columns: 1fr;
       gap: 24px;
@@ -1037,7 +1030,7 @@
     font-size: 1.1rem;
   }
   
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     .contact-info {
       text-align: center;
     }
@@ -1093,7 +1086,7 @@
     display: inline-block;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     .info-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -1117,220 +1110,7 @@
     }
   }
 
-  /* Desktop styles */
-  .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-  }
-
-  /* -------- Sidebar Navigation mit Content -------- */
-  .module-tabs-v6 {
-    max-width: 900px;
-    margin: 0 auto 60px;
-    display: flex;
-    gap: 30px;
-    align-items: stretch; /* Ensure both elements stretch to match the tallest */
-  }
-  
-  .sidebar-nav-v6 {
-    width: 280px;
-    flex-shrink: 0;
-    flex-grow: 0; /* Prevent growing */
-    background: var(--color-card-bg);
-    border-radius: var(--radius);
-    box-shadow: none;
-    overflow: hidden;
-    border: 2px solid transparent;
-    transition: border-color 0.3s ease;
-  }
-  
-  .sidebar-nav-v6:hover {
-    border-color: transparent;
-  }
-  
-  .sidebar-tab-v6 {
-    padding: 16px 20px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border-left: 3px solid transparent;
-    position: relative;
-  }
-  
-  .sidebar-tab-v6.active {
-    background: rgba(76, 183, 150, 0.1);
-    border-left-color: var(--imt-green);
-  }
-  
-  .sidebar-tab-v6.active .sidebar-number-v6 {
-    background: var(--imt-green);
-    color: white;
-  }
-  
-  .sidebar-tab-v6.active .sidebar-title-v6 {
-    color: var(--imt-green);
-    font-weight: 600;
-  }
-  
-  .sidebar-tab-v6:not(:last-child)::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 20px;
-    right: 20px;
-    height: 1px;
-    background: #f0f0f0;
-  }
-  
-  .sidebar-number-v6 {
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.85rem;
-    font-weight: 700;
-    margin-right: 12px;
-    transition: all 0.3s ease;
-    background: var(--color-card-bg);
-    color: var(--color-muted);
-  }
-  
-  .sidebar-tab-v6.active .sidebar-number-v6 {
-    background: var(--imt-green);
-    color: white;
-  }
-  
-  .sidebar-title-v6 {
-    font-weight: 500;
-    font-size: 0.95rem;
-    color: var(--color-text);
-    transition: color 0.3s ease;
-  }
-  
-  .sidebar-tab-v6.active .sidebar-title-v6 {
-    color: var(--imt-green);
-    font-weight: 600;
-  }
-  
-  .sidebar-tab-v6:hover:not(.active) {
-    background: rgba(76, 183, 150, 0.05);
-  }
-  
-  .content-container-v6 {
-    flex-grow: 1;
-    background: var(--color-card-bg);
-    border-radius: var(--radius);
-    box-shadow: none;
-    overflow: hidden;
-    border: 2px solid transparent;
-    transition: border-color 0.3s ease;
-  }
-  
-  .content-container-v6:hover {
-    border-color: var(--imt-green);
-  }
-  
-  .content-panel-v6 {
-    display: none;
-    padding: 30px;
-    animation: fadeIn 0.4s ease;
-  }
-  
-  .content-panel-v6.active {
-    display: block;
-  }
-  
-  .content-title-v6 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #6e6e73; /* Gray color */
-    margin-bottom: 20px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #eee;
-  }
-  
-  /* Overrides for alignment in management_programm.html */
-  .module-tabs-v6 {
-    max-width: 100%;
-    margin: 0;
-  }
-
-  .content-container-v6 {
-    max-width: calc(100% - 310px);
-  }
-  
-  /* Custom list styling with checkmark icons */
-  .content-panel-v6 ul {
-    list-style-type: none;
-    padding-left: 0;
-  }
-  
-  .content-panel-v6 li {
-    position: relative;
-    padding-left: 28px;
-    margin-bottom: 12px;
-    line-height: 1.5;
-  }
-  
-  /* Responsive */
-  @media (max-width: 768px) {
-    .module-tabs-v6 {
-      flex-direction: column;
-    }
-    
-    .sidebar-nav-v6 {
-      width: 100%;
-    }
-
-    .content-container-v6 {
-      max-width: 100%;
-    }
-  }
-
-  /* Animation */
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* Mobile styles */
-  @media (max-width: 600px) {
-    .stats-grid {
-      grid-template-columns: 1fr;
-      gap: 16px;
-      padding: 0 16px;
-    }
-
-    .stat-card {
-      padding: 24px 16px;
-      min-height: 160px;
-    }
-
-    .stat-icon {
-      margin-bottom: 12px;
-    }
-
-    .stat-icon svg {
-      width: 32px;
-      height: 32px;
-    }
-
-    .stat-value {
-      font-size: 2.5rem;
-      margin: 8px 0;
-    }
-
-    .stat-label {
-      font-size: 0.8rem;
-      max-width: 200px;
-    }
-  }
-  
-  /* Program Info Styles */
+  /* Programm Informationen Styles */
   .program-info-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -1349,11 +1129,11 @@
   }
   
   .program-info-box:hover {
-    border-color: var(--imt-green);
+    border-color: var(--imt-purple);
   }
   
   .program-info-icon {
-    color: var(--imt-green);
+    color: var(--imt-purple);
     font-size: 28px;
     margin-bottom: 15px;
   }
@@ -1361,27 +1141,13 @@
   .program-info-label {
     text-transform: uppercase;
     color: var(--color-muted);
-    font-size: 0.9rem;
-    letter-spacing: 0.5px;
+    font-size: 0.8rem;
     margin-bottom: 8px;
   }
   
   .program-info-value {
     font-weight: 600;
-    font-size: 1.4rem;
     color: var(--color-text);
-  }
-  
-  @media (max-width: 768px) {
-    .program-info-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .program-info-grid {
-      grid-template-columns: 1fr;
-    }
   }
 
   /* Tabs Design für Starttermine */
@@ -1409,7 +1175,7 @@
   }
 
   .tab-button.active {
-    color: var(--imt-green);
+    color: var(--imt-purple);
   }
 
   .tab-button.active::after {
@@ -1419,7 +1185,7 @@
     left: 0;
     width: 100%;
     height: 3px;
-    background-color: var(--imt-green);
+    background-color: var(--imt-purple);
   }
 
   .tab-content {
@@ -1442,36 +1208,36 @@
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 12px;
-    color: var(--imt-green);
+    color: var(--imt-purple);
   }
 
+  .date-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+
+  .date-table th, .date-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #e5e5e7;
+    width: 50%;
+  }
+
+  .date-table th {
+    font-weight: 600;
+    color: var(--color-muted);
+  }
+  
   .dates-heading {
     font-size: 1.2rem;
     font-weight: 600;
     color: var(--color-text);
     margin-bottom: 16px;
     padding-bottom: 8px;
-    border-bottom: 2px solid var(--imt-green);
+    border-bottom: 2px solid var(--imt-purple);
   }
 
-  /* Styles for the Registration System */
-  .date-icon {
-    color: var(--imt-green);
-    font-size: 1.5rem;
-    margin-right: 15px;
-  }
-
-  .date-text {
-    font-size: 1.1rem;
-    font-weight: 500;
-  }
-
-  .date-location {
-    color: var(--color-muted);
-    font-size: 0.9rem;
-    margin-left: 10px;
-  }
-  
   /* Date List Styles */
   .date-list {
     list-style: none;
@@ -1504,19 +1270,72 @@
     flex: 1;
   }
   
-  @media (max-width: 768px) {
-    .date-info-content {
+  .date-text {
+    width: 180px;
+    padding-right: 10px;
+  }
+  
+  .date-location {
+    width: 120px;
+    color: var(--color-muted);
+    font-size: 0.9rem;
+    margin-left: 10px;
+  }
+  
+  .date-icon {
+    margin-right: 15px;
+    margin-bottom: 0;
+    font-size: 2rem;
+    color: var(--imt-purple);
+  }
+  
+  /* Mobile Styles für Date List */
+  @media (max-width: 968px) {
+    .date-list-item {
       flex-direction: column;
+      padding: 20px 0;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .date-list-info {
+      flex-direction: row;
+      align-items: flex-start;
+      margin-bottom: 15px;
+      width: 100%;
+    }
+    
+    .date-list-info i.date-icon {
+      margin-right: 15px;
+      margin-bottom: 0;
+      font-size: 2rem;
+      color: var(--imt-purple);
+    }
+    
+    .date-info-content {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
       align-items: flex-start;
     }
     
+    .date-text {
+      width: auto;
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      line-height: 1.3;
+      padding-right: 0;
+    }
+    
     .date-location {
+      width: auto;
       margin-left: 0;
-      margin-top: 5px;
+      margin-bottom: 8px;
+      font-size: 1rem;
     }
   }
 
-  /* Teilnehmerstimmen */
+  /* ============ Gradientes Zitat-Layout ============ */
   .gradient-quotes {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
@@ -1533,7 +1352,7 @@
   }
   
   .gradient-quote-card:hover {
-    border-color: var(--imt-green);
+    border-color: var(--imt-purple);
   }
   
   .gradient-quote-inner {
@@ -1552,7 +1371,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, var(--imt-green) 0%, var(--imt-green) 100%);
+    background: linear-gradient(135deg, var(--imt-purple) 0%, var(--imt-green) 100%);
     opacity: 0;
     transition: opacity 0.3s ease;
     z-index: 0;
@@ -1573,7 +1392,7 @@
     top: -15px;
     right: 25px;
     font-size: 4rem;
-    color: var(--imt-green);
+    color: var(--imt-purple);
     opacity: 0.1;
     transition: transform 0.3s ease;
   }
@@ -1646,7 +1465,7 @@
   
   .gradient-program {
     font-size: 0.8rem;
-    color: var(--imt-green);
+    color: var(--imt-purple);
     margin-top: 2px;
   }
   
@@ -1723,11 +1542,11 @@
       <!-- Tag Teaser über der Überschrift -->
       <div style="text-align: center; margin-bottom: 5px;">
         <div class="teaser-tag">
-          Programm
+          Managementseminar
         </div>
       </div>
-
-      <h1 style="margin-top: 10px;">StGallen imt Fast Track MBA</h1>
+      
+      <h1 style="margin-top: 10px;">KI in Business Strategy and Business Transformation</h1>
 
       <!-- Button zwischen Überschrift und Info-Boxen -->
       <a href="#broschuere">
@@ -1735,32 +1554,32 @@
       </a>
 
       <div class="info-grid">
-        <!-- Location Box -->
+        <!-- Ort Box -->
         <div class="info-box">
           <i class="bx bx-map"></i>
           <span class="info-label">Ort</span>
           <span class="info-value">St. Gallen</span>
         </div>
 
-        <!-- Length Box -->
+        <!-- Dauer Box -->
         <div class="info-box">
           <i class="bx bx-time"></i>
           <span class="info-label">Dauer</span>
           <span class="info-value">3 Tage</span>
         </div>
 
-        <!-- Language Box -->
+        <!-- Sprache Box -->
         <div class="info-box">
           <i class="bx bx-globe"></i>
           <span class="info-label">Sprache</span>
           <span class="info-value">Deutsch</span>
         </div>
 
-        <!-- Start Box -->
+        <!-- Starttermin Box -->
         <div class="info-box">
-          <i class="bx bx-award"></i>
-          <span class="info-label">ECTS</span>
-          <span class="info-value">60</span>
+          <i class="bx bx-network-chart"></i>
+          <span class="info-label">Netzwerk</span>
+          <span class="info-value">Alumni</span>
         </div>
       </div>
     </div>
@@ -1768,78 +1587,156 @@
 
   <!-- Seiteninhalt für das Programm -->
   <div class="container">
-    <!-- Programmmodule mit Sidebar Navigation -->
-    <section style="padding: 60px 0;">
-      <div class="container">
-        <h2 style="font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600; text-align: left !important; color: var(--color-text);">Programmmodule</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Entdecken Sie die Module des StGallen Fast‑Track MBA Programms.</p>
-        
-        <div class="module-tabs-v6">
-          <div class="sidebar-nav-v6">
-            <div class="sidebar-tab-v6 active" data-tab="1">
-              <div class="sidebar-number-v6">01</div>
-              <div class="sidebar-title-v6">Integrated Management</div>
-            </div>
-            <div class="sidebar-tab-v6" data-tab="2">
-              <div class="sidebar-number-v6">02</div>
-              <div class="sidebar-title-v6">Financial Management</div>
-            </div>
-            <div class="sidebar-tab-v6" data-tab="3">
-              <div class="sidebar-number-v6">03</div>
-              <div class="sidebar-title-v6">Inspirational Leadership</div>
-            </div>
-            <div class="sidebar-tab-v6" data-tab="4">
-              <div class="sidebar-number-v6">04</div>
-              <div class="sidebar-title-v6">Marketing & Brand</div>
+    <!-- Module-Content Sektion -->
+    <section id="module-content" class="content-section">
+      <h2>KI in Business Strategy and Business Transformation</h2>
+      
+      <p class="section-subtitle">Entdecken Sie die sieben Schlüsselmodule unseres Executive Seminars – von KI-Grundlagen bis zur erfolgreichen Implementierung in Ihrem Unternehmen.</p>
+      
+      <div class="slider-container">
+        <button aria-label="Zurück" class="slider-btn prev" disabled></button>
+        <div class="slider-track">
+          <!-- Box 1 -->
+          <div class="slide flip-container">
+            <div class="flipper">
+              <div class="front">
+                <i class='bx bx-brain icon-brain' style="font-size: 32px; margin-bottom: 16px; opacity: 0.85;"></i>
+                <h3>Konzepte &amp; strategische Relevanz von KI</h3>
+                <p>KI verstehen – jenseits des Hypes. Fundiertes Wissen für strategische Entscheidungen.</p>
+                <a class="flip-link" href="#">
+                  <i class='bx bx-plus-circle'></i>
+                </a>
+              </div>
+              <div class="back">
+                <p>Ein strukturierter Überblick über zentrale KI-Begriffe und Konzepte wird vermittelt. Die Relevanz für das eigene Unternehmen und die Branche wird herausgearbeitet.</p>
+                <a class="flip-link" href="#">
+                  <i class='bx bx-minus-circle'></i>
+                </a>
+              </div>
             </div>
           </div>
           
-          <div class="content-container-v6">
-            <div class="content-panel-v6 active" data-content="1">
-              <h3 class="content-title-v6">Integrated Management and Strategy</h3>
-              <p>In diesem Modul erlernen Sie, wie Sie einen ganzheitlichen Managementansatz entwickeln und Geschäftsstrategien erfolgreich implementieren können. Behandelt werden zentrale Konzepte wie:</p>
-              <ul>
-                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Strategische Positionierung und Wettbewerbsvorteile</li>
-                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Integriertes Management in der VUCA-Welt</li>
-                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Entwicklung von nachhaltigen Geschäftsmodellen</li>
-                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Strategische Analyse und Entscheidungsfindung</li>
-              </ul>
+          <!-- Box 2 -->
+          <div class="slide flip-container">
+            <div class="flipper">
+              <div class="front">
+                <i class='bx bx-trending-up icon-trend' style="font-size: 32px; margin-bottom: 16px; opacity: 0.85;"></i>
+                <h3>Strategische Einsatzfelder und Business Impact von KI</h3>
+                <p>Wo KI echten Mehrwert schafft – datenbasiert, skalierbar, relevant</p>
+                <a class="flip-link" href="#">
+                  <i class='bx bx-plus-circle'></i>
+                </a>
+              </div>
+              <div class="back">
+                <p>Konkrete Anwendungsbereiche von KI zur Wertschöpfung, Effizienzsteigerung und Kundenbindung werden analysiert. Best-Practice-Beispiele aus verschiedenen Branchen werden diskutiert.</p>
+                <a class="flip-link" href="#">
+                  <i class='bx bx-minus-circle'></i>
+                </a>
+              </div>
             </div>
-            
-            <div class="content-panel-v6" data-content="2">
-              <h3 class="content-title-v6">Financial Management</h3>
-              <p>Dieses Modul vermittelt Ihnen ein umfassendes Verständnis finanzieller Konzepte und deren Anwendung im Unternehmenskontext. Zu den Inhalten gehören:</p>
-              <ul>
-                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Finanzanalyse und Kennzahleninterpretation</li>
-                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Investitionsbewertung und -entscheidungen</li>
-                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Cashflow-Management und Unternehmensfinanzierung</li>
-                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Finanzielle Risikobewertung und -absicherung</li>
-              </ul>
+          </div>
+          
+          <!-- Box 3 -->
+          <div class="slide flip-container">
+            <div class="flipper">
+              <div class="front">
+                <i class='bx bx-data icon-data' style="font-size: 32px; margin-bottom: 16px; opacity: 0.85;"></i>
+                <h3>Datenstrategie als Enabler für KI</h3>
+                <p>KI funktioniert nur mit Daten – die richtige Strategie macht den Unterschied.</p>
+                <a class="flip-link" href="#">
+                  <i class='bx bx-plus-circle'></i>
+                </a>
+              </div>
+              <div class="back">
+                <p>Die Entwicklung einer effektiven Datenstrategie als Grundlage für KI-Initiativen wird vermittelt. Teilnehmer lernen, welche Daten relevant sind und wie sie zugänglich gemacht werden können.</p>
+                <a class="flip-link" href="#">
+                  <i class='bx bx-minus-circle'></i>
+                </a>
+              </div>
             </div>
-            
-            <div class="content-panel-v6" data-content="3">
-              <h3 class="content-title-v6">Inspirational Leadership</h3>
-              <p>In diesem Modul entwickeln Sie Ihre Führungskompetenzen weiter und lernen, wie Sie Teams inspirieren und motivieren. Themenschwerpunkte sind:</p>
-              <ul>
-                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Moderne Führungsstile und deren Wirksamkeit</li>
-                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Emotionale Intelligenz und ihre Bedeutung für Führungskräfte</li>
-                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Change Management und Transformationsführung</li>
-                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Team-Building und Konfliktmanagement</li>
-              </ul>
+          </div>
+          
+          <!-- Box 4 -->
+          <div class="slide flip-container">
+            <div class="flipper">
+              <div class="front">
+                <i class='bx bx-cube icon-cube' style="font-size: 32px; margin-bottom: 16px; opacity: 0.85;"></i>
+                <h3>Geschäftsmodellinnovation durch KI</h3>
+                <p>KI verändert nicht nur Abläufe, sondern ganze Geschäftsmodelle.</p>
+                <a class="flip-link" href="#">
+                  <i class='bx bx-plus-circle'></i>
+                </a>
+              </div>
+              <div class="back">
+                <p>Teilnehmer erarbeiten, wie KI bestehende Geschäftsmodelle transformieren und neue kreieren kann. Methodiken zur systematischen Innovation werden angewandt.</p>
+                <a class="flip-link" href="#">
+                  <i class='bx bx-minus-circle'></i>
+                </a>
+              </div>
             </div>
-            
-            <div class="content-panel-v6" data-content="4">
-              <h3 class="content-title-v6">Marketing, Sales and Brand Communication</h3>
-              <p>Dieses Modul konzentriert sich auf moderne Marketingstrategien und effektive Markenführung. Sie befassen sich mit:</p>
-              <ul>
-                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Strategische Markenpositionierung und -entwicklung</li>
-                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Integrierte Marketingkommunikation</li>
-                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Digitales Marketing und Omnichannel-Strategien</li>
-                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Verkaufspsychologie und Customer Journey Optimierung</li>
-              </ul>
+          </div>
+          
+          <!-- Box 5 -->
+          <div class="slide flip-container">
+            <div class="flipper">
+              <div class="front">
+                <i class='bx bx-crown icon-crown' style="font-size: 32px; margin-bottom: 16px; opacity: 0.85;"></i>
+                <h3>Leadership & Organisationsentwicklung im KI-Zeitalter</h3>
+                <p>KI verändert Führung, Zusammenarbeit und Unternehmensstrukturen.</p>
+                <a class="flip-link" href="#">
+                  <i class='bx bx-plus-circle'></i>
+                </a>
+              </div>
+              <div class="back">
+                <p>Notwendige Führungskompetenzen und organisatorische Veränderungen für erfolgreiche KI-Integration werden vermittelt. Die Bedeutung von Change Management wird hervorgehoben.</p>
+                <a class="flip-link" href="#">
+                  <i class='bx bx-minus-circle'></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Box 6 -->
+          <div class="slide flip-container">
+            <div class="flipper">
+              <div class="front">
+                <i class='bx bx-slider icon-slider' style="font-size: 32px; margin-bottom: 16px; opacity: 0.85;"></i>
+                <h3>Roadmap zur KI-Transformation</h3>
+                <p>Der strukturierte Weg zur erfolgreichen KI-Integration – von der Vision zur Umsetzung.</p>
+                <a class="flip-link" href="#">
+                  <i class='bx bx-plus-circle'></i>
+                </a>
+              </div>
+              <div class="back">
+                <p>Ein systematisches Vorgehen für den KI-Transformationsprozess wird erarbeitet. Methoden zur Priorisierung von Initiativen, Kompetenzaufbau und kultureller Integration werden vermittelt.</p>
+                <a class="flip-link" href="#">
+                  <i class='bx bx-minus-circle'></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Box 7 -->
+          <div class="slide flip-container">
+            <div class="flipper">
+              <div class="front">
+                <i class='bx bx-expand icon-expand' style="font-size: 32px; margin-bottom: 16px; opacity: 0.85;"></i>
+                <h3>Skalierung & Governance von KI-Initiativen</h3>
+                <p>Pilotprojekte sind erst der Anfang – jetzt wird skaliert.</p>
+                <a class="flip-link" href="#">
+                  <i class='bx bx-plus-circle'></i>
+                </a>
+              </div>
+              <div class="back">
+                <p>Vorgehensweisen zur Skalierung und institutionellen Verankerung von KI werden aufgezeigt. Strukturen zur Governance, ethische Leitlinien und Erfolgsmetriken werden diskutiert.</p>
+                <a class="flip-link" href="#">
+                  <i class='bx bx-minus-circle'></i>
+                </a>
+              </div>
             </div>
           </div>
         </div>
+        <button aria-label="Weiter" class="slider-btn next"></button>
       </div>
     </section>
 
@@ -1847,7 +1744,7 @@
     <section id="program-info" class="content-section" style="padding: 60px 0;">
       <div class="container">
         <h2 style="font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600; text-align: left !important; color: var(--color-text);">Programm-Informationen</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Alle wichtigen Details zum StGallen imt Fast Track MBA auf einen Blick.</p>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Alle wichtigen Details zum KI Business Strategy and Digital Transformation Programm auf einen Blick.</p>
         
         <div class="program-info-grid">
           <!-- Box 1: Ort -->
@@ -1861,64 +1758,37 @@
           <div class="program-info-box">
             <i class='bx bx-time program-info-icon'></i>
             <div class="program-info-label">Dauer</div>
-            <div class="program-info-value">18 Monate</div>
+            <div class="program-info-value">3 Tage</div>
           </div>
 
           <!-- Box 6: Sprache -->
           <div class="program-info-box">
             <i class='bx bx-globe program-info-icon'></i>
             <div class="program-info-label">Sprache</div>
-            <div class="program-info-value">Deutsch/Englisch</div>
+            <div class="program-info-value">Deutsch</div>
           </div>
 
-           <!-- Box 3: Starttermin -->
-           <div class="program-info-box">
-            <i class='bx bx-calendar-alt program-info-icon'></i>
-            <div class="program-info-label">Starttermin</div>
-            <div class="program-info-value">Flexibel</div>
-          </div>  
-
-           <!-- Box 8: Programmtyp -->
-           <div class="program-info-box">
-            <i class='bx bx-book-open program-info-icon'></i>
-            <div class="program-info-label">Programmtyp</div>
-            <div class="program-info-value">MBA</div>
-          </div>
-
-          <!-- Box 4: ECTS -->
-            <div class="program-info-box">
-            <i class='bx bx-award program-info-icon'></i>
-            <div class="program-info-label">ECTS</div>
-            <div class="program-info-value">60</div>
-          </div>
 
         
           <!-- Box 7: Zielgruppe -->
           <div class="program-info-box">
             <i class='bx bx-group program-info-icon'></i>
             <div class="program-info-label">Zielgruppe</div>
-            <div class="program-info-value" style="font-size: 0.9rem;">Führungskräfte, Executives, ManagerInnen</div>
+            <div class="program-info-value" style="font-size: 0.9rem;">Führungskräfte, Executives</div>
           </div>
 
           <!-- Box 3: Investition -->
           <div class="program-info-box">
-             <i class='bx bx-money program-info-icon'></i>
+            <i class='bx bx-money program-info-icon'></i>
             <div class="program-info-label">Investition</div>
-            <div class="program-info-value">29.800 CHF</div>
-           </div>
+            <div class="program-info-value">2500 €</div>
+          </div>
 
           <!-- Box 9: Netzwerk -->
           <div class="program-info-box">
             <i class='bx bx-network-chart program-info-icon'></i>
             <div class="program-info-label">Netzwerk</div>
             <div class="program-info-value">Alumni</div>
-          </div>
-
-          <!-- Box 3: Einstieg -->
-          <div class="program-info-box">
-            <i class='bx bx-calendar-alt program-info-icon'></i>
-            <div class="program-info-label">Einstieg</div>
-            <div class="program-info-value">25.5.2025</div>
           </div>
         </div>
         
@@ -1934,23 +1804,23 @@
             <!-- Tab 2025 -->
             <div class="tab-pane active" id="tab-2025">
               <div class="date-module">
-                <h4>MBA Starttermine</h4>
                 <ul class="date-list">
                   <li class="date-list-item">
                     <div class="date-list-info">
                       <i class="bx bx-calendar-alt date-icon"></i>
                       <div class="date-info-content">
-                        <span class="date-text">15.04.2025</span>
+                        <span class="date-text">05.-07.05.2025</span>
                         <span class="date-location">(St. Gallen)</span>
                       </div>
                     </div>
                   </li>
+                  
                   <li class="date-list-item">
                     <div class="date-list-info">
                       <i class="bx bx-calendar-alt date-icon"></i>
                       <div class="date-info-content">
-                        <span class="date-text">15.10.2025</span>
-                        <span class="date-location">(St. Gallen)</span>
+                        <span class="date-text">06.-08.10.2025</span>
+                        <span class="date-location">(Online)</span>
                       </div>
                     </div>
                   </li>
@@ -1961,22 +1831,32 @@
             <!-- Tab 2026 -->
             <div class="tab-pane" id="tab-2026">
               <div class="date-module">
-                <h4>MBA Starttermine</h4>
                 <ul class="date-list">
                   <li class="date-list-item">
                     <div class="date-list-info">
                       <i class="bx bx-calendar-alt date-icon"></i>
                       <div class="date-info-content">
-                        <span class="date-text">15.04.2026</span>
+                        <span class="date-text">20.-22.04.2026</span>
                         <span class="date-location">(St. Gallen)</span>
-              </div>
-            </div>
+                      </div>
+                    </div>
                   </li>
+                  
                   <li class="date-list-item">
                     <div class="date-list-info">
                       <i class="bx bx-calendar-alt date-icon"></i>
                       <div class="date-info-content">
-                        <span class="date-text">15.10.2026</span>
+                        <span class="date-text">23.-25.04.2026</span>
+                        <span class="date-location">(Online)</span>
+                      </div>
+                    </div>
+                  </li>
+                  
+                  <li class="date-list-item">
+                    <div class="date-list-info">
+                      <i class="bx bx-calendar-alt date-icon"></i>
+                      <div class="date-info-content">
+                        <span class="date-text">18.-20.06.2026</span>
                         <span class="date-location">(St. Gallen)</span>
                       </div>
                     </div>
@@ -1989,8 +1869,68 @@
       </div>
     </section>
 
+    <!-- Informationen über Teilnehmer -->
+    <section id="participants">
+      <div class="container">
+        <h2>Information über Teilnehmer</h2>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Unser Executive Seminar KI in Business Strategy and Business Transformation bringt erfahrene Führungskräfte aus verschiedenen Branchen und Ländern zusammen.</p>
+        <div class="stats-grid">
+            <!-- Berufserfahrung -->
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <svg viewBox="0 0 24 24" class="color-brain">
+                        <rect x="3" y="4" width="18" height="18" rx="2"/>
+                        <path d="M16 2v4M8 2v4M3 10h18"/>
+                        <path d="M8 14h8M8 17h5"/>
+                    </svg>
+                </div>
+                <div class="stat-value" data-target="12">0</div>
+                <div class="stat-label">Jahre Berufserfahrung</div>
+            </div>
+
+            <!-- Senior C-Level -->
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <svg viewBox="0 0 24 24" class="color-trend">
+                        <rect x="3" y="8" width="18" height="12" rx="2"/>
+                        <path d="M8 8V6a2 2 0 012-2h4a2 2 0 012 2v2"/>
+                        <path d="M12 12v4"/>
+                    </svg>
+                </div>
+                <div class="stat-value" data-target="35" data-suffix="%">0%</div>
+                <div class="stat-label">Teilnehmer mit Senior C-Level</div>
+            </div>
+
+            <!-- Durchschnittsalter -->
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <svg viewBox="0 0 24 24" class="color-data">
+                        <circle cx="12" cy="8" r="5"/>
+                        <path d="M20 21v-2a8 8 0 00-16 0v2"/>
+                    </svg>
+                </div>
+                <div class="stat-value" data-target="42">0</div>
+                <div class="stat-label">Durchschnittsalter</div>
+            </div>
+
+            <!-- Nationalitäten -->
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <svg viewBox="0 0 24 24" class="color-cube">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+                        <path d="M2 12h20"/>
+                    </svg>
+                </div>
+                <div class="stat-value" data-target="15">0</div>
+                <div class="stat-label">Nationalitäten</div>
+            </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Einblicke & Impressionen -->
-    <section id="impressionen" style="padding: 60px 0;">
+    <section id="impressionen">
       <div class="container">
         <h2>Einblicke & Impressionen</h2>
         <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Tauchen Sie ein in die Atmosphäre unseres Executive Seminars – von inspirierenden Workshops über exklusive Firmenbesuche bei Google bis zu intensiven Lernerfahrungen in St. Gallen.</p>
@@ -2032,7 +1972,160 @@
     <section class="content-section">
       <div class="container">
         <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Teilnehmerstimmen</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Erfahren Sie, wie unsere Absolventen vom Fast Track MBA profitieren und die gelernten Konzepte in ihrem beruflichen Alltag umsetzen.</p>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Erfahren Sie, wie unsere Absolventen vom Executive Seminar Integrated Management and Strategy profitieren und die gelernten Konzepte in ihrem beruflichen Alltag umsetzen.</p>
+        
+        <style>
+          /* ============ Gradientes Zitat-Layout ============ */
+          .gradient-quotes {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+          }
+          
+          .gradient-quote-card {
+            border-radius: var(--radius);
+            overflow: hidden;
+            position: relative;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+          }
+          
+          .gradient-quote-card:hover {
+            border-color: var(--imt-purple);
+          }
+          
+          .gradient-quote-inner {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            background: linear-gradient(to bottom right, #ffffff, #f8f9fa);
+            position: relative;
+            z-index: 1;
+          }
+          
+          .gradient-quote-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--imt-purple) 0%, var(--imt-green) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 0;
+          }
+          
+          .gradient-quote-card:hover::before {
+            opacity: 0.03;
+          }
+          
+          .gradient-quote-content {
+            padding: 40px 30px 25px;
+            position: relative;
+            flex: 1;
+          }
+          
+          .gradient-quote-icon {
+            position: absolute;
+            top: -15px;
+            right: 25px;
+            font-size: 4rem;
+            color: var(--imt-purple);
+            opacity: 0.1;
+            transition: transform 0.3s ease;
+          }
+          
+          .gradient-quote-card:hover .gradient-quote-icon {
+            transform: rotate(10deg);
+          }
+          
+          .gradient-quote-text {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: var(--color-text);
+            font-weight: 400;
+            position: relative;
+            z-index: 1;
+          }
+          
+          .gradient-quote-footer {
+            background-color: #fafafa;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #f0f0f0;
+          }
+          
+          .gradient-person {
+            display: flex;
+            align-items: center;
+          }
+          
+          .gradient-avatar-container {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+            border: 3px solid white;
+            transition: all 0.3s ease;
+          }
+          
+          .gradient-quote-card:hover .gradient-avatar-container {
+            border-color: #f5f5f7;
+          }
+          
+          .gradient-avatar {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+          
+          .gradient-info {
+            display: flex;
+            flex-direction: column;
+          }
+          
+          .gradient-name {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 2px;
+          }
+          
+          .gradient-position {
+            font-size: 0.85rem;
+            color: var(--color-muted);
+            min-height: 40px; /* Ensure consistent height */
+            display: flex;
+            align-items: center;
+          }
+          
+          .gradient-program {
+            font-size: 0.8rem;
+            color: var(--imt-purple);
+            margin-top: 2px;
+          }
+          
+          .gradient-company {
+            height: 40px;
+            width: auto;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+          }
+          
+          .gradient-quote-card:hover .gradient-company {
+            opacity: 1;
+          }
+          
+          @media (max-width: 968px) {
+            .gradient-quotes {
+              grid-template-columns: 1fr;
+            }
+          }
+        </style>
         
         <div class="gradient-quotes">
           <!-- Gradient Quote 1 -->
@@ -2040,30 +2133,30 @@
             <div class="gradient-quote-inner">
               <div class="gradient-quote-content">
                 <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
-                <p class="gradient-quote-text">Durch den Fast Track MBA konnte ich meine strategischen Fähigkeiten entscheidend verbessern. Die praxisnahen Fallstudien und der intensive Austausch mit Führungskräften aus verschiedenen Branchen haben mir völlig neue Perspektiven eröffnet.</p>
-                </div>
+                <p class="gradient-quote-text">Durch das Executive Seminar Integrated Management and Strategy konnte ich meine strategischen Fähigkeiten entscheidend verbessern. Die praxisnahen Fallstudien und der intensive Austausch mit Führungskräften aus verschiedenen Branchen haben mir völlig neue Perspektiven eröffnet.</p>
+              </div>
               <div class="gradient-quote-footer">
                 <div class="gradient-person">
                   <div class="gradient-avatar-container">
                     <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Julia Müller" class="gradient-avatar">
-            </div>
+                  </div>
                   <div class="gradient-info">
                     <span class="gradient-name">Julia Müller</span>
                     <span class="gradient-position">Chief Strategy Officer, Swiss Innovation Group</span>
                   </div>
-            </div>
+                </div>
                 <img src="assets/companies/google.png" alt="Company" class="gradient-company">
               </div>
-                </div>
             </div>
-            
+          </div>
+          
           <!-- Gradient Quote 2 -->
           <div class="gradient-quote-card">
             <div class="gradient-quote-inner">
               <div class="gradient-quote-content">
                 <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
-                <p class="gradient-quote-text">Das Programm hat meine Erwartungen übertroffen. Die Dozenten vermitteln nicht nur akademisches Wissen, sondern teilen ihre reichhaltige Praxiserfahrung. Die Integration von MBA-Strategien in unser Unternehmen ist dank der im Programm erlernten Methoden nun viel strukturierter.</p>
-                </div>
+                <p class="gradient-quote-text">Das Seminar hat meine Erwartungen übertroffen. Die Dozenten vermitteln nicht nur akademisches Wissen, sondern teilen ihre reichhaltige Praxiserfahrung. Die Integration von KI-Strategien in unser Unternehmen ist dank der im Seminar erlernten Methoden nun viel strukturierter.</p>
+              </div>
               <div class="gradient-quote-footer">
                 <div class="gradient-person">
                   <div class="gradient-avatar-container">
@@ -2077,22 +2170,68 @@
                 <img src="assets/companies/sap.png" alt="Company" class="gradient-company">
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Faculty & Experts Section -->
+    <section id="faculty">
+      <div class="container">
+        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Akademische Leitung</h2>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Lernen Sie von führenden Experten aus Wissenschaft und Praxis – profitieren Sie von jahrelanger Erfahrung in KI und digitaler Transformation.</p>
+        
+        <div class="faculty-grid">
+            <div class="faculty-card">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Prof. Dr. Maria Schmidt"/>
+                <div class="faculty-info">
+                    <h3 class="faculty-name">Prof. Dr. Maria Schmidt</h3>
+                    <div class="faculty-title">Professorin für KI & Business Innovation</div>
+                    <p class="faculty-description">Expertin für KI-gestützte Geschäftsmodelle mit über 15 Jahren Erfahrung in der Transformation von Unternehmen.</p>
+                </div>
+            </div>
+            
+            <div class="faculty-card">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Dr. Thomas Weber"/>
+                <div class="faculty-info">
+                    <h3 class="faculty-name">Dr. Thomas Weber</h3>
+                    <div class="faculty-title">Chief Innovation Officer, TechCorp</div>
+                    <p class="faculty-description">Pionier in der Integration von KI in traditionelle Geschäftsprozesse. Leitet erfolgreich digitale Transformationsprojekte.</p>
+                </div>
+            </div>
+            
+            <div class="faculty-card">
+                <img src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Sarah Chen"/>
+                <div class="faculty-info">
+                    <h3 class="faculty-name">Sarah Chen</h3>
+                    <div class="faculty-title">Head of AI Strategy, GlobalTech</div>
+                    <p class="faculty-description">Verbindet akademische Expertise mit praktischer Erfahrung in der Implementierung von KI-Lösungen.</p>
+                </div>
+            </div>
+            
+            <div class="faculty-card">
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Dr. Michael Bauer"/>
+                <div class="faculty-info">
+                    <h3 class="faculty-name">Dr. Michael Bauer</h3>
+                    <div class="faculty-title">Digital Transformation Expert</div>
+                    <p class="faculty-description">Berät internationale Unternehmen bei der strategischen Ausrichtung ihrer KI-Initiativen.</p>
+                </div>
             </div>
         </div>
       </div>
     </section>
 
     <!-- IMT Advisor Section -->
-    <section id="contact" style="padding: 60px 0;">
+    <section id="contact">
       <div class="container">
         <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Ansprechpartner</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Ihr persönlicher Ansprechpartner für alle Fragen rund um den StGallen imt Fast‑Track MBA Programm – profitieren Sie von seiner langjährigen Expertise in der digitalen Transformation.</p>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Ihr persönlicher Ansprechpartner für alle Fragen rund um das Managementseminar KI in Business Strategy and Business Transformation – profitieren Sie von seiner langjährigen Expertise in der digitalen Transformation.</p>
         
         <div class="contact-info">
           <img alt="Monika Dutkiewicz" src="https://lirp.cdn-website.com/d603a072/dms3rep/multi/opt/Monika-Dutkiewiecz-70a9e6ff-bb2e6919-9188df2f-1920w.jpeg"/>
           <div class="contact-details">
             <h3>Monika Dutkiewicz</h3>
-            <p style="margin-bottom: 0;">Ansprechpartner StGallen Fast‑Track MBA Programm</p>
+            <p style="margin-bottom: 0;">Ansprechpartner KI in Business Strategy and Business Transformation</p>
             <p style="margin-bottom: 0; margin-top: 0;"><a href="mailto:monika.dutkiewicz@imt.ch" style="color: #9c27b0;">monika.dutkiewicz@imt.ch</a></p>
             <p style="margin-bottom: 0; margin-top: 0;">+41 71 224 72 22</p>
           </div>
@@ -2101,10 +2240,10 @@
     </section>
 
     <!-- Broschüre Herunterladen Section -->
-    <section id="broschuere" style="padding: 60px 0;">
+    <section id="broschuere">
       <div class="container">
         <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Kostenlos Broschüre herunterladen</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Laden Sie jetzt die ausführliche Programmbroschüre zum Executive Seminar StGallen Fast‑Track MBA Programm herunter – mit allen Details zu Inhalten, Methoden und Ihrem Lernerfolg.</p>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Laden Sie jetzt die ausführliche Programmbroschüre zum Executive Seminar KI in Business Strategy and Business Transformation herunter – mit allen Details zu Inhalten, Methoden und Ihrem Lernerfolg.</p>
         <div style="display: flex; gap: 32px; align-items: stretch; flex-wrap: wrap; margin-top: 32px;">
           
           <!-- Formular -->
@@ -2234,7 +2373,7 @@
             <div id="download-ready" class="hidden" style="text-align: center; margin-top: 24px;">
               <h3 style="margin-bottom: 16px;">Vielen Dank für Ihr Interesse!</h3>
               <p style="margin-bottom: 24px;">Ihre Broschüre steht zum Download bereit.</p>
-              <a href="assets/broschueren/fast_track_mba.pdf" download class="cta-button">
+              <a href="assets/broschueren/ki_business_strategy_digital_transformation.pdf" download class="cta-button">
                 Broschüre herunterladen <span class="arrow-icon">→</span>
               </a>
             </div>
@@ -2553,7 +2692,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Collect form data
             const formData = {
-                programm: "AI in Business Strategy & Digital Transformation",
+                programm: "KI in Business Strategy and Business Transformation",
                 vorname: form.querySelector('[name="firstname"]').value,
                 nachname: form.querySelector('[name="lastname"]').value,
                 email: form.querySelector('[name="email"]').value,
@@ -2726,7 +2865,7 @@ document.addEventListener('DOMContentLoaded', () => {
           // Programm-Titel setzen
           const programTitle = document.querySelector('.program-title');
           if (programTitle) {
-            programTitle.textContent = "AI in Business Strategy & Digital Transformation";
+            programTitle.textContent = "KI in Business Strategy and Business Transformation";
             programTitle.href = "programm-seite.html";
           }
         }
@@ -2813,61 +2952,29 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 </script>
 
-<!-- JavaScript für die Sidebar-Navigation Funktionalität -->
+<!-- Skript für Tabs Funktionalität für Starttermine -->
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Sidebar-Navigation Tabs
-    initSidebarTabs();
-    
-    function initSidebarTabs() {
-      const sidebarTabs = document.querySelectorAll('.sidebar-tab-v6');
-      const contentPanels = document.querySelectorAll('.content-panel-v6');
+// Tabs Funktionalität für Starttermine
+document.addEventListener('DOMContentLoaded', function() {
+  const tabButtons = document.querySelectorAll('.tab-button');
+  tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Entferne active class von allen tabs
+      tabButtons.forEach(btn => btn.classList.remove('active'));
       
-      sidebarTabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-          const tabId = tab.getAttribute('data-tab');
-          
-          // Aktiven Tab setzen
-          sidebarTabs.forEach(t => t.classList.remove('active'));
-          tab.classList.add('active');
-          
-          // Aktiven Content setzen
-          contentPanels.forEach(panel => {
-            panel.classList.remove('active');
-            if (panel.getAttribute('data-content') === tabId) {
-              panel.classList.add('active');
-            }
-          });
-        });
-      });
-    }
-  });
-</script>
-
-<!-- JavaScript für die Date-Tabs -->
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Date-Tabs Funktionalität
-    const tabButtons = document.querySelectorAll('.tab-button');
-    const tabPanes = document.querySelectorAll('.tab-pane');
-    
-    tabButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        // Aktiven Button-Status setzen
-        tabButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-        
-        // Aktiven Tab-Content anzeigen
-        const target = button.getAttribute('data-target');
-        tabPanes.forEach(pane => {
-          pane.classList.remove('active');
-          if (pane.id === target) {
-            pane.classList.add('active');
-          }
-        });
-      });
+      // Füge active class zum geklickten tab hinzu
+      button.classList.add('active');
+      
+      // Verstecke alle Tab-Panes
+      const tabPanes = document.querySelectorAll('.tab-pane');
+      tabPanes.forEach(pane => pane.classList.remove('active'));
+      
+      // Zeige die entsprechende Tab-Pane
+      const targetId = button.getAttribute('data-target');
+      document.getElementById(targetId).classList.add('active');
     });
   });
+});
 </script>
 
 <!-- Script für zufällige Galeriebilder -->

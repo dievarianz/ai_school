@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>StGallen Fast‑Track MBA Programm | St.Gallen imt Business School</title>
+<title>StGallen AI Excellence Management Program | St.Gallen imt Business School</title>
 
 <!-- ============ STYLES ============ -->
 <style>
@@ -12,7 +12,7 @@
     --color-text:#1d1d1f;
     --color-muted:#6e6e73;
     --color-card-bg:#f5f5f7;
-    --color-accent2:#4CB796;
+    --color-accent2:#970289;
     --color-badge:#e2b245;
     --color-badge-hover:#d4a535;
     --spacing:24px;
@@ -92,7 +92,7 @@
   }
 
   a {
-    color: var(--imt-green);
+    color: var(--imt-purple);
     text-decoration: none;
     transition: color 0.2s ease;
   }
@@ -124,7 +124,7 @@
     width: 100%;
     height: 100%;
     background: 
-        url('assets/pictures/hero_fast_track_mba.jpg')
+        url('assets/pictures/hero_management_programm.jpg')
         center/cover no-repeat;
     opacity: 0.20;
     z-index: 0;
@@ -674,7 +674,7 @@
   }
 
   .flip-link:hover i {
-    color: var(--color-accent2);
+    color: var(--imt-green);
   }
 
   .flip-link span {
@@ -858,7 +858,7 @@
     width: calc(100% - 80px);
     max-width: 1280px;
     margin: 40px auto;
-    /* Neue Einstellungen für konsistente Größe */
+    /* New settings for consistent size */
     height: auto;
     aspect-ratio: 16/9;
   }
@@ -871,21 +871,21 @@
     background: #eee;
     border: 2px solid transparent;
     transition: border-color 0.3s ease;
-    /* Neue Einstellungen für konsistente Bildgrößen */
+    /* New settings for consistent image sizes */
     height: 100%;
     display: flex;
   }
-
+  
   .gallery-item:hover {
-    border-color: var(--imt-green);
+    border-color: var(--imt-purple);
   }
-
+  
   .gallery-item img {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* Verhindert Verzerrung der Bilder */
+    /* Prevents image distortion */
     object-position: center;
   }
 
@@ -969,7 +969,7 @@
   }
 
   .faculty-title {
-    color: var(--color-accent2);
+    color: var(--imt-green);
     font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -1117,13 +1117,6 @@
     }
   }
 
-  /* Desktop styles */
-  .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-  }
-
   /* -------- Sidebar Navigation mit Content -------- */
   .module-tabs-v6 {
     max-width: 900px;
@@ -1253,6 +1246,23 @@
     border-bottom: 1px solid #eee;
   }
   
+  /* Responsive */
+  @media (max-width: 768px) {
+    .module-tabs-v6 {
+      flex-direction: column;
+    }
+    
+    .sidebar-nav-v6 {
+      width: 100%;
+    }
+  }
+
+  /* Animation */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
   /* Overrides for alignment in management_programm.html */
   .module-tabs-v6 {
     max-width: 100%;
@@ -1263,6 +1273,12 @@
     max-width: calc(100% - 310px);
   }
   
+  @media (max-width: 768px) {
+    .content-container-v6 {
+      max-width: 100%;
+    }
+  }
+
   /* Custom list styling with checkmark icons */
   .content-panel-v6 ul {
     list-style-type: none;
@@ -1273,64 +1289,18 @@
     position: relative;
     padding-left: 28px;
     margin-bottom: 12px;
-    line-height: 1.5;
   }
   
-  /* Responsive */
-  @media (max-width: 768px) {
-    .module-tabs-v6 {
-      flex-direction: column;
-    }
-    
-    .sidebar-nav-v6 {
-      width: 100%;
-    }
+  /* We no longer need this since we're using inline icons */
+  /* .content-panel-v6 li::before {
+    font-family: 'boxicons';
+    content: '\f00c';
+    position: absolute;
+    left: 0;
+    color: #a0a0a0;
+    font-size: 18px;
+  } */
 
-    .content-container-v6 {
-      max-width: 100%;
-    }
-  }
-
-  /* Animation */
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* Mobile styles */
-  @media (max-width: 600px) {
-    .stats-grid {
-      grid-template-columns: 1fr;
-      gap: 16px;
-      padding: 0 16px;
-    }
-
-    .stat-card {
-      padding: 24px 16px;
-      min-height: 160px;
-    }
-
-    .stat-icon {
-      margin-bottom: 12px;
-    }
-
-    .stat-icon svg {
-      width: 32px;
-      height: 32px;
-    }
-
-    .stat-value {
-      font-size: 2.5rem;
-      margin: 8px 0;
-    }
-
-    .stat-label {
-      font-size: 0.8rem;
-      max-width: 200px;
-    }
-  }
-  
-  /* Program Info Styles */
   .program-info-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -1516,7 +1486,7 @@
     }
   }
 
-  /* Teilnehmerstimmen */
+  /* Teilnehmerstimmen Styles */
   .gradient-quotes {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
@@ -1727,7 +1697,7 @@
         </div>
       </div>
 
-      <h1 style="margin-top: 10px;">StGallen imt Fast Track MBA</h1>
+      <h1 style="margin-top: 10px;">StGallen AI Excellence Management Program</h1>
 
       <!-- Button zwischen Überschrift und Info-Boxen -->
       <a href="#broschuere">
@@ -1756,11 +1726,11 @@
           <span class="info-value">Deutsch</span>
         </div>
 
-        <!-- Start Box -->
+        <!-- Start Date Box -->
         <div class="info-box">
-          <i class="bx bx-award"></i>
-          <span class="info-label">ECTS</span>
-          <span class="info-value">60</span>
+          <i class="bx bx-network-chart"></i>
+          <span class="info-label">Network</span>
+          <span class="info-value">Alumni</span>
         </div>
       </div>
     </div>
@@ -1772,7 +1742,7 @@
     <section style="padding: 60px 0;">
       <div class="container">
         <h2 style="font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600; text-align: left !important; color: var(--color-text);">Programmmodule</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Entdecken Sie die Module des StGallen Fast‑Track MBA Programms.</p>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Entdecken Sie die Module, des StGallen AI Excellence Management Program.</p>
         
         <div class="module-tabs-v6">
           <div class="sidebar-nav-v6">
@@ -1847,7 +1817,7 @@
     <section id="program-info" class="content-section" style="padding: 60px 0;">
       <div class="container">
         <h2 style="font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600; text-align: left !important; color: var(--color-text);">Programm-Informationen</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Alle wichtigen Details zum StGallen imt Fast Track MBA auf einen Blick.</p>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Alle wichtigen Details zum StGallen imt Management Programm auf einen Blick.</p>
         
         <div class="program-info-grid">
           <!-- Box 1: Ort -->
@@ -1861,35 +1831,36 @@
           <div class="program-info-box">
             <i class='bx bx-time program-info-icon'></i>
             <div class="program-info-label">Dauer</div>
-            <div class="program-info-value">18 Monate</div>
+            <div class="program-info-value">3 Tage</div>
           </div>
 
           <!-- Box 6: Sprache -->
           <div class="program-info-box">
             <i class='bx bx-globe program-info-icon'></i>
             <div class="program-info-label">Sprache</div>
-            <div class="program-info-value">Deutsch/Englisch</div>
+            <div class="program-info-value">Deutsch</div>
           </div>
 
-           <!-- Box 3: Starttermin -->
-           <div class="program-info-box">
+          <!-- Box 3: Starttermin -->
+          <div class="program-info-box">
             <i class='bx bx-calendar-alt program-info-icon'></i>
             <div class="program-info-label">Starttermin</div>
-            <div class="program-info-value">Flexibel</div>
+          <div class="program-info-value">Flexibel</div>
           </div>  
+
 
            <!-- Box 8: Programmtyp -->
            <div class="program-info-box">
             <i class='bx bx-book-open program-info-icon'></i>
             <div class="program-info-label">Programmtyp</div>
-            <div class="program-info-value">MBA</div>
+            <div class="program-info-value">Programm</div>
           </div>
 
           <!-- Box 4: ECTS -->
             <div class="program-info-box">
             <i class='bx bx-award program-info-icon'></i>
             <div class="program-info-label">ECTS</div>
-            <div class="program-info-value">60</div>
+            <div class="program-info-value">6</div>
           </div>
 
         
@@ -1904,7 +1875,7 @@
           <div class="program-info-box">
              <i class='bx bx-money program-info-icon'></i>
             <div class="program-info-label">Investition</div>
-            <div class="program-info-value">29.800 CHF</div>
+            <div class="program-info-value">2.300 CHF</div>
            </div>
 
           <!-- Box 9: Netzwerk -->
@@ -1934,13 +1905,13 @@
             <!-- Tab 2025 -->
             <div class="tab-pane active" id="tab-2025">
               <div class="date-module">
-                <h4>MBA Starttermine</h4>
+                <h4>Integrative Management and Strategy</h4>
                 <ul class="date-list">
                   <li class="date-list-item">
                     <div class="date-list-info">
                       <i class="bx bx-calendar-alt date-icon"></i>
                       <div class="date-info-content">
-                        <span class="date-text">15.04.2025</span>
+                        <span class="date-text">05.-07.05.2025</span>
                         <span class="date-location">(St. Gallen)</span>
                       </div>
                     </div>
@@ -1949,7 +1920,79 @@
                     <div class="date-list-info">
                       <i class="bx bx-calendar-alt date-icon"></i>
                       <div class="date-info-content">
-                        <span class="date-text">15.10.2025</span>
+                        <span class="date-text">06.-08.10.2025</span>
+                        <span class="date-location">(St. Gallen)</span>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="date-module">
+                <h4>Inspirational Leadership</h4>
+                <ul class="date-list">
+                  <li class="date-list-item">
+                    <div class="date-list-info">
+                      <i class="bx bx-calendar-alt date-icon"></i>
+                      <div class="date-info-content">
+                        <span class="date-text">08.-10.05.2025</span>
+                        <span class="date-location">(St. Gallen)</span>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="date-list-item">
+                    <div class="date-list-info">
+                      <i class="bx bx-calendar-alt date-icon"></i>
+                      <div class="date-info-content">
+                        <span class="date-text">09.-11.10.2025</span>
+                        <span class="date-location">(St. Gallen)</span>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="date-module">
+                <h4>Financial Management</h4>
+                <ul class="date-list">
+                  <li class="date-list-item">
+                    <div class="date-list-info">
+                      <i class="bx bx-calendar-alt date-icon"></i>
+                      <div class="date-info-content">
+                        <span class="date-text">26.-28.06.2025</span>
+                        <span class="date-location">(St. Gallen)</span>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="date-list-item">
+                    <div class="date-list-info">
+                      <i class="bx bx-calendar-alt date-icon"></i>
+                      <div class="date-info-content">
+                        <span class="date-text">04.-06.12.2025</span>
+                        <span class="date-location">(St. Gallen)</span>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="date-module">
+                <h4>Marketing, Sales & Brand Communication</h4>
+                <ul class="date-list">
+                  <li class="date-list-item">
+                    <div class="date-list-info">
+                      <i class="bx bx-calendar-alt date-icon"></i>
+                      <div class="date-info-content">
+                        <span class="date-text">23.-25.06.2025</span>
+                        <span class="date-location">(St. Gallen)</span>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="date-list-item">
+                    <div class="date-list-info">
+                      <i class="bx bx-calendar-alt date-icon"></i>
+                      <div class="date-info-content">
+                        <span class="date-text">01.-03.12.2025</span>
                         <span class="date-location">(St. Gallen)</span>
                       </div>
                     </div>
@@ -1961,22 +2004,58 @@
             <!-- Tab 2026 -->
             <div class="tab-pane" id="tab-2026">
               <div class="date-module">
-                <h4>MBA Starttermine</h4>
+                <h4>Integrative Management and Strategy</h4>
                 <ul class="date-list">
                   <li class="date-list-item">
                     <div class="date-list-info">
                       <i class="bx bx-calendar-alt date-icon"></i>
                       <div class="date-info-content">
-                        <span class="date-text">15.04.2026</span>
+                        <span class="date-text">20.-22.04.2026</span>
                         <span class="date-location">(St. Gallen)</span>
-              </div>
-            </div>
+                      </div>
+                    </div>
                   </li>
+                </ul>
+              </div>
+
+              <div class="date-module">
+                <h4>Inspirational Leadership</h4>
+                <ul class="date-list">
                   <li class="date-list-item">
                     <div class="date-list-info">
                       <i class="bx bx-calendar-alt date-icon"></i>
                       <div class="date-info-content">
-                        <span class="date-text">15.10.2026</span>
+                        <span class="date-text">23.-25.04.2026</span>
+                        <span class="date-location">(St. Gallen)</span>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="date-module">
+                <h4>Financial Management</h4>
+                <ul class="date-list">
+                  <li class="date-list-item">
+                    <div class="date-list-info">
+                      <i class="bx bx-calendar-alt date-icon"></i>
+                      <div class="date-info-content">
+                        <span class="date-text">18.-20.06.2026</span>
+                        <span class="date-location">(St. Gallen)</span>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="date-module">
+                <h4>Marketing, Sales & Brand Communication</h4>
+                <ul class="date-list">
+                  <li class="date-list-item">
+                    <div class="date-list-info">
+                      <i class="bx bx-calendar-alt date-icon"></i>
+                      <div class="date-info-content">
+                        <span class="date-text">15.-17.06.2026</span>
                         <span class="date-location">(St. Gallen)</span>
                       </div>
                     </div>
@@ -1985,6 +2064,66 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Informationen über Teilnehmer -->
+    <section id="participants" style="padding: 60px 0;">
+      <div class="container">
+        <h2>Information über Teilnehmer</h2>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Unser Executive Seminar StGallen imt Management Programm bringt erfahrene Führungskräfte aus verschiedenen Branchen und Ländern zusammen.</p>
+        <div class="stats-grid">
+            <!-- Berufserfahrung -->
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <svg viewBox="0 0 24 24" class="color-brain">
+                        <rect x="3" y="4" width="18" height="18" rx="2"/>
+                        <path d="M16 2v4M8 2v4M3 10h18"/>
+                        <path d="M8 14h8M8 17h5"/>
+                    </svg>
+                </div>
+                <div class="stat-value" data-target="12">0</div>
+                <div class="stat-label">Jahre Berufserfahrung</div>
+            </div>
+
+            <!-- Senior C-Level -->
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <svg viewBox="0 0 24 24" class="color-trend">
+                        <rect x="3" y="8" width="18" height="12" rx="2"/>
+                        <path d="M8 8V6a2 2 0 012-2h4a2 2 0 012 2v2"/>
+                        <path d="M12 12v4"/>
+                    </svg>
+                </div>
+                <div class="stat-value" data-target="35" data-suffix="%">0%</div>
+                <div class="stat-label">Teilnehmer mit Senior C-Level</div>
+            </div>
+
+            <!-- Durchschnittsalter -->
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <svg viewBox="0 0 24 24" class="color-data">
+                        <circle cx="12" cy="8" r="5"/>
+                        <path d="M20 21v-2a8 8 0 00-16 0v2"/>
+                    </svg>
+                </div>
+                <div class="stat-value" data-target="42">0</div>
+                <div class="stat-label">Durchschnittsalter</div>
+            </div>
+
+            <!-- Nationalitäten -->
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <svg viewBox="0 0 24 24" class="color-cube">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+                        <path d="M2 12h20"/>
+                    </svg>
+                </div>
+                <div class="stat-value" data-target="15">0</div>
+                <div class="stat-label">Nationalitäten</div>
+            </div>
         </div>
       </div>
     </section>
@@ -2032,7 +2171,7 @@
     <section class="content-section">
       <div class="container">
         <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Teilnehmerstimmen</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Erfahren Sie, wie unsere Absolventen vom Fast Track MBA profitieren und die gelernten Konzepte in ihrem beruflichen Alltag umsetzen.</p>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Erfahren Sie, wie unsere Absolventen vom Management Programm profitieren und die gelernten Konzepte in ihrem beruflichen Alltag umsetzen.</p>
         
         <div class="gradient-quotes">
           <!-- Gradient Quote 1 -->
@@ -2040,7 +2179,7 @@
             <div class="gradient-quote-inner">
               <div class="gradient-quote-content">
                 <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
-                <p class="gradient-quote-text">Durch den Fast Track MBA konnte ich meine strategischen Fähigkeiten entscheidend verbessern. Die praxisnahen Fallstudien und der intensive Austausch mit Führungskräften aus verschiedenen Branchen haben mir völlig neue Perspektiven eröffnet.</p>
+                <p class="gradient-quote-text">Durch das Management Programm konnte ich meine strategischen Fähigkeiten entscheidend verbessern. Die praxisnahen Fallstudien und der intensive Austausch mit Führungskräften aus verschiedenen Branchen haben mir völlig neue Perspektiven eröffnet.</p>
                 </div>
               <div class="gradient-quote-footer">
                 <div class="gradient-person">
@@ -2062,7 +2201,7 @@
             <div class="gradient-quote-inner">
               <div class="gradient-quote-content">
                 <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
-                <p class="gradient-quote-text">Das Programm hat meine Erwartungen übertroffen. Die Dozenten vermitteln nicht nur akademisches Wissen, sondern teilen ihre reichhaltige Praxiserfahrung. Die Integration von MBA-Strategien in unser Unternehmen ist dank der im Programm erlernten Methoden nun viel strukturierter.</p>
+                <p class="gradient-quote-text">Das Seminar hat meine Erwartungen übertroffen. Die Dozenten vermitteln nicht nur akademisches Wissen, sondern teilen ihre reichhaltige Praxiserfahrung. Die Integration von Managementstrategien in unser Unternehmen ist dank der im Seminar erlernten Methoden nun viel strukturierter.</p>
                 </div>
               <div class="gradient-quote-footer">
                 <div class="gradient-person">
@@ -2086,13 +2225,13 @@
     <section id="contact" style="padding: 60px 0;">
       <div class="container">
         <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Ansprechpartner</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Ihr persönlicher Ansprechpartner für alle Fragen rund um den StGallen imt Fast‑Track MBA Programm – profitieren Sie von seiner langjährigen Expertise in der digitalen Transformation.</p>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Ihr persönlicher Ansprechpartner für alle Fragen rund um das StGallen imt Management Programm  – profitieren Sie von seiner langjährigen Expertise in der digitalen Transformation.</p>
         
         <div class="contact-info">
           <img alt="Monika Dutkiewicz" src="https://lirp.cdn-website.com/d603a072/dms3rep/multi/opt/Monika-Dutkiewiecz-70a9e6ff-bb2e6919-9188df2f-1920w.jpeg"/>
           <div class="contact-details">
             <h3>Monika Dutkiewicz</h3>
-            <p style="margin-bottom: 0;">Ansprechpartner StGallen Fast‑Track MBA Programm</p>
+            <p style="margin-bottom: 0;">Ansprechpartner StGallen imt Management Programm</p>
             <p style="margin-bottom: 0; margin-top: 0;"><a href="mailto:monika.dutkiewicz@imt.ch" style="color: #9c27b0;">monika.dutkiewicz@imt.ch</a></p>
             <p style="margin-bottom: 0; margin-top: 0;">+41 71 224 72 22</p>
           </div>
@@ -2104,7 +2243,7 @@
     <section id="broschuere" style="padding: 60px 0;">
       <div class="container">
         <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Kostenlos Broschüre herunterladen</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Laden Sie jetzt die ausführliche Programmbroschüre zum Executive Seminar StGallen Fast‑Track MBA Programm herunter – mit allen Details zu Inhalten, Methoden und Ihrem Lernerfolg.</p>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Laden Sie jetzt die ausführliche Programmbroschüre zum Executive Seminar AI in Business Strategy & Digital Transformation herunter – mit allen Details zu Inhalten, Methoden und Ihrem Lernerfolg.</p>
         <div style="display: flex; gap: 32px; align-items: stretch; flex-wrap: wrap; margin-top: 32px;">
           
           <!-- Formular -->
@@ -2234,7 +2373,7 @@
             <div id="download-ready" class="hidden" style="text-align: center; margin-top: 24px;">
               <h3 style="margin-bottom: 16px;">Vielen Dank für Ihr Interesse!</h3>
               <p style="margin-bottom: 24px;">Ihre Broschüre steht zum Download bereit.</p>
-              <a href="assets/broschueren/fast_track_mba.pdf" download class="cta-button">
+              <a href="assets/broschueren/management_programm.pdf" download class="cta-button">
                 Broschüre herunterladen <span class="arrow-icon">→</span>
               </a>
             </div>
@@ -2844,39 +2983,38 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 </script>
 
-<!-- JavaScript für die Date-Tabs -->
+<!-- Skript für Tabs Funktionalität für Starttermine -->
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Date-Tabs Funktionalität
-    const tabButtons = document.querySelectorAll('.tab-button');
-    const tabPanes = document.querySelectorAll('.tab-pane');
-    
-    tabButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        // Aktiven Button-Status setzen
-        tabButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-        
-        // Aktiven Tab-Content anzeigen
-        const target = button.getAttribute('data-target');
-        tabPanes.forEach(pane => {
-          pane.classList.remove('active');
-          if (pane.id === target) {
-            pane.classList.add('active');
-          }
-        });
-      });
+// Tabs Funktionalität für Starttermine
+document.addEventListener('DOMContentLoaded', function() {
+  const tabButtons = document.querySelectorAll('.tab-button');
+  tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Entferne active class von allen tabs
+      tabButtons.forEach(btn => btn.classList.remove('active'));
+      
+      // Füge active class zum geklickten tab hinzu
+      button.classList.add('active');
+      
+      // Verstecke alle Tab-Panes
+      const tabPanes = document.querySelectorAll('.tab-pane');
+      tabPanes.forEach(pane => pane.classList.remove('active'));
+      
+      // Zeige die entsprechende Tab-Pane
+      const targetId = button.getAttribute('data-target');
+      document.getElementById(targetId).classList.add('active');
     });
   });
+});
 </script>
 
-<!-- Script für zufällige Galeriebilder -->
+<!-- Script for random gallery images -->
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    // Array mit allen verfügbaren Bildern
+    // Array with all available images
     const availableImages = Array.from({length: 12}, (_, i) => `assets/IMG_${i + 1}.webp`);
     
-    // Fisher-Yates Shuffle Algorithmus
+    // Fisher-Yates Shuffle Algorithm
     function shuffleArray(array) {
       for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -2885,13 +3023,13 @@ document.addEventListener('DOMContentLoaded', () => {
       return array;
     }
     
-    // Bilder mischen und die ersten 6 auswählen
+    // Mix images and select the first 6
     const selectedImages = shuffleArray([...availableImages]).slice(0, 6);
     
-    // Galerie-Elemente auswählen
+    // Select gallery elements
     const galleryItems = document.querySelectorAll('.gallery-item img');
     
-    // Bilder zuweisen
+    // Assign images
     galleryItems.forEach((img, index) => {
       if (index < selectedImages.length) {
         img.src = selectedImages[index];

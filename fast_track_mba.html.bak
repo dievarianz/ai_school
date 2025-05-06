@@ -1758,9 +1758,9 @@
 
         <!-- Start Box -->
         <div class="info-box">
-          <i class="bx bx-award"></i>
-          <span class="info-label">ECTS</span>
-          <span class="info-value">60</span>
+          <i class="bx bx-network-chart"></i>
+          <span class="info-label">Netzwerk</span>
+          <span class="info-value">Alumni</span>
         </div>
       </div>
     </div>

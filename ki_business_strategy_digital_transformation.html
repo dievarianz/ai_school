@@ -895,6 +895,28 @@
       grid-template-rows: repeat(6, minmax(200px, auto));
       width: calc(100% - 40px);
       gap: 16px;
+          /* Safari-Fix: Verhindern der Überlagerung bei Safari Mobile */
+      aspect-ratio: auto;
+      height: auto;
+      margin-bottom: 30px;
+      /* Garantiert, dass die Galerie nicht über andere Elemente hinausragt */
+      overflow: hidden;
+    }
+    
+    /* Safari-spezifischer Fix */
+    @supports (-webkit-touch-callout: none) {
+      .gallery {
+        aspect-ratio: auto;
+        height: auto;
+        max-height: none;
+        margin-bottom: 40px;
+      }
+      
+      .gallery-item {
+        height: 200px;
+        min-height: 200px;
+        max-height: 200px;
+      }
     }
     
     .item1, .item2, .item3, .item4, .item5, .item6 {
@@ -1555,9 +1577,9 @@
 
         <!-- Starttermin Box -->
         <div class="info-box">
-          <i class="bx bx-calendar-alt"></i>
-          <span class="info-label">Starttermin</span>
-          <span class="info-value">05.05.2025</span>
+          <i class="bx bx-award"></i>
+          <span class="info-label">ECTS</span>
+          <span class="info-value">6</span>
         </div>
       </div>
     </div>
@@ -1746,12 +1768,6 @@
             <div class="program-info-value">Deutsch</div>
           </div>
 
-          <!-- Box 3: Starttermin -->
-          <div class="program-info-box">
-            <i class='bx bx-calendar-alt program-info-icon'></i>
-            <div class="program-info-label">Starttermin</div>
-            <div class="program-info-value">25.5.2025</div>
-          </div>  
 
         
           <!-- Box 7: Zielgruppe -->
