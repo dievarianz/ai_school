@@ -2381,12 +2381,619 @@
             <div class="program-info-value">3 Tage</div>
           </div>
 
-          <!-- Box 3: Sprache (getauscht mit Einstieg) -->
+          <!-- Box 3: Sprache -->
           <div class="program-info-box">
             <i class='bx bx-globe program-info-icon'></i>
             <div class="program-info-label">Sprache</div>
             <div class="program-info-value">Deutsch</div>
-          </div>  
+          </div>
+
+          <!-- Box 4: Zielgruppe -->
+          <div class="program-info-box">
+            <i class='bx bx-group program-info-icon'></i>
+            <div class="program-info-label">Zielgruppe</div>
+            <div class="program-info-value" style="font-size: 0.9rem;">Führungskräfte, Executives</div>
+          </div>
+
+          <!-- Box 5: Investition -->
+          <div class="program-info-box">
+            <i class='bx bx-money program-info-icon'></i>
+            <div class="program-info-label">Investition</div>
+            <div class="program-info-value">2500 €</div>
+          </div>
+
+          <!-- Box 6: Netzwerk -->
+          <div class="program-info-box">
+            <i class='bx bx-network-chart program-info-icon'></i>
+            <div class="program-info-label">Netzwerk</div>
+            <div class="program-info-value">Alumni</div>
+          </div>
+        </div>
+        
+        <!-- Starttermine - Tab Design -->
+        <div class="dates-tabs">
+          <h3 class="dates-heading"><i class='bx bx-calendar-alt' style="margin-right: 8px;"></i>Verfügbare Starttermine</h3>
+          <div class="tabs-nav">
+            <button class="tab-button active" data-target="tab-2025">2025</button>
+            <button class="tab-button" data-target="tab-2026">2026</button>
+          </div>
+
+          <div class="tab-content">
+            <!-- Tab 2025 -->
+            <div class="tab-pane active" id="tab-2025">
+              <div class="date-module">
+                <ul class="date-list">
+                  <li class="date-list-item">
+                    <div class="date-list-info">
+                      <i class="bx bx-calendar-alt date-icon"></i>
+                      <div class="date-info-content">
+                        <span class="date-text">05.-07.05.2025</span>
+                        <span class="date-location">(St. Gallen)</span>
+                      </div>
+                    </div>
+                  </li>
+                  
+                  <li class="date-list-item">
+                    <div class="date-list-info">
+                      <i class="bx bx-calendar-alt date-icon"></i>
+                      <div class="date-info-content">
+                        <span class="date-text">06.-08.10.2025</span>
+                        <span class="date-location">(St. Gallen)</span>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Tab 2026 -->
+            <div class="tab-pane" id="tab-2026">
+              <div class="date-module">
+                <ul class="date-list">
+                  <li class="date-list-item">
+                    <div class="date-list-info">
+                      <i class="bx bx-calendar-alt date-icon"></i>
+                      <div class="date-info-content">
+                        <span class="date-text">20.-22.04.2026</span>
+                        <span class="date-location">(St. Gallen)</span>
+                      </div>
+                    </div>
+                  </li>
+                  
+                  <li class="date-list-item">
+                    <div class="date-list-info">
+                      <i class="bx bx-calendar-alt date-icon"></i>
+                      <div class="date-info-content">
+                        <span class="date-text">23.-25.04.2026</span>
+                        <span class="date-location">(Online)</span>
+                      </div>
+                    </div>
+                  </li>
+                  
+                  <li class="date-list-item">
+                    <div class="date-list-info">
+                      <i class="bx bx-calendar-alt date-icon"></i>
+                      <div class="date-info-content">
+                        <span class="date-text">18.-20.06.2026</span>
+                        <span class="date-location">(St. Gallen)</span>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Informationen über Teilnehmer -->
+    <section id="participants">
+      <div class="container">
+        <h2>Information über Teilnehmer</h2>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Unser Executive Seminar Integrated Management and Strategy bringt erfahrene Führungskräfte aus verschiedenen Branchen und Ländern zusammen.</p>
+        <div class="stats-grid">
+            <!-- Berufserfahrung -->
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <svg viewBox="0 0 24 24" class="color-brain">
+                        <rect x="3" y="4" width="18" height="18" rx="2"/>
+                        <path d="M16 2v4M8 2v4M3 10h18"/>
+                        <path d="M8 14h8M8 17h5"/>
+                    </svg>
+                </div>
+                <div class="stat-value" data-target="12">0</div>
+                <div class="stat-label">Jahre Berufserfahrung</div>
+            </div>
+
+            <!-- Senior C-Level -->
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <svg viewBox="0 0 24 24" class="color-trend">
+                        <rect x="3" y="8" width="18" height="12" rx="2"/>
+                        <path d="M8 8V6a2 2 0 012-2h4a2 2 0 012 2v2"/>
+                        <path d="M12 12v4"/>
+                    </svg>
+                </div>
+                <div class="stat-value" data-target="35" data-suffix="%">0%</div>
+                <div class="stat-label">Teilnehmer mit Senior C-Level</div>
+            </div>
+
+            <!-- Durchschnittsalter -->
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <svg viewBox="0 0 24 24" class="color-data">
+                        <circle cx="12" cy="8" r="5"/>
+                        <path d="M20 21v-2a8 8 0 00-16 0v2"/>
+                    </svg>
+                </div>
+                <div class="stat-value" data-target="42">0</div>
+                <div class="stat-label">Durchschnittsalter</div>
+            </div>
+
+            <!-- Nationalitäten -->
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <svg viewBox="0 0 24 24" class="color-cube">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+                        <path d="M2 12h20"/>
+                    </svg>
+                </div>
+                <div class="stat-value" data-target="15">0</div>
+                <div class="stat-label">Nationalitäten</div>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Einblicke & Impressionen -->
+    <section id="impressionen">
+      <div class="container">
+        <h2>Einblicke & Impressionen</h2>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Tauchen Sie ein in die Atmosphäre unseres Executive Seminars – von inspirierenden Workshops über exklusive Firmenbesuche bei Google bis zu intensiven Lernerfahrungen in St. Gallen.</p>
+        <div class="gallery">
+          <!-- 1: Großes, hochformatiges Bild -->
+          <div class="gallery-item item1">
+            <img src="assets/IMG_1.webp" alt="Seniorin mit AirPods">
+          </div>
+
+          <!-- 2: Smartwatch -->
+          <div class="gallery-item item2">
+            <img src="assets/IMG_2.webp" alt="Smartwatch">
+          </div>
+
+          <!-- 3: Smartphone Videocall -->
+          <div class="gallery-item item3">
+            <img src="assets/IMG_3.webp" alt="Videocall auf Smartphone">
+          </div>
+
+          <!-- 4: Gruppe mit Smartphones -->
+          <div class="gallery-item item4">
+            <img src="assets/IMG_4.webp" alt="Zwei Personen mit Smartphones">
+          </div>
+
+          <!-- 5: Tablet am Tisch -->
+          <div class="gallery-item item5">
+            <img src="assets/IMG_6.webp" alt="Person mit Tablet">
+          </div>
+
+          <!-- 6: Person am Desktop -->
+          <div class="gallery-item item6">
+            <img src="assets/IMG_5.webp" alt="Person mit Kopfhörern">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Teilnehmerstimmen -->
+    <section class="content-section">
+      <div class="container">
+        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Teilnehmerstimmen</h2>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Erfahren Sie, wie unsere Absolventen vom Executive Seminar Integrated Management and Strategy profitieren und die gelernten Konzepte in ihrem beruflichen Alltag umsetzen.</p>
+        
+        <style>
+          /* ============ Gradientes Zitat-Layout ============ */
+          .gradient-quotes {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+          }
+          
+          .gradient-quote-card {
+            border-radius: var(--radius);
+            overflow: hidden;
+            position: relative;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+          }
+          
+          .gradient-quote-card:hover {
+            border-color: var(--imt-purple);
+          }
+          
+          .gradient-quote-inner {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            background: linear-gradient(to bottom right, #ffffff, #f8f9fa);
+            position: relative;
+            z-index: 1;
+          }
+          
+          .gradient-quote-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--imt-purple) 0%, var(--imt-green) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 0;
+          }
+          
+          .gradient-quote-card:hover::before {
+            opacity: 0.03;
+          }
+          
+          .gradient-quote-content {
+            padding: 40px 30px 25px;
+            position: relative;
+            flex: 1;
+          }
+          
+          .gradient-quote-icon {
+            position: absolute;
+            top: -15px;
+            right: 25px;
+            font-size: 4rem;
+            color: var(--imt-purple);
+            opacity: 0.1;
+            transition: transform 0.3s ease;
+          }
+          
+          .gradient-quote-card:hover .gradient-quote-icon {
+            transform: rotate(10deg);
+          }
+          
+          .gradient-quote-text {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: var(--color-text);
+            font-weight: 400;
+            position: relative;
+            z-index: 1;
+          }
+          
+          .gradient-quote-footer {
+            background-color: #fafafa;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #f0f0f0;
+          }
+          
+          .gradient-person {
+            display: flex;
+            align-items: center;
+          }
+          
+          .gradient-avatar-container {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+            border: 3px solid white;
+            transition: all 0.3s ease;
+          }
+          
+          .gradient-quote-card:hover .gradient-avatar-container {
+            border-color: #f5f5f7;
+          }
+          
+          .gradient-avatar {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+          
+          .gradient-info {
+            display: flex;
+            flex-direction: column;
+          }
+          
+          .gradient-name {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 2px;
+          }
+          
+          .gradient-position {
+            font-size: 0.85rem;
+            color: var(--color-muted);
+            min-height: 40px; /* Ensure consistent height */
+            display: flex;
+            align-items: center;
+          }
+          
+          .gradient-program {
+            font-size: 0.8rem;
+            color: var(--imt-purple);
+            margin-top: 2px;
+          }
+          
+          .gradient-company {
+            height: 40px;
+            width: auto;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+          }
+          
+          .gradient-quote-card:hover .gradient-company {
+            opacity: 1;
+          }
+          
+          @media (max-width: 968px) {
+            .gradient-quotes {
+              grid-template-columns: 1fr;
+            }
+          }
+        </style>
+        
+        <div class="gradient-quotes">
+          <!-- Gradient Quote 1 -->
+          <div class="gradient-quote-card">
+            <div class="gradient-quote-inner">
+              <div class="gradient-quote-content">
+                <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
+                <p class="gradient-quote-text">Durch das Executive Seminar Integrated Management and Strategy konnte ich meine strategischen Fähigkeiten entscheidend verbessern. Die praxisnahen Fallstudien und der intensive Austausch mit Führungskräften aus verschiedenen Branchen haben mir völlig neue Perspektiven eröffnet.</p>
+              </div>
+              <div class="gradient-quote-footer">
+                <div class="gradient-person">
+                  <div class="gradient-avatar-container">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Julia Müller" class="gradient-avatar">
+                  </div>
+                  <div class="gradient-info">
+                    <span class="gradient-name">Julia Müller</span>
+                    <span class="gradient-position">Chief Strategy Officer, Swiss Innovation Group</span>
+                  </div>
+                </div>
+                <img src="assets/companies/google.png" alt="Company" class="gradient-company">
+              </div>
+            </div>
+          </div>
+          
+          <!-- Gradient Quote 2 -->
+          <div class="gradient-quote-card">
+            <div class="gradient-quote-inner">
+              <div class="gradient-quote-content">
+                <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
+                <p class="gradient-quote-text">Das Seminar hat meine Erwartungen übertroffen. Die Dozenten vermitteln nicht nur akademisches Wissen, sondern teilen ihre reichhaltige Praxiserfahrung. Die Integration von KI-Strategien in unser Unternehmen ist dank der im Seminar erlernten Methoden nun viel strukturierter.</p>
+              </div>
+              <div class="gradient-quote-footer">
+                <div class="gradient-person">
+                  <div class="gradient-avatar-container">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Thomas Schmidt" class="gradient-avatar">
+                  </div>
+                  <div class="gradient-info">
+                    <span class="gradient-name">Thomas Schmidt</span>
+                    <span class="gradient-position">Director Digital Transformation, EuropeTech GmbH</span>
+                  </div>
+                </div>
+                <img src="assets/companies/microsoft.png" alt="Company" class="gradient-company">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Faculty & Experts Section -->
+    <section id="faculty">
+      <div class="container">
+        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Akademische Leitung</h2>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Lernen Sie von führenden Experten aus Wissenschaft und Praxis – profitieren Sie von jahrelanger Erfahrung in Management und strategischer Führung.</p>
+        
+        <div class="faculty-grid">
+            <div class="faculty-card">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Prof. Dr. Maria Schmidt"/>
+                <div class="faculty-info">
+                    <h3 class="faculty-name">Prof. Dr. Maria Schmidt</h3>
+                    <div class="faculty-title">Professorin für Management & Strategie</div>
+                    <p class="faculty-description">Expertin für strategische Geschäftsmodelle mit über 15 Jahren Erfahrung in der Transformation von Unternehmen.</p>
+                </div>
+            </div>
+            
+            <div class="faculty-card">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Dr. Thomas Weber"/>
+                <div class="faculty-info">
+                    <h3 class="faculty-name">Dr. Thomas Weber</h3>
+                    <div class="faculty-title">Chief Strategy Officer, StrategyCorp</div>
+                    <p class="faculty-description">Pionier in der Integration von Innovation in traditionelle Geschäftsprozesse. Leitet erfolgreich strategische Transformationsprojekte.</p>
+                </div>
+            </div>
+            
+            <div class="faculty-card">
+                <img src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Sarah Chen"/>
+                <div class="faculty-info">
+                    <h3 class="faculty-name">Sarah Chen</h3>
+                    <div class="faculty-title">Head of Strategy, GlobalTech</div>
+                    <p class="faculty-description">Verbindet akademische Expertise mit praktischer Erfahrung in der Implementierung von Managementstrategien.</p>
+                </div>
+            </div>
+            
+            <div class="faculty-card">
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Dr. Michael Bauer"/>
+                <div class="faculty-info">
+                    <h3 class="faculty-name">Dr. Michael Bauer</h3>
+                    <div class="faculty-title">Management & Strategy Expert</div>
+                    <p class="faculty-description">Berät internationale Unternehmen bei der strategischen Ausrichtung ihrer Managementinitiativen.</p>
+                </div>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- IMT Advisor Section -->
+    <section id="contact">
+      <div class="container">
+        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Ansprechpartner</h2>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Ihr persönlicher Ansprechpartner für alle Fragen rund um das Executive Seminar Integrated Management and Strategy – profitieren Sie von ihrer langjährigen Expertise in der Unternehmensführung und Strategieentwicklung.</p>
+        
+        <div class="contact-info">
+          <img alt="Monika Dutkiewicz" src="https://lirp.cdn-website.com/d603a072/dms3rep/multi/opt/Monika-Dutkiewiecz-70a9e6ff-bb2e6919-9188df2f-1920w.jpeg"/>
+          <div class="contact-details">
+            <h3>Monika Dutkiewicz</h3>
+            <p style="margin-bottom: 0;">Ansprechpartner Integrated Management and Strategy</p>
+            <p style="margin-bottom: 0; margin-top: 0;"><a href="mailto:monika.dutkiewicz@imt.ch" style="color: #9c27b0;">monika.dutkiewicz@imt.ch</a></p>
+            <p style="margin-bottom: 0; margin-top: 0;">+41 71 224 72 22</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Broschüre Herunterladen Section -->
+    <section id="broschuere">
+      <div class="container">
+        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Kostenlos Broschüre herunterladen</h2>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Laden Sie jetzt die ausführliche Programmbroschüre zum Executive Seminar Integrated Management and Strategy herunter – mit allen Details zu Inhalten, Methoden und Ihrem Lernerfolg.</p>
+        
+        <!-- Formular - Einspaltig -->
+        <div style="background: #f5f5f7; padding: 32px; border-radius: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.05); max-width: 800px; margin: 0 auto;">
+          <form id="brochure-form" method="post" novalidate>
+            <input name="firstname" placeholder="Vorname" style="width: 100%; padding: 12px; margin-bottom: 18px; border-radius: 8px; border: 1px solid #ccc;" type="text" required/>
+            <input name="lastname" placeholder="Nachname" style="width: 100%; padding: 12px; margin-bottom: 18px; border-radius: 8px; border: 1px solid #ccc;" type="text" required/>
+            <input name="email" placeholder="E-Mail" style="width: 100%; padding: 12px; margin-bottom: 18px; border-radius: 8px; border: 1px solid #ccc;" type="email" required/>
+            
+            <!-- Country Select -->
+            <div style="position: relative; margin-bottom: 18px;">
+              <select name="country" required style="width: 100%; padding: 12px; padding-right: 40px; font-size: 1rem; border-radius: 8px; border: 1px solid #ccc; appearance: none; -webkit-appearance: none;">
+                <option value="">Land wählen</option>
+                <option value="AD">Andorra</option>
+                <option value="AR">Argentinien</option>
+                <option value="AU">Australien</option>
+                <option value="BH">Bahrain</option>
+                <option value="BE">Belgien</option>
+                <option value="BR">Brasilien</option>
+                <option value="BN">Brunei</option>
+                <option value="CL">Chile</option>
+                <option value="CN">China</option>
+                <option value="DK">Dänemark</option>
+                <option value="DE">Deutschland</option>
+                <option value="EE">Estland</option>
+                <option value="FI">Finnland</option>
+                <option value="FR">Frankreich</option>
+                <option value="GI">Gibraltar</option>
+                <option value="GR">Griechenland</option>
+                <option value="HK">Hongkong</option>
+                <option value="IN">Indien</option>
+                <option value="ID">Indonesien</option>
+                <option value="IE">Irland</option>
+                <option value="IS">Island</option>
+                <option value="IL">Israel</option>
+                <option value="IT">Italien</option>
+                <option value="JP">Japan</option>
+                <option value="JO">Jordanien</option>
+                <option value="CA">Kanada</option>
+                <option value="CO">Kolumbien</option>
+                <option value="HR">Kroatien</option>
+                <option value="QA">Katar</option>
+                <option value="KW">Kuwait</option>
+                <option value="LB">Libanon</option>
+                <option value="LI">Liechtenstein</option>
+                <option value="LU">Luxemburg</option>
+                <option value="MO">Macau</option>
+                <option value="MY">Malaysia</option>
+                <option value="MT">Malta</option>
+                <option value="MX">Mexiko</option>
+                <option value="MC">Monaco</option>
+                <option value="NL">Niederlande</option>
+                <option value="NZ">Neuseeland</option>
+                <option value="NO">Norwegen</option>
+                <option value="OM">Oman</option>
+                <option value="AT">Österreich</option>
+                <option value="PK">Pakistan</option>
+                <option value="PA">Panama</option>
+                <option value="PE">Peru</option>
+                <option value="PH">Philippinen</option>
+                <option value="PL">Polen</option>
+                <option value="PT">Portugal</option>
+                <option value="PR">Puerto Rico</option>
+                <option value="RO">Rumänien</option>
+                <option value="RU">Russland</option>
+                <option value="SM">San Marino</option>
+                <option value="SA">Saudi-Arabien</option>
+                <option value="SE">Schweden</option>
+                <option value="CH">Schweiz</option>
+                <option value="SG">Singapur</option>
+                <option value="SK">Slowakei</option>
+                <option value="SI">Slowenien</option>
+                <option value="ES">Spanien</option>
+                <option value="ZA">Südafrika</option>
+                <option value="KR">Südkorea</option>
+                <option value="TW">Taiwan</option>
+                <option value="TH">Thailand</option>
+                <option value="TR">Türkei</option>
+                <option value="CZ">Tschechische Republik</option>
+                <option value="UA">Ukraine</option>
+                <option value="HU">Ungarn</option>
+                <option value="AE">Vereinigte Arabische Emirate</option>
+                <option value="GB">Vereinigtes Königreich</option>
+                <option value="US">Vereinigte Staaten</option>
+                <option value="VN">Vietnam</option>
+                <option value="CY">Zypern</option>
+                <option value="OTHER">Andere</option>
+              </select>
+              <div style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); pointer-events: none;">
+                <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 1L6 6L11 1" stroke="#888888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Checkbox für E-Mail-Zustimmung -->
+            <div style="margin-bottom: 16px;">
+              <label style="display: flex; align-items: flex-start; gap: 8px; cursor: pointer;">
+                <input type="checkbox" name="email_consent" style="margin-top: 3px;">
+                <span style="font-size: 0.9rem; color: var(--color-muted);">
+                  Ich stimme zu, Informationen per E-Mail zu Angeboten der IMT Business School zu erhalten.
+                </span>
+              </label>
+            </div>
+
+            <!-- Submit Button -->
+            <div style="text-align: center; width: 100%;">
+              <button type="submit" class="cta-button" style="margin: 0 auto;">
+                Jetzt Kostenlos Broschüre herunterladen <span class="arrow-icon">→</span>
+              </button>
+            </div>
+
+            <!-- Info Lines under the button -->
+            <div style="margin-top: 24px; display: flex; flex-direction: column; gap: 12px;">
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <i class='bx bx-group' style="font-size: 20px;"></i>
+                <span id="downloads-today" style="font-size: 0.9rem; color: var(--color-muted);"><strong>7</strong> Executives haben die Broschüre heute bereits heruntergeladen</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <i class='bx bx-shield' style="font-size: 20px;"></i>
+                <span style="font-size: 0.9rem; color: var(--color-muted);">Ihre Daten sind bei uns sicher - wir versenden keine unerlaubte Werbung</span>
+              </div>
+            </div>
+          </form>
+
+          <!-- Download-Ready Section (initially hidden) -->
+          <div id="download-ready" class="hidden" style="text-align: center; margin-top: 24px;">
+            <h3 style="margin-bottom: 16px;">Vielen Dank für Ihr Interesse!</h3>
+            <p style="margin-bottom: 24px;">Ihre Broschüre steht zum Download bereit.</p>
+            <a href="assets/broschueren/integrated_management_strategy.pdf" download class="cta-button">
+              Broschüre herunterladen <span class="arrow-icon">→</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -2739,6 +3346,184 @@
   });
 </script>
 
+<script>
+  // JavaScript für die Zähleranimation
+  // Counter animation für Statistiken
+  function animateValue(element, start, end, duration) {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        const current = Math.floor(progress * (end - start) + start);
+        element.textContent = current + (element.dataset.suffix || '');
+        if (progress < 1) {
+            window.requestAnimationFrame(step);
+        }
+    };
+    window.requestAnimationFrame(step);
+  }
+
+  // Start animation when element is in view
+  const animateOnView = () => {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const statValues = entry.target.querySelectorAll('.stat-value');
+                statValues.forEach(stat => {
+                    const target = parseInt(stat.dataset.target);
+                    animateValue(stat, 0, target, 2000);
+                });
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    const statsGrid = document.querySelector('.stats-grid');
+    if (statsGrid) {
+        observer.observe(statsGrid);
+    }
+  };
+
+  // Galerie-Shuffle für Einblicke & Impressionen
+  const shuffleGallery = () => {
+    const gallery = document.querySelector('.gallery');
+    if (!gallery) return;
+    
+    const items = Array.from(gallery.querySelectorAll('.gallery-item'));
+    const parent = items[0].parentNode;
+    
+    // Fisher-Yates shuffle
+    for (let i = items.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [items[i].style.order, items[j].style.order] = [items[j].style.order, items[i].style.order];
+    }
+  };
+
+  // Starte die Animation, wenn die Seite geladen ist
+  document.addEventListener('DOMContentLoaded', function() {
+    // Animiere die Statistiken, wenn sie sichtbar werden
+    animateOnView();
+    
+    // Shuffle der Galerie alle 10 Sekunden
+    shuffleGallery();
+    setInterval(shuffleGallery, 10000);
+  });
+  </script>
+
+  <!-- Skript für Download-Statistik-Funktion -->
+  <script>
+  // Download-Statistik Implementierung
+  function updateDownloadStats() {
+    const now = new Date();
+    const hour = now.getHours();
+    let baseCount;
+    
+    // Präzise Zeitfenster für Downloads
+    if (hour >= 23 || hour < 6) {
+      baseCount = 5;  // Nachts (23:00 - 05:59)
+    } else if (hour >= 6 && hour < 12) {
+      baseCount = 8;  // Morgens (06:00 - 11:59)
+    } else if (hour >= 12 && hour < 18) {
+      baseCount = 12; // Mittags (12:00 - 17:59)
+    } else if (hour >= 18 && hour < 23) {
+      baseCount = 10; // Abends (18:00 - 22:59)
+    }
+    
+    const variation = Math.floor(Math.random() * 5) - 2;
+    const finalCount = Math.max(baseCount + variation, 0);
+    
+    console.log(`Aktuelle Zeit: ${hour}:00 Uhr, Basis: ${baseCount}, Variation: ${variation}, Endwert: ${finalCount}`);
+    
+    const downloadsText = document.getElementById('downloads-today');
+    if (downloadsText) {
+      downloadsText.innerHTML = `<strong>${finalCount}</strong> Executives haben die Broschüre heute bereits heruntergeladen`;
+    }
+  }
+
+  // Initialisierung
+  document.addEventListener('DOMContentLoaded', () => {
+    updateDownloadStats();
+    setInterval(updateDownloadStats, 5 * 60 * 1000); // Aktualisiert alle 5 Minuten
+  });
+  </script>
+
+  <!-- Intersection Observer für Statistiken -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const target = entry.target;
+                const endValue = parseInt(target.dataset.target);
+                target.classList.add('count');
+                animateValue(target, 0, endValue, 2000);
+                observer.unobserve(target);
+            }
+        });
+    }, {
+        threshold: 0.5
+    });
+
+    document.querySelectorAll('.stat-value').forEach(stat => {
+        observer.observe(stat);
+    });
+  });
+  </script>
+
+  <!-- Skript für Tabs Funktionalität für Starttermine -->
+  <script>
+  // Tabs Funktionalität für Starttermine
+  document.addEventListener('DOMContentLoaded', function() {
+    const tabButtons = document.querySelectorAll('.tab-button');
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Entferne active class von allen tabs
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        
+        // Füge active class zum geklickten tab hinzu
+        button.classList.add('active');
+        
+        // Verstecke alle Tab-Panes
+        const tabPanes = document.querySelectorAll('.tab-pane');
+        tabPanes.forEach(pane => pane.classList.remove('active'));
+        
+        // Zeige die entsprechende Tab-Pane
+        const targetId = button.getAttribute('data-target');
+        document.getElementById(targetId).classList.add('active');
+      });
+    });
+  });
+  </script>
+
+  <!-- Script für zufällige Galeriebilder -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Array mit allen verfügbaren Bildern
+    const availableImages = Array.from({length: 12}, (_, i) => `assets/IMG_${i + 1}.webp`);
+    
+    // Fisher-Yates Shuffle Algorithmus
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+    
+    // Bilder mischen und die ersten 6 auswählen
+    const selectedImages = shuffleArray([...availableImages]).slice(0, 6);
+    
+    // Galerie-Elemente auswählen
+    const galleryItems = document.querySelectorAll('.gallery-item img');
+    
+    // Bilder zuweisen
+    galleryItems.forEach((img, index) => {
+      if (index < selectedImages.length) {
+        img.src = selectedImages[index];
+      }
+    });
+  });
+  </script>
 </body>
 </html>
 
