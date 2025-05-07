@@ -316,5 +316,40 @@
       })
       .catch(error => console.error('Fehler beim Laden des Footers:', error));
   </script>
+  
+  <!-- Direct language switching handlers -->
+  <script>
+    // Wait for DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      // Apply direct handlers for language switching as a last-resort backup
+      console.log('Adding direct language switch handlers (DE to EN)');
+      
+      // Function to apply handlers to all new English language links
+      function applyEnglishLinkHandlers() {
+        document.querySelectorAll('[data-lang="en"], #lang-en-link').forEach(link => {
+          // Remove existing handlers first
+          const newLink = link.cloneNode(true);
+          if (link.parentNode) {
+            link.parentNode.replaceChild(newLink, link);
+          }
+          
+          // Add direct handler that overrides everything else
+          newLink.addEventListener('click', function(e) {
+            console.log('English language link clicked (via direct handler)');
+            e.preventDefault();
+            e.stopPropagation();
+            window.location.href = 'support_ansprechpartner_en.html';
+            return false;
+          }, true);
+        });
+      }
+      
+      // Apply now
+      setTimeout(applyEnglishLinkHandlers, 1000);
+      
+      // And also every 2 seconds to catch any newly loaded elements
+      setInterval(applyEnglishLinkHandlers, 2000);
+    });
+  </script>
 </body>
 </html> 
