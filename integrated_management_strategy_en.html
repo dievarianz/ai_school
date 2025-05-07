@@ -3370,98 +3370,22 @@
     .then(data => {
       if (data) {
         document.getElementById('navigation-container').innerHTML = data;
-        console.log('Navigation loaded into DOM');
         
-        // Log details about the menu structure to help debugging
-        console.log('Navigation container:', document.getElementById('navigation-container'));
-        console.log('Mobile menu button selector:', document.querySelector('.mobile-menu-btn'));
+        // Mobile Navigation über externe Datei initialisieren, wie in research.html
+        const navScript = document.createElement('script');
+        navScript.src = 'assets/js/mobile-nav.js?t=' + new Date().getTime();
+        document.body.appendChild(navScript);
         
-        // Mobile Navigation direkt initialisieren statt externe Datei
-        setTimeout(function() {
-          const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-          const navMenu = document.querySelector('.nav-menu');
-          
-          console.log('Mobile Menu Setup: Button found =', !!mobileMenuBtn, 'Menu found =', !!navMenu);
-          
-          if (mobileMenuBtn && navMenu) {
-            // Single Event Handler für den Menü-Button
-            mobileMenuBtn.addEventListener('click', function(e) {
-              // Nur verhindern, dass der Browser zum Anfang der Seite scrollt
-              if (e.target.tagName === 'A') {
-                e.preventDefault();
-              }
-              
-              console.log('Mobile menu button clicked, toggling active state');
-              navMenu.classList.toggle('active');
-              console.log('Menu is now:', navMenu.classList.contains('active') ? 'active' : 'inactive');
-              
-              // Sprachauswahl hinzufügen - nur wenn sie noch nicht existiert
-              if (navMenu.classList.contains('active') && !document.querySelector('.mobile-lang-section')) {
-                const langSection = document.createElement('div');
-                langSection.className = 'mobile-lang-section';
-                
-                // Aktuelle Seite ermitteln
-                const currentPath = window.location.pathname;
-                const currentPage = currentPath.substring(currentPath.lastIndexOf('/') + 1);
-                const isEnglish = currentPage.includes('_en');
-                
-                // Korrekten Ziel-Link für Deutsch und Englisch erstellen
-                let germanLink = currentPage;
-                let englishLink = currentPage;
-                
-                if (isEnglish) {
-                  // Wenn wir auf einer englischen Seite sind, Link zur deutschen Version erstellen
-                  germanLink = currentPage.replace('_en.html', '.html');
-                } else {
-                  // Wenn wir auf einer deutschen Seite sind, Link zur englischen Version erstellen
-                  englishLink = currentPage.replace('.html', '_en.html');
-                }
-                
-                langSection.innerHTML = `
-                  <div class="lang-title">Sprache</div>
-                  <div class="mobile-lang-options">
-                    <a href="${germanLink}" class="mobile-lang-option ${!isEnglish ? 'active' : ''}">Deutsch</a>
-                    <a href="${englishLink}" class="mobile-lang-option ${isEnglish ? 'active' : ''}">English</a>
-                  </div>
-                `;
-                navMenu.appendChild(langSection);
-                console.log('Language section added to mobile menu');
-              }
-            });
-            
-            // Dropdown-Handler einrichten
-            document.querySelectorAll('.nav-item').forEach(item => {
-              const toggleLink = item.querySelector('.toggle-subnav');
-              const dropdown = item.querySelector('.program-dropdown');
-              
-              if (toggleLink && dropdown) {
-                toggleLink.addEventListener('click', function(e) {
-                  if (window.innerWidth <= 1024) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-                  }
-                });
-              }
-            });
+        // Sprachumschalter initialisieren, nachdem die Navigation geladen wurde
+        setTimeout(() => {
+          if (typeof initLanguageSwitching === 'function') {
+            initLanguageSwitching();
+          } else if (window.switchLanguage) {
+            console.log('Language-switch.js already loaded, using global function');
           } else {
-            console.error('Mobile menu elements not found, retrying...');
-            // Try again after a short delay if elements weren't found
-            setTimeout(() => {
-              const retryMobileMenuBtn = document.querySelector('.mobile-menu-btn');
-              const retryNavMenu = document.querySelector('.nav-menu');
-              
-              console.log('Retry Mobile Menu Setup: Button found =', !!retryMobileMenuBtn, 'Menu found =', !!retryNavMenu);
-              
-              if (retryMobileMenuBtn && retryNavMenu) {
-                retryMobileMenuBtn.addEventListener('click', function() {
-                  console.log('Retry mobile menu button clicked');
-                  retryNavMenu.classList.toggle('active');
-                });
-              }
-            }, 500);
+            console.warn('Language-switch functions not found!');
           }
-        }, 300); // Erhöht von 100ms auf 300ms für besseres Timing
+        }, 300); // Kurzes Delay für DOM-Update
       }
     })
     .catch(error => console.error('Fehler beim Laden der Navigation:', error));

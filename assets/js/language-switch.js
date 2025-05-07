@@ -32,7 +32,7 @@
   // Clean up any existing handlers to prevent duplicates
   function cleanupExistingHandlers() {
     // Get all language links in both desktop and mobile views
-    document.querySelectorAll('[data-lang]').forEach(link => {
+    document.querySelectorAll('[data-lang], .mobile-lang-option, .only-mobile-lang-option').forEach(link => {
       link.removeAttribute('onclick');
       
       // Clone and replace to remove all event listeners
@@ -65,10 +65,33 @@
       });
     }
     
-    // Mobile language switcher
-    document.querySelectorAll('.only-mobile-lang-option').forEach(link => {
-      const lang = link.getAttribute('data-lang');
+    // Mobile language switcher - supports both class naming conventions
+    document.querySelectorAll('.only-mobile-lang-option, .mobile-lang-option').forEach(link => {
+      // Extract language from data-lang attribute or href
+      let lang;
+      if (link.getAttribute('data-lang')) {
+        lang = link.getAttribute('data-lang');
+      } else if (link.href && link.href.includes('lang=')) {
+        // Extract from URL parameter
+        const langParam = link.href.split('lang=')[1];
+        if (langParam) {
+          lang = langParam.split('&')[0]; // Get the language value
+        }
+      } else if (link.classList.contains('mobile-lang-option')) {
+        // Extract from class if it has language indication
+        if (link.textContent.trim().toLowerCase() === 'deutsch') {
+          lang = 'de';
+        } else if (link.textContent.trim().toLowerCase() === 'english') {
+          lang = 'en';
+        }
+      }
+      
       if (lang) {
+        // Ensure the link has data-lang attribute for future reference
+        if (!link.getAttribute('data-lang')) {
+          link.setAttribute('data-lang', lang);
+        }
+        
         link.addEventListener('click', function(e) {
           e.preventDefault();
           switchToLanguage(lang);
@@ -133,11 +156,21 @@
       }
     }
     
-    // Mobile language selection
-    const mobileLanguageOptions = document.querySelectorAll('.only-mobile-lang-option');
+    // Mobile language selection - supports both class naming conventions
+    const mobileLanguageOptions = document.querySelectorAll('.only-mobile-lang-option, .mobile-lang-option');
     
     mobileLanguageOptions.forEach(link => {
-      const lang = link.getAttribute('data-lang');
+      // Get language from data-lang attribute or determine from context
+      let lang = link.getAttribute('data-lang');
+      
+      if (!lang) {
+        // Try to determine language from content or class
+        if (link.textContent.trim().toLowerCase() === 'deutsch') {
+          lang = 'de';
+        } else if (link.textContent.trim().toLowerCase() === 'english') {
+          lang = 'en';
+        }
+      }
       
       // First remove all active classes
       link.classList.remove('active');
@@ -147,6 +180,20 @@
         link.classList.add('active');
       }
     });
+    
+    // Hide duplicate language sections on program pages
+    const shouldHideDuplicates = document.querySelectorAll('.only-mobile-lang-section, .mobile-lang-section').length > 1;
+    
+    if (shouldHideDuplicates) {
+      // If both types of sections exist, prioritize the one with only-mobile-lang-section
+      const onlyMobileSection = document.querySelector('.only-mobile-lang-section');
+      if (onlyMobileSection) {
+        // Hide any mobile-lang-section that is not also an only-mobile-lang-section
+        document.querySelectorAll('.mobile-lang-section:not(.only-mobile-lang-section)').forEach(section => {
+          section.style.display = 'none';
+        });
+      }
+    }
   }
   
   // Observer for dynamic navigation loading
@@ -157,7 +204,8 @@
         if (mutation.type === 'childList' && 
             (mutation.target.id === 'navigation-container' || 
              mutation.target.classList.contains('nav-menu') ||
-             mutation.target.classList.contains('only-mobile-lang-section'))) {
+             mutation.target.classList.contains('only-mobile-lang-section') ||
+             mutation.target.classList.contains('mobile-lang-section'))) {
           // Re-initialize when navigation is dynamically loaded
           console.log("Navigation change detected, re-initializing language switch");
           initLanguageSwitching();

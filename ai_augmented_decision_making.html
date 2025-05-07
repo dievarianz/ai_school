@@ -1615,7 +1615,7 @@
     <section id="module-content" class="content-section">
       <h2>AI-Augmented Decision Making</h2>
       
-      <p class="section-subtitle">Entdecken Sie die sieben Schlüsselmodule unseres Executive Seminars – von KI-Grundlagen bis zur erfolgreichen Implementierung in Ihrem Unternehmen.</p>
+      <p class="section-subtitle">Entdecken Sie die sieben Schlüsselmodule unseres Managementseminars – von KI-Grundlagen bis zur erfolgreichen Implementierung in Ihrem Unternehmen.</p>
       
       <div class="slider-container">
         <button aria-label="Zurück" class="slider-btn prev" disabled></button>
@@ -1897,7 +1897,7 @@
     <section id="participants">
       <div class="container">
         <h2>Information über Teilnehmer</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Unser Executive Seminar AI Making bringt erfahrene Führungskräfte aus verschiedenen Branchen und Ländern zusammen.</p>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Unser Managementseminar AI-Augmented Decision Making bringt erfahrene Führungskräfte aus verschiedenen Branchen und Ländern zusammen.</p>
         <div class="stats-grid">
             <!-- Berufserfahrung -->
             <div class="stat-card">
@@ -1957,7 +1957,7 @@
     <section id="impressionen">
       <div class="container">
         <h2>Einblicke & Impressionen</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Tauchen Sie ein in die Atmosphäre unseres Executive Seminars – von inspirierenden Workshops über exklusive Firmenbesuche bei Google bis zu intensiven Lernerfahrungen in St. Gallen.</p>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Tauchen Sie ein in die Atmosphäre unseres Managementseminars – von inspirierenden Workshops über exklusive Firmenbesuche bei Google bis zu intensiven Lernerfahrungen in St. Gallen.</p>
         <div class="gallery">
           <!-- 1: Großes, hochformatiges Bild -->
           <div class="gallery-item item1">
@@ -1996,7 +1996,7 @@
     <section class="content-section">
       <div class="container">
         <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Teilnehmerstimmen</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Erfahren Sie, wie unsere Absolventen vom Executive Seminar Integrated Management and Strategy profitieren und die gelernten Konzepte in ihrem beruflichen Alltag umsetzen.</p>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Erfahren Sie, wie unsere Absolventen vom Managementseminar AI-Augmented Decision Making profitieren und die gelernten Konzepte in ihrem beruflichen Alltag umsetzen.</p>
         
         <style>
           /* ============ Gradientes Zitat-Layout ============ */
@@ -2379,7 +2379,7 @@
     <section id="broschuere">
       <div class="container">
         <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Kostenlos Broschüre herunterladen</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Laden Sie jetzt die ausführliche Programmbroschüre zum Executive Seminar KI-Augmented Decision Making herunter – mit allen Details zu Inhalten, Methoden und Ihrem Lernerfolg.</p>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Laden Sie jetzt die ausführliche Programmbroschüre zum Managementseminar KI-Augmented Decision Making herunter – mit allen Details zu Inhalten, Methoden und Ihrem Lernerfolg.</p>
         <div style="display: flex; gap: 32px; align-items: stretch; flex-wrap: wrap; margin-top: 32px;">
           
           <!-- Formular -->
@@ -2547,49 +2547,11 @@
       if (data) {
         document.getElementById('navigation-container').innerHTML = data;
         
-        // Mobile Navigation direkt initialisieren statt externe Datei
-        setTimeout(function() {
-          const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-          const navMenu = document.querySelector('.nav-menu');
-          
-          if (mobileMenuBtn && navMenu) {
-            // Single Event Handler für den Menü-Button
-            mobileMenuBtn.addEventListener('click', function(e) {
-              e.preventDefault();
-              navMenu.classList.toggle('active');
-              
-              // Sprachauswahl hinzufügen - nur wenn sie noch nicht existiert
-              if (navMenu.classList.contains('active') && !document.querySelector('.mobile-lang-section')) {
-                const langSection = document.createElement('div');
-                langSection.className = 'mobile-lang-section';
-                langSection.innerHTML = `
-                  <div class="lang-title">Sprache</div>
-                  <div class="mobile-lang-options">
-                    <a href="?lang=de" class="mobile-lang-option active">Deutsch</a>
-                    <a href="?lang=en" class="mobile-lang-option">English</a>
-                  </div>
-                `;
-                navMenu.appendChild(langSection);
-              }
-            });
-            
-            // Dropdown-Handler einrichten
-            document.querySelectorAll('.nav-item').forEach(item => {
-              const toggleLink = item.querySelector('.toggle-subnav');
-              const dropdown = item.querySelector('.program-dropdown');
-              
-              if (toggleLink && dropdown) {
-                toggleLink.addEventListener('click', function(e) {
-                  if (window.innerWidth <= 1024) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-                  }
-                });
-              }
-            });
-          }
-        }, 100);
+        // Mobile Navigation über externe Datei initialisieren, wie in research.html
+        const navScript = document.createElement('script');
+        navScript.src = 'assets/js/mobile-nav.js?t=' + new Date().getTime();
+        document.body.appendChild(navScript);
+        
         // Sprachumschalter initialisieren, nachdem die Navigation geladen wurde
         setTimeout(() => {
           if (typeof initLanguageSwitching === 'function') {
