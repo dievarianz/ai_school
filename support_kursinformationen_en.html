@@ -1505,5 +1505,40 @@
       });
     });
   </script>
+  
+  <!-- Direct language switching handlers -->
+  <script>
+    // Wait for DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      // Apply direct handlers for language switching as a last-resort backup
+      console.log('Adding direct language switch handlers for Kursinformationen page');
+      
+      // Function to apply handlers to all new German language links
+      function applyGermanLinkHandlers() {
+        document.querySelectorAll('[data-lang="de"], #lang-de-link').forEach(link => {
+          // Remove existing handlers first
+          const newLink = link.cloneNode(true);
+          if (link.parentNode) {
+            link.parentNode.replaceChild(newLink, link);
+          }
+          
+          // Add direct handler that overrides everything else
+          newLink.addEventListener('click', function(e) {
+            console.log('German language link clicked (via direct handler)');
+            e.preventDefault();
+            e.stopPropagation();
+            window.location.href = 'support_kursinformationen.html';
+            return false;
+          }, true);
+        });
+      }
+      
+      // Apply now
+      setTimeout(applyGermanLinkHandlers, 1000);
+      
+      // And also every 2 seconds to catch any newly loaded elements
+      setInterval(applyGermanLinkHandlers, 2000);
+    });
+  </script>
 </body>
 </html> 
