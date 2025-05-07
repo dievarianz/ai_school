@@ -2424,19 +2424,30 @@
     document.addEventListener('DOMContentLoaded', function() {
       // Track scroll functionality
       const scrollContainer = document.querySelector('.tracks-variant-3 .scroll-container');
-      const scrollLeftBtn = document.getElementById('scroll-left');
-      const scrollRightBtn = document.getElementById('scroll-right');
+      let scrollLeftBtn = document.getElementById('scroll-left');
+      let scrollRightBtn = document.getElementById('scroll-right');
       
       if (scrollContainer && scrollLeftBtn && scrollRightBtn) {
         // Dynamische Berechnung der Scroll-Menge basierend auf der Viewport-Breite
         const calculateScrollAmount = () => {
+          // Finde sichtbare Karten (nicht versteckt)
+          const visibleCards = Array.from(scrollContainer.querySelectorAll('.track-card:not(.hidden)'));
+          
+          if (visibleCards.length === 0) {
+            return 0; // Keine sichtbaren Karten
+          }
+          
+          // Breite einer sichtbaren Karte + Abstand
+          const cardWidth = visibleCards[0].offsetWidth + 16; // 16px Abstand
+          
           // Auf mobilen Geräten präziser scrollen
           if (window.innerWidth <= 768) {
-            // Mobile: Eine Card pro Scroll
-            return scrollContainer.querySelector('.track-card').offsetWidth + 16;
+            // Mobile: Eine Karte pro Scroll
+            return cardWidth;
           } else {
-            // Desktop: Zwei Cards pro Scroll
-            return (scrollContainer.querySelector('.track-card').offsetWidth + 16) * 2;
+            // Desktop: Zwei Karten pro Scroll oder die Hälfte der sichtbaren Karten
+            const scrollCount = Math.min(2, Math.ceil(visibleCards.length / 2));
+            return cardWidth * scrollCount;
           }
         };
         
@@ -2463,19 +2474,37 @@
         // Event-Listener für Scroll-Ereignisse
         scrollContainer.addEventListener('scroll', updateScrollButtons);
         
-        scrollLeftBtn.addEventListener('click', function() {
-          scrollContainer.scrollBy({
-            left: -calculateScrollAmount(),
-            behavior: 'smooth'
+        // Funktion zum Einrichten der Scroll-Button-Handler
+        function setupScrollButtons() {
+          // Alle vorherigen Event-Listener entfernen
+          const newLeftBtn = scrollLeftBtn.cloneNode(true);
+          const newRightBtn = scrollRightBtn.cloneNode(true);
+          
+          scrollLeftBtn.parentNode.replaceChild(newLeftBtn, scrollLeftBtn);
+          scrollRightBtn.parentNode.replaceChild(newRightBtn, scrollRightBtn);
+          
+          // Aktualisierte Referenzen
+          scrollLeftBtn = newLeftBtn;
+          scrollRightBtn = newRightBtn;
+          
+          // Neue Event-Listener hinzufügen
+          scrollLeftBtn.addEventListener('click', function() {
+            scrollContainer.scrollBy({
+              left: -calculateScrollAmount(),
+              behavior: 'smooth'
+            });
           });
-        });
+          
+          scrollRightBtn.addEventListener('click', function() {
+            scrollContainer.scrollBy({
+              left: calculateScrollAmount(),
+              behavior: 'smooth'
+            });
+          });
+        }
         
-        scrollRightBtn.addEventListener('click', function() {
-          scrollContainer.scrollBy({
-            left: calculateScrollAmount(),
-            behavior: 'smooth'
-          });
-        });
+        // Initial die Scroll-Buttons einrichten
+        setupScrollButtons();
         
         // Auch beim Resize-Event die Scroll-Distanz anpassen
         window.addEventListener('resize', updateScrollButtons);
@@ -2514,6 +2543,20 @@
             
             // Scroll-Button-Status aktualisieren
             updateScrollButtons();
+            
+            // Scroll-Verhalten an die gefilterten Karten anpassen
+            // Kleine Verzögerung, um sicherzustellen, dass das DOM aktualisiert ist
+            setTimeout(() => {
+              // Scroll-Button-Status erneut aktualisieren
+              updateScrollButtons();
+              
+              // Test-Scroll durchführen, um das Scroll-Verhalten zu aktualisieren
+              const amount = calculateScrollAmount();
+              console.log(`Filter "${filterValue}" angewendet: Scroll-Betrag: ${amount}px`);
+              
+              // Scroll-Buttons neu initialisieren
+              setupScrollButtons();
+            }, 100);
           });
         });
       }

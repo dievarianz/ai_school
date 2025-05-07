@@ -155,7 +155,7 @@
     z-index: 2;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     #hero {
       padding: 40px 0;
     }
@@ -387,7 +387,7 @@
   }
 
   /* Responsive Anpassungen */
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     h1 {
       font-size: 2rem;
     }
@@ -420,7 +420,7 @@
     text-align: center;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     .section-subtitle {
       font-size: 0.95rem;
       margin-bottom: 32px;
@@ -452,7 +452,7 @@
     text-align: center !important;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     h2, .section-subtitle {
       text-align: left !important;
     }
@@ -475,7 +475,7 @@
     text-align: left !important;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     #module-content h2 {
       font-size: 1.7rem;
     }
@@ -569,7 +569,7 @@
     display: none;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     .slider-container {
       padding-bottom: 72px;
     }
@@ -776,7 +776,7 @@
   }
 
   /* Tablet styles */
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     .stats-grid {
       gap: 20px;
       padding: 0 20px;
@@ -898,7 +898,7 @@
   .item6 { grid-column: 4; grid-row: 2; }
 
   /* Responsive Design */
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     .gallery {
       grid-template-columns: 1fr;
       grid-template-rows: repeat(6, minmax(200px, auto));
@@ -982,7 +982,7 @@
     line-height: 1.4;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     .faculty-grid {
       grid-template-columns: 1fr;
       gap: 24px;
@@ -1037,7 +1037,7 @@
     font-size: 1.1rem;
   }
   
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     .contact-info {
       text-align: center;
     }
@@ -1093,7 +1093,7 @@
     display: inline-block;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     .info-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -1103,7 +1103,22 @@
     .info-box {
       width: 100% !important;
       height: auto !important;
-      min-height: 125px !important;
+      min-height: 140px !important;
+      aspect-ratio: 1 / 1 !important;  /* Makes boxes square */
+      padding: 20px !important;
+    }
+    
+    .info-box i.bx {
+      font-size: 32px !important;      /* Larger icons */
+      margin-bottom: 12px !important;
+    }
+    
+    .info-label {
+      font-size: 0.85rem !important;   /* Slightly larger label */
+    }
+    
+    .info-value {
+      font-size: 1.05rem !important;   /* Larger value text */
     }
 
     #hero .container {
@@ -1247,7 +1262,7 @@
   }
   
   /* Responsive */
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     .module-tabs-v6 {
       flex-direction: column;
     }
@@ -1273,7 +1288,7 @@
     max-width: calc(100% - 310px);
   }
   
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     .content-container-v6 {
       max-width: 100%;
     }
@@ -1341,7 +1356,7 @@
     color: var(--color-text);
   }
   
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     .program-info-grid {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -1473,7 +1488,7 @@
     flex: 1;
   }
   
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     .date-info-content {
       flex-direction: column;
       align-items: flex-start;
@@ -1597,6 +1612,7 @@
   .gradient-info {
     display: flex;
     flex-direction: column;
+    margin-top: 6px; /* Verschiebt den Text nach unten für vertikale Zentrierung */
   }
   
   .gradient-name {
@@ -1608,9 +1624,7 @@
   .gradient-position {
     font-size: 0.85rem;
     color: var(--color-muted);
-    min-height: 40px; /* Ensure consistent height */
-    display: flex;
-    align-items: center;
+    display: inline-block;
   }
   
   .gradient-program {
@@ -1636,18 +1650,20 @@
     }
   }
 
-          @media (max-width: 768px) {
+          @media (max-width: 968px) {
             .gradient-quotes {
               grid-template-columns: 1fr;
             }
             .gradient-quote-footer {
-              flex-direction: column;
-              align-items: flex-start;
+              flex-direction: row !important;
+              justify-content: space-between !important;
+              align-items: center !important;
+              padding: 15px 20px;
             }
             
             .gradient-person {
-              margin-bottom: 15px;
-              width: 100%;
+              margin-bottom: 0 !important;
+              width: auto !important;
             }
             
             .gradient-info {
@@ -1655,13 +1671,7 @@
             }
             
             .gradient-company {
-              align-self: flex-start;
-              margin-top: 5px;
-            }
-            
-            .gradient-position {
-              min-height: unset;
-              margin-bottom: 5px;
+              height: 35px;
             }
           }
         </style>

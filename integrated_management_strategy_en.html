@@ -1292,7 +1292,7 @@
     display: inline-block;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     .info-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -1302,7 +1302,22 @@
     .info-box {
       width: 100% !important;
       height: auto !important;
-      min-height: 125px !important;
+      min-height: 140px !important;
+      aspect-ratio: 1 / 1 !important;  /* Makes boxes square */
+      padding: 20px !important;
+    }
+    
+    .info-box i.bx {
+      font-size: 32px !important;      /* Larger icons */
+      margin-bottom: 12px !important;
+    }
+    
+    .info-label {
+      font-size: 0.85rem !important;   /* Slightly larger label */
+    }
+    
+    .info-value {
+      font-size: 1.05rem !important;   /* Larger value text */
     }
 
     #hero .container {
@@ -1313,6 +1328,13 @@
 
     #hero a[href="#broschuere"] {
       margin: 24px auto;
+    }
+  }
+
+  /* Remove the separate breakpoint for 480px and apply the same styling across all responsive views */
+  @media (max-width: 480px) {
+    .info-grid {
+      gap: 12px;
     }
   }
 
@@ -2013,6 +2035,7 @@
   .gradient-info {
     display: flex;
     flex-direction: column;
+    margin-top: 6px; /* Shifts the text down for vertical centering */
   }
   
   .gradient-name {
@@ -2024,9 +2047,7 @@
   .gradient-position {
     font-size: 0.85rem;
     color: var(--color-muted);
-    min-height: 40px; /* Ensure consistent height */
-    display: flex;
-    align-items: center;
+    display: inline-block;
   }
   
   .gradient-program {
@@ -2083,9 +2104,7 @@
   .gradient-position {
     font-size: 0.85rem;
     color: var(--color-muted);
-    min-height: 40px; /* Ensure consistent height */
-    display: flex;
-    align-items: center;
+    display: inline-block;
   }
   
   .gradient-program {
@@ -2111,27 +2130,19 @@
     }
     
     .gradient-quote-footer {
-      flex-direction: column;
-      align-items: flex-start;
+      flex-direction: row !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      padding: 15px 20px;
     }
     
     .gradient-person {
-      margin-bottom: 15px;
-      width: 100%;
-    }
-    
-    .gradient-info {
-      flex: 1;
+      margin-bottom: 0 !important;
+      width: auto !important;
     }
     
     .gradient-company {
-      align-self: flex-start;
-      margin-top: 5px;
-    }
-    
-    .gradient-position {
-      min-height: unset;
-      margin-bottom: 5px;
+      height: 35px;
     }
   }
 
@@ -2923,9 +2934,7 @@
           .gradient-position {
             font-size: 0.85rem;
             color: var(--color-muted);
-            min-height: 40px; /* Ensure consistent height */
-            display: flex;
-            align-items: center;
+            display: inline-block;
           }
           
           .gradient-program {
@@ -2950,27 +2959,19 @@
               grid-template-columns: 1fr;
             }
             .gradient-quote-footer {
-              flex-direction: column;
-              align-items: flex-start;
+              flex-direction: row !important;
+              justify-content: space-between !important;
+              align-items: center !important;
+              padding: 15px 20px;
             }
             
             .gradient-person {
-              margin-bottom: 15px;
-              width: 100%;
-            }
-            
-            .gradient-info {
-              flex: 1;
+              margin-bottom: 0 !important;
+              width: auto !important;
             }
             
             .gradient-company {
-              align-self: flex-start;
-              margin-top: 5px;
-            }
-            
-            .gradient-position {
-              min-height: unset;
-              margin-bottom: 5px;
+              height: 35px;
             }
           }
         </style>
