@@ -140,9 +140,10 @@
       font-size: 1.1rem;
       margin-bottom: 40px;
       text-align: left;
-      max-width: 800px;
+      max-width: 100%;
       margin-left: 0;
       margin-right: auto;
+      /* Erlaube natürlichen Textumbruch je nach verfügbarem Platz */
     }
 
     /* Support Cards */
@@ -494,6 +495,8 @@
       .faq-item.active .faq-answer {
         padding: 0 24px 24px 24px;
       }
+      
+      /* Keine explizite Kontrolle des Zeilenumbruchs - natürliche Anpassung */
     }
   </style>
 
@@ -521,7 +524,7 @@
     <section class="content-section">
       <div class="container">
         <h2>Zentrale Themen auf einem Blick</h2>
-        <p class="section-subtitle" style="white-space: nowrap;">In den folgenden Bereichen finden Sie detaillierte Informationen zur Institution, den Programminhalten sowie zu Kontakt- und Beratungsmöglichkeiten.</p>
+        <p class="section-subtitle">In den folgenden Bereichen finden Sie detaillierte Informationen zur Institution, den Programminhalten sowie zu Kontakt- und Beratungsmöglichkeiten.</p>
         
         <div class="support-grid">
           <!-- Karte 1: Über St. Gallen IMT -->

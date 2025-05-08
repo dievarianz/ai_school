@@ -140,9 +140,10 @@
       font-size: 1.1rem;
       margin-bottom: 40px;
       text-align: left;
-      max-width: 800px;
+      max-width: 100%;
       margin-left: 0;
       margin-right: auto;
+      /* Allow natural text wrapping based on available space */
     }
 
     /* Support Cards */
@@ -494,6 +495,8 @@
       .faq-item.active .faq-answer {
         padding: 0 24px 24px 24px;
       }
+      
+      /* No explicit line break control - natural adaptation */
     }
   </style>
 
@@ -525,7 +528,7 @@
     <section class="content-section">
       <div class="container">
         <h2>Key Topics at a Glance</h2>
-        <p class="section-subtitle" style="white-space: nowrap;">In the following areas you'll find detailed information about our institution, program content, and contact and consultation options.</p>
+        <p class="section-subtitle">In the following areas you'll find detailed information about our institution, program content, and contact and consultation options.</p>
         
         <div class="support-grid">
           <!-- Card 1: About St. Gallen IMT -->
