@@ -186,7 +186,7 @@
   <link rel="icon" href="assets/favicon.png" type="image/png">
 
   <!-- Language switching support -->
-  <script src="assets/js/language-switch.js?t=' + new Date().getTime()"></script>
+  <script src="assets/js/language-switch.js"></script>
 
   </head>
 <body>
@@ -295,6 +295,17 @@
           const navScript = document.createElement('script');
           navScript.src = 'assets/js/mobile-nav.js?t=' + new Date().getTime();
           document.body.appendChild(navScript);
+          
+          // Sprachumschalter initialisieren, nachdem die Navigation geladen wurde
+          setTimeout(() => {
+            if (typeof initLanguageSwitching === 'function') {
+              initLanguageSwitching();
+            } else if (window.switchLanguage) {
+              console.log('Language-switch.js bereits geladen, verwende globale Funktion');
+            } else {
+              console.warn('Language-switch Funktionen nicht gefunden!');
+            }
+          }, 300);
         }
       })
       .catch(error => console.error('Fehler beim Laden der Navigation:', error));

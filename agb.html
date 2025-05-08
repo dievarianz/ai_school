@@ -162,7 +162,7 @@
   <link rel="icon" href="assets/favicon.png" type="image/png">
 
   <!-- Language switching support -->
-  <script src="assets/js/language-switch.js?t=' + new Date().getTime()"></script>
+  <script src="assets/js/language-switch.js"></script>
 
   </head>
 <body>
@@ -180,7 +180,7 @@
         <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Allgemeine Geschäftsbedingungen (AGB)</h2>
         
         <h2>1. Geltungsbereich</h2>
-        <p>Diese AGB gelten für sämtliche Seminare und Programme der StGallen Integrated imt Business School AG/Co. imtxAI. Bei Unklarheiten nehmen Sie bitte Kontakt auf.</p>
+        <p>Diese AGB gelten für sämtliche Seminare und Programme der StGallen Integrated imt Business School AG/Co. Bei Unklarheiten nehmen Sie bitte Kontakt auf.</p>
         
         <h2>2. Anmeldung</h2>
         <p>Mit der Anmeldung akzeptieren die Teilnehmer unsere AGB. Die Anmeldung kann per Post, E-Mail oder über die Website erfolgen. Nach Erhalt der Anmeldung versenden wir die Anmeldebestätigung, Rechnung und weitere Unterlagen. Die Plätze werden nach Eingang der Anmeldung vergeben.</p>
@@ -225,6 +225,13 @@
 
   <!-- Dynamisches Laden der globalen Komponenten -->
   <script>
+    // Initialize language switcher on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof initLanguageSwitching === 'function') {
+        initLanguageSwitching();
+      }
+    });
+
     // Navigation laden
     fetch('components/globals/navigation_ohnesub.html?t=' + new Date().getTime())
       .then(response => {
@@ -251,6 +258,17 @@
           const navScript = document.createElement('script');
           navScript.src = 'assets/js/mobile-nav.js?t=' + new Date().getTime();
           document.body.appendChild(navScript);
+          
+          // Sprachumschalter initialisieren, nachdem die Navigation geladen wurde
+          setTimeout(() => {
+            if (typeof initLanguageSwitching === 'function') {
+              initLanguageSwitching();
+            } else if (window.switchLanguage) {
+              console.log('Language-switch.js bereits geladen, verwende globale Funktion');
+            } else {
+              console.warn('Language-switch Funktionen nicht gefunden!');
+            }
+          }, 300);
         }
       })
       .catch(error => console.error('Fehler beim Laden der Navigation:', error));

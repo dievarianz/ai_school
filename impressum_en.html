@@ -173,7 +173,7 @@
 <link rel="icon" href="assets/favicon.png" type="image/png">
 
   <!-- Language switching support -->
-  <script src="assets/js/language-switch.js?t=' + new Date().getTime()"></script>
+  <script src="assets/js/language-switch.js"></script>
 
   </head>
 <body>
@@ -191,7 +191,7 @@
       <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Legal Notice</h2>
       
       <div class="address-block">
-        <h2>StGallen imt Business School xAI</h2>
+        <h2>StGallen imt Business School</h2>
         <p>Rosenbergstrasse 52</p>
         <p>9000 St. Gallen</p>
         <p>Switzerland</p>
@@ -211,7 +211,7 @@
       
       <h2>Responsible for Content</h2>
       <p>Dr. Christian Abegglen</p>
-      <p>StGallen imt Business School xAI</p>
+      <p>StGallen imt Business School</p>
       <p>Rosenbergstrasse 52</p>
       <p>9000 St. Gallen</p>
       
@@ -256,17 +256,28 @@
         const navScript = document.createElement('script');
         navScript.src = 'assets/js/mobile-nav.js?t=' + new Date().getTime();
         document.body.appendChild(navScript);
+        
+        // Initialize language switcher after navigation is loaded
+        setTimeout(() => {
+          if (typeof initLanguageSwitching === 'function') {
+            initLanguageSwitching();
+          } else if (window.switchLanguage) {
+            console.log('Language-switch.js already loaded, using global function');
+          } else {
+            console.warn('Language-switch functions not found!');
+          }
+        }, 300);
       }
     })
     .catch(error => console.error('Error loading navigation:', error));
   
   // Load sidebar
-  fetch('components/globals/sidebar_other.html?t=' + new Date().getTime())
+  fetch('components/globals/sidebar_other_en.html?t=' + new Date().getTime())
     .then(response => {
       if (!response.ok) {
         console.error('Error loading sidebar:', response.status);
         // Try fallback to globals directory
-        return fetch('components/includes/sidebar_other.html?t=' + new Date().getTime())
+        return fetch('components/includes/sidebar_other_en.html?t=' + new Date().getTime())
           .then(resp => {
             if (!resp.ok) {
               console.error('Globals path also failed:', resp.status);

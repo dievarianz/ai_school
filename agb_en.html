@@ -162,7 +162,7 @@
   <link rel="icon" href="assets/favicon.png" type="image/png">
 
   <!-- Language switching support -->
-  <script src="assets/js/language-switch.js?t=' + new Date().getTime()"></script>
+  <script src="assets/js/language-switch.js"></script>
 
   </head>
 <body>
@@ -180,7 +180,7 @@
         <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Terms and Conditions (T&C)</h2>
         
         <h2>1. Scope</h2>
-        <p>These terms and conditions apply to all seminars and programs offered by StGallen Integrated imt Business School AG/Co. imtxAI. In case of any uncertainties, please contact us.</p>
+        <p>These terms and conditions apply to all seminars and programs offered by StGallen Integrated imt Business School AG/Co. In case of any uncertainties, please contact us.</p>
         
         <h2>2. Registration</h2>
         <p>By registering, participants accept our terms and conditions. Registration can be done by mail, email, or via our website. Upon receipt of registration, we will send a confirmation, invoice, and further documents. Places are allocated in the order registrations are received.</p>
@@ -251,17 +251,28 @@
           const navScript = document.createElement('script');
           navScript.src = 'assets/js/mobile-nav.js?t=' + new Date().getTime();
           document.body.appendChild(navScript);
+          
+          // Initialize language switcher after navigation is loaded
+          setTimeout(() => {
+            if (typeof initLanguageSwitching === 'function') {
+              initLanguageSwitching();
+            } else if (window.switchLanguage) {
+              console.log('Language-switch.js already loaded, using global function');
+            } else {
+              console.warn('Language-switch functions not found!');
+            }
+          }, 300);
         }
       })
       .catch(error => console.error('Error loading navigation:', error));
 
     // Load sidebar
-    fetch('components/globals/sidebar_other.html?t=' + new Date().getTime())
+    fetch('components/globals/sidebar_other_en.html?t=' + new Date().getTime())
       .then(response => {
         if (!response.ok) {
           console.error('Error loading sidebar:', response.status);
           // Try fallback to includes directory
-          return fetch('components/includes/sidebar_other.html?t=' + new Date().getTime())
+          return fetch('components/includes/sidebar_other_en.html?t=' + new Date().getTime())
             .then(resp => {
               if (!resp.ok) {
                 console.error('Includes path also failed:', resp.status);
