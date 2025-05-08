@@ -1741,6 +1741,156 @@
     .error-tooltip.visible {
       display: block;
     }
+
+    /* ============ Gradient Quote Layout ============ */
+    .gradient-quotes {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+    
+    .gradient-quote-card {
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+      border: 2px solid transparent;
+      transition: all 0.3s ease;
+    }
+    
+    .gradient-quote-card:hover {
+      border-color: var(--imt-purple);
+    }
+    
+    .gradient-quote-inner {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      background: linear-gradient(to bottom right, #ffffff, #f8f9fa);
+      position: relative;
+      z-index: 1;
+    }
+    
+    .gradient-quote-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--imt-purple) 0%, var(--imt-green) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 0;
+    }
+    
+    .gradient-quote-card:hover::before {
+      opacity: 0.03;
+    }
+    
+    .gradient-quote-content {
+      padding: 40px 30px 25px;
+      position: relative;
+      flex: 1;
+    }
+    
+    .gradient-quote-icon {
+      position: absolute;
+      top: -15px;
+      right: 25px;
+      font-size: 4rem;
+      color: var(--imt-purple);
+      opacity: 0.1;
+      transition: transform 0.3s ease;
+    }
+    
+    .gradient-quote-card:hover .gradient-quote-icon {
+      transform: rotate(10deg);
+    }
+    
+    .gradient-quote-text {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: var(--color-text);
+      font-weight: 400;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .gradient-quote-footer {
+      background-color: #fafafa;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #f0f0f0;
+    }
+    
+    .gradient-person {
+      display: flex;
+      align-items: center;
+    }
+    
+    .gradient-avatar-container {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 15px;
+      border: 3px solid white;
+      transition: all 0.3s ease;
+    }
+    
+    .gradient-quote-card:hover .gradient-avatar-container {
+      border-color: #f5f5f7;
+    }
+    
+    .gradient-avatar {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .gradient-info {
+      display: flex;
+      flex-direction: column;
+      margin-top: 6px; /* Shifts the text down for vertical centering */
+    }
+    
+    .gradient-name {
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 2px;
+    }
+    
+    .gradient-position {
+      font-size: 0.85rem;
+      color: var(--color-muted);
+      display: inline-block;
+    }
+    
+    .gradient-program {
+      font-size: 0.8rem;
+      color: var(--imt-purple);
+      margin-top: 2px;
+    }
+    
+    .gradient-company {
+      height: 40px;
+      width: auto;
+      opacity: 0.7;
+      transition: opacity 0.3s ease;
+    }
+    
+    .gradient-quote-card:hover .gradient-company {
+      opacity: 1;
+    }
+    
+    @media (max-width: 968px) {
+      .gradient-quotes {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 
   <!-- BoxIcons für Icons -->
@@ -2249,6 +2399,192 @@
           <a href="netzwerk_en.html" class="view-all-btn">
             Discover the StGallen imt Business School network <i class="bx bx-right-arrow-alt"></i>
           </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Participant Testimonials -->
+    <section class="content-section">
+      <div class="container">
+        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Participant Testimonials</h2>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Discover how our graduates benefit from StGallen imt Business School programs and apply the concepts learned in their professional lives.</p>
+        
+        <div class="gradient-quotes">
+          <!-- Jonas Gillmann Testimonial -->
+          <div class="gradient-quote-card testimonial-item">
+            <div class="gradient-quote-inner">
+              <div class="gradient-quote-content">
+                <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
+                <p class="gradient-quote-text">The StGallen imt Business School has been crucial in my journey to the board. With practical impulses, strategic clarity, and valuable perspectives, I received the best toolkit for successful corporate management.</p>
+              </div>
+              <div class="gradient-quote-footer">
+                <div class="gradient-person">
+                  <div class="gradient-avatar-container">
+                    <img src="assets/testimonials/gillmann.jpg" alt="Jonas Gillmann" class="gradient-avatar">
+                  </div>
+                  <div class="gradient-info">
+                    <span class="gradient-name">Jonas Gillmann</span>
+                    <span class="gradient-position">CTO Datron AG</span>
+                  </div>
+                </div>
+                <img src="assets/testimonials/datron.png" alt="Datron" class="gradient-company">
+              </div>
+            </div>
+          </div>
+          
+          <!-- Testimonial 1: Patrick Kling -->
+          <div class="gradient-quote-card testimonial-item" style="display: none;">
+            <div class="gradient-quote-inner">
+              <div class="gradient-quote-content">
+                <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
+                <p class="gradient-quote-text">A thorough understanding of strategy and business models is crucial in the face of growing dynamics and complexity. The St.Gallen Integrated IMT Business School is a strong partner in specifically developing relevant competencies.</p>
+              </div>
+              <div class="gradient-quote-footer">
+                <div class="gradient-person">
+                  <div class="gradient-avatar-container">
+                    <img src="assets/testimonials/kling.jpg" alt="Patrick Kling" class="gradient-avatar">
+                  </div>
+                  <div class="gradient-info">
+                    <span class="gradient-name">Patrick Kling</span>
+                    <span class="gradient-position">Managing Director, Steigerwald</span>
+                  </div>
+                </div>
+                <img src="assets/testimonials/steigerwald.png" alt="Steigerwald" class="gradient-company">
+              </div>
+            </div>
+          </div>
+          
+          <!-- Testimonial 2: Dr. Bertram Hoffmann -->
+          <div class="gradient-quote-card testimonial-item" style="display: none;">
+            <div class="gradient-quote-inner">
+              <div class="gradient-quote-content">
+                <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
+                <p class="gradient-quote-text">Excellence requires the interplay of culture, strategy, and leadership - holistic, dynamic, and systemic thinking. The St. Gallen concept provides the appropriate framework; Christian Abegglen is a formative, credible personality in this field.</p>
+              </div>
+              <div class="gradient-quote-footer">
+                <div class="gradient-person">
+                  <div class="gradient-avatar-container">
+                    <img src="assets/testimonials/hoffmann.jpg" alt="Dr. Bertram Hoffmann" class="gradient-avatar">
+                  </div>
+                  <div class="gradient-info">
+                    <span class="gradient-name">Dr. Bertram Hoffmann</span>
+                    <span class="gradient-position">CEO, Wittenstein</span>
+                  </div>
+                </div>
+                <img src="assets/testimonials/wittenstein.png" alt="Wittenstein" class="gradient-company">
+              </div>
+            </div>
+          </div>
+          
+          <!-- Testimonial 3: Dr. Manfred Wittenstein -->
+          <div class="gradient-quote-card testimonial-item" style="display: none;">
+            <div class="gradient-quote-inner">
+              <div class="gradient-quote-content">
+                <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
+                <p class="gradient-quote-text">Continuously questioning and developing oneself is essential for sustainable success. Christian Abegglen has been my friend, mentor, and at the same time demanding source of impulses for decades - always at the highest level.</p>
+              </div>
+              <div class="gradient-quote-footer">
+                <div class="gradient-person">
+                  <div class="gradient-avatar-container">
+                    <img src="assets/testimonials/manfred_wittenstein.jpg" alt="Dr. Manfred Wittenstein" class="gradient-avatar">
+                  </div>
+                  <div class="gradient-info">
+                    <span class="gradient-name">Dr. Manfred Wittenstein</span>
+                    <span class="gradient-position">Founder and Owner, Wittenstein</span>
+                  </div>
+                </div>
+                <img src="assets/testimonials/wittenstein.png" alt="Wittenstein" class="gradient-company">
+              </div>
+            </div>
+          </div>
+          
+          <!-- Testimonial 4: Dr. Sascha von Berchem -->
+          <div class="gradient-quote-card testimonial-item" style="display: none;">
+            <div class="gradient-quote-inner">
+              <div class="gradient-quote-content">
+                <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
+                <p class="gradient-quote-text">The St.Gallen IMT Business School combines academic depth with practical application - real challenges, directly transferable. This approach continuously provides executives like myself, as a guest lecturer, with new impulses for sustainable development and success.</p>
+              </div>
+              <div class="gradient-quote-footer">
+                <div class="gradient-person">
+                  <div class="gradient-avatar-container">
+                    <img src="assets/testimonials/von_berchem.jpg" alt="Dr. Sascha von Berchem" class="gradient-avatar">
+                  </div>
+                  <div class="gradient-info">
+                    <span class="gradient-name">Dr. Sascha von Berchem</span>
+                    <span class="gradient-position">Managing Director, Wittenstein Foundation</span>
+                  </div>
+                </div>
+                <img src="assets/testimonials/wittenstein.png" alt="Wittenstein" class="gradient-company">
+              </div>
+            </div>
+          </div>
+          
+          <!-- Testimonial 5: Elias Böni -->
+          <div class="gradient-quote-card testimonial-item" style="display: none;">
+            <div class="gradient-quote-inner">
+              <div class="gradient-quote-content">
+                <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
+                <p class="gradient-quote-text">The diverse training methods based on the St.Galler Thinking & Learning Navigator - from simulations to real cases - are extremely enriching and challenging, even for our business with refurbished mobile phones.</p>
+              </div>
+              <div class="gradient-quote-footer">
+                <div class="gradient-person">
+                  <div class="gradient-avatar-container">
+                    <img src="assets/testimonials/boeni.jpg" alt="Elias Böni" class="gradient-avatar">
+                  </div>
+                  <div class="gradient-info">
+                    <span class="gradient-name">Elias Böni</span>
+                    <span class="gradient-position">Co-Founder, MobileUp</span>
+                  </div>
+                </div>
+                <img src="assets/testimonials/mobileup.jpg" alt="MobileUp" class="gradient-company">
+              </div>
+            </div>
+          </div>
+          
+          <!-- Testimonial 6: Mark Mislin -->
+          <div class="gradient-quote-card testimonial-item" style="display: none;">
+            <div class="gradient-quote-inner">
+              <div class="gradient-quote-content">
+                <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
+                <p class="gradient-quote-text">The IMT faculty has challenged and supported us at every step of the learning journey - including concrete advice on solving specific challenges in our company.</p>
+              </div>
+              <div class="gradient-quote-footer">
+                <div class="gradient-person">
+                  <div class="gradient-avatar-container">
+                    <img src="assets/testimonials/mislin.jpg" alt="Mark Mislin" class="gradient-avatar">
+                  </div>
+                  <div class="gradient-info">
+                    <span class="gradient-name">Mark Mislin</span>
+                    <span class="gradient-position">CEO, Decon</span>
+                  </div>
+                </div>
+                <img src="assets/testimonials/decon.jpg" alt="Decon" class="gradient-company">
+              </div>
+            </div>
+          </div>
+          
+          <!-- Testimonial 7: Thomas Steiner -->
+          <div class="gradient-quote-card testimonial-item" style="display: none;">
+            <div class="gradient-quote-inner">
+              <div class="gradient-quote-content">
+                <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
+                <p class="gradient-quote-text">I am impressed by how the St. Gallen concept integrates different perspectives and addresses diverse topics - making it directly applicable across industries in business practice.</p>
+              </div>
+              <div class="gradient-quote-footer">
+                <div class="gradient-person">
+                  <div class="gradient-avatar-container">
+                    <img src="assets/testimonials/steiner.jpg" alt="Thomas Steiner" class="gradient-avatar">
+                  </div>
+                  <div class="gradient-info">
+                    <span class="gradient-name">Thomas Steiner</span>
+                    <span class="gradient-position">CEO, Caynova</span>
+                  </div>
+                </div>
+                <img src="assets/testimonials/caynova.jpg" alt="Caynova" class="gradient-company">
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -2890,6 +3226,48 @@
       // Also run after nav script likely has loaded
       setTimeout(checkAndFixMobileMenu, 1500);
       setTimeout(checkAndFixMobileMenu, 3000);
+    });
+  </script>
+  
+  <!-- JavaScript for Testimonial Shuffler -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Testimonial Shuffler
+      function shuffleTestimonials() {
+        // Collect all testimonials
+        const testimonials = Array.from(document.querySelectorAll('.testimonial-item'));
+        
+        // Fisher-Yates Shuffle Algorithm
+        function shuffleArray(array) {
+          for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+          }
+          return array;
+        }
+        
+        // Shuffle testimonials
+        const shuffledTestimonials = shuffleArray([...testimonials]);
+        
+        // Hide all testimonials initially
+        testimonials.forEach(item => {
+          item.style.display = 'none';
+        });
+        
+        // Number of testimonials to show (2 in this case)
+        const numToShow = 2;
+        
+        // Show the first 2
+        for (let i = 0; i < Math.min(numToShow, shuffledTestimonials.length); i++) {
+          shuffledTestimonials[i].style.display = 'block';
+        }
+      }
+      
+      // Shuffle testimonials when the page loads
+      shuffleTestimonials();
+      
+      // Optional: Automatically shuffle testimonials every 30 seconds
+      // setInterval(shuffleTestimonials, 30000);
     });
   </script>
 </body>
