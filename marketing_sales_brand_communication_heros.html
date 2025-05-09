@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>Hero Design Alternatives | Marketing, Sales and Brand Communication</title>
+
+  <!-- ============ STYLES ============ -->
+  <style>
+    :root{
+      --font-sans:-apple-system,BlinkMacSystemFont,"San Francisco","Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+      --color-text:#1d1d1f;
+      --color-muted:#6e6e73;
+      --color-card-bg:#f5f5f7;
+      --color-accent2:#970289;
+      --color-badge:#e2b245;
+      --color-badge-hover:#d4a535;
+      --spacing:24px;
+      --radius:16px;
+      --max-width:1200px;
+      --imt-purple: #6e45e2;
+      --imt-green: #4CAF50;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--color-text);
+      background: #fff;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      padding-top: 30px;
+    }
+
+    /* Basis Styling für Container */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--spacing);
+      width: 100%;
+    }
+
+    main {
+      position: relative;
+    }
+
+    /* Allgemeine Typografie */
+    h1, h2, h3, h4, h5, h6 {
+      margin-bottom: 1rem;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.25rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    p {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    /* Original Hero - as reference */
+    #original-hero {
+      text-align: center;
+      padding: 60px 0 20px;
+      position: relative;
+      background-color: #f5f5f7;
+      color: var(--color-text);
+      overflow: hidden;
+      margin-bottom: 50px;
+    }
+
+    #original-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+          url('assets/pictures/hero_marketing_sales_brand_communication.jpg')
+          center/cover no-repeat;
+      opacity: 0.20;
+      z-index: 0;
+    }
+
+    #original-hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: white;
+      clip-path: polygon(
+        0 0, 
+        calc(100% - 50px) 0, 
+        100% 50px, 
+        100% 100%, 
+        50px 100%, 
+        0 calc(100% - 50px)
+      );
+      opacity: 0.05;
+      z-index: 1;
+    }
+
+    #original-hero .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    #original-hero h1 {
+      font-size: 2.5rem;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      width: 100%;
+      color: var(--color-text);
+    }
+
+    #original-hero h2 {
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+      opacity: 0.8;
+      text-transform: uppercase;
+      color: var(--color-text);
+      width: 100%;
+      text-align: center !important;
+    }
+
+    /* ALTERNATIVE 1: Dark overlay with white text (similar to index.html) */
+    #alt1-hero {
+      text-align: center;
+      padding: 60px 0 20px;
+      position: relative;
+      overflow: hidden;
+      color: #fff;
+      margin-bottom: 50px;
+    }
+
+    #alt1-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+          linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)),
+          url('assets/pictures/hero_marketing_sales_brand_communication.jpg')
+          center/cover no-repeat;
+      z-index: 0;
+    }
+
+    #alt1-hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: transparent;
+      clip-path: polygon(
+        0 0, 
+        calc(100% - 50px) 0, 
+        100% 50px, 
+        100% 100%, 
+        50px 100%, 
+        0 calc(100% - 50px)
+      );
+      opacity: 0.2;
+      z-index: 1;
+      box-shadow: inset 0 0 50px rgba(110, 69, 226, 0.3);
+    }
+
+    #alt1-hero .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    #alt1-hero h1 {
+      font-size: 2.5rem;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      width: 100%;
+      color: #fff;
+      text-shadow: 2px 2px 12px rgba(0,0,0,.5);
+    }
+
+    #alt1-hero h2 {
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+      opacity: 0.9;
+      text-transform: uppercase;
+      color: #fff;
+      width: 100%;
+      text-align: center !important;
+      text-shadow: 1px 1px 8px rgba(0,0,0,.5);
+    }
+
+    /* ALTERNATIVE 2: Gradient overlay with more visible image */
+    #alt2-hero {
+      text-align: center;
+      padding: 60px 0 20px;
+      position: relative;
+      overflow: hidden;
+      color: #fff;
+      margin-bottom: 50px;
+    }
+
+    #alt2-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+          linear-gradient(135deg, rgba(110, 69, 226, 0.85) 0%, rgba(0,0,0,.4) 100%),
+          url('assets/pictures/hero_marketing_sales_brand_communication.jpg')
+          center/cover no-repeat;
+      opacity: 0.9;
+      z-index: 0;
+    }
+
+    #alt2-hero .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    #alt2-hero h1 {
+      font-size: 2.5rem;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      width: 100%;
+      color: #fff;
+      text-shadow: 1px 1px 8px rgba(0,0,0,.4);
+    }
+
+    #alt2-hero h2 {
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+      opacity: 0.9;
+      text-transform: uppercase;
+      color: #fff;
+      width: 100%;
+      text-align: center !important;
+      text-shadow: 1px 1px 5px rgba(0,0,0,.4);
+    }
+
+    /* ALTERNATIVE 3: Semi-transparent image with bold design */
+    #alt3-hero {
+      text-align: center;
+      padding: 60px 0 20px;
+      position: relative;
+      background-color: #000;
+      color: #fff;
+      overflow: hidden;
+      margin-bottom: 50px;
+    }
+
+    #alt3-hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+          url('assets/pictures/hero_marketing_sales_brand_communication.jpg')
+          center/cover no-repeat;
+      opacity: 0.5;
+      z-index: 0;
+    }
+
+    #alt3-hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, rgba(0,0,0,0.7) 0%, transparent 50%, rgba(0,0,0,0.7) 100%);
+      z-index: 1;
+    }
+
+    #alt3-hero .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    #alt3-hero h1 {
+      font-size: 2.5rem;
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      width: 100%;
+      color: #fff;
+      text-shadow: 2px 2px 12px rgba(0,0,0,.8);
+      border-bottom: 3px solid var(--imt-purple);
+      padding-bottom: 15px;
+      display: inline-block;
+      margin: 0 auto 20px;
+    }
+
+    #alt3-hero h2 {
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+      opacity: 0.9;
+      text-transform: uppercase;
+      color: #fff;
+      width: 100%;
+      text-align: center !important;
+      text-shadow: 1px 1px 8px rgba(0,0,0,.8);
+    }
+
+    /* Availability Badge styling (Same for all versions) */
+    .availability-badge {
+      position: absolute !important;
+      top: 32px !important;
+      right: 5% !important;
+      left: auto !important;
+      width: 180px !important;
+      height: 180px !important;
+      background: linear-gradient(135deg, #6e45e2 20%, #9c27b0 50%, #e2b245 100%) !important;
+      border-radius: 40% 60% 70% 30% / 40% 50% 60% 50% !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      text-align: center !important;
+      font-size: 1.05rem !important;
+      font-weight: 500 !important;
+      color: white !important;
+      box-shadow: 0 8px 24px rgba(110, 69, 226, 0.3) !important;
+      animation: morph 8s ease-in-out infinite !important;
+      padding: 20px !important;
+      overflow: hidden !important;
+      z-index: 999 !important;
+    }
+
+    .availability-badge::before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect x="25" y="25" width="4" height="4" fill="white" opacity="0.3"/><rect x="45" y="45" width="3" height="3" fill="white" opacity="0.2"/><rect x="65" y="15" width="5" height="5" fill="white" opacity="0.4"/><rect x="15" y="65" width="4" height="4" fill="white" opacity="0.3"/><rect x="75" y="75" width="3" height="3" fill="white" opacity="0.2"/></svg>');
+      z-index: -1;
+      opacity: 0.5;
+      animation: rotate-particles 30s linear infinite;
+    }
+
+    @keyframes rotate-particles {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .availability-badge span {
+      display: inline-block;
+      line-height: 1.4;
+      position: relative;
+      z-index: 1;
+    }
+
+    @keyframes morph {
+      0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+      50% { border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%; }
+      100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+    }
+
+    @media(max-width: 968px) {
+      .availability-badge {
+        display: none;
+      }
+      
+      h1 {
+        text-align: center !important;
+      }
+    }
+
+    /* Title styling for this demo page */
+    .page-title {
+      text-align: center;
+      margin: 20px 0 40px;
+    }
+
+    .alternative-label {
+      background: var(--imt-purple);
+      color: white;
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 4px;
+      margin-bottom: 15px;
+    }
+
+    /* Prevents overflow on mobile */
+    @media (max-width: 968px) {
+      #original-hero, #alt1-hero, #alt2-hero, #alt3-hero {
+        padding: 40px 0;
+      }
+    }
+  </style>
+
+  <!-- BoxIcons for Icons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1 class="page-title">Hero Design Alternativen für Marketing, Sales & Brand Communication</h1>
+  </div>
+  
+  <!-- Original Hero (Current Design) -->
+  <div id="original-hero">
+    <div class="container">
+      <h2>Executive Seminar</h2>
+      <h1>Marketing, Sales and Brand Communication</h1>
+      
+      <div class="availability-badge">
+        <span>Next Start: 15. Oktober 2024</span>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Alternative 1: Dark overlay with white text -->
+  <div class="container">
+    <div class="alternative-label">Alternative 1: Dunkler Overlay mit weißer Schrift</div>
+  </div>
+  
+  <div id="alt1-hero">
+    <div class="container">
+      <h2>Executive Seminar</h2>
+      <h1>Marketing, Sales and Brand Communication</h1>
+      
+      <div class="availability-badge">
+        <span>Next Start: 15. Oktober 2024</span>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Alternative 2: Gradient overlay -->
+  <div class="container">
+    <div class="alternative-label">Alternative 2: Farbverlauf mit höherer Bildopazität</div>
+  </div>
+  
+  <div id="alt2-hero">
+    <div class="container">
+      <h2>Executive Seminar</h2>
+      <h1>Marketing, Sales and Brand Communication</h1>
+      
+      <div class="availability-badge">
+        <span>Next Start: 15. Oktober 2024</span>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Alternative 3: Semi-transparent image with bold design -->
+  <div class="container">
+    <div class="alternative-label">Alternative 3: Halbtransparentes Bild mit markanter Überschrift</div>
+  </div>
+  
+  <div id="alt3-hero">
+    <div class="container">
+      <h2>Executive Seminar</h2>
+      <h1>Marketing, Sales and Brand Communication</h1>
+      
+      <div class="availability-badge">
+        <span>Next Start: 15. Oktober 2024</span>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html> 

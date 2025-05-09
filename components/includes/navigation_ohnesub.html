@@ -25,12 +25,12 @@
 <div class="nav-wrapper">
   <nav class="main-nav">
     <div class="nav-container">
-      <a href="startseite.html" class="nav-logo" data-base-href="startseite.html">
+      <a href="index.html" class="nav-logo" data-base-href="index.html">
         <img src="assets/pictures/imt_logo.png" alt="StGallen Integrated imt Business School">
       </a>
       
       <div class="nav-menu" id="mobileNavMenu">
-        <a href="startseite.html" class="nav-link" data-base-href="startseite.html">StGallen imt</a>
+        <a href="index.html" class="nav-link" data-base-href="index.html">StGallen imt</a>
         <div class="nav-item">
           <a href="#" class="nav-link" onclick="mobileMenuToggle(event, this)">Programme<svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           <div class="program-dropdown" id="mobile-program-dropdown" style="display: none;">
@@ -407,7 +407,6 @@
       display: none !important;
       opacity: 0 !important;
       visibility: hidden !important;
-      transform: none !important;
     }
     
     /* Klarmachen dass ein Element klickbar ist */
@@ -702,7 +701,7 @@
       // Fix the logo link to point to homepage
       const logoLink = document.querySelector('.nav-logo');
       if (logoLink) {
-        logoLink.setAttribute('href', '../startseite.html');
+        logoLink.setAttribute('href', '../index.html');
       }
     }
   });
