@@ -3595,6 +3595,130 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   });
   </script>
 
+  <!-- Skript für Broschüre-Formular Validierung und Google Integration -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('brochure-form');
+      const downloadReady = document.getElementById('download-ready');
+      
+      if (form) {
+          form.addEventListener('submit', function(e) {
+              e.preventDefault();
+              
+              // Validate form
+              let isValid = true;
+              form.querySelectorAll('[required]').forEach(field => {
+                  if (!field.value.trim()) {
+                      isValid = false;
+                      field.classList.add('invalid-input');
+                      field.classList.remove('valid-input');
+                  } else {
+                      field.classList.remove('invalid-input');
+                      field.classList.add('valid-input');
+                  }
+              });
+              
+              // Zusätzliche E-Mail-Validierung
+              const emailField = form.querySelector('[type="email"]');
+              if (emailField && emailField.value.trim()) {
+                  const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value.trim());
+                  if (!isValidEmail) {
+                      isValid = false;
+                      emailField.classList.add('invalid-input');
+                      emailField.classList.remove('valid-input');
+                  }
+              }
+              
+              if (!isValid) return;
+  
+              // Collect form data
+              const formData = {
+                  programm: "Integrated Management and Strategy",
+                  vorname: form.querySelector('[name="firstname"]').value,
+                  nachname: form.querySelector('[name="lastname"]').value,
+                  email: form.querySelector('[name="email"]').value,
+                  land: form.querySelector('[name="country"]').value,
+                  zustimmung: form.querySelector('[name="email_consent"]').checked ? 'Ja' : 'Nein'
+              };
+  
+              // Send to Google Script
+              fetch('https://script.google.com/macros/s/AKfycbwIV2ywC6DU4HxDotucAnrQVO1mOdYF2Z4Bict2NMMI9obastqrDb-KIbLqULE4g2g/exec', {
+                  method: 'POST',
+                  body: JSON.stringify(formData)
+              })
+              .then(response => response.json())
+              .then(data => {
+                  if(data.status === 'success') {
+                      // Hide form and show success message
+                      form.style.display = 'none';
+                      downloadReady.classList.remove('hidden');
+                  }
+              })
+              .catch(error => {
+                  console.error('Error:', error);
+                  alert('Es gab einen Fehler. Bitte versuchen Sie es später erneut.');
+              });
+          });
+  
+          // Live validation
+          form.querySelectorAll('[required]').forEach(field => {
+              field.addEventListener('blur', function() {
+                  if (!this.value.trim()) {
+                      this.classList.add('invalid-input');
+                      this.classList.remove('valid-input');
+                  } else {
+                      this.classList.remove('invalid-input');
+                      this.classList.add('valid-input');
+                  }
+              });
+  
+              field.addEventListener('input', function() {
+                  if (this.value.trim()) {
+                      this.classList.remove('invalid-input');
+                      this.classList.add('valid-input');
+                  } else {
+                      this.classList.add('invalid-input');
+                      this.classList.remove('valid-input');
+                  }
+              });
+          });
+  
+          // Spezielle Validierung für E-Mail
+          const emailField = form.querySelector('[type="email"]');
+          if (emailField) {
+              const validateEmail = (email) => {
+                  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+              };
+  
+              emailField.addEventListener('blur', function() {
+                  if (!this.value.trim()) {
+                      this.classList.add('invalid-input');
+                      this.classList.remove('valid-input');
+                  } else if (!validateEmail(this.value.trim())) {
+                      this.classList.add('invalid-input');
+                      this.classList.remove('valid-input');
+                  } else {
+                      this.classList.remove('invalid-input');
+                      this.classList.add('valid-input');
+                  }
+              });
+  
+              emailField.addEventListener('input', function() {
+                  if (this.value.trim() && validateEmail(this.value.trim())) {
+                      this.classList.remove('invalid-input');
+                      this.classList.add('valid-input');
+                  } else {
+                      if (this.value.trim()) {
+                          this.classList.add('invalid-input');
+                          this.classList.remove('valid-input');
+                      }
+                  }
+              });
+          }
+      }
+  });
+  </script>
+
   <!-- Script für zufällige Galeriebilder -->
   <script>
   document.addEventListener('DOMContentLoaded', function() {
