@@ -286,191 +286,484 @@
       }
     }
 
-    /* Professional Icon Styles */
-    .icon-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      text-align: center;
-    }
-    
-    /* Variante 1 Specific Styles - Original */
+    /* Variante 1 Specific Styles - Schwebende Animation mit Konfetti */
     .popup-graphic-1 {
-      background: linear-gradient(135deg, var(--imt-purple), #9c27b0);
-    }
-
-    .voucher-badge-1 {
-      background-color: white;
-      color: var(--imt-purple);
-    }
-    
-    /* Variante 2 Specific Styles - Mit kleiner Envelope Icon */
-    .popup-graphic-2 {
-      background: linear-gradient(135deg, var(--imt-purple), #9c27b0);
-    }
-
-    .voucher-badge-2 {
-      background-color: white;
-      color: var(--imt-purple);
-      position: relative;
-    }
-    
-    .envelope-icon {
-      position: absolute;
-      bottom: 5px;
-      right: 5px;
-      width: 30px;
-      height: 20px;
-      background-color: var(--imt-purple);
-      border-radius: 3px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    .envelope-icon::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 0;
-      height: 0;
-      border-style: solid;
-      border-width: 10px 15px 0 15px;
-      border-color: white transparent transparent transparent;
-      transform: translateY(-2px);
-    }
-    
-    /* Variante 3 Specific Styles - Mit Pulsierendem Kreis und Bell Icon */
-    .popup-graphic-3 {
       background: linear-gradient(135deg, var(--imt-purple), #9c27b0);
       position: relative;
       overflow: hidden;
     }
 
-    .voucher-badge-3 {
+    .voucher-badge-1 {
       background-color: white;
       color: var(--imt-purple);
       position: relative;
-      z-index: 2;
+      animation: float 3s ease-in-out infinite;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     }
     
-    .bell-icon {
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+    
+    .confetti-container {
       position: absolute;
-      top: 10px;
-      right: 10px;
-      width: 24px;
-      height: 24px;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    
+    .confetti {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      opacity: 0.7;
+      animation: confetti-fall var(--fall-duration, 3s) linear infinite, 
+                 confetti-shake var(--shake-duration, 3s) ease-in-out infinite;
+    }
+    
+    @keyframes confetti-fall {
+      0% { top: -10%; }
+      100% { top: 110%; }
+    }
+    
+    @keyframes confetti-shake {
+      0%, 100% { transform: translateX(0); }
+      50% { transform: translateX(var(--shake-distance, 20px)); }
+    }
+    
+    .sparkle {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white' width='24px' height='24px'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z'/%3E%3C/svg%3E");
+      background-size: contain;
+      opacity: 0;
+      transform: scale(0);
+      animation: sparkle 2s ease-in-out infinite;
+    }
+    
+    @keyframes sparkle {
+      0% { opacity: 0; transform: scale(0) rotate(0deg); }
+      20% { opacity: 1; transform: scale(1) rotate(45deg); }
+      70% { opacity: 1; transform: scale(1) rotate(45deg); }
+      100% { opacity: 0; transform: scale(0) rotate(90deg); }
+    }
+
+    /* Variante 2: Subtiles Glow-Effekt im Apple-Stil */
+    .popup-graphic-2 {
+      background: linear-gradient(135deg, #3a3a3c, #1c1c1e);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .glow-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    
+    .glow {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(110, 69, 226, 0.4) 0%, rgba(110, 69, 226, 0) 70%);
+      filter: blur(20px);
+      opacity: 0;
+      transform: translate(-50%, -50%);
+      animation: glow-pulse 5s ease-in-out infinite;
+    }
+    
+    @keyframes glow-pulse {
+      0% { opacity: 0.1; transform: translate(-50%, -50%) scale(0.8); }
+      50% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.1); }
+      100% { opacity: 0.1; transform: translate(-50%, -50%) scale(0.8); }
+    }
+    
+    .voucher-badge-2 {
+      background-color: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      color: white;
+      position: relative;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      animation: subtle-float 4s ease-in-out infinite;
+      z-index: 1;
+    }
+    
+    @keyframes subtle-float {
+      0% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-5px) scale(1.02); }
+      100% { transform: translateY(0) scale(1); }
+    }
+    
+    .highlight {
+      position: absolute;
+      width: 100%;
+      height: 30px;
+      background: linear-gradient(90deg, 
+        rgba(255, 255, 255, 0) 0%, 
+        rgba(255, 255, 255, 0.08) 20%, 
+        rgba(255, 255, 255, 0.1) 40%, 
+        rgba(255, 255, 255, 0.08) 60%, 
+        rgba(255, 255, 255, 0) 100%);
+      top: 0;
+      left: -100%;
+      transform: skewX(-20deg);
+      animation: shine 3s ease-in-out infinite;
+    }
+    
+    @keyframes shine {
+      0% { left: -100%; }
+      100% { left: 100%; }
+    }
+    
+    .glass-effect {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.1) 0%, 
+        rgba(255, 255, 255, 0.03) 50%, 
+        rgba(255, 255, 255, 0) 100%);
+      z-index: 0;
+    }
+    
+    .subtile-text {
+      position: relative;
+      z-index: 1;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.9rem;
+      opacity: 0.9;
+      font-weight: 500;
+    }
+    
+    .accent-text {
+      font-size: 1.1rem;
+      font-weight: 600;
+      background: linear-gradient(90deg, #e88aff, #6e45e2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+      margin-bottom: 5px;
+    }
+
+    /* SVG Icons für die Orbit-Icons */
+    .svg-webinar {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%236e45e2'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zM8 15c0-1.66 1.34-3 3-3 .35 0 .69.07 1 .18V6h5v2h-3v7.03c-.02 1.64-1.35 2.97-3 2.97-1.66 0-3-1.34-3-3z'/%3E%3C/svg%3E");
+      background-size: 16px;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .svg-discount {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%236e45e2'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z'/%3E%3C/svg%3E");
+      background-size: 16px;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .svg-mail {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%236e45e2'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z'/%3E%3C/svg%3E");
+      background-size: 16px;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .svg-info {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%236e45e2'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z'/%3E%3C/svg%3E");
+      background-size: 16px;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .svg-calendar {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%236e45e2'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z'/%3E%3C/svg%3E");
+      background-size: 16px;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    /* Variante 3: Minimalistische Gradient Animation */
+    .popup-graphic-3 {
+      background: linear-gradient(145deg, #1f1f1f, #0f0f0f);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .gradient-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(145deg, 
+        rgba(110, 69, 226, 0.1) 0%, 
+        rgba(156, 39, 176, 0.1) 100%);
+      opacity: 0.6;
+      z-index: 0;
+    }
+    
+    .gradient-ring {
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: conic-gradient(
+        from 180deg at 50% 50%,
+        #6e45e2 0deg,
+        #9c27b0 90deg,
+        #e880ff 180deg,
+        #9c27b0 270deg,
+        #6e45e2 360deg
+      );
+      opacity: 0.1;
+      filter: blur(20px);
+      transform: translate(-50%, -50%);
+      animation: rotate-gradient 10s linear infinite;
+      z-index: 0;
+    }
+    
+    @keyframes rotate-gradient {
+      0% { transform: translate(-50%, -50%) rotate(0deg); }
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+    
+    .voucher-badge-3 {
+      background-color: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      color: white;
+      font-weight: 600;
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      z-index: 1;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      transition: all 0.5s ease;
+    }
+    
+    .voucher-badge-3::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.1) 0%, 
+        rgba(255, 255, 255, 0) 100%);
+      z-index: -1;
+    }
+    
+    .thin-badge-text {
+      position: relative;
+      z-index: 2;
+      line-height: 1;
+      font-weight: 500;
+    }
+    
+    .thin-badge-text span {
+      display: block;
+      font-size: 3rem;
+      font-weight: 700;
+    }
+    
+    .thin-text {
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 400;
+      font-size: 0.95rem;
+      letter-spacing: 1px;
+    }
+    
+    .minimal-heading {
+      color: white;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-size: 0.85rem;
+      margin-top: 20px;
+      animation: subtle-fade 5s ease infinite;
+    }
+    
+    @keyframes subtle-fade {
+      0%, 100% { opacity: 0.7; }
+      50% { opacity: 1; }
+    }
+    
+    .floating-particle {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.15);
+      z-index: 1;
+      animation: float-up var(--float-duration, 15s) ease-in-out infinite;
+    }
+    
+    @keyframes float-up {
+      0% { transform: translateY(100%) translateX(0); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateY(-100%) translateX(var(--float-distance, 0)); opacity: 0; }
+    }
+
+    /* Variante 4: Glasmorphismus im Apple-Stil */
+    .popup-graphic-4 {
+      background: linear-gradient(135deg, var(--imt-purple), #9c27b0);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .light-source {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.4) 0%,
+        rgba(255, 255, 255, 0.2) 40%,
+        rgba(255, 255, 255, 0) 70%
+      );
+      filter: blur(40px);
+      opacity: 0.4;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      animation: move-light 12s ease-in-out infinite alternate;
+    }
+    
+    @keyframes move-light {
+      0% { transform: translate(-30%, -30%) scale(0.8); }
+      100% { transform: translate(-70%, -70%) scale(1.2); }
+    }
+    
+    .glassmorphic-card {
+      position: relative;
+      width: 130px;
+      height: 130px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
       display: flex;
       flex-direction: column;
       align-items: center;
-    }
-    
-    .bell-body {
-      width: 18px;
-      height: 18px;
-      background-color: white;
-      border-radius: 10px 10px 2px 2px;
-      position: relative;
-    }
-    
-    .bell-clapper {
-      width: 4px;
-      height: 4px;
-      background-color: white;
-      border-radius: 50%;
-      margin-top: 2px;
-    }
-    
-    @keyframes pulse {
-      0% {
-        transform: scale(0);
-        opacity: 1;
-      }
-      100% {
-        transform: scale(1.5);
-        opacity: 0;
-      }
-    }
-    
-    .pulse-circle {
-      position: absolute;
-      top: 30px;
-      right: 30px;
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      background-color: rgba(255, 255, 255, 0.2);
-      animation: pulse 2s infinite;
-    }
-    
-    /* Variante 4 Specific Styles - Mit Webinar Icon */
-    .popup-graphic-4 {
-      background: linear-gradient(135deg, var(--imt-purple), #9c27b0);
-    }
-
-    .voucher-badge-4 {
-      background-color: white;
-      color: var(--imt-purple);
-    }
-    
-    .webinar-icon {
-      position: absolute;
-      bottom: 20px;
-      right: 0;
-      left: 0;
-      display: flex;
       justify-content: center;
+      margin-bottom: 20px;
+      overflow: hidden;
+      z-index: 1;
     }
     
-    .screen {
+    .glassmorphic-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 200%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+      );
+      transform: skewX(-15deg);
+      animation: shine-effect 6s ease-in-out infinite;
+    }
+    
+    @keyframes shine-effect {
+      0% { left: -150%; }
+      50% { left: -150%; }
+      100% { left: 100%; }
+    }
+    
+    .percent-text {
+      font-size: 3.5rem;
+      font-weight: 600;
+      background: linear-gradient(90deg, #ffffff, #e0e0e0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+      line-height: 1;
+      margin-bottom: 5px;
+    }
+    
+    .voucher-subtitle {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    
+    .glass-label {
+      margin-top: 10px;
+      color: white;
+      font-weight: 500;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .accent-line {
       width: 40px;
-      height: 30px;
-      background-color: white;
-      border-radius: 4px;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    .screen::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 15px;
-      height: 10px;
-      background-color: white;
-      border-radius: 0 0 4px 4px;
-    }
-    
-    .screen-content {
-      width: 30px;
-      height: 20px;
-      background-color: var(--imt-purple);
-      border-radius: 2px;
-      position: relative;
-    }
-    
-    .screen-content::before, .screen-content::after {
-      content: '';
-      position: absolute;
       height: 2px;
-      left: 5px;
-      right: 5px;
-      background-color: white;
+      background: linear-gradient(90deg, var(--imt-purple), transparent);
+      margin: 12px 0;
     }
     
-    .screen-content::before {
-      top: 6px;
+    .glass-description {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.85rem;
+      text-align: center;
+      max-width: 180px;
+      font-weight: 300;
+      letter-spacing: 0.5px;
     }
     
-    .screen-content::after {
-      top: 12px;
+    .animated-dots {
+      display: flex;
+      justify-content: center;
+      margin-top: 15px;
+      gap: 6px;
+    }
+    
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.3);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    
+    .dot:nth-child(2) {
+      animation-delay: 0.4s;
+    }
+    
+    .dot:nth-child(3) {
+      animation-delay: 0.8s;
+    }
+    
+    @keyframes pulse-dot {
+      0% { transform: scale(1); opacity: 0.3; }
+      50% { transform: scale(1.2); opacity: 0.7; }
+      100% { transform: scale(1); opacity: 0.3; }
     }
   </style>
 </head>
@@ -483,9 +776,9 @@
       </div>
 
       <div class="popup-variants">
-        <!-- Variante 1: Original -->
+        <!-- Variante 1: Schwebende Animation mit Konfetti -->
         <div class="popup-variant">
-          <h2 class="variant-title">Variante 1: Original</h2>
+          <h2 class="variant-title">Alternative 1: Schwebende Animation mit Konfetti</h2>
           <div class="popup-controls">
             <button class="cta-button" onclick="showPopup('popup1')">Popup anzeigen</button>
           </div>
@@ -494,6 +787,7 @@
             <div class="popup-base">
               <button class="close-button" onclick="closePopup('popup1')">✕</button>
               <div class="popup-graphic popup-graphic-1">
+                <div class="confetti-container" id="confetti-container1"></div>
                 <div class="voucher-badge voucher-badge-1">20%</div>
                 <h3>VOUCHER</h3>
                 <p>Auf alle Programme</p>
@@ -519,9 +813,9 @@
           </div>
         </div>
         
-        <!-- Variante 2: Mit Envelope Icon -->
+        <!-- Variante 2: Subtiles Glow-Effekt im Apple-Stil -->
         <div class="popup-variant">
-          <h2 class="variant-title">Variante 2: Mit E-Mail Icon</h2>
+          <h2 class="variant-title">Alternative 2: Subtiler Glow-Effekt im Apple-Stil</h2>
           <div class="popup-controls">
             <button class="cta-button" onclick="showPopup('popup2')">Popup anzeigen</button>
           </div>
@@ -530,12 +824,14 @@
             <div class="popup-base">
               <button class="close-button" onclick="closePopup('popup2')">✕</button>
               <div class="popup-graphic popup-graphic-2">
+                <div class="glass-effect"></div>
+                <div class="glow-container" id="glow-container"></div>
                 <div class="voucher-badge voucher-badge-2">
+                  <div class="highlight"></div>
                   20%
-                  <div class="envelope-icon"></div>
                 </div>
-                <h3>NEWSLETTER</h3>
-                <p>Exklusive Inhalte</p>
+                <div class="accent-text">Exklusiv</div>
+                <p class="subtile-text">Nur für Newsletter-Abonnenten</p>
               </div>
               <div class="popup-content">
                 <h2>Bleiben Sie auf dem Laufenden</h2>
@@ -558,9 +854,9 @@
           </div>
         </div>
         
-        <!-- Variante 3: Mit Pulsierendem Effekt und Bell Icon -->
+        <!-- Variante 3: Minimalistische Gradient Animation -->
         <div class="popup-variant">
-          <h2 class="variant-title">Variante 3: Mit Benachrichtigungseffekt</h2>
+          <h2 class="variant-title">Alternative 3: Minimalistische Gradient Animation</h2>
           <div class="popup-controls">
             <button class="cta-button" onclick="showPopup('popup3')">Popup anzeigen</button>
           </div>
@@ -569,14 +865,17 @@
             <div class="popup-base">
               <button class="close-button" onclick="closePopup('popup3')">✕</button>
               <div class="popup-graphic popup-graphic-3">
-                <div class="pulse-circle"></div>
-                <div class="bell-icon">
-                  <div class="bell-body"></div>
-                  <div class="bell-clapper"></div>
+                <div class="gradient-bg"></div>
+                <div class="gradient-ring" id="gradient-ring"></div>
+                <div id="floating-particles"></div>
+                <div class="voucher-badge voucher-badge-3">
+                  <div class="thin-badge-text">
+                    <span>20%</span>
+                    Rabatt
+                  </div>
                 </div>
-                <div class="voucher-badge voucher-badge-3">20%</div>
-                <h3>UPDATES</h3>
-                <p>Bleiben Sie informiert</p>
+                <div class="minimal-heading">Newsletter-Vorteil</div>
+                <p class="thin-text">Exklusiv für Abonnenten</p>
               </div>
               <div class="popup-content">
                 <h2>Bleiben Sie auf dem Laufenden</h2>
@@ -599,9 +898,9 @@
           </div>
         </div>
         
-        <!-- Variante 4: Mit Webinar Icon -->
+        <!-- Variante 4: Glasmorphismus im Apple-Stil -->
         <div class="popup-variant">
-          <h2 class="variant-title">Variante 4: Mit Webinar Hinweis</h2>
+          <h2 class="variant-title">Alternative 4: Glasmorphismus im Apple-Stil</h2>
           <div class="popup-controls">
             <button class="cta-button" onclick="showPopup('popup4')">Popup anzeigen</button>
           </div>
@@ -610,13 +909,18 @@
             <div class="popup-base">
               <button class="close-button" onclick="closePopup('popup4')">✕</button>
               <div class="popup-graphic popup-graphic-4">
-                <div class="voucher-badge voucher-badge-4">20%</div>
-                <h3>WEBINARE</h3>
-                <p>Kostenlos für Sie</p>
-                <div class="webinar-icon">
-                  <div class="screen">
-                    <div class="screen-content"></div>
-                  </div>
+                <div class="light-source" id="light-source"></div>
+                <div class="glassmorphic-card">
+                  <div class="percent-text">20%</div>
+                  <div class="voucher-subtitle">Rabatt</div>
+                </div>
+                <div class="glass-label">Newsletter Vorteile</div>
+                <div class="accent-line"></div>
+                <div class="glass-description">Abonnieren Sie und erhalten Sie exklusive Angebote</div>
+                <div class="animated-dots">
+                  <div class="dot"></div>
+                  <div class="dot"></div>
+                  <div class="dot"></div>
                 </div>
               </div>
               <div class="popup-content">
@@ -647,11 +951,147 @@
     function showPopup(id) {
       document.getElementById(id).classList.add('active');
       document.body.style.overflow = 'hidden';
+      
+      // Konfetti für Popup 1 generieren
+      if (id === 'popup1') {
+        generateConfetti('confetti-container1');
+        generateSparkles('popup-graphic-1');
+      }
+      
+      // Glow-Effekt für Popup 2 generieren
+      if (id === 'popup2') {
+        generateGlowEffect('glow-container');
+      }
+      
+      // Gradient-Ring-Animation und schwebende Partikel für Popup 3 generieren
+      if (id === 'popup3') {
+        positionGradientRing('gradient-ring');
+        generateFloatingParticles('floating-particles');
+      }
+      
+      // Light-Source-Animation für Popup 4 positionieren
+      if (id === 'popup4') {
+        positionLightSource('light-source');
+      }
     }
     
     function closePopup(id) {
       document.getElementById(id).classList.remove('active');
       document.body.style.overflow = 'auto';
+    }
+    
+    // Konfetti generieren
+    function generateConfetti(containerId) {
+      const container = document.getElementById(containerId);
+      container.innerHTML = '';
+      
+      const colors = ['#ffffff', '#FFD700', '#FF8C00', '#FF1493', '#7FFFD4'];
+      const confettiCount = 20;
+      
+      for (let i = 0; i < confettiCount; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.left = Math.random() * 100 + '%';
+        confetti.style.setProperty('--fall-duration', (Math.random() * 3 + 2) + 's');
+        confetti.style.setProperty('--shake-distance', (Math.random() * 30 - 15) + 'px');
+        container.appendChild(confetti);
+      }
+    }
+    
+    // Funkeln generieren
+    function generateSparkles(containerClass) {
+      const container = document.querySelector('.' + containerClass);
+      // Lösche alte Sparkles
+      container.querySelectorAll('.sparkle').forEach(el => el.remove());
+      
+      const sparkleCount = 5;
+      
+      for (let i = 0; i < sparkleCount; i++) {
+        const sparkle = document.createElement('div');
+        sparkle.className = 'sparkle';
+        sparkle.style.left = Math.random() * 100 + '%';
+        sparkle.style.top = Math.random() * 100 + '%';
+        sparkle.style.animationDelay = (Math.random() * 2) + 's';
+        container.appendChild(sparkle);
+      }
+    }
+    
+    // Glow-Effekt generieren
+    function generateGlowEffect(containerId) {
+      const container = document.getElementById(containerId);
+      container.innerHTML = '';
+      
+      // Drei Glow-Elemente mit unterschiedlichen Verzögerungen
+      for (let i = 0; i < 3; i++) {
+        const glow = document.createElement('div');
+        glow.className = 'glow';
+        
+        // Positionierung
+        const x = 25 + (i * 25);
+        const y = 30 + (i * 20);
+        glow.style.left = x + '%';
+        glow.style.top = y + '%';
+        
+        // Animation verzögern
+        glow.style.animationDelay = (i * 2) + 's';
+        
+        container.appendChild(glow);
+      }
+    }
+    
+    // Gradient-Ring positionieren
+    function positionGradientRing(elementId) {
+      const ring = document.getElementById(elementId);
+      if (!ring) return;
+      
+      ring.style.left = '50%';
+      ring.style.top = '50%';
+    }
+    
+    // Schwebende Partikel generieren
+    function generateFloatingParticles(containerId) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+      
+      container.innerHTML = '';
+      
+      const particleCount = 12;
+      
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'floating-particle';
+        
+        // Zufällige Startposition an der Unterseite
+        const xPos = Math.random() * 100;
+        particle.style.left = xPos + '%';
+        particle.style.bottom = '0';
+        
+        // Zufällige Größe
+        const size = Math.random() * 5 + 3; // 3px bis 8px
+        particle.style.width = size + 'px';
+        particle.style.height = size + 'px';
+        
+        // Zufällige Animation-Verzögerung und -Dauer
+        const delay = Math.random() * 5;
+        const duration = Math.random() * 15 + 10; // 10s bis 25s
+        const xDistance = (Math.random() * 60 - 30) + 'px'; // -30px bis +30px
+        
+        particle.style.animationDelay = delay + 's';
+        particle.style.setProperty('--float-duration', duration + 's');
+        particle.style.setProperty('--float-distance', xDistance);
+        
+        container.appendChild(particle);
+      }
+    }
+    
+    // Light-Source positionieren
+    function positionLightSource(elementId) {
+      const light = document.getElementById(elementId);
+      if (!light) return;
+      
+      light.style.left = '50%';
+      light.style.top = '50%';
     }
     
     // Schließen bei Klick außerhalb des Popups

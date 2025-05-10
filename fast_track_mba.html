@@ -1707,6 +1707,279 @@
       gap: 12px;
     }
   }
+
+  /* =========================
+     NEWSLETTER POPUP STYLES
+     ========================= */
+  .popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .popup-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .popup-base {
+    position: relative;
+    background-color: white;
+    border-radius: var(--radius);
+    overflow: hidden;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    display: flex;
+  }
+
+  .popup-graphic {
+    padding: 40px 20px;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+
+  .popup-content {
+    padding: 40px 30px;
+    width: 60%;
+  }
+
+  .close-button {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #f5f5f7;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .close-button:hover {
+    background-color: #e5e5e5;
+  }
+
+  .newsletter-form .form-group {
+    margin-bottom: 20px;
+  }
+
+  .newsletter-form .form-control {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.2s ease;
+    background-color: #fff;
+  }
+
+  .newsletter-form .form-control:focus {
+    border-color: var(--imt-purple);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(110, 69, 226, 0.1);
+  }
+
+  .newsletter-form .cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to right, var(--imt-purple), #9c27b0);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    width: 100%;
+  }
+
+  .newsletter-form .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(106, 69, 226, 0.2);
+    text-decoration: none;
+  }
+
+  /* Newsletter Popup Glasmorphismus Stil */
+  .popup-graphic-4 {
+    background: linear-gradient(135deg, var(--imt-purple), #9c27b0);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .light-source {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.4) 0%,
+      rgba(255, 255, 255, 0.2) 40%,
+      rgba(255, 255, 255, 0) 70%
+    );
+    filter: blur(40px);
+    opacity: 0.4;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: move-light 12s ease-in-out infinite alternate;
+  }
+
+  @keyframes move-light {
+    0% { transform: translate(-30%, -30%) scale(0.8); }
+    100% { transform: translate(-70%, -70%) scale(1.2); }
+  }
+
+  .glassmorphic-card {
+    position: relative;
+    width: 130px;
+    height: 130px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .glassmorphic-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    transform: skewX(-15deg);
+    animation: shine-effect 6s ease-in-out infinite;
+  }
+
+  @keyframes shine-effect {
+    0% { left: -150%; }
+    50% { left: -150%; }
+    100% { left: 100%; }
+  }
+
+  .percent-text {
+    font-size: 3.5rem;
+    font-weight: 600;
+    background: linear-gradient(90deg, #ffffff, #e0e0e0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    line-height: 1;
+    margin-bottom: 5px;
+  }
+
+  .voucher-subtitle {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .glass-label {
+    margin-top: 10px;
+    color: white;
+    font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .accent-line {
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--imt-purple), transparent);
+    margin: 12px 0;
+  }
+
+  .glass-description {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.85rem;
+    text-align: center;
+    max-width: 180px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+  }
+
+  .animated-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    gap: 6px;
+  }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.3);
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+
+  .dot:nth-child(2) {
+    animation-delay: 0.4s;
+  }
+
+  .dot:nth-child(3) {
+    animation-delay: 0.8s;
+  }
+
+  @keyframes pulse-dot {
+    0% { transform: scale(1); opacity: 0.3; }
+    50% { transform: scale(1.2); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 0.3; }
+  }
+
+  @media (max-width: 768px) {
+    .popup-base {
+      flex-direction: column;
+    }
+    
+    .popup-graphic {
+      width: 100%;
+      padding: 20px;
+    }
+    
+    .popup-content {
+      width: 100%;
+    }
+  }
         </style>
 
 <!-- BoxIcons für Icons -->
@@ -3139,6 +3412,123 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Optional: Testimonials alle 30 Sekunden automatisch neu shuffeln
     // setInterval(shuffleTestimonials, 30000);
+  });
+</script>
+
+<!-- Newsletter Popup - Alternative 4 -->
+<div class="popup-overlay" id="newsletter-popup">
+  <div class="popup-base">
+    <div class="popup-graphic popup-graphic-4">
+      <!-- Animated light source -->
+      <div class="light-source" id="light-source"></div>
+      
+      <!-- Glass card with percentage -->
+      <div class="glassmorphic-card">
+        <div class="percent-text">20%</div>
+        <div class="voucher-subtitle">Rabatt</div>
+      </div>
+      
+      <!-- Extra content -->
+      <div class="glass-label">Newsletter Vorteile</div>
+      <div class="accent-line"></div>
+      <div class="glass-description">Abonnieren Sie und erhalten Sie exklusive Angebote</div>
+      
+      <div class="animated-dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+    </div>
+    <div class="popup-content">
+      <button class="close-button" id="close-popup">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 1L11 11M1 11L11 1" stroke="#333" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <h2>Bleiben Sie auf dem Laufenden</h2>
+      <p>Erhalten Sie Zugang zu exklusiven kostenlosen Webinaren und 20% Rabatt auf alle Programme der StGallen imt Business School mit unserem Newsletter.</p>
+      
+      <form class="newsletter-form">
+        <div class="form-group">
+          <input type="email" class="form-control" placeholder="Ihre E-Mail Adresse" required>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Ihr Name" required>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="cta-button">Jetzt Newsletter abonnieren</button>
+        </div>
+        <small>Sie können den Newsletter jederzeit wieder abbestellen. Indem Sie sich anmelden, stimmen Sie unseren <a href="#">Datenschutzbestimmungen</a> zu.</small>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Popup Skript -->
+<script>
+  // Newsletter Popup Funktionalität
+  document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(function() {
+      const popup = document.getElementById('newsletter-popup');
+      popup.classList.add('active');
+      
+      // Position des Light-Source-Elements anpassen
+      const lightSource = document.getElementById('light-source');
+      if (lightSource) {
+        lightSource.style.left = '50%';
+        lightSource.style.top = '50%';
+      }
+      
+      // Close-Button Funktionalität
+      document.getElementById('close-popup').addEventListener('click', function() {
+        popup.classList.remove('active');
+        
+        // Speichern, dass der Popup geschlossen wurde (24 Stunden)
+        localStorage.setItem('popupClosed', new Date().getTime());
+      });
+      
+      // Schließen beim Klick außerhalb
+      popup.addEventListener('click', function(e) {
+        if (e.target === popup) {
+          popup.classList.remove('active');
+          localStorage.setItem('popupClosed', new Date().getTime());
+        }
+      });
+      
+      // Formular-Absenden
+      document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Einfache Formularvalidierung
+        const email = this.querySelector('input[type="email"]').value;
+        const name = this.querySelector('input[type="text"]').value;
+        
+        if (!email || !/\S+@\S+\.\S+/.test(email)) {
+          alert('Bitte geben Sie eine gültige E-Mail-Adresse ein.');
+          return;
+        }
+        
+        if (!name || name.trim() === '') {
+          alert('Bitte geben Sie Ihren Namen ein.');
+          return;
+        }
+        
+        // Formular ausblenden und Danke-Nachricht anzeigen
+        this.innerHTML = `
+          <div style="text-align: center;">
+            <i class='bx bx-check-circle' style="font-size: 48px; color: var(--imt-green); margin-bottom: 15px;"></i>
+            <h4 style="margin-bottom: 10px;">Vielen Dank ${name}!</h4>
+            <p>Ihr 20% Rabattcode wurde an Ihre E-Mail gesendet.</p>
+          </div>
+        `;
+        
+        // Nach 3 Sekunden Popup ausblenden
+        setTimeout(function() {
+          popup.classList.remove('active');
+          localStorage.setItem('popupClosed', new Date().getTime());
+        }, 3000);
+      });
+    }, 3000); // 3 Sekunden warten, bevor der Popup angezeigt wird
   });
 </script>
 
