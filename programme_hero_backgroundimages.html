@@ -1,311 +1,1158 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alternative Hintergrundbilder für Programmseiten</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "San Francisco", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        h1 {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #6e45e2;
-        }
-        h2 {
-            margin-top: 40px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #6e45e2;
-            color: #333;
-        }
-        .image-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-        .image-card {
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-        .image-card:hover {
-            transform: translateY(-5px);
-        }
-        .image-container {
-            height: 200px;
-            overflow: hidden;
-        }
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        .image-card:hover img {
-            transform: scale(1.05);
-        }
-        .image-info {
-            padding: 15px;
-            background: #f8f9fa;
-        }
-        .image-title {
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-        .image-description {
-            font-size: 14px;
-            color: #666;
-        }
-        .image-link {
-            display: block;
-            text-decoration: none;
-            color: #6e45e2;
-            font-size: 14px;
-            margin-top: 10px;
-        }
-    </style>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Alternative Hero-Hintergrundbilder | St.Gallen imt Business School</title>
+
+  <!-- ============ STYLES ============ -->
+  <style>
+    :root{
+      --font-sans:-apple-system,BlinkMacSystemFont,"San Francisco","Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+      --color-text:#1d1d1f;
+      --color-muted:#6e6e73;
+      --color-card-bg:#f5f5f7;
+      --color-accent2:#970289;
+      --color-badge:#e2b245;
+      --color-badge-hover:#d4a535;
+      --spacing:24px;
+      --radius:16px;
+      --max-width:1200px;
+      --imt-purple: #6e45e2;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--color-text);
+      background: #fff;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      padding: 40px 0;
+    }
+
+    /* Basis Styling für Container */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--spacing);
+      width: 100%;
+    }
+
+    /* Allgemeine Typografie */
+    h1, h2, h3, h4, h5, h6 {
+      margin-bottom: 1rem;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1.25rem;
+      color: var(--imt-purple);
+      border-bottom: 2px solid #eee;
+      padding-bottom: 0.5rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--imt-purple);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page-intro {
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      text-align: center;
+    }
+
+    /* Bilder-Grid Styling */
+    .images-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    @media (min-width: 768px) {
+      .images-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .images-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .image-card {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      background-color: var(--color-card-bg);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .image-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+    }
+
+    .image-container {
+      width: 100%;
+      height: 240px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-preview {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .image-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.2));
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .image-container:hover .image-overlay {
+      opacity: 1;
+    }
+
+    .view-button {
+      background-color: white;
+      color: var(--color-text);
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-weight: 500;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .card-content {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .image-title {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: var(--color-text);
+    }
+
+    .image-desc {
+      font-size: 0.9rem;
+      color: var(--color-muted);
+      margin-bottom: 1rem;
+      flex-grow: 1;
+    }
+
+    .image-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: auto;
+    }
+
+    .image-tag {
+      background-color: rgba(110, 69, 226, 0.1);
+      color: var(--imt-purple);
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .code-preview {
+      background-color: #282c34;
+      color: #abb2bf;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px 0;
+      font-family: monospace;
+      white-space: pre-wrap;
+      overflow-x: auto;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .code-comment {
+      color: #98c379;
+    }
+
+    .code-string {
+      color: #e5c07b;
+    }
+
+    .code-property {
+      color: #e06c75;
+    }
+
+    .code-value {
+      color: #56b6c2;
+    }
+
+    .copy-button {
+      background-color: var(--imt-purple);
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-weight: 500;
+      cursor: pointer;
+      font-size: 0.9rem;
+      margin-top: 10px;
+    }
+
+    .copy-button:hover {
+      background-color: #5a37c7;
+    }
+  </style>
 </head>
 <body>
-    <h1>Alternative Hintergrundbilder für Programmseiten</h1>
+  <div class="container">
+    <h1>Alternative Hero-Hintergrundbilder für die St.Gallen imt Business School</h1>
     
-    <h2>1. AI Augmented Decision Making</h2>
-    <div class="image-grid">
-        <div class="image-card">
-            <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485" alt="KI-Visualisierung mit blauer Technologie">
-            </div>
-            <div class="image-info">
-                <div class="image-title">Technologie-Netzwerk</div>
-                <div class="image-description">Abstrakte blaue KI-Visualisierung, die die Komplexität von Entscheidungsprozessen darstellt.</div>
-                <a href="https://unsplash.com/photos/blue-and-purple-smoke-illustration-8bghKxNU1j0" class="image-link" target="_blank">Bild auf Unsplash ansehen</a>
-            </div>
-        </div>
-        
-        <div class="image-card">
-            <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc" alt="Futuristische Datenvisualisierung">
-            </div>
-            <div class="image-info">
-                <div class="image-title">Datenvisualisierung</div>
-                <div class="image-description">Komplexe Datenmuster, die die datengestützte Entscheidungsfindung symbolisieren.</div>
-                <a href="https://unsplash.com/photos/blue-and-white-light-digital-wallpaper-gqJvWp0h27g" class="image-link" target="_blank">Bild auf Unsplash ansehen</a>
-            </div>
-        </div>
-        
-        <div class="image-card">
-            <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1526378800651-c32d170fe6f8" alt="Moderne Geschäftsleute mit Technologie">
-            </div>
-            <div class="image-info">
-                <div class="image-title">Business & Technologie</div>
-                <div class="image-description">Moderne Professionals nutzen fortschrittliche Technologien für Entscheidungsprozesse.</div>
-                <a href="https://unsplash.com/photos/woman-using-laptop-computer-TI79JQ44sn8" class="image-link" target="_blank">Bild auf Unsplash ansehen</a>
-            </div>
-        </div>
-        
-        <div class="image-card">
-            <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1580706483913-b6ea7db483a0" alt="Kreative KI-Konzeptvisualisierung">
-            </div>
-            <div class="image-info">
-                <div class="image-title">KI-Konzept</div>
-                <div class="image-description">Abstrakte Darstellung von KI-gesteuerten Entscheidungsprozessen mit futuristischem Design.</div>
-                <a href="https://unsplash.com/photos/blue-red-and-yellow-abstract-painting-f77Bh3inUpE" class="image-link" target="_blank">Bild auf Unsplash ansehen</a>
-            </div>
-        </div>
-        
-        <div class="image-card">
-            <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620" alt="Digitales Gehirn">
-            </div>
-            <div class="image-info">
-                <div class="image-title">Digitales Denken</div>
-                <div class="image-description">Visualisierung von neuronalen Netzen und KI, die menschenähnliche Denkprozesse nachahmen.</div>
-                <a href="https://unsplash.com/photos/purple-blue-and-white-digital-illustration-q8P8YoR6erg" class="image-link" target="_blank">Bild auf Unsplash ansehen</a>
-            </div>
-        </div>
+    <div class="page-intro">
+      <p>Diese Seite zeigt eine Sammlung von hochwertigen, modernen Hintergrundbildern für die Hero-Bereiche der verschiedenen Programme der Business School. Die Bilder wurden sorgfältig ausgewählt, um die jeweiligen Themen optimal zu verkörpern.</p>
     </div>
 
-    <h2>2. Integrated Management and Strategy</h2>
-    <div class="image-grid">
-        <div class="image-card">
-            <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf" alt="Business Meeting">
-            </div>
-            <div class="image-info">
-                <div class="image-title">Strategische Zusammenarbeit</div>
-                <div class="image-description">Geschäftsleute diskutieren Strategien in einem modernen Büroumfeld.</div>
-                <a href="https://unsplash.com/photos/man-in-black-suit-jacket-standing-beside-woman-in-white-blazer-flRm0z3MEoA" class="image-link" target="_blank">Bild auf Unsplash ansehen</a>
-            </div>
+    <h2>Management Programm</h2>
+    <div class="images-grid">
+      <!-- Bild 1 -->
+      <div class="image-card">
+        <div class="image-container">
+          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Moderne Meeting-Umgebung" class="hero-preview">
+          <div class="image-overlay">
+            <button class="view-button" onclick="openFullImage('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">Vollbild anzeigen</button>
+          </div>
         </div>
-        
-        <div class="image-card">
-            <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0" alt="Strategieplanung">
-            </div>
-            <div class="image-info">
-                <div class="image-title">Strategieentwicklung</div>
-                <div class="image-description">Professionelles Team arbeitet an der Entwicklung integrierter Managementstrategien.</div>
-                <a href="https://unsplash.com/photos/people-near-table-iusJ25iYu1c" class="image-link" target="_blank">Bild auf Unsplash ansehen</a>
-            </div>
+        <div class="card-content">
+          <h3 class="image-title">Management Meeting</h3>
+          <p class="image-desc">Eine helle, moderne Meetingumgebung mit professioneller Atmosphäre - ideal für das Management Programm.</p>
+          <div class="image-tags">
+            <span class="image-tag">Management</span>
+            <span class="image-tag">Meeting</span>
+            <span class="image-tag">Professionalität</span>
+          </div>
+          <button class="copy-button" onclick="copyImageUrl('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">URL kopieren</button>
         </div>
-        
-        <div class="image-card">
-            <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40" alt="Führungskraft am Schreibtisch">
-            </div>
-            <div class="image-info">
-                <div class="image-title">Strategische Führung</div>
-                <div class="image-description">Moderne Führungskraft analysiert Unternehmensdaten für strategische Entscheidungen.</div>
-                <a href="https://unsplash.com/photos/man-sitting-down-reading-newspaper-near-cup-of-coffee-and-open-laptop-computer-5QgIuuBxKwM" class="image-link" target="_blank">Bild auf Unsplash ansehen</a>
-            </div>
+      </div>
+
+      <!-- Bild 2 -->
+      <div class="image-card">
+        <div class="image-container">
+          <img src="https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Team Strategy Planning" class="hero-preview">
+          <div class="image-overlay">
+            <button class="view-button" onclick="openFullImage('https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">Vollbild anzeigen</button>
+          </div>
         </div>
-        
-        <div class="image-card">
-            <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1492551557933-34265f7af79e" alt="Moderne Architektur">
-            </div>
-            <div class="image-info">
-                <div class="image-title">Architektur & Struktur</div>
-                <div class="image-description">Moderne Architektur, die strategisches Denken und strukturierte Prozesse symbolisiert.</div>
-                <a href="https://unsplash.com/photos/low-angle-photography-of-curtain-wall-building-under-blue-sky-during-daytime-0-uzdP8aJKQ" class="image-link" target="_blank">Bild auf Unsplash ansehen</a>
-            </div>
+        <div class="card-content">
+          <h3 class="image-title">Strategische Planung</h3>
+          <p class="image-desc">Team bei der Strategieplanung - symbolisiert strategisches Management und Team-Leadership.</p>
+          <div class="image-tags">
+            <span class="image-tag">Strategie</span>
+            <span class="image-tag">Teamwork</span>
+            <span class="image-tag">Leadership</span>
+          </div>
+          <button class="copy-button" onclick="copyImageUrl('https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">URL kopieren</button>
         </div>
-        
-        <div class="image-card">
-            <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095" alt="Schachfiguren als Strategiesymbol">
-            </div>
-            <div class="image-info">
-                <div class="image-title">Strategisches Denken</div>
-                <div class="image-description">Schachfiguren symbolisieren strategisches Denken und vorausschauende Planung.</div>
-                <a href="https://unsplash.com/photos/white-and-black-chess-pieces-9HI8UJMSdZA" class="image-link" target="_blank">Bild auf Unsplash ansehen</a>
-            </div>
+      </div>
+
+      <!-- Bild 3 -->
+      <div class="image-card">
+        <div class="image-container">
+          <img src="https://images.pixabay.com/photo/2018/03/10/12/00/teamwork-3213924_1280.jpg" alt="Management Team Zusammenarbeit" class="hero-preview">
+          <div class="image-overlay">
+            <button class="view-button" onclick="openFullImage('https://images.pixabay.com/photo/2018/03/10/12/00/teamwork-3213924_1280.jpg')">Vollbild anzeigen</button>
+          </div>
         </div>
+        <div class="card-content">
+          <h3 class="image-title">Teamführung</h3>
+          <p class="image-desc">Ein diverses Management-Team bei der gemeinsamen Arbeit an Projekten - visualisiert effektive Teamführung.</p>
+          <div class="image-tags">
+            <span class="image-tag">Zusammenarbeit</span>
+            <span class="image-tag">Diversity</span>
+            <span class="image-tag">Führung</span>
+          </div>
+          <button class="copy-button" onclick="copyImageUrl('https://images.pixabay.com/photo/2018/03/10/12/00/teamwork-3213924_1280.jpg')">URL kopieren</button>
+        </div>
+      </div>
     </div>
 
-    <h2>3. Financial Management</h2>
-    <div class="image-grid">
-        <div class="image-card">
-            <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f" alt="Finanzcharts">
-            </div>
-            <div class="image-info">
-                <div class="image-title">Finanzanalyse</div>
-                <div class="image-description">Grafische Darstellung von Finanzdaten und Markttrends für fundierte Entscheidungen.</div>
-                <a href="https://unsplash.com/photos/a-laptop-computer-sitting-on-top-of-a-wooden-desk-CQl3Y5bV6FA" class="image-link" target="_blank">Bild auf Unsplash ansehen</a>
-            </div>
+    <h2>Management Programm - Weitere Alternativen</h2>
+    <div class="images-grid">
+      <!-- Bild 1 -->
+      <div class="image-card">
+        <div class="image-container">
+          <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Diverse Management Team" class="hero-preview">
+          <div class="image-overlay">
+            <button class="view-button" onclick="openFullImage('https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">Vollbild anzeigen</button>
+          </div>
         </div>
-        
-        <div class="image-card">
-            <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71" alt="Modernes Finanzzentrum">
-            </div>
-            <div class="image-info">
-                <div class="image-title">Finanzzentrum</div>
-                <div class="image-description">Moderne Architektur eines Finanzzentrums, symbolisiert Wirtschaftskraft und finanzielle Expertise.</div>
-                <a href="https://unsplash.com/photos/high-rise-curtain-wall-buildings-at-night-2gDwlIim3Uw" class="image-link" target="_blank">Bild auf Unsplash ansehen</a>
-            </div>
+        <div class="card-content">
+          <h3 class="image-title">Diversität im Management</h3>
+          <p class="image-desc">Ein vielfältiges Team von Führungskräften symbolisiert moderne Management-Ansätze und inklusive Führung.</p>
+          <div class="image-tags">
+            <span class="image-tag">Diversity</span>
+            <span class="image-tag">Führung</span>
+            <span class="image-tag">Zusammenarbeit</span>
+          </div>
+          <button class="copy-button" onclick="copyImageUrl('https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">URL kopieren</button>
         </div>
-        
-        <div class="image-card">
-            <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1579532537598-459ecdaf39cc" alt="Finanzielle Planung">
-            </div>
-            <div class="image-info">
-                <div class="image-title">Finanzielle Planung</div>
-                <div class="image-description">Professionelles Umfeld für strategische Finanzplanung und Portfoliomanagement.</div>
-                <a href="https://unsplash.com/photos/black-and-gray-typewriter-on-white-table-Xn7GvimQrUE" class="image-link" target="_blank">Bild auf Unsplash ansehen</a>
-            </div>
+      </div>
+
+      <!-- Bild 2 -->
+      <div class="image-card">
+        <div class="image-container">
+          <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Management Conference" class="hero-preview">
+          <div class="image-overlay">
+            <button class="view-button" onclick="openFullImage('https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">Vollbild anzeigen</button>
+          </div>
         </div>
-        
-        <div class="image-card">
-            <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1604594849809-dfedbc827105" alt="Abstrakte Finanzdaten">
-            </div>
-            <div class="image-info">
-                <div class="image-title">Datenvisualisierung</div>
-                <div class="image-description">Abstrakte Darstellung von Finanzdaten und Marktbewegungen für fundierte Analysen.</div>
-                <a href="https://unsplash.com/photos/close-up-photography-of-monitor-with-graph-_d5ZKDQDBsc" class="image-link" target="_blank">Bild auf Unsplash ansehen</a>
-            </div>
+        <div class="card-content">
+          <h3 class="image-title">Management-Konferenz</h3>
+          <p class="image-desc">Professionelle Konferenzumgebung für Führungskräfte - symbolisiert das Networking und den Wissensaustausch im Management.</p>
+          <div class="image-tags">
+            <span class="image-tag">Konferenz</span>
+            <span class="image-tag">Business</span>
+            <span class="image-tag">Networking</span>
+          </div>
+          <button class="copy-button" onclick="copyImageUrl('https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">URL kopieren</button>
         </div>
-        
-        <div class="image-card">
-            <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1560520653-9e0e4c89eb11" alt="Finanzexperte bei der Arbeit">
-            </div>
-            <div class="image-info">
-                <div class="image-title">Finanzexpertise</div>
-                <div class="image-description">Finanzexperte arbeitet mit Daten und Analysen für optimales Finanzmanagement.</div>
-                <a href="https://unsplash.com/photos/people-meeting-inside-room-3mjZPv063Sc" class="image-link" target="_blank">Bild auf Unsplash ansehen</a>
-            </div>
+      </div>
+
+      <!-- Bild 3 -->
+      <div class="image-card">
+        <div class="image-container">
+          <img src="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Business Leadership" class="hero-preview">
+          <div class="image-overlay">
+            <button class="view-button" onclick="openFullImage('https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1600')">Vollbild anzeigen</button>
+          </div>
         </div>
+        <div class="card-content">
+          <h3 class="image-title">Business Leadership</h3>
+          <p class="image-desc">Gemeinsame Entscheidungsfindung in einem modernen Geschäftsumfeld - ein Schlüsselaspekt erfolgreichen Managements.</p>
+          <div class="image-tags">
+            <span class="image-tag">Leadership</span>
+            <span class="image-tag">Entscheidungsfindung</span>
+            <span class="image-tag">Collaboration</span>
+          </div>
+          <button class="copy-button" onclick="copyImageUrl('https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1600')">URL kopieren</button>
+        </div>
+      </div>
     </div>
 
-    <h2>4. Inspirational Leadership</h2>
-    <div class="image-grid">
-        <div class="image-card">
-            <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b" alt="Motivierender Redner">
-            </div>
-            <div class="image-info">
-                <div class="image-title">Inspirierende Führung</div>
-                <div class="image-description">Ein charismatischer Redner, der ein Team inspiriert und motiviert.</div>
-                <a href="https://unsplash.com/photos/man-standing-in-front-of-people-sitting-on-gang-chairs-PDX_a_82obo" class="image-link" target="_blank">Bild auf Unsplash ansehen</a>
-            </div>
+    <h2>Integrated Management Strategy</h2>
+    <div class="images-grid">
+      <!-- Bild 1 -->
+      <div class="image-card">
+        <div class="image-container">
+          <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Moderne Management Strategie" class="hero-preview">
+          <div class="image-overlay">
+            <button class="view-button" onclick="openFullImage('https://images.unsplash.com/photo-1589939705384-5185137a7f0f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">Vollbild anzeigen</button>
+          </div>
         </div>
-        
-        <div class="image-card">
-            <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" alt="Teamarbeit und Zusammenhalt">
-            </div>
-            <div class="image-info">
-                <div class="image-title">Teamsynergie</div>
-                <div class="image-description">Zusammenarbeit in einem dynamischen Team, geleitet von inspirierender Führung.</div>
-                <a href="https://unsplash.com/photos/people-discussing-near-table-rH8O0FHFpfw" class="image-link" target="_blank">Bild auf Unsplash ansehen</a>
-            </div>
+        <div class="card-content">
+          <h3 class="image-title">Strategische Analyse</h3>
+          <p class="image-desc">Eine visuelle Darstellung von vernetzten Daten und Analysen - ideal für integrierte Managementstrategien.</p>
+          <div class="image-tags">
+            <span class="image-tag">Strategie</span>
+            <span class="image-tag">Analyse</span>
+            <span class="image-tag">Integration</span>
+          </div>
+          <button class="copy-button" onclick="copyImageUrl('https://images.unsplash.com/photo-1589939705384-5185137a7f0f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">URL kopieren</button>
         </div>
-        
-        <div class="image-card">
-            <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1594563703937-fdc640497dcd" alt="Berg als Metapher für Leadership">
-            </div>
-            <div class="image-info">
-                <div class="image-title">Visionäre Führung</div>
-                <div class="image-description">Berglandschaft als Metapher für Visionen, Ziele und Führungsqualitäten.</div>
-                <a href="https://unsplash.com/photos/mountain-ranges-during-sunset-eo_KdWJIwOc" class="image-link" target="_blank">Bild auf Unsplash ansehen</a>
-            </div>
+      </div>
+
+      <!-- Bild 2 -->
+      <div class="image-card">
+        <div class="image-container">
+          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Business Strategy Session" class="hero-preview">
+          <div class="image-overlay">
+            <button class="view-button" onclick="openFullImage('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">Vollbild anzeigen</button>
+          </div>
         </div>
-        
-        <div class="image-card">
-            <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998" alt="Mentoring und Coaching">
-            </div>
-            <div class="image-info">
-                <div class="image-title">Mentoring</div>
-                <div class="image-description">Führungskräfte als Mentoren, die Wissen und Erfahrung weitergeben.</div>
-                <a href="https://unsplash.com/photos/people-in-room-during-daylight-BenLERgomQ8" class="image-link" target="_blank">Bild auf Unsplash ansehen</a>
-            </div>
+        <div class="card-content">
+          <h3 class="image-title">Koordinierte Strategie</h3>
+          <p class="image-desc">Geschäftsleute diskutieren bei einer Strategiesitzung - perfekt für das Programm zur integrierten Managementstrategie.</p>
+          <div class="image-tags">
+            <span class="image-tag">Business</span>
+            <span class="image-tag">Koordination</span>
+            <span class="image-tag">Planung</span>
+          </div>
+          <button class="copy-button" onclick="copyImageUrl('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">URL kopieren</button>
         </div>
-        
-        <div class="image-card">
-            <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" alt="Kreative Teamdiskussion">
-            </div>
-            <div class="image-info">
-                <div class="image-title">Kreative Führung</div>
-                <div class="image-description">Inspirierende Führungskraft fördert Kreativität und Innovation im Team.</div>
-                <a href="https://unsplash.com/photos/four-people-looking-at-white-board-4UGmm3WRUhQ" class="image-link" target="_blank">Bild auf Unsplash ansehen</a>
-            </div>
+      </div>
+
+      <!-- Bild 3 -->
+      <div class="image-card">
+        <div class="image-container">
+          <img src="https://images.unsplash.com/photo-1549923746-c502d488b3ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Integrierte Unternehmensführung" class="hero-preview">
+          <div class="image-overlay">
+            <button class="view-button" onclick="openFullImage('https://images.unsplash.com/photo-1549923746-c502d488b3ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">Vollbild anzeigen</button>
+          </div>
         </div>
+        <div class="card-content">
+          <h3 class="image-title">Ganzheitliche Unternehmensführung</h3>
+          <p class="image-desc">Moderne Architektur symbolisiert die strukturierte und integrierte Herangehensweise an Managementstrategien.</p>
+          <div class="image-tags">
+            <span class="image-tag">Integration</span>
+            <span class="image-tag">Struktur</span>
+            <span class="image-tag">Management</span>
+          </div>
+          <button class="copy-button" onclick="copyImageUrl('https://images.unsplash.com/photo-1549923746-c502d488b3ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">URL kopieren</button>
+        </div>
+      </div>
     </div>
+
+    <h2>Integrated Management Strategy - Weitere Alternativen</h2>
+    <div class="images-grid">
+      <!-- Bild 1 -->
+      <div class="image-card">
+        <div class="image-container">
+          <img src="https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Strategische Planung" class="hero-preview">
+          <div class="image-overlay">
+            <button class="view-button" onclick="openFullImage('https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">Vollbild anzeigen</button>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3 class="image-title">Strategische Ressourcenplanung</h3>
+          <p class="image-desc">Die Integration verschiedener Ressourcen und Arbeitsprozesse - ein zentraler Bestandteil integrierter Managementstrategien.</p>
+          <div class="image-tags">
+            <span class="image-tag">Ressourcen</span>
+            <span class="image-tag">Integration</span>
+            <span class="image-tag">Planung</span>
+          </div>
+          <button class="copy-button" onclick="copyImageUrl('https://images.unsplash.com/photo-1557426272-fc759fdf7a8d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">URL kopieren</button>
+        </div>
+      </div>
+
+      <!-- Bild 2 -->
+      <div class="image-card">
+        <div class="image-container">
+          <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Business Strategy Development" class="hero-preview">
+          <div class="image-overlay">
+            <button class="view-button" onclick="openFullImage('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">Vollbild anzeigen</button>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3 class="image-title">Geschäftsstrategieentwicklung</h3>
+          <p class="image-desc">Die Entwicklung einer integrierten Geschäftsstrategie durch Analyse und Planung - Kernprozess des strategischen Managements.</p>
+          <div class="image-tags">
+            <span class="image-tag">Strategie</span>
+            <span class="image-tag">Analyse</span>
+            <span class="image-tag">Entwicklung</span>
+          </div>
+          <button class="copy-button" onclick="copyImageUrl('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">URL kopieren</button>
+        </div>
+      </div>
+
+      <!-- Bild 3 -->
+      <div class="image-card">
+        <div class="image-container">
+          <img src="https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Integrierte Zusammenarbeit" class="hero-preview">
+          <div class="image-overlay">
+            <button class="view-button" onclick="openFullImage('https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1600')">Vollbild anzeigen</button>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3 class="image-title">Integrierte Teamarbeit</h3>
+          <p class="image-desc">Die Zusammenführung verschiedener Fachkompetenzen in einem Team - wichtig für die Implementierung integrierter Managementstrategien.</p>
+          <div class="image-tags">
+            <span class="image-tag">Teamwork</span>
+            <span class="image-tag">Integration</span>
+            <span class="image-tag">Kompetenzen</span>
+          </div>
+          <button class="copy-button" onclick="copyImageUrl('https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1600')">URL kopieren</button>
+        </div>
+      </div>
+    </div>
+
+    <h2>KI Excellence Programm</h2>
+    <div class="images-grid">
+      <!-- Bild 1 -->
+      <div class="image-card">
+        <div class="image-container">
+          <img src="https://images.unsplash.com/photo-1677442135146-91468fd9e6b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Künstliche Intelligenz Netzwerk" class="hero-preview">
+          <div class="image-overlay">
+            <button class="view-button" onclick="openFullImage('https://images.unsplash.com/photo-1677442135146-91468fd9e6b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">Vollbild anzeigen</button>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3 class="image-title">KI-Netzwerk</h3>
+          <p class="image-desc">Abstrakte Darstellung vernetzter KI-Systeme - perfekt für das KI Excellence Programm.</p>
+          <div class="image-tags">
+            <span class="image-tag">Künstliche Intelligenz</span>
+            <span class="image-tag">Netzwerk</span>
+            <span class="image-tag">Innovation</span>
+          </div>
+          <button class="copy-button" onclick="copyImageUrl('https://images.unsplash.com/photo-1677442135146-91468fd9e6b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">URL kopieren</button>
+        </div>
+      </div>
+
+      <!-- Bild 2 -->
+      <div class="image-card">
+        <div class="image-container">
+          <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Data Science Visualisierung" class="hero-preview">
+          <div class="image-overlay">
+            <button class="view-button" onclick="openFullImage('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">Vollbild anzeigen</button>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3 class="image-title">KI & Datenanalyse</h3>
+          <p class="image-desc">Moderne Visualisierung von Datenströmen und Algorithmen - ideal für ein KI-fokussiertes Programm.</p>
+          <div class="image-tags">
+            <span class="image-tag">Data Science</span>
+            <span class="image-tag">Algorithmik</span>
+            <span class="image-tag">Digitale Transformation</span>
+          </div>
+          <button class="copy-button" onclick="copyImageUrl('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">URL kopieren</button>
+        </div>
+      </div>
+
+      <!-- Bild 3 -->
+      <div class="image-card">
+        <div class="image-container">
+          <img src="https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Technologie und KI" class="hero-preview">
+          <div class="image-overlay">
+            <button class="view-button" onclick="openFullImage('https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')">Vollbild anzeigen</button>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3 class="image-title">Digitale Exzellenz</h3>
+          <p class="image-desc">Hochmoderne Technologie und Digitalität symbolisieren die Exzellenz im KI-Bereich.</p>
+          <div class="image-tags">
+            <span class="image-tag">Technologie</span>
+            <span class="image-tag">Digital</span>
+            <span class="image-tag">Excellence</span>
+          </div>
+          <button class="copy-button" onclick="copyImageUrl('https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')">URL kopieren</button>
+        </div>
+      </div>
+    </div>
+
+    <h2>KI Excellence Programm - Weitere Alternativen</h2>
+    <div class="images-grid">
+      <!-- Bild 1 -->
+      <div class="image-card">
+        <div class="image-container">
+          <img src="https://images.unsplash.com/photo-1593642532400-2682810df593?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="KI und Technologie" class="hero-preview">
+          <div class="image-overlay">
+            <button class="view-button" onclick="openFullImage('https://images.unsplash.com/photo-1593642532400-2682810df593?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">Vollbild anzeigen</button>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3 class="image-title">KI-Technologieinnovation</h3>
+          <p class="image-desc">Futuristische Darstellung der Verschmelzung von Mensch und Technologie - repräsentiert die exzellente Entwicklung und Nutzung von KI.</p>
+          <div class="image-tags">
+            <span class="image-tag">Technologie</span>
+            <span class="image-tag">Innovation</span>
+            <span class="image-tag">Zukunft</span>
+          </div>
+          <button class="copy-button" onclick="copyImageUrl('https://images.unsplash.com/photo-1593642532400-2682810df593?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">URL kopieren</button>
+        </div>
+      </div>
+
+      <!-- Bild 2 -->
+      <div class="image-card">
+        <div class="image-container">
+          <img src="https://images.unsplash.com/photo-1679578964074-df2c8ab12724?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="KI-Muster" class="hero-preview">
+          <div class="image-overlay">
+            <button class="view-button" onclick="openFullImage('https://images.unsplash.com/photo-1679578964074-df2c8ab12724?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">Vollbild anzeigen</button>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3 class="image-title">KI-Musterkennung</h3>
+          <p class="image-desc">Abstrakte Darstellung der komplexen Muster, die KI erkennen und analysieren kann - ein Kernaspekt des KI Excellence Programms.</p>
+          <div class="image-tags">
+            <span class="image-tag">Muster</span>
+            <span class="image-tag">Analyse</span>
+            <span class="image-tag">KI-Modelle</span>
+          </div>
+          <button class="copy-button" onclick="copyImageUrl('https://images.unsplash.com/photo-1679578964074-df2c8ab12724?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">URL kopieren</button>
+        </div>
+      </div>
+
+      <!-- Bild 3 -->
+      <div class="image-card">
+        <div class="image-container">
+          <img src="https://images.pexels.com/photos/6476260/pexels-photo-6476260.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="KI-Labor" class="hero-preview">
+          <div class="image-overlay">
+            <button class="view-button" onclick="openFullImage('https://images.pexels.com/photos/6476260/pexels-photo-6476260.jpeg?auto=compress&cs=tinysrgb&w=1600')">Vollbild anzeigen</button>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3 class="image-title">KI-Entwicklungsumgebung</h3>
+          <p class="image-desc">Moderne Technologieumgebung für die Entwicklung und Implementierung exzellenter KI-Lösungen.</p>
+          <div class="image-tags">
+            <span class="image-tag">Entwicklung</span>
+            <span class="image-tag">Forschung</span>
+            <span class="image-tag">Innovation</span>
+          </div>
+          <button class="copy-button" onclick="copyImageUrl('https://images.pexels.com/photos/6476260/pexels-photo-6476260.jpeg?auto=compress&cs=tinysrgb&w=1600')">URL kopieren</button>
+        </div>
+      </div>
+    </div>
+
+    <h2>KI Augmented Decision Making</h2>
+    <div class="images-grid">
+      <!-- Bild 1 -->
+      <div class="image-card">
+        <div class="image-container">
+          <img src="https://images.unsplash.com/photo-1655720828018-ffa999779e89?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="KI-gestützte Entscheidungsfindung" class="hero-preview">
+          <div class="image-overlay">
+            <button class="view-button" onclick="openFullImage('https://images.unsplash.com/photo-1655720828018-ffa999779e89?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">Vollbild anzeigen</button>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3 class="image-title">Augmentierte Entscheidungsfindung</h3>
+          <p class="image-desc">Visualisierung der Datenauswertung für KI-unterstützte Entscheidungsprozesse.</p>
+          <div class="image-tags">
+            <span class="image-tag">Entscheidungsfindung</span>
+            <span class="image-tag">Augmented Intelligence</span>
+            <span class="image-tag">Datenanalyse</span>
+          </div>
+          <button class="copy-button" onclick="copyImageUrl('https://images.unsplash.com/photo-1655720828018-ffa999779e89?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">URL kopieren</button>
+        </div>
+      </div>
+
+      <!-- Bild 2 -->
+      <div class="image-card">
+        <div class="image-container">
+          <img src="https://images.unsplash.com/photo-1599658880436-c61792e70672?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Mensch-Maschine Interaktion" class="hero-preview">
+          <div class="image-overlay">
+            <button class="view-button" onclick="openFullImage('https://images.unsplash.com/photo-1599658880436-c61792e70672?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">Vollbild anzeigen</button>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3 class="image-title">Mensch-KI Kollaboration</h3>
+          <p class="image-desc">Die Zusammenarbeit von Mensch und KI für bessere Entscheidungsfindung im Business-Kontext.</p>
+          <div class="image-tags">
+            <span class="image-tag">Kollaboration</span>
+            <span class="image-tag">Augmented Intelligence</span>
+            <span class="image-tag">Mensch-Maschine</span>
+          </div>
+          <button class="copy-button" onclick="copyImageUrl('https://images.unsplash.com/photo-1599658880436-c61792e70672?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">URL kopieren</button>
+        </div>
+      </div>
+
+      <!-- Bild 3 -->
+      <div class="image-card">
+        <div class="image-container">
+          <img src="https://images.pexels.com/photos/8369590/pexels-photo-8369590.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="KI-unterstützte Analyse" class="hero-preview">
+          <div class="image-overlay">
+            <button class="view-button" onclick="openFullImage('https://images.pexels.com/photos/8369590/pexels-photo-8369590.jpeg?auto=compress&cs=tinysrgb&w=1600')">Vollbild anzeigen</button>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3 class="image-title">Datengestützte Entscheidungen</h3>
+          <p class="image-desc">Visualisierung der Macht der Daten und KI bei der Verbesserung von Geschäftsentscheidungen.</p>
+          <div class="image-tags">
+            <span class="image-tag">Daten</span>
+            <span class="image-tag">Entscheidungen</span>
+            <span class="image-tag">Analyse</span>
+          </div>
+          <button class="copy-button" onclick="copyImageUrl('https://images.pexels.com/photos/8369590/pexels-photo-8369590.jpeg?auto=compress&cs=tinysrgb&w=1600')">URL kopieren</button>
+        </div>
+      </div>
+    </div>
+
+    <h2>KI Augmented Decision Making - Weitere Alternativen</h2>
+    <div class="images-grid">
+      <!-- Bild 1 -->
+      <div class="image-card">
+        <div class="image-container">
+          <img src="https://images.unsplash.com/photo-1591696331111-ef9586a5b17a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Data Decision Making" class="hero-preview">
+          <div class="image-overlay">
+            <button class="view-button" onclick="openFullImage('https://images.unsplash.com/photo-1591696331111-ef9586a5b17a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">Vollbild anzeigen</button>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3 class="image-title">Datenbasierte Entscheidungsfindung</h3>
+          <p class="image-desc">Die Analyse komplexer Daten zur Unterstützung fundierter Entscheidungen - ein Kernaspekt des KI-unterstützten Entscheidungsprozesses.</p>
+          <div class="image-tags">
+            <span class="image-tag">Datenanalyse</span>
+            <span class="image-tag">Entscheidungsfindung</span>
+            <span class="image-tag">Business Intelligence</span>
+          </div>
+          <button class="copy-button" onclick="copyImageUrl('https://images.unsplash.com/photo-1591696331111-ef9586a5b17a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">URL kopieren</button>
+        </div>
+      </div>
+
+      <!-- Bild 2 -->
+      <div class="image-card">
+        <div class="image-container">
+          <img src="https://images.unsplash.com/photo-1526378722484-bd91ca387e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Augmented Intelligence" class="hero-preview">
+          <div class="image-overlay">
+            <button class="view-button" onclick="openFullImage('https://images.unsplash.com/photo-1526378722484-bd91ca387e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">Vollbild anzeigen</button>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3 class="image-title">Erweiterte Intelligenz</h3>
+          <p class="image-desc">Die Verschmelzung menschlicher und künstlicher Intelligenz für bessere Entscheidungsprozesse in komplexen Situationen.</p>
+          <div class="image-tags">
+            <span class="image-tag">Augmented Intelligence</span>
+            <span class="image-tag">Mensch-Maschine</span>
+            <span class="image-tag">Synergie</span>
+          </div>
+          <button class="copy-button" onclick="copyImageUrl('https://images.unsplash.com/photo-1526378722484-bd91ca387e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">URL kopieren</button>
+        </div>
+      </div>
+
+      <!-- Bild 3 -->
+      <div class="image-card">
+        <div class="image-container">
+          <img src="https://images.pexels.com/photos/6153354/pexels-photo-6153354.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="KI-Business-Entscheidungen" class="hero-preview">
+          <div class="image-overlay">
+            <button class="view-button" onclick="openFullImage('https://images.pexels.com/photos/6153354/pexels-photo-6153354.jpeg?auto=compress&cs=tinysrgb&w=1600')">Vollbild anzeigen</button>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3 class="image-title">KI-unterstützte Geschäftsentscheidungen</h3>
+          <p class="image-desc">Die Integration von KI-Technologie in Geschäftsentscheidungsprozesse - ein Schlüsselaspekt moderner Unternehmensführung.</p>
+          <div class="image-tags">
+            <span class="image-tag">Business</span>
+            <span class="image-tag">Entscheidungsprozesse</span>
+            <span class="image-tag">KI-Integration</span>
+          </div>
+          <button class="copy-button" onclick="copyImageUrl('https://images.pexels.com/photos/6153354/pexels-photo-6153354.jpeg?auto=compress&cs=tinysrgb&w=1600')">URL kopieren</button>
+        </div>
+      </div>
+    </div>
+
+    <h2>Fast Track MBA</h2>
+    <div class="images-grid">
+      <!-- Bild 1 -->
+      <div class="image-card">
+        <div class="image-container">
+          <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Business Education" class="hero-preview">
+          <div class="image-overlay">
+            <button class="view-button" onclick="openFullImage('https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">Vollbild anzeigen</button>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3 class="image-title">Modernes Business Learning</h3>
+          <p class="image-desc">Ein modernes Lernumfeld, das die dynamische und praxisorientierte Natur des Fast Track MBA symbolisiert.</p>
+          <div class="image-tags">
+            <span class="image-tag">MBA</span>
+            <span class="image-tag">Bildung</span>
+            <span class="image-tag">Business School</span>
+          </div>
+          <button class="copy-button" onclick="copyImageUrl('https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">URL kopieren</button>
+        </div>
+      </div>
+
+      <!-- Bild 2 -->
+      <div class="image-card">
+        <div class="image-container">
+          <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Business Professional" class="hero-preview">
+          <div class="image-overlay">
+            <button class="view-button" onclick="openFullImage('https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">Vollbild anzeigen</button>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3 class="image-title">Professionelle Exzellenz</h3>
+          <p class="image-desc">Selbstbewusste Business-Professionals verkörpern den Erfolgsfaktor und die Karriereorientierung des Fast Track MBA.</p>
+          <div class="image-tags">
+            <span class="image-tag">Karriere</span>
+            <span class="image-tag">Leadership</span>
+            <span class="image-tag">Erfolg</span>
+          </div>
+          <button class="copy-button" onclick="copyImageUrl('https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">URL kopieren</button>
+        </div>
+      </div>
+
+      <!-- Bild 3 -->
+      <div class="image-card">
+        <div class="image-container">
+          <img src="https://images.pexels.com/photos/3184163/pexels-photo-3184163.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Kollaboratives Lernen" class="hero-preview">
+          <div class="image-overlay">
+            <button class="view-button" onclick="openFullImage('https://images.pexels.com/photos/3184163/pexels-photo-3184163.jpeg?auto=compress&cs=tinysrgb&w=1600')">Vollbild anzeigen</button>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3 class="image-title">Teambasiertes Lernen</h3>
+          <p class="image-desc">Kollaboratives Arbeiten in einem modernen Businessumfeld - repräsentiert die praxisnahe Lernmethodik des Fast Track MBA.</p>
+          <div class="image-tags">
+            <span class="image-tag">Teamwork</span>
+            <span class="image-tag">Praxisorientiert</span>
+            <span class="image-tag">Kollaboration</span>
+          </div>
+          <button class="copy-button" onclick="copyImageUrl('https://images.pexels.com/photos/3184163/pexels-photo-3184163.jpeg?auto=compress&cs=tinysrgb&w=1600')">URL kopieren</button>
+        </div>
+      </div>
+    </div>
+
+    <h2>Intelligent Process Automation</h2>
+    <div class="images-grid">
+      <!-- Bild 1 -->
+      <div class="image-card">
+        <div class="image-container">
+          <img src="https://images.unsplash.com/photo-1607703703520-bb638e84caf2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Prozessautomatisierung" class="hero-preview">
+          <div class="image-overlay">
+            <button class="view-button" onclick="openFullImage('https://images.unsplash.com/photo-1607703703520-bb638e84caf2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">Vollbild anzeigen</button>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3 class="image-title">Prozessautomatisierung</h3>
+          <p class="image-desc">Visuelle Darstellung automatisierter Prozesse - ideal für das Intelligent Process Automation Programm.</p>
+          <div class="image-tags">
+            <span class="image-tag">Automation</span>
+            <span class="image-tag">Prozesse</span>
+            <span class="image-tag">Effizienz</span>
+          </div>
+          <button class="copy-button" onclick="copyImageUrl('https://images.unsplash.com/photo-1607703703520-bb638e84caf2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">URL kopieren</button>
+        </div>
+      </div>
+
+      <!-- Bild 2 -->
+      <div class="image-card">
+        <div class="image-container">
+          <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Digitale Vernetzung" class="hero-preview">
+          <div class="image-overlay">
+            <button class="view-button" onclick="openFullImage('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">Vollbild anzeigen</button>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3 class="image-title">Vernetzte Systeme</h3>
+          <p class="image-desc">Vernetzte digitale Systeme verdeutlichen die Integration verschiedener Prozesse in der intelligenten Automatisierung.</p>
+          <div class="image-tags">
+            <span class="image-tag">Integration</span>
+            <span class="image-tag">Vernetzung</span>
+            <span class="image-tag">Digitalisierung</span>
+          </div>
+          <button class="copy-button" onclick="copyImageUrl('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">URL kopieren</button>
+        </div>
+      </div>
+
+      <!-- Bild 3 -->
+      <div class="image-card">
+        <div class="image-container">
+          <img src="https://images.pexels.com/photos/8728380/pexels-photo-8728380.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Roboter Automation" class="hero-preview">
+          <div class="image-overlay">
+            <button class="view-button" onclick="openFullImage('https://images.pexels.com/photos/8728380/pexels-photo-8728380.jpeg?auto=compress&cs=tinysrgb&w=1600')">Vollbild anzeigen</button>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3 class="image-title">Robotische Prozessautomatisierung</h3>
+          <p class="image-desc">Roboter symbolisieren die Automatisierung wiederholbarer Prozesse - ein Kernaspekt der Intelligent Process Automation.</p>
+          <div class="image-tags">
+            <span class="image-tag">Robotik</span>
+            <span class="image-tag">RPA</span>
+            <span class="image-tag">Technologie</span>
+          </div>
+          <button class="copy-button" onclick="copyImageUrl('https://images.pexels.com/photos/8728380/pexels-photo-8728380.jpeg?auto=compress&cs=tinysrgb&w=1600')">URL kopieren</button>
+        </div>
+      </div>
+    </div>
+
+    <h2>Financial Management</h2>
+    <div class="images-grid">
+      <!-- Bild 1 -->
+      <div class="image-card">
+        <div class="image-container">
+          <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Finanzanalyse" class="hero-preview">
+          <div class="image-overlay">
+            <button class="view-button" onclick="openFullImage('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">Vollbild anzeigen</button>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3 class="image-title">Finanzanalyse</h3>
+          <p class="image-desc">Detaillierte Finanzanalysen und Datenauswertungen - ideal für das Financial Management Programm.</p>
+          <div class="image-tags">
+            <span class="image-tag">Analyse</span>
+            <span class="image-tag">Finanzen</span>
+            <span class="image-tag">Controlling</span>
+          </div>
+          <button class="copy-button" onclick="copyImageUrl('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">URL kopieren</button>
+        </div>
+      </div>
+
+      <!-- Bild 2 -->
+      <div class="image-card">
+        <div class="image-container">
+          <img src="https://images.unsplash.com/photo-1565514020179-026b5f5dbbd6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Finanzdistrikt" class="hero-preview">
+          <div class="image-overlay">
+            <button class="view-button" onclick="openFullImage('https://images.unsplash.com/photo-1565514020179-026b5f5dbbd6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">Vollbild anzeigen</button>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3 class="image-title">Globale Finanzzentren</h3>
+          <p class="image-desc">Moderne Finanzdistrikte repräsentieren die globale Perspektive des Financial Management-Programms.</p>
+          <div class="image-tags">
+            <span class="image-tag">Banking</span>
+            <span class="image-tag">Global Finance</span>
+            <span class="image-tag">Corporate</span>
+          </div>
+          <button class="copy-button" onclick="copyImageUrl('https://images.unsplash.com/photo-1565514020179-026b5f5dbbd6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">URL kopieren</button>
+        </div>
+      </div>
+
+      <!-- Bild 3 -->
+      <div class="image-card">
+        <div class="image-container">
+          <img src="https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Finanzplanung" class="hero-preview">
+          <div class="image-overlay">
+            <button class="view-button" onclick="openFullImage('https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=1600')">Vollbild anzeigen</button>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3 class="image-title">Strategische Finanzplanung</h3>
+          <p class="image-desc">Professionelle Finanzplanung und Strategieentwicklung - wichtige Komponenten im Financial Management.</p>
+          <div class="image-tags">
+            <span class="image-tag">Planung</span>
+            <span class="image-tag">Strategie</span>
+            <span class="image-tag">Investment</span>
+          </div>
+          <button class="copy-button" onclick="copyImageUrl('https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&cs=tinysrgb&w=1600')">URL kopieren</button>
+        </div>
+      </div>
+    </div>
+
+    <h2>Marketing, Sales & Brand Communication</h2>
+    <div class="images-grid">
+      <!-- Bild 1 -->
+      <div class="image-card">
+        <div class="image-container">
+          <img src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Marketing-Brainstorming" class="hero-preview">
+          <div class="image-overlay">
+            <button class="view-button" onclick="openFullImage('https://images.unsplash.com/photo-1568992687947-868a62a9f521?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">Vollbild anzeigen</button>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3 class="image-title">Kreative Marketingstrategie</h3>
+          <p class="image-desc">Ein kreatives Team bei der Entwicklung von Marketingstrategien - ideal für das Marketing & Brand Communication Programm.</p>
+          <div class="image-tags">
+            <span class="image-tag">Kreativität</span>
+            <span class="image-tag">Strategie</span>
+            <span class="image-tag">Brainstorming</span>
+          </div>
+          <button class="copy-button" onclick="copyImageUrl('https://images.unsplash.com/photo-1568992687947-868a62a9f521?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">URL kopieren</button>
+        </div>
+      </div>
+
+      <!-- Bild 2 -->
+      <div class="image-card">
+        <div class="image-container">
+          <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Sales Meeting" class="hero-preview">
+          <div class="image-overlay">
+            <button class="view-button" onclick="openFullImage('https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">Vollbild anzeigen</button>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3 class="image-title">Verkaufsgespräch</h3>
+          <p class="image-desc">Ein professionelles Verkaufsgespräch repräsentiert den Sales-Aspekt des Marketing & Sales Programms.</p>
+          <div class="image-tags">
+            <span class="image-tag">Sales</span>
+            <span class="image-tag">Kommunikation</span>
+            <span class="image-tag">Kundenbeziehung</span>
+          </div>
+          <button class="copy-button" onclick="copyImageUrl('https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">URL kopieren</button>
+        </div>
+      </div>
+
+      <!-- Bild 3 -->
+      <div class="image-card">
+        <div class="image-container">
+          <img src="https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Brand Identity" class="hero-preview">
+          <div class="image-overlay">
+            <button class="view-button" onclick="openFullImage('https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=1600')">Vollbild anzeigen</button>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3 class="image-title">Markenidentität</h3>
+          <p class="image-desc">Die Entwicklung einer starken Markenidentität - ein zentraler Bestandteil der Brand Communication.</p>
+          <div class="image-tags">
+            <span class="image-tag">Branding</span>
+            <span class="image-tag">Identität</span>
+            <span class="image-tag">Design</span>
+          </div>
+          <button class="copy-button" onclick="copyImageUrl('https://images.pexels.com/photos/7688336/pexels-photo-7688336.jpeg?auto=compress&cs=tinysrgb&w=1600')">URL kopieren</button>
+        </div>
+      </div>
+    </div>
+
+    <h2>Inspirational Leadership</h2>
+    <div class="images-grid">
+      <!-- Bild 1 -->
+      <div class="image-card">
+        <div class="image-container">
+          <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Leadership Workshop" class="hero-preview">
+          <div class="image-overlay">
+            <button class="view-button" onclick="openFullImage('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">Vollbild anzeigen</button>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3 class="image-title">Inspirierender Workshop</h3>
+          <p class="image-desc">Ein dynamischer Leadership-Workshop verkörpert die inspirierende und motivierende Natur des Leadership-Programms.</p>
+          <div class="image-tags">
+            <span class="image-tag">Workshop</span>
+            <span class="image-tag">Teambuilding</span>
+            <span class="image-tag">Motivation</span>
+          </div>
+          <button class="copy-button" onclick="copyImageUrl('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">URL kopieren</button>
+        </div>
+      </div>
+
+      <!-- Bild 2 -->
+      <div class="image-card">
+        <div class="image-container">
+          <img src="https://images.unsplash.com/photo-1552581234-26160f608093?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Leadership und Mentoring" class="hero-preview">
+          <div class="image-overlay">
+            <button class="view-button" onclick="openFullImage('https://images.unsplash.com/photo-1552581234-26160f608093?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">Vollbild anzeigen</button>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3 class="image-title">Mentorship & Führung</h3>
+          <p class="image-desc">Die Führung und Entwicklung von Teams durch einen inspirierenden Führungsstil - Kern des Inspirational Leadership.</p>
+          <div class="image-tags">
+            <span class="image-tag">Mentoring</span>
+            <span class="image-tag">Führungsstil</span>
+            <span class="image-tag">Entwicklung</span>
+          </div>
+          <button class="copy-button" onclick="copyImageUrl('https://images.unsplash.com/photo-1552581234-26160f608093?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">URL kopieren</button>
+        </div>
+      </div>
+
+      <!-- Bild 3 -->
+      <div class="image-card">
+        <div class="image-container">
+          <img src="https://images.pexels.com/photos/3153198/pexels-photo-3153198.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Visionäre Führung" class="hero-preview">
+          <div class="image-overlay">
+            <button class="view-button" onclick="openFullImage('https://images.pexels.com/photos/3153198/pexels-photo-3153198.jpeg?auto=compress&cs=tinysrgb&w=1600')">Vollbild anzeigen</button>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3 class="image-title">Visionäre Führung</h3>
+          <p class="image-desc">Die weitreichende Vision einer inspirierenden Führungspersönlichkeit - ein Schlüsselelement des Inspirational Leadership.</p>
+          <div class="image-tags">
+            <span class="image-tag">Vision</span>
+            <span class="image-tag">Inspiration</span>
+            <span class="image-tag">Charisma</span>
+          </div>
+          <button class="copy-button" onclick="copyImageUrl('https://images.pexels.com/photos/3153198/pexels-photo-3153198.jpeg?auto=compress&cs=tinysrgb&w=1600')">URL kopieren</button>
+        </div>
+      </div>
+    </div>
+
+    <h2>KI Business Strategy & Digital Transformation</h2>
+    <div class="images-grid">
+      <!-- Bild 1 -->
+      <div class="image-card">
+        <div class="image-container">
+          <img src="https://images.unsplash.com/photo-1581089781785-603411fa81e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Digital Business" class="hero-preview">
+          <div class="image-overlay">
+            <button class="view-button" onclick="openFullImage('https://images.unsplash.com/photo-1581089781785-603411fa81e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">Vollbild anzeigen</button>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3 class="image-title">Digital Business Transformation</h3>
+          <p class="image-desc">Die Verschmelzung von Technologie und Business als Kern der digitalen Transformation von Unternehmen.</p>
+          <div class="image-tags">
+            <span class="image-tag">Transformation</span>
+            <span class="image-tag">Digital Business</span>
+            <span class="image-tag">Strategie</span>
+          </div>
+          <button class="copy-button" onclick="copyImageUrl('https://images.unsplash.com/photo-1581089781785-603411fa81e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">URL kopieren</button>
+        </div>
+      </div>
+
+      <!-- Bild 2 -->
+      <div class="image-card">
+        <div class="image-container">
+          <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="KI in der Geschäftsstrategie" class="hero-preview">
+          <div class="image-overlay">
+            <button class="view-button" onclick="openFullImage('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">Vollbild anzeigen</button>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3 class="image-title">KI-basierte Strategie</h3>
+          <p class="image-desc">Die Integration von KI in die Geschäftsstrategie als zentrales Element der digitalen Transformation.</p>
+          <div class="image-tags">
+            <span class="image-tag">KI-Strategie</span>
+            <span class="image-tag">Innovation</span>
+            <span class="image-tag">Digitalisierung</span>
+          </div>
+          <button class="copy-button" onclick="copyImageUrl('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')">URL kopieren</button>
+        </div>
+      </div>
+
+      <!-- Bild 3 -->
+      <div class="image-card">
+        <div class="image-container">
+          <img src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Digitale Transformation" class="hero-preview">
+          <div class="image-overlay">
+            <button class="view-button" onclick="openFullImage('https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1600')">Vollbild anzeigen</button>
+          </div>
+        </div>
+        <div class="card-content">
+          <h3 class="image-title">Zukunftsfähiges Business</h3>
+          <p class="image-desc">Die Transformation hin zu einem zukunftsfähigen, digitalen Geschäftsmodell mit KI als Enabler.</p>
+          <div class="image-tags">
+            <span class="image-tag">Zukunft</span>
+            <span class="image-tag">Business Model</span>
+            <span class="image-tag">Technologie</span>
+          </div>
+          <button class="copy-button" onclick="copyImageUrl('https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1600')">URL kopieren</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript für die Vollbildfunktion und URL-Kopieren -->
+  <script>
+    function openFullImage(src) {
+      window.open(src, '_blank');
+    }
+    
+    function copyImageUrl(url) {
+      navigator.clipboard.writeText(url)
+        .then(() => {
+          alert("URL wurde in die Zwischenablage kopiert!");
+        })
+        .catch(err => {
+          console.error('Fehler beim Kopieren der URL: ', err);
+        });
+    }
+  </script>
 </body>
 </html> 
