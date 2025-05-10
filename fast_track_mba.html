@@ -126,10 +126,11 @@
     background: 
         url('assets/pictures/hero_fast_track_mba.jpg')
         center/cover no-repeat;
-    opacity: 0.20;
+    opacity: 1;
     z-index: 0;
   }
 
+  /* Semi-transparenter dunkler Overlay für besseren Kontrast */
   #hero::after {
     content: '';
     position: absolute;
@@ -137,16 +138,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: white;
-    clip-path: polygon(
-      0 0, 
-      calc(100% - 50px) 0, 
-      100% 50px, 
-      100% 100%, 
-      50px 100%, 
-      0 calc(100% - 50px)
-    );
-    opacity: 0.05;
+    background-color: rgba(0, 0, 0, 0.3); /* Dunkler Overlay mit 30% Deckkraft */
     z-index: 1;
   }
 
@@ -166,9 +158,10 @@
     font-size: 2.5rem;
     position: relative;
     z-index: 1;
-    text-align: center; /* Zentrierter Text für alle Ansichten */
-    width: 100%; /* Volle Breite für korrekte Zentrierung */
-    color: var(--color-text);
+    text-align: center;
+    width: 100%;
+    color: white;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6); /* Reduzierter Textschatten */
   }
 
   /* Styling für die Executive Seminar Überschrift */
@@ -179,9 +172,10 @@
     margin-bottom: 12px;
     opacity: 0.8;
     text-transform: uppercase;
-    color: var(--color-text);
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); /* Reduzierter Textschatten */
     width: 100%;
-    text-align: center !important; /* Zentrieren des Textes */
+    text-align: center !important;
   }
 
   /* Availability Badge exakt wie in index.html */
@@ -253,13 +247,15 @@
   .teaser-tag {
     display: inline-flex;
     align-items: center;
-    border: 1px solid var(--imt-green);
-    color: var(--imt-green);
+    border: 1px solid white;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3);
     padding: 4px 10px;
     border-radius: 4px;
     font-size: 0.75rem;
     font-weight: 500;
     margin-bottom: 15px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4); /* Reduzierter Textschatten */
   }
 
   /* Info-Boxen exakt wie in index.html */

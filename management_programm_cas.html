@@ -126,10 +126,11 @@
     background: 
         url('assets/pictures/hero_management_programm_cas.png')
         center/cover no-repeat;
-    opacity: 0.20;
+    opacity: 1;
     z-index: 0;
   }
 
+  /* Semi-transparenter dunkler Overlay für besseren Kontrast */
   #hero::after {
     content: '';
     position: absolute;
@@ -137,16 +138,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: white;
-    clip-path: polygon(
-      0 0, 
-      calc(100% - 50px) 0, 
-      100% 50px, 
-      100% 100%, 
-      50px 100%, 
-      0 calc(100% - 50px)
-    );
-    opacity: 0.05;
+    background-color: rgba(0, 0, 0, 0.3); /* Dunkler Overlay mit 30% Deckkraft */
     z-index: 1;
   }
 
@@ -166,9 +158,10 @@
     font-size: 2.5rem;
     position: relative;
     z-index: 1;
-    text-align: center; /* Zentrierter Text für alle Ansichten */
-    width: 100%; /* Volle Breite für korrekte Zentrierung */
-    color: var(--color-text);
+    text-align: center;
+    width: 100%;
+    color: white;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6); /* Reduzierter Textschatten */
   }
 
   /* Styling für die Executive Seminar Überschrift */
@@ -179,9 +172,10 @@
     margin-bottom: 12px;
     opacity: 0.8;
     text-transform: uppercase;
-    color: var(--color-text);
+    color: white;
+    text-shadow: 0 2px 3px rgba(0, 0, 0, 0.7); /* Textschatten für bessere Lesbarkeit */
     width: 100%;
-    text-align: center !important; /* Zentrieren des Textes */
+    text-align: center !important;
   }
 
   /* Availability Badge exakt wie in index.html */
@@ -253,13 +247,15 @@
   .teaser-tag {
     display: inline-flex;
     align-items: center;
-    border: 1px solid var(--imt-green);
-    color: var(--imt-green);
+    border: 1px solid white;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3); /* Leicht transparenter Hintergrund */
     padding: 4px 10px;
     border-radius: 4px;
     font-size: 0.75rem;
     font-weight: 500;
     margin-bottom: 15px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6); /* Textschatten für bessere Lesbarkeit */
   }
 
   /* Info-Boxen exakt wie in index.html */
@@ -1777,19 +1773,8 @@
   <!-- Language switching support -->
   <script src="assets/js/language-switch.js?t=' + new Date().getTime()"></script>
 
-  <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-KBG73BVB');</script>
-<!-- End Google Tag Manager -->
-</head>
+  </head>
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KBG73BVB"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 
 <!-- Navigation einbinden -->
 <div id="navigation-container"></div>
@@ -2180,7 +2165,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section id="participants" style="padding: 60px 0;">
     <div class="container">
       <h2>Information über Teilnehmer</h2>
-      <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Unser Executive Seminar StGallen imt Certified Management Programm CAS bringt erfahrene Führungskräfte aus verschiedenen Branchen und Ländern zusammen.</p>
+      <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Unser Programm StGallen imt Certified Management Programm CAS bringt erfahrene Führungskräfte aus verschiedenen Branchen und Ländern zusammen.</p>
       <div class="stats-grid">
           <!-- Berufserfahrung -->
           <div class="stat-card">

@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>StGallen AI Excellence Management Program | St.Gallen imt Business School</title>
+<title>Integrated Management and Strategy | St.Gallen imt Business School</title>
 
-<!-- BoxIcons for Icons -->
+<!-- BoxIcons für Icons -->
 <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 
 <!-- ============ STYLES ============ -->
@@ -38,23 +38,23 @@
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    /* Padding for fixed navigation */
+    /* Padding für fixierte Navigation */
     padding-top: 64px;
     transition: padding-top 0.3s ease;
   }
   
   /* When subnav is active, increase body padding */
   body.has-subnav {
-    padding-top: 110px; /* Reduced from 120px to 110px */
+    padding-top: 110px; /* Reduziert von 120px auf 110px */
   }
   
   @media (max-width: 1024px) {
     body.has-subnav {
-      padding-top: 64px; /* Back to standard padding on mobile */
+      padding-top: 64px; /* Auf mobile zurück zu standard padding */
     }
   }
 
-  /* Basis Styling for Container */
+  /* Basis Styling für Container */
   .container {
     max-width: var(--max-width);
     margin: 0 auto;
@@ -62,12 +62,12 @@
     width: 100%;
   }
 
-  /* Main content of the page */
+  /* Hauptinhalt der Seite */
   main {
     position: relative;
   }
 
-  /* General Typography */
+  /* Allgemeine Typografie */
   h1, h2, h3, h4, h5, h6 {
     margin-bottom: 1rem;
     font-weight: 600;
@@ -109,17 +109,17 @@
     vertical-align: middle;
   }
 
-  /* Hero Section Styles */
+  /* Hero-Sektion Styles */
   #hero {
     text-align: center;
     padding: 60px 0 20px;
     position: relative;
     background-color: #f5f5f7;
-    color: var(--color-text);
+    color: white;
     overflow: hidden;
   }
 
-  /* Program Information Styles */
+  /* Programm Informationen Styles */
   .program-info-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -181,10 +181,11 @@
     background: 
         url('assets/pictures/hero_integrated_management_strategy.jpg')
         center/cover no-repeat;
-    opacity: 0.20;
+    opacity: 1;
     z-index: 0;
   }
 
+  /* Semi-transparenter dunkler Overlay für besseren Kontrast */
   #hero::after {
     content: '';
     position: absolute;
@@ -192,20 +193,11 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: white;
-    clip-path: polygon(
-      0 0, 
-      calc(100% - 50px) 0, 
-      100% 50px, 
-      100% 100%, 
-      50px 100%, 
-      0 calc(100% - 50px)
-    );
-    opacity: 0.05;
+    background-color: rgba(0, 0, 0, 0.3); /* Dunkler Overlay mit 30% Deckkraft */
     z-index: 1;
   }
 
-  /* Toast Teaser Style */
+  /* Toast Teaser Stil */
   .teaser-toast {
     display: flex;
     align-items: center;
@@ -373,17 +365,18 @@
     }
   }
 
-  /* Enhanced Text-Shadow for the main headline */
+  /* Verstärkter Text-Shadow für die Hauptüberschrift */
   #hero h1 {
     font-size: 2.5rem;
     position: relative;
     z-index: 1;
-    text-align: center; /* Centered text for all views */
-    width: 100%; /* Full width for correct centering */
-    color: var(--color-text);
+    text-align: center;
+    width: 100%;
+    color: white;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6); /* Reduzierter Textschatten */
   }
 
-  /* Styling for the Executive Seminar Headline */
+  /* Styling für die Executive Seminar Überschrift */
   #hero h2 {
     font-size: 15px;
     font-weight: 500;
@@ -391,17 +384,18 @@
     margin-bottom: 12px;
     opacity: 0.8;
     text-transform: uppercase;
-    color: var(--color-text);
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); /* Reduzierter Textschatten */
     width: 100%;
-    text-align: center !important; /* Centering the text */
+    text-align: center !important;
   }
 
-  /* Availability Badge exactly like in index.html */
+  /* Availability Badge exakt wie in index.html */
   .availability-badge {
     position: absolute !important;
     top: 32px !important;
     right: 5% !important;
-    left: auto !important; /* Explicitly set left to auto */
+    left: auto !important; /* Explizit links auf auto setzen */
     width: 180px !important;
     height: 180px !important;
     background: linear-gradient(135deg, #6e45e2 20%, #9c27b0 50%, #e2b245 100%) !important;
@@ -417,7 +411,7 @@
     animation: morph 8s ease-in-out infinite !important;
     padding: 20px !important;
     overflow: hidden !important;
-    z-index: 999 !important; /* Higher z-index */
+    z-index: 999 !important; /* Höherer z-index */
   }
 
   .availability-badge::before {
@@ -457,11 +451,11 @@
     }
     
     #hero h1 {
-      text-align: center !important; /* Force centering on mobile devices */
+      text-align: center !important; /* Erzwinge Zentrierung auf Mobilgeräten */
     }
   }
 
-  /* Info-Boxes exactly like in index.html */
+  /* Info-Boxen exakt wie in index.html */
   .info-grid {
     display: flex;
     gap: var(--spacing);
@@ -493,7 +487,7 @@
     box-shadow: 0 4px 12px rgba(102, 36, 131, 0.15) !important;
   }
   
-  /* BoxIcons instead of SVG */
+  /* BoxIcons statt SVG */
   .info-box i.bx {
     font-size: 24px !important;
     color: var(--imt-purple) !important;
@@ -513,7 +507,7 @@
     color: var(--color-text) !important;
   }
 
-  /* Button Styling from index.html */
+  /* Button-Styling aus index.html */
   #hero a[href="#broschuere"] {
     display: inline-flex;
     align-items: center;
@@ -549,7 +543,7 @@
     transform: translateX(4px);
   }
 
-  /* New Button Styling for Hero and Form */
+  /* Neues Button-Styling für Hero und Formular */
   #hero a[href="#broschuere"], .cta-button {
     display: inline-flex;
     align-items: center;
@@ -585,7 +579,7 @@
     transform: translateX(4px);
   }
 
-  /* Responsive Adjustments */
+  /* Responsive Anpassungen */
   @media (max-width: 768px) {
     h1 {
       font-size: 2rem;
@@ -604,7 +598,7 @@
     }
   }
 
-  /* Page content for the program */
+  /* Seiteninhalt für das Programm */
   .content-section {
     padding: 60px 0;
   }
@@ -657,7 +651,7 @@
     }
   }
 
-  /* Specific Adjustments for module-content section */
+  /* Spezifische Anpassungen für module-content Sektion */
   #module-content h2 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
@@ -880,7 +874,7 @@
     display: none;
   }
 
-  /* Hover Effects */
+  /* Hover Effekte */
   .flipper .front:hover,
   .flipper .back:hover {
     border-color: var(--color-accent2);
@@ -888,17 +882,17 @@
 
   .flipper .front:hover i {
     opacity: 1;
-    /* transform: scale(1.1); */ /* Removed */
+    /* transform: scale(1.1); */ /* Entfernt */
   }
 
   /* Icon Colors */
-  .icon-brain { color: #9C27B0; } /* Violet for KI/Brain */
-  .icon-trend { color: #2196F3; } /* Blue for Business/Growth */
-  .icon-data { color: #4CAF50; } /* Green for Data */
-  .icon-cube { color: #FF9800; } /* Orange for Innovation */
-  .icon-crown { color: #F44336; } /* Red for Leadership */
-  .icon-slider { color: #00BCD4; } /* Turquoise for Technology */
-  .icon-expand { color: #795548; } /* Brown for Scaling */
+  .icon-brain { color: #9C27B0; } /* Violett für KI/Gehirn */
+  .icon-trend { color: #2196F3; } /* Blau für Business/Wachstum */
+  .icon-data { color: #4CAF50; } /* Grün für Daten */
+  .icon-cube { color: #FF9800; } /* Orange für Innovation */
+  .icon-crown { color: #F44336; } /* Rot für Leadership */
+  .icon-slider { color: #00BCD4; } /* Türkis für Technologie */
+  .icon-expand { color: #795548; } /* Braun für Skalierung */
   
   /* Stats Grid Styles */
   .color-brain { color: #9C27B0; }
@@ -1034,7 +1028,7 @@
     color: var(--color-text);
   }
   
-  /* Impression Section */
+  /* Impressionen Section */
   #impressionen {
     padding: 80px 0;
     position: relative;
@@ -1048,7 +1042,7 @@
     color: var(--color-text);
   }
   
-  /* Gallery Container */
+  /* Galerie-Container */
   .gallery {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 2fr;
@@ -1057,12 +1051,12 @@
     width: calc(100% - 80px);
     max-width: 1280px;
     margin: 40px auto;
-    /* New settings for consistent size */
+    /* Neue Einstellungen für konsistente Größe */
     height: auto;
     aspect-ratio: 16/9;
   }
 
-  /* Common styles for all images */
+  /* Gemeinsame Styles für alle Bilder */
   .gallery-item {
     position: relative;
     overflow: hidden;
@@ -1070,7 +1064,7 @@
     background: #eee;
     border: 2px solid transparent;
     transition: border-color 0.3s ease;
-    /* New settings for consistent image sizes */
+    /* Neue Einstellungen für konsistente Bildgrößen */
     height: 100%;
     display: flex;
   }
@@ -1084,11 +1078,11 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* Prevents image distortion */
+    /* Verhindert Verzerrung der Bilder */
     object-position: center;
   }
 
-  /* Position Classes */
+  /* Positionsklassen */
   .item1 { grid-column: 1; grid-row: 1 / span 2; }
   .item2 { grid-column: 2; grid-row: 1; }
   .item3 { grid-column: 3; grid-row: 1 / span 2; }
@@ -1103,7 +1097,7 @@
       grid-template-rows: repeat(6, minmax(200px, auto));
       width: calc(100% - 40px);
       gap: 16px;
-          /* Safari-Fix: Verhindern der Überlagerung bei Safari Mobile */
+      /* Safari-Fix: Verhindern der Überlagerung bei Safari Mobile */
       aspect-ratio: auto;
       height: auto;
       margin-bottom: 30px;
@@ -1125,7 +1119,9 @@
         min-height: 200px;
         max-height: 200px;
       }
-    }.item1, .item2, .item3, .item4, .item5, .item6 {
+    }
+    
+    .item1, .item2, .item3, .item4, .item5, .item6 {
       grid-column: 1;
       grid-row: auto;
     }
@@ -1242,7 +1238,7 @@
     }
   }
 
-  /* Form Styling */
+  /* Formular-CSS */
   .invalid-input {
     border-color: #ff3860 !important;
     background-color: rgba(255, 56, 96, 0.05) !important;
@@ -1283,7 +1279,7 @@
     margin-bottom: 1.5rem;
   }
 
-  /* Uniform Arrow Style for all Buttons */
+  /* Einheitlicher Pfeil-Stil für alle Buttons */
   .arrow-icon {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-weight: 400;
@@ -1420,16 +1416,18 @@
   .teaser-tag {
     display: inline-flex;
     align-items: center;
-    border: 1px solid var(--imt-purple);
-    color: var(--imt-purple);
+    border: 1px solid white;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3);
     padding: 4px 10px;
     border-radius: 4px;
     font-size: 0.75rem;
     font-weight: 500;
     margin-bottom: 15px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4); /* Reduzierter Textschatten */
   }
   
-  /* Dot for "Only a few spots left" - for "Management Seminar" disabled
+  /* Punkt für "Nur noch wenige Plätze verfügbar" - für "Managementseminar" deaktiviert
   .teaser-tag::before {
     content: "";
     display: inline-block;
@@ -1441,10 +1439,10 @@
   }
   */
 
-  /* Tabs Design for Start Dates */
+  /* Tabs Design für Starttermine */
   .dates-tabs {
     margin-top: 40px;
-    margin-bottom: 0; /* Reduced from 60px to 0 */
+    margin-bottom: 0; /* Reduziert von 60px auf 0 */
   }
 
   .tabs-nav {
@@ -1539,8 +1537,19 @@
     background: 
         url('assets/pictures/hero_integrated_management_strategy.jpg')
         center/cover no-repeat;
-    opacity: 0.20;
+    opacity: 1;
     z-index: 0;
+  }
+
+  #hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Dunkler Overlay mit 30% Deckkraft */
+    z-index: 1;
   }
 
   /* Styles for the Registration System */
@@ -1648,7 +1657,7 @@
     flex: 1;
   }
   
-  /* Improved Alignment for Desktop View */
+  /* Verbesserte Ausrichtung für Desktop-Ansicht */
   .date-info-content {
     display: flex;
     align-items: center;
@@ -1896,9 +1905,9 @@
     to { opacity: 1; }
   }
   
-  /* Mobile Optimizations for Registration */
+  /* Mobile Optimierungen für Registrierung */
   @media (max-width: 768px) {
-    /* Headers and Container */
+    /* Überschriften und Container */
     .dates-heading {
       font-size: 1.3rem;
       padding-bottom: 12px;
@@ -1909,7 +1918,7 @@
       margin-top: 30px;
     }
     
-    /* List Display */
+    /* Listendarstellung */
     .date-list-item {
       flex-direction: column;
       padding: 20px 0;
@@ -1978,7 +1987,7 @@
       border-radius: 10px;
     }
     
-    /* Improved Tab Navigation */
+    /* Verbesserte Tab Navigation */
     .tabs-nav {
       display: flex;
     }
@@ -1989,7 +1998,7 @@
       font-size: 1.1rem;
     }
     
-    /* Modal Optimizations for Mobile */
+    /* Modal-Optimierungen für Mobile */
     .signup-container {
       margin: 15px;
       max-height: 90vh;
@@ -2035,7 +2044,6 @@
   .gradient-info {
     display: flex;
     flex-direction: column;
-    margin-top: 6px; /* Shifts the text down for vertical centering */
   }
   
   .gradient-name {
@@ -2047,7 +2055,9 @@
   .gradient-position {
     font-size: 0.85rem;
     color: var(--color-muted);
-    display: inline-block;
+    min-height: 40px; /* Ensure consistent height */
+    display: flex;
+    align-items: center;
   }
   
   .gradient-program {
@@ -2093,6 +2103,7 @@
   .gradient-info {
     display: flex;
     flex-direction: column;
+    margin-top: 6px; /* Verschiebt den Text nach unten für vertikale Zentrierung */
   }
   
   .gradient-name {
@@ -2145,73 +2156,13 @@
       height: 35px;
     }
   }
-
-  .gradient-quotes {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
-    margin-top: 40px;
-    margin-bottom: 40px;
-  }
-
-  .gradient-quote-card {
-    background-color: white;
-    border-radius: var(--radius);
-    overflow: hidden;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.05);
-    transition: box-shadow 0.3s ease;
-  }
-  
-  .gradient-quote-card:hover {
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05), 0 6px 10px rgba(0,0,0,0.03);
-  }
-  
-  .gradient-quote-inner {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
-  
-  .gradient-quote-content {
-    flex: 1;
-    padding: 30px;
-    position: relative;
-  }
-  
-  .gradient-quote-icon {
-    font-size: 32px;
-    color: var(--imt-purple);
-    opacity: 0.15;
-    position: absolute;
-    top: 20px;
-    right: 25px;
-  }
-  
-  .gradient-quote-text {
-    font-size: 1rem;
-    line-height: 1.6;
-    margin: 0;
-    position: relative;
-    z-index: 1;
-  }
-
-  .gradient-quote-footer {
-    background-color: #fafafa;
-    padding: 20px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid #f0f0f0;
-  }
-  
-  .gradient-person {
-    display: flex;
-    align-items: center;
-  }
 </style>
 
 <!-- Favicon -->
 <link rel="icon" href="assets/favicon.png" type="image/png">
+
+<!-- Language switching support -->
+<script src="assets/js/language-switch.js"></script>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -2226,18 +2177,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-<!-- Navigation include -->
+<!-- Navigation einbinden -->
 <div id="navigation-container"></div>
 
-<!-- Sidebar include -->
+<!-- Sidebar einbinden -->
 <div id="sidebar-container"></div>
 
-<!-- Main content -->
+<!-- Hauptinhalt -->
 <main>
-  <!-- Hero Section from index.html -->
+  <!-- Hero-Sektion aus der index.html -->
   <section id="hero">
     <div class="container" style="position: relative;">
-      <!-- Tag Teaser above headline -->
+      <!-- Tag Teaser über der Überschrift -->
       <div style="text-align: center; margin-bottom: 5px;">
         <div class="teaser-tag">
           Management Seminar
@@ -2246,34 +2197,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       
       <h1 style="margin-top: 10px;"> Integrated Management and Strategy </h1>
 
-      <!-- Button between headline and info boxes -->
+      <!-- Button zwischen Überschrift und Info-Boxen -->
       <a href="#broschuere">
-        Download Free Brochure <span class="arrow-icon">→</span>
+        Download Free Brochure Now <span class="arrow-icon">→</span>
       </a>
 
       <div class="info-grid">
-        <!-- Location Box -->
+        <!-- Ort Box -->
         <div class="info-box">
           <i class="bx bx-map"></i>
           <span class="info-label">Location</span>
           <span class="info-value">St. Gallen</span>
         </div>
 
-        <!-- Duration Box -->
+        <!-- Dauer Box -->
         <div class="info-box">
           <i class="bx bx-time"></i>
           <span class="info-label">Duration</span>
           <span class="info-value">3 Days</span>
         </div>
 
-        <!-- Language Box -->
+        <!-- Sprache Box -->
         <div class="info-box">
           <i class="bx bx-globe"></i>
           <span class="info-label">Language</span>
           <span class="info-value">DE / EN</span>
         </div>
 
-        <!-- Network Box -->
+        <!-- Netzwerk Box -->
         <div class="info-box">
           <i class="bx bx-network-chart"></i>
           <span class="info-label">Network</span>
@@ -2283,30 +2234,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <!-- Page content for the program -->
+  <!-- Seiteninhalt für das Programm -->
   <div class="container">
-    <!-- Module-Content Section -->
+    <!-- Module-Content Sektion -->
     <section id="module-content" class="content-section">
       <h2>Integrated Management and Strategy</h2>
       
-      <p class="section-subtitle">Discover the seven key modules of our Executive Seminar – from management fundamentals to successful implementation of strategies in your company.</p>
+      <p class="section-subtitle">Discover the seven key modules of our management seminar – from management fundamentals to successful implementation of strategies in your company.</p>
       
       <div class="slider-container">
-        <button aria-label="Back" class="slider-btn prev" disabled></button>
+        <button aria-label="Previous" class="slider-btn prev" disabled></button>
         <div class="slider-track">
           <!-- Box 1 -->
           <div class="slide flip-container">
             <div class="flipper">
               <div class="front">
                 <i class='bx bx-brain icon-brain' style="font-size: 32px; margin-bottom: 16px; opacity: 0.85;"></i>
-                <h3>Concepts &amp; Strategic Relevance of AI</h3>
-                <p>Understanding AI – beyond the hype. Grounded knowledge for strategic decisions.</p>
+                <h3>Concepts & Strategic Relevance of AI</h3>
+                <p>Understanding AI – beyond the hype. Solid knowledge for strategic decisions.</p>
                 <a class="flip-link" href="#">
                   <i class='bx bx-plus-circle'></i>
                 </a>
               </div>
               <div class="back">
-                <p>A structured overview of central AI concepts and concepts is presented. The relevance for your own company and industry is highlighted.</p>
+                <p>A structured overview of central AI terms and concepts is provided. The relevance for your own company and industry is worked out.</p>
                 <a class="flip-link" href="#">
                   <i class='bx bx-minus-circle'></i>
                 </a>
@@ -2319,14 +2270,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="flipper">
               <div class="front">
                 <i class='bx bx-trending-up icon-trend' style="font-size: 32px; margin-bottom: 16px; opacity: 0.85;"></i>
-                <h3>Strategic Application Fields and Business Impact of AI</h3>
+                <h3>Strategic Application Areas and Business Impact of AI</h3>
                 <p>Where AI creates real value – data-based, scalable, relevant</p>
                 <a class="flip-link" href="#">
                   <i class='bx bx-plus-circle'></i>
                 </a>
               </div>
               <div class="back">
-                <p>Concrete application areas of AI for value creation, efficiency enhancement, and customer loyalty are analyzed. Best-practice examples from various industries are discussed.</p>
+                <p>Specific application areas of AI for value creation, efficiency enhancement, and customer retention are analyzed. Best practice examples from various industries are discussed.</p>
                 <a class="flip-link" href="#">
                   <i class='bx bx-minus-circle'></i>
                 </a>
@@ -2339,14 +2290,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="flipper">
               <div class="front">
                 <i class='bx bx-data icon-data' style="font-size: 32px; margin-bottom: 16px; opacity: 0.85;"></i>
-                <h3>Data Strategy as Enabler for AI</h3>
+                <h3>Data Strategy as an Enabler for AI</h3>
                 <p>AI only works with data – the right strategy makes the difference.</p>
                 <a class="flip-link" href="#">
                   <i class='bx bx-plus-circle'></i>
                 </a>
               </div>
               <div class="back">
-                <p>The development of an effective data strategy as a foundation for AI initiatives is taught. Participants learn which data are relevant and how they can be made accessible.</p>
+                <p>The development of an effective data strategy as the foundation for AI initiatives is conveyed. Participants learn which data are relevant and how they can be made accessible.</p>
                 <a class="flip-link" href="#">
                   <i class='bx bx-minus-circle'></i>
                 </a>
@@ -2360,13 +2311,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <div class="front">
                 <i class='bx bx-cube icon-cube' style="font-size: 32px; margin-bottom: 16px; opacity: 0.85;"></i>
                 <h3>Business Model Innovation through AI</h3>
-                <p>AI changes not just processes, but entire business models.</p>
+                <p>AI changes not only processes, but entire business models.</p>
                 <a class="flip-link" href="#">
                   <i class='bx bx-plus-circle'></i>
                 </a>
               </div>
               <div class="back">
-                <p>Participants develop how AI can transform existing business models and create new ones. Methodologies for systematic innovation are applied.</p>
+                <p>Participants work out how AI can transform existing business models and create new ones. Methodologies for systematic innovation are applied.</p>
                 <a class="flip-link" href="#">
                   <i class='bx bx-minus-circle'></i>
                 </a>
@@ -2380,13 +2331,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <div class="front">
                 <i class='bx bx-crown icon-crown' style="font-size: 32px; margin-bottom: 16px; opacity: 0.85;"></i>
                 <h3>Leadership & Organizational Development in the AI Era</h3>
-                <p>AI changes leadership, collaboration, and organizational structures.</p>
+                <p>AI is changing leadership, collaboration, and corporate structures.</p>
                 <a class="flip-link" href="#">
                   <i class='bx bx-plus-circle'></i>
                 </a>
               </div>
               <div class="back">
-                <p>Necessary leadership competencies and organizational changes for successful AI integration are taught. The importance of change management is emphasized.</p>
+                <p>Necessary leadership competencies and organizational changes for successful AI integration are conveyed. The importance of change management is emphasized.</p>
                 <a class="flip-link" href="#">
                   <i class='bx bx-minus-circle'></i>
                 </a>
@@ -2406,7 +2357,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </a>
               </div>
               <div class="back">
-                <p>A systematic approach for the AI transformation process is developed. Methods for prioritizing initiatives, building competencies, and cultural integration are taught.</p>
+                <p>A systematic approach for the AI transformation process is developed. Methods for prioritizing initiatives, building competencies, and cultural integration are conveyed.</p>
                 <a class="flip-link" href="#">
                   <i class='bx bx-minus-circle'></i>
                 </a>
@@ -2426,7 +2377,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </a>
               </div>
               <div class="back">
-                <p>Approaches to scaling and institutional anchoring of AI are presented. Structures for governance, ethical guidelines, and success metrics are discussed.</p>
+                <p>Approaches to scaling and institutional anchoring of AI are shown. Structures for governance, ethical guidelines, and success metrics are discussed.</p>
                 <a class="flip-link" href="#">
                   <i class='bx bx-minus-circle'></i>
                 </a>
@@ -2434,53 +2385,53 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
         </div>
-        <button aria-label="Weiter" class="slider-btn next"></button>
+        <button aria-label="Next" class="slider-btn next"></button>
       </div>
     </section>
 
-    <!-- Program Information -->
+    <!-- Programm Informationen -->
     <section id="program-info" class="content-section" style="padding: 60px 0;">
       <div class="container">
         <h2 style="font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600; text-align: left !important; color: var(--color-text);">Program Information</h2>
         <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">All important details about the Integrated Management and Strategy program at a glance.</p>
         
         <div class="program-info-grid">
-          <!-- Box 1: Location -->
+          <!-- Box 1: Ort -->
           <div class="program-info-box">
             <i class='bx bx-map program-info-icon'></i>
             <div class="program-info-label">Location</div>
             <div class="program-info-value">St. Gallen</div>
           </div>
           
-          <!-- Box 2: Duration -->
+          <!-- Box 2: Dauer -->
           <div class="program-info-box">
             <i class='bx bx-time program-info-icon'></i>
             <div class="program-info-label">Duration</div>
-            <div class="program-info-value">3 Days</div>
+            <div class="program-info-value">3 Days <br> Optional: Coaching</div>
           </div>
 
-          <!-- Box 3: Language -->
+          <!-- Box 3: Sprache -->
           <div class="program-info-box">
             <i class='bx bx-globe program-info-icon'></i>
             <div class="program-info-label">Language</div>
             <div class="program-info-value">German or English</div>
-          </div>  
-        
-          <!-- Box 7: Target Group -->
+          </div>
+
+          <!-- Box 4: Zielgruppe -->
           <div class="program-info-box">
             <i class='bx bx-group program-info-icon'></i>
             <div class="program-info-label">Target Group</div>
-            <div class="program-info-value" style="font-size: 0.9rem;">Executives, managers and junior professionals</div>
+            <div class="program-info-value" style="font-size: 0.9rem;">Executives, Leaders <br> Emerging Talents</div>
           </div>
 
-          <!-- Box 3: Investment -->
+          <!-- Box 5: Investition -->
           <div class="program-info-box">
-             <i class='bx bx-money program-info-icon'></i>
+            <i class='bx bx-money program-info-icon'></i>
             <div class="program-info-label">Investment</div>
-            <div class="program-info-value">CHF 2,400 <br> plus Swiss VAT</div>
-           </div>
+            <div class="program-info-value">CHF 2,400 plus VAT</div>
+          </div>
 
-          <!-- Box 9: Network -->
+          <!-- Box 6: Netzwerk -->
           <div class="program-info-box">
             <i class='bx bx-network-chart program-info-icon'></i>
             <div class="program-info-label">Network</div>
@@ -2488,13 +2439,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </div>
         
-        <!-- Start Dates - Tab Design -->
+        <!-- Starttermine - Tab Design -->
         <div class="dates-tabs">
           <h3 class="dates-heading"><i class='bx bx-calendar-alt' style="margin-right: 8px;"></i>Available Start Dates</h3>
           <div class="tabs-nav">
             <button class="tab-button active" data-target="tab-2025">2025</button>
             <button class="tab-button" data-target="tab-2026">2026</button>
           </div>
+
+          <p style="color: var(--color-muted); font-size: 0.95rem; margin: 12px 0 18px 0; text-align: left;">The following dates are available as alternatives</p>
 
           <div class="tab-content">
             <!-- Tab 2025 -->
@@ -2505,7 +2458,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <div class="date-list-info">
                       <i class="bx bx-calendar-alt date-icon"></i>
                       <div class="date-info-content">
-                        <span class="date-text">05.-07.05.2025</span>
+                        <span class="date-text">05-07 May 2025</span>
                         <span class="date-location">(St. Gallen)</span>
                       </div>
                     </div>
@@ -2515,17 +2468,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <div class="date-list-info">
                       <i class="bx bx-calendar-alt date-icon"></i>
                       <div class="date-info-content">
-                        <span class="date-text">06.-08.10.2025</span>
-                        <span class="date-location">(Online)</span>
-                      </div>
-                    </div>
-                  </li>
-                  
-                  <li class="date-list-item">
-                    <div class="date-list-info">
-                      <i class="bx bx-calendar-alt date-icon"></i>
-                      <div class="date-info-content">
-                        <span class="date-text">10.-12.12.2025</span>
+                        <span class="date-text">06-08 Oct 2025</span>
                         <span class="date-location">(St. Gallen)</span>
                       </div>
                     </div>
@@ -2542,7 +2485,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <div class="date-list-info">
                       <i class="bx bx-calendar-alt date-icon"></i>
                       <div class="date-info-content">
-                        <span class="date-text">20.-22.04.2026</span>
+                        <span class="date-text">20-22 Apr 2026</span>
                         <span class="date-location">(St. Gallen)</span>
                       </div>
                     </div>
@@ -2552,7 +2495,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <div class="date-list-info">
                       <i class="bx bx-calendar-alt date-icon"></i>
                       <div class="date-info-content">
-                        <span class="date-text">23.-25.04.2026</span>
+                        <span class="date-text">23-25 Apr 2026</span>
                         <span class="date-location">(Online)</span>
                       </div>
                     </div>
@@ -2562,7 +2505,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <div class="date-list-info">
                       <i class="bx bx-calendar-alt date-icon"></i>
                       <div class="date-info-content">
-                        <span class="date-text">18.-20.06.2026</span>
+                        <span class="date-text">18-20 Jun 2026</span>
                         <span class="date-location">(St. Gallen)</span>
                       </div>
                     </div>
@@ -2574,155 +2517,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
     </section>
-    
-    <!-- Multi-step Registration Form (as Modal) -->
-    <div class="combined-modal-overlay" id="combinedRegistrationModal">
-      <div class="signup-container" style="max-width: 800px; position: relative; margin: 50px auto;">
-        <div class="signup-header">
-          <h3 class="signup-title">Registration for Integrated Management and Strategy Seminar</h3>
-          <p class="signup-subtitle">Start date: <span id="combinedModalDate">05.-07.05.2025</span> in <span id="combinedModalLocation">St. Gallen</span></p>
-          
-          <div class="progress-container">
-            <div class="progress-bar" style="width: 33%;"></div>
-            <div class="step active">1</div>
-            <div class="step">2</div>
-            <div class="step">3</div>
-          </div>
-          
-          <button class="modal-close" id="combinedModalClose" style="position: absolute; top: 15px; right: 20px; color: white; font-size: 1.5rem; background: none; border: none; cursor: pointer;">&times;</button>
-        </div>
-        
-        <div class="signup-body">
-          <!-- Step 1: Personal Information -->
-          <div class="step-content active" id="combinedStep1">
-            <h4 class="step-title">Personal Information</h4>
-            
-            <form id="combinedRegistrationForm">
-              <div class="form-row">
-                <div class="form-col">
-                  <div class="form-group">
-                    <label class="form-label" for="combinedFirstName">First Name*</label>
-                    <input type="text" class="form-control" id="combinedFirstName" required>
-                  </div>
-                </div>
-                <div class="form-col">
-                  <div class="form-group">
-                    <label class="form-label" for="combinedLastName">Last Name*</label>
-                    <input type="text" class="form-control" id="combinedLastName" required>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="form-group">
-                <label class="form-label" for="combinedEmail">Email Address*</label>
-                <input type="email" class="form-control" id="combinedEmail" required>
-              </div>
-              
-              <div class="form-row">
-                <div class="form-col">
-                  <div class="form-group">
-                    <label class="form-label" for="combinedPhone">Phone Number*</label>
-                    <input type="tel" class="form-control" id="combinedPhone" required>
-                  </div>
-                </div>
-                <div class="form-col">
-                  <div class="form-group">
-                    <label class="form-label" for="combinedPosition">Position*</label>
-                    <input type="text" class="form-control" id="combinedPosition" required>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="form-group">
-                <label class="form-label" for="combinedCompany">Company*</label>
-                <input type="text" class="form-control" id="combinedCompany" required>
-              </div>
-            </form>
-          </div>
-          
-          <!-- Step 2: Program Options (hidden) -->
-          <div class="step-content" id="combinedStep2" style="display: none;">
-            <h4 class="step-title">Program Options</h4>
-            <p>Please select your preferred program option:</p>
-            
-            <div class="course-option selected">
-              <div class="course-option-header">
-                <h5 class="course-option-title">Basic Program</h5>
-                <div class="course-option-price">€ 3,950</div>
-              </div>
-              <p>3-day intensive program with all core modules</p>
-              <div class="course-option-features">
-                <div class="feature-item">
-                  <i class="feature-icon bx bx-check"></i>
-                  <span>Participation in the entire program</span>
-                </div>
-                <div class="feature-item">
-                  <i class="feature-icon bx bx-check"></i>
-                  <span>Comprehensive course materials</span>
-                </div>
-                <div class="feature-item">
-                  <i class="feature-icon bx bx-check"></i>
-                  <span>Meals included</span>
-                </div>
-              </div>
-            </div>
-            
-            <div class="course-option">
-              <div class="course-option-header">
-                <h5 class="course-option-title">Premium Program</h5>
-                <div class="course-option-price">€ 4,950</div>
-              </div>
-              <p>3-day program with additional coaching and networking event</p>
-              <div class="course-option-features">
-                <div class="feature-item">
-                  <i class="feature-icon bx bx-check"></i>
-                  <span>Everything from the Basic Program</span>
-                </div>
-                <div class="feature-item">
-                  <i class="feature-icon bx bx-check"></i>
-                  <span>2 hours of individual coaching</span>
-                </div>
-                <div class="feature-item">
-                  <i class="feature-icon bx bx-check"></i>
-                  <span>Exclusive networking dinner</span>
-                </div>
-              </div>
-            </div>
-            
-            <!-- Special Information for Waitlist -->
-            <div id="waitlistInfo" style="display: none; margin-top: 20px; padding: 15px; background-color: #f8f9fa; border-radius: 8px; border-left: 4px solid var(--imt-purple);">
-              <h5 style="margin-top: 0;">Registration for Waitlist</h5>
-              <p>Since the desired date is fully booked, you will be placed on the waitlist. We will contact you as soon as a spot becomes available.</p>
-            </div>
-          </div>
-          
-          <!-- Step 3: Confirmation (hidden) -->
-          <div class="step-content" id="combinedStep3" style="display: none;">
-            <div class="confirmation-message">
-              <i class="confirmation-icon bx bx-check-circle"></i>
-              <h4 class="confirmation-title">Thank you for your registration!</h4>
-              <p class="confirmation-text">We have received your registration and will contact you shortly.</p>
-              <button class="register-btn register-btn-primary" id="closeModalBtn">
-                Close
-              </button>
-            </div>
-          </div>
-        </div>
-        
-        <div class="signup-footer">
-          <button class="register-btn register-btn-secondary" id="combinedPrevBtn" style="visibility: hidden;">Back</button>
-          <button class="register-btn register-btn-primary" id="combinedNextBtn">Next</button>
-        </div>
-      </div>
-    </div>
 
-    <!-- Information about Participants -->
+    <!-- Informationen über Teilnehmer -->
     <section id="participants">
       <div class="container">
-        <h2>Information about Participants</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Our Executive Seminar on Integrated Management and Strategy brings together experienced leaders from various industries and countries.</p>
+        <h2>Participant Information</h2>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Our Integrated Management and Strategy management seminar brings together experienced executives from various industries and countries.</p>
         <div class="stats-grid">
-            <!-- Professional Experience -->
+            <!-- Berufserfahrung -->
             <div class="stat-card">
                 <div class="stat-icon">
                     <svg viewBox="0 0 24 24" class="color-brain">
@@ -2748,7 +2550,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <div class="stat-label">Participants with Senior C-Level</div>
             </div>
 
-            <!-- Average Age -->
+            <!-- Durchschnittsalter -->
             <div class="stat-card">
                 <div class="stat-icon">
                     <svg viewBox="0 0 24 24" class="color-data">
@@ -2760,7 +2562,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <div class="stat-label">Average Age</div>
             </div>
 
-            <!-- Nationalities -->
+            <!-- Nationalitäten -->
             <div class="stat-card">
                 <div class="stat-icon">
                     <svg viewBox="0 0 24 24" class="color-cube">
@@ -2776,13 +2578,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </section>
 
-    <!-- Insights & Impressions -->
+    <!-- Einblicke & Impressionen -->
     <section id="impressionen">
       <div class="container">
         <h2>Insights & Impressions</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Immerse yourself in the atmosphere of our Executive Seminar – from inspiring workshops to exclusive company visits at Google to intensive learning experiences in St. Gallen.</p>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Immerse yourself in the atmosphere of our management seminar – from inspiring workshops to exclusive company visits at Google and intensive learning experiences in St. Gallen.</p>
         <div class="gallery">
-          <!-- 1: Large portrait image -->
+          <!-- 1: Großes, hochformatiges Bild -->
           <div class="gallery-item item1">
             <img src="assets/IMG_1.webp" alt="Senior woman with AirPods">
           </div>
@@ -2797,17 +2599,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <img src="assets/IMG_3.webp" alt="Video call on smartphone">
           </div>
 
-          <!-- 4: Group with smartphones -->
+          <!-- 4: Gruppe mit Smartphones -->
           <div class="gallery-item item4">
             <img src="assets/IMG_4.webp" alt="Two people with smartphones">
           </div>
 
-          <!-- 5: Tablet at table -->
+          <!-- 5: Tablet am Tisch -->
           <div class="gallery-item item5">
             <img src="assets/IMG_6.webp" alt="Person with tablet">
           </div>
 
-          <!-- 6: Person at desktop -->
+          <!-- 6: Person am Desktop -->
           <div class="gallery-item item6">
             <img src="assets/IMG_5.webp" alt="Person with headphones">
           </div>
@@ -2815,185 +2617,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </section>
 
-    <!-- Participant Testimonials -->
+    <!-- Teilnehmerstimmen -->
     <section class="content-section">
       <div class="container">
-        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Participant Testimonials</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Learn how our graduates benefit from the Executive Seminar on Integrated Management and Strategy and implement the concepts in their professional lives.</p>
-        
-        <style>
-          /* ============ Gradient Quote Layout ============ */
-          .gradient-quotes {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-          }
-          
-          .gradient-quote-card {
-            border-radius: var(--radius);
-            overflow: hidden;
-            position: relative;
-            border: 2px solid transparent;
-            transition: all 0.3s ease;
-          }
-          
-          .gradient-quote-card:hover {
-            border-color: var(--imt-purple);
-          }
-          
-          .gradient-quote-inner {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            background: linear-gradient(to bottom right, #ffffff, #f8f9fa);
-            position: relative;
-            z-index: 1;
-          }
-          
-          .gradient-quote-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--imt-purple) 0%, #4CB796 100%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: 0;
-          }
-          
-          .gradient-quote-card:hover::before {
-            opacity: 0.03;
-          }
-          
-          .gradient-quote-content {
-            padding: 40px 30px 25px;
-            position: relative;
-            flex: 1;
-          }
-          
-          .gradient-quote-icon {
-            position: absolute;
-            top: -15px;
-            right: 25px;
-            font-size: 4rem;
-            color: var(--imt-purple);
-            opacity: 0.1;
-            transition: transform 0.3s ease;
-          }
-          
-          .gradient-quote-card:hover .gradient-quote-icon {
-            transform: rotate(10deg);
-          }
-          
-          .gradient-quote-text {
-            font-size: 1.2rem;
-            line-height: 1.6;
-            color: var(--color-text);
-            font-weight: 400;
-            position: relative;
-            z-index: 1;
-          }
-          
-          .gradient-quote-footer {
-            background-color: #fafafa;
-            padding: 20px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-top: 1px solid #f0f0f0;
-          }
-          
-          .gradient-person {
-            display: flex;
-            align-items: center;
-          }
-          
-          .gradient-avatar-container {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-right: 15px;
-            border: 3px solid white;
-            transition: all 0.3s ease;
-          }
-          
-          .gradient-quote-card:hover .gradient-avatar-container {
-            border-color: #f5f5f7;
-          }
-          
-          .gradient-avatar {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-          }
-          
-          .gradient-info {
-            display: flex;
-            flex-direction: column;
-          }
-          
-          .gradient-name {
-            font-weight: 600;
-            font-size: 1rem;
-            margin-bottom: 2px;
-          }
-          
-          .gradient-position {
-            font-size: 0.85rem;
-            color: var(--color-muted);
-            display: inline-block;
-          }
-          
-          .gradient-program {
-            font-size: 0.8rem;
-            color: var(--imt-purple);
-            margin-top: 2px;
-          }
-          
-          .gradient-company {
-            height: 40px;
-            width: auto;
-            opacity: 0.7;
-            transition: opacity 0.3s ease;
-          }
-          
-          .gradient-quote-card:hover .gradient-company {
-            opacity: 1;
-          }
-          
-          @media (max-width: 768px) {
-            .gradient-quotes {
-              grid-template-columns: 1fr;
-            }
-            .gradient-quote-footer {
-              flex-direction: row !important;
-              justify-content: space-between !important;
-              align-items: center !important;
-              padding: 15px 20px;
-            }
-            
-            .gradient-person {
-              margin-bottom: 0 !important;
-              width: auto !important;
-            }
-            
-            .gradient-company {
-              height: 35px;
-            }
-          }
-        </style>
+        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Testimonials</h2>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Discover how our graduates benefit from the Integrated Management and Strategy seminar and apply the concepts learned in their professional lives.</p>
         
         <div class="gradient-quotes">
-          <!-- Jonas Gillmann Testimonial -->
+          <!-- Bestehende Testimonials - nur Jonas Gillmann beibehalten -->
           <div class="gradient-quote-card testimonial-item">
             <div class="gradient-quote-inner">
               <div class="gradient-quote-content">
                 <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
-                <p class="gradient-quote-text">The StGallen imt Business School has been crucial in my journey to the board. With practical impulses, strategic clarity, and valuable perspectives, I received the best toolkit for successful corporate management.</p>
+                <p class="gradient-quote-text">The StGallen imt Business School was crucial for my path to the executive board. With practical impulses, strategic clarity, and valuable perspectives, I received the best toolkit for successful corporate management.</p>
               </div>
               <div class="gradient-quote-footer">
                 <div class="gradient-person">
@@ -3010,12 +2646,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
           
+          <!-- Neue Testimonials, initial versteckt -->
           <!-- Testimonial 1: Patrick Kling -->
           <div class="gradient-quote-card testimonial-item" style="display: none;">
             <div class="gradient-quote-inner">
               <div class="gradient-quote-content">
                 <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
-                <p class="gradient-quote-text">A thorough understanding of strategy and business models is crucial in the face of growing dynamics and complexity. The St.Gallen Integrated IMT Business School is a strong partner in specifically developing relevant competencies.</p>
+                <p class="gradient-quote-text">Ein fundiertes Verständnis von Strategie und Geschäftsmodellen ist angesichts wachsender Dynamik und Komplexität entscheidend. Die St.Gallen Integrated IMT Business School ist dabei ein starker Partner, um relevante Kompetenzen gezielt weiterzuentwickeln.</p>
               </div>
               <div class="gradient-quote-footer">
                 <div class="gradient-person">
@@ -3024,7 +2661,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   </div>
                   <div class="gradient-info">
                     <span class="gradient-name">Patrick Kling</span>
-                    <span class="gradient-position">Managing Director, Steigerwald</span>
+                    <span class="gradient-position">Geschäftsführer, Steigerwald</span>
                   </div>
                 </div>
                 <img src="assets/testimonials/steigerwald.png" alt="Steigerwald" class="gradient-company">
@@ -3037,7 +2674,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="gradient-quote-inner">
               <div class="gradient-quote-content">
                 <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
-                <p class="gradient-quote-text">Excellence requires the interplay of culture, strategy, and leadership - holistic, dynamic, and systemic thinking. The St. Gallen concept provides the appropriate framework; Christian Abegglen is a formative, credible personality in this field.</p>
+                <p class="gradient-quote-text">Exzellenz erfordert das Zusammenspiel von Kultur, Strategie und Führung – ganzheitlich, dynamisch und systemisch gedacht. Das St. Galler Konzept bietet dafür den passenden Rahmen; Christian Abegglen ist hier eine prägende, glaubwürdige Persönlichkeit.</p>
               </div>
               <div class="gradient-quote-footer">
                 <div class="gradient-person">
@@ -3059,7 +2696,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="gradient-quote-inner">
               <div class="gradient-quote-content">
                 <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
-                <p class="gradient-quote-text">Continuously questioning and developing oneself is essential for sustainable success. Christian Abegglen has been my friend, mentor, and at the same time demanding source of impulses for decades - always at the highest level.</p>
+                <p class="gradient-quote-text">Sich kontinuierlich zu hinterfragen und weiterzuentwickeln ist für nachhaltigen Erfolg essenziell. Christian Abegglen ist dabei seit Jahrzehnten mein Freund, Förderer und zugleich anspruchsvoller Impulsgeber – stets auf höchstem Niveau.</p>
               </div>
               <div class="gradient-quote-footer">
                 <div class="gradient-person">
@@ -3068,7 +2705,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   </div>
                   <div class="gradient-info">
                     <span class="gradient-name">Dr. Manfred Wittenstein</span>
-                    <span class="gradient-position">Founder and Owner, Wittenstein</span>
+                    <span class="gradient-position">Gründer und Eigentümer, Wittenstein</span>
                   </div>
                 </div>
                 <img src="assets/testimonials/wittenstein.png" alt="Wittenstein" class="gradient-company">
@@ -3081,7 +2718,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="gradient-quote-inner">
               <div class="gradient-quote-content">
                 <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
-                <p class="gradient-quote-text">The St.Gallen IMT Business School combines academic depth with practical application - real challenges, directly transferable. This approach continuously provides executives like myself, as a guest lecturer, with new impulses for sustainable development and success.</p>
+                <p class="gradient-quote-text">Die St.Gallen IMT Business School verbindet wissenschaftliche Tiefe mit praxisnaher Anwendung – echte Herausforderungen, direkt übertragbar. Dieser Ansatz liefert Führungskräften wie mir als Gastdozent kontinuierlich neue Impulse für nachhaltige Weiterentwicklung und Erfolg.</p>
               </div>
               <div class="gradient-quote-footer">
                 <div class="gradient-person">
@@ -3090,7 +2727,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   </div>
                   <div class="gradient-info">
                     <span class="gradient-name">Dr. Sascha von Berchem</span>
-                    <span class="gradient-position">Managing Director, Wittenstein Foundation</span>
+                    <span class="gradient-position">Wittenstein Stiftung, Geschäftsführer</span>
                   </div>
                 </div>
                 <img src="assets/testimonials/wittenstein.png" alt="Wittenstein" class="gradient-company">
@@ -3098,12 +2735,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
           
+          
           <!-- Testimonial 5: Elias Böni -->
           <div class="gradient-quote-card testimonial-item" style="display: none;">
             <div class="gradient-quote-inner">
               <div class="gradient-quote-content">
                 <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
-                <p class="gradient-quote-text">The diverse training methods based on the St.Galler Thinking & Learning Navigator - from simulations to real cases - are extremely enriching and challenging, even for our business with refurbished mobile phones.</p>
+                <p class="gradient-quote-text">Die vielfältigen Trainingsmethoden auf Basis des St.Galler Thinking & Learning Navigators – von Simulationen bis zu realen Fällen – sind äußerst bereichernd und herausfordernd, selbst für unser Geschäft mit aufbereiteten Mobiltelefonen.</p>
               </div>
               <div class="gradient-quote-footer">
                 <div class="gradient-person">
@@ -3112,7 +2750,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   </div>
                   <div class="gradient-info">
                     <span class="gradient-name">Elias Böni</span>
-                    <span class="gradient-position">Co-Founder, MobileUp</span>
+                    <span class="gradient-position">Co_Founder, MobileUp</span>
                   </div>
                 </div>
                 <img src="assets/testimonials/mobileup.jpg" alt="MobileUp" class="gradient-company">
@@ -3125,7 +2763,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="gradient-quote-inner">
               <div class="gradient-quote-content">
                 <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
-                <p class="gradient-quote-text">The IMT faculty has challenged and supported us at every step of the learning journey - including concrete advice on solving specific challenges in our company.</p>
+                <p class="gradient-quote-text">Die IMT-Fakultät hat uns auf jedem Schritt der Lernreise gefordert und unterstützt – bis hin zu konkreten Ratschlägen zur Lösung spezifischer Herausforderungen in unserem Unternehmen.</p>
               </div>
               <div class="gradient-quote-footer">
                 <div class="gradient-person">
@@ -3147,7 +2785,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="gradient-quote-inner">
               <div class="gradient-quote-content">
                 <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
-                <p class="gradient-quote-text">I am impressed by how the St. Gallen concept integrates different perspectives and addresses diverse topics - making it directly applicable across industries in business practice.</p>
+                <p class="gradient-quote-text">Ich bin beeindruckt, wie das St. Galler Konzept verschiedene Perspektiven integriert und vielfältige Themen adressiert – und so branchenübergreifend direkt in der Unternehmenspraxis anwendbar ist.</p>
               </div>
               <div class="gradient-quote-footer">
                 <div class="gradient-person">
@@ -3170,8 +2808,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- Faculty & Experts Section -->
     <section id="faculty">
       <div class="container">
-        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;"> Academic Leadership </h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Learn from leading experts in academia and industry – benefit from years of experience in management and strategic leadership.</p>
+        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Academic Leadership</h2>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Learn from leading experts from academia and practice – benefit from years of experience in management and strategic leadership.</p>
         
         <div class="faculty-grid">
             <div class="faculty-card">
@@ -3196,14 +2834,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- IMT Advisor Section -->
     <section id="contact">
       <div class="container">
-        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Contact Person</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Your personal contact for all questions about the Executive Seminar Integrated Management and Strategy – benefit from her many years of expertise in corporate management and strategy development.</p>
+        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Contact</h2>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Your personal contact for all questions about the Integrated Management and Strategy management seminar – benefit from her many years of expertise in corporate management and strategy development.</p>
         
         <div class="contact-info">
           <img alt="Monika Dutkiewicz" src="assets/Dutkiewicz.jpg"/>
           <div class="contact-details">
             <h3>Monika Dutkiewicz</h3>
-            <p style="margin-bottom: 0;">Contact Person for Integrated Management and Strategy</p>
+            <p style="margin-bottom: 0;">Contact for Integrated Management and Strategy</p>
             <p style="margin-bottom: 0; margin-top: 0;"><a href="mailto:monika.dutkiewicz@imt.ch" style="color: #9c27b0;">monika.dutkiewicz@imt.ch</a></p>
             <p style="margin-bottom: 0; margin-top: 0;">+41 71 277 60 00</p>
           </div>
@@ -3215,140 +2853,138 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <section id="broschuere">
       <div class="container">
         <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Download Free Brochure</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Download the detailed program brochure for the Executive Seminar Integrated Management and Strategy now – with all details about content, methods, and your learning outcomes.</p>
-        <div style="display: flex; gap: 32px; align-items: stretch; flex-wrap: wrap; margin-top: 32px;">
-          
-          <!-- Form -->
-          <div style="flex: 1 1 400px; background: #f5f5f7; padding: 32px; border-radius: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
-            <form id="brochure-form" method="post" novalidate>
-              <input name="firstname" placeholder="First Name" style="width: 100%; padding: 12px; margin-bottom: 18px; border-radius: 8px; border: 1px solid #ccc;" type="text" required/>
-              <input name="lastname" placeholder="Last Name" style="width: 100%; padding: 12px; margin-bottom: 18px; border-radius: 8px; border: 1px solid #ccc;" type="text" required/>
-              <input name="email" placeholder="Email" style="width: 100%; padding: 12px; margin-bottom: 18px; border-radius: 8px; border: 1px solid #ccc;" type="email" required/>
-              
-              <!-- Country Select -->
-              <div style="position: relative; margin-bottom: 18px;">
-                <select name="country" required style="width: 100%; padding: 12px; padding-right: 40px; font-size: 1rem; border-radius: 8px; border: 1px solid #ccc; appearance: none; -webkit-appearance: none;">
-                  <option value="">Select Country</option>
-                  <option value="AD">Andorra</option>
-                  <option value="AR">Argentina</option>
-                  <option value="AU">Australia</option>
-                  <option value="BH">Bahrain</option>
-                  <option value="BE">Belgium</option>
-                  <option value="BR">Brazil</option>
-                  <option value="BN">Brunei</option>
-                  <option value="CL">Chile</option>
-                  <option value="CN">China</option>
-                  <option value="DK">Denmark</option>
-                  <option value="DE">Germany</option>
-                  <option value="EE">Estonia</option>
-                  <option value="FI">Finland</option>
-                  <option value="FR">France</option>
-                  <option value="GI">Gibraltar</option>
-                  <option value="GR">Greece</option>
-                  <option value="HK">Hong Kong</option>
-                  <option value="IN">India</option>
-                  <option value="ID">Indonesia</option>
-                  <option value="IE">Ireland</option>
-                  <option value="IS">Iceland</option>
-                  <option value="IL">Israel</option>
-                  <option value="IT">Italy</option>
-                  <option value="JP">Japan</option>
-                  <option value="JO">Jordan</option>
-                  <option value="CA">Canada</option>
-                  <option value="CO">Colombia</option>
-                  <option value="HR">Croatia</option>
-                  <option value="QA">Qatar</option>
-                  <option value="KW">Kuwait</option>
-                  <option value="LB">Lebanon</option>
-                  <option value="LI">Liechtenstein</option>
-                  <option value="LU">Luxembourg</option>
-                  <option value="MO">Macau</option>
-                  <option value="MY">Malaysia</option>
-                  <option value="MT">Malta</option>
-                  <option value="MX">Mexico</option>
-                  <option value="MC">Monaco</option>
-                  <option value="NL">Netherlands</option>
-                  <option value="NZ">New Zealand</option>
-                  <option value="NO">Norway</option>
-                  <option value="OM">Oman</option>
-                  <option value="AT">Austria</option>
-                  <option value="PK">Pakistan</option>
-                  <option value="PA">Panama</option>
-                  <option value="PE">Peru</option>
-                  <option value="PH">Philippines</option>
-                  <option value="PL">Poland</option>
-                  <option value="PT">Portugal</option>
-                  <option value="PR">Puerto Rico</option>
-                  <option value="RO">Romania</option>
-                  <option value="RU">Russia</option>
-                  <option value="SM">San Marino</option>
-                  <option value="SA">Saudi Arabia</option>
-                  <option value="SE">Sweden</option>
-                  <option value="CH">Switzerland</option>
-                  <option value="SG">Singapore</option>
-                  <option value="SK">Slovakia</option>
-                  <option value="SI">Slovenia</option>
-                  <option value="ES">Spain</option>
-                  <option value="ZA">South Africa</option>
-                  <option value="KR">South Korea</option>
-                  <option value="TW">Taiwan</option>
-                  <option value="TH">Thailand</option>
-                  <option value="TR">Turkey</option>
-                  <option value="CZ">Czech Republic</option>
-                  <option value="UA">Ukraine</option>
-                  <option value="HU">Hungary</option>
-                  <option value="AE">United Arab Emirates</option>
-                  <option value="GB">United Kingdom</option>
-                  <option value="US">United States</option>
-                  <option value="VN">Vietnam</option>
-                  <option value="CY">Cyprus</option>
-                  <option value="OTHER">Other</option>
-                </select>
-                <div style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); pointer-events: none;">
-                  <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1 1L6 6L11 1" stroke="#888888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </div>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Download the detailed program brochure for the Integrated Management and Strategy management seminar now – with all the details about content, methods, and your learning success.</p>
+        
+        <!-- Formular - Einspaltig -->
+        <div style="background: #f5f5f7; padding: 32px; border-radius: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.05); max-width: 800px; margin: 0 auto;">
+          <form id="brochure-form" method="post" novalidate>
+            <input name="firstname" placeholder="First Name" style="width: 100%; padding: 12px; margin-bottom: 18px; border-radius: 8px; border: 1px solid #ccc;" type="text" required/>
+            <input name="lastname" placeholder="Last Name" style="width: 100%; padding: 12px; margin-bottom: 18px; border-radius: 8px; border: 1px solid #ccc;" type="text" required/>
+            <input name="email" placeholder="Email" style="width: 100%; padding: 12px; margin-bottom: 18px; border-radius: 8px; border: 1px solid #ccc;" type="email" required/>
+            
+            <!-- Country Select -->
+            <div style="position: relative; margin-bottom: 18px;">
+              <select name="country" required style="width: 100%; padding: 12px; padding-right: 40px; font-size: 1rem; border-radius: 8px; border: 1px solid #ccc; appearance: none; -webkit-appearance: none;">
+                <option value="">Select Country</option>
+                <option value="AD">Andorra</option>
+                <option value="AR">Argentina</option>
+                <option value="AU">Australia</option>
+                <option value="BH">Bahrain</option>
+                <option value="BE">Belgium</option>
+                <option value="BR">Brazil</option>
+                <option value="BN">Brunei</option>
+                <option value="CL">Chile</option>
+                <option value="CN">China</option>
+                <option value="DK">Denmark</option>
+                <option value="DE">Germany</option>
+                <option value="EE">Estonia</option>
+                <option value="FI">Finland</option>
+                <option value="FR">France</option>
+                <option value="GI">Gibraltar</option>
+                <option value="GR">Greece</option>
+                <option value="HK">Hong Kong</option>
+                <option value="IN">India</option>
+                <option value="ID">Indonesia</option>
+                <option value="IE">Ireland</option>
+                <option value="IS">Iceland</option>
+                <option value="IL">Israel</option>
+                <option value="IT">Italy</option>
+                <option value="JP">Japan</option>
+                <option value="JO">Jordan</option>
+                <option value="CA">Canada</option>
+                <option value="CO">Colombia</option>
+                <option value="HR">Croatia</option>
+                <option value="QA">Qatar</option>
+                <option value="KW">Kuwait</option>
+                <option value="LB">Lebanon</option>
+                <option value="LI">Liechtenstein</option>
+                <option value="LU">Luxembourg</option>
+                <option value="MO">Macau</option>
+                <option value="MY">Malaysia</option>
+                <option value="MT">Malta</option>
+                <option value="MX">Mexico</option>
+                <option value="MC">Monaco</option>
+                <option value="NL">Netherlands</option>
+                <option value="NZ">New Zealand</option>
+                <option value="NO">Norway</option>
+                <option value="OM">Oman</option>
+                <option value="AT">Austria</option>
+                <option value="PK">Pakistan</option>
+                <option value="PA">Panama</option>
+                <option value="PE">Peru</option>
+                <option value="PH">Philippines</option>
+                <option value="PL">Poland</option>
+                <option value="PT">Portugal</option>
+                <option value="PR">Puerto Rico</option>
+                <option value="RO">Romania</option>
+                <option value="RU">Russia</option>
+                <option value="SM">San Marino</option>
+                <option value="SA">Saudi Arabia</option>
+                <option value="SE">Sweden</option>
+                <option value="CH">Switzerland</option>
+                <option value="SG">Singapore</option>
+                <option value="SK">Slovakia</option>
+                <option value="SI">Slovenia</option>
+                <option value="ES">Spain</option>
+                <option value="ZA">South Africa</option>
+                <option value="KR">South Korea</option>
+                <option value="TW">Taiwan</option>
+                <option value="TH">Thailand</option>
+                <option value="TR">Turkey</option>
+                <option value="CZ">Czech Republic</option>
+                <option value="UA">Ukraine</option>
+                <option value="HU">Hungary</option>
+                <option value="AE">United Arab Emirates</option>
+                <option value="GB">United Kingdom</option>
+                <option value="US">United States</option>
+                <option value="VN">Vietnam</option>
+                <option value="CY">Cyprus</option>
+                <option value="OTHER">Other</option>
+              </select>
+              <div style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); pointer-events: none;">
+                <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 1L6 6L11 1" stroke="#888888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
               </div>
-
-              <!-- Checkbox for Email Consent -->
-              <div style="margin-bottom: 16px;">
-                <label style="display: flex; align-items: flex-start; gap: 8px; cursor: pointer;">
-                  <input type="checkbox" name="email_consent" style="margin-top: 3px;">
-                  <span style="font-size: 0.9rem; color: var(--color-muted);">
-                    I agree to receive information via email about offers from the IMT Business School.
-                  </span>
-                </label>
-              </div>
-
-              <!-- Submit Button -->
-              <div style="text-align: center; width: 100%;">
-                <button type="submit" class="cta-button" style="margin: 0 auto;">
-                  Download Free Brochure Now <span class="arrow-icon">→</span>
-                </button>
-              </div>
-
-              <!-- Info Lines under the button -->
-              <div style="margin-top: 24px; display: flex; flex-direction: column; gap: 12px;">
-                <div style="display: flex; align-items: center; gap: 8px;">
-                  <i class='bx bx-group' style="font-size: 20px;"></i>
-                  <span id="downloads-today" style="font-size: 0.9rem; color: var(--color-muted);"><strong>7</strong> executives have already downloaded the brochure today</span>
-                </div>
-                <div style="display: flex; align-items: center; gap: 8px;">
-                  <i class='bx bx-shield' style="font-size: 20px;"></i>
-                  <span style="font-size: 0.9rem; color: var(--color-muted);">Your data is safe with us - we do not send unauthorized advertising</span>
-                </div>
-              </div>
-            </form>
-
-            <!-- Download-Ready Section (initially hidden) -->
-            <div id="download-ready" class="hidden" style="text-align: center; margin-top: 24px;">
-              <h3 style="margin-bottom: 16px;">Thank you for your interest!</h3>
-              <p style="margin-bottom: 24px;">Your brochure is ready for download.</p>
-              <a href="assets/broschueren/integrated_management_strategy_en.pdf" download class="cta-button">
-                Download Brochure <span class="arrow-icon">→</span>
-              </a>
             </div>
+
+            <!-- Checkbox für E-Mail-Zustimmung -->
+            <div style="margin-bottom: 16px;">
+              <label style="display: flex; align-items: flex-start; gap: 8px; cursor: pointer;">
+                <input type="checkbox" name="email_consent" style="margin-top: 3px;">
+                <span style="font-size: 0.9rem; color: var(--color-muted);">
+                  I agree to receive information via email about offers from the IMT Business School.
+                </span>
+              </label>
+            </div>
+
+            <!-- Submit Button -->
+            <div style="text-align: center; width: 100%;">
+              <button type="submit" class="cta-button" style="margin: 0 auto;">
+                Download Free Brochure Now <span class="arrow-icon">→</span>
+              </button>
+            </div>
+
+            <!-- Info Lines under the button -->
+            <div style="margin-top: 24px; display: flex; flex-direction: column; gap: 12px;">
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <i class='bx bx-group' style="font-size: 20px;"></i>
+                <span id="downloads-today" style="font-size: 0.9rem; color: var(--color-muted);"><strong>7</strong> executives have already downloaded the brochure today</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <i class='bx bx-shield' style="font-size: 20px;"></i>
+                <span style="font-size: 0.9rem; color: var(--color-muted);">Your data is safe with us - we do not send unauthorized advertising</span>
+              </div>
+            </div>
+          </form>
+
+          <!-- Download-Ready Section (initially hidden) -->
+          <div id="download-ready" class="hidden" style="text-align: center; margin-top: 24px;">
+            <h3 style="margin-bottom: 16px;">Vielen Dank für Ihr Interesse!</h3>
+            <p style="margin-bottom: 24px;">Ihre Broschüre steht zum Download bereit.</p>
+            <a href="assets/broschueren/integrated_management_strategy.pdf" download class="cta-button">
+              Broschüre herunterladen <span class="arrow-icon">→</span>
+            </a>
           </div>
         </div>
       </div>
@@ -3362,15 +2998,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ============ SCRIPTS ============ -->
 <script>
   // Navigation laden
-  fetch('components/globals/navigation_ohnesub_en.html?t=' + new Date().getTime())
+  fetch('components/globals/navigation_ohnesub.html?t=' + new Date().getTime())
     .then(response => {
       if (!response.ok) {
-        console.error('Error loading navigation:', response.status);
+        console.error('Fehler beim Laden der Navigation:', response.status);
         // Fallback zum globals-Verzeichnis versuchen
-        return fetch('components/includes/navigation_ohnesub_en.html?t=' + new Date().getTime())
+        return fetch('components/includes/navigation_ohnesub.html?t=' + new Date().getTime())
           .then(resp => {
             if (!resp.ok) {
-              console.error('Includes path also failed:', resp.status);
+              console.error('Auch globals-Pfad fehlgeschlagen:', resp.status);
               return '';
             }
             return resp.text();
@@ -3392,58 +3028,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           if (typeof initLanguageSwitching === 'function') {
             initLanguageSwitching();
           } else if (window.switchLanguage) {
-            console.log('Language-switch.js already loaded, using global function');
+            console.log('Language-switch.js bereits geladen, verwende globale Funktion');
           } else {
-            console.warn('Language-switch functions not found!');
+            console.warn('Language-switch Funktionen nicht gefunden!');
           }
         }, 300); // Kurzes Delay für DOM-Update
       }
     })
     .catch(error => console.error('Fehler beim Laden der Navigation:', error));
   
-  // Fix for language switching on this specific page
-  setTimeout(function() {
-    console.log('Applying language switcher fix for integrated_management_strategy page');
-    
-    // Fix desktop language switcher
-    const deLinkDesktop = document.getElementById('lang-de-link');
-    const enLinkDesktop = document.getElementById('lang-en-link');
-    
-    if (deLinkDesktop && enLinkDesktop) {
-      // Set correct German link
-      deLinkDesktop.setAttribute('href', 'integrated_management_strategy.html');
-      deLinkDesktop.classList.remove('active');
-      
-      // English link should be disabled since we're on English page
-      enLinkDesktop.setAttribute('href', '#');
-      enLinkDesktop.classList.add('active');
-    }
-    
-    // Also update mobile language switcher if it exists
-    const mobileLangOptions = document.querySelectorAll('.mobile-lang-option');
-    mobileLangOptions.forEach(link => {
-      const lang = link.getAttribute('data-lang');
-      
-      if (lang === 'de') {
-        link.setAttribute('href', 'integrated_management_strategy.html');
-        link.classList.remove('active');
-      } else if (lang === 'en') {
-        link.setAttribute('href', '#');
-        link.classList.add('active');
-      }
-    });
-  }, 800);
-  
   // Sidebar laden
-  fetch('components/globals/sidebar_en.html?t=' + new Date().getTime())
+  fetch('components/globals/sidebar.html?t=' + new Date().getTime())
     .then(response => {
       if (!response.ok) {
-        console.error('Error loading sidebar:', response.status);
+        console.error('Fehler beim Laden der Sidebar:', response.status);
         // Fallback zum globals-Verzeichnis versuchen
-        return fetch('components/includes/sidebar_en.html?t=' + new Date().getTime())
+        return fetch('components/includes/sidebar.html?t=' + new Date().getTime())
           .then(resp => {
             if (!resp.ok) {
-              console.error('Includes path also failed:', resp.status);
+              console.error('Auch globals-Pfad fehlgeschlagen:', resp.status);
               return '';
             }
             return resp.text();
@@ -3452,21 +3055,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       return response.text();
     })
     .then(data => {
-      console.log('Sidebar loaded');
+      console.log('Sidebar geladen');
       if (data) document.getElementById('sidebar-container').innerHTML = data;
     })
-    .catch(error => console.error('Error loading sidebar:', error));
+    .catch(error => console.error('Fehler beim Laden der Sidebar:', error));
   
   // Footer laden
-  fetch('components/globals/footer_en.html?t=' + new Date().getTime())
+  fetch('components/globals/footer.html?t=' + new Date().getTime())
     .then(response => {
       if (!response.ok) {
-        console.error('Error loading footer:', response.status);
-        // Fallback zum includes-Verzeichnis versuchen
-        return fetch('components/includes/footer_en.html?t=' + new Date().getTime())
+        console.error('Fehler beim Laden des Footers:', response.status);
+        // Fallback zum globals-Verzeichnis versuchen
+        return fetch('components/includes/footer.html?t=' + new Date().getTime())
           .then(resp => {
             if (!resp.ok) {
-              console.error('Includes path also failed:', resp.status);
+              console.error('Auch globals-Pfad fehlgeschlagen:', resp.status);
               return '';
             }
             return resp.text();
@@ -3475,17 +3078,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       return response.text();
     })
     .then(data => {
-      console.log('Footer loaded');
+      console.log('Footer geladen');
       if (data) document.getElementById('footer-container').innerHTML = data;
       
       // Überprüfen der Footer-Styles
       if (document.querySelector('footer')) {
         console.log('Footer Styles:', window.getComputedStyle(document.querySelector('footer')));
       } else {
-        console.error('Footer element not found');
+        console.error('Footer-Element nicht gefunden');
       }
     })
-    .catch(error => console.error('Error loading footer:', error));
+    .catch(error => console.error('Fehler beim Laden des Footers:', error));
 
   // Slider Funktionalität
   document.addEventListener('DOMContentLoaded', function() {
@@ -3558,227 +3161,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       window.addEventListener('resize', checkButtonStatus);
     }
   });
-
-  // JavaScript für die Zähleranimation
-  // Counter animation für Statistiken
-  function animateValue(element, start, end, duration) {
-    let startTimestamp = null;
-    const step = (timestamp) => {
-        if (!startTimestamp) startTimestamp = timestamp;
-        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-        const current = Math.floor(progress * (end - start) + start);
-        element.textContent = current + (element.dataset.suffix || '');
-        if (progress < 1) {
-            window.requestAnimationFrame(step);
-        }
-    };
-    window.requestAnimationFrame(step);
-  }
-
-  // Intersection Observer für Statistiken
-  document.addEventListener('DOMContentLoaded', function() {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const target = entry.target;
-                const endValue = parseInt(target.dataset.target);
-                target.classList.add('count');
-                animateValue(target, 0, endValue, 2000);
-                observer.unobserve(target);
-            }
-        });
-    }, {
-        threshold: 0.5
-    });
-
-    document.querySelectorAll('.stat-value').forEach(stat => {
-        observer.observe(stat);
-    });
-    
-    // Scroll-Spy für Abschnitts-Links
-    function updateActiveSection() {
-      const sections = document.querySelectorAll('section[id]');
-      const scrollPosition = window.scrollY + 120;
-
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
-        const sectionLink = document.querySelector(`.section-link[href="#${section.id}"]`);
-
-        if (sectionLink && scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-          document.querySelectorAll('.section-link').forEach(link => link.classList.remove('active'));
-          sectionLink.classList.add('active');
-        }
-      });
-    }
-    
-    // Aktualisiere aktive Sektion beim Scrollen
-    window.addEventListener('scroll', updateActiveSection);
-    
-    // Initiale Aktualisierung
-    updateActiveSection();
-  });
-</script>
-
-<!-- Skript für Broschüre-Formular Validierung und Google Integration -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('brochure-form');
-    const downloadReady = document.getElementById('download-ready');
-    
-    if (form) {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Validate form
-            let isValid = true;
-            form.querySelectorAll('[required]').forEach(field => {
-                if (!field.value.trim()) {
-                    isValid = false;
-                    field.classList.add('invalid-input');
-                    field.classList.remove('valid-input');
-                } else {
-                    field.classList.remove('invalid-input');
-                    field.classList.add('valid-input');
-                }
-            });
-            
-            // Additional email validation
-            const emailField = form.querySelector('[type="email"]');
-            if (emailField && emailField.value.trim()) {
-                const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value.trim());
-                if (!isValidEmail) {
-                    isValid = false;
-                    emailField.classList.add('invalid-input');
-                    emailField.classList.remove('valid-input');
-                }
-            }
-            
-            if (!isValid) return;
-
-            // Collect form data
-            const formData = {
-                programm: "Integrated Management and Strategy",
-                vorname: form.querySelector('[name="firstname"]').value,
-                nachname: form.querySelector('[name="lastname"]').value,
-                email: form.querySelector('[name="email"]').value,
-                land: form.querySelector('[name="country"]').value,
-                zustimmung: form.querySelector('[name="email_consent"]').checked ? 'Yes' : 'No'
-            };
-
-            // Send to Google Script
-            fetch('https://script.google.com/macros/s/AKfycbwIV2ywC6DU4HxDotucAnrQVO1mOdYF2Z4Bict2NMMI9obastqrDb-KIbLqULE4g2g/exec', {
-                method: 'POST',
-                body: JSON.stringify(formData)
-            })
-            .then(response => response.json())
-            .then(data => {
-                if(data.status === 'success') {
-                    // Hide form and show success message
-                    form.style.display = 'none';
-                    downloadReady.classList.remove('hidden');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('There was an error. Please try again later.');
-            });
-        });
-
-        // Live validation
-        form.querySelectorAll('[required]').forEach(field => {
-            field.addEventListener('blur', function() {
-                if (!this.value.trim()) {
-                    this.classList.add('invalid-input');
-                    this.classList.remove('valid-input');
-                } else {
-                    this.classList.remove('invalid-input');
-                    this.classList.add('valid-input');
-                }
-            });
-
-            field.addEventListener('input', function() {
-                if (this.value.trim()) {
-                    this.classList.remove('invalid-input');
-                    this.classList.add('valid-input');
-                } else {
-                    this.classList.add('invalid-input');
-                    this.classList.remove('valid-input');
-                }
-            });
-        });
-
-        // Spezielle Validierung für E-Mail
-        const emailField = form.querySelector('[type="email"]');
-        if (emailField) {
-            const validateEmail = (email) => {
-                return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-            };
-
-            emailField.addEventListener('blur', function() {
-                if (!this.value.trim()) {
-                    this.classList.add('invalid-input');
-                    this.classList.remove('valid-input');
-                } else if (!validateEmail(this.value.trim())) {
-                    this.classList.add('invalid-input');
-                    this.classList.remove('valid-input');
-                } else {
-                    this.classList.remove('invalid-input');
-                    this.classList.add('valid-input');
-                }
-            });
-
-            emailField.addEventListener('input', function() {
-                if (this.value.trim() && validateEmail(this.value.trim())) {
-                    this.classList.remove('invalid-input');
-                    this.classList.add('valid-input');
-                } else {
-                    if (this.value.trim()) {
-                        this.classList.add('invalid-input');
-                        this.classList.remove('valid-input');
-                    }
-                }
-            });
-        }
-    }
-});
-</script>
-
-<!-- Skript für Download-Statistik-Funktion -->
-<script>
-// Download-Statistik Implementierung
-function updateDownloadStats() {
-  const now = new Date();
-  const hour = now.getHours();
-  let baseCount;
-  
-  // Precise time windows for downloads
-  if (hour >= 23 || hour < 6) {
-    baseCount = 5;  // Night (23:00 - 05:59)
-  } else if (hour >= 6 && hour < 12) {
-    baseCount = 8;  // Morning (06:00 - 11:59)
-  } else if (hour >= 12 && hour < 18) {
-    baseCount = 12; // Afternoon (12:00 - 17:59)
-  } else if (hour >= 18 && hour < 23) {
-    baseCount = 10; // Evening (18:00 - 22:59)
-  }
-  
-  const variation = Math.floor(Math.random() * 5) - 2;
-  const finalCount = Math.max(baseCount + variation, 0);
-  
-  console.log(`Current time: ${hour}:00, Base: ${baseCount}, Variation: ${variation}, Final value: ${finalCount}`);
-  
-  const downloadsText = document.getElementById('downloads-today');
-  if (downloadsText) {
-    downloadsText.innerHTML = `<strong>${finalCount}</strong> executives have already downloaded the brochure today`;
-  }
-}
-
-// Initialisierung
-document.addEventListener('DOMContentLoaded', () => {
-  updateDownloadStats();
-  setInterval(updateDownloadStats, 5 * 60 * 1000); // Aktualisiert alle 5 Minuten
-});
 </script>
 
 <!-- Script für die aktive Markierung des Programme-Links -->
@@ -3832,7 +3214,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const programTitle = document.querySelector('.program-title');
           if (programTitle) {
             programTitle.textContent = "Integrated Management and Strategy";
-            programTitle.href = "integrated_management_strategy.html";
+            programTitle.href = "programm-seite.html";
           }
         }
         
@@ -3878,7 +3260,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navMenu = document.querySelector('.nav-menu');
     
-    // Dropdown Toggle auf Mobilgeräten (Behalten wir bei, aber entfernen den doppelten Menu-Toggle)
+    if (mobileMenuBtn && navMenu) {
+      mobileMenuBtn.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+        
+        // Sprachauswahl hinzufügen - nur wenn sie noch nicht existiert
+        if (navMenu.classList.contains('active') && !document.querySelector('.mobile-lang-section')) {
+          const langSection = document.createElement('div');
+          langSection.className = 'mobile-lang-section';
+          langSection.innerHTML = `
+            <div class="lang-title">Sprache</div>
+            <div class="mobile-lang-options">
+              <a href="?lang=de" class="mobile-lang-option active">Deutsch</a>
+              <a href="?lang=en" class="mobile-lang-option">English</a>
+            </div>
+          `;
+          navMenu.appendChild(langSection);
+        }
+      });
+    }
+    
+    // Dropdown Toggle auf Mobilgeräten
     const navItems = document.querySelectorAll('.nav-item');
     navItems.forEach(item => {
       const toggleLink = item.querySelector('.toggle-subnav');
@@ -3898,293 +3300,350 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 </script>
 
-<!-- Skript für Tabs Funktionalität für Starttermine -->
 <script>
-// Tabs Funktionalität für Starttermine
-document.addEventListener('DOMContentLoaded', function() {
-  const tabButtons = document.querySelectorAll('.tab-button');
-  tabButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      // Entferne active class von allen tabs
-      tabButtons.forEach(btn => btn.classList.remove('active'));
-      
-      // Füge active class zum geklickten tab hinzu
-      button.classList.add('active');
-      
-      // Verstecke alle Tab-Panes
-      const tabPanes = document.querySelectorAll('.tab-pane');
-      tabPanes.forEach(pane => pane.classList.remove('active'));
-      
-      // Zeige die entsprechende Tab-Pane
-      const targetId = button.getAttribute('data-target');
-      document.getElementById(targetId).classList.add('active');
+  // JavaScript für die Zähleranimation
+  // Counter animation für Statistiken
+  function animateValue(element, start, end, duration) {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        const current = Math.floor(progress * (end - start) + start);
+        element.textContent = current + (element.dataset.suffix || '');
+        if (progress < 1) {
+            window.requestAnimationFrame(step);
+        }
+    };
+    window.requestAnimationFrame(step);
+  }
+
+  // Start animation when element is in view
+  const animateOnView = () => {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const statValues = entry.target.querySelectorAll('.stat-value');
+                statValues.forEach(stat => {
+                    const target = parseInt(stat.dataset.target);
+                    animateValue(stat, 0, target, 2000);
+                });
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    const statsGrid = document.querySelector('.stats-grid');
+    if (statsGrid) {
+        observer.observe(statsGrid);
+    }
+  };
+
+  // Galerie-Shuffle für Einblicke & Impressionen
+  const shuffleGallery = () => {
+    const gallery = document.querySelector('.gallery');
+    if (!gallery) return;
+    
+    const items = Array.from(gallery.querySelectorAll('.gallery-item'));
+    const parent = items[0].parentNode;
+    
+    // Fisher-Yates shuffle
+    for (let i = items.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [items[i].style.order, items[j].style.order] = [items[j].style.order, items[i].style.order];
+    }
+  };
+
+  // Starte die Animation, wenn die Seite geladen ist
+  document.addEventListener('DOMContentLoaded', function() {
+    // Animiere die Statistiken, wenn sie sichtbar werden
+    animateOnView();
+    
+    // Shuffle der Galerie alle 10 Sekunden
+    shuffleGallery();
+    setInterval(shuffleGallery, 10000);
+  });
+  </script>
+
+  <!-- Skript für Download-Statistik-Funktion -->
+  <script>
+  // Download-Statistik Implementierung
+  function updateDownloadStats() {
+    const now = new Date();
+    const hour = now.getHours();
+    let baseCount;
+    
+    // Präzise Zeitfenster für Downloads
+    if (hour >= 23 || hour < 6) {
+      baseCount = 5;  // Nachts (23:00 - 05:59)
+    } else if (hour >= 6 && hour < 12) {
+      baseCount = 8;  // Morgens (06:00 - 11:59)
+    } else if (hour >= 12 && hour < 18) {
+      baseCount = 12; // Mittags (12:00 - 17:59)
+    } else if (hour >= 18 && hour < 23) {
+      baseCount = 10; // Abends (18:00 - 22:59)
+    }
+    
+    const variation = Math.floor(Math.random() * 5) - 2;
+    const finalCount = Math.max(baseCount + variation, 0);
+    
+    console.log(`Aktuelle Zeit: ${hour}:00 Uhr, Basis: ${baseCount}, Variation: ${variation}, Endwert: ${finalCount}`);
+    
+    const downloadsText = document.getElementById('downloads-today');
+    if (downloadsText) {
+      downloadsText.innerHTML = `<strong>${finalCount}</strong> Executives haben die Broschüre heute bereits heruntergeladen`;
+    }
+  }
+
+  // Initialisierung
+  document.addEventListener('DOMContentLoaded', () => {
+    updateDownloadStats();
+    setInterval(updateDownloadStats, 5 * 60 * 1000); // Aktualisiert alle 5 Minuten
+  });
+  </script>
+
+  <!-- Intersection Observer für Statistiken -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const target = entry.target;
+                const endValue = parseInt(target.dataset.target);
+                target.classList.add('count');
+                animateValue(target, 0, endValue, 2000);
+                observer.unobserve(target);
+            }
+        });
+    }, {
+        threshold: 0.5
+    });
+
+    document.querySelectorAll('.stat-value').forEach(stat => {
+        observer.observe(stat);
     });
   });
-});
-</script>
+  </script>
 
-<!-- Tracking & Cookie Consent Script-->
-<script src="assets/js/cookie-consent.js" defer></script>
-
-<!-- Registration System JavaScript -->
-<script>
+  <!-- Skript für Tabs Funktionalität für Starttermine -->
+  <script>
+  // Tabs Funktionalität für Starttermine
   document.addEventListener('DOMContentLoaded', function() {
-    // Tab-Funktionalität für Daten
     const tabButtons = document.querySelectorAll('.tab-button');
     tabButtons.forEach(button => {
-      button.addEventListener('click', function() {
-        // Aktive Klasse von allen Tabs entfernen
-        tabButtons.forEach(b => b.classList.remove('active'));
+      button.addEventListener('click', () => {
+        // Entferne active class von allen tabs
+        tabButtons.forEach(btn => btn.classList.remove('active'));
         
-        // Aktive Klasse zum geklickten Tab hinzufügen
-        this.classList.add('active');
+        // Füge active class zum geklickten tab hinzu
+        button.classList.add('active');
         
-        // Alle Tab-Inhalte ausblenden
+        // Verstecke alle Tab-Panes
         const tabPanes = document.querySelectorAll('.tab-pane');
         tabPanes.forEach(pane => pane.classList.remove('active'));
         
-        // Ausgewählten Tab-Inhalt anzeigen
-        const targetId = this.getAttribute('data-target');
+        // Zeige die entsprechende Tab-Pane
+        const targetId = button.getAttribute('data-target');
         document.getElementById(targetId).classList.add('active');
       });
     });
-    
-    // Funktionalität für Anmelde-Modal
-    const openButtons = document.querySelectorAll('.combined-open-btn');
-    const modalOverlay = document.getElementById('combinedRegistrationModal');
-    const modalClose = document.getElementById('combinedModalClose');
-    const modalDate = document.getElementById('combinedModalDate');
-    const modalLocation = document.getElementById('combinedModalLocation');
-    const waitlistInfo = document.getElementById('waitlistInfo');
-    
-    // Modal öffnen
-    openButtons.forEach(btn => {
-      btn.addEventListener('click', function() {
-        modalDate.textContent = this.getAttribute('data-date');
-        modalLocation.textContent = this.getAttribute('data-location');
-        
-        if (this.getAttribute('data-waitlist') === 'true') {
-          waitlistInfo.style.display = 'block';
-        } else {
-          waitlistInfo.style.display = 'none';
-        }
-        
-        modalOverlay.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-      });
-    });
-    
-    // Modal schließen
-    modalClose.addEventListener('click', function() {
-      modalOverlay.style.display = 'none';
-      document.body.style.overflow = 'auto';
-      resetModal();
-    });
-    
-    document.getElementById('closeModalBtn')?.addEventListener('click', function() {
-      modalOverlay.style.display = 'none';
-      document.body.style.overflow = 'auto';
-      resetModal();
-    });
-    
-    // Modal schließen, wenn außerhalb geklickt wird
-    modalOverlay.addEventListener('click', function(e) {
-      if (e.target === modalOverlay) {
-        modalOverlay.style.display = 'none';
-        document.body.style.overflow = 'auto';
-        resetModal();
-      }
-    });
-    
-    // Multi-Step-Funktionalität
-    const nextBtn = document.getElementById('combinedNextBtn');
-    const prevBtn = document.getElementById('combinedPrevBtn');
-    let currentStep = 1;
-    
-    // Weiter-Button
-    nextBtn.addEventListener('click', function() {
-      if (currentStep < 3) {
-        // Aktuellen Schritt ausblenden
-        document.getElementById('combinedStep' + currentStep).style.display = 'none';
-        
-        // Zum nächsten Schritt wechseln
-        currentStep++;
-        
-        // Neuen Schritt anzeigen
-        document.getElementById('combinedStep' + currentStep).style.display = 'block';
-        
-        // Progress aktualisieren
-        updateProgress();
-        
-        // Button-Status aktualisieren
-        updateButtons();
-        
-        // Button-Text für letzten Schritt ändern
-        if (currentStep === 3) {
-          nextBtn.style.display = 'none';
-        }
-      }
-    });
-    
-    // Zurück-Button
-    prevBtn.addEventListener('click', function() {
-      if (currentStep > 1) {
-        // Aktuellen Schritt ausblenden
-        document.getElementById('combinedStep' + currentStep).style.display = 'none';
-        
-        // Zum vorherigen Schritt wechseln
-        currentStep--;
-        
-        // Vorherigen Schritt anzeigen
-        document.getElementById('combinedStep' + currentStep).style.display = 'block';
-        
-        // Progress aktualisieren
-        updateProgress();
-        
-        // Button-Status aktualisieren
-        updateButtons();
-        
-        // Weiter-Button wieder anzeigen, wenn wir nicht mehr im letzten Schritt sind
-        nextBtn.style.display = 'block';
-      }
-    });
-    
-    // Hilfsfunktion zum Aktualisieren der Fortschrittsanzeige
-    function updateProgress() {
-      // Progress-Bar aktualisieren
-      const progressBar = document.querySelector('.progress-bar');
-      progressBar.style.width = ((currentStep - 1) / 2 * 100) + '%';
-      
-      // Step-Indikatoren aktualisieren
-      const steps = document.querySelectorAll('.step');
-      steps.forEach((step, index) => {
-        if (index + 1 < currentStep) {
-          step.classList.add('completed');
-          step.classList.remove('active');
-        } else if (index + 1 === currentStep) {
-          step.classList.add('active');
-          step.classList.remove('completed');
-        } else {
-          step.classList.remove('active', 'completed');
-        }
-      });
-    }
-    
-    // Hilfsfunktion zum Aktualisieren der Button-Sichtbarkeit
-    function updateButtons() {
-      if (currentStep === 1) {
-        prevBtn.style.visibility = 'hidden';
-      } else {
-        prevBtn.style.visibility = 'visible';
-      }
-    }
-    
-    // Hilfsfunktion zum Zurücksetzen des Modals
-    function resetModal() {
-      // Zurück zum ersten Schritt
-      document.getElementById('combinedStep' + currentStep).style.display = 'none';
-      currentStep = 1;
-      document.getElementById('combinedStep1').style.display = 'block';
-      
-      // Progress zurücksetzen
-      updateProgress();
-      
-      // Buttons zurücksetzen
-      updateButtons();
-      nextBtn.style.display = 'block';
-      
-      // Formular zurücksetzen
-      document.getElementById('combinedRegistrationForm').reset();
-    }
-    
-    // Kursoptionen Auswahl
-    const courseOptions = document.querySelectorAll('.course-option');
-    courseOptions.forEach(option => {
-      option.addEventListener('click', function() {
-        courseOptions.forEach(opt => opt.classList.remove('selected'));
-        this.classList.add('selected');
-      });
-    });
   });
-</script>
-  <!-- Language Switch Script -->
-  <script src="assets/js/language-switch.js"></script>
-  
-  <!-- Script for random gallery images -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Array with all available images
-      const availableImages = Array.from({length: 12}, (_, i) => `assets/IMG_${i + 1}.webp`);
-      
-      // Fisher-Yates Shuffle Algorithm
-      function shuffleArray(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [array[i], array[j]] = [array[j], array[i]];
-        }
-        return array;
-      }
-      
-      // Mix images and select the first 6
-      const selectedImages = shuffleArray([...availableImages]).slice(0, 6);
-      
-      // Select gallery elements
-      const galleryItems = document.querySelectorAll('.gallery-item img');
-      
-      // Assign a random image to each gallery element
-      galleryItems.forEach((img, index) => {
-        if (index < selectedImages.length) {
-          img.src = selectedImages[index];
-          
-          // Generate ALT text based on filename (optional)
-          const fileName = selectedImages[index].split('/').pop().split('.')[0];
-          img.alt = `Impressions ${fileName}`;
-        }
-      });
-    });
   </script>
 
-<!-- JavaScript for Testimonial Shuffler -->
-<script>
+  <!-- Skript für Broschüre-Formular Validierung und Google Integration -->
+  <script>
   document.addEventListener('DOMContentLoaded', function() {
-    // Testimonial Shuffler
-    function shuffleTestimonials() {
-      // Collect all testimonials
-      const testimonials = Array.from(document.querySelectorAll('.testimonial-item'));
+      const form = document.getElementById('brochure-form');
+      const downloadReady = document.getElementById('download-ready');
       
-      // Fisher-Yates shuffle algorithm
-      function shuffleArray(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [array[i], array[j]] = [array[j], array[i]];
-        }
-        return array;
+      if (form) {
+          form.addEventListener('submit', function(e) {
+              e.preventDefault();
+              
+              // Validate form
+              let isValid = true;
+              form.querySelectorAll('[required]').forEach(field => {
+                  if (!field.value.trim()) {
+                      isValid = false;
+                      field.classList.add('invalid-input');
+                      field.classList.remove('valid-input');
+                  } else {
+                      field.classList.remove('invalid-input');
+                      field.classList.add('valid-input');
+                  }
+              });
+              
+              // Zusätzliche E-Mail-Validierung
+              const emailField = form.querySelector('[type="email"]');
+              if (emailField && emailField.value.trim()) {
+                  const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value.trim());
+                  if (!isValidEmail) {
+                      isValid = false;
+                      emailField.classList.add('invalid-input');
+                      emailField.classList.remove('valid-input');
+                  }
+              }
+              
+              if (!isValid) return;
+  
+              // Collect form data
+              const formData = {
+                  programm: "Integrated Management and Strategy",
+                  vorname: form.querySelector('[name="firstname"]').value,
+                  nachname: form.querySelector('[name="lastname"]').value,
+                  email: form.querySelector('[name="email"]').value,
+                  land: form.querySelector('[name="country"]').value,
+                  zustimmung: form.querySelector('[name="email_consent"]').checked ? 'Ja' : 'Nein'
+              };
+  
+              // Send to Google Script
+              fetch('https://script.google.com/macros/s/AKfycbwIV2ywC6DU4HxDotucAnrQVO1mOdYF2Z4Bict2NMMI9obastqrDb-KIbLqULE4g2g/exec', {
+                  method: 'POST',
+                  body: JSON.stringify(formData)
+              })
+              .then(response => response.json())
+              .then(data => {
+                  if(data.status === 'success') {
+                      // Hide form and show success message
+                      form.style.display = 'none';
+                      downloadReady.classList.remove('hidden');
+                  }
+              })
+              .catch(error => {
+                  console.error('Error:', error);
+                  alert('Es gab einen Fehler. Bitte versuchen Sie es später erneut.');
+              });
+          });
+  
+          // Live validation
+          form.querySelectorAll('[required]').forEach(field => {
+              field.addEventListener('blur', function() {
+                  if (!this.value.trim()) {
+                      this.classList.add('invalid-input');
+                      this.classList.remove('valid-input');
+                  } else {
+                      this.classList.remove('invalid-input');
+                      this.classList.add('valid-input');
+                  }
+              });
+  
+              field.addEventListener('input', function() {
+                  if (this.value.trim()) {
+                      this.classList.remove('invalid-input');
+                      this.classList.add('valid-input');
+                  } else {
+                      this.classList.add('invalid-input');
+                      this.classList.remove('valid-input');
+                  }
+              });
+          });
+  
+          // Spezielle Validierung für E-Mail
+          const emailField = form.querySelector('[type="email"]');
+          if (emailField) {
+              const validateEmail = (email) => {
+                  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+              };
+  
+              emailField.addEventListener('blur', function() {
+                  if (!this.value.trim()) {
+                      this.classList.add('invalid-input');
+                      this.classList.remove('valid-input');
+                  } else if (!validateEmail(this.value.trim())) {
+                      this.classList.add('invalid-input');
+                      this.classList.remove('valid-input');
+                  } else {
+                      this.classList.remove('invalid-input');
+                      this.classList.add('valid-input');
+                  }
+              });
+  
+              emailField.addEventListener('input', function() {
+                  if (this.value.trim() && validateEmail(this.value.trim())) {
+                      this.classList.remove('invalid-input');
+                      this.classList.add('valid-input');
+                  } else {
+                      if (this.value.trim()) {
+                          this.classList.add('invalid-input');
+                          this.classList.remove('valid-input');
+                      }
+                  }
+              });
+          }
       }
-      
-      // Shuffle testimonials
-      const shuffledTestimonials = shuffleArray([...testimonials]);
-      
-      // Hide all testimonials first
-      testimonials.forEach(item => {
-        item.style.display = 'none';
-      });
-      
-      // Number of testimonials to show (2 in this case)
-      const numToShow = 2;
-      
-      // Show the first 2
-      for (let i = 0; i < Math.min(numToShow, shuffledTestimonials.length); i++) {
-        shuffledTestimonials[i].style.display = 'block';
+  });
+  </script>
+
+  <!-- Script für zufällige Galeriebilder -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Array mit allen verfügbaren Bildern
+    const availableImages = Array.from({length: 12}, (_, i) => `assets/IMG_${i + 1}.webp`);
+    
+    // Fisher-Yates Shuffle Algorithmus
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
       }
+      return array;
     }
     
-    // Shuffle testimonials when the page loads
-    shuffleTestimonials();
+    // Bilder mischen und die ersten 6 auswählen
+    const selectedImages = shuffleArray([...availableImages]).slice(0, 6);
     
-    // Optional: Automatically shuffle testimonials every 30 seconds
-    // setInterval(shuffleTestimonials, 30000);
+    // Galerie-Elemente auswählen
+    const galleryItems = document.querySelectorAll('.gallery-item img');
+    
+    // Bilder zuweisen
+    galleryItems.forEach((img, index) => {
+      if (index < selectedImages.length) {
+        img.src = selectedImages[index];
+      }
+    });
   });
-</script>
+  </script>
 
+  <!-- JavaScript für Testimonial-Shuffler -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Testimonial Shuffler
+      function shuffleTestimonials() {
+        // Alle Testimonials sammeln
+        const testimonials = Array.from(document.querySelectorAll('.testimonial-item'));
+        
+        // Fisher-Yates Shuffle Algorithmus
+        function shuffleArray(array) {
+          for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+          }
+          return array;
+        }
+        
+        // Testimonials shuffeln
+        const shuffledTestimonials = shuffleArray([...testimonials]);
+        
+        // Alle Testimonials zunächst verstecken
+        testimonials.forEach(item => {
+          item.style.display = 'none';
+        });
+        
+        // Anzahl der anzuzeigenden Testimonials (2 in diesem Fall)
+        const numToShow = 2;
+        
+        // Die ersten 2 anzeigen
+        for (let i = 0; i < Math.min(numToShow, shuffledTestimonials.length); i++) {
+          shuffledTestimonials[i].style.display = 'block';
+        }
+      }
+      
+      // Testimonials beim Laden der Seite shuffeln
+      shuffleTestimonials();
+      
+      // Optional: Testimonials alle 30 Sekunden automatisch neu shuffeln
+      // setInterval(shuffleTestimonials, 30000);
+    });
+  </script>
 </body>
-</html> 
+</html>
+
