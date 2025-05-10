@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Newsletter Voucher | StGallen imt Business School</title>
+
+  <!-- ============ STYLES ============ -->
+  <style>
+    :root{
+      --font-sans:-apple-system,BlinkMacSystemFont,"San Francisco","Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+      --color-text:#1d1d1f;
+      --color-muted:#6e6e73;
+      --color-card-bg:#f5f5f7;
+      --color-accent2:#970289;
+      --color-badge:#e2b245;
+      --color-badge-hover:#d4a535;
+      --spacing:24px;
+      --radius:16px;
+      --max-width:1200px;
+      --imt-purple: #6e45e2;
+      --swiss-red: #ff0000;
+      --imt-green: #4CB796;
+      --imt-blue: #1a365d;
+      --imt-gold: #e2b245;
+      --dark-gray: #333333;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--color-text);
+      background: #fff;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      padding-top: 64px;
+      transition: padding-top 0.3s ease;
+    }
+    
+    /* When subnav is active, increase body padding */
+    body.has-subnav {
+      padding-top: 110px;
+    }
+    
+    @media (max-width: 1024px) {
+      body.has-subnav {
+        padding-top: 64px;
+      }
+    }
+
+    /* Basis Styling für Container */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--spacing);
+      width: 100%;
+    }
+
+    /* Hauptinhalt der Seite */
+    main {
+      position: relative;
+      padding: 60px 0;
+    }
+
+    /* Allgemeine Typografie */
+    h1, h2, h3, h4, h5, h6 {
+      margin-bottom: 1rem;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.25rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--imt-purple);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Gemeinsames Popup Styling */
+    .page-intro {
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      text-align: center;
+    }
+
+    .popup-variants {
+      margin-bottom: 80px;
+    }
+    
+    .popup-variant {
+      margin-bottom: 80px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 80px;
+    }
+
+    .popup-variant:last-child {
+      border-bottom: none;
+    }
+
+    .variant-title {
+      background-color: var(--imt-purple);
+      color: white;
+      padding: 12px 24px;
+      border-radius: var(--radius);
+      display: inline-block;
+      margin-bottom: 30px;
+    }
+
+    .popup-controls {
+      margin-bottom: 40px;
+    }
+
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: all 0.2s ease;
+      background-color: #fff;
+    }
+
+    .form-control:focus {
+      border-color: var(--imt-purple);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(110, 69, 226, 0.1);
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(to right, var(--imt-purple), #9c27b0);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 24px;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(106, 69, 226, 0.2);
+      text-decoration: none;
+    }
+
+    .close-button {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: #f5f5f7;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .close-button:hover {
+      background-color: #e5e5e5;
+    }
+
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+      margin: 15px 0;
+    }
+
+    .checkbox-group input {
+      margin-right: 10px;
+    }
+
+    /* Gemeinsame Styles für alle Popup-Varianten */
+    .popup-base {
+      position: relative;
+      background-color: white;
+      border-radius: var(--radius);
+      overflow: hidden;
+      width: 90%;
+      max-width: 600px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+      display: flex;
+    }
+
+    .popup-graphic {
+      padding: 40px 20px;
+      width: 40%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+    }
+
+    .voucher-badge {
+      font-size: 2.2rem;
+      font-weight: 700;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .popup-content {
+      padding: 40px 30px;
+      width: 60%;
+    }
+
+    @media (max-width: 768px) {
+      .popup-base {
+        flex-direction: column;
+      }
+      
+      .popup-graphic {
+        width: 100%;
+        padding: 20px;
+      }
+      
+      .popup-content {
+        width: 100%;
+      }
+    }
+
+    /* Professional Icon Styles */
+    .icon-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      text-align: center;
+    }
+    
+    /* Variante 1 Specific Styles - Original */
+    .popup-graphic-1 {
+      background: linear-gradient(135deg, var(--imt-purple), #9c27b0);
+    }
+
+    .voucher-badge-1 {
+      background-color: white;
+      color: var(--imt-purple);
+    }
+    
+    /* Variante 2 Specific Styles - Mit kleiner Envelope Icon */
+    .popup-graphic-2 {
+      background: linear-gradient(135deg, var(--imt-purple), #9c27b0);
+    }
+
+    .voucher-badge-2 {
+      background-color: white;
+      color: var(--imt-purple);
+      position: relative;
+    }
+    
+    .envelope-icon {
+      position: absolute;
+      bottom: 5px;
+      right: 5px;
+      width: 30px;
+      height: 20px;
+      background-color: var(--imt-purple);
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .envelope-icon::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 10px 15px 0 15px;
+      border-color: white transparent transparent transparent;
+      transform: translateY(-2px);
+    }
+    
+    /* Variante 3 Specific Styles - Mit Pulsierendem Kreis und Bell Icon */
+    .popup-graphic-3 {
+      background: linear-gradient(135deg, var(--imt-purple), #9c27b0);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .voucher-badge-3 {
+      background-color: white;
+      color: var(--imt-purple);
+      position: relative;
+      z-index: 2;
+    }
+    
+    .bell-icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .bell-body {
+      width: 18px;
+      height: 18px;
+      background-color: white;
+      border-radius: 10px 10px 2px 2px;
+      position: relative;
+    }
+    
+    .bell-clapper {
+      width: 4px;
+      height: 4px;
+      background-color: white;
+      border-radius: 50%;
+      margin-top: 2px;
+    }
+    
+    @keyframes pulse {
+      0% {
+        transform: scale(0);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1.5);
+        opacity: 0;
+      }
+    }
+    
+    .pulse-circle {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.2);
+      animation: pulse 2s infinite;
+    }
+    
+    /* Variante 4 Specific Styles - Mit Webinar Icon */
+    .popup-graphic-4 {
+      background: linear-gradient(135deg, var(--imt-purple), #9c27b0);
+    }
+
+    .voucher-badge-4 {
+      background-color: white;
+      color: var(--imt-purple);
+    }
+    
+    .webinar-icon {
+      position: absolute;
+      bottom: 20px;
+      right: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+    }
+    
+    .screen {
+      width: 40px;
+      height: 30px;
+      background-color: white;
+      border-radius: 4px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .screen::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 15px;
+      height: 10px;
+      background-color: white;
+      border-radius: 0 0 4px 4px;
+    }
+    
+    .screen-content {
+      width: 30px;
+      height: 20px;
+      background-color: var(--imt-purple);
+      border-radius: 2px;
+      position: relative;
+    }
+    
+    .screen-content::before, .screen-content::after {
+      content: '';
+      position: absolute;
+      height: 2px;
+      left: 5px;
+      right: 5px;
+      background-color: white;
+    }
+    
+    .screen-content::before {
+      top: 6px;
+    }
+    
+    .screen-content::after {
+      top: 12px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="container">
+      <div class="page-intro">
+        <h1>Newsletter Voucher Popup-Alternativen</h1>
+        <p>Verschiedene Designs für PopUps, die einen 20% Voucher bei Newsletter-Anmeldung anbieten.</p>
+      </div>
+
+      <div class="popup-variants">
+        <!-- Variante 1: Original -->
+        <div class="popup-variant">
+          <h2 class="variant-title">Variante 1: Original</h2>
+          <div class="popup-controls">
+            <button class="cta-button" onclick="showPopup('popup1')">Popup anzeigen</button>
+          </div>
+          
+          <div class="popup-overlay" id="popup1">
+            <div class="popup-base">
+              <button class="close-button" onclick="closePopup('popup1')">✕</button>
+              <div class="popup-graphic popup-graphic-1">
+                <div class="voucher-badge voucher-badge-1">20%</div>
+                <h3>VOUCHER</h3>
+                <p>Auf alle Programme</p>
+              </div>
+              <div class="popup-content">
+                <h2>Bleiben Sie auf dem Laufenden</h2>
+                <p>Erhalten Sie Zugang zu exklusiven kostenlosen Webinaren und 20% Rabatt auf alle Programme der StGallen imt Business School mit unserem Newsletter.</p>
+                
+                <form class="newsletter-form">
+                  <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Ihre E-Mail Adresse" required>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Ihr Name" required>
+                  </div>
+                  <div class="form-group">
+                    <button type="submit" class="cta-button">Jetzt Newsletter abonnieren</button>
+                  </div>
+                  <small>Sie können den Newsletter jederzeit wieder abbestellen. Indem Sie sich anmelden, stimmen Sie unseren <a href="#">Datenschutzbestimmungen</a> zu.</small>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Variante 2: Mit Envelope Icon -->
+        <div class="popup-variant">
+          <h2 class="variant-title">Variante 2: Mit E-Mail Icon</h2>
+          <div class="popup-controls">
+            <button class="cta-button" onclick="showPopup('popup2')">Popup anzeigen</button>
+          </div>
+          
+          <div class="popup-overlay" id="popup2">
+            <div class="popup-base">
+              <button class="close-button" onclick="closePopup('popup2')">✕</button>
+              <div class="popup-graphic popup-graphic-2">
+                <div class="voucher-badge voucher-badge-2">
+                  20%
+                  <div class="envelope-icon"></div>
+                </div>
+                <h3>NEWSLETTER</h3>
+                <p>Exklusive Inhalte</p>
+              </div>
+              <div class="popup-content">
+                <h2>Bleiben Sie auf dem Laufenden</h2>
+                <p>Erhalten Sie Zugang zu exklusiven kostenlosen Webinaren und 20% Rabatt auf alle Programme der StGallen imt Business School mit unserem Newsletter.</p>
+                
+                <form class="newsletter-form">
+                  <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Ihre E-Mail Adresse" required>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Ihr Name" required>
+                  </div>
+                  <div class="form-group">
+                    <button type="submit" class="cta-button">Jetzt Newsletter abonnieren</button>
+                  </div>
+                  <small>Sie können den Newsletter jederzeit wieder abbestellen. Indem Sie sich anmelden, stimmen Sie unseren <a href="#">Datenschutzbestimmungen</a> zu.</small>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Variante 3: Mit Pulsierendem Effekt und Bell Icon -->
+        <div class="popup-variant">
+          <h2 class="variant-title">Variante 3: Mit Benachrichtigungseffekt</h2>
+          <div class="popup-controls">
+            <button class="cta-button" onclick="showPopup('popup3')">Popup anzeigen</button>
+          </div>
+          
+          <div class="popup-overlay" id="popup3">
+            <div class="popup-base">
+              <button class="close-button" onclick="closePopup('popup3')">✕</button>
+              <div class="popup-graphic popup-graphic-3">
+                <div class="pulse-circle"></div>
+                <div class="bell-icon">
+                  <div class="bell-body"></div>
+                  <div class="bell-clapper"></div>
+                </div>
+                <div class="voucher-badge voucher-badge-3">20%</div>
+                <h3>UPDATES</h3>
+                <p>Bleiben Sie informiert</p>
+              </div>
+              <div class="popup-content">
+                <h2>Bleiben Sie auf dem Laufenden</h2>
+                <p>Erhalten Sie Zugang zu exklusiven kostenlosen Webinaren und 20% Rabatt auf alle Programme der StGallen imt Business School mit unserem Newsletter.</p>
+                
+                <form class="newsletter-form">
+                  <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Ihre E-Mail Adresse" required>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Ihr Name" required>
+                  </div>
+                  <div class="form-group">
+                    <button type="submit" class="cta-button">Jetzt Newsletter abonnieren</button>
+                  </div>
+                  <small>Sie können den Newsletter jederzeit wieder abbestellen. Indem Sie sich anmelden, stimmen Sie unseren <a href="#">Datenschutzbestimmungen</a> zu.</small>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Variante 4: Mit Webinar Icon -->
+        <div class="popup-variant">
+          <h2 class="variant-title">Variante 4: Mit Webinar Hinweis</h2>
+          <div class="popup-controls">
+            <button class="cta-button" onclick="showPopup('popup4')">Popup anzeigen</button>
+          </div>
+          
+          <div class="popup-overlay" id="popup4">
+            <div class="popup-base">
+              <button class="close-button" onclick="closePopup('popup4')">✕</button>
+              <div class="popup-graphic popup-graphic-4">
+                <div class="voucher-badge voucher-badge-4">20%</div>
+                <h3>WEBINARE</h3>
+                <p>Kostenlos für Sie</p>
+                <div class="webinar-icon">
+                  <div class="screen">
+                    <div class="screen-content"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="popup-content">
+                <h2>Bleiben Sie auf dem Laufenden</h2>
+                <p>Erhalten Sie Zugang zu exklusiven kostenlosen Webinaren und 20% Rabatt auf alle Programme der StGallen imt Business School mit unserem Newsletter.</p>
+                
+                <form class="newsletter-form">
+                  <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Ihre E-Mail Adresse" required>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Ihr Name" required>
+                  </div>
+                  <div class="form-group">
+                    <button type="submit" class="cta-button">Jetzt Newsletter abonnieren</button>
+                  </div>
+                  <small>Sie können den Newsletter jederzeit wieder abbestellen. Indem Sie sich anmelden, stimmen Sie unseren <a href="#">Datenschutzbestimmungen</a> zu.</small>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function showPopup(id) {
+      document.getElementById(id).classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function closePopup(id) {
+      document.getElementById(id).classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+    
+    // Schließen bei Klick außerhalb des Popups
+    document.querySelectorAll('.popup-overlay').forEach(overlay => {
+      overlay.addEventListener('click', function(e) {
+        if (e.target === this) {
+          this.classList.remove('active');
+          document.body.style.overflow = 'auto';
+        }
+      });
+    });
+    
+    // Verhindern des Formular-Submits
+    document.querySelectorAll('.newsletter-form').forEach(form => {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Vielen Dank für Ihre Anmeldung! Ihr Voucher-Code wird in Kürze an Ihre E-Mail-Adresse gesendet.');
+        this.closest('.popup-overlay').classList.remove('active');
+        document.body.style.overflow = 'auto';
+        this.reset();
+      });
+    });
+  </script>
+</body>
+</html> 
