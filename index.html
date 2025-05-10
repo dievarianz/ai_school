@@ -1705,9 +1705,17 @@
     /* ============ Gradientes Zitat-Layout ============ */
     .gradient-quotes {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+      grid-template-columns: repeat(2, 1fr); /* Changed to always show 2 columns */
+      grid-template-rows: auto auto; /* Two rows for 4 testimonials */
       gap: 30px;
       margin-bottom: 40px;
+    }
+    
+    @media (max-width: 968px) {
+      .gradient-quotes {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto; /* Four rows for mobile */
+      }
     }
     
     .gradient-quote-card {
@@ -3191,10 +3199,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           item.style.display = 'none';
         });
         
-        // Anzahl der anzuzeigenden Testimonials (2 in diesem Fall)
-        const numToShow = 2;
+        // Anzahl der anzuzeigenden Testimonials (4 statt 2)
+        const numToShow = 4;
         
-        // Die ersten 2 anzeigen
+        // Die ersten 4 anzeigen
         for (let i = 0; i < Math.min(numToShow, shuffledTestimonials.length); i++) {
           shuffledTestimonials[i].style.display = 'block';
         }
