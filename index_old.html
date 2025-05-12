@@ -3177,7 +3177,9 @@ function animateValue(element, start, end, duration) {
         if (!startTimestamp) startTimestamp = timestamp;
         const progress = Math.min((timestamp - startTimestamp) / duration, 1);
         const current = Math.floor(progress * (end - start) + start);
-        element.textContent = current + (element.dataset.suffix || '');
+        const prefix = element.dataset.prefix || '';
+        const suffix = element.dataset.suffix || '';
+        element.textContent = prefix + current + suffix;
         if (progress < 1) {
             window.requestAnimationFrame(step);
         }

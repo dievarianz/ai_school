@@ -2449,6 +2449,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
 
           <p style="color: var(--color-muted); font-size: 0.95rem; margin: 12px 0 18px 0; text-align: left;">Die folgenden Termine stehen alternativ zur Auswahl</p>
+          
+          <p style="color: var(--color-muted); font-size: 0.95rem; margin: 0 0 18px 0; text-align: left;">Termine für Unternehmen individuell planbar. <a href="#contact" style="color: var(--imt-purple); text-decoration: none;">Kontaktieren Sie uns</a></p>
 
           <div class="tab-content">
             <!-- Tab 2025 -->
@@ -2538,17 +2540,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <div class="stat-label">Jahre Berufserfahrung</div>
             </div>
 
-            <!-- Senior C-Level -->
+            <!-- Gehaltsteigerung (ersetzt Teilnehmer mit Senior C-Level) -->
             <div class="stat-card">
                 <div class="stat-icon">
                     <svg viewBox="0 0 24 24" class="color-trend">
-                        <rect x="3" y="8" width="18" height="12" rx="2"/>
-                        <path d="M8 8V6a2 2 0 012-2h4a2 2 0 012 2v2"/>
-                        <path d="M12 12v4"/>
+                        <path d="M12 2v20"/>
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                        <path d="M16 8l3-3 3 3"/>
                     </svg>
                 </div>
-                <div class="stat-value" data-target="40" data-suffix="%">0%</div>
-                <div class="stat-label">Teilnehmer mit Senior C-Level</div>
+                <div class="stat-value" data-target="35" data-prefix="⌀ " data-suffix="%">⌀ 0%</div>
+                <div class="stat-label">Gehaltsteigerung</div>
             </div>
 
             <!-- Durchschnittsalter -->
@@ -2563,17 +2565,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <div class="stat-label">Durchschnittsalter</div>
             </div>
 
-            <!-- Nationalitäten -->
+            <!-- KMU Anteil (ersetzt Nationalitäten) -->
             <div class="stat-card">
                 <div class="stat-icon">
                     <svg viewBox="0 0 24 24" class="color-cube">
-                        <circle cx="12" cy="12" r="10"/>
-                        <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
-                        <path d="M2 12h20"/>
+                        <path d="M3 21h18"></path>
+                        <path d="M5 21V7l8-4v18"></path>
+                        <path d="M19 21V11l-6-4"></path>
+                        <path d="M9 9v1"></path>
+                        <path d="M9 13v1"></path>
+                        <path d="M9 17v1"></path>
+                        <path d="M15 13v1"></path>
+                        <path d="M15 17v1"></path>
                     </svg>
                 </div>
-                <div class="stat-value" data-target="12">0</div>
-                <div class="stat-label">Nationalitäten</div>
+                <div class="stat-value" data-target="40" data-suffix="%">0%</div>
+                <div class="stat-label">KMU-Anteil</div>
             </div>
         </div>
       </div>
@@ -3465,7 +3472,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         if (!startTimestamp) startTimestamp = timestamp;
         const progress = Math.min((timestamp - startTimestamp) / duration, 1);
         const current = Math.floor(progress * (end - start) + start);
-        element.textContent = current + (element.dataset.suffix || '');
+        const prefix = element.dataset.prefix || '';
+        const suffix = element.dataset.suffix || '';
+        element.textContent = prefix + current + suffix;
         if (progress < 1) {
             window.requestAnimationFrame(step);
         }
