@@ -64,17 +64,17 @@
         <div class="only-mobile-lang-section">
           <div class="only-mobile-lang-title">Sprache</div>
           <div class="only-mobile-lang-options">
-            <a href="#" class="only-mobile-lang-option active" data-lang="de" onclick="return switchLanguage('de', event);">Deutsch</a>
-            <a href="#" class="only-mobile-lang-option" data-lang="en" onclick="return switchLanguage('en', event);">English</a>
+            <a href="#" class="only-mobile-lang-option active" data-lang="de" onclick="return switchLanguage('de', event);"><img src="assets/icons/de-flag-round.png" alt="Deutsch" class="lang-flag-mobile" /> Deutsch</a>
+            <a href="#" class="only-mobile-lang-option" data-lang="en" onclick="return switchLanguage('en', event);"><img src="assets/icons/en-flag-round.png" alt="English" class="lang-flag-mobile" /> English</a>
           </div>
         </div>
       </div>
       
       <div class="lang-select">
-        <a href="#" class="nav-link">DE <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="#" class="nav-link"><img src="assets/icons/de-flag-round.png" alt="Deutsch" class="lang-flag-nav" /> DE <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         <div class="program-dropdown lang-dropdown">
-          <a href="#" id="lang-de-link" class="program-option active" data-lang="de">Deutsch</a>
-          <a href="#" id="lang-en-link" class="program-option" data-lang="en">English</a>
+          <a href="#" id="lang-de-link" class="program-option active" data-lang="de"><img src="assets/icons/de-flag-round.png" alt="Deutsch" class="lang-flag" /> Deutsch</a>
+          <a href="#" id="lang-en-link" class="program-option" data-lang="en"><img src="assets/icons/en-flag-round.png" alt="English" class="lang-flag" /> English</a>
         </div>
       </div>
       
@@ -562,6 +562,68 @@
     overflow: hidden !important;
     position: absolute !important;
     pointer-events: none !important;
+  }
+
+  /* Language Flag Icons */
+  .lang-flag {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    margin-right: 8px;
+    vertical-align: middle;
+    object-fit: cover;
+    border: none;
+    display: inline-block;
+    background-size: contain;
+  }
+  
+  .lang-flag-mobile {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 6px;
+    vertical-align: middle;
+    object-fit: cover;
+    border: none;
+    display: inline-block;
+    background-size: contain;
+  }
+  
+  .lang-flag-nav {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    margin-right: 4px;
+    vertical-align: middle;
+    object-fit: cover;
+    border: none;
+    display: inline-block;
+    background-size: contain;
+  }
+  
+  /* Align flag with text in language dropdown */
+  .lang-dropdown .program-option {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Align flag with text in mobile language options */
+  .mobile-lang-option, .only-mobile-lang-option {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Align flag with language in top nav */
+  .nav-link img + svg,
+  .nav-link img {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  
+  /* Improve lang-select nav alignment */
+  .lang-select .nav-link {
+    display: flex;
+    align-items: center;
   }
 </style>
 <!-- JavaScript für aktive Programm-Optionen und Pfadkorrektur -->
