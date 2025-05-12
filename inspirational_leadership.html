@@ -1067,63 +1067,10 @@
     cursor: pointer;
     transition: all 0.2s ease;
     text-decoration: none;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
-
-  .cta-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(106, 69, 226, 0.2);
-    text-decoration: none;
-  }
-
-  .section-subtitle {
-    color: var(--color-muted);
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
-  }
-
-  /* Einheitlicher Pfeil-Stil für alle Buttons */
-  .arrow-icon {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    font-weight: 400;
-    font-size: 1.2rem;
-    margin-left: 8px;
-    display: inline-block;
-  }
-
-  @media (max-width: 968px) {
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-    }
-
-    .info-box {
-      width: 100% !important;
-      height: auto !important;
-      min-height: 140px !important;
-      aspect-ratio: 1 / 1 !important;  /* Makes boxes square */
-      padding: 20px !important;
-    }
-    
-    .info-box i.bx {
-      font-size: 32px !important;      /* Larger icons */
-      margin-bottom: 12px !important;
-    }
-    
-    .info-label {
-      font-size: 0.85rem !important;   /* Slightly larger label */
-    }
-    
-    .info-value {
-      font-size: 1.05rem !important;   /* Larger value text */
-    }
-
-    #hero .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
 
     #hero a[href="#broschuere"] {
       margin: 24px auto;
@@ -1601,7 +1548,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <!-- Button zwischen Überschrift und Info-Boxen -->
       <a href="#broschuere">
-        Jetzt Kostenlos Broschüre herunterladen <span class="arrow-icon">→</span>
+        Jetzt Broschüre herunterladen <span class="arrow-icon">→</span>
       </a>
 
       <div class="info-grid">
@@ -1809,14 +1756,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="program-info-box">
             <i class='bx bx-time program-info-icon'></i>
             <div class="program-info-label">Dauer</div>
-            <div class="program-info-value">3 Tage <br> Optional: Coaching</div>
+            <div class="program-info-value">3 Tage <br> optional mit ECTS</div>
           </div>
 
           <!-- Box 6: Sprache -->
           <div class="program-info-box">
             <i class='bx bx-globe program-info-icon'></i>
             <div class="program-info-label">Sprache</div>
-            <div class="program-info-value">Deutsch oder Englisch</div>
+            <div class="program-info-value">Deutsch / Englisch</div>
           </div>
 
         
@@ -1824,14 +1771,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="program-info-box">
             <i class='bx bx-group program-info-icon'></i>
             <div class="program-info-label">Zielgruppe</div>
-            <div class="program-info-value" style="font-size: 0.9rem;">Führungskräfte, Executives <br> Nachwuchskräfte</div>
+            <div class="program-info-value" style="font-size: 0.9rem;">Führungskräfte, Nachwuchsmanager, Unternehmer</div>
           </div>
 
           <!-- Box 3: Investition -->
           <div class="program-info-box">
             <i class='bx bx-money program-info-icon'></i>
             <div class="program-info-label">Investition</div>
-            <div class="program-info-value">CHF 2.400 zzgl. CH MwSt</div>
+            <div class="program-info-value">CHF 2'400 zzgl. 8,1 % MwSt.</div>
           </div>
 
           <!-- Box 9: Netzwerk -->
@@ -1844,7 +1791,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <!-- Starttermine - Tab Design -->
         <div class="dates-tabs">
-          <h3 class="dates-heading"><i class='bx bx-calendar-alt' style="margin-right: 8px;"></i>Verfügbare Starttermine</h3>
+          <h3 class="dates-heading"><i class='bx bx-calendar-alt' style="margin-right: 8px;"></i>Verfügbare Seminartermine</h3>
           <div class="tabs-nav">
             <button class="tab-button active" data-target="tab-2025">2025</button>
             <button class="tab-button" data-target="tab-2026">2026</button>
@@ -1925,7 +1872,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <section id="participants">
       <div class="container">
         <h2>Information über Teilnehmer</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Unser Managementseminar Inspirational Leadership bringt erfahrene Führungskräfte aus verschiedenen Branchen und Ländern zusammen.</p>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Unser Managementseminar Inspirational Leadership bringt ambitionierte Teilnehmer aus verschiedenen Branchen und Ländern zusammen.</p>
         <div class="stats-grid">
             <!-- Berufserfahrung -->
             <div class="stat-card">
@@ -2254,7 +2201,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- Broschüre Herunterladen Section -->
     <section id="broschuere">
       <div class="container">
-        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Kostenlos Broschüre herunterladen</h2>
+        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Broschüre herunterladen</h2>
         <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Laden Sie jetzt die ausführliche Programmbroschüre zum Managementseminar Inspirational Leadership herunter – mit allen Details zu Inhalten, Methoden und Ihrem Lernerfolg.</p>
         <div style="display: flex; gap: 32px; align-items: stretch; flex-wrap: wrap; margin-top: 32px;">
           
@@ -2364,7 +2311,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <!-- Submit Button -->
               <div style="text-align: center; width: 100%;">
                 <button type="submit" class="cta-button" style="margin: 0 auto;">
-                  Jetzt Kostenlos Broschüre herunterladen <span class="arrow-icon">→</span>
+                  Jetzt Broschüre herunterladen <span class="arrow-icon">→</span>
                 </button>
               </div>
 

@@ -1052,623 +1052,12 @@
     cursor: pointer;
     transition: all 0.2s ease;
     text-decoration: none;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .cta-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(106, 69, 226, 0.2);
-    text-decoration: none;
-  }
-
-  .section-subtitle {
-    color: var(--color-muted);
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
-  }
-
-  /* Einheitlicher Pfeil-Stil für alle Buttons */
-  .arrow-icon {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    font-weight: 400;
-    font-size: 1.2rem;
-    margin-left: 8px;
-    display: inline-block;
-  }
-
-  @media (max-width: 968px) {
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-    }
-
-    .info-box {
-      width: 100% !important;
-      height: auto !important;
-      min-height: 140px !important;
-      aspect-ratio: 1 / 1 !important;  /* Makes boxes square */
-      padding: 20px !important;
-    }
-    
-    .info-box i.bx {
-      font-size: 32px !important;      /* Larger icons */
-      margin-bottom: 12px !important;
-    }
-    
-    .info-label {
-      font-size: 0.85rem !important;   /* Slightly larger label */
-    }
-    
-    .info-value {
-      font-size: 1.05rem !important;   /* Larger value text */
-    }
-
-    #hero .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    #hero a[href="#broschuere"] {
-      margin: 24px auto;
-    }
-  }
-
-  /* Remove the separate breakpoint for 480px and apply the same styling across all responsive views */
-  @media (max-width: 480px) {
-    .info-grid {
-      gap: 12px;
-    }
-  }
-
-  /* Programm Informationen Styles */
-  .program-info-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-    margin-bottom: 40px;
-  }
-  
-  .program-info-box {
-    background-color: white;
-    border-radius: var(--radius);
-    border: 2px solid transparent;
-    text-align: center;
-    padding: 24px 20px;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.07), 0 1px 3px rgba(0,0,0,0.06);
-  }
-  
-  .program-info-box:hover {
-    border-color: var(--imt-purple);
-  }
-  
-  .program-info-icon {
-    color: var(--imt-purple);
-    font-size: 28px;
-    margin-bottom: 15px;
-  }
-  
-  .program-info-label {
-    text-transform: uppercase;
-    color: var(--color-muted);
-    font-size: 0.8rem;
-    margin-bottom: 8px;
-  }
-  
-  .program-info-value {
-    font-weight: 600;
-    color: var(--color-text);
-  }
-
-  /* Tabs Design für Starttermine */
-  .dates-tabs {
-    margin-top: 40px;
-    margin-bottom: 0; /* Reduziert von 60px auf 0 */
-  }
-
-  .tabs-nav {
-    display: flex;
-    border-bottom: 2px solid #e5e5e7;
-    margin-bottom: 20px;
-  }
-
-  .tab-button {
-    padding: 12px 24px;
-    background: none;
-    border: none;
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--color-muted);
-    cursor: pointer;
-    position: relative;
-    transition: color 0.3s ease;
-  }
-
-  .tab-button.active {
-    color: var(--imt-purple);
-  }
-
-  .tab-button.active::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background-color: var(--imt-purple);
-  }
-
-  .tab-content {
-    padding: 20px 0;
-  }
-
-  .tab-pane {
-    display: none;
-  }
-
-  .tab-pane.active {
-    display: block;
-  }
-
-  .date-module {
-    margin-bottom: 24px;
-  }
-
-  .date-module h4 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 12px;
-    color: var(--imt-purple);
-  }
-
-  .date-table {
-    width: 100%;
-    border-collapse: collapse;
-    table-layout: fixed;
-  }
-
-  .date-table th, .date-table td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #e5e5e7;
-    width: 50%;
-  }
-
-  .date-table th {
-    font-weight: 600;
-    color: var(--color-muted);
-  }
-  
-  .dates-heading {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--color-text);
-    margin-bottom: 16px;
-    padding-bottom: 8px;
-    border-bottom: 2px solid var(--imt-purple);
-  }
-
-  #hero::before {
-  }
-
-  /* Date List Styles */
-  .date-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .date-list-item {
-    border-bottom: 1px solid #eee;
-    padding: 15px 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .date-list-item:last-child {
-    border-bottom: none;
-  }
-  
-  .date-list-info {
-    display: flex;
-    align-items: center;
-    flex: 1;
-  }
-  
-  /* Verbesserte Ausrichtung für Desktop-Ansicht */
-  .date-info-content {
-    display: flex;
-    align-items: center;
-    flex: 1;
-  }
-  
-  .date-text {
-    width: 180px;
-    padding-right: 10px;
-  }
-  
-  .date-location {
-    width: 120px;
-    color: var(--color-muted);
-    font-size: 0.9rem;
-    margin-left: 10px;
-  }
-  
-  .date-icon {
-    margin-right: 15px;
-    margin-bottom: 0;
-    font-size: 2rem;
-    color: var(--imt-purple);
-  }
-  
-  /* Mobile Styles für Date List */
-  @media (max-width: 968px) {
-    .date-list-item {
-      flex-direction: column;
-      padding: 20px 0;
-      border-bottom: 1px solid #eee;
-    }
-    
-    .date-list-info {
-      flex-direction: row;
-      align-items: flex-start;
-      margin-bottom: 15px;
-      width: 100%;
-    }
-    
-    .date-list-info i.date-icon {
-      margin-right: 15px;
-      margin-bottom: 0;
-      font-size: 2rem;
-      color: var(--imt-purple);
-    }
-    
-    .date-info-content {
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-      align-items: flex-start;
-    }
-    
-    .date-text {
-      width: auto;
-      font-size: 1.3rem;
-      font-weight: 600;
-      margin-bottom: 6px;
-      line-height: 1.3;
-      padding-right: 0;
-    }
-    
-    .date-location {
-      width: auto;
-      margin-left: 0;
-      margin-bottom: 8px;
-      font-size: 1rem;
-    }
-  }
-
-  /* Tag Teaser Style */
-  .teaser-tag {
-    display: inline-flex;
-    align-items: center;
-    border: 1px solid white;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.3);
-    padding: 4px 10px;
-    border-radius: 4px;
-    font-size: 0.75rem;
-    font-weight: 500;
-    margin-bottom: 15px;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4); /* Reduzierter Textschatten */
-  }
-
-  /* ============ Gradientes Zitat-Layout ============ */
-  .gradient-quotes {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
-    gap: 30px;
-    margin-bottom: 40px;
-  }
-  
-  .gradient-quote-card {
-    border-radius: var(--radius);
-    overflow: hidden;
-    position: relative;
-    border: 2px solid transparent;
-    transition: all 0.3s ease;
-  }
-  
-  .gradient-quote-card:hover {
-    border-color: var(--imt-purple);
-  }
-  
-  .gradient-quote-inner {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    background: linear-gradient(to bottom right, #ffffff, #f8f9fa);
-    position: relative;
-    z-index: 1;
-  }
-  
-  .gradient-quote-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, var(--imt-purple) 0%, var(--imt-green) 100%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 0;
-  }
-  
-  .gradient-quote-card:hover::before {
-    opacity: 0.03;
-  }
-  
-  .gradient-quote-content {
-    padding: 40px 30px 25px;
-    position: relative;
-    flex: 1;
-  }
-  
-  .gradient-quote-icon {
-    position: absolute;
-    top: -15px;
-    right: 25px;
-    font-size: 4rem;
-    color: var(--imt-purple);
-    opacity: 0.1;
-    transition: transform 0.3s ease;
-  }
-  
-  .gradient-quote-card:hover .gradient-quote-icon {
-    transform: rotate(10deg);
-  }
-  
-  .gradient-quote-text {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    color: var(--color-text);
-    font-weight: 400;
-    position: relative;
-    z-index: 1;
-  }
-  
-  .gradient-quote-footer {
-    background-color: #fafafa;
-    padding: 20px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid #f0f0f0;
-  }
-  
-  .gradient-person {
-    display: flex;
-    align-items: center;
-  }
-  
-  .gradient-avatar-container {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-right: 15px;
-    border: 3px solid white;
-    transition: all 0.3s ease;
-  }
-  
-  .gradient-quote-card:hover .gradient-avatar-container {
-    border-color: #f5f5f7;
-  }
-  
-  .gradient-avatar {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .gradient-info {
-    display: flex;
-    flex-direction: column;
-    margin-top: 6px; /* Verschiebt den Text nach unten für vertikale Zentrierung */
-  }
-  
-  .gradient-name {
-    font-weight: 600;
-    font-size: 1rem;
-    margin-bottom: 2px;
-  }
-  
-  .gradient-position {
-    font-size: 0.85rem;
-    color: var(--color-muted);
-    display: inline-block;
-  }
-  
-  .gradient-program {
-    font-size: 0.8rem;
-    color: var(--imt-purple);
-    margin-top: 2px;
-  }
-  
-  .gradient-company {
-    height: 40px;
-    width: auto;
-    opacity: 0.7;
-    transition: opacity 0.3s ease;
-  }
-  
-  .gradient-quote-card:hover .gradient-company {
-    opacity: 1;
-  }
-  
-  @media (max-width: 968px) {
-    .gradient-quotes {
-      grid-template-columns: 1fr;
-    }
-  }
-
-          @media (max-width: 768px) {
-            .gradient-quotes {
-              grid-template-columns: 1fr;
-            }
-            .gradient-quote-footer {
-              flex-direction: row !important;
-              justify-content: space-between !important;
-              align-items: center !important;
-              padding: 15px 20px;
-            }
-            
-            .gradient-person {
-              margin-bottom: 0 !important;
-              width: auto !important;
-            }
-            
-            .gradient-info {
-              flex: 1;
-            }
-            
-            .gradient-company {
-              height: 35px;
-            }
-          }
-
-  /* =========================
-     NEWSLETTER POPUP STYLES
-     ========================= */
-  .popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.6);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-  }
-
-  .popup-overlay.active {
-    opacity: 1;
-    pointer-events: all;
-  }
-
-  .popup-base {
-    position: relative;
-    background-color: white;
-    border-radius: var(--radius);
-    overflow: hidden;
-    width: 90%;
-    max-width: 600px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-    display: flex;
-  }
-
-  .popup-graphic {
-    padding: 40px 20px;
-    width: 40%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: white;
-  }
-
-  .popup-graphic-1 {
-    background: linear-gradient(135deg, var(--imt-purple), #9c27b0);
-  }
-
-  .voucher-badge {
-    font-size: 2.2rem;
-    font-weight: 700;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-
-  .voucher-badge-1 {
-    background-color: white;
-    color: var(--imt-purple);
-  }
-
-  .popup-content {
-    padding: 40px 30px;
-    width: 60%;
-  }
-
-  .close-button {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: #f5f5f7;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-
-  .close-button:hover {
-    background-color: #e5e5e5;
-  }
-
-  .newsletter-form .form-group {
-    margin-bottom: 20px;
-  }
-
-  .newsletter-form .form-control {
-    width: 100%;
-    padding: 12px 16px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 16px;
-    transition: all 0.2s ease;
-    background-color: #fff;
-  }
-
-  .newsletter-form .form-control:focus {
-    border-color: var(--imt-purple);
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(110, 69, 226, 0.1);
-  }
-
-  .newsletter-form .cta-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(to right, var(--imt-purple), #9c27b0);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    padding: 12px 24px;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    text-decoration: none;
-    width: 100%;
-  }
-
-  .newsletter-form .cta-button:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(106, 69, 226, 0.2);
     text-decoration: none;
@@ -1735,7 +1124,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <!-- Button zwischen Überschrift und Info-Boxen -->
       <a href="#broschuere">
-        Jetzt Kostenlos Broschüre herunterladen <span class="arrow-icon">→</span>
+        Jetzt Broschüre herunterladen <span class="arrow-icon">→</span>
       </a>
 
       <div class="info-grid">
@@ -1943,14 +1332,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="program-info-box">
             <i class='bx bx-time program-info-icon'></i>
             <div class="program-info-label">Dauer</div>
-            <div class="program-info-value">3 Tage <br> Optional: Coaching</div>
+            <div class="program-info-value">3 Tage <br> optional mit ECTS</div>
           </div>
 
           <!-- Box 6: Sprache -->
           <div class="program-info-box">
             <i class='bx bx-globe program-info-icon'></i>
             <div class="program-info-label">Sprache</div>
-            <div class="program-info-value">Deutsch oder Englisch</div>
+            <div class="program-info-value">Deutsch / Englisch</div>
           </div>
 
 
@@ -1958,14 +1347,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="program-info-box">
             <i class='bx bx-group program-info-icon'></i>
             <div class="program-info-label">Zielgruppe</div>
-            <div class="program-info-value" style="font-size: 0.9rem;">Führungskräfte, Executives <br> Nachwuchskräfte</div>
+            <div class="program-info-value" style="font-size: 0.9rem;">Führungskräfte, Nachwuchsmanager, Unternehmer</div>
           </div>
 
           <!-- Box 3: Investition -->
           <div class="program-info-box">
             <i class='bx bx-money program-info-icon'></i>
             <div class="program-info-label">Investition</div>
-            <div class="program-info-value">CHF 2.400 zzgl. CH MwSt</div>
+            <div class="program-info-value">CHF 2'400 zzgl. 8,1 % MwSt.</div>
           </div>
 
           <!-- Box 9: Netzwerk -->
@@ -1978,7 +1367,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <!-- Starttermine - Tab Design -->
         <div class="dates-tabs">
-          <h3 class="dates-heading"><i class='bx bx-calendar-alt' style="margin-right: 8px;"></i>Verfügbare Starttermine</h3>
+          <h3 class="dates-heading"><i class='bx bx-calendar-alt' style="margin-right: 8px;"></i>Verfügbare Seminartermine</h3>
           <div class="tabs-nav">
             <button class="tab-button active" data-target="tab-2025">2025</button>
             <button class="tab-button" data-target="tab-2026">2026</button>
@@ -2059,7 +1448,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <section id="participants">
       <div class="container">
         <h2>Information über Teilnehmer</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Unser Managementseminar Marketing, Sales and Brand Communication bringt erfahrene Führungskräfte aus verschiedenen Branchen und Ländern zusammen.</p>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Unser Managementseminar Marketing, Sales and Brand Communication bringt ambitionierte Teilnehmer aus verschiedenen Branchen und Ländern zusammen.</p>
         <div class="stats-grid">
             <!-- Berufserfahrung -->
             <div class="stat-card">
@@ -2255,7 +1644,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- Broschüre Herunterladen Section -->
     <section id="broschuere">
       <div class="container">
-        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Kostenlos Broschüre herunterladen</h2>
+        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Broschüre herunterladen</h2>
         <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Laden Sie jetzt die ausführliche Programmbroschüre zum Managementseminar Marketing, Sales and Brand Communication herunter – mit allen Details zu Inhalten, Methoden und Ihrem Lernerfolg.</p>
         <div style="display: flex; gap: 32px; align-items: stretch; flex-wrap: wrap; margin-top: 32px;">
           
@@ -2365,7 +1754,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <!-- Submit Button -->
               <div style="text-align: center; width: 100%;">
                 <button type="submit" class="cta-button" style="margin: 0 auto;">
-                  Jetzt Kostenlos Broschüre herunterladen <span class="arrow-icon">→</span>
+                  Jetzt Broschüre herunterladen <span class="arrow-icon">→</span>
                 </button>
               </div>
 

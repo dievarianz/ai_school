@@ -1264,7 +1264,9 @@
     cursor: pointer;
     transition: all 0.2s ease;
     text-decoration: none;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .cta-button:hover {
@@ -1279,13 +1281,14 @@
     margin-bottom: 1.5rem;
   }
 
-  /* Einheitlicher Pfeil-Stil für alle Buttons */
+  /* Unified arrow style for all buttons */
   .arrow-icon {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-weight: 400;
     font-size: 1.2rem;
     margin-left: 8px;
     display: inline-block;
+    vertical-align: middle;
   }
 
   @media (max-width: 968px) {

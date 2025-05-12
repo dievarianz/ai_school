@@ -221,7 +221,9 @@
   }
 
   .availability-badge span {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     line-height: 1.4;
     position: relative;
     z-index: 1;
@@ -332,7 +334,9 @@
 
   #hero a[href="#broschuere"] span {
     margin-left: 8px;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     transition: transform 0.2s ease;
   }
 
@@ -367,7 +371,9 @@
 
   #hero a[href="#broschuere"] span, .cta-button span {
     margin-left: 8px;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     transition: transform 0.2s ease;
   }
 
@@ -542,7 +548,9 @@
     height: 8px;
     border: solid #fff;
     border-width: 0 2px 2px 0;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     transition: opacity 0.2s ease;
   }
 
@@ -1120,7 +1128,9 @@
     cursor: pointer;
     transition: all 0.2s ease;
     text-decoration: none;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .cta-button:hover {
@@ -1141,7 +1151,10 @@
     font-weight: 400;
     font-size: 1.2rem;
     margin-left: 8px;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
   }
 
   @media (max-width: 968px) {
@@ -1705,7 +1718,9 @@
   .gradient-position {
     font-size: 0.85rem;
     color: var(--color-muted);
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
   
   .gradient-program {
@@ -1947,7 +1962,7 @@
 
       <!-- Button zwischen Überschrift und Info-Boxen -->
       <a href="#broschuere">
-        Jetzt Kostenlos Broschüre herunterladen <span class="arrow-icon">→</span>
+        Jetzt Broschüre herunterladen <span class="arrow-icon">→</span>
       </a>
 
       <div class="info-grid">
@@ -2114,14 +2129,14 @@
         <div class="program-info-box">
           <i class='bx bx-group program-info-icon'></i>
           <div class="program-info-label">Zielgruppe</div>
-          <div class="program-info-value" style="font-size: 0.9rem;">Führungskräfte, Executives, ManagerInnen, Nachwuchskräfte</div>
+          <div class="program-info-value" style="font-size: 0.9rem;">Führungskräfte, Nachwuchsmanager, Unternehmer</div>
         </div>
 
         <!-- Box 3: Investition -->
         <div class="program-info-box">
            <i class='bx bx-money program-info-icon'></i>
           <div class="program-info-label">Investition</div>
-          <div class="program-info-value">12.400 CHF <br>zzgl. CH MwSt</div>
+          <div class="program-info-value">CHF 12'400 zzgl. 8,1 % MwSt.</div>
          </div>
 
         <!-- Box 9: Netzwerk -->
@@ -2135,7 +2150,7 @@
       
       <!-- Starttermine - Tab Design -->
       <div class="dates-tabs">
-        <h3 class="dates-heading"><i class='bx bx-calendar-alt' style="margin-right: 8px;"></i>Verfügbare Starttermine</h3>
+        <h3 class="dates-heading"><i class='bx bx-calendar-alt' style="margin-right: 8px;"></i>Verfügbare Seminartermine</h3>
         <div class="tabs-nav">
           <button class="tab-button active" data-target="tab-2025">2025</button>
           <button class="tab-button" data-target="tab-2026">2026</button>
@@ -2314,7 +2329,7 @@
   <section id="participants" style="padding: 60px 0;">
     <div class="container">
       <h2>Information über Teilnehmer</h2>
-      <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Unser Programm StGallen Certified Management Programm CAS bringt erfahrene Führungskräfte aus verschiedenen Branchen und Ländern zusammen.</p>
+      <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Unser Programm StGallen Certified Management Programm CAS bringt ambitionierte Teilnehmer aus verschiedenen Branchen und Ländern zusammen.</p>
       <div class="stats-grid">
           <!-- Berufserfahrung -->
           <div class="stat-card">
@@ -2633,7 +2648,7 @@
   <!-- Broschüre Herunterladen Section -->
   <section id="broschuere" style="padding: 60px 0;">
     <div class="container">
-      <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Kostenlos Broschüre herunterladen</h2>
+      <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Broschüre herunterladen</h2>
       <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Laden Sie jetzt die ausführliche Programmbroschüre zum StGallen Certified Management Programm CAS herunter – mit allen Details zu Inhalten, Methoden und Ihrem Lernerfolg.</p>
       <div style="display: flex; gap: 32px; align-items: stretch; flex-wrap: wrap; margin-top: 32px;">
         
@@ -2743,7 +2758,7 @@
             <!-- Submit Button -->
             <div style="text-align: center; width: 100%;">
               <button type="submit" class="cta-button" style="margin: 0 auto;">
-                Jetzt Kostenlos Broschüre herunterladen <span class="arrow-icon">→</span>
+                Jetzt Broschüre herunterladen <span class="arrow-icon">→</span>
               </button>
             </div>
 
