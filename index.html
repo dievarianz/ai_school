@@ -1982,7 +1982,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <span>3 Tage, optional: Coaching</span>
                   </div>
                 </div>
-                <p class="track-description">Entwickeln Sie ein ganzheitliches Verständnis für Management und Strategieentwicklung in der digitalisierten Geschäftswelt.</p>
+                <p class="track-description">Lernen Sie, integriertes Management wirksam einzusetzen – für strategische Ausrichtung, erfolgreiche Transformation und den nachhaltigen Einsatz von KI..</p>
                 <a href="integrated_management_strategy.html" class="track-link" style="position: relative; z-index: 2;">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
               </div>
             </div>
@@ -2005,7 +2005,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <span>3 Tage, optional: Coaching</span>
                   </div>
                 </div>
-                <p class="track-description">Vertiefen Sie Ihre Kenntnisse im Finanzmanagement und lernen Sie moderne Techniken zur Finanzplanung und -kontrolle.</p>
+                <p class="track-description">Entwickeln Sie finanzielle Entscheidungskompetenz, um strategisches Wachstum gezielt zu steuern.</p>
                 <a href="financial_management.html" class="track-link" style="position: relative; z-index: 2;">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
               </div>
             </div>
@@ -2028,7 +2028,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <span>3 Tage, optional: Coaching</span>
                   </div>
                 </div>
-                <p class="track-description">Entwickeln Sie Ihre Führungskompetenzen und lernen Sie, wie Sie Teams inspirieren und zu Höchstleistungen motivieren können.</p>
+                <p class="track-description">Entwickeln Sie Ihre Führungspersönlichkeit für klare, empathische und strategische Führung in Zeiten digitaler und KI-getriebener Veränderung.</p>
                 <a href="inspirational_leadership.html" class="track-link" style="position: relative; z-index: 2;">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
               </div>
             </div>
@@ -2051,7 +2051,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <span>3 Tage, optional: Coaching</span>
                   </div>
                 </div>
-                <p class="track-description">Optimieren Sie Ihre Marketing- und Kommunikationsstrategien und erfahren Sie, wie Sie Ihre Marke erfolgreich positionieren.</p>
+                <p class="track-description">Lernen Sie, wie Sie Marketing und Vertrieb mit Strategie und KI wirkungsvoll für nachhaltigen Markterfolg einsetzen.</p>
                 <a href="marketing_sales_brand_communication.html" class="track-link" style="position: relative; z-index: 2;">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
               </div>
             </div>
@@ -2807,37 +2807,48 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         // Event-Listener für Scroll-Ereignisse
         scrollContainer.addEventListener('scroll', updateScrollButtons);
         
-        // Funktion zum Einrichten der Scroll-Button-Handler
-        function setupScrollButtons() {
-          // Alle vorherigen Event-Listener entfernen
-          const newLeftBtn = scrollLeftBtn.cloneNode(true);
-          const newRightBtn = scrollRightBtn.cloneNode(true);
+        // Finde alle sichtbaren Karten und scrolle zur nächsten/vorherigen
+        const scrollToNextVisibleCard = (direction) => {
+          // Alle nicht-versteckten Karten finden
+          const visibleCards = Array.from(
+            scrollContainer.querySelectorAll('.track-card:not(.hidden)')
+          );
           
-          scrollLeftBtn.parentNode.replaceChild(newLeftBtn, scrollLeftBtn);
-          scrollRightBtn.parentNode.replaceChild(newRightBtn, scrollRightBtn);
+          if (visibleCards.length === 0) return;
           
-          // Aktualisierte Referenzen
-          scrollLeftBtn = newLeftBtn;
-          scrollRightBtn = newRightBtn;
+          // Aktuell sichtbare Karten bestimmen (im Viewport)
+          const containerRect = scrollContainer.getBoundingClientRect();
+          const cardWidth = visibleCards[0].offsetWidth + 16; // Card + margin
           
-          // Neue Event-Listener hinzufügen
-          scrollLeftBtn.addEventListener('click', function() {
-            scrollContainer.scrollBy({
-              left: -calculateScrollAmount(),
-              behavior: 'smooth'
-            });
+          // Bestimme die aktuelle Position im Scrollbereich
+          const currentScrollLeft = scrollContainer.scrollLeft;
+          
+          // Neue Scroll-Position berechnen
+          let newScrollLeft;
+          
+          if (direction === 'next') {
+            // Auf Desktop immer nur eine Karte weiter
+            newScrollLeft = currentScrollLeft + cardWidth;
+          } else {
+            // Auf Desktop immer nur eine Karte zurück
+            newScrollLeft = currentScrollLeft - cardWidth;
+          }
+          
+          // Scroll ausführen
+          scrollContainer.scrollTo({
+            left: newScrollLeft,
+            behavior: 'smooth'
           });
-          
-          scrollRightBtn.addEventListener('click', function() {
-            scrollContainer.scrollBy({
-              left: calculateScrollAmount(),
-              behavior: 'smooth'
-            });
-          });
-        }
+        };
         
-        // Initial die Scroll-Buttons einrichten
-        setupScrollButtons();
+        // Event-Listener für die Scroll-Buttons
+        scrollLeftBtn.addEventListener('click', function() {
+          scrollToNextVisibleCard('prev');
+        });
+        
+        scrollRightBtn.addEventListener('click', function() {
+          scrollToNextVisibleCard('next');
+        });
         
         // Auch beim Resize-Event die Scroll-Distanz anpassen
         window.addEventListener('resize', updateScrollButtons);
@@ -2876,20 +2887,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             // Scroll-Button-Status aktualisieren
             updateScrollButtons();
-            
-            // Scroll-Verhalten an die gefilterten Karten anpassen
-            // Kleine Verzögerung, um sicherzustellen, dass das DOM aktualisiert ist
-            setTimeout(() => {
-              // Scroll-Button-Status erneut aktualisieren
-              updateScrollButtons();
-              
-              // Test-Scroll durchführen, um das Scroll-Verhalten zu aktualisieren
-              const amount = calculateScrollAmount();
-              console.log(`Filter "${filterValue}" angewendet: Scroll-Betrag: ${amount}px`);
-              
-              // Scroll-Buttons neu initialisieren
-              setupScrollButtons();
-            }, 100);
           });
         });
       }

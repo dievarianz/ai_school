@@ -2428,7 +2428,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <section id="contact" style="padding: 60px 0;">
       <div class="container">
         <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Contact</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Your personal contact for all questions about the StGallen imt Management Program – benefit from her extensive expertise in digital transformation.</p>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Your personal contact for all questions about the StGallen imt Management Program.</p>
         
         <div class="contact-info">
           <img alt="Monika Dutkiewicz" src="assets/Dutkiewicz.jpg"/>
@@ -2634,12 +2634,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     .catch(error => console.error('Error loading navigation:', error));
   
   // Sidebar laden
-  fetch('components/globals/sidebar.html?t=' + new Date().getTime())
+  fetch('components/globals/sidebar_en.html?t=' + new Date().getTime())
     .then(response => {
       if (!response.ok) {
         console.error('Fehler beim Laden der Sidebar:', response.status);
         // Fallback zum globals-Verzeichnis versuchen
-        return fetch('components/includes/sidebar.html?t=' + new Date().getTime())
+        return fetch('components/includes/sidebar_en.html?t=' + new Date().getTime())
           .then(resp => {
             if (!resp.ok) {
               console.error('Auch globals-Pfad fehlgeschlagen:', resp.status);
@@ -2657,12 +2657,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     .catch(error => console.error('Fehler beim Laden der Sidebar:', error));
   
   // Footer laden
-  fetch('components/globals/footer.html?t=' + new Date().getTime())
+  fetch('components/globals/footer_en.html?t=' + new Date().getTime())
     .then(response => {
       if (!response.ok) {
         console.error('Fehler beim Laden des Footers:', response.status);
         // Fallback zum globals-Verzeichnis versuchen
-        return fetch('components/includes/footer.html?t=' + new Date().getTime())
+        return fetch('components/includes/footer_en.html?t=' + new Date().getTime())
           .then(resp => {
             if (!resp.ok) {
               console.error('Auch globals-Pfad fehlgeschlagen:', resp.status);

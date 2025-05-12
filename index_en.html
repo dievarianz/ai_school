@@ -2790,14 +2790,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       if (scrollContainer && scrollLeftBtn && scrollRightBtn) {
         // Dynamische Berechnung der Scroll-Menge basierend auf der Viewport-Breite
         const calculateScrollAmount = () => {
-          // Auf mobilen Geräten präziser scrollen
-          if (window.innerWidth <= 768) {
-            // Mobile: Eine Card pro Scroll
-            return scrollContainer.querySelector('.track-card').offsetWidth + 16;
-          } else {
-            // Desktop: Zwei Cards pro Scroll
-            return (scrollContainer.querySelector('.track-card').offsetWidth + 16) * 2;
+          // Prüfen, welcher Filter aktiv ist
+          const activeFilter = document.querySelector('.tracks-variant-3 .filter-btn.active');
+          const isFilterProgramme = activeFilter && activeFilter.getAttribute('data-filter') === 'programme';
+          const cardWidth = scrollContainer.querySelector('.track-card').offsetWidth + 16;
+          
+          // Bei Programmen komplette Ansicht verschieben
+          if (isFilterProgramme) {
+            // Bei Programmen immer genau eine Card schieben
+            return cardWidth;
           }
+          
+          // Standard-Scrolling für andere Filter - ebenfalls immer nur eine Karte
+          return cardWidth;
         };
         
         // Überprüfung, ob die Scroll-Buttons aktiviert oder deaktiviert sein sollten
@@ -2823,18 +2828,47 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         // Event-Listener für Scroll-Ereignisse
         scrollContainer.addEventListener('scroll', updateScrollButtons);
         
-        scrollLeftBtn.addEventListener('click', function() {
-          scrollContainer.scrollBy({
-            left: -calculateScrollAmount(),
+        // Finde alle sichtbaren Karten und scrolle zur nächsten/vorherigen
+        const scrollToNextVisibleCard = (direction) => {
+          // Alle nicht-versteckten Karten finden
+          const visibleCards = Array.from(
+            scrollContainer.querySelectorAll('.track-card:not(.hidden)')
+          );
+          
+          if (visibleCards.length === 0) return;
+          
+          // Aktuell sichtbare Karten bestimmen (im Viewport)
+          const containerRect = scrollContainer.getBoundingClientRect();
+          const cardWidth = visibleCards[0].offsetWidth + 16; // Card + margin
+          
+          // Bestimme die aktuelle Position im Scrollbereich
+          const currentScrollLeft = scrollContainer.scrollLeft;
+          
+          // Neue Scroll-Position berechnen
+          let newScrollLeft;
+          
+          if (direction === 'next') {
+            // Auf Desktop immer nur eine Karte weiter
+            newScrollLeft = currentScrollLeft + cardWidth;
+          } else {
+            // Auf Desktop immer nur eine Karte zurück
+            newScrollLeft = currentScrollLeft - cardWidth;
+          }
+          
+          // Scroll ausführen
+          scrollContainer.scrollTo({
+            left: newScrollLeft,
             behavior: 'smooth'
           });
+        };
+        
+        // Event-Listener für die Scroll-Buttons aktualisieren
+        scrollLeftBtn.addEventListener('click', function() {
+          scrollToNextVisibleCard('prev');
         });
         
         scrollRightBtn.addEventListener('click', function() {
-          scrollContainer.scrollBy({
-            left: calculateScrollAmount(),
-            behavior: 'smooth'
-          });
+          scrollToNextVisibleCard('next');
         });
         
         // Auch beim Resize-Event die Scroll-Distanz anpassen
