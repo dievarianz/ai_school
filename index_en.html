@@ -477,7 +477,6 @@
     .hero-eyebrow {
       color: var(--imt-purple);
       font-weight: 600;
-      text-transform: uppercase;
       letter-spacing: 1px;
       margin-bottom: 1.5rem;
       display: inline-block;
@@ -672,25 +671,49 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 40px;
       flex-wrap: wrap;
+      max-width: 700px;
+      margin: 0 auto;
     }
 
+    /* Adjust logo size in hero section */
     .hero-brands img {
-      height: 30px;
-      opacity: 0.5;
-      transition: opacity 0.3s;
+      height: 30px;  /* Increased logo height */
+      max-width: 120px;  /* Increased maximum width */
+      width: auto;
+      opacity: 0.75;  /* Slightly increased opacity */
+      margin: 10px 20px;  /* More spacing between logos */
+      object-fit: contain;
+      vertical-align: middle;
     }
-
-    .hero-brands img:hover {
-      opacity: 0.8;
+    
+    /* Special handling for known large logos */
+    .hero-brands img[src*="jnj.png"],
+    .hero-brands img[src*="bayer.png"],
+    .hero-brands img[src*="unilever.png"] {
+      height: 28px;  /* Still slightly smaller for these logos */
+      max-width: 100px;
     }
 
     .hero-brands-text {
       text-align: center;
       font-size: 0.9rem;
       color: var(--color-muted);
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Responsive adjustments for logos */
+    @media (max-width: 767px) {
+      .hero-brands img {
+        height: 25px;
+        margin: 8px 15px;
+      }
+      
+      .hero-brands img[src*="jnj.png"],
+      .hero-brands img[src*="bayer.png"],
+      .hero-brands img[src*="unilever.png"] {
+        height: 22px;
+      }
     }
 
     /* Animated Swiss Flag */
@@ -1946,15 +1969,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <span class="hero-eyebrow">
             StGallen imt Business School
           </span>
-          <h1 class="hero-title">Excellence in Management and Technology</h1>
-          <p class="hero-subtitle">Forward-thinking education at the intersection of management and technology for tomorrow's leaders.</p>
+          <h1 class="hero-title">Executive Education for Excellence in Management and Technology</h1>
+          <p class="hero-subtitle">Advance your career in the St. Gallen Management Valley – with rigorous executive education in management and technology..</p>
           
           <div class="hero-actions">
             <div class="program-selector">
               <div class="tooltip-container">
-                <div class="error-tooltip">Please select a program</div>
+                <div class="error-tooltip">Please select an Executive Education Program</div>
                 <div class="custom-select">
-                  <div class="select-selected">Choose your program</div>
+                  <div class="select-selected">Explore our Executive Education Programs</div>
                   <div class="select-items select-hide">
                     <div class="select-category">Management Seminars</div>
                     <div class="select-item" data-value="integrated_management_strategy_en.html">Integrated Management and Strategy</div>
@@ -1974,16 +1997,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               </div>
             </div>
             <a href="#" class="hero-btn hero-btn-primary" id="program-link">
-              Explore program <span class="arrow-icon">→</span>
+              Learn more <span class="arrow-icon">→</span>
             </a>
           </div>
           
           <p class="hero-brands-text">Trusted by</p>
-          <div class="hero-brands">
-            <img src="assets/companies/google.png" alt="Google">
-            <img src="assets/companies/hp.png" alt="HP">
-            <img src="assets/companies/unilever.png" alt="Unilever">
-            <img src="assets/companies/sap.png" alt="SAP">
+          <div class="hero-brands" id="random-logos">
+            <!-- Company logos will be loaded dynamically -->
           </div>
         </div>
       </div>
@@ -1993,12 +2013,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <section class="tracks-variant-3">
       <div class="container">
         <div class="tracks-header">
-          <h2 class="tracks-title">Our Programs</h2>
-          <p class="tracks-subtitle">Discover our practice-oriented management seminars and programs that combine management expertise with technology competence</p>
+          <h2 class="tracks-title">Our Executive Education Programs</h2>
+          <p class="tracks-subtitle">Discover our practice-oriented Executive Education programs that combine management expertise with technology competence</p>
         </div>
         
         <div class="track-filters">
-          <button class="filter-btn active" data-filter="alle">All</button>
+          <button class="filter-btn active" data-filter="all">All</button>
           <button class="filter-btn" data-filter="managementseminare">Management Seminars</button>
           <button class="filter-btn" data-filter="programme">Programs</button>
         </div>
@@ -2021,6 +2041,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   <div class="card-row">
                     <i class="bx bx-time"></i>
                     <span>3 days, optional: Coaching</span>
+                  </div>
+                  <div class="card-row">
+                    <i class="bx bx-money"></i>
+                    <span>CHF 2,400 excl. 8.1% VAT</span>
                   </div>
                 </div>
                 <p class="track-description">Develop a holistic understanding of management and strategy development in the digitalized business world.</p>
@@ -2045,6 +2069,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <i class="bx bx-time"></i>
                     <span>3 days, optional: Coaching</span>
                   </div>
+                  <div class="card-row">
+                    <i class="bx bx-money"></i>
+                    <span>CHF 2,400 excl. 8.1% VAT</span>
+                  </div>
                 </div>
                 <p class="track-description">Deepen your knowledge in financial management and learn modern techniques for financial planning and control.</p>
                 <a href="financial_management.html" class="track-link" style="position: relative; z-index: 2;">Learn more <i class="bx bx-right-arrow-alt"></i></a>
@@ -2067,6 +2095,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   <div class="card-row">
                     <i class="bx bx-time"></i>
                     <span>3 days, optional: Coaching</span>
+                  </div>
+                  <div class="card-row">
+                    <i class="bx bx-money"></i>
+                    <span>CHF 2,400 excl. 8.1% VAT</span>
                   </div>
                 </div>
                 <p class="track-description">Develop your leadership skills and learn how to inspire teams and motivate them to achieve peak performance.</p>
@@ -2091,6 +2123,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <i class="bx bx-time"></i>
                     <span>3 days, optional: Coaching</span>
                   </div>
+                  <div class="card-row">
+                    <i class="bx bx-money"></i>
+                    <span>CHF 2,400 excl. 8.1% VAT</span>
+                  </div>
                 </div>
                 <p class="track-description">Optimize your marketing and communication strategies and learn how to successfully position your brand.</p>
                 <a href="marketing_sales_brand_communication.html" class="track-link" style="position: relative; z-index: 2;">Learn more <i class="bx bx-right-arrow-alt"></i></a>
@@ -2113,6 +2149,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   <div class="card-row">
                     <i class="bx bx-time"></i>
                     <span>3 days, optional: Coaching</span>
+                  </div>
+                  <div class="card-row">
+                    <i class="bx bx-money"></i>
+                    <span>CHF 2,400 excl. 8.1% VAT</span>
                   </div>
                 </div>
                 <p class="track-description">Learn how intelligent process automation can make your company more efficient and optimize resources.</p>
@@ -2137,6 +2177,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <i class="bx bx-time"></i>
                     <span>3 days, optional: Coaching</span>
                   </div>
+                  <div class="card-row">
+                    <i class="bx bx-money"></i>
+                    <span>CHF 2,400 excl. 8.1% VAT</span>
+                  </div>
                 </div>
                 <p class="track-description">Learn how AI-supported decision-making processes help you make more informed and effective decisions.</p>
                 <a href="ai_augmented_decision_making.html" class="track-link" style="position: relative; z-index: 2;">Learn more <i class="bx bx-right-arrow-alt"></i></a>
@@ -2159,6 +2203,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   <div class="card-row">
                     <i class="bx bx-time"></i>
                     <span>4*3 days</span>
+                  </div>
+                  <div class="card-row">
+                    <i class="bx bx-money"></i>
+                    <span>CHF 8,400 excl. 8.1% VAT</span>
                   </div>
                 </div>
                 <p class="track-description">Comprehensive program integrating management expertise with practice-oriented approaches and certified completion.</p>
@@ -2183,6 +2231,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <i class="bx bx-time"></i>
                     <span>4*3 days plus 4 days hybrid</span>
                   </div>
+                  <div class="card-row">
+                    <i class="bx bx-money"></i>
+                    <span>CHF 12,400 excl. 8.1% VAT</span>
+                  </div>
                 </div>
                 <p class="track-description">Certificate of Advanced Studies with in-depth management expertise and recognized academic qualification.</p>
                 <a href="management_programm_cas.html" class="track-link" style="position: relative; z-index: 2;">Learn more <i class="bx bx-right-arrow-alt"></i></a>
@@ -2206,6 +2258,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <i class="bx bx-time"></i>
                     <span>4*3 days</span>
                   </div>
+                  <div class="card-row">
+                    <i class="bx bx-money"></i>
+                    <span>CHF 8,400 excl. 8.1% VAT</span>
+                  </div>
                 </div>
                 <p class="track-description">Specialized program for integrating artificial intelligence into management with certification.</p>
                 <a href="ki_excellence_programm.html" class="track-link" style="position: relative; z-index: 2;">Learn more <i class="bx bx-right-arrow-alt"></i></a>
@@ -2228,6 +2284,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   <div class="card-row">
                     <i class="bx bx-time"></i>
                     <span>7x3-4 days plus 4 days hybrid</span>
+                  </div>
+                  <div class="card-row">
+                    <i class="bx bx-money"></i>
+                    <span>CHF 24,900 excl. 8.1% VAT</span>
                   </div>
                 </div>
                 <p class="track-description">Accelerated MBA program focusing on management and technology for aspiring executives.</p>
@@ -2325,28 +2385,40 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <div class="partners">
           <!-- Partner Logos -->
-          <div class="partner-item" data-category="unternehmen">
+          <div class="partner-item" data-category="companies">
             <img src="assets/companies/jnj.png" alt="Johnson & Johnson" class="partner-logo">
           </div>
-          <div class="partner-item" data-category="unternehmen">
+          <div class="partner-item" data-category="companies">
             <img src="assets/companies/google.png" alt="Google" class="partner-logo">
           </div>
-          <div class="partner-item" data-category="unternehmen">
+          <div class="partner-item" data-category="companies">
             <img src="assets/companies/bayer.png" alt="Bayer" class="partner-logo">
           </div>
-          <div class="partner-item" data-category="akademische partner">
+          <div class="partner-item" data-category="academic partners">
             <img src="assets/universities/stockholm.png" alt="Stockholm University" class="partner-logo">
           </div>
-          <div class="partner-item" data-category="unternehmen">
+          <div class="partner-item" data-category="companies">
             <img src="assets/companies/salesforce.png" alt="Salesforce" class="partner-logo">
           </div>
-          <div class="partner-item" data-category="unternehmen">
+          <div class="partner-item" data-category="companies">
             <img src="assets/companies/wittenstein.png" alt="Wittenstein" class="partner-logo">
           </div>
-          <div class="partner-item" data-category="akademische partner">
+          <div class="partner-item" data-category="companies">
+            <img src="assets/companies/mobileup.jpg" alt="MobileUp" class="partner-logo">
+          </div>
+          <div class="partner-item" data-category="companies">
+            <img src="assets/companies/datron.png" alt="Datron" class="partner-logo">
+          </div>
+          <div class="partner-item" data-category="companies">
+            <img src="assets/companies/ui.svg.png" alt="UI" class="partner-logo">
+          </div>
+          <div class="partner-item" data-category="companies">
+            <img src="assets/companies/mutares.svg.png" alt="Mutares" class="partner-logo">
+          </div>
+          <div class="partner-item" data-category="academic partners">
             <img src="assets/universities/cracow.jpg" alt="Cracow University" class="partner-logo">
           </div>
-          <div class="partner-item" data-category="akademische partner">
+          <div class="partner-item" data-category="academic partners">
             <img src="assets/universities/steinbeis.jpg" alt="Hochschule Steinbeis" class="partner-logo">
           </div>
         </div>
@@ -2425,8 +2497,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- Participant Testimonials -->
     <section class="content-section">
       <div class="container">
-        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Participant Testimonials</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Discover how our graduates benefit from StGallen imt Business School programs and apply the concepts learned in their professional lives.</p>
+        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Voices from our Network</h2>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Discover how our graduates benefit from StGallen imt Business School Executive Education programs and apply the concepts learned in their professional lives.</p>
         
         <div class="gradient-quotes">
           <!-- Jonas Gillmann Testimonial -->
@@ -2784,25 +2856,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     document.addEventListener('DOMContentLoaded', function() {
       // Track scroll functionality
       const scrollContainer = document.querySelector('.tracks-variant-3 .scroll-container');
-      const scrollLeftBtn = document.getElementById('scroll-left');
-      const scrollRightBtn = document.getElementById('scroll-right');
+      let scrollLeftBtn = document.getElementById('scroll-left');
+      let scrollRightBtn = document.getElementById('scroll-right');
       
       if (scrollContainer && scrollLeftBtn && scrollRightBtn) {
         // Dynamische Berechnung der Scroll-Menge basierend auf der Viewport-Breite
         const calculateScrollAmount = () => {
-          // Prüfen, welcher Filter aktiv ist
-          const activeFilter = document.querySelector('.tracks-variant-3 .filter-btn.active');
-          const isFilterProgramme = activeFilter && activeFilter.getAttribute('data-filter') === 'programme';
-          const cardWidth = scrollContainer.querySelector('.track-card').offsetWidth + 16;
+          // Finde sichtbare Karten (nicht versteckt)
+          const visibleCards = Array.from(scrollContainer.querySelectorAll('.track-card:not(.hidden)'));
           
-          // Bei Programmen komplette Ansicht verschieben
-          if (isFilterProgramme) {
-            // Bei Programmen immer genau eine Card schieben
-            return cardWidth;
+          if (visibleCards.length === 0) {
+            return 0; // Keine sichtbaren Karten
           }
           
-          // Standard-Scrolling für andere Filter - ebenfalls immer nur eine Karte
-          return cardWidth;
+          // Breite einer sichtbaren Karte + Abstand
+          const cardWidth = visibleCards[0].offsetWidth + 16; // 16px Abstand
+          
+          // Auf mobilen Geräten präziser scrollen
+          if (window.innerWidth <= 768) {
+            // Mobile: Eine Karte pro Scroll
+            return cardWidth;
+          } else {
+            // Desktop: Zwei Karten pro Scroll oder die Hälfte der sichtbaren Karten
+            const scrollCount = Math.min(2, Math.ceil(visibleCards.length / 2));
+            return cardWidth * scrollCount;
+          }
         };
         
         // Überprüfung, ob die Scroll-Buttons aktiviert oder deaktiviert sein sollten
@@ -2862,7 +2940,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           });
         };
         
-        // Event-Listener für die Scroll-Buttons aktualisieren
+        // Event-Listener für die Scroll-Buttons
         scrollLeftBtn.addEventListener('click', function() {
           scrollToNextVisibleCard('prev');
         });
@@ -2895,7 +2973,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             trackCards.forEach(card => {
               const category = card.getAttribute('data-category');
               
-              if (filterValue === 'alle' || category === filterValue) {
+              if (filterValue === 'all' || category === filterValue) {
                 card.classList.remove('hidden');
                 visibleCards++;
               } else {
@@ -2917,7 +2995,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- Script für die Netzwerk Filter-Funktionalität -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Filter-Funktionalität für Partner im "In bester Gesellschaft"-Abschnitt
+      // Filter-Funktionalität für Partner im "In Good Company"-Abschnitt
       const networkFilterButtons = document.querySelectorAll('.network-section .filter-btn');
       const partnerItems = document.querySelectorAll('.network-section .partner-item');
       
@@ -2933,13 +3011,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             // Filterwert basierend auf Button-Text
             let filterValue = this.textContent.trim().toLowerCase();
             
-            // Spezielle Zuordnung für "Akademische Partner" zu "akademische partner"
-            if (filterValue === 'akademische partner') {
-              // Partner-Items filtern für Akademische Partner
+            // Spezielle Zuordnung für "Academic Partners"
+            if (filterValue === 'academic partners') {
+              // Partner-Items filtern für Academic Partners
               partnerItems.forEach(item => {
                 const category = item.getAttribute('data-category');
                 
-                if (filterValue === 'alle' || category === 'akademische partner') {
+                if (filterValue === 'all' || category === 'academic partners') {
                   item.style.display = 'flex';
                 } else {
                   item.style.display = 'none';
@@ -2950,7 +3028,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               partnerItems.forEach(item => {
                 const category = item.getAttribute('data-category');
                 
-                if (filterValue === 'alle' || category === filterValue) {
+                if (filterValue === 'all' || category === filterValue) {
                   item.style.display = 'flex';
                 } else {
                   item.style.display = 'none';
@@ -3321,6 +3399,85 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       
       // Optional: Automatically reshuffle testimonials every 30 seconds
       // setInterval(shuffleTestimonials, 30000);
+    });
+  </script>
+
+  <!-- Add script for random logos at the end of body -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Array of all available logos - expanded to include all available logos
+      const allLogos = [
+        'assets/companies/google.png',
+        'assets/companies/hp.png',
+        'assets/companies/unilever.png',
+        'assets/companies/sap.png',
+        'assets/companies/ibm.png',
+        'assets/companies/bayer.png',
+        'assets/companies/jnj.png',
+        'assets/companies/salesforce.png',
+        'assets/companies/wittenstein.png',
+        'assets/companies/datron.png',
+        'assets/companies/hitachi.png',
+        'assets/companies/mutares.svg.png',
+        'assets/companies/ui.svg.png',
+        'assets/companies/caynova.jpg',
+        'assets/companies/mobileup.jpg',
+        'assets/companies/pnp.png'
+      ];
+      
+      // Function to shuffle array (Fisher-Yates algorithm)
+      function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+      }
+      
+      // Randomly select 7 logos - true randomization
+      const shuffledLogos = shuffleArray([...allLogos]);
+      const selectedLogos = shuffledLogos.slice(0, 7);
+      
+      // Get the container element
+      const logosContainer = document.getElementById('random-logos');
+      
+      // Clear the container
+      logosContainer.innerHTML = '';
+      
+      // Create first row with 4 logos
+      const firstRow = document.createElement('div');
+      firstRow.className = 'logo-row';
+      firstRow.style.display = 'flex';
+      firstRow.style.justifyContent = 'center';
+      firstRow.style.flexWrap = 'wrap';
+      firstRow.style.marginBottom = '10px';
+      
+      // Create second row with 3 logos
+      const secondRow = document.createElement('div');
+      secondRow.className = 'logo-row';
+      secondRow.style.display = 'flex';
+      secondRow.style.justifyContent = 'center';
+      secondRow.style.flexWrap = 'wrap';
+      
+      // Add first 4 logos to first row
+      for (let i = 0; i < 4; i++) {
+        const img = document.createElement('img');
+        img.src = selectedLogos[i];
+        img.alt = selectedLogos[i].split('/').pop().split('.')[0]; // Use filename as alt text
+        firstRow.appendChild(img);
+      }
+      
+      // Add remaining 3 logos to second row
+      for (let i = 4; i < 7; i++) {
+        const img = document.createElement('img');
+        img.src = selectedLogos[i];
+        img.alt = selectedLogos[i].split('/').pop().split('.')[0]; // Use filename as alt text
+        secondRow.appendChild(img);
+      }
+      
+      // Add both rows to the container
+      logosContainer.appendChild(firstRow);
+      logosContainer.appendChild(secondRow);
     });
   </script>
 </body>

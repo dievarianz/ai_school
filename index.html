@@ -437,7 +437,6 @@
     .hero-eyebrow {
       color: var(--imt-purple);
       font-weight: 600;
-      text-transform: uppercase;
       letter-spacing: 1px;
       margin-bottom: 1.5rem;
       display: inline-block;
@@ -632,25 +631,49 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 40px;
       flex-wrap: wrap;
+      max-width: 700px;
+      margin: 0 auto;
     }
 
+    /* Adjust logo size in hero section */
     .hero-brands img {
-      height: 30px;
-      opacity: 0.5;
-      transition: opacity 0.3s;
+      height: 30px;  /* Increased logo height */
+      max-width: 120px;  /* Increased maximum width */
+      width: auto;
+      opacity: 0.75;  /* Slightly increased opacity */
+      margin: 10px 20px;  /* More spacing between logos */
+      object-fit: contain;
+      vertical-align: middle;
     }
-
-    .hero-brands img:hover {
-      opacity: 0.8;
+    
+    /* Special handling for known large logos */
+    .hero-brands img[src*="jnj.png"],
+    .hero-brands img[src*="bayer.png"],
+    .hero-brands img[src*="unilever.png"] {
+      height: 28px;  /* Still slightly smaller for these logos */
+      max-width: 100px;
     }
 
     .hero-brands-text {
       text-align: center;
       font-size: 0.9rem;
       color: var(--color-muted);
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Responsive adjustments for logos */
+    @media (max-width: 767px) {
+      .hero-brands img {
+        height: 25px;
+        margin: 8px 15px;
+      }
+      
+      .hero-brands img[src*="jnj.png"],
+      .hero-brands img[src*="bayer.png"],
+      .hero-brands img[src*="unilever.png"] {
+        height: 22px;
+      }
     }
 
     /* Animierte Schweizer Flagge */
@@ -1906,15 +1929,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <span class="hero-eyebrow">
             StGallen imt Business School
           </span>
-          <h1 class="hero-title">Exzellenz in Management und Technologie</h1>
-          <p class="hero-subtitle">Zukunftsweisende Weiterbildung an der Schnittstelle von Management und Technologie für die Führungskräfte von morgen.</p>
+          <h1 class="hero-title">Weiterbildung für Exzellenz in Management und Technologie</h1>
+          <p class="hero-subtitle">Gestalten Sie Ihre berufliche Zukunft im St. Gallen Management Valley – mit fundierter Weiterbildung zwischen Management und Technologie.</p>
           
           <div class="hero-actions">
             <div class="program-selector">
               <div class="tooltip-container">
-                <div class="error-tooltip">Bitte wählen Sie ein Programm aus</div>
+                <div class="error-tooltip">Bitte wählen Sie eine Weiterbildung aus</div>
                 <div class="custom-select">
-                  <div class="select-selected">Wählen Sie Ihr Programm</div>
+                  <div class="select-selected">Wählen Sie Ihre Weiterbildung</div>
                   <div class="select-items select-hide">
                     <div class="select-category">Managementseminare</div>
                     <div class="select-item" data-value="integrated_management_strategy.html">Integrated Management and Strategy</div>
@@ -1933,16 +1956,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               </div>
             </div>
             <a href="#" class="hero-btn hero-btn-primary" id="program-link">
-              Programm entdecken <span class="arrow-icon">→</span>
+              Mehr erfahren <span class="arrow-icon">→</span>
             </a>
           </div>
           
           <p class="hero-brands-text">Vertrauen unserer Kompetenz</p>
-          <div class="hero-brands">
-            <img src="assets/companies/google.png" alt="Google">
-            <img src="assets/companies/hp.png" alt="HP">
-            <img src="assets/companies/unilever.png" alt="Unilever">
-            <img src="assets/companies/sap.png" alt="SAP">
+          <div class="hero-brands" id="random-logos">
+            <!-- Company logos will be loaded dynamically -->
           </div>
         </div>
       </div>
@@ -1952,8 +1972,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <section class="tracks-variant-3">
       <div class="container">
         <div class="tracks-header">
-          <h2 class="tracks-title">Unsere Programme</h2>
-          <p class="tracks-subtitle">Entdecken Sie unsere praxisorientierten Programme, die Management-Know-how mit Technologie-Kompetenz verbinden</p>
+          <h2 class="tracks-title">Unsere Weiterbildungen</h2>
+          <p class="tracks-subtitle">Entdecken Sie unsere praxisorientierten Weiterbildungen, die Management-Know-how mit Technologie-Kompetenz verbinden</p>
         </div>
         
         <div class="track-filters">
@@ -1979,7 +1999,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   </div>
                   <div class="card-row">
                     <i class="bx bx-time"></i>
-                    <span>3 Tage, optional: Coaching</span>
+                    <span>3 Tage, optional mit ECTS</span>
+                  </div>
+                  <div class="card-row">
+                    <i class="bx bx-money"></i>
+                    <span>CHF 2'400 zzgl. 8,1 % MwSt.</span>
                   </div>
                 </div>
                 <p class="track-description">Lernen Sie, integriertes Management wirksam einzusetzen – für strategische Ausrichtung, erfolgreiche Transformation und den nachhaltigen Einsatz von KI..</p>
@@ -2002,7 +2026,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   </div>
                   <div class="card-row">
                     <i class="bx bx-time"></i>
-                    <span>3 Tage, optional: Coaching</span>
+                    <span>3 Tage, optional mit ECTS</span>
+                  </div>
+                  <div class="card-row">
+                    <i class="bx bx-money"></i>
+                    <span>CHF 2'400 zzgl. 8,1 % MwSt.</span>
                   </div>
                 </div>
                 <p class="track-description">Entwickeln Sie finanzielle Entscheidungskompetenz, um strategisches Wachstum gezielt zu steuern.</p>
@@ -2025,7 +2053,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   </div>
                   <div class="card-row">
                     <i class="bx bx-time"></i>
-                    <span>3 Tage, optional: Coaching</span>
+                    <span>3 Tage, optional mit ECTS</span>
+                  </div>
+                  <div class="card-row">
+                    <i class="bx bx-money"></i>
+                    <span>CHF 2'400 zzgl. 8,1 % MwSt.</span>
                   </div>
                 </div>
                 <p class="track-description">Entwickeln Sie Ihre Führungspersönlichkeit für klare, empathische und strategische Führung in Zeiten digitaler und KI-getriebener Veränderung.</p>
@@ -2048,7 +2080,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   </div>
                   <div class="card-row">
                     <i class="bx bx-time"></i>
-                    <span>3 Tage, optional: Coaching</span>
+                    <span>3 Tage, optional mit ECTS</span>
+                  </div>
+                  <div class="card-row">
+                    <i class="bx bx-money"></i>
+                    <span>CHF2'400 zzgl. 8,1 % MwSt.</span>
                   </div>
                 </div>
                 <p class="track-description">Lernen Sie, wie Sie Marketing und Vertrieb mit Strategie und KI wirkungsvoll für nachhaltigen Markterfolg einsetzen.</p>
@@ -2071,7 +2107,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   </div>
                   <div class="card-row">
                     <i class="bx bx-time"></i>
-                    <span>3 Tage, optional: Coaching</span>
+                    <span>3 Tage, optional mit ECTS</span>
+                  </div>
+                  <div class="card-row">
+                    <i class="bx bx-money"></i>
+                    <span>CHF 2'400 zzgl. 8,1 % MwSt.</span>
                   </div>
                 </div>
                 <p class="track-description">Lernen Sie, wie intelligente Prozessautomatisierung Ihr Unternehmen effizienter gestalten und Ressourcen optimieren kann.</p>
@@ -2094,7 +2134,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   </div>
                   <div class="card-row">
                     <i class="bx bx-time"></i>
-                    <span>3 Tage, optional: Coaching</span>
+                    <span>3 Tage, optional mit ECTS</span>
+                  </div>
+                  <div class="card-row">
+                    <i class="bx bx-money"></i>
+                    <span>CHF 2'400 zzgl. 8,1 % MwSt.</span>
                   </div>
                 </div>
                 <p class="track-description">Lernen Sie, wie KI-gestützte Entscheidungsprozesse Ihnen helfen, fundiertere und effektivere Entscheidungen zu treffen.</p>
@@ -2119,6 +2163,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <i class="bx bx-time"></i>
                     <span>4*3 Tage</span>
                   </div>
+                  <div class="card-row">
+                    <i class="bx bx-money"></i>
+                    <span>CHF 8'400 zzgl. 8,1 % MwSt.</span>
+                  </div>
                 </div>
                 <p class="track-description">Umfassendes Programm zur Integration von Management-Know-how mit praxisorientierten Ansätzen und zertifiziertem Abschluss.</p>
                 <a href="management_programm.html" class="track-link" style="position: relative; z-index: 2;">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
@@ -2141,6 +2189,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   <div class="card-row">
                     <i class="bx bx-time"></i>
                     <span>4*3 Tage plus 4 Tage hybrid</span>
+                  </div>
+                  <div class="card-row">
+                    <i class="bx bx-money"></i>
+                    <span>CHF 12'400 zzgl. 8,1 % MwSt.</span>
                   </div>
                 </div>
                 <p class="track-description">Certificate of Advanced Studies mit vertieftem Management-Know-how und anerkanntem akademischen Abschluss.</p>
@@ -2165,6 +2217,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <i class="bx bx-time"></i>
                     <span>4*3 Tage</span>
                   </div>
+                  <div class="card-row">
+                    <i class="bx bx-money"></i>
+                    <span>CHF 8'400 zzgl. 8,1 % MwSt.</span>
+                  </div>
                 </div>
                 <p class="track-description">Spezialisiertes Programm zur Integration künstlicher Intelligenz in das Management mit Zertifizierung.</p>
                 <a href="ki_excellence_programm.html" class="track-link" style="position: relative; z-index: 2;">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
@@ -2187,6 +2243,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   <div class="card-row">
                     <i class="bx bx-time"></i>
                     <span>7x3-4 Tage plus 4 Tage hybrid</span>
+                  </div>
+                  <div class="card-row">
+                    <i class="bx bx-money"></i>
+                    <span>CHF 24'900 zzgl. 8,1 % MwSt.</span>
                   </div>
                 </div>
                 <p class="track-description">Beschleunigtes MBA-Programm mit Fokus auf Management und Technologie für aufstrebende Führungskräfte.</p>
@@ -2302,6 +2362,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="partner-item" data-category="unternehmen">
             <img src="assets/companies/wittenstein.png" alt="Wittenstein" class="partner-logo">
           </div>
+          <div class="partner-item" data-category="unternehmen">
+            <img src="assets/companies/mobileup.jpg" alt="MobileUp" class="partner-logo">
+          </div>
+          <div class="partner-item" data-category="unternehmen">
+            <img src="assets/companies/datron.png" alt="Datron" class="partner-logo">
+          </div>
+          <div class="partner-item" data-category="unternehmen">
+            <img src="assets/companies/ui.svg.png" alt="UI" class="partner-logo">
+          </div>
+          <div class="partner-item" data-category="unternehmen">
+            <img src="assets/companies/mutares.svg.png" alt="Mutares" class="partner-logo">
+          </div>
           <div class="partner-item" data-category="akademische partner">
             <img src="assets/universities/cracow.jpg" alt="Cracow University" class="partner-logo">
           </div>
@@ -2384,8 +2456,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- Teilnehmerstimmen -->
     <section class="content-section">
       <div class="container">
-        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Teilnehmerstimmen</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Erfahren Sie, wie unsere Absolventen von den Programmen der StGallen imt Business School profitieren und die gelernten Konzepte in ihrem beruflichen Alltag umsetzen.</p>
+        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Stimmen aus unserem Netzwerk</h2>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Erfahren Sie, wie unsere Absolventen von der Weiterbildung der StGallen imt Business School profitieren und die gelernten Konzepte in ihrem beruflichen Alltag umsetzen.</p>
         
         <div class="gradient-quotes">
           <!-- Testimonial 1: Jonas Gillmann -->
@@ -3210,6 +3282,85 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       
       // Optional: Testimonials alle 30 Sekunden automatisch neu shuffeln
       // setInterval(shuffleTestimonials, 30000);
+    });
+  </script>
+
+  <!-- Add script for random logos at the end of body -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Array of all available logos - expanded to include all available logos
+      const allLogos = [
+        'assets/companies/google.png',
+        'assets/companies/hp.png',
+        'assets/companies/unilever.png',
+        'assets/companies/sap.png',
+        'assets/companies/ibm.png',
+        'assets/companies/bayer.png',
+        'assets/companies/jnj.png',
+        'assets/companies/salesforce.png',
+        'assets/companies/wittenstein.png',
+        'assets/companies/datron.png',
+        'assets/companies/hitachi.png',
+        'assets/companies/mutares.svg.png',
+        'assets/companies/ui.svg.png',
+        'assets/companies/caynova.jpg',
+        'assets/companies/mobileup.jpg',
+        'assets/companies/pnp.png'
+      ];
+      
+      // Function to shuffle array (Fisher-Yates algorithm)
+      function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+      }
+      
+      // Randomly select 7 logos - true randomization
+      const shuffledLogos = shuffleArray([...allLogos]);
+      const selectedLogos = shuffledLogos.slice(0, 7);
+      
+      // Get the container element
+      const logosContainer = document.getElementById('random-logos');
+      
+      // Clear the container
+      logosContainer.innerHTML = '';
+      
+      // Create first row with 4 logos
+      const firstRow = document.createElement('div');
+      firstRow.className = 'logo-row';
+      firstRow.style.display = 'flex';
+      firstRow.style.justifyContent = 'center';
+      firstRow.style.flexWrap = 'wrap';
+      firstRow.style.marginBottom = '10px';
+      
+      // Create second row with 3 logos
+      const secondRow = document.createElement('div');
+      secondRow.className = 'logo-row';
+      secondRow.style.display = 'flex';
+      secondRow.style.justifyContent = 'center';
+      secondRow.style.flexWrap = 'wrap';
+      
+      // Add first 4 logos to first row
+      for (let i = 0; i < 4; i++) {
+        const img = document.createElement('img');
+        img.src = selectedLogos[i];
+        img.alt = selectedLogos[i].split('/').pop().split('.')[0]; // Use filename as alt text
+        firstRow.appendChild(img);
+      }
+      
+      // Add remaining 3 logos to second row
+      for (let i = 4; i < 7; i++) {
+        const img = document.createElement('img');
+        img.src = selectedLogos[i];
+        img.alt = selectedLogos[i].split('/').pop().split('.')[0]; // Use filename as alt text
+        secondRow.appendChild(img);
+      }
+      
+      // Add both rows to the container
+      logosContainer.appendChild(firstRow);
+      logosContainer.appendChild(secondRow);
     });
   </script>
 </body>
