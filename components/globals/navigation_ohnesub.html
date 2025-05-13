@@ -1092,3 +1092,29 @@
     return false;
   }
 </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Aktuelle Seite ermitteln
+    const currentPath = window.location.pathname;
+    const currentPage = currentPath.substring(currentPath.lastIndexOf('/') + 1).toLowerCase();
+    
+    // Alle Navigationslinks finden
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+      // Zielseite des Links
+      const href = link.getAttribute('href') ? link.getAttribute('href').toLowerCase() : '';
+      // Startseiten-Logik: index.html, index_en.html, startseite.html, startseite_en.html
+      const isHome = [
+        'index.html', 'index_en.html', 'startseite.html', 'startseite_en.html'
+      ].includes(currentPage) && (href === 'index.html' || href === 'index_en.html');
+      // Standard-Logik: exakte Übereinstimmung
+      const isExact = href && href === currentPage;
+      if (isHome || isExact) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  });
+</script>
