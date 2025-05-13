@@ -30,6 +30,15 @@
       </a>
       
       <div class="nav-menu" id="mobileNavMenu">
+        <!-- Mobile language section - now at the top -->
+        <div class="mobile-lang-section">
+          <div class="lang-title">Language</div>
+          <div class="mobile-lang-options">
+            <a href="#" class="mobile-lang-option" data-lang="de" onclick="switchLanguage('de', event)"><img src="assets/icons/de-flag-round.png" alt="Deutsch" class="lang-flag-mobile" /> Deutsch</a>
+            <a href="#" class="mobile-lang-option active" data-lang="en" onclick="switchLanguage('en', event)"><img src="assets/icons/en-flag-round.png" alt="English" class="lang-flag-mobile" /> English</a>
+          </div>
+        </div>
+
         <a href="index_en.html" class="nav-link" data-base-href="index_en.html">StGallen imt</a>
         <div class="nav-item">
           <a href="#" class="nav-link" onclick="mobileMenuToggle(event, this)">Executive Education<svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
@@ -59,15 +68,6 @@
         <a href="netzwerk_en.html" class="nav-link" data-base-href="netzwerk_en.html">Network</a>
         <a href="support_en.html" class="nav-link" data-base-href="support_en.html">Support</a>
         <a href="kontakt_en.html" class="nav-link" data-base-href="kontakt_en.html">Contact</a>
-        
-        <!-- Mobile language section - visible in mobile view -->
-        <div class="mobile-lang-section">
-          <div class="lang-title">Language</div>
-          <div class="mobile-lang-options">
-            <a href="#" class="mobile-lang-option" data-lang="de" onclick="switchLanguage('de', event)"><img src="assets/icons/de-flag-round.png" alt="Deutsch" class="lang-flag-mobile" /> Deutsch</a>
-            <a href="#" class="mobile-lang-option active" data-lang="en" onclick="switchLanguage('en', event)"><img src="assets/icons/en-flag-round.png" alt="English" class="lang-flag-mobile" /> English</a>
-          </div>
-        </div>
       </div>
       
       <div class="lang-select">
@@ -420,6 +420,13 @@
 
   /* Mobile Styles completely revised */
   @media (max-width: 1024px) {
+    .nav-container {
+      position: sticky;
+      top: 0;
+      background: white;
+      z-index: 1020;
+    }
+    
     .nav-menu {
       position: fixed;
       top: 64px;

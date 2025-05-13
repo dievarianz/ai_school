@@ -68,6 +68,9 @@
             <a href="#" class="only-mobile-lang-option" data-lang="en" onclick="return switchLanguage('en', event);"><img src="assets/icons/en-flag-round.png" alt="English" class="lang-flag-mobile" /> English</a>
           </div>
         </div>
+        
+        <!-- Extra space after language selection - increased to 150px -->
+        <div style="height: 150px;"></div>
       </div>
       
       <div class="lang-select">
@@ -103,6 +106,22 @@
     --max-width: 1200px;
     --imt-purple: #6e45e2;
     --swiss-red: #ff0000;
+  }
+
+  /* CSS-Klasse, die den Scrollbalken wirklich entfernt */
+  body.no-scroll {
+    overflow: hidden !important;
+    position: fixed !important;
+    width: 100% !important;
+    height: 100% !important;
+    touch-action: none !important;
+    overscroll-behavior: none !important;
+    -webkit-overflow-scrolling: auto !important;
+  }
+
+  /* Bei aktiver Navigation immer den Scrollbalken verstecken */
+  .nav-menu.active ~ html body {
+    overflow: hidden !important;
   }
 
   /* Navigation Wrapper und Container */
@@ -414,22 +433,39 @@
       background-color: white; /* Add background to prevent text showing through */
     }
     
+    .nav-container {
+      position: sticky;
+      top: 0;
+      background: white;
+      z-index: 1020;
+    }
+    
     .nav-menu {
       position: fixed;
-      top: 0;
+      top: 60px; /* Höhe der Nav-Container */
       right: -100%;
       width: 100%;
-      background: white;
-      height: 100vh;
+      height: calc(100vh - 60px);
       flex-direction: column;
       align-items: flex-start;
-      padding: 80px 24px 24px;
+      padding: 20px 24px 20px; /* Reduziertes Padding unten */
       transition: right 0.3s ease;
       z-index: 1000;
       gap: 12px;
       margin-right: 0;
       box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
-      overflow-y: auto; /* Ermöglicht Scrollen bei Überlauf */
+      overflow-y: scroll; /* Explizit scroll setzen statt auto oder visible */
+      -webkit-overflow-scrolling: touch; /* Für besseres Scrolling auf iOS */
+      background-color: white; /* Hinzugefügter weißer Hintergrund */
+    }
+    
+    /* Normaler Sprachbereich (nicht fixiert) mit mehr Abstand unten */
+    .only-mobile-lang-section {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      width: 100%;
+      margin-bottom: 150px; /* Viel Platz nach unten */
     }
     
     .nav-menu.active {
@@ -506,13 +542,6 @@
     
     .lang-select {
       display: none; /* Versteckt die Sprachauswahl in der mobilen Ansicht */
-    }
-    
-    .only-mobile-lang-section {
-      margin-top: 20px;
-      padding-top: 20px;
-      border-top: 1px solid rgba(0, 0, 0, 0.1);
-      display: block;
     }
     
     .only-mobile-lang-title {
@@ -675,12 +704,85 @@
 </style>
 <!-- JavaScript für aktive Programm-Optionen und Pfadkorrektur -->
 <script>
+  // Globale Variable, um mehrfache Initialisierung zu verhindern
+  window.navInitialized = window.navInitialized || false;
+  
+  // Hilfsfunktion zum Umschalten des Dropdowns
+  function toggleDropdown(event) {
+    if (window.innerWidth <= 1024) {
+      event.preventDefault();
+      const dropdown = this.closest('.nav-item').querySelector('.program-dropdown');
+      if (dropdown) {
+        if (dropdown.style.display === 'block') {
+          dropdown.style.display = 'none';
+        } else {
+          dropdown.style.display = 'block';
+        }
+      }
+    }
+  }
+
+  // Hilfsfunktion zum fixieren des Body
+  function lockBody() {
+    document.body.classList.add('no-scroll');
+    document.documentElement.classList.add('no-scroll');
+    
+    // iOS-Fix
+    if (window.innerWidth <= 1024) {
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${window.scrollY}px`;
+      document.body.style.width = '100%';
+    }
+  }
+  
+  // Hilfsfunktion zum Entsperren des Body
+  function unlockBody() {
+    document.body.classList.remove('no-scroll');
+    document.documentElement.classList.remove('no-scroll');
+    
+    // iOS-Fix rückgängig machen
+    if (window.innerWidth <= 1024) {
+      const scrollY = document.body.style.top;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      window.scrollTo(0, parseInt(scrollY || '0') * -1);
+    }
+  }
+
   document.addEventListener('DOMContentLoaded', function() {
+    // Prüfen, ob die Navigation bereits initialisiert wurde, um Mehrfach-Initialisierung zu vermeiden
+    if (window.navInitialized) return;
+    window.navInitialized = true;
+    
     // Pfadkorrektur für verschiedene Verzeichnisebenen
     adjustNavigationPaths();
     
     // Explizit alle "Sprache" Elemente im Desktop-Modus entfernen
     removePageLanguageElements();
+    
+    // Mobile Menu-Button finden und Click-Event hinzufügen
+    const mobileMenuButton = document.getElementById('mobileMenuButton');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (mobileMenuButton && navMenu) {
+      mobileMenuButton.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+        
+        // Scrollbalken der Hauptseite komplett entfernen
+        if (navMenu.classList.contains('active')) {
+          lockBody();
+        } else {
+          unlockBody();
+        }
+      });
+    }
+    
+    // Weiterbildung dropdown toggle hinzufügen
+    const dropdownToggle = document.querySelector('.toggle-subnav');
+    if (dropdownToggle) {
+      dropdownToggle.addEventListener('click', toggleDropdown);
+    }
     
     // Aktuelle URL ermitteln
     const currentPath = window.location.pathname;
@@ -810,6 +912,18 @@
         // Von englisch zu deutsch: page_en.html -> page.html
         const germanPage = currentPage.replace('_en.html', '.html');
         deLinkDesktop.setAttribute('href', germanPage);
+        
+        // Event-Listener nur einmal hinzufügen
+        if (!deLinkDesktop.hasAttribute('data-listener')) {
+          deLinkDesktop.setAttribute('data-listener', 'true');
+          deLinkDesktop.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Speichere die aktuelle URL ohne den Dateinamen
+            const baseUrl = window.location.href.substring(0, window.location.href.lastIndexOf('/') + 1);
+            // Navigiere direkt zur neuen URL
+            window.location.href = baseUrl + germanPage;
+          });
+        }
       } else {
         // Bereits auf deutsch, Link deaktivieren und active setzen
         deLinkDesktop.classList.add('active');
@@ -821,6 +935,18 @@
         // Von deutsch zu englisch: page.html -> page_en.html
         const englishPage = currentPage.replace('.html', '_en.html');
         enLinkDesktop.setAttribute('href', englishPage);
+        
+        // Event-Listener nur einmal hinzufügen
+        if (!enLinkDesktop.hasAttribute('data-listener')) {
+          enLinkDesktop.setAttribute('data-listener', 'true');
+          enLinkDesktop.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Speichere die aktuelle URL ohne den Dateinamen
+            const baseUrl = window.location.href.substring(0, window.location.href.lastIndexOf('/') + 1);
+            // Navigiere direkt zur neuen URL
+            window.location.href = baseUrl + englishPage;
+          });
+        }
       } else {
         // Bereits auf englisch, Link deaktivieren und active setzen
         enLinkDesktop.classList.add('active');
@@ -847,10 +973,34 @@
         // Von deutsch zu englisch
         const englishPage = currentPage.replace('.html', '_en.html');
         link.setAttribute('href', englishPage);
+        
+        // Event-Listener nur einmal hinzufügen
+        if (!link.hasAttribute('data-listener')) {
+          link.setAttribute('data-listener', 'true');
+          link.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Speichere die aktuelle URL ohne den Dateinamen
+            const baseUrl = window.location.href.substring(0, window.location.href.lastIndexOf('/') + 1);
+            // Navigiere direkt zur neuen URL
+            window.location.href = baseUrl + englishPage;
+          });
+        }
       } else if (lang === 'de' && isEnglish) {
         // Von englisch zu deutsch
         const germanPage = currentPage.replace('_en.html', '.html');
         link.setAttribute('href', germanPage);
+        
+        // Event-Listener nur einmal hinzufügen
+        if (!link.hasAttribute('data-listener')) {
+          link.setAttribute('data-listener', 'true');
+          link.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Speichere die aktuelle URL ohne den Dateinamen
+            const baseUrl = window.location.href.substring(0, window.location.href.lastIndexOf('/') + 1);
+            // Navigiere direkt zur neuen URL
+            window.location.href = baseUrl + germanPage;
+          });
+        }
       } else {
         // Bleibt auf gleicher Sprache
         link.setAttribute('href', '#');
