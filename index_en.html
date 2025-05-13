@@ -1933,7 +1933,7 @@
   <link rel="icon" href="assets/favicon.png" type="image/png">
 
   <!-- Language switching support -->
-  <script src="assets/js/language-switch.js?t=' + new Date().getTime()"></script>
+  <script src="assets/js/language-switch.js"></script>
 
   <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -2745,54 +2745,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           navScript.src = 'assets/js/mobile-nav.js?t=' + new Date().getTime();
           document.body.appendChild(navScript);
           
-          // Special handling for language switcher in English homepage
+          // Initialize language switching after navigation is loaded
           setTimeout(() => {
-            // Specifically ensure mobile language selector is available
-            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-            const navMenu = document.querySelector('.nav-menu');
-            
-            if (mobileMenuBtn && navMenu) {
-              // Manually check if the language section already exists
-              let existingLangSection = document.querySelector('.mobile-lang-section');
-              
-              if (!existingLangSection) {
-                // Add the language section to the mobile menu
-                const langSection = document.createElement('div');
-                langSection.className = 'mobile-lang-section';
-                langSection.style.display = 'none'; // Initially hidden
-                langSection.innerHTML = `
-                  <div class="lang-title">Language</div>
-                  <div class="mobile-lang-options">
-                    <a href="#" class="mobile-lang-option" data-lang="de" onclick="switchLanguage('de'); return false;">Deutsch</a>
-                    <a href="#" class="mobile-lang-option active" data-lang="en" onclick="switchLanguage('en'); return false;">English</a>
-                  </div>
-                `;
-                navMenu.appendChild(langSection);
-                
-                // Update the click handler for mobile menu button
-                mobileMenuBtn.addEventListener('click', function() {
-                  const langSection = document.querySelector('.mobile-lang-section');
-                  if (langSection) {
-                    langSection.style.display = navMenu.classList.contains('active') ? 'block' : 'none';
-                  }
-                });
-              }
-            }
-          }, 1000);
-          
-          // Mark home page link as active
-          setTimeout(() => {
-            // Use the appropriate home page link based on language
-            const homePage = isEnglish ? 'index_en.html' : 'index.html';
-            const homeLink = document.querySelector(`.nav-link[href="${homePage}"]`);
-            if (homeLink) {
-              console.log('Activating home page link:', homeLink);
-              homeLink.classList.add('active');
-            } else {
-              console.error('Home page link not found! Looking for all links:', document.querySelectorAll('.nav-menu a'));
-            }
-            
-            // Initialize language switching after navigation is loaded
             if (typeof setupLanguageSwitching === 'function') {
               setupLanguageSwitching();
             }

@@ -1058,33 +1058,9 @@
   }
 </script>
 
-<!-- Direct function for language switching -->
+<!-- The language switching functionality is now handled by language-switch.js -->
+<!-- This script is intentionally left empty to avoid conflicts -->
 <script>
-  // Global function for language switching
-  function switchLanguage(lang, event) {
-    if (event) {
-      event.preventDefault();
-    }
-    
-    // Get current page
-    const currentPath = window.location.pathname;
-    const currentPage = currentPath.substring(currentPath.lastIndexOf('/') + 1);
-    const isEnglish = currentPage.includes('_en');
-    
-    // Store language preference
-    sessionStorage.setItem('preferredLanguage', lang);
-    
-    // Navigate to corresponding language version
-    if (lang === 'en' && !isEnglish) {
-      // From German to English
-      window.location.href = currentPage.replace('.html', '_en.html');
-      return false;
-    } else if (lang === 'de' && isEnglish) {
-      // From English to German
-      window.location.href = currentPage.replace('_en.html', '.html');
-      return false;
-    }
-    
-    return false;
-  }
+  // The language switching functionality is now handled by language-switch.js
+  // This script is intentionally left empty to avoid conflicts
 </script> 
