@@ -433,7 +433,7 @@
       position: relative;
       background: none;
       border-radius: 22px;
-      box-shadow: 0 10px 36px rgba(110,69,226,0.18);
+      box-shadow: none;
       max-width: 370px;
       width: 100%;
       text-align: center;
@@ -450,7 +450,7 @@
         background: linear-gradient(135deg,#6e45e2 0%,#970289 100%);
         color: #fff;
         border-radius: 22px;
-        box-shadow: 0 10px 36px rgba(110,69,226,0.18);
+        box-shadow: none;
         padding: 44px 36px 32px;
         width: 100%;
         text-align: center;
