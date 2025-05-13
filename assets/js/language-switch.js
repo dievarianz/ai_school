@@ -119,8 +119,47 @@
     
     console.log("Switching to language:", lang, "Current page:", currentPage, "Is English:", isEnglish);
     
+    // Prevent unnecessary navigation
+    if ((lang === 'en' && isEnglish) || (lang === 'de' && !isEnglish)) {
+      console.log("Already on requested language page");
+      return;
+    }
+    
     // Store language preference
     sessionStorage.setItem('preferredLanguage', lang);
+    
+    // Create a loading indicator
+    const loadingOverlay = document.createElement('div');
+    loadingOverlay.style.position = 'fixed';
+    loadingOverlay.style.top = '0';
+    loadingOverlay.style.left = '0';
+    loadingOverlay.style.width = '100%';
+    loadingOverlay.style.height = '100%';
+    loadingOverlay.style.backgroundColor = 'rgba(255, 255, 255, 0.7)';
+    loadingOverlay.style.zIndex = '9999';
+    loadingOverlay.style.display = 'flex';
+    loadingOverlay.style.justifyContent = 'center';
+    loadingOverlay.style.alignItems = 'center';
+    
+    const spinner = document.createElement('div');
+    spinner.style.border = '4px solid rgba(0, 0, 0, 0.1)';
+    spinner.style.borderLeft = '4px solid #3498db';
+    spinner.style.borderRadius = '50%';
+    spinner.style.width = '40px';
+    spinner.style.height = '40px';
+    spinner.style.animation = 'spin 1s linear infinite';
+    
+    const keyframes = document.createElement('style');
+    keyframes.innerHTML = `
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    `;
+    
+    document.head.appendChild(keyframes);
+    loadingOverlay.appendChild(spinner);
+    document.body.appendChild(loadingOverlay);
     
     // Navigate to corresponding language version
     if (lang === 'en' && !isEnglish) {
@@ -200,17 +239,28 @@
   function setupMutationObserver() {
     // Create an observer instance
     const observer = new MutationObserver(function(mutations) {
+      let shouldReinitialize = false;
+      
       mutations.forEach(function(mutation) {
         if (mutation.type === 'childList' && 
             (mutation.target.id === 'navigation-container' || 
              mutation.target.classList.contains('nav-menu') ||
              mutation.target.classList.contains('only-mobile-lang-section') ||
              mutation.target.classList.contains('mobile-lang-section'))) {
-          // Re-initialize when navigation is dynamically loaded
-          console.log("Navigation change detected, re-initializing language switch");
-          initLanguageSwitching();
+          shouldReinitialize = true;
         }
       });
+      
+      if (shouldReinitialize) {
+        // Throttle reinitialization to prevent multiple redundant calls
+        if (!window.languageSwitchReinitTimeout) {
+          window.languageSwitchReinitTimeout = setTimeout(() => {
+            console.log("Navigation change detected, re-initializing language switch");
+            initLanguageSwitching();
+            window.languageSwitchReinitTimeout = null;
+          }, 100);
+        }
+      }
     });
     
     // Start observing the document body for DOM changes
@@ -223,12 +273,24 @@
   // Listen for custom events from mobile-nav.js
   window.addEventListener('navigationOpened', function() {
     console.log("Navigation opened event received");
-    setTimeout(initLanguageSwitching, 50);
+    // Throttle to prevent multiple calls
+    if (!window.languageSwitchNavTimeout) {
+      window.languageSwitchNavTimeout = setTimeout(() => {
+        initLanguageSwitching();
+        window.languageSwitchNavTimeout = null;
+      }, 50);
+    }
   });
   
   window.addEventListener('navigationUpdated', function() {
     console.log("Navigation updated event received");
-    setTimeout(initLanguageSwitching, 50);
+    // Throttle to prevent multiple calls
+    if (!window.languageSwitchUpdateTimeout) {
+      window.languageSwitchUpdateTimeout = setTimeout(() => {
+        initLanguageSwitching();
+        window.languageSwitchUpdateTimeout = null;
+      }, 50);
+    }
   });
   
   // Set up the observer for dynamic content loading

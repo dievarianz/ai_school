@@ -3108,6 +3108,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       // Warten bis die Navigation vollständig geladen ist
       setTimeout(function() {
         setupLanguageSwitching();
+        monitorMobileMenu();
       }, 500);
       
       // Funktion zum Einrichten der Sprachumschaltung
@@ -3128,37 +3129,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           deLinkDesktop.classList.remove('active');
           enLinkDesktop.classList.remove('active');
           
-          // Markiere aktuelle Sprache und setze direkte Event-Listener
+          // Korrekten Ziel-Link für Deutsch setzen
           if (isEnglish) {
+            // Von englisch zu deutsch: page_en.html -> page.html
+            deLinkDesktop.setAttribute('href', '#');
+            deLinkDesktop.setAttribute('onclick', "switchLanguage('de'); return false;");
+            
+            // Englisch als aktiv markieren
             enLinkDesktop.classList.add('active');
-            
-            // Deutsch-Link konfigurieren
-            deLinkDesktop.onclick = function(e) {
-              e.preventDefault();
-              switchLanguage('de');
-              return false;
-            };
-            
-            // English-Link deaktivieren
-            enLinkDesktop.onclick = function(e) {
-              e.preventDefault();
-              return false;
-            };
+            enLinkDesktop.setAttribute('href', '#');
           } else {
+            // Bereits auf deutsch, Link deaktivieren
             deLinkDesktop.classList.add('active');
+            deLinkDesktop.setAttribute('href', '#');
             
-            // English-Link konfigurieren
-            enLinkDesktop.onclick = function(e) {
-              e.preventDefault();
-              switchLanguage('en');
-              return false;
-            };
-            
-            // Deutsch-Link deaktivieren
-            deLinkDesktop.onclick = function(e) {
-              e.preventDefault();
-              return false;
-            };
+            // Link für Englisch setzen
+            enLinkDesktop.setAttribute('href', '#');
+            enLinkDesktop.setAttribute('onclick', "switchLanguage('en'); return false;");
           }
         } else {
           // Versuchen, Sprachlinks zu finden und einzurichten, wenn sie noch keine IDs haben
@@ -3173,7 +3160,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         }
         
         // Links für mobile Sprachauswahl finden
-        const mobileLanguageOptions = document.querySelectorAll('.mobile-lang-option, .only-mobile-lang-option');
+        const mobileLanguageOptions = document.querySelectorAll('.mobile-lang-option');
         
         mobileLanguageOptions.forEach(link => {
           const lang = link.getAttribute('data-lang');
@@ -3186,12 +3173,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             link.classList.add('active');
           }
           
-          // Event-Listener direkt setzen
-          link.onclick = function(e) {
-            e.preventDefault();
-            switchLanguage(lang);
-            return false;
-          };
+          // onclick-Handler mit der globalen switchLanguage-Funktion setzen
+          link.setAttribute('href', '#');
+          link.setAttribute('onclick', `switchLanguage('${lang}'); return false;`);
         });
       }
       
@@ -3205,39 +3189,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           // Sprachpräferenz im Session-Storage speichern
           sessionStorage.setItem('preferredLanguage', lang);
           
-          // Ladeanzeige einfügen
-          const loadingOverlay = document.createElement('div');
-          loadingOverlay.style.position = 'fixed';
-          loadingOverlay.style.top = '0';
-          loadingOverlay.style.left = '0';
-          loadingOverlay.style.width = '100%';
-          loadingOverlay.style.height = '100%';
-          loadingOverlay.style.backgroundColor = 'rgba(255, 255, 255, 0.7)';
-          loadingOverlay.style.zIndex = '9999';
-          loadingOverlay.style.display = 'flex';
-          loadingOverlay.style.justifyContent = 'center';
-          loadingOverlay.style.alignItems = 'center';
-          
-          const spinner = document.createElement('div');
-          spinner.style.border = '4px solid rgba(0, 0, 0, 0.1)';
-          spinner.style.borderLeft = '4px solid #3498db';
-          spinner.style.borderRadius = '50%';
-          spinner.style.width = '40px';
-          spinner.style.height = '40px';
-          spinner.style.animation = 'spin 1s linear infinite';
-          
-          const keyframes = document.createElement('style');
-          keyframes.innerHTML = `
-            @keyframes spin {
-              0% { transform: rotate(0deg); }
-              100% { transform: rotate(360deg); }
-            }
-          `;
-          
-          document.head.appendChild(keyframes);
-          loadingOverlay.appendChild(spinner);
-          document.body.appendChild(loadingOverlay);
-          
           // Zur entsprechenden Sprachversion navigieren
           if (lang === 'en' && !isEnglish) {
             // Von deutsch zu englisch
@@ -3247,6 +3198,46 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             window.location.href = currentPage.replace('_en.html', '.html');
           }
         };
+      }
+      
+      // Überwacht das mobile Menü und aktualisiert die Sprachauswahl, wenn es geöffnet wird
+      function monitorMobileMenu() {
+        // Das mobile Menü und den Button finden
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        // Wenn der Button existiert, einen Event-Handler hinzufügen
+        if (mobileMenuBtn) {
+          mobileMenuBtn.addEventListener('click', function() {
+            // Kurze Verzögerung, um sicherzustellen, dass die mobile-lang-section eingefügt wurde
+            setTimeout(function() {
+              const mobileLangOptions = document.querySelectorAll('.mobile-lang-option');
+              
+              // Wenn die Options gefunden wurden, die Links aktualisieren
+              if (mobileLangOptions.length > 0) {
+                // Aktuelle Seite ermitteln
+                const currentPath = window.location.pathname;
+                const currentPage = currentPath.substring(currentPath.lastIndexOf('/') + 1);
+                const isEnglish = currentPage.includes('_en');
+                
+                mobileLangOptions.forEach(link => {
+                  const lang = link.getAttribute('data-lang');
+                  
+                  // Aktuelle Sprache markieren
+                  if ((lang === 'en' && isEnglish) || (lang === 'de' && !isEnglish)) {
+                    link.classList.add('active');
+                  } else {
+                    link.classList.remove('active');
+                  }
+                  
+                  // onclick-Handler mit der globalen switchLanguage-Funktion setzen
+                  link.setAttribute('href', '#');
+                  link.setAttribute('onclick', `switchLanguage('${lang}'); return false;`);
+                });
+              }
+            }, 100);
+          });
+        }
       }
     });
   </script>
