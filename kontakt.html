@@ -231,6 +231,7 @@
     .contact-form-container {
       background: var(--color-card-bg);
       padding: 24px;
+      padding-bottom: 60px;
       border-radius: 16px;
       box-shadow: none;
       margin-bottom: 60px;
@@ -288,6 +289,12 @@
 
       .form-grid .form-group:last-child {
         grid-column: 1;
+      }
+      
+      /* Reduce padding on mobile for the form container to make fields wider */
+      .contact-form-container {
+        padding: 12px;
+        padding-bottom: 60px;
       }
       
       h1 {
@@ -508,7 +515,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
             
             <div class="submit-container" style="text-align: center; width: 100%;">
-              <button type="submit" class="cta-button" style="margin: 0 auto;">
+              <button type="submit" class="cta-button" style="margin: 0 auto; width: 250px;">
                 Nachricht senden <span class="arrow-icon">→</span>
               </button>
             </div>

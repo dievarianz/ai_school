@@ -345,7 +345,7 @@
   #hero a[href="#broschuere"]:hover span {
     transform: translateX(4px);
   }
-
+  
   /* Neues Button-Styling für Hero und Formular */
   #hero a[href="#broschuere"], .cta-button {
     display: inline-flex;
@@ -398,6 +398,44 @@
 
     .container {
       padding: 0 16px;
+    }
+    
+    /* Mobile styles for info-grid */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .info-box {
+      width: 100% !important;
+      height: auto !important;
+      min-height: 140px !important;
+      aspect-ratio: 1 / 1 !important;  /* Makes boxes square */
+      padding: 20px !important;
+    }
+    
+    .info-box i.bx {
+      font-size: 32px !important;      /* Larger icons */
+      margin-bottom: 12px !important;
+    }
+    
+    .info-label {
+      font-size: 0.85rem !important;   /* Slightly larger label */
+    }
+    
+    .info-value {
+      font-size: 1.05rem !important;   /* Larger value text */
+    }
+
+    #hero .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #hero a[href="#broschuere"] {
+      margin: 24px auto;
     }
   }
 
@@ -948,7 +986,7 @@
   }
 
   .faculty-card:hover {
-    border-color: var(--imt-green);
+    border-color: var(--imt-purple);
   }
 
   .faculty-card img {
@@ -967,7 +1005,7 @@
   }
 
   .faculty-title {
-    color: var(--imt-green);
+    color: var(--imt-purple);
     font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
