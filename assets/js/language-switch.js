@@ -7,23 +7,60 @@
 (function() {
   // Initialize when DOM is ready
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initLanguageSwitching);
+    document.addEventListener('DOMContentLoaded', () => {
+      // Delay initialization slightly to ensure all other scripts are loaded
+      setTimeout(initLanguageSwitching, 500);
+    });
   } else {
-    // DOM already loaded
-    initLanguageSwitching();
+    // DOM already loaded, but still delay slightly
+    setTimeout(initLanguageSwitching, 500);
   }
 
+  // Track if popup has been shown
+  let popupShown = false;
+
+  // Track initialization state
+  let isInitializing = false;
+  let isLanguageSwitching = false;
+  let isComponentLoading = false;
+
   function initLanguageSwitching() {
+    // Prevent multiple simultaneous initializations
+    if (isInitializing || isComponentLoading) {
+      console.log("Initialization or component loading in progress, skipping language switch init...");
+      return;
+    }
+
+    // Prevent initialization during language switch
+    if (isLanguageSwitching) {
+      console.log("Language switch in progress, skipping initialization...");
+      return;
+    }
+
     console.log("Language switch initialization");
+    isInitializing = true;
     
-    // First cleanup any existing handlers
-    cleanupExistingHandlers();
-    
-    // Then initialize new handlers
-    setupLanguageSwitchHandlers();
-    
-    // Mark active language in UI
-    updateActiveLanguageUI();
+    try {
+      // First cleanup any existing handlers
+      cleanupExistingHandlers();
+      
+      // Then initialize new handlers
+      setupLanguageSwitchHandlers();
+      
+      // Mark active language in UI
+      updateActiveLanguageUI();
+      
+      // Check if we should show the popup
+      const shouldShowPopup = !sessionStorage.getItem('languagePopupShown') && 
+                            !sessionStorage.getItem('preferredLanguage');
+      
+      if (shouldShowPopup) {
+        // Delay popup check slightly to ensure DOM is stable
+        setTimeout(checkBrowserLanguage, 1000);
+      }
+    } finally {
+      isInitializing = false;
+    }
     
     // Make initLanguageSwitching globally accessible for direct calls
     window.initLanguageSwitching = initLanguageSwitching;
@@ -112,9 +149,17 @@
   
   // Core language switching function
   function switchToLanguage(lang) {
+    // Set flag to prevent reinitialization during switch
+    isLanguageSwitching = true;
+    isComponentLoading = true;
+    
     // Get current page
     const currentPath = window.location.pathname;
-    const currentPage = currentPath.substring(currentPath.lastIndexOf('/') + 1);
+    let currentPage = currentPath.substring(currentPath.lastIndexOf('/') + 1);
+    // Fallback für Root-URL
+    if (!currentPage || currentPage === '' || currentPage === '/') {
+      currentPage = 'index.html';
+    }
     const isEnglish = currentPage.includes('_en');
     
     console.log("Switching to language:", lang, "Current page:", currentPage, "Is English:", isEnglish);
@@ -122,6 +167,8 @@
     // Prevent unnecessary navigation
     if ((lang === 'en' && isEnglish) || (lang === 'de' && !isEnglish)) {
       console.log("Already on requested language page");
+      isLanguageSwitching = false;
+      isComponentLoading = false;
       return;
     }
     
@@ -160,6 +207,12 @@
     document.head.appendChild(keyframes);
     loadingOverlay.appendChild(spinner);
     document.body.appendChild(loadingOverlay);
+
+    // Set a timeout to reset flags in case navigation fails
+    setTimeout(() => {
+      isLanguageSwitching = false;
+      isComponentLoading = false;
+    }, 10000); // 10 seconds timeout
     
     // Navigate to corresponding language version
     if (lang === 'en' && !isEnglish) {
@@ -239,6 +292,12 @@
   function setupMutationObserver() {
     // Create an observer instance
     const observer = new MutationObserver(function(mutations) {
+      // Skip if we're in the middle of a language switch or component loading
+      if (isLanguageSwitching || isComponentLoading) {
+        console.log("Language switch or component loading in progress, skipping mutation observer...");
+        return;
+      }
+
       let shouldReinitialize = false;
       
       mutations.forEach(function(mutation) {
@@ -258,7 +317,7 @@
             console.log("Navigation change detected, re-initializing language switch");
             initLanguageSwitching();
             window.languageSwitchReinitTimeout = null;
-          }, 100);
+          }, 500); // Increased delay to 500ms
         }
       }
     });
@@ -273,26 +332,232 @@
   // Listen for custom events from mobile-nav.js
   window.addEventListener('navigationOpened', function() {
     console.log("Navigation opened event received");
+    // Skip if components are loading
+    if (isComponentLoading) {
+      console.log("Component loading in progress, skipping navigation opened handler");
+      return;
+    }
     // Throttle to prevent multiple calls
     if (!window.languageSwitchNavTimeout) {
       window.languageSwitchNavTimeout = setTimeout(() => {
         initLanguageSwitching();
         window.languageSwitchNavTimeout = null;
-      }, 50);
+      }, 500); // Increased delay to 500ms
     }
   });
   
   window.addEventListener('navigationUpdated', function() {
     console.log("Navigation updated event received");
+    // Skip if components are loading
+    if (isComponentLoading) {
+      console.log("Component loading in progress, skipping navigation updated handler");
+      return;
+    }
     // Throttle to prevent multiple calls
     if (!window.languageSwitchUpdateTimeout) {
       window.languageSwitchUpdateTimeout = setTimeout(() => {
         initLanguageSwitching();
         window.languageSwitchUpdateTimeout = null;
-      }, 50);
+      }, 500); // Increased delay to 500ms
     }
   });
   
   // Set up the observer for dynamic content loading
   setupMutationObserver();
+
+  // Check browser language and show popup if needed
+  function checkBrowserLanguage() {
+    console.log("Checking browser language..."); // Debug log
+    
+    // Get current page
+    const currentPath = window.location.pathname;
+    const currentPage = currentPath.substring(currentPath.lastIndexOf('/') + 1);
+    
+    // Only show popup on German pages (not on _en versions)
+    if (currentPage.includes('_en')) {
+      console.log("English page detected, not showing popup"); // Debug log
+      return;
+    }
+
+    // Get browser language
+    const browserLang = navigator.language || navigator.userLanguage;
+    const isEnglishBrowser = browserLang.toLowerCase().startsWith('en');
+    console.log("Browser language:", browserLang, "Is English:", isEnglishBrowser); // Debug log
+
+    // If browser is set to English, show the language popup
+    if (isEnglishBrowser) {
+      console.log("Showing language popup for English browser"); // Debug log
+      showLanguagePopup();
+      // Mark that we've shown the popup
+      sessionStorage.setItem('languagePopupShown', 'true');
+    }
+  }
+
+  // Show language selection popup
+  function showLanguagePopup() {
+    console.log("Creating language popup..."); // Debug log
+
+    // Create a container div that will hold both overlay and popup
+    const container = document.createElement('div');
+    container.id = 'language-popup-container';
+    container.style.cssText = `
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 999999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(30, 32, 38, 0.55);
+    `;
+
+    // Create popup (modern design)
+    const popup = document.createElement('div');
+    popup.className = 'lang-popup lang-popup-variant2b';
+    popup.innerHTML = `
+      <div class="lang-popup-gradient-card">
+        <div class="lang-popup-logo lang-popup-logo-optimized">
+          <img src="assets/pictures/imt_logo.png" alt="Logo" />
+        </div>
+        <h3 style="margin: 0 0 14px 0; font-size: 1.35rem; color: #fff; font-weight: 700;">Language Preference</h3>
+        <p style="color: #f5f5f7; font-size: 1.05rem; margin-bottom: 28px; line-height: 1.5;">Your browser is set to English.<br>Would you like to view this site in English?</p>
+        <div class="lang-popup-actions">
+          <button class="lang-btn lang-btn-primary">Yes, English</button>
+          <button class="lang-btn lang-btn-secondary">No, stay in German</button>
+        </div>
+      </div>
+    `;
+    popup.style.cssText = `
+      position: relative;
+      background: none;
+      border-radius: 22px;
+      box-shadow: 0 10px 36px rgba(110,69,226,0.18);
+      max-width: 370px;
+      width: 100%;
+      text-align: center;
+      z-index: 1000000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    `;
+
+    // Add styles for the popup (from language_popup.html)
+    const style = document.createElement('style');
+    style.textContent = `
+      .lang-popup-gradient-card {
+        background: linear-gradient(135deg,#6e45e2 0%,#970289 100%);
+        color: #fff;
+        border-radius: 22px;
+        box-shadow: 0 10px 36px rgba(110,69,226,0.18);
+        padding: 44px 36px 32px;
+        width: 100%;
+        text-align: center;
+        animation: popup-fade-in 0.5s;
+      }
+      .lang-popup-logo-optimized {
+        margin-bottom: 36px;
+        display: flex;
+        justify-content: center;
+        background: #fff;
+        padding: 16px 18px;
+        border-radius: 12px;
+        box-shadow: 0 4px 18px rgba(110,69,226,0.13), 0 1.5px 6px rgba(0,0,0,0.07);
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        min-width: 120px;
+        max-width: 220px;
+      }
+      .lang-popup-logo-optimized img {
+        width: 100%;
+        max-width: 220px;
+        height: auto;
+        border-radius: 0;
+        background: none;
+        box-shadow: none;
+        display: block;
+        margin: 0 auto;
+        border: none;
+        object-fit: contain;
+      }
+      .lang-popup-actions {
+        display: flex;
+        gap: 14px;
+        justify-content: center;
+      }
+      .lang-btn {
+        border: none;
+        border-radius: 10px;
+        padding: 12px 26px;
+        font-size: 1.05rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+        box-shadow: 0 2px 8px rgba(110,69,226,0.07);
+      }
+      .lang-btn-primary {
+        background: #fff;
+        color: #6e45e2;
+      }
+      .lang-btn-primary:hover {
+        background: #ece9f7;
+      }
+      .lang-btn-secondary {
+        background: transparent;
+        color: #fff;
+        border: 1.5px solid #fff;
+      }
+      .lang-btn-secondary:hover {
+        background: rgba(255,255,255,0.08);
+      }
+      @media (max-width: 600px) {
+        .lang-popup-gradient-card {
+          padding: 22px 4vw 18px;
+          max-width: 98vw;
+        }
+        .lang-popup-logo-optimized {
+          min-width: 120px;
+          max-width: 220px;
+        }
+        .lang-popup-logo-optimized img {
+          min-width: 120px;
+          max-width: 220px;
+        }
+      }
+      @keyframes popup-fade-in {
+        from { opacity: 0; transform: translateY(30px) scale(0.98); }
+        to   { opacity: 1; transform: translateY(0) scale(1); }
+      }
+    `;
+    document.head.appendChild(style);
+
+    // Add event listeners
+    const primaryBtn = popup.querySelector('.lang-btn-primary');
+    const secondaryBtn = popup.querySelector('.lang-btn-secondary');
+
+    const removePopup = () => {
+      if (container.parentNode) {
+        container.parentNode.removeChild(container);
+        document.body.style.overflow = '';
+      }
+    };
+
+    primaryBtn.addEventListener('click', () => {
+      sessionStorage.setItem('preferredLanguage', 'en');
+      removePopup();
+      switchToLanguage('en');
+    });
+
+    secondaryBtn.addEventListener('click', () => {
+      sessionStorage.setItem('preferredLanguage', 'de');
+      removePopup();
+    });
+
+    // Add popup to container
+    container.appendChild(popup);
+    document.body.appendChild(container);
+    document.body.style.overflow = 'hidden';
+  }
 })(); 

@@ -1,443 +1,204 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sprachauswahl Popup Varianten</title>
-  <style>
-    /* Gemeinsame Styles für alle Popups */
-    :root {
-      --font-sans: -apple-system, BlinkMacSystemFont, "San Francisco", "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-      --color-text: #1d1d1f;
-      --color-muted: #6e6e73;
-      --color-card-bg: #f5f5f7;
-      --color-accent2: #970289;
-      --imt-purple: #6e45e2;
-    }
-    
-    body {
-      font-family: var(--font-sans);
-      margin: 0;
-      padding: 0;
-      color: var(--color-text);
-    }
-    
-    .language-flag {
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      margin-right: 8px;
-      vertical-align: middle;
-    }
-    
-    /* Demo-Container für die Beispiele */
-    .demo-container {
-      max-width: 1200px;
-      margin: 40px auto;
-      padding: 20px;
-    }
-    
-    .demo-heading {
-      margin-bottom: 30px;
-      border-bottom: 1px solid #eee;
-      padding-bottom: 10px;
-    }
-    
-    .variant-section {
-      margin-bottom: 60px;
-      padding: 20px;
-      background: #fafafa;
-      border-radius: 12px;
-    }
-    
-    .variant-title {
-      margin-bottom: 20px;
-      font-size: 1.2rem;
-      color: var(--color-accent2);
-    }
-    
-    /************************************
-     * VARIANTE 1: MINIMALES BANNER
-     ************************************/
-    .language-banner {
-      position: fixed;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: white;
-      box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-      padding: 14px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      z-index: 1000;
-      font-size: 0.95rem;
-    }
-    
-    .language-banner-content {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-    
-    .language-banner-actions {
-      display: flex;
-      gap: 10px;
-    }
-    
-    .banner-btn {
-      padding: 8px 16px;
-      border-radius: 30px;
-      border: none;
-      font-family: var(--font-sans);
-      font-weight: 500;
-      font-size: 0.9rem;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    
-    .banner-btn.primary {
-      background: var(--imt-purple);
-      color: white;
-    }
-    
-    .banner-btn.primary:hover {
-      background: #5d38c9;
-    }
-    
-    .banner-btn.secondary {
-      background: var(--color-card-bg);
-      color: var(--color-text);
-    }
-    
-    .banner-btn.secondary:hover {
-      background: #e8e8ed;
-    }
-    
-    .banner-close {
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: #999;
-      font-size: 18px;
-      padding: 5px;
-    }
-    
-    /************************************
-     * VARIANTE 2: ZENTRIERTES POPUP
-     ************************************/
-    .popup-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.5);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 1000;
-    }
-    
-    .popup-container {
-      width: 90%;
-      max-width: 460px;
-      background: white;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-      padding: 25px;
-      position: relative;
-      animation: popup-fade-in 0.3s ease;
-    }
-    
-    @keyframes popup-fade-in {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    .popup-header {
-      display: flex;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-    
-    .popup-logo {
-      height: 40px;
-      width: auto;
-      margin-right: 15px;
-    }
-    
-    .popup-title {
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin: 0;
-    }
-    
-    .popup-content {
-      margin-bottom: 20px;
-    }
-    
-    .popup-footer {
-      display: flex;
-      justify-content: flex-end;
-      gap: 10px;
-    }
-    
-    .popup-btn {
-      padding: 10px 20px;
-      border-radius: 8px;
-      border: none;
-      font-family: var(--font-sans);
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    
-    .popup-btn.primary {
-      background: var(--imt-purple);
-      color: white;
-    }
-    
-    .popup-btn.primary:hover {
-      background: #5d38c9;
-    }
-    
-    .popup-btn.secondary {
-      background: var(--color-card-bg);
-      color: var(--color-text);
-    }
-    
-    .popup-btn.secondary:hover {
-      background: #e8e8ed;
-    }
-    
-    .popup-close {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      background: none;
-      border: none;
-      font-size: 22px;
-      color: #999;
-      cursor: pointer;
-    }
-    
-    .language-options {
-      display: flex;
-      gap: 10px;
-      margin: 15px 0;
-    }
-    
-    .language-option {
-      flex: 1;
-      padding: 15px;
-      border-radius: 8px;
-      background: var(--color-card-bg);
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-      transition: all 0.2s;
-      border: 2px solid transparent;
-    }
-    
-    .language-option:hover {
-      border-color: var(--imt-purple);
-    }
-    
-    .language-option.active {
-      background: rgba(110, 69, 226, 0.1);
-      border-color: var(--imt-purple);
-    }
-    
-    /************************************
-     * VARIANTE 3: DISKRETES TOAST
-     ************************************/
-    .language-toast {
-      position: fixed;
-      top: 80px;
-      right: 20px;
-      background: white;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      border-radius: 12px;
-      padding: 15px 20px;
-      max-width: 320px;
-      animation: toast-slide-in 0.3s ease;
-      z-index: 1000;
-    }
-    
-    @keyframes toast-slide-in {
-      from { opacity: 0; transform: translateX(30px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-    
-    .toast-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 10px;
-    }
-    
-    .toast-title {
-      font-size: 1rem;
-      font-weight: 600;
-      margin: 0;
-      color: var(--color-accent2);
-    }
-    
-    .toast-content {
-      font-size: 0.9rem;
-      margin-bottom: 15px;
-    }
-    
-    .toast-actions {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    
-    .toast-btn {
-      width: 100%;
-      padding: 8px 12px;
-      border-radius: 8px;
-      border: none;
-      font-family: var(--font-sans);
-      font-weight: 500;
-      font-size: 0.9rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.2s;
-    }
-    
-    .toast-btn.primary {
-      background: var(--imt-purple);
-      color: white;
-    }
-    
-    .toast-btn.primary:hover {
-      background: #5d38c9;
-    }
-    
-    .toast-btn.secondary {
-      background: var(--color-card-bg);
-      color: var(--color-text);
-    }
-    
-    .toast-btn.secondary:hover {
-      background: #e8e8ed;
-    }
-    
-    .toast-close {
-      background: none;
-      border: none;
-      font-size: 18px;
-      color: #999;
-      cursor: pointer;
-    }
-  </style>
-</head>
-<body>
-  <div class="demo-container">
-    <h1 class="demo-heading">Sprachauswahl Popup Varianten</h1>
-    
-    <!-- Variante 1: Minimales Banner -->
-    <div class="variant-section">
-      <h2 class="variant-title">Variante 1: Minimales Banner (Footer)</h2>
-      <p>Ein dezentes Banner am unteren Bildschirmrand, das nicht den Hauptinhalt verdeckt.</p>
-      
-      <div class="language-banner">
-        <div class="language-banner-content">
-          <div>
-            <img src="assets/icons/en-flag-round.png" alt="English" class="language-flag">
-            We've detected your browser is set to English. Would you like to switch the site language?
-          </div>
-          <div class="language-banner-actions">
-            <button class="banner-btn primary">Switch to English</button>
-            <button class="banner-btn secondary">Continue in German</button>
-          </div>
+<!--
+  language_popup.html
+  Drei Design-Varianten im Stil von Variante 2 (Gradient) für das Sprachwechsel-Popup
+  - Variante 2a: Minimalistisch, optimiert
+  - Variante 2b: Mit Logo
+  - Variante 2c: Original (wie bisher)
+  Nur HTML & CSS, kein JavaScript.
+-->
+
+<div class="lang-popup-bg">
+  <div class="lang-popup-variants">
+    <!-- ========== VARIANTE 2a: Minimalistisch, optimiert ========== -->
+    <div class="lang-popup lang-popup-variant2a">
+      <div class="lang-popup-gradient-card">
+        <div class="lang-popup-icon">
+          <i class="bx bx-globe"></i>
         </div>
-        <button class="banner-close">&times;</button>
-      </div>
-    </div>
-    
-    <!-- Variante 2: Zentriertes Popup -->
-    <div class="variant-section">
-      <h2 class="variant-title">Variante 2: Zentriertes Popup</h2>
-      <p>Ein auffälligeres, zentriertes Popup mit Overlay, das mehr Aufmerksamkeit erregt und eine explizite Auswahl fordert.</p>
-      
-      <div class="popup-overlay">
-        <div class="popup-container">
-          <div class="popup-header">
-            <img src="assets/pictures/imt_logo.png" alt="StGallen Integrated imt Business School" class="popup-logo">
-            <h3 class="popup-title">Language Preference</h3>
-          </div>
-          <button class="popup-close">&times;</button>
-          
-          <div class="popup-content">
-            <p>Welcome to StGallen Integrated imt Business School! We've detected your browser is set to English.</p>
-            <p>Please select your preferred language for the best experience:</p>
-            
-            <div class="language-options">
-              <div class="language-option">
-                <img src="assets/icons/de-flag-round.png" alt="Deutsch" class="language-flag">
-                <div>Deutsch</div>
-              </div>
-              <div class="language-option active">
-                <img src="assets/icons/en-flag-round.png" alt="English" class="language-flag">
-                <div>English</div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="popup-footer">
-            <button class="popup-btn secondary">Continue in German</button>
-            <button class="popup-btn primary">Switch to English</button>
-          </div>
+        <h3>Language Preference</h3>
+        <p>Your browser is set to English.<br>Would you like to view this site in English?</p>
+        <div class="lang-popup-actions">
+          <button class="lang-btn lang-btn-primary">Yes, English</button>
+          <button class="lang-btn lang-btn-secondary">No, stay in German</button>
         </div>
       </div>
     </div>
-    
-    <!-- Variante 3: Diskretes Toast -->
-    <div class="variant-section">
-      <h2 class="variant-title">Variante 3: Diskretes Toast</h2>
-      <p>Eine dezente Benachrichtigung, die am Bildschirmrand erscheint und weniger störend ist als ein Vollbild-Popup.</p>
-      
-      <div class="language-toast">
-        <div class="toast-header">
-          <h3 class="toast-title">Language Settings</h3>
-          <button class="toast-close">&times;</button>
+
+    <!-- ========== VARIANTE 2b: Mit Logo (optimiert, nicht beschnitten) ========== -->
+    <div class="lang-popup lang-popup-variant2b">
+      <div class="lang-popup-gradient-card">
+        <div class="lang-popup-logo lang-popup-logo-optimized">
+          <img src="assets/pictures/imt_logo.png" alt="Logo" />
         </div>
-        <div class="toast-content">
-          <p>We've detected your browser is set to English. Would you like to view this site in English?</p>
+        <div class="lang-popup-icon">
+          <i class="bx bx-globe"></i>
         </div>
-        <div class="toast-actions">
-          <button class="toast-btn primary">
-            <img src="assets/icons/en-flag-round.png" alt="English" class="language-flag" style="width: 18px; height: 18px;">
-            Switch to English
-          </button>
-          <button class="toast-btn secondary">Continue in German</button>
+        <h3>Language Preference</h3>
+        <p>Your browser is set to English.<br>Would you like to view this site in English?</p>
+        <div class="lang-popup-actions">
+          <button class="lang-btn lang-btn-primary">Yes, English</button>
+          <button class="lang-btn lang-btn-secondary">No, stay in German</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== VARIANTE 2c: Original ========== -->
+    <div class="lang-popup lang-popup-variant2c">
+      <div class="lang-popup-gradient-card">
+        <div class="lang-popup-icon">
+          <i class="bx bx-globe"></i>
+        </div>
+        <h3>Language Preference</h3>
+        <p>Your browser is set to English.<br>Would you like to view this site in English?</p>
+        <div class="lang-popup-actions">
+          <button class="lang-btn lang-btn-primary">Yes, English</button>
+          <button class="lang-btn lang-btn-secondary">No, stay in German</button>
         </div>
       </div>
     </div>
   </div>
-  
-  <!-- Einfaches JavaScript zur Demonstration -->
-  <script>
-    // Einfaches Skript zum Schließen der Popups bei Klick auf Close-Button (nur für Demo)
-    document.querySelectorAll('.banner-close, .popup-close, .toast-close, .banner-btn, .popup-btn, .toast-btn').forEach(button => {
-      button.addEventListener('click', function() {
-        alert('Diese Aktion würde das Popup schließen oder die Sprache ändern.\nDies ist nur eine statische Demo.');
-      });
-    });
-    
-    // Sprachauswahl-Toggle für Popup Variante 2
-    document.querySelectorAll('.language-option').forEach(option => {
-      option.addEventListener('click', function() {
-        document.querySelectorAll('.language-option').forEach(opt => opt.classList.remove('active'));
-        this.classList.add('active');
-      });
-    });
-  </script>
-</body>
-</html> 
+</div>
+
+<style>
+.lang-popup-bg {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background: rgba(30, 32, 38, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+}
+.lang-popup-variants {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1200px;
+}
+.lang-popup {
+  flex: 1 1 320px;
+  min-width: 300px;
+  max-width: 370px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ========== VARIANTE 2a, 2b, 2c: Gradient Card ========== */
+.lang-popup-gradient-card {
+  background: linear-gradient(135deg,#6e45e2 0%,#970289 100%);
+  color: #fff;
+  border-radius: 22px;
+  box-shadow: 0 10px 36px rgba(110,69,226,0.18);
+  padding: 44px 36px 32px;
+  width: 100%;
+  text-align: center;
+  animation: popup-fade-in 0.5s;
+}
+.lang-popup-icon {
+  font-size: 3.2rem;
+  margin-bottom: 14px;
+  color: #fff;
+}
+.lang-popup-gradient-card h3 {
+  margin: 0 0 14px 0;
+  font-size: 1.35rem;
+  color: #fff;
+  font-weight: 700;
+}
+.lang-popup-gradient-card p {
+  color: #f5f5f7;
+  font-size: 1.05rem;
+  margin-bottom: 28px;
+  line-height: 1.5;
+}
+.lang-popup-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+}
+.lang-btn {
+  border: none;
+  border-radius: 10px;
+  padding: 12px 26px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(110,69,226,0.07);
+}
+.lang-btn-primary {
+  background: #fff;
+  color: #6e45e2;
+}
+.lang-btn-primary:hover {
+  background: #ece9f7;
+}
+.lang-btn-secondary {
+  background: transparent;
+  color: #fff;
+  border: 1.5px solid #fff;
+}
+.lang-btn-secondary:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+/* ========== Variante 2b: Logo (optimiert, nicht beschnitten) ========== */
+.lang-popup-logo-optimized {
+  margin-bottom: 36px;
+  display: flex;
+  justify-content: center;
+  background: #fff;
+  padding: 16px 18px;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(110,69,226,0.13), 0 1.5px 6px rgba(0,0,0,0.07);
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 120px;
+  max-width: 220px;
+}
+.lang-popup-logo-optimized img {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  display: block;
+  margin: 0 auto;
+  border: none;
+  object-fit: contain;
+}
+
+@keyframes popup-fade-in {
+  from { opacity: 0; transform: translateY(30px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (max-width: 1100px) {
+  .lang-popup-variants { gap: 18px; }
+}
+@media (max-width: 900px) {
+  .lang-popup-variants { flex-direction: column; align-items: center; gap: 24px; }
+  .lang-popup { max-width: 98vw; }
+}
+@media (max-width: 600px) {
+  .lang-popup-gradient-card {
+    padding: 22px 4vw 18px;
+    max-width: 98vw;
+  }
+  .lang-popup-logo-optimized {
+    min-width: 120px;
+    max-width: 220px;
+  }
+  .lang-popup-logo-optimized img {
+    min-width: 120px;
+    max-width: 220px;
+  }
+}
+</style> 

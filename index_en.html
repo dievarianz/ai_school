@@ -1932,9 +1932,6 @@
   <!-- Favicon -->
   <link rel="icon" href="assets/favicon.png" type="image/png">
 
-  <!-- Language switching support -->
-  <script src="assets/js/language-switch.js"></script>
-
   <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -1942,6 +1939,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-KBG73BVB');</script>
 <!-- End Google Tag Manager -->
+  <script src="assets/js/language-switch.js"></script>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -2747,10 +2745,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           
           // Initialize language switching after navigation is loaded
           setTimeout(() => {
-            if (typeof setupLanguageSwitching === 'function') {
-              setupLanguageSwitching();
+            if (typeof initLanguageSwitching === 'function') {
+              initLanguageSwitching();
+            } else if (window.switchLanguage) {
+              console.log('Language-switch.js already loaded, using global function');
+            } else {
+              console.warn('Language-switch functions not found!');
             }
-          }, 200);
+          }, 300);
         }
       })
       .catch(error => console.error('Error loading navigation:', error));
@@ -3202,155 +3204,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       // Add both rows to the container
       logosContainer.appendChild(firstRow);
       logosContainer.appendChild(secondRow);
-    });
-  </script>
-
-  <!-- Script for language switching -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Wait until the navigation is fully loaded
-      setTimeout(function() {
-        setupLanguageSwitching();
-      }, 500);
-      
-      // Function to set up language switching
-      function setupLanguageSwitching() {
-        // Determine current page
-        const currentPath = window.location.pathname;
-        const currentPage = currentPath.substring(currentPath.lastIndexOf('/') + 1);
-        
-        // Check if we're on an English or German page
-        const isEnglish = currentPage.includes('_en');
-        
-        // Find links for desktop language selection
-        const deLinkDesktop = document.getElementById('lang-de-link');
-        const enLinkDesktop = document.getElementById('lang-en-link');
-        
-        if (deLinkDesktop && enLinkDesktop) {
-          // First remove active classes from both
-          deLinkDesktop.classList.remove('active');
-          enLinkDesktop.classList.remove('active');
-          
-          // Mark current language and set direct event listeners
-          if (isEnglish) {
-            enLinkDesktop.classList.add('active');
-            
-            // Configure German link
-            deLinkDesktop.onclick = function(e) {
-              e.preventDefault();
-              switchLanguage('de');
-              return false;
-            };
-            
-            // Disable English link
-            enLinkDesktop.onclick = function(e) {
-              e.preventDefault();
-              return false;
-            };
-          } else {
-            deLinkDesktop.classList.add('active');
-            
-            // Configure English link
-            enLinkDesktop.onclick = function(e) {
-              e.preventDefault();
-              switchLanguage('en');
-              return false;
-            };
-            
-            // Disable German link
-            deLinkDesktop.onclick = function(e) {
-              e.preventDefault();
-              return false;
-            };
-          }
-        } else {
-          // Try to find language links and set them up if they don't have IDs yet
-          const languageLinks = document.querySelectorAll('.lang-dropdown .program-option');
-          if (languageLinks.length >= 2) {
-            if (!languageLinks[0].id) languageLinks[0].id = 'lang-de-link';
-            if (!languageLinks[1].id) languageLinks[1].id = 'lang-en-link';
-            
-            // Try again after setting IDs
-            setTimeout(setupLanguageSwitching, 200);
-          }
-        }
-        
-        // Find links for mobile language selection
-        const mobileLanguageOptions = document.querySelectorAll('.mobile-lang-option, .only-mobile-lang-option');
-        
-        mobileLanguageOptions.forEach(link => {
-          const lang = link.getAttribute('data-lang');
-          
-          // First remove all active classes
-          link.classList.remove('active');
-          
-          // Mark current language
-          if ((lang === 'en' && isEnglish) || (lang === 'de' && !isEnglish)) {
-            link.classList.add('active');
-          }
-          
-          // Set event listener directly
-          link.onclick = function(e) {
-            e.preventDefault();
-            switchLanguage(lang);
-            return false;
-          };
-        });
-      }
-      
-      // Add global switchLanguage function if it doesn't exist yet
-      if (typeof window.switchLanguage !== 'function') {
-        window.switchLanguage = function(lang) {
-          const currentPath = window.location.pathname;
-          const currentPage = currentPath.substring(currentPath.lastIndexOf('/') + 1);
-          const isEnglish = currentPage.includes('_en');
-          
-          // Store language preference in session storage
-          sessionStorage.setItem('preferredLanguage', lang);
-          
-          // Insert loading indicator
-          const loadingOverlay = document.createElement('div');
-          loadingOverlay.style.position = 'fixed';
-          loadingOverlay.style.top = '0';
-          loadingOverlay.style.left = '0';
-          loadingOverlay.style.width = '100%';
-          loadingOverlay.style.height = '100%';
-          loadingOverlay.style.backgroundColor = 'rgba(255, 255, 255, 0.7)';
-          loadingOverlay.style.zIndex = '9999';
-          loadingOverlay.style.display = 'flex';
-          loadingOverlay.style.justifyContent = 'center';
-          loadingOverlay.style.alignItems = 'center';
-          
-          const spinner = document.createElement('div');
-          spinner.style.border = '4px solid rgba(0, 0, 0, 0.1)';
-          spinner.style.borderLeft = '4px solid #3498db';
-          spinner.style.borderRadius = '50%';
-          spinner.style.width = '40px';
-          spinner.style.height = '40px';
-          spinner.style.animation = 'spin 1s linear infinite';
-          
-          const keyframes = document.createElement('style');
-          keyframes.innerHTML = `
-            @keyframes spin {
-              0% { transform: rotate(0deg); }
-              100% { transform: rotate(360deg); }
-            }
-          `;
-          
-          document.head.appendChild(keyframes);
-          loadingOverlay.appendChild(spinner);
-          document.body.appendChild(loadingOverlay);
-          
-          // Navigate to corresponding language version
-          if (lang === 'en' && !isEnglish) {
-            // From German to English
-            window.location.href = currentPage.replace('.html', '_en.html');
-          } else if (lang === 'de' && isEnglish) {
-            // From English to German
-            window.location.href = currentPage.replace('_en.html', '.html');
-          }
-        };
-      }
     });
   </script>
 </body>
