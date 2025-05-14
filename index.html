@@ -1159,9 +1159,15 @@
     .network-description {
       color: var(--color-muted);
       font-size: 1.1rem;
-      max-width: 700px;
+      max-width: 900px;
       margin: 0 auto 2rem;
       line-height: 1.5;
+      white-space: normal;
+      overflow-wrap: anywhere;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
     
     .network-filter {
@@ -1396,7 +1402,7 @@
       transition: all 0.2s ease;
     }
     
-    /* Die Programme StGallen Management Programm, CAS, und Fast-Track MBA verwenden Grün */
+    /* Die Programme StGallen Management Programm, CAS, und Fast Track MBA verwenden Grün */
     .select-items .select-item[data-value="management_programm.html"]:hover,
     .select-items .select-item[data-value="management_programm_cas.html"]:hover,
     .select-items .select-item[data-value="fast_track_mba.html"]:hover {
@@ -1882,6 +1888,15 @@
         grid-template-columns: 1fr;
       }
     }
+
+    .sv-mba-link {
+      color: #fff !important;
+      text-decoration: underline !important;
+    }
+    .sv-mba-link:hover, .sv-mba-link:focus {
+      color: #fff !important;
+      text-decoration: underline !important;
+    }
   </style>
 
   <!-- BoxIcons für Icons -->
@@ -1943,12 +1958,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <div class="select-item" data-value="inspirational_leadership.html">Inspirational Leadership</div>
                     <div class="select-item" data-value="marketing_sales_brand_communication.html">Marketing, Sales and Brand Communication</div>
                     <div class="select-item" data-value="intelligent_process_automation.html">Intelligent Process Automation</div>
-                    <div class="select-item" data-value="ai_augmented_decision_making.html">KI-Augemented Decision Making</div>
+                    <div class="select-item" data-value="ai_augmented_decision_making.html">KI-Augmented Decision Making</div>
                     <div class="select-category programme-category">Programme</div>
                     <div class="select-item" data-value="management_programm.html">StGallen Management Programm</div>
                     <div class="select-item" data-value="management_programm_cas.html">StGallen Certified Management CAS</div>
                     <div class="select-item" data-value="ki_excellence_programm.html">StGallen AI Excellence Management Programm</div>
-                    <div class="select-item" data-value="fast_track_mba.html">StGallen Fast‑Track MBA Programm</div>
+                    <div class="select-item" data-value="fast_track_mba.html">StGallen Fast Track MBA Programm</div>
                   </div>
                 </div>
               </div>
@@ -2227,10 +2242,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             <!-- Card 10: Programm - Fast-Track MBA -->
             <div class="track-card" data-category="programme">
-              <a href="fast_track_mba.html" class="card-link" aria-label="StGallen Fast‑Track MBA Programm Details"></a>
+              <a href="fast_track_mba.html" class="card-link" aria-label="StGallen Fast Track MBA Programm Details"></a>
               <div class="card-header">
                 <span class="track-category category-program">Programm</span>
-                <h3 class="track-title">StGallen Fast‑Track MBA Programm</h3>
+                <h3 class="track-title">StGallen Fast Track MBA Programm</h3>
               </div>
               <div class="card-body">
                 <div class="info-section">
@@ -2270,7 +2285,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="container">
         <div class="tracks-header">
           <h2 class="tracks-title">Silicon Valley Innovation Academy</h2>
-          <p class="tracks-subtitle">Verbinden Sie eine einzigartige Reise ins Silicon Valley mit einem MBA in Kollaboration mit der StGallen imt Business School</p>
+          <p class="tracks-subtitle">Verbinden Sie eine einzigartige Reise ins Silicon Valley mit einem MBA der StGallen imt Business School</p>
         </div>
         
         <div class="sv-gradient-teaser-v3">
@@ -2279,7 +2294,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="sv-gradient-v3-header">
               <div class="sv-gradient-v3-header-content">
                 <h2 class="sv-gradient-v3-title">Die Faszination des Silicon Valleys</h2>
-                <p class="sv-gradient-v3-subtitle">Verbinden Sie eine einzigartige Reise ins Silicon Valley mit einem MBA in Kollaboration mit der StGallen imt Business School</p>
+                <p class="sv-gradient-v3-subtitle">Verbinden Sie eine einzigartige Reise ins Silicon Valley mit einem MBA der StGallen imt Business School</p>
               </div>
               <div class="sv-gradient-v3-date-badge">
                 <div class="sv-gradient-v3-date">12. - 22. Juni 2025</div>
@@ -2306,7 +2321,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
             
             <div class="sv-gradient-v3-footer">
-              <p class="sv-gradient-v3-footer-text">Nutzen Sie diese Erfahrung als Sprungbrett für ein Fast-Track Executive MBA und profitieren Sie von unserem einzigartigen Programm.</p>
+              <p class="sv-gradient-v3-footer-text">Nutzen Sie diese Erfahrung als Sprungbrett für ein <a href="fast_track_mba.html" class="sv-mba-link">Fast Track Executive MBA</a> und profitieren Sie von unserem einzigartigen Programm.</p>
               
               <div class="sv-gradient-v3-partner-container">
                 <div class="sv-gradient-v3-partner">
@@ -2331,7 +2346,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="container">
         <div class="network-intro">
           <h2 class="network-title">In bester Gesellschaft</h2>
-          <p class="network-description">Die StGallen imt Business School arbeitet mit führenden Unternehmen, renommierten Universitäten und Experten zusammen, um Ihnen das beste Bildungserlebnis zu bieten.</p>
+          <p class="network-description">Die StGallen imt Business School arbeitet mit führenden Unternehmen, renommierten Universitäten und Experten zusammen, um Ihnen das beste Weiterbildungserlebnis zu bieten.</p>
         </div>
         
         <div class="network-filter">
@@ -2455,7 +2470,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <section class="content-section">
       <div class="container">
         <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Stimmen aus unserem Netzwerk</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Erfahren Sie, wie unsere Absolventen von der Weiterbildung der StGallen imt Business School profitieren und die gelernten Konzepte in ihrem beruflichen Alltag umsetzen.</p>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Erfahrungen, Einblicke und Perspektiven aus unserem Netzwerk.</p>
         
         <div class="gradient-quotes">
           <!-- Testimonial 1: Jonas Gillmann -->

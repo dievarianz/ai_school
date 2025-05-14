@@ -1199,9 +1199,15 @@
     .network-description {
       color: var(--color-muted);
       font-size: 1.1rem;
-      max-width: 700px;
+      max-width: 900px;
       margin: 0 auto 2rem;
       line-height: 1.5;
+      white-space: normal;
+      overflow-wrap: anywhere;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
     
     .network-filter {
@@ -1436,7 +1442,7 @@
       transition: all 0.2s ease;
     }
     
-    /* Die Programme StGallen Management Programm, CAS, und Fast-Track MBA verwenden Grün */
+    /* Die Programme StGallen Management Programm, CAS, und Fast Track MBA verwenden Grün */
     .select-items .select-item[data-value="management_programm.html"]:hover,
     .select-items .select-item[data-value="management_programm_cas.html"]:hover,
     .select-items .select-item[data-value="fast_track_mba.html"]:hover {
@@ -1922,6 +1928,15 @@
         grid-template-columns: 1fr;
       }
     }
+
+    .sv-mba-link {
+      color: #fff !important;
+      text-decoration: underline !important;
+    }
+    .sv-mba-link:hover, .sv-mba-link:focus {
+      color: #fff !important;
+      text-decoration: underline !important;
+    }
   </style>
 
   <!-- BoxIcons für Icons -->
@@ -1989,7 +2004,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <div class="select-item" data-value="management_programm_en.html">StGallen Management Program</div>
                     <div class="select-item" data-value="management_programm_cas_en.html">StGallen Certified Management CAS</div>
                     <div class="select-item" data-value="ki_excellence_programm_en.html">StGallen AI Excellence Management Programm</div>
-                    <div class="select-item" data-value="fast_track_mba_en.html">StGallen Fast‑Track MBA Program</div>
+                    <div class="select-item" data-value="fast_track_mba_en.html">StGallen Fast Track MBA Program</div>
                   </div>
                 </div>
               </div>
@@ -2268,10 +2283,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             <!-- Card 10: Program - Fast-Track MBA -->
             <div class="track-card" data-category="programme">
-              <a href="fast_track_mba.html" class="card-link" aria-label="StGallen Fast‑Track MBA Program Details"></a>
+              <a href="fast_track_mba.html" class="card-link" aria-label="StGallen Fast Track MBA Program Details"></a>
               <div class="card-header">
                 <span class="track-category category-program">Program</span>
-                <h3 class="track-title">StGallen Fast‑Track MBA Program</h3>
+                <h3 class="track-title">StGallen Fast Track MBA Program</h3>
               </div>
               <div class="card-body">
                 <div class="info-section">
@@ -2311,7 +2326,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="container">
         <div class="tracks-header">
           <h2 class="tracks-title">Silicon Valley Innovation Academy</h2>
-          <p class="tracks-subtitle">Combine a unique journey to Silicon Valley with an MBA in collaboration with StGallen imt Business School</p>
+          <p class="tracks-subtitle">Combine a unique journey to Silicon Valley with an MBA from StGallen imt Business School</p>
         </div>
         
         <div class="sv-gradient-teaser-v3">
@@ -2320,7 +2335,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="sv-gradient-v3-header">
               <div class="sv-gradient-v3-header-content">
                 <h2 class="sv-gradient-v3-title">The Fascination of Silicon Valley</h2>
-                <p class="sv-gradient-v3-subtitle">Combine a unique journey to Silicon Valley with an MBA in collaboration with StGallen imt Business School</p>
+                <p class="sv-gradient-v3-subtitle">Combine a unique journey to Silicon Valley with an MBA from StGallen imt Business School</p>
               </div>
               <div class="sv-gradient-v3-date-badge">
                 <div class="sv-gradient-v3-date">June 12-22, 2025</div>
@@ -2347,7 +2362,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
             
             <div class="sv-gradient-v3-footer">
-              <p class="sv-gradient-v3-footer-text">Use this experience as a springboard for a Fast-Track Executive MBA and benefit from our unique program.</p>
+              <p class="sv-gradient-v3-footer-text">Use this experience as a springboard for a <a href="fast_track_mba_en.html" class="sv-mba-link">Fast Track Executive MBA</a> and benefit from our unique program.</p>
               
               <div class="sv-gradient-v3-partner-container">
                 <div class="sv-gradient-v3-partner">
@@ -2496,7 +2511,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <section class="content-section">
       <div class="container">
         <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Voices from our Network</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Discover how our graduates benefit from StGallen imt Business School Executive Education programs and apply the concepts learned in their professional lives.</p>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">What our network says – experiences and takeaways</p>
         
         <div class="gradient-quotes">
           <!-- Jonas Gillmann Testimonial -->
