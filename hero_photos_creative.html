@@ -86,6 +86,20 @@
       color: #fff;
       text-shadow: 0 2px 10px rgba(0,0,0,0.3); /* Leichter Textschatten */
       animation-delay: 0.5s;
+      position: relative; /* Nötig für ::after */
+      display: inline-block; /* Nötig für ::after bei zentriertem Text */
+    }
+    .hero-title::after { /* Wieder eingefügter Unterstrich */
+      content: '';
+      position: absolute;
+      height: 10px; /* Etwas schmaler als Original für Eleganz auf Bild */
+      width: 60%;
+      background: linear-gradient(to right, var(--imt-purple), var(--color-accent2));
+      bottom: -2px; /* Etwas näher am Text */
+      left: 50%; /* Zentrieren unter dem inline-block Titel */
+      transform: translateX(-50%);
+      z-index: -1; /* Hinter dem Text */
+      opacity: 0.45; /* Angepasste Deckkraft für Sichtbarkeit */
     }
     .hero-subtitle {
       font-size: 1.3rem;
@@ -147,11 +161,68 @@
     .hero {
       transform-style: preserve-3d;
     }
+     @media (max-width: 1024px) {
+      .hero-title {
+        font-size: 3rem; /* Anpassung für Tablets */
+      }
+      .hero-subtitle {
+        font-size: 1.2rem;
+      }
+    }
      @media (max-width: 768px) {
-      .hero-title { font-size: 2.5rem; }
-      .hero-subtitle { font-size: 1.1rem; }
-      .hero-actions { flex-direction: column; gap: 12px; }
-      .hero-btn { width: 100%; max-width: 300px; }
+      .hero {
+        padding-top: 60px; /* Weniger Padding oben */
+        padding-bottom: 80px; /* Weniger Padding unten */
+        height: auto; /* Höhe automatisch anpassen */
+        min-height: 80vh; /* Mindesthöhe beibehalten */
+      }
+      .hero-title {
+        font-size: 2.2rem; /* Aus index.html Hero Mobile */
+        line-height: 1.2;
+      }
+      .hero-title::after {
+        height: 8px; /* Schmalerer Unterstrich mobil */
+        bottom: 0px;
+      }
+      .hero-subtitle {
+        font-size: 1.1rem; /* Aus index.html Hero Mobile */
+        max-width: 90%;
+      }
+      .hero-actions {
+        flex-direction: column; 
+        gap: 12px; 
+        width: 100%;
+        max-width: 400px; /* Begrenzung der Breite für mobile Actions */
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .program-selector {
+        width: 100%;
+        flex-basis: auto; /* Breite automatisch anpassen */
+      }
+      .hero-btn-primary {
+        width: 100%;
+      }
+      .hero-brands {
+        gap: 10px; /* Weniger Abstand zwischen Logos */
+      }
+      .hero-brands img {
+        height: 25px; /* Kleinere Logos mobil */
+        margin: 5px 10px;
+      }
+      .hero-brands-text {
+        font-size: 0.85rem;
+      }
+      .hero-section-wrapper { /* Wrapper Höhe anpassen für mobile Demo */
+        height: auto; 
+      }
+      /* Zusätzlichen Demo-Inhalt auf Mobilgeräten weniger prominent machen oder ausblenden */
+      .hero-section-wrapper > div:last-child {
+        padding: 10px;
+        font-size: 0.9rem;
+        height: auto;
+        min-height: 100px; /* Weniger Höhe */
+      }
     }
     /* Dropdown Styling (angepasst von index.html) */
     .program-selector {
@@ -313,13 +384,12 @@
       height: 30px;
       max-width: 120px;
       width: auto;
-      opacity: 0.9; /* Gute Sichtbarkeit auf dunklerem Hintergrund */
-      margin: 8px 15px; /* Etwas weniger Margin als Original */
+      opacity: 0.9;
+      margin: 8px 15px; 
       object-fit: contain;
       vertical-align: middle;
-      filter: brightness(0) invert(1) opacity(0.85); /* Invertieren für dunkle Logos auf hellem Grund, anpassen für helle Logos */
-      /* Wenn Logos bereits hell/weiß sind, kann der Filter entfernt oder angepasst werden,
-         z.B. nur 'opacity(0.85)' oder 'drop-shadow(0 0 2px rgba(0,0,0,0.5))' für Kontur */
+      /* Filter entfernt, stattdessen leichter Schlagschatten für bessere Abhebung, falls nötig */
+      filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3));
     }
   </style>
 </head>
@@ -361,13 +431,13 @@
       </div>
       <p class="hero-brands-text">Vertrauen unserer Kompetenz</p>
       <div class="hero-brands" id="random-logos">
-        <!-- Hier könnten Beispiellogos für die Demo rein,
-             oder man verlässt sich auf das JS, falls vorhanden.
-             Für reines HTML/CSS bleiben sie als Bilder. -->
-        <img src="assets/companies/ibm.png" alt="IBM Logo Beispiel">
-        <img src="assets/companies/datron.png" alt="Datron Logo Beispiel">
-        <img src="assets/companies/salesforce.png" alt="Salesforce Logo Beispiel">
-        <img src="assets/companies/mobileup.jpg" alt="MobileUp Logo Beispiel">
+        <img src="assets/companies/ibm.png" alt="IBM Logo">
+        <img src="assets/companies/datron.png" alt="Datron Logo">
+        <img src="assets/companies/salesforce.png" alt="Salesforce Logo">
+        <img src="assets/companies/mobileup.jpg" alt="MobileUp Logo">
+        <img src="assets/companies/sap.png" alt="SAP Logo">
+        <img src="assets/companies/wittenstein.png" alt="Wittenstein Logo">
+        <img src="assets/companies/hitachi.png" alt="Hitachi Logo">
       </div>
     </div>
   </section>
