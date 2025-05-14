@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Hero mit Fotos – Alternative 1</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system,BlinkMacSystemFont,"San Francisco","Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+      background: #fafaff;
+      color: #1d1d1f;
+    }
+    .hero {
+      position: relative;
+      background: linear-gradient(to bottom, #f9f9ff, #fff);
+      padding: 100px 0 140px;
+      text-align: center;
+      overflow: hidden;
+    }
+    .hero-eyebrow {
+      color: #6e45e2;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 1.5rem;
+      display: inline-block;
+      font-size: 0.9rem;
+    }
+    .hero-title {
+      font-size: 4rem;
+      line-height: 1.1;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      position: relative;
+      display: inline-block;
+    }
+    .hero-title::after {
+      content: '';
+      position: absolute;
+      height: 12px;
+      width: 60%;
+      background: linear-gradient(to right, #6e45e2, #970289);
+      bottom: -5px;
+      left: 20%;
+      z-index: -1;
+      opacity: 0.3;
+    }
+    .hero-subtitle {
+      font-size: 1.4rem;
+      color: #6e6e73;
+      margin-bottom: 2.5rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    /* Alternative 1: Dezente Fotoleiste am unteren Rand */
+    .hero-photo-strip {
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%) translateY(50%);
+      display: flex;
+      gap: 18px;
+      z-index: 2;
+      background: rgba(255,255,255,0.7);
+      border-radius: 30px;
+      box-shadow: 0 8px 32px rgba(110,69,226,0.07);
+      padding: 10px 28px;
+      backdrop-filter: blur(2px);
+    }
+    .hero-photo-strip img {
+      width: 54px;
+      height: 54px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      box-shadow: 0 2px 8px rgba(110,69,226,0.08);
+      transition: transform 0.2s;
+      background: #eee;
+    }
+    .hero-photo-strip img:hover {
+      transform: scale(1.08);
+      box-shadow: 0 4px 16px rgba(110,69,226,0.13);
+    }
+    @media (max-width: 900px) {
+      .hero-title { font-size: 2.2rem; }
+      .hero-photo-strip img { width: 38px; height: 38px; }
+      .hero-photo-strip { padding: 6px 10px; gap: 8px; }
+    }
+    .hero-actions {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-bottom: 40px;
+      align-items: center;
+    }
+    .hero-btn {
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      border: none;
+    }
+    .hero-btn-primary {
+      background: linear-gradient(to right, #6e45e2, #9c27b0);
+      color: white;
+      border: none;
+      white-space: nowrap;
+    }
+    .hero-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(106, 69, 226, 0.2);
+      text-decoration: none;
+    }
+    .hero-btn-secondary {
+      background: transparent;
+      color: #1d1d1f;
+      border: 2px solid #ddd;
+    }
+    .hero-btn-secondary:hover {
+      background: #f5f5f7;
+      text-decoration: none;
+    }
+    /* Alternative 2: Fotos als große, dezente Kreise im Hintergrund */
+    .hero-alt2 {
+      position: relative;
+      z-index: 1;
+    }
+    .hero-bg-photos {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .hero-bg-photos img {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(0.5px);
+      box-shadow: 0 2px 16px rgba(110,69,226,0.07);
+      transition: opacity 0.3s;
+      object-fit: cover;
+    }
+    /* Alternative 3: Avatare um den Titel herum */
+    .hero-alt3 {
+      position: relative;
+      z-index: 1;
+      padding-bottom: 60px;
+    }
+    .hero-avatars {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+    .hero-avatars img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      box-shadow: 0 2px 8px rgba(110,69,226,0.08);
+      background: #eee;
+      object-fit: cover;
+      transition: transform 0.2s;
+    }
+    .hero-avatars img:hover {
+      transform: scale(1.08);
+      box-shadow: 0 4px 16px rgba(110,69,226,0.13);
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <span class="hero-eyebrow">StGallen imt Business School</span>
+    <h1 class="hero-title">Executive Education for Excellence in Management and Technology</h1>
+    <p class="hero-subtitle">Advance your career in the St. Gallen Management Valley – with rigorous executive education in management and technology.</p>
+    <div class="hero-actions">
+      <button class="hero-btn hero-btn-primary">Explore our Executive Education Programs</button>
+      <button class="hero-btn hero-btn-secondary">Learn more</button>
+    </div>
+    <div class="hero-photo-strip">
+      <img src="assets/IMG_1.webp" alt="Person 1" />
+      <img src="assets/IMG_2.webp" alt="Person 2" />
+      <img src="assets/IMG_3.webp" alt="Person 3" />
+      <img src="assets/IMG_4.webp" alt="Person 4" />
+      <img src="assets/IMG_5.webp" alt="Person 5" />
+      <img src="assets/IMG_6.webp" alt="Person 6" />
+      <img src="assets/IMG_7.webp" alt="Person 7" />
+      <img src="assets/IMG_8.webp" alt="Person 8" />
+      <img src="assets/IMG_9.webp" alt="Person 9" />
+      <img src="assets/IMG_10.webp" alt="Person 10" />
+      <img src="assets/IMG_11.webp" alt="Person 11" />
+      <img src="assets/IMG_12.webp" alt="Person 12" />
+    </div>
+  </section>
+
+  <!-- Alternative 2: Fotos als dezente, große Hintergrundkreise -->
+  <section class="hero hero-alt2">
+    <span class="hero-eyebrow">StGallen imt Business School</span>
+    <h1 class="hero-title">Executive Education for Excellence in Management and Technology</h1>
+    <p class="hero-subtitle">Advance your career in the St. Gallen Management Valley – with rigorous executive education in management and technology.</p>
+    <div class="hero-actions">
+      <button class="hero-btn hero-btn-primary">Explore our Executive Education Programs</button>
+      <button class="hero-btn hero-btn-secondary">Learn more</button>
+    </div>
+    <div class="hero-bg-photos">
+      <img src="assets/IMG_1.webp" style="top:10%;left:8%;width:110px;opacity:0.13;" alt="Person 1" />
+      <img src="assets/IMG_3.webp" style="top:20%;right:7%;width:90px;opacity:0.11;" alt="Person 3" />
+      <img src="assets/IMG_5.webp" style="bottom:12%;left:12%;width:120px;opacity:0.12;" alt="Person 5" />
+      <img src="assets/IMG_7.webp" style="bottom:18%;right:10%;width:100px;opacity:0.10;" alt="Person 7" />
+      <img src="assets/IMG_9.webp" style="top:50%;left:2%;width:80px;opacity:0.09;" alt="Person 9" />
+      <img src="assets/IMG_11.webp" style="bottom:8%;right:3%;width:90px;opacity:0.10;" alt="Person 11" />
+    </div>
+  </section>
+
+  <!-- Alternative 3: Fotos als kleine, schwebende Avatare um den Titel herum -->
+  <section class="hero hero-alt3">
+    <span class="hero-eyebrow">StGallen imt Business School</span>
+    <div class="hero-avatars">
+      <img src="assets/IMG_2.webp" alt="Person 2" />
+      <img src="assets/IMG_4.webp" alt="Person 4" />
+      <img src="assets/IMG_6.webp" alt="Person 6" />
+      <img src="assets/IMG_8.webp" alt="Person 8" />
+      <img src="assets/IMG_10.webp" alt="Person 10" />
+      <img src="assets/IMG_12.webp" alt="Person 12" />
+    </div>
+    <h1 class="hero-title">Executive Education for Excellence in Management and Technology</h1>
+    <p class="hero-subtitle">Advance your career in the St. Gallen Management Valley – with rigorous executive education in management and technology.</p>
+    <div class="hero-actions">
+      <button class="hero-btn hero-btn-primary">Explore our Executive Education Programs</button>
+      <button class="hero-btn hero-btn-secondary">Learn more</button>
+    </div>
+  </section>
+</body>
+</html> 

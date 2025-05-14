@@ -565,4 +565,8 @@
 
 .bxl-youtube:before {
   content: "\ebde";
+}
+
+.faculty-title {
+  text-transform: none !important;
 } 
