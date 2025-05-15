@@ -188,6 +188,20 @@
       box-shadow: 0 6px 12px rgba(106, 69, 226, 0.2);
     }
 
+    /* Arrow Icon Animation */
+    .arrow-icon {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-weight: 400;
+      font-size: 1.2rem;
+      margin-left: 8px;
+      display: inline-block;
+      transition: transform 0.2s ease;
+    }
+
+    .cta-button:hover .arrow-icon {
+      transform: translateX(3px);
+    }
+
     /* Icon Styling */
     .contact-icon {
       display: inline-block;
@@ -297,6 +311,12 @@
         padding-bottom: 60px;
       }
       
+      /* Make submit button full width on mobile */
+      .submit-container .cta-button {
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+      
       h1 {
         font-size: 2rem;
       }
@@ -316,15 +336,6 @@
       .content-section {
         padding: 50px 0;
       }
-    }
-
-    /* Einheitlicher Pfeil-Stil für alle Buttons */
-    .arrow-icon {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      font-weight: 400;
-      font-size: 1.2rem;
-      margin-left: 8px;
-      display: inline-block;
     }
 
     /* Success Message Container */
@@ -534,28 +545,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="section-subtitle">Alternativ können Sie uns auch direkt auf einem der folgenden Wege erreichen.</p>
         
         <div class="contact-cards">
-          <div class="contact-card">
+          <div class="contact-card contact-info-item">
             <div class="contact-icon">
               <i class="bx bx-envelope"></i>
             </div>
             <h3>E-Mail</h3>
             <p><a href="mailto:info@imtschool.ch">info@imtschool.ch</a></p>
+            <p style="margin-top: 15px; font-size: 0.9rem; color: var(--color-muted);">Wir antworten in der Regel<br>innerhalb von 24 Stunden</p>
           </div>
           
-          <div class="contact-card">
+          <div class="contact-card contact-info-item">
             <div class="contact-icon">
               <i class="bx bx-phone"></i>
             </div>
             <h3>Telefon</h3>
             <p><a href="tel:+41712247222">+41 71 277 60 00</a></p>
+            <p style="margin-top: 15px; font-size: 0.9rem; color: var(--color-muted);">Montag - Freitag<br>8:30 - 17:00 Uhr</p>
           </div>
           
-          <div class="contact-card">
+          <div class="contact-card contact-info-item">
             <div class="contact-icon">
-              <i class="bx bxl-linkedin"></i>
+              <i class="bx bx-map"></i>
             </div>
-            <h3>LinkedIn</h3>
-            <p><a href="https://www.linkedin.com/school/imtschool.ch/">StGallen imt Business School</a></p>
+            <h3>Standort</h3>
+            <p>StGallen imt Business School<br>Fürstenlandstrasse 41<br>9001 St. Gallen, Schweiz</p>
+            <p style="margin-top: 15px; font-size: 0.9rem;"><a href="https://www.google.com/maps/place/F%C3%BCrstenlandstrasse+41,+9001+St.+Gallen,+Schweiz" target="_blank">Auf Google Maps anzeigen</a></p>
           </div>
         </div>
       </div>

@@ -188,6 +188,20 @@
       box-shadow: 0 6px 12px rgba(106, 69, 226, 0.2);
     }
 
+    /* Arrow Icon Animation */
+    .arrow-icon {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-weight: 400;
+      font-size: 1.2rem;
+      margin-left: 8px;
+      display: inline-block;
+      transition: transform 0.2s ease;
+    }
+
+    .cta-button:hover .arrow-icon {
+      transform: translateX(3px);
+    }
+
     /* Icon Styling */
     .contact-icon {
       display: inline-block;
@@ -297,6 +311,12 @@
         padding-bottom: 60px;
       }
       
+      /* Make submit button full width on mobile */
+      .submit-container .cta-button {
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+      
       h1 {
         font-size: 2rem;
       }
@@ -316,15 +336,6 @@
       .content-section {
         padding: 50px 0;
       }
-    }
-
-    /* Uniform arrow style for all buttons */
-    .arrow-icon {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      font-weight: 400;
-      font-size: 1.2rem;
-      margin-left: 8px;
-      display: inline-block;
     }
 
     /* Success Message Container */
@@ -558,7 +569,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <i class='bx bx-map contact-icon'></i>
             <h3>Location</h3>
             <p>StGallen imt Business School<br>Fürstenlandstrasse 41<br>9001 St. Gallen, Switzerland</p>
-            <p style="margin-top: 15px; font-size: 0.9rem;"><a href="https://goo.gl/maps/WGZz8Qft7fofNoDR7" target="_blank">View on Google Maps</a></p>
+            <p style="margin-top: 15px; font-size: 0.9rem;"><a href="https://www.google.com/maps/place/F%C3%BCrstenlandstrasse+41,+9001+St.+Gallen,+Switzerland" target="_blank">View on Google Maps</a></p>
           </div>
         </div>
       </div>
