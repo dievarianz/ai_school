@@ -906,19 +906,41 @@
 
     // Collect form data
     const formData = {
+      formtyp: "Newsletter-Anmeldung (Voucher-Popup)",
       vorname: firstname.value,
       nachname: lastname.value,
       email: email.value,
       land: country.value
     };
     
-    // You could send the data to your server here
-    console.log('Newsletter Signup:', formData);
-    
-    // Hide form and show success message
-    const newsletterForm = document.querySelector('.newsletter-form');
-    newsletterForm.style.display = 'none';
-    document.getElementById('newsletter-success').classList.remove('hidden');
+    // Send to Google Script - using the same URL as the brochure form
+    fetch('https://script.google.com/macros/s/AKfycbwIV2ywC6DU4HxDotucAnrQVO1mOdYF2Z4Bict2NMMI9obastqrDb-KIbLqULE4g2g/exec', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData)
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Netzwerkantwort war nicht ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log('Erfolg:', data);
+      // Hide form and show success message
+      const newsletterForm = document.querySelector('.newsletter-form');
+      newsletterForm.style.display = 'none';
+      document.getElementById('newsletter-success').classList.remove('hidden');
+    })
+    .catch(error => {
+      console.error('Fehler beim Senden der Daten:', error);
+      // Even if there's an error, show success message to user
+      const newsletterForm = document.querySelector('.newsletter-form');
+      newsletterForm.style.display = 'none';
+      document.getElementById('newsletter-success').classList.remove('hidden');
+    });
     
     // Reset form for next time
     this.reset();
