@@ -53,6 +53,12 @@
               <a href="ki_excellence_programm.html" class="program-option" data-base-href="ki_excellence_programm.html">StGallen KI Excellence Management Programm</a>
               <a href="fast_track_mba.html" class="program-option" data-base-href="fast_track_mba.html">StGallen Fast Track MBA Programm</a>
             </div>
+            
+            <!-- Dritte Spalte: Individuelle Lösungen -->
+            <div class="menu-column">
+              <h3>Individuelle Lösungen</h3>
+              <a href="support_ansprechpartner.html" class="program-option" data-base-href="support_ansprechpartner.html">Kontaktieren Sie uns</a>
+            </div>
           </div>
         </div>
         <a href="research.html" class="nav-link" data-base-href="research.html">Forschung</a>
@@ -244,7 +250,8 @@
     opacity: 0;
     visibility: hidden;
     transition: all 0.2s ease;
-    min-width: 850px;
+    min-width: 1000px;
+    max-width: 95vw;
     margin-top: 8px;
     z-index: 1000;
     display: flex;
@@ -275,6 +282,11 @@
   .menu-column:nth-child(2) h3 {
     color: #17a689;
   }
+  
+  /* Dunkleres Orange/Kupfer für Individuelle Lösungen-Überschrift */
+  .menu-column:nth-child(3) h3 {
+    color: #E65100;
+  }
 
   /* Stilregeln für alle Program-Options */
   .program-option {
@@ -297,6 +309,11 @@
   /* Teal-Farbe für Programme-Options beim Hover */
   .menu-column:nth-child(2) .program-option:hover {
     color: #17a689;
+  }
+  
+  /* Dunkleres Orange/Kupfer für Individuelle Lösungen-Options beim Hover */
+  .menu-column:nth-child(3) .program-option:hover {
+    color: #E65100;
   }
   
   /* Speziell markierte Option - direkt bei der HTML-Definition */
@@ -526,8 +543,9 @@
       padding-left: 12px;
     }
     
-    /* Add more space between last item in first column and Programme heading */
-    .menu-column:nth-child(2) h3 {
+    /* Add more space between columns in mobile view */
+    .menu-column:nth-child(2) h3, 
+    .menu-column:nth-child(3) h3 {
       margin-top: 24px; /* Increased from 10px to 24px for more spacing */
     }
     
@@ -584,6 +602,44 @@
     div[class^="Sprache"]:not(.only-mobile-lang-title),
     span.Sprache:not(.only-mobile-lang-title) {
       display: none !important;
+    }
+  }
+
+  /* Anpassungen für kleinere Bildschirme, die noch nicht mobile sind */
+  @media (min-width: 1025px) and (max-width: 1200px) {
+    .program-dropdown {
+      min-width: 90vw;
+      left: 90%;
+    }
+    
+    .menu-column {
+      font-size: 0.9rem;
+    }
+    
+    .program-option {
+      padding: 10px 12px;
+      font-size: 0.9rem;
+    }
+  }
+  
+  /* Anpassungen für sehr kleine Desktop-Bildschirme */
+  @media (min-width: 1025px) and (max-width: 1100px) {
+    .program-dropdown {
+      min-width: 95vw;
+      left: 130%;
+    }
+    
+    .menu-column {
+      font-size: 0.85rem;
+    }
+    
+    .program-option {
+      padding: 8px 10px;
+      font-size: 0.85rem;
+    }
+    
+    .menu-column h3 {
+      font-size: 0.9rem;
     }
   }
 

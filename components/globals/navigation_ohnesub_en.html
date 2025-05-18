@@ -53,6 +53,12 @@
               <a href="ki_excellence_programm_en.html" class="program-option" data-base-href="ki_excellence_programm_en.html">StGallen AI Excellence Management Program</a>
               <a href="fast_track_mba_en.html" class="program-option" data-base-href="fast_track_mba_en.html">StGallen Fast Track MBA Program</a>
             </div>
+            
+            <!-- Third column: Individual Solutions -->
+            <div class="menu-column">
+              <h3>Individual Solutions</h3>
+              <a href="support_ansprechpartner_en.html" class="program-option" data-base-href="support_ansprechpartner_en.html">Contact Us</a>
+            </div>
           </div>
         </div>
         <a href="research_en.html" class="nav-link" data-base-href="research_en.html">Research</a>
@@ -265,7 +271,8 @@
     opacity: 0;
     visibility: hidden;
     transition: all 0.2s ease;
-    min-width: 850px;
+    min-width: 1000px;
+    max-width: 95vw;
     margin-top: 8px;
     z-index: 1000;
     display: flex;
@@ -279,11 +286,7 @@
     transform: translateX(-50%) translateY(0);
   }
   
-  /* Columns for seminars and programs */
-  .menu-column {
-    flex: 1;
-  }
-
+  /* Styles for menu columns */
   .menu-column h3 {
     font-size: 1rem;
     margin-bottom: 16px;
@@ -295,6 +298,11 @@
   /* Teal color for Programs heading */
   .menu-column:nth-child(2) h3 {
     color: #17a689;
+  }
+  
+  /* Darker orange/copper color for Individual Solutions heading */
+  .menu-column:nth-child(3) h3 {
+    color: #E65100;
   }
 
   /* Style rules for all program options */
@@ -318,6 +326,16 @@
   /* Teal color for Program options on hover */
   .menu-column:nth-child(2) .program-option:hover {
     color: #17a689;
+  }
+  
+  /* Teal color for Programs options on hover */
+  .menu-column:nth-child(2) .program-option:hover {
+    color: #17a689;
+  }
+  
+  /* Darker orange/copper color for Individual Solutions options on hover */
+  .menu-column:nth-child(3) .program-option:hover {
+    color: #E65100;
   }
   
   /* Specially marked option - directly in the HTML definition */
@@ -604,6 +622,44 @@
     div[class^="Sprache"]:not(.only-mobile-lang-title),
     span.Sprache:not(.only-mobile-lang-title) {
       display: none !important;
+    }
+  }
+
+  /* Adjustments for smaller screens that are not yet mobile */
+  @media (min-width: 1025px) and (max-width: 1200px) {
+    .program-dropdown {
+      min-width: 90vw;
+      left: 90%;
+    }
+    
+    .menu-column {
+      font-size: 0.9rem;
+    }
+    
+    .program-option {
+      padding: 10px 12px;
+      font-size: 0.9rem;
+    }
+  }
+  
+  /* Adjustments for very small desktop screens */
+  @media (min-width: 1025px) and (max-width: 1100px) {
+    .program-dropdown {
+      min-width: 95vw;
+      left: 130%;
+    }
+    
+    .menu-column {
+      font-size: 0.85rem;
+    }
+    
+    .program-option {
+      padding: 8px 10px;
+      font-size: 0.85rem;
+    }
+    
+    .menu-column h3 {
+      font-size: 0.9rem;
     }
   }
 
