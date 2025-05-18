@@ -1835,6 +1835,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
+<!-- Verstecktes Netlify-Formular-Schema -->
+<form name="fast-track-mba-brochure" netlify netlify-honeypot="bot-field" hidden>
+  <input type="text" name="firstname" />
+  <input type="text" name="lastname" />
+  <input type="email" name="email" />
+  <select name="country"></select>
+  <input type="checkbox" name="email_consent" />
+  <input type="hidden" name="form-name" value="fast-track-mba-brochure" />
+</form>
+
 <!-- Navigation einbinden -->
 <div id="navigation-container"></div>
 
@@ -2520,7 +2530,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           
           <!-- Formular -->
           <div style="flex: 1 1 400px; background: #f5f5f7; padding: 32px; border-radius: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
-            <form id="brochure-form" method="post" netlify name="fast-track-mba-brochure" netlify-honeypot="bot-field" data-netlify="true" novalidate>
+            <form id="brochure-form" method="post" netlify name="fast-track-mba-brochure" netlify-honeypot="bot-field" data-netlify="true" action="/" novalidate>
               <p class="hidden" style="display: none;">
                 <label>Don't fill this out if you're human: <input name="bot-field" /></label>
               </p>
@@ -2901,10 +2911,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const downloadReady = document.getElementById('download-ready');
     
     if (form) {
-        // Client-side-Validierung beibehalten
+        // Normales HTML-Formular ohne AJAX - aber mit verstecktem iframe für Netlify-Submission
+        // Erstelle einen versteckten iframe für die Formularübermittlung
+        const iframe = document.createElement('iframe');
+        iframe.name = 'hidden_iframe';
+        iframe.style.display = 'none';
+        document.body.appendChild(iframe);
+        
+        // Setze das Formular so, dass es an den iframe gesendet wird
+        form.target = 'hidden_iframe';
+        
+        // Client-side-Validierung
         form.addEventListener('submit', function(e) {
-            // Nicht preventDefault() aufrufen, damit Netlify das Formular verarbeiten kann
-            
             // Validate form
             let isValid = true;
             form.querySelectorAll('[required]').forEach(field => {
@@ -2930,27 +2948,16 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             if (!isValid) {
-                e.preventDefault(); // Nur verhindern, wenn Validierung fehlschlägt
+                e.preventDefault(); // Verhindern des Absenden bei Validierungsfehlern
                 return;
             }
             
-            // Form als gültig validiert - Prevent default, um AJAX-Submission zu ermöglichen
-            e.preventDefault();
+            // Bei erfolgreicher Validierung:
+            // Wir senden das Formular normal ab, aber zielen auf den versteckten iframe
+            // Deshalb kein preventDefault() hier
             
-            // Form-Daten sammeln
-            const formData = new FormData(form);
-            
-            // Wichtig: Netlify erwartet form-name auch im FormData für AJAX-Übermittlung
-            formData.append("form-name", "fast-track-mba-brochure");
-            
-            // Via fetch an Netlify senden - ohne Content-Type Header damit der Browser automatisch
-            // den korrekten multipart/form-data boundary header setzt
-            fetch('/', {
-                method: 'POST',
-                body: formData
-            })
-            .then(() => {
-                // Formular ausblenden und Erfolgsmeldung anzeigen
+            // Nach dem Absenden das Formular verstecken und die Erfolgsmeldung anzeigen
+            setTimeout(() => {
                 form.style.display = 'none';
                 downloadReady.style.display = 'block';
                 
@@ -2959,11 +2966,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     const downloadLink = downloadReady.querySelector('.cta-button');
                     if (downloadLink) downloadLink.click();
                 }, 2000);
-            })
-            .catch(error => {
-                console.error('Fehler beim Senden:', error);
-                alert('Es gab einen Fehler. Bitte versuchen Sie es später erneut.');
-            });
+            }, 500); // Kurze Verzögerung, um sicherzustellen, dass das Formular abgesendet wurde
         });
 
         // Live validation
