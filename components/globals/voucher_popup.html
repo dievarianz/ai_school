@@ -574,6 +574,16 @@
 
 <!-- Newsletter Popup HTML -->
 <div class="popup-overlay" id="newsletter-popup">
+  <!-- Hidden Netlify Form Schema -->
+  <form name="newsletter-voucher-popup" netlify netlify-honeypot="bot-field" hidden>
+    <input type="text" name="firstname" />
+    <input type="text" name="lastname" />
+    <input type="email" name="email" />
+    <select name="country"></select>
+    <input type="checkbox" name="email_consent" />
+    <input type="hidden" name="form-name" value="newsletter-voucher-popup" />
+  </form>
+
   <div class="popup-base">
     <button class="close-button" onclick="closeNewsletterPopup()">✕</button>
     <div class="popup-graphic popup-graphic-1">
@@ -640,7 +650,11 @@
       <h2>Bleiben Sie auf dem Laufenden</h2>
       <p>Erhalten Sie Zugang zu exklusiven kostenlosen Webinaren und 20% Rabatt auf alle Programme der StGallen imt Business School mit unserem Newsletter.</p>
       
-      <form class="newsletter-form" novalidate>
+      <form class="newsletter-form" method="post" netlify name="newsletter-voucher-popup" netlify-honeypot="bot-field" data-netlify="true" action="/" novalidate>
+        <p class="hidden" style="display: none;">
+          <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+        </p>
+        <input type="hidden" name="form-name" value="newsletter-voucher-popup">
         <div class="form-group">
           <input type="text" name="firstname" class="form-control" placeholder="Vorname" required>
         </div>
@@ -735,6 +749,16 @@
               </svg>
             </div>
           </div>
+        </div>
+        
+        <!-- Email Consent Checkbox -->
+        <div class="form-group" style="margin-top: 15px; margin-bottom: 15px;">
+          <label style="display: flex; align-items: flex-start; gap: 8px; cursor: pointer;">
+            <input type="checkbox" name="email_consent" style="margin-top: 3px;">
+            <span style="font-size: 0.9rem; color: var(--color-muted);">
+              Ich stimme zu, Informationen per E-Mail zu Angeboten der StGallen imt Business School zu erhalten.
+            </span>
+          </label>
         </div>
         
         <!-- Prominent Newsletter Button -->
@@ -905,30 +929,21 @@
     }
 
     // Collect form data
-    const formData = {
-      formtyp: "Newsletter-Anmeldung (Voucher-Popup)",
-      vorname: firstname.value,
-      nachname: lastname.value,
-      email: email.value,
-      land: country.value
-    };
+    const emailConsent = this.querySelector('[name="email_consent"]');
+    const formData = new FormData(this);
     
-    // Send to Google Script - using the same URL as the brochure form
-    fetch('https://script.google.com/macros/s/AKfycbwIV2ywC6DU4HxDotucAnrQVO1mOdYF2Z4Bict2NMMI9obastqrDb-KIbLqULE4g2g/exec', {
+    // Important: Netlify expects form-name in FormData for AJAX submissions
+    formData.append("form-name", "newsletter-voucher-popup");
+    
+    // Send to Netlify
+    fetch('/', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData)
+      body: new URLSearchParams(formData)
     })
     .then(response => {
       if (!response.ok) {
         throw new Error('Netzwerkantwort war nicht ok');
       }
-      return response.json();
-    })
-    .then(data => {
-      console.log('Erfolg:', data);
       // Hide form and show success message
       const newsletterForm = document.querySelector('.newsletter-form');
       newsletterForm.style.display = 'none';
