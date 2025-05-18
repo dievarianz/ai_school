@@ -3,10 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Integrated Management and Strategy | St.Gallen imt Business School</title>
-
-<!-- BoxIcons für Icons -->
-<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+<title>Inspirational Leadership | St.Gallen imt Business School</title>
 
 <!-- ============ STYLES ============ -->
 <style>
@@ -38,36 +35,37 @@
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    /* Padding für fixierte Navigation */
+    /* Padding for fixed navigation */
     padding-top: 64px;
     transition: padding-top 0.3s ease;
   }
   
   /* When subnav is active, increase body padding */
   body.has-subnav {
-    padding-top: 110px; /* Reduziert von 120px auf 110px */
+    padding-top: 110px; /* Reduced from 120px to 110px */
   }
   
   @media (max-width: 1024px) {
     body.has-subnav {
-      padding-top: 64px; /* Auf mobile zurück zu standard padding */
+      padding-top: 64px; /* Back to standard padding on mobile */
     }
   }
 
-  /* Basis Styling für Container */
+  /* Base Styling for Container */
   .container {
     max-width: var(--max-width);
     margin: 0 auto;
     padding: 0 var(--spacing);
     width: 100%;
+    overflow: visible !important;
   }
 
-  /* Hauptinhalt der Seite */
+  /* Main content of the page */
   main {
     position: relative;
   }
 
-  /* Allgemeine Typografie */
+  /* General Typography */
   h1, h2, h3, h4, h5, h6 {
     margin-bottom: 1rem;
     font-weight: 600;
@@ -109,66 +107,14 @@
     vertical-align: middle;
   }
 
-  /* Hero-Sektion Styles */
+  /* Hero Section Styles */
   #hero {
     text-align: center;
     padding: 60px 0 20px;
     position: relative;
     background-color: #f5f5f7;
-    color: white;
-    overflow: hidden;
-  }
-
-  /* Programm Informationen Styles */
-  .program-info-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-    margin-bottom: 40px;
-  }
-  
-  .program-info-box {
-    background-color: white;
-    border-radius: var(--radius);
-    border: 2px solid transparent;
-    text-align: center;
-    padding: 24px 20px;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.07), 0 1px 3px rgba(0,0,0,0.06);
-  }
-  
-  .program-info-box:hover {
-    border-color: var(--imt-purple);
-  }
-  
-  .program-info-icon {
-    color: var(--imt-purple);
-    font-size: 28px;
-    margin-bottom: 15px;
-  }
-  
-  .program-info-label {
-    text-transform: uppercase;
-    color: var(--color-muted);
-    font-size: 0.8rem;
-    margin-bottom: 8px;
-  }
-  
-  .program-info-value {
-    font-weight: 600;
     color: var(--color-text);
-  }
-  
-  @media (max-width: 768px) {
-    .program-info-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .program-info-grid {
-      grid-template-columns: 1fr;
-    }
+    overflow: hidden;
   }
 
   #hero::before {
@@ -179,13 +125,13 @@
     width: 100%;
     height: 100%;
     background: 
-        url('assets/pictures/hero_integrated_management_strategy.jpg')
+        url('assets/pictures/hero_inspirational_leadership.jpg')
         center/cover no-repeat;
     opacity: 1;
     z-index: 0;
   }
 
-  /* Semi-transparenter dunkler Overlay für besseren Kontrast */
+  /* Semi-transparent dark overlay for better contrast */
   #hero::after {
     content: '';
     position: absolute;
@@ -193,165 +139,8 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.3); /* Dunkler Overlay mit 30% Deckkraft */
+    background-color: rgba(0, 0, 0, 0.3); /* Dark overlay with 30% opacity */
     z-index: 1;
-  }
-
-  /* Toast Teaser Stil */
-  .teaser-toast {
-    display: flex;
-    align-items: center;
-    background-color: #fff;
-    padding: 10px 15px;
-    border-radius: 6px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    font-size: 0.85rem;
-    margin-bottom: 15px;
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .teaser-toast-icon {
-    background-color: var(--imt-purple);
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 10px;
-    color: white;
-    font-size: 12px;
-    font-weight: bold;
-  }
-
-  /* CSS for Gradient Text Teaser */
-  .teaser-gradient-text {
-    display: inline-block;
-    margin-bottom: 15px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    background: linear-gradient(135deg, var(--imt-purple), #9c27b0);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
-    padding: 3px 0;
-    text-align: center;
-    width: 100%;
-  }
-  
-  /* Sparkle animation for the sparkle symbols */
-  .sparkle-wrapper {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .sparkle-wrapper::before,
-  .sparkle-wrapper::after {
-    content: "";
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    background-color: white;
-    border-radius: 50%;
-    opacity: 0;
-    pointer-events: none;
-  }
-  
-  .sparkle-wrapper::before {
-    animation: sparkle-1 3s infinite;
-  }
-  
-  .sparkle-wrapper::after {
-    animation: sparkle-2 2.5s infinite;
-    animation-delay: 0.3s;
-  }
-  
-  .sparkle-wrapper .dot-1,
-  .sparkle-wrapper .dot-2,
-  .sparkle-wrapper .dot-3 {
-    position: absolute;
-    width: 3px;
-    height: 3px;
-    background-color: white;
-    border-radius: 50%;
-    opacity: 0;
-    pointer-events: none;
-  }
-  
-  .sparkle-wrapper .dot-1 {
-    animation: sparkle-3 3.5s infinite;
-    animation-delay: 0.7s;
-  }
-  
-  .sparkle-wrapper .dot-2 {
-    animation: sparkle-4 2.8s infinite;
-    animation-delay: 1.2s;
-  }
-  
-  .sparkle-wrapper .dot-3 {
-    animation: sparkle-5 3.2s infinite;
-    animation-delay: 1.9s;
-  }
-  
-  @keyframes sparkle-1 {
-    0%, 100% { opacity: 0; transform: translate(0, 0) scale(1); }
-    10% { opacity: 0.8; transform: translate(-5px, -5px) scale(1.2); }
-    20% { opacity: 0; transform: translate(-8px, -8px) scale(0.8); }
-  }
-  
-  @keyframes sparkle-2 {
-    0%, 100% { opacity: 0; transform: translate(0, 0) scale(1); }
-    10% { opacity: 0.8; transform: translate(5px, -5px) scale(1.1); }
-    20% { opacity: 0; transform: translate(8px, -8px) scale(0.9); }
-  }
-  
-  @keyframes sparkle-3 {
-    0%, 100% { opacity: 0; transform: translate(0, 0) scale(1); }
-    10% { opacity: 0.8; transform: translate(0px, -7px) scale(1.2); }
-    20% { opacity: 0; transform: translate(0px, -10px) scale(0.8); }
-  }
-  
-  @keyframes sparkle-4 {
-    0%, 100% { opacity: 0; transform: translate(0, 0) scale(1); }
-    10% { opacity: 0.8; transform: translate(-6px, 2px) scale(1.1); }
-    20% { opacity: 0; transform: translate(-9px, 4px) scale(0.9); }
-  }
-  
-  @keyframes sparkle-5 {
-    0%, 100% { opacity: 0; transform: translate(0, 0) scale(1); }
-    10% { opacity: 0.8; transform: translate(6px, 4px) scale(1.2); }
-    20% { opacity: 0; transform: translate(9px, 6px) scale(0.8); }
-  }
-  
-  /* Simple sparkle effect for the emoji */
-  .star-twinkle {
-    display: inline-block;
-    position: relative;
-  }
-  
-  .star-left {
-    animation: twinkle-left 3s ease-in-out infinite;
-  }
-  
-  .star-right {
-    animation: twinkle-right 2.5s ease-in-out infinite;
-  }
-  
-  @keyframes twinkle-left {
-    0%, 100% { opacity: 1; filter: brightness(1); }
-    25% { opacity: 1; filter: brightness(1.3); }
-    50% { opacity: 0.9; filter: brightness(1); }
-    75% { opacity: 1; filter: brightness(1.2); }
-  }
-  
-  @keyframes twinkle-right {
-    0%, 100% { opacity: 1; filter: brightness(1); }
-    30% { opacity: 1; filter: brightness(1.2); }
-    60% { opacity: 0.9; filter: brightness(1); }
-    80% { opacity: 1; filter: brightness(1.3); }
   }
 
   #hero .container {
@@ -359,13 +148,13 @@
     z-index: 2;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     #hero {
       padding: 40px 0;
     }
   }
 
-  /* Verstärkter Text-Shadow für die Hauptüberschrift */
+  /* Enhanced Text Shadow for the main heading */
   #hero h1 {
     font-size: 2.5rem;
     position: relative;
@@ -373,10 +162,10 @@
     text-align: center;
     width: 100%;
     color: white;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6); /* Reduzierter Textschatten */
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6); /* Reduced text shadow */
   }
 
-  /* Styling für die Executive Seminar Überschrift */
+  /* Styling for the Executive Seminar Heading */
   #hero h2 {
     font-size: 15px;
     font-weight: 500;
@@ -385,17 +174,17 @@
     opacity: 0.8;
     text-transform: uppercase;
     color: white;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); /* Reduzierter Textschatten */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); /* Reduced text shadow */
     width: 100%;
     text-align: center !important;
   }
 
-  /* Availability Badge exakt wie in index.html */
+  /* Availability Badge exactly like in index.html */
   .availability-badge {
     position: absolute !important;
     top: 32px !important;
     right: 5% !important;
-    left: auto !important; /* Explizit links auf auto setzen */
+    left: auto !important; /* Explicitly set to auto */
     width: 180px !important;
     height: 180px !important;
     background: linear-gradient(135deg, #6e45e2 20%, #9c27b0 50%, #e2b245 100%) !important;
@@ -411,7 +200,7 @@
     animation: morph 8s ease-in-out infinite !important;
     padding: 20px !important;
     overflow: hidden !important;
-    z-index: 999 !important; /* Höherer z-index */
+    z-index: 999 !important; /* Higher z-index */
   }
 
   .availability-badge::before {
@@ -445,14 +234,29 @@
     100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
   }
 
-  @media(max-width: 768px) {
+  @media(max-width: 968px) {
     .availability-badge {
       display: none;
     }
     
     #hero h1 {
-      text-align: center !important; /* Erzwinge Zentrierung auf Mobilgeräten */
+      text-align: center !important; /* Force centering on mobile devices */
     }
+  }
+
+  /* Tag Teaser Style */
+  .teaser-tag {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid white;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6); /* Text shadow for better readability */
   }
 
   /* Info-Boxen exakt wie in index.html */
@@ -487,7 +291,7 @@
     box-shadow: 0 4px 12px rgba(102, 36, 131, 0.15) !important;
   }
   
-  /* BoxIcons statt SVG */
+  /* BoxIcons instead of SVG */
   .info-box i.bx {
     font-size: 24px !important;
     color: var(--imt-purple) !important;
@@ -507,7 +311,7 @@
     color: var(--color-text) !important;
   }
 
-  /* Button-Styling aus index.html */
+  /* Button-Styling from index.html */
   #hero a[href="#broschuere"] {
     display: inline-flex;
     align-items: center;
@@ -542,8 +346,8 @@
   #hero a[href="#broschuere"]:hover span {
     transform: translateX(4px);
   }
-
-  /* Neues Button-Styling für Hero und Formular */
+  
+  /* New Button-Styling for Hero and Form */
   #hero a[href="#broschuere"], .cta-button {
     display: inline-flex;
     align-items: center;
@@ -579,8 +383,8 @@
     transform: translateX(4px);
   }
 
-  /* Responsive Anpassungen */
-  @media (max-width: 768px) {
+  /* Responsive Adjustments */
+  @media (max-width: 968px) {
     h1 {
       font-size: 2rem;
     }
@@ -596,9 +400,47 @@
     .container {
       padding: 0 16px;
     }
+    
+    /* Mobile styles for info-grid */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .info-box {
+      width: 100% !important;
+      height: auto !important;
+      min-height: 140px !important;
+      aspect-ratio: 1 / 1 !important;  /* Makes boxes square */
+      padding: 20px !important;
+    }
+    
+    .info-box i.bx {
+      font-size: 32px !important;      /* Larger icons */
+      margin-bottom: 12px !important;
+    }
+    
+    .info-label {
+      font-size: 0.85rem !important;   /* Slightly larger label */
+    }
+    
+    .info-value {
+      font-size: 1.05rem !important;   /* Larger value text */
+    }
+
+    #hero .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #hero a[href="#broschuere"] {
+      margin: 24px auto;
+    }
   }
 
-  /* Seiteninhalt für das Programm */
+  /* Page content for the program */
   .content-section {
     padding: 60px 0;
   }
@@ -613,7 +455,7 @@
     text-align: center;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     .section-subtitle {
       font-size: 0.95rem;
       margin-bottom: 32px;
@@ -645,13 +487,13 @@
     text-align: center !important;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     h2, .section-subtitle {
       text-align: left !important;
     }
   }
 
-  /* Spezifische Anpassungen für module-content Sektion */
+  /* Specific Adjustments for module-content section */
   #module-content h2 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
@@ -668,7 +510,7 @@
     text-align: left !important;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     #module-content h2 {
       font-size: 1.7rem;
     }
@@ -684,6 +526,7 @@
     position: relative;
     margin-top: var(--spacing);
     padding-bottom: 80px;
+    overflow: visible !important;
   }
 
   .slider-track {
@@ -762,7 +605,7 @@
     display: none;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     .slider-container {
       padding-bottom: 72px;
     }
@@ -874,7 +717,7 @@
     display: none;
   }
 
-  /* Hover Effekte */
+  /* Hover Effects */
   .flipper .front:hover,
   .flipper .back:hover {
     border-color: var(--color-accent2);
@@ -882,17 +725,17 @@
 
   .flipper .front:hover i {
     opacity: 1;
-    /* transform: scale(1.1); */ /* Entfernt */
+    /* transform: scale(1.1); */ /* Removed */
   }
 
   /* Icon Colors */
-  .icon-brain { color: #9C27B0; } /* Violett für KI/Gehirn */
-  .icon-trend { color: #2196F3; } /* Blau für Business/Wachstum */
-  .icon-data { color: #4CAF50; } /* Grün für Daten */
-  .icon-cube { color: #FF9800; } /* Orange für Innovation */
-  .icon-crown { color: #F44336; } /* Rot für Leadership */
-  .icon-slider { color: #00BCD4; } /* Türkis für Technologie */
-  .icon-expand { color: #795548; } /* Braun für Skalierung */
+  .icon-brain { color: #9C27B0; } /* Violet for AI/Brain */
+  .icon-trend { color: #2196F3; } /* Blue for Business/Growth */
+  .icon-data { color: #4CAF50; } /* Green for Data */
+  .icon-cube { color: #FF9800; } /* Orange for Innovation */
+  .icon-crown { color: #F44336; } /* Red for Leadership */
+  .icon-slider { color: #00BCD4; } /* Turquoise for Technology */
+  .icon-expand { color: #795548; } /* Brown for Scaling */
   
   /* Stats Grid Styles */
   .color-brain { color: #9C27B0; }
@@ -969,7 +812,7 @@
   }
 
   /* Tablet styles */
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     .stats-grid {
       gap: 20px;
       padding: 0 20px;
@@ -1091,13 +934,13 @@
   .item6 { grid-column: 4; grid-row: 2; }
 
   /* Responsive Design */
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     .gallery {
       grid-template-columns: 1fr;
       grid-template-rows: repeat(6, minmax(200px, auto));
       width: calc(100% - 40px);
       gap: 16px;
-      /* Safari-Fix: Verhindern der Überlagerung bei Safari Mobile */
+          /* Safari-Fix: Verhindern der Überlagerung bei Safari Mobile */
       aspect-ratio: auto;
       height: auto;
       margin-bottom: 30px;
@@ -1232,7 +1075,7 @@
     font-size: 1.1rem;
   }
   
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     .contact-info {
       text-align: center;
     }
@@ -1264,65 +1107,12 @@
     cursor: pointer;
     transition: all 0.2s ease;
     text-decoration: none;
-    display: inline-block;
-  }
-
-  .cta-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(106, 69, 226, 0.2);
-    text-decoration: none;
-  }
-
-  .section-subtitle {
-    color: var(--color-muted);
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
-  }
-
-  /* Einheitlicher Pfeil-Stil für alle Buttons */
-  .arrow-icon {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    font-weight: 400;
-    font-size: 1.2rem;
-    margin-left: 8px;
-    display: inline-block;
-    vertical-align: middle;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
   @media (max-width: 968px) {
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-    }
-
-    .info-box {
-      width: 100% !important;
-      height: auto !important;
-      min-height: 140px !important;
-      aspect-ratio: 1 / 1 !important;  /* Makes boxes square */
-      padding: 20px !important;
-    }
-    
-    .info-box i.bx {
-      font-size: 32px !important;      /* Larger icons */
-      margin-bottom: 12px !important;
-    }
-    
-    .info-label {
-      font-size: 0.85rem !important;   /* Slightly larger label */
-    }
-    
-    .info-value {
-      font-size: 1.05rem !important;   /* Larger value text */
-    }
-
-    #hero .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
     #hero a[href="#broschuere"] {
       margin: 24px auto;
     }
@@ -1335,115 +1125,50 @@
     }
   }
 
-  /* Spotlight Teaser */
-  .teaser-spotlight {
-    position: relative;
-    background: linear-gradient(120deg, rgba(110, 69, 226, 0.1), rgba(156, 39, 176, 0.1));
-    border-radius: 6px;
-    padding: 8px 15px;
-    margin-bottom: 15px;
-    font-size: 0.85rem;
-    font-weight: 500;
+  /* Programm Informationen Styles */
+  .program-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+  
+  .program-info-box {
+    background-color: white;
+    border-radius: var(--radius);
+    border: 2px solid transparent;
+    text-align: center;
+    padding: 24px 20px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.07), 0 1px 3px rgba(0,0,0,0.06);
+  }
+  
+  .program-info-box:hover {
+    border-color: var(--imt-purple);
+  }
+  
+  .program-info-icon {
     color: var(--imt-purple);
-    text-align: center;
-    overflow: hidden;
-  }
-  
-  .teaser-spotlight::before {
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 60%);
-    opacity: 0.6;
-    animation: spotlight 3s infinite linear;
-    pointer-events: none;
-  }
-  
-  @keyframes spotlight {
-    0% { transform: translate(-30%, -30%) rotate(0deg); }
-    100% { transform: translate(-30%, -30%) rotate(360deg); }
-  }
-
-  /* Bubble Teaser Style */
-  .teaser-bubble {
-    display: inline-block;
-    position: relative;
-    background-color: var(--imt-purple);
-    color: white;
-    padding: 8px 15px;
-    border-radius: 18px;
-    font-size: 0.85rem;
-    font-weight: 500;
-    margin-bottom: 25px;
-    text-align: center;
-  }
-  
-  .teaser-bubble::after {
-    content: "";
-    position: absolute;
-    bottom: -8px;
-    left: 20px;
-    width: 15px;
-    height: 15px;
-    background-color: var(--imt-purple);
-    transform: rotate(45deg);
-    clip-path: polygon(0% 0%, 100% 100%, 0% 100%);
-  }
-
-  /* Floating Teaser Style */
-  .teaser-floating {
-    position: absolute;
-    top: -15px;
-    left: 0;
-    right: 0;
-    text-align: center;
-  }
-  
-  .teaser-floating span {
-    display: inline-block;
-    background: linear-gradient(135deg, var(--imt-purple), #9c27b0);
-    color: white;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 500;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  }
-  
-  /* Tag Teaser Style */
-  .teaser-tag {
-    display: inline-flex;
-    align-items: center;
-    border: 1px solid white;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.3);
-    padding: 4px 10px;
-    border-radius: 4px;
-    font-size: 0.75rem;
-    font-weight: 500;
+    font-size: 28px;
     margin-bottom: 15px;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4); /* Reduzierter Textschatten */
   }
   
-  /* Punkt für "Nur noch wenige Plätze verfügbar" - für "Managementseminar" deaktiviert
-  .teaser-tag::before {
-    content: "";
-    display: inline-block;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background-color: var(--imt-purple);
-    margin-right: 8px;
+  .program-info-label {
+    text-transform: uppercase;
+    color: var(--color-muted);
+    font-size: 0.8rem;
+    margin-bottom: 8px;
   }
-  */
+  
+  .program-info-value {
+    font-weight: 600;
+    color: var(--color-text);
+  }
 
-  /* Tabs Design für Starttermine */
+  /* Tabs Design for Start Dates */
   .dates-tabs {
     margin-top: 40px;
-    margin-bottom: 0; /* Reduziert von 60px auf 0 */
+    margin-bottom: 0; /* Reduced from 60px to 0 */
   }
 
   .tabs-nav {
@@ -1536,103 +1261,16 @@
     width: 100%;
     height: 100%;
     background: 
-        url('assets/pictures/hero_integrated_management_strategy.jpg')
+        url('assets/pictures/hero_inspirational_leadership.jpg')
         center/cover no-repeat;
     opacity: 1;
     z-index: 0;
   }
 
   #hero::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.3); /* Dunkler Overlay mit 30% Deckkraft */
-    z-index: 1;
+    display: none; /* Hide the white overlay completely */
   }
 
-  /* Styles for the Registration System */
-  .date-icon {
-    color: var(--imt-purple);
-    font-size: 1.5rem;
-    margin-right: 15px;
-  }
-
-  .date-text {
-    font-size: 1.1rem;
-    font-weight: 500;
-  }
-
-  .date-location {
-    color: var(--color-muted);
-    font-size: 0.9rem;
-    margin-left: 10px;
-  }
-
-  .date-places {
-    background-color: #e9f7f2;
-    color: #4CB796;
-    padding: 4px 10px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 500;
-    margin-left: 15px;
-  }
-
-  .date-places.limited {
-    background-color: #fff2e6;
-    color: #ff9f0a;
-  }
-
-  .date-places.full {
-    background-color: #ffeaeb;
-    color: #ff3b30;
-  }
-
-  /* Registration Buttons */
-  .register-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 120px;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-weight: 500;
-    font-size: 0.95rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    text-decoration: none;
-    border: none;
-  }
-
-  .register-btn-primary {
-    background: linear-gradient(to right, var(--imt-purple), #9c27b0);
-    color: white;
-  }
-
-  .register-btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(106, 69, 226, 0.2);
-    text-decoration: none;
-  }
-
-  .register-btn-secondary {
-    background: transparent;
-    color: var(--color-text);
-    border: 2px solid #ddd;
-  }
-
-  .register-btn-secondary:hover {
-    background: #f5f5f7;
-    text-decoration: none;
-  }
-
-  .register-btn i {
-    margin-right: 6px;
-  }
-  
   /* Date List Styles */
   .date-list {
     list-style: none;
@@ -1658,7 +1296,7 @@
     flex: 1;
   }
   
-  /* Verbesserte Ausrichtung für Desktop-Ansicht */
+  /* Improved alignment for desktop view */
   .date-info-content {
     display: flex;
     align-items: center;
@@ -1677,257 +1315,19 @@
     margin-left: 10px;
   }
   
-  .date-places {
-    width: 160px;
-    background-color: #e9f7f2;
-    color: #4CB796;
-    padding: 4px 10px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 500;
-    margin-left: 15px;
-    text-align: center;
-  }
-  
-  .date-list-action {
-    margin-left: 20px;
-  }
-  
-  /* Modal Styles */
-  .combined-modal-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-    animation: fadeIn 0.3s ease;
-  }
-  
-  .signup-container {
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: #fff;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-  }
-  
-  .signup-header {
-    background: linear-gradient(135deg, var(--imt-purple), #9c27b0);
-    color: white;
-    padding: 20px 30px;
-    position: relative;
-  }
-  
-  .signup-title {
-    font-size: 1.5rem;
-    margin-bottom: 5px;
-  }
-  
-  .signup-subtitle {
-    font-size: 1rem;
-    opacity: 0.9;
-    margin-bottom: 20px;
-  }
-  
-  .progress-container {
-    display: flex;
-    align-items: center;
-    position: relative;
-    margin-top: 25px;
-  }
-  
-  .progress-bar {
-    position: absolute;
-    height: 4px;
-    background-color: rgba(255, 255, 255, 0.7);
-    top: 50%;
-    transform: translateY(-50%);
-    transition: width 0.3s ease;
-    z-index: 1;
-  }
-  
-  .step {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
-    position: relative;
-    z-index: 2;
-    margin-right: 30%;
-    transition: background-color 0.3s ease;
-  }
-  
-  .step:last-child {
-    margin-right: 0;
-  }
-  
-  .step.active {
-    background-color: white;
+  .date-icon {
+    margin-right: 15px;
+    margin-bottom: 0;
+    font-size: 2rem;
     color: var(--imt-purple);
   }
   
-  .step.completed {
-    background-color: white;
-    color: var(--imt-purple);
-  }
-  
-  .signup-body {
-    padding: 30px;
-  }
-  
-  .step-title {
-    margin-bottom: 20px;
-    font-size: 1.2rem;
-  }
-  
-  .form-row {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 15px;
-  }
-  
-  .form-col {
-    flex: 1;
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  .form-label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 500;
-    font-size: 0.9rem;
-  }
-  
-  .form-control {
-    width: 100%;
-    padding: 12px 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: border-color 0.2s ease;
-  }
-  
-  .form-control:focus {
-    border-color: var(--imt-purple);
-    outline: none;
-  }
-  
-  .signup-footer {
-    padding: 20px 30px;
-    background-color: #f8f9fa;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  /* Course Options */
-  .course-option {
-    padding: 20px;
-    border: 1px solid #eee;
-    border-radius: 10px;
-    margin-bottom: 15px;
-    cursor: pointer;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-  }
-  
-  .course-option.selected {
-    border-color: var(--imt-purple);
-    box-shadow: 0 4px 10px rgba(106, 69, 226, 0.1);
-  }
-  
-  .course-option-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  
-  .course-option-title {
-    font-size: 1.1rem;
-    margin: 0;
-  }
-  
-  .course-option-price {
-    font-weight: 600;
-    font-size: 1.2rem;
-    color: var(--imt-purple);
-  }
-  
-  .course-option-features {
-    margin-top: 15px;
-  }
-  
-  .feature-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 8px;
-  }
-  
-  .feature-icon {
-    color: var(--imt-purple);
-    margin-right: 10px;
-  }
-  
-  /* Confirmation Message */
-  .confirmation-message {
-    text-align: center;
-    padding: 30px 0;
-  }
-  
-  .confirmation-icon {
-    font-size: 4rem;
-    color: #4CB796;
-    margin-bottom: 20px;
-  }
-  
-  .confirmation-title {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-  }
-  
-  .confirmation-text {
-    font-size: 1.1rem;
-    color: var(--color-muted);
-    margin-bottom: 25px;
-  }
-  
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-  
-  /* Mobile Optimierungen für Registrierung */
-  @media (max-width: 768px) {
-    /* Überschriften und Container */
-    .dates-heading {
-      font-size: 1.3rem;
-      padding-bottom: 12px;
-      margin-bottom: 20px;
-    }
-    
-    .dates-tabs {
-      margin-top: 30px;
-    }
-    
-    /* Listendarstellung */
+  /* Mobile Styles for Date List */
+  @media (max-width: 968px) {
     .date-list-item {
       flex-direction: column;
       padding: 20px 0;
       border-bottom: 1px solid #eee;
-    }
-    
-    .date-list-item:last-child {
-      border-bottom: none;
     }
     
     .date-list-info {
@@ -1966,107 +1366,83 @@
       margin-bottom: 8px;
       font-size: 1rem;
     }
-    
-    .date-places {
-      width: auto;
-      margin-left: 0;
-      font-size: 0.9rem;
-      padding: 6px 12px;
-      display: inline-block;
-      text-align: left;
-    }
-    
-    .date-list-action {
-      margin-left: 0;
-      width: 100%;
-    }
-    
-    .register-btn {
-      width: 100%;
-      padding: 14px 20px;
-      font-size: 1.1rem;
-      border-radius: 10px;
-    }
-    
-    /* Verbesserte Tab Navigation */
-    .tabs-nav {
-      display: flex;
-    }
-    
-    .tab-button {
-      flex: 1;
-      text-align: center;
-      font-size: 1.1rem;
-    }
-    
-    /* Modal-Optimierungen für Mobile */
-    .signup-container {
-      margin: 15px;
-      max-height: 90vh;
-      overflow-y: auto;
-    }
-    
-    .signup-header {
-      padding: 15px;
-    }
-    
-    .signup-title {
-      font-size: 1.3rem;
-    }
-    
-    .signup-subtitle {
-      font-size: 0.9rem;
-    }
-    
-    .signup-body {
-      padding: 20px 15px;
-    }
-    
-    .form-row {
-      flex-direction: column;
-      gap: 8px;
-    }
-    
-    .signup-footer {
-      padding: 15px;
-    }
-    
-    .course-option {
-      padding: 15px;
-    }
-    
-    .step {
-      width: 25px;
-      height: 25px;
-      font-size: 0.9rem;
-    }
   }
 
-  .gradient-info {
+  /* Teilnehmerstimmen */
+  .gradient-quotes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+  }
+  
+  .gradient-quote-card {
+    border-radius: var(--radius);
+    overflow: hidden;
+    position: relative;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+  }
+  
+  .gradient-quote-card:hover {
+    border-color: var(--imt-purple);
+  }
+  
+  .gradient-quote-inner {
     display: flex;
     flex-direction: column;
+    height: 100%;
+    background: linear-gradient(to bottom right, #ffffff, #f8f9fa);
+    position: relative;
+    z-index: 1;
   }
   
-  .gradient-name {
-    font-weight: 600;
-    font-size: 1rem;
-    margin-bottom: 2px;
+  .gradient-quote-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--imt-purple) 0%, var(--imt-green) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 0;
   }
   
-  .gradient-position {
-    font-size: 0.85rem;
-    color: var(--color-muted);
-    min-height: 40px; /* Ensure consistent height */
-    display: flex;
-    align-items: center;
+  .gradient-quote-card:hover::before {
+    opacity: 0.03;
   }
   
-  .gradient-program {
-    font-size: 0.8rem;
+  .gradient-quote-content {
+    padding: 40px 30px 25px;
+    position: relative;
+    flex: 1;
+  }
+  
+  .gradient-quote-icon {
+    position: absolute;
+    top: -15px;
+    right: 25px;
+    font-size: 4rem;
     color: var(--imt-purple);
-    margin-top: 2px;
+    opacity: 0.1;
+    transition: transform 0.3s ease;
   }
-
+  
+  .gradient-quote-card:hover .gradient-quote-icon {
+    transform: rotate(10deg);
+  }
+  
+  .gradient-quote-text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--color-text);
+    font-weight: 400;
+    position: relative;
+    z-index: 1;
+  }
+  
   .gradient-quote-footer {
     background-color: #fafafa;
     padding: 20px 30px;
@@ -2104,7 +1480,7 @@
   .gradient-info {
     display: flex;
     flex-direction: column;
-    margin-top: 6px; /* Verschiebt den Text nach unten für vertikale Zentrierung */
+    margin-top: 6px; /* Moves text down for vertical centering */
   }
   
   .gradient-name {
@@ -2136,27 +1512,36 @@
     opacity: 1;
   }
   
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
     .gradient-quotes {
       grid-template-columns: 1fr;
     }
-    
-    .gradient-quote-footer {
-      flex-direction: row !important;
-      justify-content: space-between !important;
-      align-items: center !important;
-      padding: 15px 20px;
-    }
-    
-    .gradient-person {
-      margin-bottom: 0 !important;
-      width: auto !important;
-    }
-    
-    .gradient-company {
-      height: 35px;
-    }
   }
+
+          @media (max-width: 768px) {
+            .gradient-quotes {
+              grid-template-columns: 1fr;
+            }
+            .gradient-quote-footer {
+              flex-direction: row !important;
+              justify-content: space-between !important;
+              align-items: center !important;
+              padding: 15px 20px;
+            }
+            
+            .gradient-person {
+              margin-bottom: 0 !important;
+              width: auto !important;
+            }
+            
+            .gradient-info {
+              flex: 1;
+            }
+            
+            .gradient-company {
+              height: 35px;
+            }
+          }
 
   /* Mobile-specific styling for the brochure download form */
   @media (max-width: 768px) {
@@ -2183,20 +1568,18 @@
       width: 100% !important;
     }
   }
+        </style>
 
-  /* Icon Colors */
-  .icon-transform { color: #9C27B0; } /* Violett für Transformation */
-  .icon-innovation { color: #2196F3; } /* Blau für Innovation */
-  .icon-integrated { color: #F44336; } /* Rot für integriertes Management */
-  .icon-modular { color: #00BCD4; } /* Türkis für modulares System */
-</style>
+<!-- BoxIcons for Icons -->
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 
 <!-- Favicon -->
 <link rel="icon" href="assets/favicon.png" type="image/png">
 
-<!-- Language switching support -->
-<script src="assets/js/language-switch.js"></script>
-<!-- Google Tag Manager -->
+  <!-- Language switching support -->
+  <script src="assets/js/language-switch.js?t=' + new Date().getTime()"></script>
+
+  <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -2210,54 +1593,54 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-<!-- Navigation einbinden -->
+<!-- Navigation include -->
 <div id="navigation-container"></div>
 
-<!-- Sidebar einbinden -->
+<!-- Sidebar include -->
 <div id="sidebar-container"></div>
 
-<!-- Hauptinhalt -->
+<!-- Main content -->
 <main>
-  <!-- Hero-Sektion aus der index.html -->
+  <!-- Hero Section from index.html -->
   <section id="hero">
     <div class="container" style="position: relative;">
-      <!-- Tag Teaser über der Überschrift -->
+      <!-- Tag Teaser above heading -->
       <div style="text-align: center; margin-bottom: 5px;">
         <div class="teaser-tag">
           Management Seminar
         </div>
       </div>
       
-      <h1 style="margin-top: 10px;"> Integrated Management and Strategy </h1>
+      <h1 style="margin-top: 10px;">Inspirational Leadership</h1>
 
-      <!-- Button zwischen Überschrift und Info-Boxen -->
+      <!-- Button between heading and info boxes -->
       <a href="#broschuere">
         Download Brochure Now <span class="arrow-icon">→</span>
       </a>
 
       <div class="info-grid">
-        <!-- Ort Box -->
+        <!-- Location Box -->
         <div class="info-box">
           <i class="bx bx-map"></i>
           <span class="info-label">Location</span>
           <span class="info-value">St. Gallen</span>
         </div>
 
-        <!-- Dauer Box -->
+        <!-- Duration Box -->
         <div class="info-box">
           <i class="bx bx-time"></i>
           <span class="info-label">Duration</span>
           <span class="info-value">3 Days</span>
-        </div>
-
-        <!-- Sprache Box -->
+      </div>
+      
+        <!-- Language Box -->
         <div class="info-box">
           <i class="bx bx-globe"></i>
           <span class="info-label">Language</span>
           <span class="info-value">DE / EN</span>
         </div>
 
-        <!-- Netzwerk Box -->
+        <!-- Network Box -->
         <div class="info-box">
           <i class="bx bx-network-chart"></i>
           <span class="info-label">Network</span>
@@ -2267,31 +1650,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <!-- Seiteninhalt für das Programm -->
+  <!-- Page content for the program -->
   <div class="container">
-    <!-- Module-Content Sektion -->
+    <!-- Module-Content Section -->
     <section id="module-content" class="content-section">
-      <h2>Content Overview</h2>
+      <h2>Overview of Contents</h2>
       
-      <p class="section-subtitle">Key content at a glance – for comprehensive management knowledge and successful strategy implementation.
-        </p>
+      <p class="section-subtitle">Develop Executive Leadership practically – for reflective, confident, and collaborative leadership in complex times.</p>
       
       <div class="slider-container">
-        <button aria-label="Zurück" class="slider-btn prev" disabled></button>
+        <button aria-label="Back" class="slider-btn prev" disabled></button>
         <div class="slider-track">
           <!-- Box 1 -->
           <div class="slide flip-container">
             <div class="flipper">
               <div class="front">
-                <i class='bx bx-transfer icon-transform' style="font-size: 32px; margin-bottom: 16px; opacity: 0.85;"></i>
-                <h3>Deliberately Shaping Management & Transformation</h3>
-                <p>Understanding transformation – comprehensive knowledge for future-proof orientation.</p>
+                <i class='bx bx-group icon-trend' style="font-size: 32px; margin-bottom: 16px; opacity: 0.85;"></i>
+                <h3>Apply Leadership Skills Practically</h3>
+                <p>Strengthen leadership – act confidently in complex situations with decisiveness, empathy, and clear thinking.</p>
                 <a class="flip-link" href="#">
                   <i class='bx bx-plus-circle'></i>
                 </a>
               </div>
               <div class="back">
-                <p>Business development strategies are based on the St. Gallen Management House and the Thinking Navigator. Transformation levers, organizational models, and practical examples show how change succeeds.</p>
+                <p>Strengthen leadership competence specifically: Apply decisiveness, empathy, and conflict resolution – supported by analytical and networked thinking for confident action in complex situations.</p>
                 <a class="flip-link" href="#">
                   <i class='bx bx-minus-circle'></i>
                 </a>
@@ -2303,15 +1685,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="slide flip-container">
             <div class="flipper">
               <div class="front">
-                <i class='bx bx-bulb icon-innovation' style="font-size: 32px; margin-bottom: 16px; opacity: 0.85;"></i>
-                <h3>Strategic Use of Innovation Power</h3>
-                <p>Identifying growth potential and opening up new markets.</p>
+                <i class='bx bx-user-plus icon-cube' style="font-size: 32px; margin-bottom: 16px; opacity: 0.85;"></i>
+                <h3>Strengthen Collaborative Leadership</h3>
+                <p>Foster collaboration, unleash potential..</p>
                 <a class="flip-link" href="#">
                   <i class='bx bx-plus-circle'></i>
                 </a>
               </div>
               <div class="back">
-                <p>Successful approaches to developing innovative business models are presented and analyzed for their effectiveness. The targeted use of new technologies such as AI is considered as part of future-oriented innovation strategies.</p>
+                <p>An collaborative leadership culture is built, fostering ownership and cohesion. Personal exchange opens up new perspectives and supports successful implementation of change processes.</p>
                 <a class="flip-link" href="#">
                   <i class='bx bx-minus-circle'></i>
                 </a>
@@ -2323,15 +1705,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="slide flip-container">
             <div class="flipper">
               <div class="front">
-                <i class='bx bx-layer icon-integrated' style="font-size: 32px; margin-bottom: 16px; opacity: 0.85;"></i>
-                <h3>Integrated Management as a Mindset</h3>
-                <p>Holistic control for sustainable business success.</p>
+                <i class='bx bx-search-alt icon-data' style="font-size: 32px; margin-bottom: 16px; opacity: 0.85;"></i>
+                <h3>Identify Common Pitfalls Early</h3>
+                <p>Improve leadership – through recognizing patterns, reflecting on psychological mechanisms, and acting consciously.</p>
                 <a class="flip-link" href="#">
                   <i class='bx bx-plus-circle'></i>
                 </a>
               </div>
               <div class="back">
-                <p>Strategic, structural, and cultural aspects are made tangible as an interconnected leadership model. The integration of data-based technologies such as AI is reflected as a supporting element.</p>
+                <p>Identify behavioral patterns, create clarity: Understanding psychological and organizational mechanisms can help avoid leadership mistakes and act more effectively – especially in complex decision-making situations.</p>
                 <a class="flip-link" href="#">
                   <i class='bx bx-minus-circle'></i>
                 </a>
@@ -2343,15 +1725,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="slide flip-container">
             <div class="flipper">
               <div class="front">
-                <i class='bx bx-git-branch icon-modular' style="font-size: 32px; margin-bottom: 16px; opacity: 0.85;"></i>
-                <h3>Individual Development in a Modular System</h3>
-                <p>Learning along clear paths – tailored to leadership requirements.</p>
+                <i class='bx bx-crown icon-crown' style="font-size: 32px; margin-bottom: 16px; opacity: 0.85;"></i>
+                <h3>Redesign Leadership.</h3>
+                <p>Inspirational Leadership transforms leadership, collaboration, and corporate structures.</p>
                 <a class="flip-link" href="#">
                   <i class='bx bx-plus-circle'></i>
                 </a>
               </div>
               <div class="back">
-                <p>The modular concept enables a precise development within the Integrated Management Framework. Personal focus areas are specifically deepened – with concrete application scenarios and flexible extension modules.</p>
+                <p>The influence of digital technologies on leadership behavior is reflected. Even AI-based decision-making processes and new requirements for communication and trust are incorporated into the leadership practice.</p>
                 <a class="flip-link" href="#">
                   <i class='bx bx-minus-circle'></i>
                 </a>
@@ -2363,92 +1745,70 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="slide flip-container">
             <div class="flipper">
               <div class="front">
-                <i class='bx bx-crown icon-crown' style="font-size: 32px; margin-bottom: 16px; opacity: 0.85;"></i>
-                <h3>Integrated Management as a Mindset</h3>
-                <p>Holistic control for sustainable business success.</p>
+                <i class='bx bx-network-chart icon-slider' style="font-size: 32px; margin-bottom: 16px; opacity: 0.85;"></i>
+                <h3>Personal Path in the St.Gallen Network</h3>
+                <p>Learn individually – lead networked.</p>
                 <a class="flip-link" href="#">
                   <i class='bx bx-plus-circle'></i>
                 </a>
               </div>
               <div class="back">
-                <p>Strategic, structural, and cultural aspects are made tangible as an interconnected leadership model. The integration of data-based technologies such as AI is reflected as a supporting element.</p>
+                <p>The development follows a flexible path, tailored to individual leadership goals. Access to the Community of Excellence creates connections to leadership figures, entrepreneurs, and forward-thinkers from the St.Gallen network.</p>
                 <a class="flip-link" href="#">
                   <i class='bx bx-minus-circle'></i>
                 </a>
               </div>
             </div>
           </div>
-          
-          <!-- Box 6 -->
-          <div class="slide flip-container">
-            <div class="flipper">
-              <div class="front">
-                <i class='bx bx-slider icon-slider' style="font-size: 32px; margin-bottom: 16px; opacity: 0.85;"></i>
-                <h3>Individual Development in a Modular System</h3>
-                <p>Learning along clear paths – tailored to leadership requirements.</p>
-                <a class="flip-link" href="#">
-                  <i class='bx bx-plus-circle'></i>
-                </a>
-              </div>
-              <div class="back">
-                <p>The modular concept enables a precise development within the Integrated Management Framework. Personal focus areas are specifically deepened – with concrete application scenarios and flexible extension modules.</p>
-                <a class="flip-link" href="#">
-                  <i class='bx bx-minus-circle'></i>
-                </a>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Box 7 -->
-         
         </div>
-        <button aria-label="Weiter" class="slider-btn next"></button>
+        <button aria-label="Next" class="slider-btn next"></button>
       </div>
     </section>
 
-    <!-- Programm Informationen -->
+    <!-- Program Information -->
     <section id="program-info" class="content-section" style="padding: 60px 0;">
       <div class="container">
         <h2 style="font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600; text-align: left !important; color: var(--color-text);">Key Information at a Glance</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">All important details about the Integrated Management and Strategy management seminar at a glance.</p>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">All important details about the Inspirational Leadership Management Seminar at a glance.</p>
         
         <div class="program-info-grid">
-          <!-- Box 1: Ort -->
+          <!-- Box 1: Location -->
           <div class="program-info-box">
             <i class='bx bx-map program-info-icon'></i>
             <div class="program-info-label">Location</div>
             <div class="program-info-value">St. Gallen</div>
           </div>
           
-          <!-- Box 2: Dauer -->
+          <!-- Box 2: Duration -->
           <div class="program-info-box">
             <i class='bx bx-time program-info-icon'></i>
             <div class="program-info-label">Duration</div>
             <div class="program-info-value">3 Days <br> optional with ECTS</div>
           </div>
 
-          <!-- Box 3: Sprache -->
+          <!-- Box 6: Language -->
           <div class="program-info-box">
             <i class='bx bx-globe program-info-icon'></i>
             <div class="program-info-label">Language</div>
             <div class="program-info-value">German / English</div>
           </div>
 
-          <!-- Box 4: Zielgruppe -->
+        
+          <!-- Box 7: Target Group -->
           <div class="program-info-box">
             <i class='bx bx-group program-info-icon'></i>
             <div class="program-info-label">Target Group</div>
-            <div class="program-info-value" style="font-size: 0.9rem;">Executives, Emerging Managers, Entrepreneurs</div>
+            <div class="program-info-value" style="font-size: 0.9rem;">Leadership figures, junior managers, entrepreneurs</div>
           </div>
 
-          <!-- Box 5: Investition -->
+          <!-- Box 3: Investment -->
           <div class="program-info-box">
             <i class='bx bx-money program-info-icon'></i>
             <div class="program-info-label">Investment</div>
-            <div class="program-info-value">CHF 2,400 plus 8.1% VAT</div>
+            <div class="program-info-value">CHF 2'400 incl. 8.1% VAT</div>
           </div>
 
-          <!-- Box 6: Netzwerk -->
+          <!-- Box 9: Network -->
           <div class="program-info-box">
             <i class='bx bx-network-chart program-info-icon'></i>
             <div class="program-info-label">Network</div>
@@ -2456,7 +1816,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </div>
         
-        <!-- Starttermine - Tab Design -->
+        <!-- Start Dates - Tab Design -->
         <div class="dates-tabs">
           <h3 class="dates-heading"><i class='bx bx-calendar-alt' style="margin-right: 8px;"></i>Available Seminar Dates</h3>
           <div class="tabs-nav">
@@ -2464,9 +1824,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <button class="tab-button" data-target="tab-2026">2026</button>
           </div>
 
-          <p style="color: var(--color-muted); font-size: 0.95rem; margin: 12px 0 18px 0; text-align: left;">The following dates are available to choose from</p>
-          
-          <p style="color: var(--color-muted); font-size: 0.95rem; margin: 0 0 18px 0; text-align: left;">Dates for companies can be scheduled individually. <a href="#contact" style="color: var(--imt-purple); text-decoration: none;">Contact us</a></p>
+          <p style="color: var(--color-muted); font-size: 0.95rem; margin: 12px 0 18px 0; text-align: left;">The following dates are available as alternatives</p>
+
+          <p style="color: var(--color-muted); font-size: 0.95rem; margin: 0 0 18px 0; text-align: left;">Dates for individual planning for companies. <a href="#contact" style="color: var(--imt-purple); text-decoration: none;">Contact Us</a></p>
 
           <div class="tab-content">
             <!-- Tab 2025 -->
@@ -2488,7 +1848,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                       <i class="bx bx-calendar-alt date-icon"></i>
                       <div class="date-info-content">
                         <span class="date-text">06.-08.10.2025</span>
-                        <span class="date-location">(St. Gallen)</span>
+                        <span class="date-location">(Online)</span>
                       </div>
                     </div>
                   </li>
@@ -2537,13 +1897,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </section>
 
-    <!-- Informationen über Teilnehmer -->
+    <!-- Information about Participants -->
     <section id="participants">
       <div class="container">
         <h2>Participant Information</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Our Integrated Management and Strategy management seminar brings together ambitious participants from various industries and countries.</p>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Our Inspirational Leadership Management Seminar brings together ambitious participants from various industries and countries.</p>
         <div class="stats-grid">
-                          <!-- Professional Experience -->
+            <!-- Years of Professional Experience -->
             <div class="stat-card">
                 <div class="stat-icon">
                     <svg viewBox="0 0 24 24" class="color-brain">
@@ -2552,11 +1912,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <path d="M8 14h8M8 17h5"/>
                     </svg>
                 </div>
-                <div class="stat-value" data-target="8">0</div>
-                <div class="stat-label">Years of Experience</div>
+                <div class="stat-value" data-target="5">0</div>
+                <div class="stat-label">Years of Professional Experience</div>
             </div>
 
-            <!-- Salary Increase -->
+            <!-- Salary Increase (replaces Senior C-Level) -->
             <div class="stat-card">
                 <div class="stat-icon">
                     <svg viewBox="0 0 24 24" class="color-trend">
@@ -2565,7 +1925,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <path d="M16 8l3-3 3 3"/>
                     </svg>
                 </div>
-                <div class="stat-value" data-target="50" data-prefix="⌀ " data-suffix="%">⌀ 0%</div>
+                <div class="stat-value" data-target="52" data-prefix="⌀ " data-suffix="%">⌀ 0%</div>
                 <div class="stat-label">Salary Increase</div>
             </div>
 
@@ -2577,11 +1937,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <path d="M20 21v-2a8 8 0 00-16 0v2"/>
                     </svg>
                 </div>
-                <div class="stat-value" data-target="46">0</div>
+                <div class="stat-value" data-target="41">0</div>
                 <div class="stat-label">Average Age</div>
             </div>
 
-            <!-- SME Proportion -->
+            <!-- SME Share (replaces Nationalities) -->
             <div class="stat-card">
                 <div class="stat-icon">
                     <svg viewBox="0 0 24 24" class="color-cube">
@@ -2595,22 +1955,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <path d="M15 17v1"></path>
                     </svg>
                 </div>
-                <div class="stat-value" data-target="35" data-suffix="%">0%</div>
-                <div class="stat-label">SME Proportion</div>
+                <div class="stat-value" data-target="45" data-suffix="%">0%</div>
+                <div class="stat-label">SME Share</div>
             </div>
         </div>
       </div>
     </section>
 
-    <!-- Einblicke & Impressionen -->
+    <!-- Insights & Impressions -->
     <section id="impressionen">
       <div class="container">
         <h2>Insights & Impressions</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Immerse yourself in a unique learning environment – with inspiring workshops, insights from companies like Google, and a one-of-a-kind educational setting in the St.Gallen Valley.</p>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Immerse yourself in a unique learning environment – with inspiring workshops, insights into companies like Google, and a unique educational setting in the St.Gallen Valley.</p>
         <div class="gallery">
-          <!-- 1: Großes, hochformatiges Bild -->
+          <!-- 1: Large, landscape image -->
           <div class="gallery-item item1">
-            <img src="assets/IMG_1.webp" alt="Seniorin mit AirPods">
+            <img src="assets/IMG_1.webp" alt="Senior woman with AirPods">
           </div>
 
           <!-- 2: Smartwatch -->
@@ -2618,195 +1978,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <img src="assets/IMG_2.webp" alt="Smartwatch">
           </div>
 
-          <!-- 3: Smartphone Videocall -->
+          <!-- 3: Smartphone Video call -->
           <div class="gallery-item item3">
-            <img src="assets/IMG_3.webp" alt="Videocall auf Smartphone">
+            <img src="assets/IMG_3.webp" alt="Video call on smartphone">
           </div>
 
-          <!-- 4: Gruppe mit Smartphones -->
+          <!-- 4: Group with smartphones -->
           <div class="gallery-item item4">
-            <img src="assets/IMG_4.webp" alt="Zwei Personen mit Smartphones">
+            <img src="assets/IMG_4.webp" alt="Two people with smartphones">
           </div>
 
-          <!-- 5: Tablet am Tisch -->
+          <!-- 5: Tablet at desk -->
           <div class="gallery-item item5">
-            <img src="assets/IMG_6.webp" alt="Person mit Tablet">
+            <img src="assets/IMG_6.webp" alt="Person with tablet">
           </div>
 
-          <!-- 6: Person am Desktop -->
+          <!-- 6: Person at desktop -->
           <div class="gallery-item item6">
-            <img src="assets/IMG_5.webp" alt="Person mit Kopfhörern">
+            <img src="assets/IMG_5.webp" alt="Person with headphones">
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Teilnehmerstimmen -->
+    <!-- Testimonials -->
     <section class="content-section">
       <div class="container">
         <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Voices from Our Network</h2>
         <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Experiences, insights, and perspectives from our network.</p>
         
-        <style>
-          /* ============ Gradientes Zitat-Layout ============ */
-          .gradient-quotes {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-          }
-          
-          .gradient-quote-card {
-            border-radius: var(--radius);
-            overflow: hidden;
-            position: relative;
-            border: 2px solid transparent;
-            transition: all 0.3s ease;
-          }
-          
-          .gradient-quote-card:hover {
-            border-color: var(--imt-purple);
-          }
-          
-          .gradient-quote-inner {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            background: linear-gradient(to bottom right, #ffffff, #f8f9fa);
-            position: relative;
-            z-index: 1;
-          }
-          
-          .gradient-quote-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--imt-purple) 0%, var(--imt-green) 100%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: 0;
-          }
-          
-          .gradient-quote-card:hover::before {
-            opacity: 0.03;
-          }
-          
-          .gradient-quote-content {
-            padding: 40px 30px 25px;
-            position: relative;
-            flex: 1;
-          }
-          
-          .gradient-quote-icon {
-            position: absolute;
-            top: -15px;
-            right: 25px;
-            font-size: 4rem;
-            color: var(--imt-purple);
-            opacity: 0.1;
-            transition: transform 0.3s ease;
-          }
-          
-          .gradient-quote-card:hover .gradient-quote-icon {
-            transform: rotate(10deg);
-          }
-          
-          .gradient-quote-text {
-            font-size: 1.2rem;
-            line-height: 1.6;
-            color: var(--color-text);
-            font-weight: 400;
-            position: relative;
-            z-index: 1;
-          }
-          
-          .gradient-quote-footer {
-            background-color: #fafafa;
-            padding: 20px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-top: 1px solid #f0f0f0;
-          }
-          
-          .gradient-person {
-            display: flex;
-            align-items: center;
-          }
-          
-          .gradient-avatar-container {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-right: 15px;
-            border: 3px solid white;
-            transition: all 0.3s ease;
-          }
-          
-          .gradient-quote-card:hover .gradient-avatar-container {
-            border-color: #f5f5f7;
-          }
-          
-          .gradient-avatar {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-          }
-          
-          .gradient-info {
-            display: flex;
-            flex-direction: column;
-          }
-          
-          .gradient-name {
-            font-weight: 600;
-            font-size: 1rem;
-            margin-bottom: 2px;
-          }
-          
-          .gradient-position {
-            font-size: 0.85rem;
-            color: var(--color-muted);
-            min-height: 40px; /* Ensure consistent height */
-            display: flex;
-            align-items: center;
-          }
-          
-          .gradient-program {
-            font-size: 0.8rem;
-            color: var(--imt-purple);
-            margin-top: 2px;
-          }
-          
-          .gradient-company {
-            height: 40px;
-            width: auto;
-            opacity: 0.7;
-            transition: opacity 0.3s ease;
-          }
-          
-          .gradient-quote-card:hover .gradient-company {
-            opacity: 1;
-          }
-          
-          @media (max-width: 968px) {
-            .gradient-quotes {
-              grid-template-columns: 1fr;
-            }
-          }
-        </style>
-        
         <div class="gradient-quotes">
-          <!-- Bestehende Testimonials - nur Jonas Gillmann beibehalten -->
+          <!-- Existing Testimonials - only Jonas Gillmann kept -->
           <div class="gradient-quote-card testimonial-item">
             <div class="gradient-quote-inner">
               <div class="gradient-quote-content">
                 <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
-                <p class="gradient-quote-text">The StGallen imt Business School was crucial for my path to the board of directors. With practical impulses, strategic clarity, and valuable perspectives, I received the best toolkit for successful corporate leadership.</p>
+                <p class="gradient-quote-text">The StGallen imt Business School was crucial for my path to the board. With practical impulses, strategic clarity, and valuable perspectives, I received the best toolkit for successful corporate leadership.</p>
               </div>
               <div class="gradient-quote-footer">
                 <div class="gradient-person">
@@ -2823,13 +2030,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
           
-          <!-- Neue Testimonials, initial versteckt -->
+          <!-- New Testimonials, initially hidden -->
           <!-- Testimonial 1: Patrick Kling -->
           <div class="gradient-quote-card testimonial-item" style="display: none;">
             <div class="gradient-quote-inner">
               <div class="gradient-quote-content">
                 <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
-                <p class="gradient-quote-text">A solid understanding of strategy and business models is crucial in the face of growing dynamics and complexity. The St.Gallen Integrated IMT Business School is a strong partner for targeted development of relevant competencies.</p>
+                <p class="gradient-quote-text">A solid understanding of strategy and business models is crucial given the growing dynamics and complexity. The St.Gallen Integrated IMT Business School is a strong partner in developing relevant competencies specifically.</p>
               </div>
               <div class="gradient-quote-footer">
                 <div class="gradient-person">
@@ -2838,7 +2045,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   </div>
                   <div class="gradient-info">
                     <span class="gradient-name">Patrick Kling</span>
-                    <span class="gradient-position">Geschäftsführer, Steigerwald</span>
+                    <span class="gradient-position">CEO, Steigerwald</span>
                   </div>
                 </div>
                 <img src="assets/testimonials/steigerwald.png" alt="Steigerwald" class="gradient-company">
@@ -2851,7 +2058,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="gradient-quote-inner">
               <div class="gradient-quote-content">
                 <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
-                <p class="gradient-quote-text">Excellence requires the interplay of culture, strategy, and leadership – approached holistically, dynamically, and systematically. The St. Gallen concept provides the appropriate framework; Christian Abegglen is a formative, credible personality in this space.</p>
+                <p class="gradient-quote-text">Excellence requires the synergy of culture, strategy, and leadership – holistically, dynamically, and systemically thought. The St. Galler concept offers the right framework for this; Christian Abegglen is a significant, credible personality here.</p>
               </div>
               <div class="gradient-quote-footer">
                 <div class="gradient-person">
@@ -2873,7 +2080,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="gradient-quote-inner">
               <div class="gradient-quote-content">
                 <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
-                <p class="gradient-quote-text">Continuously questioning and developing oneself is essential for sustainable success. Christian Abegglen has been my friend, mentor, and demanding inspiration for decades – always at the highest level.</p>
+                <p class="gradient-quote-text">Continuously questioning and developing is essential for long-term success. Christian Abegglen has been my friend, supporter, and at the same time a challenging motivator for years.</p>
               </div>
               <div class="gradient-quote-footer">
                 <div class="gradient-person">
@@ -2882,7 +2089,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   </div>
                   <div class="gradient-info">
                     <span class="gradient-name">Dr. Manfred Wittenstein</span>
-                    <span class="gradient-position">Gründer und Eigentümer, Wittenstein</span>
+                    <span class="gradient-position">Founder and Owner, Wittenstein</span>
                   </div>
                 </div>
                 <img src="assets/testimonials/wittenstein.png" alt="Wittenstein" class="gradient-company">
@@ -2895,7 +2102,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="gradient-quote-inner">
               <div class="gradient-quote-content">
                 <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
-                <p class="gradient-quote-text">The St.Gallen IMT Business School combines scientific depth with practical application – real challenges, directly transferable. This approach continuously provides executives like me as a guest lecturer with new impulses for sustainable development and success.</p>
+                <p class="gradient-quote-text">The St.Gallen IMT Business School combines academic depth with practical application – real challenges, directly transferable. This approach provides continuous new impulses for sustainable development and success for leadership figures like me as a guest lecturer.</p>
               </div>
               <div class="gradient-quote-footer">
                 <div class="gradient-person">
@@ -2912,13 +2119,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
           
-          
           <!-- Testimonial 5: Elias Böni -->
           <div class="gradient-quote-card testimonial-item" style="display: none;">
             <div class="gradient-quote-inner">
               <div class="gradient-quote-content">
                 <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
-                <p class="gradient-quote-text">The diverse training methods based on the St.Gallen Thinking & Learning Navigator – from simulations to real cases – are extremely enriching and challenging, even for our business with refurbished mobile phones.</p>
+                <p class="gradient-quote-text">The diverse training methods based on the St.Galler Thinking & Learning Navigator – from simulations to real cases – are enriching and challenging, even for our business with pre-prepared mobile phones.</p>
               </div>
               <div class="gradient-quote-footer">
                 <div class="gradient-person">
@@ -2940,7 +2146,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="gradient-quote-inner">
               <div class="gradient-quote-content">
                 <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
-                <p class="gradient-quote-text">The IMT faculty challenged and supported us at every step of the learning journey – including specific advice on solving specific challenges in our company.</p>
+                <p class="gradient-quote-text">The IMT faculty has required us at every step of our learning journey and supported us – up to specific advice for solving specific challenges in our company.</p>
               </div>
               <div class="gradient-quote-footer">
                 <div class="gradient-person">
@@ -2962,7 +2168,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="gradient-quote-inner">
               <div class="gradient-quote-content">
                 <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
-                <p class="gradient-quote-text">I am impressed by how the St. Gallen concept integrates different perspectives and addresses diverse topics – making it directly applicable across industries in business practice.</p>
+                <p class="gradient-quote-text">I'm impressed by how the St. Galler concept integrates different perspectives and addresses a wide range of topics – and thus is directly applicable in corporate practice.</p>
               </div>
               <div class="gradient-quote-footer">
                 <div class="gradient-person">
@@ -2986,14 +2192,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <section id="faculty">
       <div class="container">
         <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Academic Leadership</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Learn from leading experts from academia and practice – benefit from years of experience in management and strategic leadership.</p>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Learn from leading experts from academia and practice – benefit from years of experience in leadership and leadership psychology.</p>
         
         <div class="faculty-grid">
             <div class="faculty-card">
               <img src="assets/faculty/abegglen.webp" alt="Prof. Dr. Christian Abegglen"/>
               <div class="faculty-info">
                   <h3 class="faculty-name">Prof. Dr. Christian Abegglen</h3>
-                  <div class="faculty-title">Präsident</div>
+                  <div class="faculty-title">President</div>
               </div>
             </div>
 
@@ -3012,13 +2218,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <section id="contact">
       <div class="container">
         <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Contact Person</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">For questions about the "Integrated Management and Strategy" management seminar, we are personally available for you.</p>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">We're happy to help you with any questions about the Management Seminar "Inspirational Leadership".</p>
         
         <div class="contact-info">
           <img alt="Monika Dutkiewicz" src="assets/Dutkiewicz.jpg"/>
           <div class="contact-details">
             <h3>Monika Dutkiewicz</h3>
-            <p style="margin-bottom: 0;">Contact for Integrated Management and Strategy</p>
+            <p style="margin-bottom: 0;">Contact Person for Inspirational Leadership</p>
             <p style="margin-bottom: 0; margin-top: 0;"><a href="mailto:monika.dutkiewicz@imt.ch" style="color: #9c27b0;">monika.dutkiewicz@imt.ch</a></p>
             <p style="margin-bottom: 0; margin-top: 0;">+41 71 277 60 00</p>
           </div>
@@ -3026,98 +2232,98 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </section>
 
-    <!-- Broschüre Herunterladen Section -->
+    <!-- Brochure Download Section -->
     <section id="broschuere">
       <div class="container">
         <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Download Brochure</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Download the brochure for the Integrated Management and Strategy management seminar now – with all the details about content, methods, and your learning success.</p>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Download the brochure for the Management Seminar Inspirational Leadership now – with all details about content, methods, and your learning success.</p>
         <div style="display: flex; gap: 32px; align-items: stretch; flex-wrap: wrap; margin-top: 32px;">
           
-          <!-- Formular -->
+          <!-- Form -->
           <div style="flex: 1 1 400px; background: #f5f5f7; padding: 32px; border-radius: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
             <form id="brochure-form" method="post" novalidate>
-              <input name="firstname" placeholder="First name" style="width: 100%; padding: 12px; margin-bottom: 18px; border-radius: 8px; border: 1px solid #ccc;" type="text" required/>
-              <input name="lastname" placeholder="Last name" style="width: 100%; padding: 12px; margin-bottom: 18px; border-radius: 8px; border: 1px solid #ccc;" type="text" required/>
+              <input name="firstname" placeholder="First Name" style="width: 100%; padding: 12px; margin-bottom: 18px; border-radius: 8px; border: 1px solid #ccc;" type="text" required/>
+              <input name="lastname" placeholder="Last Name" style="width: 100%; padding: 12px; margin-bottom: 18px; border-radius: 8px; border: 1px solid #ccc;" type="text" required/>
               <input name="email" placeholder="Email" style="width: 100%; padding: 12px; margin-bottom: 18px; border-radius: 8px; border: 1px solid #ccc;" type="email" required/>
               
               <!-- Country Select -->
               <div style="position: relative; margin-bottom: 18px;">
                 <select name="country" required style="width: 100%; padding: 12px; padding-right: 40px; font-size: 1rem; border-radius: 8px; border: 1px solid #ccc; appearance: none; -webkit-appearance: none;">
-                  <option value="">Select country</option>
+                  <option value="">Select Country</option>
                   <option value="AD">Andorra</option>
-                  <option value="AR">Argentinien</option>
-                  <option value="AU">Australien</option>
+                  <option value="AR">Argentina</option>
+                  <option value="AU">Australia</option>
                   <option value="BH">Bahrain</option>
-                  <option value="BE">Belgien</option>
-                  <option value="BR">Brasilien</option>
+                  <option value="BE">Belgium</option>
+                  <option value="BR">Brazil</option>
                   <option value="BN">Brunei</option>
                   <option value="CL">Chile</option>
                   <option value="CN">China</option>
-                  <option value="DK">Dänemark</option>
-                  <option value="DE">Deutschland</option>
-                  <option value="EE">Estland</option>
-                  <option value="FI">Finnland</option>
-                  <option value="FR">Frankreich</option>
+                  <option value="DK">Denmark</option>
+                  <option value="DE">Germany</option>
+                  <option value="EE">Estonia</option>
+                  <option value="FI">Finland</option>
+                  <option value="FR">France</option>
                   <option value="GI">Gibraltar</option>
-                  <option value="GR">Griechenland</option>
-                  <option value="HK">Hongkong</option>
-                  <option value="IN">Indien</option>
-                  <option value="ID">Indonesien</option>
-                  <option value="IE">Irland</option>
-                  <option value="IS">Island</option>
+                  <option value="GR">Greece</option>
+                  <option value="HK">Hong Kong</option>
+                  <option value="IN">India</option>
+                  <option value="ID">Indonesia</option>
+                  <option value="IE">Ireland</option>
+                  <option value="IS">Iceland</option>
                   <option value="IL">Israel</option>
-                  <option value="IT">Italien</option>
+                  <option value="IT">Italy</option>
                   <option value="JP">Japan</option>
-                  <option value="JO">Jordanien</option>
-                  <option value="CA">Kanada</option>
-                  <option value="CO">Kolumbien</option>
-                  <option value="HR">Kroatien</option>
-                  <option value="QA">Katar</option>
+                  <option value="JO">Jordan</option>
+                  <option value="CA">Canada</option>
+                  <option value="CO">Colombia</option>
+                  <option value="HR">Croatia</option>
+                  <option value="QA">Qatar</option>
                   <option value="KW">Kuwait</option>
-                  <option value="LB">Libanon</option>
+                  <option value="LB">Lebanon</option>
                   <option value="LI">Liechtenstein</option>
-                  <option value="LU">Luxemburg</option>
+                  <option value="LU">Luxembourg</option>
                   <option value="MO">Macau</option>
                   <option value="MY">Malaysia</option>
                   <option value="MT">Malta</option>
-                  <option value="MX">Mexiko</option>
+                  <option value="MX">Mexico</option>
                   <option value="MC">Monaco</option>
-                  <option value="NL">Niederlande</option>
-                  <option value="NZ">Neuseeland</option>
-                  <option value="NO">Norwegen</option>
+                  <option value="NL">Netherlands</option>
+                  <option value="NZ">New Zealand</option>
+                  <option value="NO">Norway</option>
                   <option value="OM">Oman</option>
-                  <option value="AT">Österreich</option>
+                  <option value="AT">Austria</option>
                   <option value="PK">Pakistan</option>
                   <option value="PA">Panama</option>
                   <option value="PE">Peru</option>
-                  <option value="PH">Philippinen</option>
-                  <option value="PL">Polen</option>
+                  <option value="PH">Philippines</option>
+                  <option value="PL">Poland</option>
                   <option value="PT">Portugal</option>
                   <option value="PR">Puerto Rico</option>
-                  <option value="RO">Rumänien</option>
-                  <option value="RU">Russland</option>
+                  <option value="RO">Romania</option>
+                  <option value="RU">Russia</option>
                   <option value="SM">San Marino</option>
-                  <option value="SA">Saudi-Arabien</option>
-                  <option value="SE">Schweden</option>
-                  <option value="CH">Schweiz</option>
-                  <option value="SG">Singapur</option>
-                  <option value="SK">Slowakei</option>
-                  <option value="SI">Slowenien</option>
-                  <option value="ES">Spanien</option>
-                  <option value="ZA">Südafrika</option>
-                  <option value="KR">Südkorea</option>
+                  <option value="SA">Saudi Arabia</option>
+                  <option value="SE">Sweden</option>
+                  <option value="CH">Switzerland</option>
+                  <option value="SG">Singapore</option>
+                  <option value="SK">Slovakia</option>
+                  <option value="SI">Slovenia</option>
+                  <option value="ES">Spain</option>
+                  <option value="ZA">South Africa</option>
+                  <option value="KR">South Korea</option>
                   <option value="TW">Taiwan</option>
                   <option value="TH">Thailand</option>
-                  <option value="TR">Türkei</option>
-                  <option value="CZ">Tschechische Republik</option>
+                  <option value="TR">Turkey</option>
+                  <option value="CZ">Czech Republic</option>
                   <option value="UA">Ukraine</option>
-                  <option value="HU">Ungarn</option>
-                  <option value="AE">Vereinigte Arabische Emirate</option>
-                  <option value="GB">Vereinigtes Königreich</option>
-                  <option value="US">Vereinigte Staaten</option>
+                  <option value="HU">Hungary</option>
+                  <option value="AE">United Arab Emirates</option>
+                  <option value="GB">United Kingdom</option>
+                  <option value="US">United States</option>
                   <option value="VN">Vietnam</option>
-                  <option value="CY">Zypern</option>
-                  <option value="OTHER">Andere</option>
+                  <option value="CY">Cyprus</option>
+                  <option value="OTHER">Other</option>
                 </select>
                 <div style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); pointer-events: none;">
                   <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -3126,12 +2332,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
               </div>
 
-              <!-- Checkbox für E-Mail-Zustimmung -->
+              <!-- Checkbox for Email Consent -->
               <div style="margin-bottom: 16px;">
                 <label style="display: flex; align-items: flex-start; gap: 8px; cursor: pointer;">
                   <input type="checkbox" name="email_consent" style="margin-top: 3px;">
                   <span style="font-size: 0.9rem; color: var(--color-muted);">
-                    I agree to receive information via email about offerings from the StGallen imt Business School.
+                    I agree to receive information via email about the StGallen imt Business School.
                   </span>
                 </label>
               </div>
@@ -3151,7 +2357,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
                 <div style="display: flex; align-items: center; gap: 8px;">
                   <i class='bx bx-shield' style="font-size: 20px;"></i>
-                  <span style="font-size: 0.9rem; color: var(--color-muted);">Your data is safe with us - we do not send unauthorized advertising</span>
+                  <span style="font-size: 0.9rem; color: var(--color-muted);">Your data is safe with us - we don't send unsolicited advertising</span>
                 </div>
               </div>
             </form>
@@ -3160,32 +2366,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div id="download-ready" class="hidden" style="text-align: center; margin-top: 24px;">
               <h3 style="margin-bottom: 16px;">Thank you for your interest!</h3>
               <p style="margin-bottom: 24px;">Your brochure is ready for download.</p>
-              <a href="assets/broschueren/integrated_management_strategy.pdf" download class="cta-button">
-                Download Brochure <span class="arrow-icon">→</span>
+              <a href="assets/broschueren/inspirational_leadership.pdf" download class="cta-button">
+                Download Brochure Now <span class="arrow-icon">→</span>
               </a>
             </div>
           </div>
         </div>
       </div>
     </section>
+
   </div>
 </main>
 
-<!-- Footer einbinden -->
+<!-- Footer include -->
 <div id="footer-container"></div>
 
 <!-- ============ SCRIPTS ============ -->
 <script>
-  // Navigation laden
+  // Navigation load
   fetch('components/globals/navigation_ohnesub_en.html?t=' + new Date().getTime())
     .then(response => {
       if (!response.ok) {
-        console.error('Fehler beim Laden der Navigation:', response.status);
-        // Fallback zum globals-Verzeichnis versuchen
-        return fetch('components/includes/navigation_ohnesub_en.html?t=' + new Date().getTime())
+        console.error('Error loading navigation:', response.status);
+        // Fallback to globals directory
+        return fetch('components/includes/navigation_ohnesub.html?t=' + new Date().getTime())
           .then(resp => {
             if (!resp.ok) {
-              console.error('Auch globals-Pfad fehlgeschlagen:', resp.status);
+              console.error('Even globals path failed:', resp.status);
               return '';
             }
             return resp.text();
@@ -3197,35 +2404,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       if (data) {
         document.getElementById('navigation-container').innerHTML = data;
         
-        // Mobile Navigation über externe Datei initialisieren, wie in research.html
+        // Mobile Navigation via external file, like in research.html
         const navScript = document.createElement('script');
         navScript.src = 'assets/js/mobile-nav.js?t=' + new Date().getTime();
         document.body.appendChild(navScript);
         
-        // Sprachumschalter initialisieren, nachdem die Navigation geladen wurde
+        // Language switcher initialized, after navigation loaded
         setTimeout(() => {
           if (typeof initLanguageSwitching === 'function') {
             initLanguageSwitching();
           } else if (window.switchLanguage) {
-            console.log('Language-switch.js bereits geladen, verwende globale Funktion');
+            console.log('Language-switch.js already loaded, using global function');
           } else {
-            console.warn('Language-switch Funktionen nicht gefunden!');
+            console.warn('Language-switch functions not found!');
           }
-        }, 300); // Kurzes Delay für DOM-Update
+        }, 300); // Short delay for DOM update
       }
     })
-    .catch(error => console.error('Fehler beim Laden der Navigation:', error));
+    .catch(error => console.error('Error loading navigation:', error));
   
-  // Sidebar laden
+  // Sidebar load
   fetch('components/globals/sidebar_en.html?t=' + new Date().getTime())
     .then(response => {
       if (!response.ok) {
-        console.error('Fehler beim Laden der Sidebar:', response.status);
-        // Fallback zum globals-Verzeichnis versuchen
-        return fetch('components/includes/sidebar_en.html?t=' + new Date().getTime())
+        console.error('Error loading sidebar:', response.status);
+        // Fallback to globals directory
+        return fetch('components/includes/sidebar.html?t=' + new Date().getTime())
           .then(resp => {
             if (!resp.ok) {
-              console.error('Auch globals-Pfad fehlgeschlagen:', resp.status);
+              console.error('Even globals path failed:', resp.status);
               return '';
             }
             return resp.text();
@@ -3234,21 +2441,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       return response.text();
     })
     .then(data => {
-      console.log('Sidebar geladen');
+      console.log('Sidebar loaded');
       if (data) document.getElementById('sidebar-container').innerHTML = data;
     })
-    .catch(error => console.error('Fehler beim Laden der Sidebar:', error));
+    .catch(error => console.error('Error loading sidebar:', error));
   
-  // Footer laden
+  // Footer load
   fetch('components/globals/footer_en.html?t=' + new Date().getTime())
     .then(response => {
       if (!response.ok) {
-        console.error('Fehler beim Laden des Footers:', response.status);
-        // Fallback zum globals-Verzeichnis versuchen
-        return fetch('components/includes/footer_en.html?t=' + new Date().getTime())
+        console.error('Error loading footer:', response.status);
+        // Fallback to globals directory
+        return fetch('components/includes/footer.html?t=' + new Date().getTime())
           .then(resp => {
             if (!resp.ok) {
-              console.error('Auch globals-Pfad fehlgeschlagen:', resp.status);
+              console.error('Even globals path failed:', resp.status);
               return '';
             }
             return resp.text();
@@ -3257,32 +2464,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       return response.text();
     })
     .then(data => {
-      console.log('Footer geladen');
+      console.log('Footer loaded');
       if (data) document.getElementById('footer-container').innerHTML = data;
       
-      // Überprüfen der Footer-Styles
+      // Check Footer styles
       if (document.querySelector('footer')) {
         console.log('Footer Styles:', window.getComputedStyle(document.querySelector('footer')));
       } else {
-        console.error('Footer-Element nicht gefunden');
+        console.error('Footer element not found');
       }
     })
-    .catch(error => console.error('Fehler beim Laden des Footers:', error));
+    .catch(error => console.error('Error loading footer:', error));
 
-  // Slider Funktionalität
+  // Slider functionality
   document.addEventListener('DOMContentLoaded', function() {
-    // Flip-Card Funktionalität
+    // Flip-Card functionality
     const cards = document.querySelectorAll('.slide');
     cards.forEach(card => {
       card.addEventListener('click', function(e) {
-        // Verhindere, dass der Klick auf den Flip-Link das Umdrehen auslöst
+        // Prevent click on flip-link from causing flip
         if (e.target.closest('.flip-link') || e.target.classList.contains('bx')) {
           e.stopPropagation();
           card.classList.toggle('flipped');
           return;
         }
         
-        // Flipping-Effekt beim Klick auf die Karte
+        // Flip effect on card click
         card.classList.toggle('flipped');
       });
     });
@@ -3291,29 +2498,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     const track = document.querySelector('.slider-track');
     const prevButton = document.querySelector('.slider-btn.prev');
     const nextButton = document.querySelector('.slider-btn.next');
-    const slideWidth = 280 + 24; // Breite einer Slide plus Gap
+    const slideWidth = 280 + 24; // Width of one slide plus gap
 
-    // Überprüfen, ob die Slider-Buttons existieren
+    // Check if slider buttons exist
     if (track && prevButton && nextButton) {
-      // Initiale Button-Status setzen
+      // Set initial button status
       checkButtonStatus();
 
-      // Dynamische Berechnung der Scroll-Menge basierend auf der Viewport-Breite
+      // Dynamic calculation of scroll amount based on viewport width
       const calculateScrollAmount = () => {
-        // Auf mobilen Geräten präziser scrollen
+        // Precise scrolling on mobile devices
         if (window.innerWidth <= 768) {
           const slide = track.querySelector('.slide');
           if (!slide) return slideWidth;
           
-          // Nur eine Slide anzeigen pro Scroll
+          // Only one slide visible per scroll
           return slide.offsetWidth + parseInt(getComputedStyle(track).gap);
         } else {
-          // Auf Desktop ein angemessenes Scrolling
+          // Appropriate scrolling on desktop
           return slideWidth;
         }
       };
 
-      // Event-Listener für die Buttons
+      // Event listeners for buttons
       prevButton.addEventListener('click', () => {
         track.scrollBy({ left: -calculateScrollAmount(), behavior: 'smooth' });
         setTimeout(checkButtonStatus, 350);
@@ -3324,7 +2531,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         setTimeout(checkButtonStatus, 350);
       });
 
-      // Überprüft, ob die Prev/Next Buttons aktiviert oder deaktiviert sein sollten
+      // Check if Prev/Next buttons should be enabled/disabled
       function checkButtonStatus() {
         const scrollPosition = track.scrollLeft;
         const maxScrollLeft = track.scrollWidth - track.clientWidth;
@@ -3333,155 +2540,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         nextButton.disabled = scrollPosition >= maxScrollLeft;
       }
 
-      // Beim Scrollen den Button-Status aktualisieren
+      // Update button status when scrolling
       track.addEventListener('scroll', checkButtonStatus);
       
-      // Beim Resize die Berechnung aktualisieren
+      // Update calculation on resize
       window.addEventListener('resize', checkButtonStatus);
     }
   });
-</script>
 
-<!-- Script für die aktive Markierung des Programme-Links -->
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    console.log('Programm-Seite geladen, markiere Programme-Link als aktiv');
-    
-    // Wir verwenden ein Interval, um sicherzustellen, dass die Navigation geladen ist
-    let attempts = 0;
-    const maxAttempts = 50; // 5 Sekunden bei 100ms Interval
-    
-    const checkAndActivate = setInterval(function() {
-      attempts++;
-      
-      // Programme-Link in der Top-Navigation finden
-      // Wir suchen nach dem Link, der das Text "Programme" enthält
-      const programmeLinks = document.querySelectorAll('.nav-link');
-      let programmeLink = null;
-      
-      for (const link of programmeLinks) {
-        if (link.textContent.trim().includes('Programme')) {
-          programmeLink = link;
-          break;
-        }
-      }
-      
-      if (programmeLink) {
-        console.log('Programme-Link gefunden:', programmeLink);
-        
-        // Alle aktiven Links zurücksetzen
-        document.querySelectorAll('.nav-link').forEach(link => {
-          link.classList.remove('active');
-        });
-        
-        // Programme-Link als aktiv markieren
-        programmeLink.classList.add('active');
-        
-        // Auch den passenden Dropdown-Eintrag aktivieren
-        const businessStrategyOption = document.querySelector('.program-option[href="programm-seite.html"]');
-        if (businessStrategyOption) {
-          businessStrategyOption.classList.add('active');
-        }
-        
-        // Subnavigation aktivieren
-        const subNav = document.querySelector('.subnav-wrapper');
-        if (subNav) {
-          subNav.classList.add('active');
-          document.body.classList.add('has-subnav');
-          
-          // Programm-Titel setzen
-          const programTitle = document.querySelector('.program-title');
-          if (programTitle) {
-            programTitle.textContent = "Integrated Management and Strategy";
-            programTitle.href = "programm-seite.html";
-          }
-        }
-        
-        // Interval stoppen, wenn alles erledigt ist
-        clearInterval(checkAndActivate);
-      } else if (attempts >= maxAttempts) {
-        console.error('Programme-Link konnte nach mehreren Versuchen nicht gefunden werden');
-        clearInterval(checkAndActivate);
-      }
-    }, 100);
-  });
-</script>
-
-<!-- Direktes Inline-Script am Ende des Body-Tags für zuverlässige Hervorhebung -->
-<script>
-  // Stellt sicher, dass die Hervorhebung zuverlässig funktioniert
-  window.addEventListener('load', function() {
-    console.log('Finales Highlighting für Business Strategy');
-    
-    // Direkte Auswahl des Elements für maximale Zuverlässigkeit
-    const businessStrategyOption = document.getElementById('business-strategy-option');
-    if (businessStrategyOption) {
-      businessStrategyOption.className = 'program-option highlight-option';
-      console.log('Hervorhebung final gesetzt', businessStrategyOption);
-    }
-    
-    // Programme-Link in der Hauptnavigation hervorheben
-    const programmeLinks = document.querySelectorAll('.nav-link');
-    programmeLinks.forEach(link => {
-      if (link.textContent.trim().includes('Tracks')) {
-        link.classList.add('active');
-        console.log('Tracks-Link aktiviert', link);
-      }
-    });
-  });
-</script>
-
-<!-- Skript für das mobile Navigation Menü -->
-<script>
-  // Direktes mobiles Navigationsscript statt dynamisches Laden
-  document.addEventListener('DOMContentLoaded', function() {
-    // Mobile Menu Toggle
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const navMenu = document.querySelector('.nav-menu');
-    
-    if (mobileMenuBtn && navMenu) {
-      mobileMenuBtn.addEventListener('click', function() {
-        navMenu.classList.toggle('active');
-        
-        // Sprachauswahl hinzufügen - nur wenn sie noch nicht existiert
-        if (navMenu.classList.contains('active') && !document.querySelector('.mobile-lang-section')) {
-          const langSection = document.createElement('div');
-          langSection.className = 'mobile-lang-section';
-          langSection.innerHTML = `
-            <div class="lang-title">Sprache</div>
-            <div class="mobile-lang-options">
-              <a href="?lang=de" class="mobile-lang-option active">Deutsch</a>
-              <a href="?lang=en" class="mobile-lang-option">English</a>
-            </div>
-          `;
-          navMenu.appendChild(langSection);
-        }
-      });
-    }
-    
-    // Dropdown Toggle auf Mobilgeräten
-    const navItems = document.querySelectorAll('.nav-item');
-    navItems.forEach(item => {
-      const toggleLink = item.querySelector('.toggle-subnav');
-      const dropdown = item.querySelector('.program-dropdown');
-      
-      if (toggleLink && dropdown) {
-        toggleLink.addEventListener('click', function(e) {
-          if (window.innerWidth <= 1024) {
-            e.preventDefault();
-            
-            // Toggle nur bei diesem Dropdown
-            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-          }
-        });
-      }
-    });
-  });
-</script>
-
-<script>
-  // JavaScript für die Zähleranimation
-  // Counter animation für Statistiken
+  // JavaScript for counter animation
+  // Counter animation for statistics
   function animateValue(element, start, end, duration) {
     let startTimestamp = null;
     const step = (timestamp) => {
@@ -3498,92 +2566,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     window.requestAnimationFrame(step);
   }
 
-  // Start animation when element is in view
-  const animateOnView = () => {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const statValues = entry.target.querySelectorAll('.stat-value');
-                statValues.forEach(stat => {
-                    const target = parseInt(stat.dataset.target);
-                    animateValue(stat, 0, target, 2000);
-                });
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
-
-    const statsGrid = document.querySelector('.stats-grid');
-    if (statsGrid) {
-        observer.observe(statsGrid);
-    }
-  };
-
-  // Galerie-Shuffle für Einblicke & Impressionen
-  const shuffleGallery = () => {
-    const gallery = document.querySelector('.gallery');
-    if (!gallery) return;
-    
-    const items = Array.from(gallery.querySelectorAll('.gallery-item'));
-    const parent = items[0].parentNode;
-    
-    // Fisher-Yates shuffle
-    for (let i = items.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [items[i].style.order, items[j].style.order] = [items[j].style.order, items[i].style.order];
-    }
-  };
-
-  // Starte die Animation, wenn die Seite geladen ist
-  document.addEventListener('DOMContentLoaded', function() {
-    // Animiere die Statistiken, wenn sie sichtbar werden
-    animateOnView();
-    
-    // Shuffle der Galerie alle 10 Sekunden
-    shuffleGallery();
-    setInterval(shuffleGallery, 10000);
-  });
-  </script>
-
-  <!-- Skript für Download-Statistik-Funktion -->
-  <script>
-  // Download-Statistik Implementierung
-  function updateDownloadStats() {
-    const now = new Date();
-    const hour = now.getHours();
-    let baseCount;
-    
-    // Präzise Zeitfenster für Downloads
-    if (hour >= 23 || hour < 6) {
-      baseCount = 5;  // Nachts (23:00 - 05:59)
-    } else if (hour >= 6 && hour < 12) {
-      baseCount = 8;  // Morgens (06:00 - 11:59)
-    } else if (hour >= 12 && hour < 18) {
-      baseCount = 12; // Mittags (12:00 - 17:59)
-    } else if (hour >= 18 && hour < 23) {
-      baseCount = 10; // Abends (18:00 - 22:59)
-    }
-    
-    const variation = Math.floor(Math.random() * 5) - 2;
-    const finalCount = Math.max(baseCount + variation, 0);
-    
-    console.log(`Aktuelle Zeit: ${hour}:00 Uhr, Basis: ${baseCount}, Variation: ${variation}, Endwert: ${finalCount}`);
-    
-    const downloadsText = document.getElementById('downloads-today');
-    if (downloadsText) {
-      downloadsText.innerHTML = `<strong>${finalCount}</strong> Executives have already downloaded the brochure today`;
-    }
-  }
-
-  // Initialisierung
-  document.addEventListener('DOMContentLoaded', () => {
-    updateDownloadStats();
-    setInterval(updateDownloadStats, 5 * 60 * 1000); // Aktualisiert alle 5 Minuten
-  });
-  </script>
-
-  <!-- Intersection Observer für Statistiken -->
-  <script>
+  // Intersection Observer for statistics
   document.addEventListener('DOMContentLoaded', function() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -3602,165 +2585,362 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     document.querySelectorAll('.stat-value').forEach(stat => {
         observer.observe(stat);
     });
-  });
-  </script>
+    
+    // Scroll-Spy for section links
+    function updateActiveSection() {
+      const sections = document.querySelectorAll('section[id]');
+      const scrollPosition = window.scrollY + 120;
 
-  <!-- Skript für Tabs Funktionalität für Starttermine -->
-  <script>
-  // Tabs Funktionalität für Starttermine
-  document.addEventListener('DOMContentLoaded', function() {
-    const tabButtons = document.querySelectorAll('.tab-button');
-    tabButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        // Entferne active class von allen tabs
-        tabButtons.forEach(btn => btn.classList.remove('active'));
-        
-        // Füge active class zum geklickten tab hinzu
-        button.classList.add('active');
-        
-        // Verstecke alle Tab-Panes
-        const tabPanes = document.querySelectorAll('.tab-pane');
-        tabPanes.forEach(pane => pane.classList.remove('active'));
-        
-        // Zeige die entsprechende Tab-Pane
-        const targetId = button.getAttribute('data-target');
-        document.getElementById(targetId).classList.add('active');
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        const sectionLink = document.querySelector(`.section-link[href="#${section.id}"]`);
+
+        if (sectionLink && scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          document.querySelectorAll('.section-link').forEach(link => link.classList.remove('active'));
+          sectionLink.classList.add('active');
+        }
       });
+    }
+    
+    // Update active section when scrolling
+    window.addEventListener('scroll', updateActiveSection);
+    
+    // Initial update
+    updateActiveSection();
+  });
+</script>
+
+<!-- Script for brochure form validation and Google integration -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('brochure-form');
+    const downloadReady = document.getElementById('download-ready');
+    
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validate form
+            let isValid = true;
+            form.querySelectorAll('[required]').forEach(field => {
+                if (!field.value.trim()) {
+                    isValid = false;
+                    field.classList.add('invalid-input');
+                    field.classList.remove('valid-input');
+                } else {
+                    field.classList.remove('invalid-input');
+                    field.classList.add('valid-input');
+                }
+            });
+            
+            // Additional email validation
+            const emailField = form.querySelector('[type="email"]');
+            if (emailField && emailField.value.trim()) {
+                const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value.trim());
+                if (!isValidEmail) {
+                    isValid = false;
+                    emailField.classList.add('invalid-input');
+                    emailField.classList.remove('valid-input');
+                }
+            }
+            
+            if (!isValid) return;
+
+            // Collect form data
+            const formData = {
+                programm: "Inspirational Leadership",
+                vorname: form.querySelector('[name="firstname"]').value,
+                nachname: form.querySelector('[name="lastname"]').value,
+                email: form.querySelector('[name="email"]').value,
+                land: form.querySelector('[name="country"]').value,
+                zustimmung: form.querySelector('[name="email_consent"]').checked ? 'Ja' : 'Nein'
+            };
+
+            // Send to Google Script
+            fetch('https://script.google.com/macros/s/AKfycbwIV2ywC6DU4HxDotucAnrQVO1mOdYF2Z4Bict2NMMI9obastqrDb-KIbLqULE4g2g/exec', {
+                method: 'POST',
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.status === 'success') {
+                    // Hide form and show success message
+                    form.style.display = 'none';
+                    downloadReady.classList.remove('hidden');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again later.');
+            });
+        });
+
+        // Live validation
+        form.querySelectorAll('[required]').forEach(field => {
+            field.addEventListener('blur', function() {
+                if (!this.value.trim()) {
+                    this.classList.add('invalid-input');
+                    this.classList.remove('valid-input');
+                } else {
+                    this.classList.remove('invalid-input');
+                    this.classList.add('valid-input');
+                }
+            });
+
+            field.addEventListener('input', function() {
+                if (this.value.trim()) {
+                    this.classList.remove('invalid-input');
+                    this.classList.add('valid-input');
+                } else {
+                    this.classList.add('invalid-input');
+                    this.classList.remove('valid-input');
+                }
+            });
+        });
+
+        // Special validation for email
+        const emailField = form.querySelector('[type="email"]');
+        if (emailField) {
+            const validateEmail = (email) => {
+                return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+            };
+
+            emailField.addEventListener('blur', function() {
+                if (!this.value.trim()) {
+                    this.classList.add('invalid-input');
+                    this.classList.remove('valid-input');
+                } else if (!validateEmail(this.value.trim())) {
+                    this.classList.add('invalid-input');
+                    this.classList.remove('valid-input');
+                } else {
+                    this.classList.remove('invalid-input');
+                    this.classList.add('valid-input');
+                }
+            });
+
+            emailField.addEventListener('input', function() {
+                if (this.value.trim() && validateEmail(this.value.trim())) {
+                    this.classList.remove('invalid-input');
+                    this.classList.add('valid-input');
+                } else {
+                    if (this.value.trim()) {
+                        this.classList.add('invalid-input');
+                        this.classList.remove('valid-input');
+                    }
+                }
+            });
+        }
+    }
+});
+</script>
+
+<!-- Script for download statistics function -->
+<script>
+// Download statistics implementation
+function updateDownloadStats() {
+  const now = new Date();
+  const hour = now.getHours();
+  let baseCount;
+  
+  // Precise time window for downloads
+  if (hour >= 23 || hour < 6) {
+    baseCount = 5;  // Night (23:00 - 05:59)
+  } else if (hour >= 6 && hour < 12) {
+    baseCount = 8;  // Morning (06:00 - 11:59)
+  } else if (hour >= 12 && hour < 18) {
+    baseCount = 12; // Midday (12:00 - 17:59)
+  } else if (hour >= 18 && hour < 23) {
+    baseCount = 10; // Evening (18:00 - 22:59)
+  }
+  
+  const variation = Math.floor(Math.random() * 5) - 2;
+  const finalCount = Math.max(baseCount + variation, 0);
+  
+  console.log(`Current time: ${hour}:00, Base: ${baseCount}, Variation: ${variation}, Final value: ${finalCount}`);
+  
+  const downloadsText = document.getElementById('downloads-today');
+  if (downloadsText) {
+    downloadsText.innerHTML = `<strong>${finalCount}</strong> Executives have already downloaded the brochure today`;
+  }
+}
+
+// Initialization
+document.addEventListener('DOMContentLoaded', () => {
+  updateDownloadStats();
+  setInterval(updateDownloadStats, 5 * 60 * 1000); // Updates every 5 minutes
+});
+</script>
+
+<!-- Script for highlighting the active program link -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    console.log('Program page loaded, marking program link as active');
+    
+    // We use an interval to ensure the navigation is loaded
+    let attempts = 0;
+    const maxAttempts = 50; // 5 seconds at 100ms intervals
+    
+    const checkAndActivate = setInterval(function() {
+      attempts++;
+      
+      // Find the program link in the top navigation
+      // We search for the link containing the text "Programme"
+      const programmeLinks = document.querySelectorAll('.nav-link');
+      let programmeLink = null;
+      
+      for (const link of programmeLinks) {
+        if (link.textContent.trim().includes('Programme')) {
+          programmeLink = link;
+          break;
+        }
+      }
+      
+      if (programmeLink) {
+        console.log('Programme link found:', programmeLink);
+        
+        // Reset all active links
+        document.querySelectorAll('.nav-link').forEach(link => {
+          link.classList.remove('active');
+        });
+        
+        // Mark programme link as active
+        programmeLink.classList.add('active');
+        
+        // Also activate the corresponding dropdown entry
+        const businessStrategyOption = document.querySelector('.program-option[href="programm-seite.html"]');
+        if (businessStrategyOption) {
+          businessStrategyOption.classList.add('active');
+        }
+        
+        // Activate subnavigation
+        const subNav = document.querySelector('.subnav-wrapper');
+        if (subNav) {
+          subNav.classList.add('active');
+          document.body.classList.add('has-subnav');
+          
+          // Set program title
+          const programTitle = document.querySelector('.program-title');
+          if (programTitle) {
+            programTitle.textContent = "Inspirational Leadership";
+            programTitle.href = "programm-seite.html";
+          }
+        }
+        
+        // Stop interval once everything is done
+        clearInterval(checkAndActivate);
+      } else if (attempts >= maxAttempts) {
+        console.error('Programme link could not be found after multiple attempts');
+        clearInterval(checkAndActivate);
+      }
+    }, 100);
+  });
+</script>
+
+<!-- Direct inline script at the end of the body tags for reliable highlighting -->
+<script>
+  // Ensures that highlighting works reliably
+  window.addEventListener('load', function() {
+    console.log('Final highlighting for Business Strategy');
+    
+    // Direct selection of element for maximum reliability
+    const businessStrategyOption = document.getElementById('business-strategy-option');
+    if (businessStrategyOption) {
+      businessStrategyOption.className = 'program-option highlight-option';
+      console.log('Highlighting finalized', businessStrategyOption);
+    }
+    
+    // Highlight programme link in main navigation
+    const programmeLinks = document.querySelectorAll('.nav-link');
+    programmeLinks.forEach(link => {
+      if (link.textContent.trim().includes('Tracks')) {
+        link.classList.add('active');
+        console.log('Tracks link activated', link);
+      }
     });
   });
-  </script>
+</script>
 
-  <!-- Skript für Broschüre-Formular Validierung und Google Integration -->
-  <script>
+<!-- Script for mobile navigation menu -->
+<script>
+  // Direct mobile navigation script instead of dynamic loading
   document.addEventListener('DOMContentLoaded', function() {
-      const form = document.getElementById('brochure-form');
-      const downloadReady = document.getElementById('download-ready');
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (mobileMenuBtn && navMenu) {
+      mobileMenuBtn.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+        
+        // Add language selection - only if it doesn't exist
+        if (navMenu.classList.contains('active') && !document.querySelector('.mobile-lang-section')) {
+          const langSection = document.createElement('div');
+          langSection.className = 'mobile-lang-section';
+          langSection.innerHTML = `
+            <div class="lang-title">Language</div>
+            <div class="mobile-lang-options">
+              <a href="?lang=de" class="mobile-lang-option active">German</a>
+              <a href="?lang=en" class="mobile-lang-option">English</a>
+            </div>
+          `;
+          navMenu.appendChild(langSection);
+        }
+      });
+    }
+    
+    // Dropdown toggle on mobile devices
+    const navItems = document.querySelectorAll('.nav-item');
+    navItems.forEach(item => {
+      const toggleLink = item.querySelector('.toggle-subnav');
+      const dropdown = item.querySelector('.program-dropdown');
       
-      if (form) {
-          form.addEventListener('submit', function(e) {
-              e.preventDefault();
-              
-              // Validate form
-              let isValid = true;
-              form.querySelectorAll('[required]').forEach(field => {
-                  if (!field.value.trim()) {
-                      isValid = false;
-                      field.classList.add('invalid-input');
-                      field.classList.remove('valid-input');
-                  } else {
-                      field.classList.remove('invalid-input');
-                      field.classList.add('valid-input');
-                  }
-              });
-              
-              // Zusätzliche E-Mail-Validierung
-              const emailField = form.querySelector('[type="email"]');
-              if (emailField && emailField.value.trim()) {
-                  const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailField.value.trim());
-                  if (!isValidEmail) {
-                      isValid = false;
-                      emailField.classList.add('invalid-input');
-                      emailField.classList.remove('valid-input');
-                  }
-              }
-              
-              if (!isValid) return;
-  
-              // Collect form data
-              const formData = {
-                  programm: "Integrated Management and Strategy",
-                  vorname: form.querySelector('[name="firstname"]').value,
-                  nachname: form.querySelector('[name="lastname"]').value,
-                  email: form.querySelector('[name="email"]').value,
-                  land: form.querySelector('[name="country"]').value,
-                  zustimmung: form.querySelector('[name="email_consent"]').checked ? 'Ja' : 'Nein'
-              };
-  
-              // Send to Google Script
-              fetch('https://script.google.com/macros/s/AKfycbwIV2ywC6DU4HxDotucAnrQVO1mOdYF2Z4Bict2NMMI9obastqrDb-KIbLqULE4g2g/exec', {
-                  method: 'POST',
-                  body: JSON.stringify(formData)
-              })
-              .then(response => response.json())
-              .then(data => {
-                  if(data.status === 'success') {
-                      // Hide form and show success message
-                      form.style.display = 'none';
-                      downloadReady.classList.remove('hidden');
-                  }
-              })
-              .catch(error => {
-                  console.error('Error:', error);
-                  alert('Es gab einen Fehler. Bitte versuchen Sie es später erneut.');
-              });
-          });
-  
-          // Live validation
-          form.querySelectorAll('[required]').forEach(field => {
-              field.addEventListener('blur', function() {
-                  if (!this.value.trim()) {
-                      this.classList.add('invalid-input');
-                      this.classList.remove('valid-input');
-                  } else {
-                      this.classList.remove('invalid-input');
-                      this.classList.add('valid-input');
-                  }
-              });
-  
-              field.addEventListener('input', function() {
-                  if (this.value.trim()) {
-                      this.classList.remove('invalid-input');
-                      this.classList.add('valid-input');
-                  } else {
-                      this.classList.add('invalid-input');
-                      this.classList.remove('valid-input');
-                  }
-              });
-          });
-  
-          // Spezielle Validierung für E-Mail
-          const emailField = form.querySelector('[type="email"]');
-          if (emailField) {
-              const validateEmail = (email) => {
-                  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-              };
-  
-              emailField.addEventListener('blur', function() {
-                  if (!this.value.trim()) {
-                      this.classList.add('invalid-input');
-                      this.classList.remove('valid-input');
-                  } else if (!validateEmail(this.value.trim())) {
-                      this.classList.add('invalid-input');
-                      this.classList.remove('valid-input');
-                  } else {
-                      this.classList.remove('invalid-input');
-                      this.classList.add('valid-input');
-                  }
-              });
-  
-              emailField.addEventListener('input', function() {
-                  if (this.value.trim() && validateEmail(this.value.trim())) {
-                      this.classList.remove('invalid-input');
-                      this.classList.add('valid-input');
-                  } else {
-                      if (this.value.trim()) {
-                          this.classList.add('invalid-input');
-                          this.classList.remove('valid-input');
-                      }
-                  }
-              });
+      if (toggleLink && dropdown) {
+        toggleLink.addEventListener('click', function(e) {
+          if (window.innerWidth <= 1024) {
+            e.preventDefault();
+            
+            // Toggle only for this dropdown
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
           }
+        });
       }
+    });
   });
-  </script>
+</script>
 
-  <!-- Script für zufällige Galeriebilder -->
-  <script>
+<!-- Script for tabs functionality for start dates -->
+<script>
+// Tabs functionality for start dates
+document.addEventListener('DOMContentLoaded', function() {
+  const tabButtons = document.querySelectorAll('.tab-button');
+  tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Remove active class from all tabs
+      tabButtons.forEach(btn => btn.classList.remove('active'));
+      
+      // Add active class to the clicked tab
+      button.classList.add('active');
+      
+      // Hide all tab panes
+      const tabPanes = document.querySelectorAll('.tab-pane');
+      tabPanes.forEach(pane => pane.classList.remove('active'));
+      
+      // Show the corresponding tab pane
+      const targetId = button.getAttribute('data-target');
+      document.getElementById(targetId).classList.add('active');
+    });
+  });
+});
+</script>
+
+<!-- Script for random gallery images -->
+<script>
   document.addEventListener('DOMContentLoaded', function() {
-    // Array mit allen verfügbaren Bildern
+    // Array with all available images
     const availableImages = Array.from({length: 12}, (_, i) => `assets/IMG_${i + 1}.webp`);
     
-    // Fisher-Yates Shuffle Algorithmus
+    // Fisher-Yates Shuffle Algorithm
     function shuffleArray(array) {
       for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -3769,62 +2949,62 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       return array;
     }
     
-    // Bilder mischen und die ersten 6 auswählen
+    // Shuffle images and select the first 6
     const selectedImages = shuffleArray([...availableImages]).slice(0, 6);
     
-    // Galerie-Elemente auswählen
+    // Select gallery elements
     const galleryItems = document.querySelectorAll('.gallery-item img');
     
-    // Bilder zuweisen
+    // Assign images
     galleryItems.forEach((img, index) => {
       if (index < selectedImages.length) {
         img.src = selectedImages[index];
       }
     });
   });
-  </script>
+</script>
 
-  <!-- JavaScript für Testimonial-Shuffler -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Testimonial Shuffler
-      function shuffleTestimonials() {
-        // Alle Testimonials sammeln
-        const testimonials = Array.from(document.querySelectorAll('.testimonial-item'));
-        
-        // Fisher-Yates Shuffle Algorithmus
-        function shuffleArray(array) {
-          for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
-          }
-          return array;
+<!-- JavaScript for Testimonial Shuffler -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Testimonial Shuffler
+    function shuffleTestimonials() {
+      // Collect all testimonials
+      const testimonials = Array.from(document.querySelectorAll('.testimonial-item'));
+      
+      // Fisher-Yates Shuffle Algorithm
+      function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
         }
-        
-        // Testimonials shuffeln
-        const shuffledTestimonials = shuffleArray([...testimonials]);
-        
-        // Alle Testimonials zunächst verstecken
-        testimonials.forEach(item => {
-          item.style.display = 'none';
-        });
-        
-        // Anzahl der anzuzeigenden Testimonials (2 in diesem Fall)
-        const numToShow = 2;
-        
-        // Die ersten 2 anzeigen
-        for (let i = 0; i < Math.min(numToShow, shuffledTestimonials.length); i++) {
-          shuffledTestimonials[i].style.display = 'block';
-        }
+        return array;
       }
       
-      // Testimonials beim Laden der Seite shuffeln
-      shuffleTestimonials();
+      // Shuffle testimonials
+      const shuffledTestimonials = shuffleArray([...testimonials]);
       
-      // Optional: Testimonials alle 30 Sekunden automatisch neu shuffeln
-      // setInterval(shuffleTestimonials, 30000);
-    });
-  </script>
-</body>
-</html>
+      // Initially hide all testimonials
+      testimonials.forEach(item => {
+        item.style.display = 'none';
+      });
+      
+      // Number of testimonials to display (2 in this case)
+      const numToShow = 2;
+      
+      // Display the first 2
+      for (let i = 0; i < Math.min(numToShow, shuffledTestimonials.length); i++) {
+        shuffledTestimonials[i].style.display = 'block';
+      }
+    }
+    
+    // Shuffle testimonials when page loads
+    shuffleTestimonials();
+    
+    // Optional: Shuffle testimonials every 30 seconds automatically
+    // setInterval(shuffleTestimonials, 30000);
+  });
+</script>
 
+</body>
+</html> 
