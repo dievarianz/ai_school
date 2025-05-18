@@ -1902,13 +1902,13 @@
     .valley-seal {
       position: absolute;
       top: 30px;
-      right: 60px;
+      right: 60px; /* Moved more to the left */
       z-index: 10;
       transition: transform 0.3s ease;
     }
     
     .valley-seal img {
-      width: 100px;
+      width: 100px; /* Slightly larger */
       height: auto;
     }
     
@@ -1955,34 +1955,34 @@
     @media (max-width: 992px) {
       .valley-seal {
         top: 20px;
-        right: 35px;
+        right: 35px; /* Adjusted leftward */
       }
       
       .valley-seal img {
-        width: 90px;
+        width: 90px; /* Slightly larger */
       }
     }
     
     @media (max-width: 768px) {
       .valley-seal {
         top: 15px;
-        right: 25px;
+        right: 25px; /* Adjusted leftward */
       }
       
       .valley-seal img {
-        width: 75px;
+        width: 75px; /* Slightly larger */
       }
     }
     
     @media (max-width: 576px) {
       .valley-seal {
         position: absolute;
-        right: 15px;
-        top: 10px;
+        right: 15px; /* Slightly more to the left */
+        top: 10px; /* Keep at top */
       }
       
       .valley-seal img {
-        width: 55px;
+        width: 55px; /* Slightly larger */
       }
       
       /* Remove padding from headline so it displays normally */
@@ -2076,6 +2076,345 @@
       font-weight: 600;
       text-align: left !important;
       color: var(--color-text);
+    }
+
+    /* ============ WEBINAR-SEKTION: MINIMAL TIMELINE ============ */
+    .webinar-section-2 {
+      padding: 80px 0;
+      background-color: white;
+    }
+
+    /* Überschreiben der alten Styles mit den korrekten Styles */
+    .webinar-intro-2 {
+      display: none; /* Diese Klasse nicht mehr verwenden */
+    }
+    
+    /* Exakte Kopie der Styles für Silicon Valley Innovation Academy */
+    .webinar-section-2 .tracks-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .webinar-section-2 .tracks-title {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+      text-align: center;
+    }
+    
+    .webinar-section-2 .tracks-subtitle {
+      font-size: 1.1rem;
+      color: var(--color-muted);
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .webinar-timeline-2 {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .webinar-timeline-2::before {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 2px;
+      background-color: #eaeaea;
+      left: 0;
+      top: 0;
+    }
+
+    .webinar-item-2 {
+      display: flex;
+      margin-bottom: 30px;
+      position: relative;
+      padding-left: 30px;
+    }
+
+    .webinar-item-2::before {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background-color: white;
+      border: 3px solid var(--imt-purple);
+      left: -7px;
+      top: 22px;
+      z-index: 1;
+    }
+
+    .webinar-item-2.upcoming::before {
+      background-color: var(--imt-purple);
+    }
+
+    .webinar-date-2 {
+      min-width: 120px;
+      margin-right: 25px;
+      text-align: right;
+    }
+
+    .webinar-day-2 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--color-text);
+      margin-bottom: 5px;
+    }
+
+    .webinar-month-2 {
+      font-size: 14px;
+      color: var(--color-muted);
+      text-transform: uppercase;
+    }
+
+    .webinar-card-2 {
+      flex: 1;
+      background-color: #f8f8fa;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      display: flex;
+      border: 2px solid transparent;
+    }
+
+    .webinar-card-2:hover {
+      border-color: var(--imt-purple);
+    }
+
+    .webinar-content-2 {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .webinar-status-2 {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    .webinar-status-2.upcoming {
+      background-color: rgba(110, 69, 226, 0.1);
+      color: var(--imt-purple);
+    }
+
+    .webinar-status-2.live {
+      background-color: rgba(255, 59, 48, 0.1);
+      color: #ff3b30;
+    }
+
+    .webinar-topic-2 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--color-text);
+    }
+
+    .webinar-meta-2 {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 12px;
+    }
+
+    .webinar-meta-item-2 {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--color-muted);
+    }
+
+    .webinar-meta-item-2 i {
+      font-size: 16px;
+      color: var(--imt-purple);
+    }
+
+    .webinar-presenter-2 {
+      font-weight: 500;
+      color: var(--color-text);
+    }
+
+    .webinar-desc-2 {
+      font-size: 14px;
+      color: var(--color-muted);
+      margin-bottom: 15px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .webinar-register-container-2 {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .webinar-action-2 {
+      flex: 1;
+    }
+
+    .webinar-register-2 {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--imt-purple);
+      padding: 6px 14px;
+      border: 1px solid var(--imt-purple);
+      border-radius: 6px;
+      transition: all 0.2s ease;
+      background-color: transparent;
+    }
+
+    .webinar-register-2:hover {
+      background-color: var(--imt-purple);
+      color: white;
+      text-decoration: none;
+    }
+
+    .webinar-price-2 {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .webinar-price-2.free {
+      color: var(--imt-green);
+    }
+
+    .webinar-price-2.paid {
+      color: var(--color-text);
+    }
+
+    .webinar-image-2 {
+      width: 100px;
+      flex-shrink: 0;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .webinar-all-2 {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .view-all-webinars-2 {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 16px;
+      font-weight: 500;
+      color: white;
+      background-color: var(--imt-purple);
+      padding: 12px 24px;
+      border-radius: 30px;
+      transition: all 0.2s ease;
+    }
+
+    .view-all-webinars-2:hover {
+      background-color: #5c36cd;
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .webinar-item-2 {
+        flex-direction: column;
+      }
+      
+      .webinar-date-2 {
+        margin-right: 0;
+        margin-bottom: 15px;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      
+      .webinar-day-2 {
+        margin-bottom: 0;
+      }
+      
+      .webinar-card-2 {
+        flex-direction: column;
+      }
+      
+      .webinar-image-2 {
+        width: 100%;
+        height: 120px;
+      }
+    }
+
+    /* Pagination Styles */
+    .webinar-pagination {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 40px;
+    }
+
+    .pagination-button {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      border: none;
+      background-color: #f5f5f7;
+      color: var(--color-text);
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .pagination-button:hover {
+      background-color: #e5e5e7;
+    }
+
+    .pagination-button.active {
+      background-color: var(--imt-purple);
+      color: white;
+    }
+
+    .pagination-button.nav {
+      background-color: transparent;
+      border: 1px solid #e5e5e7;
+    }
+
+    .pagination-button.nav:hover {
+      background-color: #f5f5f7;
+    }
+
+    .pagination-button.disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .webinar-item-2 {
+      display: none; /* Standardmäßig ausblenden */
+    }
+
+    .webinar-item-2.visible {
+      display: flex; /* Nur sichtbare anzeigen */
+    }
+
+    .webinar-pagination {
+      display: flex; /* Pagination immer anzeigen */
+    }
+
+    .webinar-all-2 {
+      display: none; /* "Alle anzeigen" Button ausblenden */
     }
   </style>
 
@@ -2459,6 +2798,387 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <i class="bx bx-chevron-right"></i>
             </button>
           </div>
+        </div>
+      </div>
+    </section>
+
+        <!-- Webinar-Sektion -->
+    <section class="webinar-section-2">
+      <div class="container">
+        <div class="tracks-header">
+          <h2 class="tracks-title">Kommende Webinare</h2>
+          <p class="tracks-subtitle">Nehmen Sie an unseren Experten-Webinaren teil, um Einblicke und Fähigkeiten zu gewinnen, die Ihre berufliche Entwicklung voranbringen.</p>
+        </div>
+        
+        <div class="webinar-timeline-2">
+          <!-- Webinar Item 1 -->
+          <div class="webinar-item-2 upcoming">
+            <div class="webinar-date-2">
+              <div class="webinar-day-2">15</div>
+              <div class="webinar-month-2">Juni</div>
+            </div>
+            
+            <div class="webinar-card-2">
+              <div class="webinar-content-2">
+                <span class="webinar-status-2 live">Live</span>
+                <h3 class="webinar-topic-2">KI für Unternehmensstrategien: Implementierung und ROI</h3>
+                
+                <div class="webinar-meta-2">
+                  <div class="webinar-meta-item-2">
+                    <i class='bx bx-time'></i>
+                    <span>14:00 - 15:30 Uhr MEZ</span>
+                  </div>
+                  <div class="webinar-meta-item-2">
+                    <i class='bx bx-timer'></i>
+                    <span>90 Minuten</span>
+                  </div>
+                  <div class="webinar-meta-item-2">
+                    <i class='bx bx-user'></i>
+                    <span class="webinar-presenter-2">Dr. Martin Weber</span>
+                  </div>
+                </div>
+                
+                <p class="webinar-desc-2">Erfahren Sie, wie Sie KI-Lösungen effektiv in Ihrer Unternehmensstrategie implementieren und den Return on Investment messen können. Dieses Webinar behandelt praktische Ansätze, Fallstudien und bewährte Methoden.</p>
+                
+                <div class="webinar-register-container-2">
+                  <div class="webinar-action-2">
+                    <a href="#" class="webinar-register-2">
+                      Jetzt anmelden
+                      <i class='bx bx-right-arrow-alt'></i>
+                    </a>
+                  </div>
+                  <span class="webinar-price-2 free">Kostenlos</span>
+                </div>
+              </div>
+              
+              <div class="webinar-image-2" style="background-image: url('https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')"></div>
+            </div>
+          </div>
+          
+          <!-- Webinar Item 2 -->
+          <div class="webinar-item-2">
+            <div class="webinar-date-2">
+              <div class="webinar-day-2">22</div>
+              <div class="webinar-month-2">Juni</div>
+            </div>
+            
+            <div class="webinar-card-2">
+              <div class="webinar-content-2">
+                <span class="webinar-status-2 upcoming">Bevorstehend</span>
+                <h3 class="webinar-topic-2">Digitale Transformation: Jenseits der Technologie</h3>
+                
+                <div class="webinar-meta-2">
+                  <div class="webinar-meta-item-2">
+                    <i class='bx bx-time'></i>
+                    <span>10:00 - 11:30 Uhr MEZ</span>
+                  </div>
+                  <div class="webinar-meta-item-2">
+                    <i class='bx bx-timer'></i>
+                    <span>90 Minuten</span>
+                  </div>
+                  <div class="webinar-meta-item-2">
+                    <i class='bx bx-user'></i>
+                    <span class="webinar-presenter-2">Prof. Sarah Johnson</span>
+                  </div>
+                </div>
+                
+                <p class="webinar-desc-2">Entdecken Sie, warum erfolgreiche digitale Transformation mehr als nur Technologie erfordert. Dieses Webinar untersucht die kulturellen, organisatorischen und Führungsaspekte, die für den digitalen Erfolg entscheidend sind.</p>
+                
+                <div class="webinar-register-container-2">
+                  <div class="webinar-action-2">
+                    <a href="#" class="webinar-register-2">
+                      Jetzt anmelden
+                      <i class='bx bx-right-arrow-alt'></i>
+                    </a>
+                  </div>
+                  <span class="webinar-price-2 paid">CHF 49</span>
+                </div>
+              </div>
+              
+              <div class="webinar-image-2" style="background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80')"></div>
+            </div>
+          </div>
+          
+          <!-- Webinar Item 3 -->
+          <div class="webinar-item-2">
+            <div class="webinar-date-2">
+              <div class="webinar-day-2">28</div>
+              <div class="webinar-month-2">Juni</div>
+            </div>
+            
+            <div class="webinar-card-2">
+              <div class="webinar-content-2">
+                <span class="webinar-status-2 upcoming">Bevorstehend</span>
+                <h3 class="webinar-topic-2">Führung im digitalen Zeitalter: Neue Kompetenzen</h3>
+                
+                <div class="webinar-meta-2">
+                  <div class="webinar-meta-item-2">
+                    <i class='bx bx-time'></i>
+                    <span>15:00 - 16:30 Uhr MEZ</span>
+                  </div>
+                  <div class="webinar-meta-item-2">
+                    <i class='bx bx-timer'></i>
+                    <span>90 Minuten</span>
+                  </div>
+                  <div class="webinar-meta-item-2">
+                    <i class='bx bx-user'></i>
+                    <span class="webinar-presenter-2">Dr. Michael Schmidt</span>
+                  </div>
+                </div>
+                
+                <p class="webinar-desc-2">Entdecken Sie die wesentlichen Führungskompetenzen, die in der heutigen digitalen Geschäftswelt benötigt werden. Lernen Sie, wie Sie Ihren Führungsstil anpassen und die Fähigkeiten entwickeln können, die am wichtigsten sind.</p>
+                
+                <div class="webinar-register-container-2">
+                  <div class="webinar-action-2">
+                    <a href="#" class="webinar-register-2">
+                      Jetzt anmelden
+                      <i class='bx bx-right-arrow-alt'></i>
+                    </a>
+                  </div>
+                  <span class="webinar-price-2 free">Kostenlos</span>
+                </div>
+              </div>
+              
+              <div class="webinar-image-2" style="background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')"></div>
+            </div>
+          </div>
+
+          <!-- Webinar Item 4 -->
+          <div class="webinar-item-2">
+            <div class="webinar-date-2">
+              <div class="webinar-day-2">10</div>
+              <div class="webinar-month-2">Juli</div>
+            </div>
+            
+            <div class="webinar-card-2">
+              <div class="webinar-content-2">
+                <span class="webinar-status-2 upcoming">Bevorstehend</span>
+                <h3 class="webinar-topic-2">KI im Marketing: Strategien und Anwendungsfälle</h3>
+                
+                <div class="webinar-meta-2">
+                  <div class="webinar-meta-item-2">
+                    <i class='bx bx-time'></i>
+                    <span>11:00 - 12:30 Uhr MEZ</span>
+                  </div>
+                  <div class="webinar-meta-item-2">
+                    <i class='bx bx-timer'></i>
+                    <span>90 Minuten</span>
+                  </div>
+                  <div class="webinar-meta-item-2">
+                    <i class='bx bx-user'></i>
+                    <span class="webinar-presenter-2">Prof. Laura Müller</span>
+                  </div>
+                </div>
+                
+                <p class="webinar-desc-2">Erfahren Sie, wie künstliche Intelligenz das Marketing revolutioniert. Dieses Webinar behandelt praktische Anwendungsfälle, Implementierungsstrategien und zukünftige Entwicklungen im KI-gestützten Marketing.</p>
+                
+                <div class="webinar-register-container-2">
+                  <div class="webinar-action-2">
+                    <a href="#" class="webinar-register-2">
+                      Jetzt anmelden
+                      <i class='bx bx-right-arrow-alt'></i>
+                    </a>
+                  </div>
+                  <span class="webinar-price-2 paid">CHF 49</span>
+                </div>
+              </div>
+              
+              <div class="webinar-image-2" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')"></div>
+            </div>
+          </div>
+
+          <!-- Webinar Item 5 -->
+          <div class="webinar-item-2">
+            <div class="webinar-date-2">
+              <div class="webinar-day-2">18</div>
+              <div class="webinar-month-2">Juli</div>
+            </div>
+            
+            <div class="webinar-card-2">
+              <div class="webinar-content-2">
+                <span class="webinar-status-2 upcoming">Bevorstehend</span>
+                <h3 class="webinar-topic-2">Nachhaltige Geschäftsmodelle entwickeln</h3>
+                
+                <div class="webinar-meta-2">
+                  <div class="webinar-meta-item-2">
+                    <i class='bx bx-time'></i>
+                    <span>14:00 - 15:30 Uhr MEZ</span>
+                  </div>
+                  <div class="webinar-meta-item-2">
+                    <i class='bx bx-timer'></i>
+                    <span>90 Minuten</span>
+                  </div>
+                  <div class="webinar-meta-item-2">
+                    <i class='bx bx-user'></i>
+                    <span class="webinar-presenter-2">Dr. Thomas Berger</span>
+                  </div>
+                </div>
+                
+                <p class="webinar-desc-2">Lernen Sie, wie Sie Nachhaltigkeit in Ihr Geschäftsmodell integrieren können. Dieses Webinar behandelt die neuesten Trends, regulatorische Anforderungen und erfolgreiche Fallstudien nachhaltiger Unternehmen.</p>
+                
+                <div class="webinar-register-container-2">
+                  <div class="webinar-action-2">
+                    <a href="#" class="webinar-register-2">
+                      Jetzt anmelden
+                      <i class='bx bx-right-arrow-alt'></i>
+                    </a>
+                  </div>
+                  <span class="webinar-price-2 free">Kostenlos</span>
+                </div>
+              </div>
+              
+              <div class="webinar-image-2" style="background-image: url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1290&q=80')"></div>
+            </div>
+          </div>
+
+          <!-- Webinar Item 6 -->
+          <div class="webinar-item-2">
+            <div class="webinar-date-2">
+              <div class="webinar-day-2">25</div>
+              <div class="webinar-month-2">Juli</div>
+            </div>
+            
+            <div class="webinar-card-2">
+              <div class="webinar-content-2">
+                <span class="webinar-status-2 upcoming">Bevorstehend</span>
+                <h3 class="webinar-topic-2">Digitale Transformation im Mittelstand</h3>
+                
+                <div class="webinar-meta-2">
+                  <div class="webinar-meta-item-2">
+                    <i class='bx bx-time'></i>
+                    <span>10:00 - 11:30 Uhr MEZ</span>
+                  </div>
+                  <div class="webinar-meta-item-2">
+                    <i class='bx bx-timer'></i>
+                    <span>90 Minuten</span>
+                  </div>
+                  <div class="webinar-meta-item-2">
+                    <i class='bx bx-user'></i>
+                    <span class="webinar-presenter-2">Prof. Dr. Andreas Klein</span>
+                  </div>
+                </div>
+                
+                <p class="webinar-desc-2">Praxisnahe Strategien für die digitale Transformation mittelständischer Unternehmen. Erfahren Sie, wie Sie mit begrenzten Ressourcen maximale Wirkung erzielen und Innovationspotenziale erschließen können.</p>
+                
+                <div class="webinar-register-container-2">
+                  <div class="webinar-action-2">
+                    <a href="#" class="webinar-register-2">
+                      Jetzt anmelden
+                      <i class='bx bx-right-arrow-alt'></i>
+                    </a>
+                  </div>
+                  <span class="webinar-price-2 paid">CHF 49</span>
+                </div>
+              </div>
+              
+              <div class="webinar-image-2" style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')"></div>
+            </div>
+          </div>
+
+          <!-- Webinar Item 7 -->
+          <div class="webinar-item-2">
+            <div class="webinar-date-2">
+              <div class="webinar-day-2">2</div>
+              <div class="webinar-month-2">August</div>
+            </div>
+            
+            <div class="webinar-card-2">
+              <div class="webinar-content-2">
+                <span class="webinar-status-2 upcoming">Bevorstehend</span>
+                <h3 class="webinar-topic-2">Data Analytics für Entscheidungsträger</h3>
+                
+                <div class="webinar-meta-2">
+                  <div class="webinar-meta-item-2">
+                    <i class='bx bx-time'></i>
+                    <span>14:00 - 15:30 Uhr MEZ</span>
+                  </div>
+                  <div class="webinar-meta-item-2">
+                    <i class='bx bx-timer'></i>
+                    <span>90 Minuten</span>
+                  </div>
+                  <div class="webinar-meta-item-2">
+                    <i class='bx bx-user'></i>
+                    <span class="webinar-presenter-2">Dr. Julia Hartmann</span>
+                  </div>
+                </div>
+                
+                <p class="webinar-desc-2">Lernen Sie, wie Sie Datenanalysen für strategische Entscheidungen nutzen können. Dieses Webinar bietet einen praxisorientierten Überblick über Methoden, Tools und Anwendungsfälle für Führungskräfte ohne IT-Hintergrund.</p>
+                
+                <div class="webinar-register-container-2">
+                  <div class="webinar-action-2">
+                    <a href="#" class="webinar-register-2">
+                      Jetzt anmelden
+                      <i class='bx bx-right-arrow-alt'></i>
+                    </a>
+                  </div>
+                  <span class="webinar-price-2 free">Kostenlos</span>
+                </div>
+              </div>
+              
+              <div class="webinar-image-2" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')"></div>
+            </div>
+          </div>
+
+          <!-- Webinar Item 8 -->
+          <div class="webinar-item-2">
+            <div class="webinar-date-2">
+              <div class="webinar-day-2">10</div>
+              <div class="webinar-month-2">August</div>
+            </div>
+            
+            <div class="webinar-card-2">
+              <div class="webinar-content-2">
+                <span class="webinar-status-2 upcoming">Bevorstehend</span>
+                <h3 class="webinar-topic-2">Agiles Projektmanagement in der Praxis</h3>
+                
+                <div class="webinar-meta-2">
+                  <div class="webinar-meta-item-2">
+                    <i class='bx bx-time'></i>
+                    <span>11:00 - 12:30 Uhr MEZ</span>
+                  </div>
+                  <div class="webinar-meta-item-2">
+                    <i class='bx bx-timer'></i>
+                    <span>90 Minuten</span>
+                  </div>
+                  <div class="webinar-meta-item-2">
+                    <i class='bx bx-user'></i>
+                    <span class="webinar-presenter-2">Markus Wagner</span>
+                  </div>
+                </div>
+                
+                <p class="webinar-desc-2">Entdecken Sie, wie agile Methoden Ihre Projektabläufe optimieren können. Von Scrum und Kanban bis hin zu hybriden Ansätzen – lernen Sie effektive Strategien für erfolgreiches Projektmanagement in dynamischen Umgebungen.</p>
+                
+                <div class="webinar-register-container-2">
+                  <div class="webinar-action-2">
+                    <a href="#" class="webinar-register-2">
+                      Jetzt anmelden
+                      <i class='bx bx-right-arrow-alt'></i>
+                    </a>
+                  </div>
+                  <span class="webinar-price-2 paid">CHF 49</span>
+                </div>
+              </div>
+              
+              <div class="webinar-image-2" style="background-image: url('https://images.unsplash.com/photo-1642543348745-775d77baec67?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')"></div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="webinar-pagination">
+          <button class="pagination-button nav prev" aria-label="Vorherige Seite">
+            <i class='bx bx-chevron-left'></i>
+          </button>
+          <!-- Pagination Nummern werden dynamisch hinzugefügt -->
+          <button class="pagination-button nav next" aria-label="Nächste Seite">
+            <i class='bx bx-chevron-right'></i>
+          </button>
+        </div>
+        
+        <div class="webinar-all-2">
+          <a href="#" class="view-all-webinars-2" id="view-all-webinars">
+            Alle Webinare anzeigen
+            <i class='bx bx-right-arrow-alt'></i>
+          </a>
         </div>
       </div>
     </section>
@@ -3643,6 +4363,108 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           })
           .catch(error => console.error('Fehler beim Laden des Voucher-Popups:', error));
       }, 3000); // 3 Sekunden Verzögerung
+    });
+  </script>
+
+     <!-- Script für Pagination der Webinare -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Konstanten für die Pagination
+      const ITEMS_PER_PAGE = 4;
+      
+      // DOM-Elemente
+      const webinarContainer = document.querySelector('.webinar-timeline-2');
+      const webinarItems = Array.from(document.querySelectorAll('.webinar-item-2'));
+      const pagination = document.querySelector('.webinar-pagination');
+      const prevButton = document.querySelector('.pagination-button.prev');
+      const nextButton = document.querySelector('.pagination-button.next');
+      
+      // Zustandsvariablen
+      let currentPage = 1;
+      let itemsPerPage = ITEMS_PER_PAGE;
+      
+      // Erstelle die Paginationsbuttons
+      function createPaginationButtons() {
+        // Bestehende Numerische Buttons entfernen
+        const numericalButtons = document.querySelectorAll('.pagination-button.numerical');
+        numericalButtons.forEach(button => button.remove());
+        
+        // Anzahl der Seiten berechnen
+        const totalPages = Math.ceil(webinarItems.length / itemsPerPage);
+        
+        // Einfügen nach dem Prev-Button und vor dem Next-Button
+        for (let i = 1; i <= totalPages; i++) {
+          const button = document.createElement('button');
+          button.className = `pagination-button numerical ${i === currentPage ? 'active' : ''}`;
+          button.textContent = i;
+          button.setAttribute('data-page', i);
+          button.addEventListener('click', () => goToPage(i));
+          
+          // Einfügen vor dem Next-Button
+          pagination.insertBefore(button, nextButton);
+        }
+        
+        // Aktivieren/Deaktivieren der Prev/Next-Buttons
+        prevButton.classList.toggle('disabled', currentPage === 1);
+        nextButton.classList.toggle('disabled', currentPage === totalPages);
+      }
+      
+      // Wechsel zur angegebenen Seite
+      function goToPage(page) {
+        currentPage = page;
+        updateVisibleItems();
+        createPaginationButtons(); // Aktualisiere Buttons (für 'active' Status)
+        
+        // Zum Webinar-Abschnitt scrollen
+        const webinarSection = document.querySelector('.webinar-section-2');
+        if (webinarSection) {
+          // Mit zusätzlichem Offset nach oben scrollen
+          const yOffset = -80; // Negative Zahl = weiter nach oben
+          const y = webinarSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+          
+          window.scrollTo({
+            top: y,
+            behavior: 'smooth'
+          });
+        }
+      }
+      
+      // Aktualisiere die sichtbaren Webinar-Items basierend auf der aktuellen Seite
+      function updateVisibleItems() {
+        const startIndex = (currentPage - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+        
+        webinarItems.forEach((item, index) => {
+          const isVisible = index >= startIndex && index < endIndex;
+          item.classList.toggle('visible', isVisible);
+        });
+      }
+      
+      // Initialisierung der Pagination und der sichtbaren Webinare
+      function initializeView() {
+        // Pagination direkt anzeigen
+        createPaginationButtons();
+        
+        // Erste Seite der Webinare anzeigen
+        updateVisibleItems();
+      }
+      
+      // Event-Listener für Paginationsbuttons
+      prevButton.addEventListener('click', function() {
+        if (currentPage > 1 && !this.classList.contains('disabled')) {
+          goToPage(currentPage - 1);
+        }
+      });
+      
+      nextButton.addEventListener('click', function() {
+        const totalPages = Math.ceil(webinarItems.length / itemsPerPage);
+        if (currentPage < totalPages && !this.classList.contains('disabled')) {
+          goToPage(currentPage + 1);
+        }
+      });
+      
+      // Initialisierung
+      initializeView();
     });
   </script>
 </body>

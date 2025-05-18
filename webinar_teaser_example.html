@@ -1,0 +1,1572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Webinar Teaser Examples | StGallen imt Business School</title>
+
+  <!-- ============ STYLES ============ -->
+  <style>
+    :root{
+      --font-sans:-apple-system,BlinkMacSystemFont,"San Francisco","Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+      --color-text:#1d1d1f;
+      --color-muted:#6e6e73;
+      --color-card-bg:#f5f5f7;
+      --color-accent2:#970289;
+      --color-badge:#e2b245;
+      --color-badge-hover:#d4a535;
+      --spacing:24px;
+      --radius:16px;
+      --max-width:1200px;
+      --imt-purple: #6e45e2;
+      --imt-green: #4CB796;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--color-text);
+      background: #fff;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      padding: 60px 0;
+    }
+
+    /* Basic styling for containers */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 var(--spacing);
+      width: 100%;
+    }
+
+    /* Main content of the page */
+    main {
+      position: relative;
+    }
+
+    /* General typography */
+    h1, h2, h3, h4, h5, h6 {
+      margin-bottom: 1rem;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1.25rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--imt-purple);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .design-container {
+      margin-bottom: 100px;
+    }
+    
+    .design-title {
+      margin-bottom: 30px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #eee;
+    }
+
+    /* BoxIcons */
+    @import url('https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css');
+
+    /* ============ DESIGN 1: MODERN CARDS ============ */
+    .webinar-section-1 {
+      padding: 80px 0;
+      background: linear-gradient(to bottom, #f9f9ff, #fff);
+    }
+
+    .webinar-intro-1 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .webinar-tag-1 {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--imt-purple);
+      border: 1px solid var(--imt-purple);
+      padding: 5px 12px;
+      border-radius: 15px;
+      margin-bottom: 15px;
+    }
+
+    .webinar-title-1 {
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+    }
+
+    .webinar-description-1 {
+      max-width: 700px;
+      margin: 0 auto;
+      color: var(--color-muted);
+    }
+
+    .webinar-grid-1 {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .webinar-card-1 {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .webinar-card-1:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      border-color: var(--imt-purple);
+    }
+
+    .webinar-card-header-1 {
+      background: #f5f5f7;
+      position: relative;
+      padding-top: 60%;
+      overflow: hidden;
+    }
+
+    .webinar-thumb-1 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .webinar-card-1:hover .webinar-thumb-1 {
+      transform: scale(1.05);
+    }
+
+    .webinar-live-badge-1 {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background-color: #ff3b30;
+      color: white;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .webinar-date-badge-1 {
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--color-text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    }
+
+    .webinar-content-1 {
+      padding: 25px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .webinar-topic-1 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .webinar-description-short-1 {
+      color: var(--color-muted);
+      margin-bottom: 20px;
+      font-size: 16px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      flex-grow: 1;
+    }
+
+    .webinar-meta-1 {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px solid #f0f0f0;
+    }
+
+    .webinar-meta-item-1 {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--color-muted);
+    }
+
+    .webinar-meta-item-1 i {
+      font-size: 18px;
+      color: var(--imt-purple);
+    }
+
+    .webinar-footer-1 {
+      padding: 20px 25px;
+      background-color: #fcfcfc;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .webinar-register-1 {
+      background-color: var(--imt-purple);
+      color: white;
+      font-weight: 500;
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-size: 15px;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .webinar-register-1:hover {
+      background-color: #5c36cd;
+      text-decoration: none;
+      transform: translateY(-2px);
+    }
+
+    .webinar-price-1 {
+      font-weight: 500;
+      font-size: 15px;
+    }
+
+    .webinar-free-1 {
+      color: var(--imt-green);
+    }
+
+    .webinar-paid-1 {
+      color: var(--color-text);
+    }
+
+    .webinar-all-link-1 {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .view-all-webinars-1 {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--imt-purple);
+      font-weight: 500;
+      font-size: 17px;
+      transition: all 0.2s ease;
+    }
+
+    .view-all-webinars-1:hover {
+      text-decoration: none;
+    }
+
+    .view-all-webinars-1 i {
+      transition: transform 0.2s ease;
+    }
+
+    .view-all-webinars-1:hover i {
+      transform: translateX(3px);
+    }
+
+    @media (max-width: 768px) {
+      .webinar-grid-1 {
+        grid-template-columns: 1fr;
+      }
+      
+      .webinar-title-1 {
+        font-size: 1.8rem;
+      }
+    }
+
+    /* ============ DESIGN 2: MINIMAL TIMELINE ============ */
+    .webinar-section-2 {
+      padding: 80px 0;
+      background-color: white;
+    }
+
+    .webinar-intro-2 {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .webinar-title-2 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .webinar-title-2::after {
+      content: '';
+      position: absolute;
+      height: 8px;
+      width: 60px;
+      background: var(--imt-purple);
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 4px;
+    }
+
+    .webinar-description-2 {
+      max-width: 700px;
+      margin: 0 auto;
+      color: var(--color-muted);
+    }
+
+    .webinar-timeline-2 {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .webinar-timeline-2::before {
+      content: '';
+      position: absolute;
+      height: 100%;
+      width: 2px;
+      background-color: #eaeaea;
+      left: 0;
+      top: 0;
+    }
+
+    .webinar-item-2 {
+      display: flex;
+      margin-bottom: 30px;
+      position: relative;
+      padding-left: 30px;
+    }
+
+    .webinar-item-2::before {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background-color: white;
+      border: 3px solid var(--imt-purple);
+      left: -7px;
+      top: 22px;
+      z-index: 1;
+    }
+
+    .webinar-item-2.upcoming::before {
+      background-color: var(--imt-purple);
+    }
+
+    .webinar-date-2 {
+      min-width: 120px;
+      margin-right: 25px;
+      text-align: right;
+    }
+
+    .webinar-day-2 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--color-text);
+      margin-bottom: 5px;
+    }
+
+    .webinar-month-2 {
+      font-size: 14px;
+      color: var(--color-muted);
+      text-transform: uppercase;
+    }
+
+    .webinar-card-2 {
+      flex: 1;
+      background-color: #f8f8fa;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      display: flex;
+      border-left: 4px solid transparent;
+    }
+
+    .webinar-card-2:hover {
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      transform: translateY(-3px);
+      border-left-color: var(--imt-purple);
+    }
+
+    .webinar-content-2 {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .webinar-status-2 {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    .webinar-status-2.upcoming {
+      background-color: rgba(110, 69, 226, 0.1);
+      color: var(--imt-purple);
+    }
+
+    .webinar-status-2.live {
+      background-color: rgba(255, 59, 48, 0.1);
+      color: #ff3b30;
+    }
+
+    .webinar-topic-2 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--color-text);
+    }
+
+    .webinar-meta-2 {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-bottom: 12px;
+    }
+
+    .webinar-meta-item-2 {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--color-muted);
+    }
+
+    .webinar-meta-item-2 i {
+      font-size: 16px;
+      color: var(--imt-purple);
+    }
+
+    .webinar-presenter-2 {
+      font-weight: 500;
+      color: var(--color-text);
+    }
+
+    .webinar-desc-2 {
+      font-size: 14px;
+      color: var(--color-muted);
+      margin-bottom: 15px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .webinar-register-container-2 {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .webinar-action-2 {
+      flex: 1;
+    }
+
+    .webinar-register-2 {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--imt-purple);
+      padding: 6px 14px;
+      border: 1px solid var(--imt-purple);
+      border-radius: 6px;
+      transition: all 0.2s ease;
+      background-color: transparent;
+    }
+
+    .webinar-register-2:hover {
+      background-color: var(--imt-purple);
+      color: white;
+      text-decoration: none;
+    }
+
+    .webinar-price-2 {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .webinar-price-2.free {
+      color: var(--imt-green);
+    }
+
+    .webinar-price-2.paid {
+      color: var(--color-text);
+    }
+
+    .webinar-image-2 {
+      width: 100px;
+      flex-shrink: 0;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .webinar-all-2 {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .view-all-webinars-2 {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 16px;
+      font-weight: 500;
+      color: white;
+      background-color: var(--imt-purple);
+      padding: 12px 24px;
+      border-radius: 30px;
+      transition: all 0.2s ease;
+    }
+
+    .view-all-webinars-2:hover {
+      background-color: #5c36cd;
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .webinar-item-2 {
+        flex-direction: column;
+      }
+      
+      .webinar-date-2 {
+        margin-right: 0;
+        margin-bottom: 15px;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      
+      .webinar-day-2 {
+        margin-bottom: 0;
+      }
+      
+      .webinar-card-2 {
+        flex-direction: column;
+      }
+      
+      .webinar-image-2 {
+        width: 100%;
+        height: 120px;
+      }
+    }
+
+    /* ============ DESIGN 3: FEATURED CAROUSEL ============ */
+    .webinar-section-3 {
+      padding: 80px 0;
+      background-color: #f8f9fc;
+    }
+
+    .webinar-intro-3 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .webinar-badge-3 {
+      display: inline-block;
+      background-color: rgba(110, 69, 226, 0.1);
+      color: var(--imt-purple);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 30px;
+      margin-bottom: 15px;
+      letter-spacing: 0.5px;
+    }
+
+    .webinar-title-3 {
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+      color: var(--color-text);
+    }
+
+    .webinar-description-3 {
+      max-width: 600px;
+      margin: 0 auto;
+      color: var(--color-muted);
+      font-size: 1rem;
+    }
+
+    .webinar-carousel-3 {
+      display: flex;
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .featured-webinar-3 {
+      flex: 1.7;
+      background: white;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #f0f0f0;
+      transition: all 0.3s ease;
+    }
+
+    .featured-webinar-3:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+      border-color: var(--imt-purple);
+    }
+
+    .featured-image-3 {
+      position: relative;
+      overflow: hidden;
+      height: 260px;
+    }
+
+    .featured-image-3 img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .featured-webinar-3:hover .featured-image-3 img {
+      transform: scale(1.05);
+    }
+
+    .featured-overlay-3 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.6));
+    }
+
+    .featured-badge-3 {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background-color: var(--imt-purple);
+      color: white;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 6px 12px;
+      border-radius: 4px;
+      z-index: 2;
+    }
+
+    .featured-content-3 {
+      padding: 25px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .featured-date-3 {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 15px;
+      font-size: 15px;
+      color: var(--color-muted);
+    }
+
+    .featured-date-3 i {
+      color: var(--imt-purple);
+      font-size: 18px;
+    }
+
+    .featured-time-3 {
+      margin-left: 8px;
+      padding-left: 8px;
+      border-left: 1px solid #eee;
+    }
+
+    .featured-topic-3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+      line-height: 1.3;
+      color: var(--color-text);
+    }
+
+    .featured-description-3 {
+      color: var(--color-muted);
+      margin-bottom: 20px;
+      font-size: 15px;
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+
+    .featured-presenter-3 {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .presenter-avatar-3 {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    .presenter-avatar-3 img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .presenter-info-3 {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .presenter-name-3 {
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--color-text);
+    }
+
+    .presenter-title-3 {
+      font-size: 13px;
+      color: var(--color-muted);
+    }
+
+    .featured-footer-3 {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 20px;
+      border-top: 1px solid #f0f0f0;
+    }
+
+    .featured-price-3 {
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--imt-green);
+    }
+
+    .featured-register-3 {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--imt-purple);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .featured-register-3:hover {
+      background-color: #5c36cd;
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+
+    /* Upcoming Webinars Section */
+    .upcoming-webinars-3 {
+      flex: 1;
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      padding: 25px;
+      border: 1px solid #f0f0f0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .upcoming-title-3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: var(--color-text);
+      border-bottom: 1px solid #f5f5f7;
+      padding-bottom: 10px;
+    }
+
+    .upcoming-slider-3 {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .upcoming-item-3 {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 15px;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .upcoming-item-3:hover {
+      background-color: #f8f9fc;
+    }
+
+    .upcoming-date-3 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #f8f9fc;
+      min-width: 50px;
+      height: 60px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .upcoming-item-3:hover .upcoming-date-3 {
+      background-color: var(--imt-purple);
+    }
+
+    .upcoming-day-3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-text);
+      transition: all 0.3s ease;
+    }
+
+    .upcoming-month-3 {
+      font-size: 12px;
+      color: var(--color-muted);
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+
+    .upcoming-item-3:hover .upcoming-day-3,
+    .upcoming-item-3:hover .upcoming-month-3 {
+      color: white;
+    }
+
+    .upcoming-content-3 {
+      flex-grow: 1;
+    }
+
+    .upcoming-topic-3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 5px;
+      line-height: 1.4;
+      color: var(--color-text);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .upcoming-info-3,
+    .upcoming-presenter-3 {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--color-muted);
+      margin-bottom: 2px;
+    }
+
+    .upcoming-info-3 i,
+    .upcoming-presenter-3 i {
+      font-size: 15px;
+      color: var(--imt-purple);
+    }
+
+    .upcoming-link-3 {
+      background-color: #f8f9fc;
+      min-width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-muted);
+      transition: all 0.3s ease;
+    }
+
+    .upcoming-item-3:hover .upcoming-link-3 {
+      background-color: var(--imt-purple);
+      color: white;
+    }
+
+    .upcoming-link-3:hover {
+      text-decoration: none;
+    }
+
+    .upcoming-controls-3 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .upcoming-nav-3 {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f8f9fc;
+      border: none;
+      color: var(--color-text);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .upcoming-nav-3:hover {
+      background-color: var(--imt-purple);
+      color: white;
+    }
+
+    .upcoming-dots-3 {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .dot-3 {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #e0e0e0;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .dot-3.active {
+      background-color: var(--imt-purple);
+      width: 24px;
+      border-radius: 10px;
+    }
+
+    .webinar-all-3 {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .view-all-webinars-3 {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--imt-purple);
+      padding: 10px 5px;
+      border-bottom: 2px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .view-all-webinars-3:hover {
+      border-bottom-color: var(--imt-purple);
+      text-decoration: none;
+    }
+
+    .view-all-webinars-3 i {
+      transition: transform 0.3s ease;
+    }
+
+    .view-all-webinars-3:hover i {
+      transform: translateX(5px);
+    }
+
+    @media (max-width: 991px) {
+      .webinar-carousel-3 {
+        flex-direction: column;
+      }
+      
+      .featured-webinar-3,
+      .upcoming-webinars-3 {
+        width: 100%;
+      }
+      
+      .featured-image-3 {
+        height: 200px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .webinar-title-3 {
+        font-size: 1.8rem;
+      }
+      
+      .featured-topic-3 {
+        font-size: 1.3rem;
+      }
+      
+      .upcoming-slider-3 {
+        gap: 10px;
+      }
+      
+      .upcoming-item-3 {
+        padding: 10px;
+      }
+    }
+  </style>
+
+  <!-- BoxIcons for icons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+<body>
+  <main>
+    <div class="container">
+      <h1 class="page-title">Webinar Teaser Section Examples</h1>
+
+      <!-- Design 1: Modern Cards -->
+      <div class="design-container">
+        <h2 class="design-title">Design 1: Modern Card Layout</h2>
+        
+        <section class="webinar-section-1">
+          <div class="container">
+            <div class="webinar-intro-1">
+              <span class="webinar-tag-1">Upcoming Webinars</span>
+              <h2 class="webinar-title-1">Join Our Expert Sessions</h2>
+              <p class="webinar-description-1">Expand your knowledge with our interactive webinars led by industry experts and thought leaders. Register now to secure your spot.</p>
+            </div>
+            
+            <div class="webinar-grid-1">
+              <!-- Webinar Card 1 -->
+              <div class="webinar-card-1">
+                <div class="webinar-card-header-1">
+                  <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="AI for Business Strategy" class="webinar-thumb-1">
+                  <span class="webinar-live-badge-1">Live</span>
+                  <div class="webinar-date-badge-1">
+                    <i class='bx bx-calendar'></i>
+                    <span>June 15, 2023</span>
+                  </div>
+                </div>
+                <div class="webinar-content-1">
+                  <h3 class="webinar-topic-1">AI for Business Strategy: Implementation and ROI</h3>
+                  <p class="webinar-description-short-1">Learn how to effectively implement AI solutions in your business strategy and measure the return on investment. This webinar covers practical approaches, case studies, and best practices.</p>
+                  <div class="webinar-meta-1">
+                    <div class="webinar-meta-item-1">
+                      <i class='bx bx-time'></i>
+                      <span>2:00 PM - 3:30 PM CET</span>
+                    </div>
+                    <div class="webinar-meta-item-1">
+                      <i class='bx bx-user'></i>
+                      <span>Dr. Martin Weber</span>
+                    </div>
+                    <div class="webinar-meta-item-1">
+                      <i class='bx bx-timer'></i>
+                      <span>90 Minutes</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="webinar-footer-1">
+                  <span class="webinar-price-1 webinar-free-1">Free</span>
+                  <a href="#" class="webinar-register-1">
+                    Register Now
+                    <i class='bx bx-right-arrow-alt'></i>
+                  </a>
+                </div>
+              </div>
+              
+              <!-- Webinar Card 2 -->
+              <div class="webinar-card-1">
+                <div class="webinar-card-header-1">
+                  <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Digital Transformation" class="webinar-thumb-1">
+                  <div class="webinar-date-badge-1">
+                    <i class='bx bx-calendar'></i>
+                    <span>June 22, 2023</span>
+                  </div>
+                </div>
+                <div class="webinar-content-1">
+                  <h3 class="webinar-topic-1">Digital Transformation: Beyond Technology</h3>
+                  <p class="webinar-description-short-1">Discover how successful digital transformation requires more than just technology. This webinar explores the cultural, organizational, and leadership aspects critical for digital success.</p>
+                  <div class="webinar-meta-1">
+                    <div class="webinar-meta-item-1">
+                      <i class='bx bx-time'></i>
+                      <span>10:00 AM - 11:30 AM CET</span>
+                    </div>
+                    <div class="webinar-meta-item-1">
+                      <i class='bx bx-user'></i>
+                      <span>Prof. Sarah Johnson</span>
+                    </div>
+                    <div class="webinar-meta-item-1">
+                      <i class='bx bx-timer'></i>
+                      <span>90 Minutes</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="webinar-footer-1">
+                  <span class="webinar-price-1 webinar-paid-1">CHF 49</span>
+                  <a href="#" class="webinar-register-1">
+                    Register Now
+                    <i class='bx bx-right-arrow-alt'></i>
+                  </a>
+                </div>
+              </div>
+              
+              <!-- Webinar Card 3 -->
+              <div class="webinar-card-1">
+                <div class="webinar-card-header-1">
+                  <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Leadership in Digital Age" class="webinar-thumb-1">
+                  <span class="webinar-live-badge-1">Live</span>
+                  <div class="webinar-date-badge-1">
+                    <i class='bx bx-calendar'></i>
+                    <span>June 28, 2023</span>
+                  </div>
+                </div>
+                <div class="webinar-content-1">
+                  <h3 class="webinar-topic-1">Leadership in the Digital Age: New Competencies</h3>
+                  <p class="webinar-description-short-1">Explore the essential leadership competencies needed in today's digital business environment. Learn how to adapt your leadership style and develop the skills that matter most.</p>
+                  <div class="webinar-meta-1">
+                    <div class="webinar-meta-item-1">
+                      <i class='bx bx-time'></i>
+                      <span>3:00 PM - 4:30 PM CET</span>
+                    </div>
+                    <div class="webinar-meta-item-1">
+                      <i class='bx bx-user'></i>
+                      <span>Dr. Michael Schmidt</span>
+                    </div>
+                    <div class="webinar-meta-item-1">
+                      <i class='bx bx-timer'></i>
+                      <span>90 Minutes</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="webinar-footer-1">
+                  <span class="webinar-price-1 webinar-free-1">Free</span>
+                  <a href="#" class="webinar-register-1">
+                    Register Now
+                    <i class='bx bx-right-arrow-alt'></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+            <div class="webinar-all-link-1">
+              <a href="#" class="view-all-webinars-1">
+                View All Webinars 
+                <i class='bx bx-right-arrow-alt'></i>
+              </a>
+            </div>
+          </div>
+        </section>
+      </div>
+      
+      <!-- Placeholder for Design 2 -->
+      <div class="design-container">
+        <h2 class="design-title">Design 2: Minimal Timeline Layout</h2>
+        
+        <section class="webinar-section-2">
+          <div class="container">
+            <div class="webinar-intro-2">
+              <h2 class="webinar-title-2">Upcoming Webinars</h2>
+              <p class="webinar-description-2">Join our expert-led webinars to gain insights and skills that will advance your professional development.</p>
+            </div>
+            
+            <div class="webinar-timeline-2">
+              <!-- Webinar Item 1 -->
+              <div class="webinar-item-2 upcoming">
+                <div class="webinar-date-2">
+                  <div class="webinar-day-2">15</div>
+                  <div class="webinar-month-2">June</div>
+                </div>
+                
+                <div class="webinar-card-2">
+                  <div class="webinar-content-2">
+                    <span class="webinar-status-2 live">Live Now</span>
+                    <h3 class="webinar-topic-2">AI for Business Strategy: Implementation and ROI</h3>
+                    
+                    <div class="webinar-meta-2">
+                      <div class="webinar-meta-item-2">
+                        <i class='bx bx-time'></i>
+                        <span>2:00 PM - 3:30 PM CET</span>
+                      </div>
+                      <div class="webinar-meta-item-2">
+                        <i class='bx bx-timer'></i>
+                        <span>90 Minutes</span>
+                      </div>
+                      <div class="webinar-meta-item-2">
+                        <i class='bx bx-user'></i>
+                        <span class="webinar-presenter-2">Dr. Martin Weber</span>
+                      </div>
+                    </div>
+                    
+                    <p class="webinar-desc-2">Learn how to effectively implement AI solutions in your business strategy and measure the return on investment. This webinar covers practical approaches, case studies, and best practices.</p>
+                    
+                    <div class="webinar-register-container-2">
+                      <div class="webinar-action-2">
+                        <a href="#" class="webinar-register-2">
+                          Register Now
+                          <i class='bx bx-right-arrow-alt'></i>
+                        </a>
+                      </div>
+                      <span class="webinar-price-2 free">Free</span>
+                    </div>
+                  </div>
+                  
+                  <div class="webinar-image-2" style="background-image: url('https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')"></div>
+                </div>
+              </div>
+              
+              <!-- Webinar Item 2 -->
+              <div class="webinar-item-2">
+                <div class="webinar-date-2">
+                  <div class="webinar-day-2">22</div>
+                  <div class="webinar-month-2">June</div>
+                </div>
+                
+                <div class="webinar-card-2">
+                  <div class="webinar-content-2">
+                    <span class="webinar-status-2 upcoming">Upcoming</span>
+                    <h3 class="webinar-topic-2">Digital Transformation: Beyond Technology</h3>
+                    
+                    <div class="webinar-meta-2">
+                      <div class="webinar-meta-item-2">
+                        <i class='bx bx-time'></i>
+                        <span>10:00 AM - 11:30 AM CET</span>
+                      </div>
+                      <div class="webinar-meta-item-2">
+                        <i class='bx bx-timer'></i>
+                        <span>90 Minutes</span>
+                      </div>
+                      <div class="webinar-meta-item-2">
+                        <i class='bx bx-user'></i>
+                        <span class="webinar-presenter-2">Prof. Sarah Johnson</span>
+                      </div>
+                    </div>
+                    
+                    <p class="webinar-desc-2">Discover how successful digital transformation requires more than just technology. This webinar explores the cultural, organizational, and leadership aspects critical for digital success.</p>
+                    
+                    <div class="webinar-register-container-2">
+                      <div class="webinar-action-2">
+                        <a href="#" class="webinar-register-2">
+                          Register Now
+                          <i class='bx bx-right-arrow-alt'></i>
+                        </a>
+                      </div>
+                      <span class="webinar-price-2 paid">CHF 49</span>
+                    </div>
+                  </div>
+                  
+                  <div class="webinar-image-2" style="background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80')"></div>
+                </div>
+              </div>
+              
+              <!-- Webinar Item 3 -->
+              <div class="webinar-item-2">
+                <div class="webinar-date-2">
+                  <div class="webinar-day-2">28</div>
+                  <div class="webinar-month-2">June</div>
+                </div>
+                
+                <div class="webinar-card-2">
+                  <div class="webinar-content-2">
+                    <span class="webinar-status-2 upcoming">Upcoming</span>
+                    <h3 class="webinar-topic-2">Leadership in the Digital Age: New Competencies</h3>
+                    
+                    <div class="webinar-meta-2">
+                      <div class="webinar-meta-item-2">
+                        <i class='bx bx-time'></i>
+                        <span>3:00 PM - 4:30 PM CET</span>
+                      </div>
+                      <div class="webinar-meta-item-2">
+                        <i class='bx bx-timer'></i>
+                        <span>90 Minutes</span>
+                      </div>
+                      <div class="webinar-meta-item-2">
+                        <i class='bx bx-user'></i>
+                        <span class="webinar-presenter-2">Dr. Michael Schmidt</span>
+                      </div>
+                    </div>
+                    
+                    <p class="webinar-desc-2">Explore the essential leadership competencies needed in today's digital business environment. Learn how to adapt your leadership style and develop the skills that matter most.</p>
+                    
+                    <div class="webinar-register-container-2">
+                      <div class="webinar-action-2">
+                        <a href="#" class="webinar-register-2">
+                          Register Now
+                          <i class='bx bx-right-arrow-alt'></i>
+                        </a>
+                      </div>
+                      <span class="webinar-price-2 free">Free</span>
+                    </div>
+                  </div>
+                  
+                  <div class="webinar-image-2" style="background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="webinar-all-2">
+              <a href="#" class="view-all-webinars-2">
+                View All Webinars
+                <i class='bx bx-right-arrow-alt'></i>
+              </a>
+            </div>
+          </div>
+        </section>
+      </div>
+      
+      <!-- Placeholder for Design 3 -->
+      <div class="design-container">
+        <h2 class="design-title">Design 3: Featured Carousel</h2>
+        
+        <section class="webinar-section-3">
+          <div class="container">
+            <div class="webinar-intro-3">
+              <span class="webinar-badge-3">Upcoming Webinars</span>
+              <h2 class="webinar-title-3">Expand Your Knowledge</h2>
+              <p class="webinar-description-3">Join our expert-led interactive sessions and stay ahead in your professional development</p>
+            </div>
+            
+            <div class="webinar-carousel-3">
+              <div class="featured-webinar-3">
+                <div class="featured-image-3">
+                  <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="AI for Business" />
+                  <div class="featured-overlay-3"></div>
+                  <div class="featured-badge-3">Featured</div>
+                </div>
+                
+                <div class="featured-content-3">
+                  <div class="featured-date-3">
+                    <i class='bx bx-calendar'></i>
+                    <span>June 15, 2023</span>
+                    <span class="featured-time-3">2:00 PM - 3:30 PM CET</span>
+                  </div>
+                  
+                  <h3 class="featured-topic-3">AI for Business Strategy: Implementation and ROI</h3>
+                  
+                  <p class="featured-description-3">Learn how to effectively implement AI solutions in your business strategy and measure the return on investment. This webinar covers practical approaches, case studies, and best practices for AI implementation.</p>
+                  
+                  <div class="featured-presenter-3">
+                    <div class="presenter-avatar-3">
+                      <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Dr. Martin Weber" />
+                    </div>
+                    <div class="presenter-info-3">
+                      <span class="presenter-name-3">Dr. Martin Weber</span>
+                      <span class="presenter-title-3">AI Strategy Expert</span>
+                    </div>
+                  </div>
+                  
+                  <div class="featured-footer-3">
+                    <span class="featured-price-3">Free</span>
+                    <a href="#" class="featured-register-3">
+                      Register Now
+                      <i class='bx bx-right-arrow-alt'></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="upcoming-webinars-3">
+                <h4 class="upcoming-title-3">Also Coming Up</h4>
+                
+                <div class="upcoming-slider-3">
+                  <!-- Upcoming Webinar 1 -->
+                  <div class="upcoming-item-3">
+                    <div class="upcoming-date-3">
+                      <span class="upcoming-day-3">22</span>
+                      <span class="upcoming-month-3">Jun</span>
+                    </div>
+                    
+                    <div class="upcoming-content-3">
+                      <h5 class="upcoming-topic-3">Digital Transformation: Beyond Technology</h5>
+                      <p class="upcoming-info-3">
+                        <i class='bx bx-time'></i>
+                        <span>10:00 AM - 11:30 AM CET</span>
+                      </p>
+                      <p class="upcoming-presenter-3">
+                        <i class='bx bx-user'></i>
+                        <span>Prof. Sarah Johnson</span>
+                      </p>
+                    </div>
+                    
+                    <a href="#" class="upcoming-link-3">
+                      <i class='bx bx-right-arrow-alt'></i>
+                    </a>
+                  </div>
+                  
+                  <!-- Upcoming Webinar 2 -->
+                  <div class="upcoming-item-3">
+                    <div class="upcoming-date-3">
+                      <span class="upcoming-day-3">28</span>
+                      <span class="upcoming-month-3">Jun</span>
+                    </div>
+                    
+                    <div class="upcoming-content-3">
+                      <h5 class="upcoming-topic-3">Leadership in the Digital Age: New Competencies</h5>
+                      <p class="upcoming-info-3">
+                        <i class='bx bx-time'></i>
+                        <span>3:00 PM - 4:30 PM CET</span>
+                      </p>
+                      <p class="upcoming-presenter-3">
+                        <i class='bx bx-user'></i>
+                        <span>Dr. Michael Schmidt</span>
+                      </p>
+                    </div>
+                    
+                    <a href="#" class="upcoming-link-3">
+                      <i class='bx bx-right-arrow-alt'></i>
+                    </a>
+                  </div>
+                  
+                  <!-- Upcoming Webinar 3 -->
+                  <div class="upcoming-item-3">
+                    <div class="upcoming-date-3">
+                      <span class="upcoming-day-3">05</span>
+                      <span class="upcoming-month-3">Jul</span>
+                    </div>
+                    
+                    <div class="upcoming-content-3">
+                      <h5 class="upcoming-topic-3">Data Analytics for Business Decision Making</h5>
+                      <p class="upcoming-info-3">
+                        <i class='bx bx-time'></i>
+                        <span>1:00 PM - 2:30 PM CET</span>
+                      </p>
+                      <p class="upcoming-presenter-3">
+                        <i class='bx bx-user'></i>
+                        <span>Dr. Emma Thompson</span>
+                      </p>
+                    </div>
+                    
+                    <a href="#" class="upcoming-link-3">
+                      <i class='bx bx-right-arrow-alt'></i>
+                    </a>
+                  </div>
+                </div>
+                
+                <div class="upcoming-controls-3">
+                  <button class="upcoming-nav-3 prev-3">
+                    <i class='bx bx-chevron-left'></i>
+                  </button>
+                  <div class="upcoming-dots-3">
+                    <span class="dot-3 active"></span>
+                    <span class="dot-3"></span>
+                    <span class="dot-3"></span>
+                  </div>
+                  <button class="upcoming-nav-3 next-3">
+                    <i class='bx bx-chevron-right'></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="webinar-all-3">
+              <a href="#" class="view-all-webinars-3">
+                View All Webinars
+                <i class='bx bx-right-arrow-alt'></i>
+              </a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+  
+  <!-- Add CSS for Design 3 to the head -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Simple carousel functionality
+      const dots = document.querySelectorAll('.dot-3');
+      const prevBtn = document.querySelector('.prev-3');
+      const nextBtn = document.querySelector('.next-3');
+      
+      if (dots.length && prevBtn && nextBtn) {
+        // Initialize active state
+        let currentSlide = 0;
+        
+        function updateDots(index) {
+          dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+          });
+        }
+        
+        dots.forEach((dot, index) => {
+          dot.addEventListener('click', () => {
+            currentSlide = index;
+            updateDots(currentSlide);
+          });
+        });
+        
+        prevBtn.addEventListener('click', () => {
+          currentSlide = (currentSlide === 0) ? dots.length - 1 : currentSlide - 1;
+          updateDots(currentSlide);
+        });
+        
+        nextBtn.addEventListener('click', () => {
+          currentSlide = (currentSlide === dots.length - 1) ? 0 : currentSlide + 1;
+          updateDots(currentSlide);
+        });
+      }
+    });
+  </script>
+</body>
+</html> 
