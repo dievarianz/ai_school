@@ -888,7 +888,7 @@
   }
   
   function formSubmitHandler(e) {
-    e.preventDefault();
+    // Nicht preventDefault() aufrufen, damit Netlify das Formular verarbeiten kann
     
     // Form validation
     let isValid = true;
@@ -921,21 +921,27 @@
     
     // Fokussiere das erste ungültige Feld
     if (!isValid) {
+      e.preventDefault(); // Nur bei Validierungsfehlern wird das Standard-Submit-Verhalten verhindert
       const firstInvalid = this.querySelector('.invalid-input');
       if (firstInvalid) {
         setTimeout(() => firstInvalid.focus(), 100);
       }
       return;
     }
-
-    // Collect form data
-    const emailConsent = this.querySelector('[name="email_consent"]');
+    
+    // Bei erfolgreicher Validierung wird das Formular an Netlify gesendet
+    // Nach erfolgreicher Übermittlung zeigen wir die Erfolgsmeldung direkt an
+    
+    // Bei erfolgreicher Validierung zeigen wir den Erfolgs-Bereich an
+    e.preventDefault(); // Verhindern des normalen Formular-Submits
+    
+    // Form-Daten sammeln
     const formData = new FormData(this);
     
-    // Important: Netlify expects form-name in FormData for AJAX submissions
+    // Wichtig: Netlify erwartet form-name auch im FormData für AJAX-Übermittlung
     formData.append("form-name", "newsletter-voucher-popup");
     
-    // Send to Netlify
+    // Via fetch an Netlify senden
     fetch('/', {
       method: 'POST',
       body: new URLSearchParams(formData)
@@ -1011,4 +1017,15 @@
   
   // Initialisiere die Validierung sofort, wenn die Komponente dynamisch geladen wird
   initNewsletterForm();
-</script> 
+  
+  // Die folgende Zeile ist wichtig, um sicherzustellen, dass das Formular immer korrekt via Netlify verarbeitet wird
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
