@@ -1946,44 +1946,11 @@
       top: 30px;
       right: 60px;
       z-index: 10;
-      transition: transform 0.3s ease;
     }
     
     .valley-seal img {
       width: 100px;
       height: auto;
-    }
-    
-    .valley-seal:hover {
-      transform: scale(1.05);
-    }
-    
-    .valley-seal::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(
-        90deg, 
-        rgba(255,255,255,0) 0%,
-        rgba(255,255,255,0.3) 50%,
-        rgba(255,255,255,0) 100%
-      );
-      transform: translateX(-100%) skewX(-25deg);
-      animation: sealShine 5s ease-in-out infinite;
-      pointer-events: none;
-      z-index: 11;
-    }
-    
-    @keyframes sealShine {
-      0%, 30% {
-        transform: translateX(-100%) skewX(-25deg);
-      }
-      95%, 100% {
-        transform: translateX(200%) skewX(-25deg);
-      }
     }
     
     /* Make space for seal in headline area without affecting layout */
@@ -3423,9 +3390,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         return array;
       }
       
-      // Randomly select 7 logos - true randomization
+      // Randomly select 6 logos - true randomization
       const shuffledLogos = shuffleArray([...allLogos]);
-      const selectedLogos = shuffledLogos.slice(0, 7);
+      const selectedLogos = shuffledLogos.slice(0, 6);
       
       // Get the container element
       const logosContainer = document.getElementById('random-logos');
@@ -3433,34 +3400,50 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       // Clear the container
       logosContainer.innerHTML = '';
       
-      // Create first row with 4 logos
+      // Set container style to enforce column layout
+      logosContainer.style.display = 'flex';
+      logosContainer.style.flexDirection = 'column';
+      logosContainer.style.alignItems = 'center';
+      logosContainer.style.width = '100%';
+      
+      // Create first row with 3 logos
       const firstRow = document.createElement('div');
       firstRow.className = 'logo-row';
       firstRow.style.display = 'flex';
       firstRow.style.justifyContent = 'center';
-      firstRow.style.flexWrap = 'wrap';
-      firstRow.style.marginBottom = '10px';
+      firstRow.style.flexWrap = 'nowrap';
+      firstRow.style.marginBottom = '20px';
+      firstRow.style.width = '100%';
       
       // Create second row with 3 logos
       const secondRow = document.createElement('div');
       secondRow.className = 'logo-row';
       secondRow.style.display = 'flex';
       secondRow.style.justifyContent = 'center';
-      secondRow.style.flexWrap = 'wrap';
+      secondRow.style.flexWrap = 'nowrap';
+      secondRow.style.width = '100%';
       
-      // Add first 4 logos to first row
-      for (let i = 0; i < 4; i++) {
+      // Add first 3 logos to first row
+      for (let i = 0; i < 3; i++) {
         const img = document.createElement('img');
         img.src = selectedLogos[i];
         img.alt = selectedLogos[i].split('/').pop().split('.')[0]; // Use filename as alt text
+        img.style.margin = '0 20px';
+        img.style.maxWidth = '120px';
+        img.style.height = '30px';
+        img.style.objectFit = 'contain';
         firstRow.appendChild(img);
       }
       
       // Add remaining 3 logos to second row
-      for (let i = 4; i < 7; i++) {
+      for (let i = 3; i < 6; i++) {
         const img = document.createElement('img');
         img.src = selectedLogos[i];
         img.alt = selectedLogos[i].split('/').pop().split('.')[0]; // Use filename as alt text
+        img.style.margin = '0 20px';
+        img.style.maxWidth = '120px';
+        img.style.height = '30px';
+        img.style.objectFit = 'contain';
         secondRow.appendChild(img);
       }
       
