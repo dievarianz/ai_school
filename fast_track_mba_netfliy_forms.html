@@ -2940,11 +2940,14 @@ document.addEventListener('DOMContentLoaded', function() {
             // Form-Daten sammeln
             const formData = new FormData(form);
             
-            // Via fetch an Netlify senden
+            // Wichtig: Netlify erwartet form-name auch im FormData für AJAX-Übermittlung
+            formData.append("form-name", "fast-track-mba-brochure");
+            
+            // Via fetch an Netlify senden - ohne Content-Type Header damit der Browser automatisch
+            // den korrekten multipart/form-data boundary header setzt
             fetch('/', {
                 method: 'POST',
-                headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: new URLSearchParams(formData).toString()
+                body: formData
             })
             .then(() => {
                 // Formular ausblenden und Erfolgsmeldung anzeigen
