@@ -1664,6 +1664,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
+<!-- Verstecktes Netlify-Formular mit allen Feldern -->
+<form name="intelligent-process-automation-brochure-en" netlify netlify-honeypot="bot-field" hidden>
+  <input type="text" name="firstname" />
+  <input type="text" name="lastname" />
+  <input type="email" name="email" />
+  <select name="country"></select>
+  <input type="checkbox" name="email_consent" />
+</form>
+
 <!-- Navigation einbinden -->
 <div id="navigation-container"></div>
 
@@ -2332,7 +2341,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <section id="contact">
       <div class="container">
         <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Ansprechpartner</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Bei Fragen zum Managementseminar „Intelligent Process Automation“ sind wir gerne persönlich für Sie da</p>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Bei Fragen zum Managementseminar „Intelligent Process Automation" sind wir gerne persönlich für Sie da</p>
         
         <div class="contact-info">
           <img alt="Monika Dutkiewicz" src="assets/Dutkiewicz.jpg"/>
@@ -2355,10 +2364,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           
           <!-- Formular -->
           <div style="flex: 1 1 400px; background: #f5f5f7; padding: 32px; border-radius: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
-            <form id="brochure-form" method="post" novalidate>
-              <input name="firstname" placeholder="Vorname" style="width: 100%; padding: 12px; margin-bottom: 18px; border-radius: 8px; border: 1px solid #ccc;" type="text" required/>
-              <input name="lastname" placeholder="Nachname" style="width: 100%; padding: 12px; margin-bottom: 18px; border-radius: 8px; border: 1px solid #ccc;" type="text" required/>
-              <input name="email" placeholder="E-Mail" style="width: 100%; padding: 12px; margin-bottom: 18px; border-radius: 8px; border: 1px solid #ccc;" type="email" required/>
+            <form id="brochure-form" method="post" netlify name="intelligent-process-automation-brochure-en" netlify-honeypot="bot-field" data-netlify="true" action="/" novalidate>
+              <p class="hidden" style="display: none;">
+                <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+              </p>
+              <input type="hidden" name="form-name" value="intelligent-process-automation-brochure-en">
+              <input name="firstname" placeholder="First Name" style="width: 100%; padding: 12px; margin-bottom: 18px; border-radius: 8px; border: 1px solid #ccc;" type="text" required/>
+              <input name="lastname" placeholder="Last Name" style="width: 100%; padding: 12px; margin-bottom: 18px; border-radius: 8px; border: 1px solid #ccc;" type="text" required/>
+              <input name="email" placeholder="Email" style="width: 100%; padding: 12px; margin-bottom: 18px; border-radius: 8px; border: 1px solid #ccc;" type="email" required/>
               
               <!-- Country Select -->
               <div style="position: relative; margin-bottom: 18px;">
@@ -2725,7 +2738,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   });
 </script>
 
-<!-- Skript für Broschüre-Formular Validierung und Google Integration -->
+<!-- Skript für Broschüre-Formular Validierung und Netlify Integration -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('brochure-form');
@@ -2761,32 +2774,30 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (!isValid) return;
 
-            // Collect form data
-            const formData = {
-                programm: "Intelligent Process Automation",
-                vorname: form.querySelector('[name="firstname"]').value,
-                nachname: form.querySelector('[name="lastname"]').value,
-                email: form.querySelector('[name="email"]').value,
-                land: form.querySelector('[name="country"]').value,
-                zustimmung: form.querySelector('[name="email_consent"]').checked ? 'Ja' : 'Nein'
-            };
-
-            // Send to Google Script
-            fetch('https://script.google.com/macros/s/AKfycbwIV2ywC6DU4HxDotucAnrQVO1mOdYF2Z4Bict2NMMI9obastqrDb-KIbLqULE4g2g/exec', {
+            // Form-Daten sammeln
+            const formData = new FormData(form);
+            
+            // Wichtig: Netlify erwartet form-name auch im FormData für AJAX-Übermittlung
+            formData.append("form-name", "intelligent-process-automation-brochure-en");
+            
+            // Via fetch an Netlify senden
+            fetch('/', {
                 method: 'POST',
-                body: JSON.stringify(formData)
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams(formData).toString()
             })
-            .then(response => response.json())
-            .then(data => {
-                if(data.status === 'success') {
-                    // Hide form and show success message
-                    form.style.display = 'none';
-                    downloadReady.classList.remove('hidden');
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Network response was not ok: ${response.status}`);
                 }
+                // Form ausblenden und Erfolgsmeldung anzeigen
+                form.style.display = 'none';
+                downloadReady.classList.remove('hidden');
+                downloadReady.style.display = 'block';
             })
             .catch(error => {
                 console.error('Error:', error);
-                alert('Es gab einen Fehler. Bitte versuchen Sie es später erneut.');
+                alert('There was an error. Please try again later.');
             });
         });
 
