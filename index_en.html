@@ -3509,5 +3509,59 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       // Removed: setInterval(initGallery, 8000);
     });
   </script>
+
+  <!-- Voucher Popup Integration -->
+  <div id="voucher-popup-container"></div>
+  <script>
+    // Load the voucher popup component after 3 seconds
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(function() {
+        // Load component
+        fetch('components/globals/voucher_popup_en.html?t=' + new Date().getTime())
+          .then(response => {
+            if (!response.ok) {
+              console.error('Error loading the voucher popup:', response.status);
+              // Try fallback to includes directory
+              return fetch('components/includes/voucher_popup_en.html?t=' + new Date().getTime())
+                .then(resp => {
+                  if (!resp.ok) {
+                    console.error('Includes path also failed:', resp.status);
+                    return '';
+                  }
+                  return resp.text();
+                });
+            }
+            return response.text();
+          })
+          .then(data => {
+            if (data) {
+              document.getElementById('voucher-popup-container').innerHTML = data;
+              console.log('Voucher Popup loaded');
+              
+              // Execute all scripts in the loaded content
+              const scripts = document.getElementById('voucher-popup-container').querySelectorAll('script');
+              scripts.forEach(script => {
+                const newScript = document.createElement('script');
+                Array.from(script.attributes).forEach(attr => {
+                  newScript.setAttribute(attr.name, attr.value);
+                });
+                newScript.textContent = script.textContent;
+                script.parentNode.replaceChild(newScript, script);
+              });
+              
+              // Show popup after component is loaded
+              setTimeout(function() {
+                if (typeof showNewsletterPopup === 'function') {
+                  showNewsletterPopup();
+                } else {
+                  console.warn('showNewsletterPopup function not found!');
+                }
+              }, 100);
+            }
+          })
+          .catch(error => console.error('Error loading the voucher popup:', error));
+      }, 3000); // 3 seconds delay
+    });
+  </script>
 </body>
 </html>
