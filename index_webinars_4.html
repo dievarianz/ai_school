@@ -297,8 +297,8 @@
       overflow: hidden;
     }
 
-    /* Atom Model Animation */
-    .hero .atom-container {
+    /* Partikelhintergrund - Styling für Floating Particles */
+    .hero .particles-container {
       position: absolute;
       top: 0;
       left: 0;
@@ -306,341 +306,82 @@
       height: 100%;
       z-index: 1;
       opacity: 0.7;
-      perspective: 1000px;
-    }
-
-    .hero .atom-core {
-      position: absolute;
-      width: 40px;
-      height: 40px;
-      background: radial-gradient(circle, rgba(110, 69, 226, 1) 0%, rgba(110, 69, 226, 0.6) 70%);
-      border-radius: 50%;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      box-shadow: 0 0 25px rgba(110, 69, 226, 0.5);
-      z-index: 2;
-    }
-    
-    @media (min-width: 1024px) {
-      .hero .atom-core {
-        width: 60px;
-        height: 60px;
-        box-shadow: 0 0 35px rgba(110, 69, 226, 0.5);
-      }
-    }
-
-    .hero .electron-orbit {
-      position: absolute;
-      border-radius: 50%;
-      border: 1px solid rgba(110, 69, 226, 0.15);
-      top: 50%;
-      left: 50%;
-      transform-style: preserve-3d;
-    }
-
-    .hero .orbit-1 {
-      width: 200px;
-      height: 200px;
-      transform: translate(-50%, -50%) rotateX(65deg);
-      animation: orbit-rotate-1 15s infinite linear;
-    }
-
-    .hero .orbit-2 {
-      width: 320px;
-      height: 320px;
-      transform: translate(-50%, -50%) rotateX(60deg) rotateY(30deg);
-      animation: orbit-rotate-2 20s infinite linear;
-    }
-
-    .hero .orbit-3 {
-      width: 450px;
-      height: 450px;
-      transform: translate(-50%, -50%) rotateX(75deg) rotateZ(45deg);
-      animation: orbit-rotate-3 25s infinite linear;
-    }
-
-    .hero .orbit-4 {
-      width: 550px;
-      height: 280px;
-      transform: translate(-50%, -50%) rotateX(70deg) rotateY(60deg);
-      animation: orbit-rotate-4 30s infinite linear reverse;
-    }
-    
-    @media (min-width: 1024px) {
-      .hero .orbit-1 {
-        width: 300px;
-        height: 300px;
-      }
-      
-      .hero .orbit-2 {
-        width: 480px;
-        height: 480px;
-      }
-      
-      .hero .orbit-3 {
-        width: 680px;
-        height: 680px;
-      }
-      
-      .hero .orbit-4 {
-        width: 820px;
-        height: 420px;
-      }
-    }
-
-    .hero .electron {
-      position: absolute;
-      width: 10px;
-      height: 10px;
-      background: radial-gradient(circle, rgba(76, 183, 150, 1) 0%, rgba(76, 183, 150, 0.7) 70%);
-      border-radius: 50%;
-      box-shadow: 0 0 15px rgba(76, 183, 150, 0.6);
-      transform-style: preserve-3d;
-      z-index: 3;
-    }
-    
-    @media (min-width: 1024px) {
-      .hero .electron {
-        width: 15px;
-        height: 15px;
-        box-shadow: 0 0 22px rgba(76, 183, 150, 0.7);
-      }
-      
-      .hero .energy-particle {
-        width: 5px;
-        height: 5px;
-      }
-    }
-
-    .hero .electron-trail {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      border: none;
-      top: 0;
-      left: 0;
-      filter: blur(4px);
-      opacity: 0.4;
-      z-index: 1;
-    }
-
-    .hero .trail-1 {
-      background: linear-gradient(90deg, transparent 0%, rgba(76, 183, 150, 0.3) 50%, transparent 100%);
-      animation: trail-fade 3s infinite linear;
-    }
-
-    .hero .trail-2 {
-      background: linear-gradient(90deg, transparent 0%, rgba(110, 69, 226, 0.3) 50%, transparent 100%);
-      animation: trail-fade 4s infinite linear;
-    }
-
-    .hero .electron-1 {
-      top: 0;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-    .hero .electron-2 {
-      right: 0;
-      top: 50%;
-      transform: translate(50%, -50%);
-    }
-
-    .hero .electron-3 {
-      bottom: 0;
-      left: 50%;
-      transform: translate(-50%, 50%);
-    }
-
-    .hero .electron-4 {
-      left: 0;
-      top: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-    .hero .electron-5 {
-      top: 15%;
-      right: 15%;
-      transform: translate(50%, -50%);
-    }
-
-    .hero .electron-6 {
-      bottom: 20%;
-      right: 30%;
-      transform: translate(50%, 50%);
-    }
-
-    .hero .electron-7 {
-      bottom: 25%;
-      left: 20%;
-      transform: translate(-50%, 50%);
-    }
-
-    .hero .electron-8 {
-      top: 25%;
-      left: 15%;
-      transform: translate(-50%, -50%);
-    }
-
-    @keyframes orbit-rotate-1 {
-      0% { transform: translate(-50%, -50%) rotateX(65deg) rotateZ(0deg); }
-      100% { transform: translate(-50%, -50%) rotateX(65deg) rotateZ(360deg); }
-    }
-
-    @keyframes orbit-rotate-2 {
-      0% { transform: translate(-50%, -50%) rotateX(60deg) rotateY(30deg) rotateZ(0deg); }
-      100% { transform: translate(-50%, -50%) rotateX(60deg) rotateY(30deg) rotateZ(360deg); }
-    }
-
-    @keyframes orbit-rotate-3 {
-      0% { transform: translate(-50%, -50%) rotateX(75deg) rotateZ(45deg) rotateY(0deg); }
-      100% { transform: translate(-50%, -50%) rotateX(75deg) rotateZ(45deg) rotateY(360deg); }
-    }
-
-    @keyframes orbit-rotate-4 {
-      0% { transform: translate(-50%, -50%) rotateX(70deg) rotateY(60deg) rotateZ(0deg); }
-      100% { transform: translate(-50%, -50%) rotateX(70deg) rotateY(60deg) rotateZ(360deg); }
-    }
-
-    @keyframes trail-fade {
-      0% { opacity: 0.1; transform: rotate(0deg); }
-      50% { opacity: 0.4; }
-      100% { opacity: 0.1; transform: rotate(360deg); }
-    }
-
-    /* Particle animations for scientific effect */
-    .hero .energy-particle {
-      position: absolute;
-      width: 3px;
-      height: 3px;
-      background-color: rgba(255, 255, 255, 0.8);
-      border-radius: 50%;
-      opacity: 0;
-    }
-
-    .hero .particle-1 { top: 48%; left: 48%; }
-    .hero .particle-2 { top: 52%; left: 48%; }
-    .hero .particle-3 { top: 48%; left: 52%; }
-    .hero .particle-4 { top: 52%; left: 52%; }
-    .hero .particle-5 { top: 50%; left: 50%; }
-    .hero .particle-6 { top: 49%; left: 51%; }
-    .hero .particle-7 { top: 51%; left: 49%; }
-    .hero .particle-8 { top: 51%; left: 51%; }
-
-    @keyframes particle-emit {
-      0% { 
-        transform: translate(0, 0); 
-        opacity: 0.8; 
-        width: 2px; 
-        height: 2px; 
-      }
-      100% { 
-        transform: translate(40px, 40px); 
-        opacity: 0; 
-        width: 0px; 
-        height: 0px; 
-      }
-    }
-    
-    .hero .particle-1 { animation: particle-emit-1 4s infinite linear; }
-    .hero .particle-2 { animation: particle-emit-2 4s infinite linear; }
-    .hero .particle-3 { animation: particle-emit-3 4s infinite linear; }
-    .hero .particle-4 { animation: particle-emit-4 4s infinite linear; }
-    .hero .particle-5 { animation: particle-emit-5 4s infinite linear; }
-    .hero .particle-6 { animation: particle-emit-6 4s infinite linear; }
-    .hero .particle-7 { animation: particle-emit-7 4s infinite linear; }
-    .hero .particle-8 { animation: particle-emit-8 4s infinite linear; }
-    
-    @keyframes particle-emit-1 {
-      0% { transform: translate(0, 0); opacity: 0.8; width: 2px; height: 2px; }
-      100% { transform: translate(40px, 40px); opacity: 0; width: 0; height: 0; }
-    }
-    @keyframes particle-emit-2 {
-      0% { transform: translate(0, 0); opacity: 0.8; width: 2px; height: 2px; }
-      100% { transform: translate(-40px, 40px); opacity: 0; width: 0; height: 0; }
-    }
-    @keyframes particle-emit-3 {
-      0% { transform: translate(0, 0); opacity: 0.8; width: 2px; height: 2px; }
-      100% { transform: translate(40px, -40px); opacity: 0; width: 0; height: 0; }
-    }
-    @keyframes particle-emit-4 {
-      0% { transform: translate(0, 0); opacity: 0.8; width: 2px; height: 2px; }
-      100% { transform: translate(-40px, -40px); opacity: 0; width: 0; height: 0; }
-    }
-    @keyframes particle-emit-5 {
-      0% { transform: translate(0, 0); opacity: 0.8; width: 2px; height: 2px; }
-      100% { transform: translate(60px, 0); opacity: 0; width: 0; height: 0; }
-    }
-    @keyframes particle-emit-6 {
-      0% { transform: translate(0, 0); opacity: 0.8; width: 2px; height: 2px; }
-      100% { transform: translate(-60px, 0); opacity: 0; width: 0; height: 0; }
-    }
-    @keyframes particle-emit-7 {
-      0% { transform: translate(0, 0); opacity: 0.8; width: 2px; height: 2px; }
-      100% { transform: translate(0, 60px); opacity: 0; width: 0; height: 0; }
-    }
-    @keyframes particle-emit-8 {
-      0% { transform: translate(0, 0); opacity: 0.8; width: 2px; height: 2px; }
-      100% { transform: translate(0, -60px); opacity: 0; width: 0; height: 0; }
-    }
-
-    .hero-pattern {
-      position: absolute;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(225, 225, 255, 0.6) 0%, rgba(255, 255, 255, 0) 70%);
-      border-radius: 50%;
-      top: -100px;
-      left: -100px;
-      z-index: 0;
-    }
-
-    .hero-pattern-2 {
-      position: absolute;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(244, 231, 255, 0.7) 0%, rgba(255, 255, 255, 0) 70%);
-      border-radius: 50%;
-      bottom: -100px;
-      right: -100px;
-      z-index: 0;
-    }
-    
-    /* Partikelhintergrund */
-    .particles {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      opacity: 0.6;
       pointer-events: none;
       overflow: hidden;
     }
 
-    .particle {
+    .hero .floating-particle {
       position: absolute;
+      border-radius: 50%;
+      opacity: 0.5;
+      animation-duration: 20s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+    }
+    
+    /* Erhöhte Anzahl von Partikeln mit verschiedenen Größen */
+    .hero .floating-particle.size-normal {
       width: 6px;
       height: 6px;
       background-color: var(--imt-purple);
-      border-radius: 50%;
-      opacity: 0.5;
     }
+    
+    .hero .floating-particle.size-small {
+      width: 4px;
+      height: 4px;
+      background-color: var(--imt-purple);
+      opacity: 0.4;
+    }
+    
+    .hero .floating-particle.size-large {
+      width: 8px;
+      height: 8px;
+      background-color: var(--imt-purple);
+      opacity: 0.6;
+    }
+    
+    /* Farbvariationen */
+    .hero .floating-particle.color-accent {
+      background-color: var(--color-accent2);
+    }
+    
+    .hero .floating-particle.color-green {
+      background-color: var(--imt-green);
+    }
+    
+    /* Erste 30 Partikel mit spezifischen Positionen und Animationen */
+    .hero .fp-1 { top: 10%; left: 20%; animation: float1 15s infinite ease-in-out; }
+    .hero .fp-2 { top: 30%; left: 70%; animation: float2 20s infinite ease-in-out; }
+    .hero .fp-3 { top: 50%; left: 10%; animation: float3 18s infinite ease-in-out; }
+    .hero .fp-4 { top: 70%; left: 50%; animation: float4 12s infinite ease-in-out; }
+    .hero .fp-5 { top: 85%; left: 80%; animation: float5 16s infinite ease-in-out; }
+    .hero .fp-6 { top: 20%; left: 90%; animation: float6 14s infinite ease-in-out; }
+    .hero .fp-7 { top: 40%; left: 30%; animation: float7 22s infinite ease-in-out; }
+    .hero .fp-8 { top: 60%; left: 85%; animation: float8 19s infinite ease-in-out; }
+    .hero .fp-9 { top: 90%; left: 15%; animation: float9 21s infinite ease-in-out; }
+    .hero .fp-10 { top: 15%; left: 60%; animation: float10 17s infinite ease-in-out; }
+    .hero .fp-11 { top: 25%; left: 45%; animation: float3 17s infinite ease-in-out; }
+    .hero .fp-12 { top: 75%; left: 25%; animation: float5 19s infinite ease-in-out; }
+    .hero .fp-13 { top: 55%; left: 65%; animation: float7 18s infinite ease-in-out; }
+    .hero .fp-14 { top: 35%; left: 95%; animation: float9 16s infinite ease-in-out; }
+    .hero .fp-15 { top: 5%; left: 75%; animation: float1 20s infinite ease-in-out; }
+    .hero .fp-16 { top: 95%; left: 40%; animation: float2 15s infinite ease-in-out; }
+    .hero .fp-17 { top: 45%; left: 55%; animation: float4 21s infinite ease-in-out; }
+    .hero .fp-18 { top: 80%; left: 10%; animation: float6 14s infinite ease-in-out; }
+    .hero .fp-19 { top: 22%; left: 35%; animation: float8 18s infinite ease-in-out; }
+    .hero .fp-20 { top: 65%; left: 70%; animation: float10 15s infinite ease-in-out; }
+    .hero .fp-21 { top: 15%; left: 15%; animation: float5 22s infinite ease-in-out; }
+    .hero .fp-22 { top: 48%; left: 82%; animation: float3 19s infinite ease-in-out; }
+    .hero .fp-23 { top: 33%; left: 5%; animation: float7 14s infinite ease-in-out; }
+    .hero .fp-24 { top: 88%; left: 55%; animation: float9 21s infinite ease-in-out; }
+    .hero .fp-25 { top: 28%; left: 68%; animation: float1 16s infinite ease-in-out; }
+    .hero .fp-26 { top: 72%; left: 33%; animation: float2 20s infinite ease-in-out; }
+    .hero .fp-27 { top: 53%; left: 47%; animation: float4 17s infinite ease-in-out; }
+    .hero .fp-28 { top: 18%; left: 78%; animation: float6 15s infinite ease-in-out; }
+    .hero .fp-29 { top: 83%; left: 22%; animation: float8 18s infinite ease-in-out; }
+    .hero .fp-30 { top: 38%; left: 88%; animation: float10 13s infinite ease-in-out; }
 
-    .particle:nth-child(1) { top: 10%; left: 20%; animation: float1 15s infinite linear; }
-    .particle:nth-child(2) { top: 30%; left: 70%; animation: float2 20s infinite linear; }
-    .particle:nth-child(3) { top: 50%; left: 10%; animation: float3 18s infinite linear; }
-    .particle:nth-child(4) { top: 70%; left: 50%; animation: float4 12s infinite linear; }
-    .particle:nth-child(5) { top: 85%; left: 80%; animation: float5 16s infinite linear; }
-    .particle:nth-child(6) { top: 20%; left: 90%; animation: float6 14s infinite linear; }
-    .particle:nth-child(7) { top: 40%; left: 30%; animation: float7 22s infinite linear; }
-    .particle:nth-child(8) { top: 60%; left: 85%; animation: float8 19s infinite linear; }
-    .particle:nth-child(9) { top: 90%; left: 15%; animation: float9 21s infinite linear; }
-    .particle:nth-child(10) { top: 15%; left: 60%; animation: float10 17s infinite linear; }
-
+    /* Float-Animationen für Partikel */
     @keyframes float1 { 0% { transform: translate(0, 0); } 50% { transform: translate(40px, 20px); } 100% { transform: translate(0, 0); } }
     @keyframes float2 { 0% { transform: translate(0, 0); } 50% { transform: translate(-30px, 30px); } 100% { transform: translate(0, 0); } }
     @keyframes float3 { 0% { transform: translate(0, 0); } 50% { transform: translate(20px, -20px); } 100% { transform: translate(0, 0); } }
@@ -2678,46 +2419,43 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="valley-seal">
         <img src="assets/seal/valley_excellence.png" alt="Valley Excellence Seal">
       </div>
-      <div class="atom-container">
-        <div class="atom-core"></div>
+      <!-- Particles Container -->
+      <div class="particles-container">
+        <!-- Normale Größe Partikel -->
+        <div class="floating-particle size-normal fp-1"></div>
+        <div class="floating-particle size-normal fp-2"></div>
+        <div class="floating-particle size-normal fp-3"></div>
+        <div class="floating-particle size-normal fp-4"></div>
+        <div class="floating-particle size-normal fp-5"></div>
+        <div class="floating-particle size-normal fp-6"></div>
+        <div class="floating-particle size-normal fp-7"></div>
+        <div class="floating-particle size-normal fp-8"></div>
+        <div class="floating-particle size-normal fp-9"></div>
+        <div class="floating-particle size-normal fp-10"></div>
         
-        <!-- Energy particles in the nucleus -->
-        <div class="energy-particle particle-1"></div>
-        <div class="energy-particle particle-2"></div>
-        <div class="energy-particle particle-3"></div>
-        <div class="energy-particle particle-4"></div>
-        <div class="energy-particle particle-5"></div>
-        <div class="energy-particle particle-6"></div>
-        <div class="energy-particle particle-7"></div>
-        <div class="energy-particle particle-8"></div>
+        <!-- Kleine Partikel -->
+        <div class="floating-particle size-small fp-11"></div>
+        <div class="floating-particle size-small fp-12"></div>
+        <div class="floating-particle size-small fp-13"></div>
+        <div class="floating-particle size-small fp-14"></div>
+        <div class="floating-particle size-small fp-15"></div>
+        <div class="floating-particle size-small fp-16"></div>
+        <div class="floating-particle size-small fp-17"></div>
+        <div class="floating-particle size-small fp-18"></div>
+        <div class="floating-particle size-small fp-19"></div>
+        <div class="floating-particle size-small fp-20"></div>
         
-        <!-- First electron orbit -->
-        <div class="electron-orbit orbit-1">
-          <div class="electron electron-1"></div>
-          <div class="electron-trail trail-1"></div>
-        </div>
-        
-        <!-- Second electron orbit -->
-        <div class="electron-orbit orbit-2">
-          <div class="electron electron-2"></div>
-          <div class="electron electron-4"></div>
-          <div class="electron-trail trail-2"></div>
-        </div>
-        
-        <!-- Third electron orbit -->
-        <div class="electron-orbit orbit-3">
-          <div class="electron electron-3"></div>
-          <div class="electron electron-5"></div>
-          <div class="electron electron-7"></div>
-          <div class="electron-trail trail-1"></div>
-        </div>
-        
-        <!-- Fourth electron orbit -->
-        <div class="electron-orbit orbit-4">
-          <div class="electron electron-6"></div>
-          <div class="electron electron-8"></div>
-          <div class="electron-trail trail-2"></div>
-        </div>
+        <!-- Große Partikel -->
+        <div class="floating-particle size-large color-accent fp-21"></div>
+        <div class="floating-particle size-large color-green fp-22"></div>
+        <div class="floating-particle size-large fp-23"></div>
+        <div class="floating-particle size-large color-accent fp-24"></div>
+        <div class="floating-particle size-large color-green fp-25"></div>
+        <div class="floating-particle size-large fp-26"></div>
+        <div class="floating-particle size-large color-accent fp-27"></div>
+        <div class="floating-particle size-large color-green fp-28"></div>
+        <div class="floating-particle size-large fp-29"></div>
+        <div class="floating-particle size-large color-accent fp-30"></div>
       </div>
       <div class="container">
         <div class="hero-content">
@@ -4725,6 +4463,68 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       
       // Initialisierung
       initializeView();
+    });
+  </script>
+
+  <script src="assets/js/testimonials.js"></script>
+  <script src="assets/js/footer.js"></script>
+  <script src="assets/js/popup-manager.js"></script>
+  
+  <!-- Partikel-Animation JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Referenz zum Partikel-Container
+      const particlesContainer = document.querySelector('.particles-container');
+      
+      if (particlesContainer) {
+        // Zufällige Farben für bestehende Partikel
+        const particles = document.querySelectorAll('.floating-particle');
+        
+        // Aufsteigende Partikel-Klasse zu einigen bestehenden Partikeln hinzufügen
+        particles.forEach((particle, index) => {
+          if (index % 5 === 0) {
+            particle.style.animation = 'rise 15s infinite ease-in-out';
+            particle.style.animationDelay = `${Math.random() * 5}s`;
+          }
+        });
+        
+        // 20 zusätzliche aufsteigende Partikel dynamisch erzeugen
+        for (let i = 0; i < 20; i++) {
+          const particle = document.createElement('div');
+          particle.className = 'floating-particle';
+          
+          // Zufällige Größe zuweisen
+          const sizeRandom = Math.random();
+          if (sizeRandom < 0.3) {
+            particle.classList.add('size-small');
+          } else if (sizeRandom < 0.8) {
+            particle.classList.add('size-normal');
+          } else {
+            particle.classList.add('size-large');
+          }
+          
+          // Zufällige Farbe zuweisen
+          const colorRandom = Math.random();
+          if (colorRandom < 0.3) {
+            particle.classList.add('color-accent');
+          } else if (colorRandom < 0.6) {
+            particle.classList.add('color-green');
+          }
+          
+          // Aufsteigende Animation
+          particle.style.animation = 'rise 15s infinite ease-in-out';
+          
+          // Zufällige Position
+          particle.style.left = `${Math.random() * 100}%`;
+          particle.style.top = `${Math.random() * 100}%`;
+          
+          // Verzögerung für die Animation
+          particle.style.animationDelay = `${Math.random() * 10}s`;
+          
+          // Zum Container hinzufügen
+          particlesContainer.appendChild(particle);
+        }
+      }
     });
   </script>
 </body>

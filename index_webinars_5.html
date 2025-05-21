@@ -297,361 +297,68 @@
       overflow: hidden;
     }
 
-    /* Atom Model Animation */
-    .hero .atom-container {
+    /* Parallax Depth Effect */
+    .hero .parallax-container {
       position: absolute;
-      top: 0;
-      left: 0;
       width: 100%;
       height: 100%;
+      top: 0;
+      left: 0;
       z-index: 1;
       opacity: 0.7;
-      perspective: 1000px;
-    }
-
-    .hero .atom-core {
-      position: absolute;
-      width: 40px;
-      height: 40px;
-      background: radial-gradient(circle, rgba(110, 69, 226, 1) 0%, rgba(110, 69, 226, 0.6) 70%);
-      border-radius: 50%;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      box-shadow: 0 0 25px rgba(110, 69, 226, 0.5);
-      z-index: 2;
-    }
-    
-    @media (min-width: 1024px) {
-      .hero .atom-core {
-        width: 60px;
-        height: 60px;
-        box-shadow: 0 0 35px rgba(110, 69, 226, 0.5);
-      }
-    }
-
-    .hero .electron-orbit {
-      position: absolute;
-      border-radius: 50%;
-      border: 1px solid rgba(110, 69, 226, 0.15);
-      top: 50%;
-      left: 50%;
-      transform-style: preserve-3d;
-    }
-
-    .hero .orbit-1 {
-      width: 200px;
-      height: 200px;
-      transform: translate(-50%, -50%) rotateX(65deg);
-      animation: orbit-rotate-1 15s infinite linear;
-    }
-
-    .hero .orbit-2 {
-      width: 320px;
-      height: 320px;
-      transform: translate(-50%, -50%) rotateX(60deg) rotateY(30deg);
-      animation: orbit-rotate-2 20s infinite linear;
-    }
-
-    .hero .orbit-3 {
-      width: 450px;
-      height: 450px;
-      transform: translate(-50%, -50%) rotateX(75deg) rotateZ(45deg);
-      animation: orbit-rotate-3 25s infinite linear;
-    }
-
-    .hero .orbit-4 {
-      width: 550px;
-      height: 280px;
-      transform: translate(-50%, -50%) rotateX(70deg) rotateY(60deg);
-      animation: orbit-rotate-4 30s infinite linear reverse;
-    }
-    
-    @media (min-width: 1024px) {
-      .hero .orbit-1 {
-        width: 300px;
-        height: 300px;
-      }
-      
-      .hero .orbit-2 {
-        width: 480px;
-        height: 480px;
-      }
-      
-      .hero .orbit-3 {
-        width: 680px;
-        height: 680px;
-      }
-      
-      .hero .orbit-4 {
-        width: 820px;
-        height: 420px;
-      }
-    }
-
-    .hero .electron {
-      position: absolute;
-      width: 10px;
-      height: 10px;
-      background: radial-gradient(circle, rgba(76, 183, 150, 1) 0%, rgba(76, 183, 150, 0.7) 70%);
-      border-radius: 50%;
-      box-shadow: 0 0 15px rgba(76, 183, 150, 0.6);
-      transform-style: preserve-3d;
-      z-index: 3;
-    }
-    
-    @media (min-width: 1024px) {
-      .hero .electron {
-        width: 15px;
-        height: 15px;
-        box-shadow: 0 0 22px rgba(76, 183, 150, 0.7);
-      }
-      
-      .hero .energy-particle {
-        width: 5px;
-        height: 5px;
-      }
-    }
-
-    .hero .electron-trail {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      border: none;
-      top: 0;
-      left: 0;
-      filter: blur(4px);
-      opacity: 0.4;
-      z-index: 1;
-    }
-
-    .hero .trail-1 {
-      background: linear-gradient(90deg, transparent 0%, rgba(76, 183, 150, 0.3) 50%, transparent 100%);
-      animation: trail-fade 3s infinite linear;
-    }
-
-    .hero .trail-2 {
-      background: linear-gradient(90deg, transparent 0%, rgba(110, 69, 226, 0.3) 50%, transparent 100%);
-      animation: trail-fade 4s infinite linear;
-    }
-
-    .hero .electron-1 {
-      top: 0;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-    .hero .electron-2 {
-      right: 0;
-      top: 50%;
-      transform: translate(50%, -50%);
-    }
-
-    .hero .electron-3 {
-      bottom: 0;
-      left: 50%;
-      transform: translate(-50%, 50%);
-    }
-
-    .hero .electron-4 {
-      left: 0;
-      top: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-    .hero .electron-5 {
-      top: 15%;
-      right: 15%;
-      transform: translate(50%, -50%);
-    }
-
-    .hero .electron-6 {
-      bottom: 20%;
-      right: 30%;
-      transform: translate(50%, 50%);
-    }
-
-    .hero .electron-7 {
-      bottom: 25%;
-      left: 20%;
-      transform: translate(-50%, 50%);
-    }
-
-    .hero .electron-8 {
-      top: 25%;
-      left: 15%;
-      transform: translate(-50%, -50%);
-    }
-
-    @keyframes orbit-rotate-1 {
-      0% { transform: translate(-50%, -50%) rotateX(65deg) rotateZ(0deg); }
-      100% { transform: translate(-50%, -50%) rotateX(65deg) rotateZ(360deg); }
-    }
-
-    @keyframes orbit-rotate-2 {
-      0% { transform: translate(-50%, -50%) rotateX(60deg) rotateY(30deg) rotateZ(0deg); }
-      100% { transform: translate(-50%, -50%) rotateX(60deg) rotateY(30deg) rotateZ(360deg); }
-    }
-
-    @keyframes orbit-rotate-3 {
-      0% { transform: translate(-50%, -50%) rotateX(75deg) rotateZ(45deg) rotateY(0deg); }
-      100% { transform: translate(-50%, -50%) rotateX(75deg) rotateZ(45deg) rotateY(360deg); }
-    }
-
-    @keyframes orbit-rotate-4 {
-      0% { transform: translate(-50%, -50%) rotateX(70deg) rotateY(60deg) rotateZ(0deg); }
-      100% { transform: translate(-50%, -50%) rotateX(70deg) rotateY(60deg) rotateZ(360deg); }
-    }
-
-    @keyframes trail-fade {
-      0% { opacity: 0.1; transform: rotate(0deg); }
-      50% { opacity: 0.4; }
-      100% { opacity: 0.1; transform: rotate(360deg); }
-    }
-
-    /* Particle animations for scientific effect */
-    .hero .energy-particle {
-      position: absolute;
-      width: 3px;
-      height: 3px;
-      background-color: rgba(255, 255, 255, 0.8);
-      border-radius: 50%;
-      opacity: 0;
-    }
-
-    .hero .particle-1 { top: 48%; left: 48%; }
-    .hero .particle-2 { top: 52%; left: 48%; }
-    .hero .particle-3 { top: 48%; left: 52%; }
-    .hero .particle-4 { top: 52%; left: 52%; }
-    .hero .particle-5 { top: 50%; left: 50%; }
-    .hero .particle-6 { top: 49%; left: 51%; }
-    .hero .particle-7 { top: 51%; left: 49%; }
-    .hero .particle-8 { top: 51%; left: 51%; }
-
-    @keyframes particle-emit {
-      0% { 
-        transform: translate(0, 0); 
-        opacity: 0.8; 
-        width: 2px; 
-        height: 2px; 
-      }
-      100% { 
-        transform: translate(40px, 40px); 
-        opacity: 0; 
-        width: 0px; 
-        height: 0px; 
-      }
-    }
-    
-    .hero .particle-1 { animation: particle-emit-1 4s infinite linear; }
-    .hero .particle-2 { animation: particle-emit-2 4s infinite linear; }
-    .hero .particle-3 { animation: particle-emit-3 4s infinite linear; }
-    .hero .particle-4 { animation: particle-emit-4 4s infinite linear; }
-    .hero .particle-5 { animation: particle-emit-5 4s infinite linear; }
-    .hero .particle-6 { animation: particle-emit-6 4s infinite linear; }
-    .hero .particle-7 { animation: particle-emit-7 4s infinite linear; }
-    .hero .particle-8 { animation: particle-emit-8 4s infinite linear; }
-    
-    @keyframes particle-emit-1 {
-      0% { transform: translate(0, 0); opacity: 0.8; width: 2px; height: 2px; }
-      100% { transform: translate(40px, 40px); opacity: 0; width: 0; height: 0; }
-    }
-    @keyframes particle-emit-2 {
-      0% { transform: translate(0, 0); opacity: 0.8; width: 2px; height: 2px; }
-      100% { transform: translate(-40px, 40px); opacity: 0; width: 0; height: 0; }
-    }
-    @keyframes particle-emit-3 {
-      0% { transform: translate(0, 0); opacity: 0.8; width: 2px; height: 2px; }
-      100% { transform: translate(40px, -40px); opacity: 0; width: 0; height: 0; }
-    }
-    @keyframes particle-emit-4 {
-      0% { transform: translate(0, 0); opacity: 0.8; width: 2px; height: 2px; }
-      100% { transform: translate(-40px, -40px); opacity: 0; width: 0; height: 0; }
-    }
-    @keyframes particle-emit-5 {
-      0% { transform: translate(0, 0); opacity: 0.8; width: 2px; height: 2px; }
-      100% { transform: translate(60px, 0); opacity: 0; width: 0; height: 0; }
-    }
-    @keyframes particle-emit-6 {
-      0% { transform: translate(0, 0); opacity: 0.8; width: 2px; height: 2px; }
-      100% { transform: translate(-60px, 0); opacity: 0; width: 0; height: 0; }
-    }
-    @keyframes particle-emit-7 {
-      0% { transform: translate(0, 0); opacity: 0.8; width: 2px; height: 2px; }
-      100% { transform: translate(0, 60px); opacity: 0; width: 0; height: 0; }
-    }
-    @keyframes particle-emit-8 {
-      0% { transform: translate(0, 0); opacity: 0.8; width: 2px; height: 2px; }
-      100% { transform: translate(0, -60px); opacity: 0; width: 0; height: 0; }
-    }
-
-    .hero-pattern {
-      position: absolute;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(225, 225, 255, 0.6) 0%, rgba(255, 255, 255, 0) 70%);
-      border-radius: 50%;
-      top: -100px;
-      left: -100px;
-      z-index: 0;
-    }
-
-    .hero-pattern-2 {
-      position: absolute;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(244, 231, 255, 0.7) 0%, rgba(255, 255, 255, 0) 70%);
-      border-radius: 50%;
-      bottom: -100px;
-      right: -100px;
-      z-index: 0;
-    }
-    
-    /* Partikelhintergrund */
-    .particles {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      opacity: 0.6;
       pointer-events: none;
       overflow: hidden;
     }
 
-    .particle {
+    .hero .parallax-layer {
       position: absolute;
-      width: 6px;
-      height: 6px;
-      background-color: var(--imt-purple);
-      border-radius: 50%;
-      opacity: 0.5;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
     }
 
-    .particle:nth-child(1) { top: 10%; left: 20%; animation: float1 15s infinite linear; }
-    .particle:nth-child(2) { top: 30%; left: 70%; animation: float2 20s infinite linear; }
-    .particle:nth-child(3) { top: 50%; left: 10%; animation: float3 18s infinite linear; }
-    .particle:nth-child(4) { top: 70%; left: 50%; animation: float4 12s infinite linear; }
-    .particle:nth-child(5) { top: 85%; left: 80%; animation: float5 16s infinite linear; }
-    .particle:nth-child(6) { top: 20%; left: 90%; animation: float6 14s infinite linear; }
-    .particle:nth-child(7) { top: 40%; left: 30%; animation: float7 22s infinite linear; }
-    .particle:nth-child(8) { top: 60%; left: 85%; animation: float8 19s infinite linear; }
-    .particle:nth-child(9) { top: 90%; left: 15%; animation: float9 21s infinite linear; }
-    .particle:nth-child(10) { top: 15%; left: 60%; animation: float10 17s infinite linear; }
+    .hero .layer-1 {
+      z-index: 1;
+    }
 
-    @keyframes float1 { 0% { transform: translate(0, 0); } 50% { transform: translate(40px, 20px); } 100% { transform: translate(0, 0); } }
-    @keyframes float2 { 0% { transform: translate(0, 0); } 50% { transform: translate(-30px, 30px); } 100% { transform: translate(0, 0); } }
-    @keyframes float3 { 0% { transform: translate(0, 0); } 50% { transform: translate(20px, -20px); } 100% { transform: translate(0, 0); } }
-    @keyframes float4 { 0% { transform: translate(0, 0); } 50% { transform: translate(-20px, -10px); } 100% { transform: translate(0, 0); } }
-    @keyframes float5 { 0% { transform: translate(0, 0); } 50% { transform: translate(10px, 40px); } 100% { transform: translate(0, 0); } }
-    @keyframes float6 { 0% { transform: translate(0, 0); } 50% { transform: translate(-40px, 10px); } 100% { transform: translate(0, 0); } }
-    @keyframes float7 { 0% { transform: translate(0, 0); } 50% { transform: translate(30px, -30px); } 100% { transform: translate(0, 0); } }
-    @keyframes float8 { 0% { transform: translate(0, 0); } 50% { transform: translate(-15px, 25px); } 100% { transform: translate(0, 0); } }
-    @keyframes float9 { 0% { transform: translate(0, 0); } 50% { transform: translate(25px, -15px); } 100% { transform: translate(0, 0); } }
-    @keyframes float10 { 0% { transform: translate(0, 0); } 50% { transform: translate(-25px, -25px); } 100% { transform: translate(0, 0); } }
+    .hero .layer-2 {
+      z-index: 2;
+    }
 
+    .hero .layer-3 {
+      z-index: 3;
+    }
+
+    .hero .circle {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.5;
+      animation-duration: var(--duration, 20s);
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      animation-name: floating;
+    }
+    
+    @keyframes floating {
+      0% {
+        transform: translate(0, 0);
+      }
+      25% {
+        transform: translate(var(--move-x, 30px), var(--move-y, -20px));
+      }
+      50% {
+        transform: translate(var(--move-alt-x, -30px), var(--move-alt-y, 40px));
+      }
+      75% {
+        transform: translate(var(--move-x, 30px), var(--move-y, -20px));
+      }
+      100% {
+        transform: translate(0, 0);
+      }
+    }
+
+    /* Rest des Hero-Styles beibehalten */
     .hero-content {
       text-align: center;
       position: relative;
@@ -2678,47 +2385,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="valley-seal">
         <img src="assets/seal/valley_excellence.png" alt="Valley Excellence Seal">
       </div>
-      <div class="atom-container">
-        <div class="atom-core"></div>
-        
-        <!-- Energy particles in the nucleus -->
-        <div class="energy-particle particle-1"></div>
-        <div class="energy-particle particle-2"></div>
-        <div class="energy-particle particle-3"></div>
-        <div class="energy-particle particle-4"></div>
-        <div class="energy-particle particle-5"></div>
-        <div class="energy-particle particle-6"></div>
-        <div class="energy-particle particle-7"></div>
-        <div class="energy-particle particle-8"></div>
-        
-        <!-- First electron orbit -->
-        <div class="electron-orbit orbit-1">
-          <div class="electron electron-1"></div>
-          <div class="electron-trail trail-1"></div>
-        </div>
-        
-        <!-- Second electron orbit -->
-        <div class="electron-orbit orbit-2">
-          <div class="electron electron-2"></div>
-          <div class="electron electron-4"></div>
-          <div class="electron-trail trail-2"></div>
-        </div>
-        
-        <!-- Third electron orbit -->
-        <div class="electron-orbit orbit-3">
-          <div class="electron electron-3"></div>
-          <div class="electron electron-5"></div>
-          <div class="electron electron-7"></div>
-          <div class="electron-trail trail-1"></div>
-        </div>
-        
-        <!-- Fourth electron orbit -->
-        <div class="electron-orbit orbit-4">
-          <div class="electron electron-6"></div>
-          <div class="electron electron-8"></div>
-          <div class="electron-trail trail-2"></div>
-        </div>
+      <!-- Parallax Depth Effect Container -->
+      <div class="parallax-container" id="parallax-container">
+        <div class="parallax-layer layer-1" id="layer-1"></div>
+        <div class="parallax-layer layer-2" id="layer-2"></div>
+        <div class="parallax-layer layer-3" id="layer-3"></div>
       </div>
+
       <div class="container">
         <div class="hero-content">
           <span class="hero-eyebrow">
@@ -4725,6 +4398,87 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       
       // Initialisierung
       initializeView();
+    });
+  </script>
+
+  <script src="assets/js/testimonials.js"></script>
+  <script src="assets/js/footer.js"></script>
+  <script src="assets/js/popup-manager.js"></script>
+  
+  <!-- Parallax Effekt JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Parallax-Effekt für den Hero-Bereich
+      const generateParallaxEffect = function() {
+        const parallaxContainer = document.getElementById('parallax-container');
+        if (!parallaxContainer) return;
+        
+        // Layerschichten abrufen
+        const layers = [
+          document.getElementById('layer-1'),
+          document.getElementById('layer-2'),
+          document.getElementById('layer-3')
+        ];
+        
+        // Sicherstellen, dass alle Layer vorhanden sind
+        if (!layers[0] || !layers[1] || !layers[2]) return;
+        
+        // Kreise für jede Ebene erzeugen
+        layers.forEach((layer, index) => {
+          // Anzahl der Kreise variiert je nach Ebene
+          const count = 6 - (index * 2); // Reduced from 10 - (index * 2)
+          
+          // Größen variieren je nach Ebene
+          const minSize = 20 + (index * 15); // Reduced from 40 + (index * 20)
+          const maxSize = 50 + (index * 30); // Reduced from 80 + (index * 40)
+          
+          // Deckkraft variiert je nach Ebene
+          const opacity = 0.6 - (index * 0.05); // Increased from 0.4 - (index * 0.05)
+          
+          // Alle Kreise für diese Ebene erstellen
+          for (let i = 0; i < count; i++) {
+            const circle = document.createElement('div');
+            circle.classList.add('circle');
+            
+            // Zufällige Größe innerhalb des definierten Bereichs
+            const size = Math.random() * (maxSize - minSize) + minSize;
+            circle.style.width = `${size}px`;
+            circle.style.height = `${size}px`;
+            
+            // Zufällige Position
+            const left = Math.random() * 100;
+            const top = Math.random() * 100;
+            circle.style.left = `${left}%`;
+            circle.style.top = `${top}%`;
+            
+            // Style basierend auf der Ebene
+            circle.style.background = `rgba(128, 128, 128, ${opacity})`; // Changed to gray for all layers
+            
+            // Individuelle Animationswerte für jeden Kreis
+            const duration = 15 + Math.random() * 20; // 15-35 Sekunden
+            circle.style.setProperty('--duration', `${duration}s`);
+            
+            // Zufällige Bewegungsrichtungen
+            const moveX = -50 + Math.random() * 100;
+            const moveY = -50 + Math.random() * 100;
+            const moveAltX = -50 + Math.random() * 100;
+            const moveAltY = -50 + Math.random() * 100;
+            
+            circle.style.setProperty('--move-x', `${moveX}px`);
+            circle.style.setProperty('--move-y', `${moveY}px`);
+            circle.style.setProperty('--move-alt-x', `${moveAltX}px`);
+            circle.style.setProperty('--move-alt-y', `${moveAltY}px`);
+            
+            // Zufälliger Animationsstart
+            circle.style.animationDelay = `${Math.random() * -20}s`;
+            
+            layer.appendChild(circle);
+          }
+        });
+      };
+      
+      // Parallax-Effekt initialisieren
+      generateParallaxEffect();
     });
   </script>
 </body>

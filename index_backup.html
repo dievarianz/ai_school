@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="description" content="Die St.Gallen imt Business School bietet erstklassige Management- und Führungskräfteprogramme für Ihre berufliche Weiterentwicklung. Executive Education mit praxisorientierten Programmen und innovativen Lernmethoden."/>
+  <meta name="keywords" content="St.Gallen imt Business School, Management, Executive Education, Leadership, MBA, Weiterbildung, Führungskräfteentwicklung, Schweiz, St. Gallen, Business School, Managementprogramm, KI-Strategie, Digitale Transformation"/>
   <title>StGallen imt Business School</title>
 
   <!-- ============ STYLES ============ -->
@@ -297,293 +299,67 @@
       overflow: hidden;
     }
 
-    /* Atom Model Animation */
-    .hero .atom-container {
+    /* Animierte Wellenlinien für Hero-Hintergrund */
+    .hero .wave-container {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       z-index: 1;
-      opacity: 0.7;
-      perspective: 1000px;
+      opacity: 0,6;
     }
 
-    .hero .atom-core {
+    .hero .wave {
       position: absolute;
-      width: 40px;
-      height: 40px;
-      background: radial-gradient(circle, rgba(110, 69, 226, 1) 0%, rgba(110, 69, 226, 0.6) 70%);
-      border-radius: 50%;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      box-shadow: 0 0 25px rgba(110, 69, 226, 0.5);
-      z-index: 2;
-    }
-    
-    @media (min-width: 1024px) {
-      .hero .atom-core {
-        width: 60px;
-        height: 60px;
-        box-shadow: 0 0 35px rgba(110, 69, 226, 0.5);
-      }
-    }
-
-    .hero .electron-orbit {
-      position: absolute;
-      border-radius: 50%;
+      width: 200%;
+      height: 0;
+      left: -50%;
+      border-radius: 100%;
       border: 1px solid rgba(110, 69, 226, 0.15);
-      top: 50%;
-      left: 50%;
-      transform-style: preserve-3d;
     }
 
-    .hero .orbit-1 {
-      width: 200px;
+    .hero .wave-1 {
+      top: 20%;
       height: 200px;
-      transform: translate(-50%, -50%) rotateX(65deg);
-      animation: orbit-rotate-1 15s infinite linear;
+      animation: wave-animate 54s infinite linear;
     }
 
-    .hero .orbit-2 {
-      width: 320px;
-      height: 320px;
-      transform: translate(-50%, -50%) rotateX(60deg) rotateY(30deg);
-      animation: orbit-rotate-2 20s infinite linear;
+    .hero .wave-2 {
+      top: 40%;
+      height: 180px;
+      animation: wave-animate 157s infinite linear reverse;
+      border-color: rgba(76, 183, 150, 0.15);
     }
 
-    .hero .orbit-3 {
-      width: 450px;
-      height: 450px;
-      transform: translate(-50%, -50%) rotateX(75deg) rotateZ(45deg);
-      animation: orbit-rotate-3 25s infinite linear;
+    .hero .wave-3 {
+      top: 60%;
+      height: 260px;
+      animation: wave-animate 160s infinite linear;
+      border-color: rgba(110, 69, 226, 0.1);
     }
 
-    .hero .orbit-4 {
-      width: 550px;
-      height: 280px;
-      transform: translate(-50%, -50%) rotateX(70deg) rotateY(60deg);
-      animation: orbit-rotate-4 30s infinite linear reverse;
+    .hero .wave-4 {
+      top: 70%;
+      height: 140px;
+      animation: wave-animate 138s infinite linear reverse;
+      border-color: rgba(76, 183, 150, 0.15);
     }
-    
-    @media (min-width: 1024px) {
-      .hero .orbit-1 {
-        width: 300px;
-        height: 300px;
+
+    .hero .wave-5 {
+      bottom: 10%;
+      height: 180px;
+      animation: wave-animate 116s infinite linear;
+      border-color: rgba(110, 69, 226, 0.1);
+    }
+
+    @keyframes wave-animate {
+      0% {
+        transform: rotate(0deg);
       }
-      
-      .hero .orbit-2 {
-        width: 480px;
-        height: 480px;
+      100% {
+        transform: rotate(360deg);
       }
-      
-      .hero .orbit-3 {
-        width: 680px;
-        height: 680px;
-      }
-      
-      .hero .orbit-4 {
-        width: 820px;
-        height: 420px;
-      }
-    }
-
-    .hero .electron {
-      position: absolute;
-      width: 10px;
-      height: 10px;
-      background: radial-gradient(circle, rgba(76, 183, 150, 1) 0%, rgba(76, 183, 150, 0.7) 70%);
-      border-radius: 50%;
-      box-shadow: 0 0 15px rgba(76, 183, 150, 0.6);
-      transform-style: preserve-3d;
-      z-index: 3;
-    }
-    
-    @media (min-width: 1024px) {
-      .hero .electron {
-        width: 15px;
-        height: 15px;
-        box-shadow: 0 0 22px rgba(76, 183, 150, 0.7);
-      }
-      
-      .hero .energy-particle {
-        width: 5px;
-        height: 5px;
-      }
-    }
-
-    .hero .electron-trail {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      border: none;
-      top: 0;
-      left: 0;
-      filter: blur(4px);
-      opacity: 0.4;
-      z-index: 1;
-    }
-
-    .hero .trail-1 {
-      background: linear-gradient(90deg, transparent 0%, rgba(76, 183, 150, 0.3) 50%, transparent 100%);
-      animation: trail-fade 3s infinite linear;
-    }
-
-    .hero .trail-2 {
-      background: linear-gradient(90deg, transparent 0%, rgba(110, 69, 226, 0.3) 50%, transparent 100%);
-      animation: trail-fade 4s infinite linear;
-    }
-
-    .hero .electron-1 {
-      top: 0;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-    .hero .electron-2 {
-      right: 0;
-      top: 50%;
-      transform: translate(50%, -50%);
-    }
-
-    .hero .electron-3 {
-      bottom: 0;
-      left: 50%;
-      transform: translate(-50%, 50%);
-    }
-
-    .hero .electron-4 {
-      left: 0;
-      top: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-    .hero .electron-5 {
-      top: 15%;
-      right: 15%;
-      transform: translate(50%, -50%);
-    }
-
-    .hero .electron-6 {
-      bottom: 20%;
-      right: 30%;
-      transform: translate(50%, 50%);
-    }
-
-    .hero .electron-7 {
-      bottom: 25%;
-      left: 20%;
-      transform: translate(-50%, 50%);
-    }
-
-    .hero .electron-8 {
-      top: 25%;
-      left: 15%;
-      transform: translate(-50%, -50%);
-    }
-
-    @keyframes orbit-rotate-1 {
-      0% { transform: translate(-50%, -50%) rotateX(65deg) rotateZ(0deg); }
-      100% { transform: translate(-50%, -50%) rotateX(65deg) rotateZ(360deg); }
-    }
-
-    @keyframes orbit-rotate-2 {
-      0% { transform: translate(-50%, -50%) rotateX(60deg) rotateY(30deg) rotateZ(0deg); }
-      100% { transform: translate(-50%, -50%) rotateX(60deg) rotateY(30deg) rotateZ(360deg); }
-    }
-
-    @keyframes orbit-rotate-3 {
-      0% { transform: translate(-50%, -50%) rotateX(75deg) rotateZ(45deg) rotateY(0deg); }
-      100% { transform: translate(-50%, -50%) rotateX(75deg) rotateZ(45deg) rotateY(360deg); }
-    }
-
-    @keyframes orbit-rotate-4 {
-      0% { transform: translate(-50%, -50%) rotateX(70deg) rotateY(60deg) rotateZ(0deg); }
-      100% { transform: translate(-50%, -50%) rotateX(70deg) rotateY(60deg) rotateZ(360deg); }
-    }
-
-    @keyframes trail-fade {
-      0% { opacity: 0.1; transform: rotate(0deg); }
-      50% { opacity: 0.4; }
-      100% { opacity: 0.1; transform: rotate(360deg); }
-    }
-
-    /* Particle animations for scientific effect */
-    .hero .energy-particle {
-      position: absolute;
-      width: 3px;
-      height: 3px;
-      background-color: rgba(255, 255, 255, 0.8);
-      border-radius: 50%;
-      opacity: 0;
-    }
-
-    .hero .particle-1 { top: 48%; left: 48%; }
-    .hero .particle-2 { top: 52%; left: 48%; }
-    .hero .particle-3 { top: 48%; left: 52%; }
-    .hero .particle-4 { top: 52%; left: 52%; }
-    .hero .particle-5 { top: 50%; left: 50%; }
-    .hero .particle-6 { top: 49%; left: 51%; }
-    .hero .particle-7 { top: 51%; left: 49%; }
-    .hero .particle-8 { top: 51%; left: 51%; }
-
-    @keyframes particle-emit {
-      0% { 
-        transform: translate(0, 0); 
-        opacity: 0.8; 
-        width: 2px; 
-        height: 2px; 
-      }
-      100% { 
-        transform: translate(40px, 40px); 
-        opacity: 0; 
-        width: 0px; 
-        height: 0px; 
-      }
-    }
-    
-    .hero .particle-1 { animation: particle-emit-1 4s infinite linear; }
-    .hero .particle-2 { animation: particle-emit-2 4s infinite linear; }
-    .hero .particle-3 { animation: particle-emit-3 4s infinite linear; }
-    .hero .particle-4 { animation: particle-emit-4 4s infinite linear; }
-    .hero .particle-5 { animation: particle-emit-5 4s infinite linear; }
-    .hero .particle-6 { animation: particle-emit-6 4s infinite linear; }
-    .hero .particle-7 { animation: particle-emit-7 4s infinite linear; }
-    .hero .particle-8 { animation: particle-emit-8 4s infinite linear; }
-    
-    @keyframes particle-emit-1 {
-      0% { transform: translate(0, 0); opacity: 0.8; width: 2px; height: 2px; }
-      100% { transform: translate(40px, 40px); opacity: 0; width: 0; height: 0; }
-    }
-    @keyframes particle-emit-2 {
-      0% { transform: translate(0, 0); opacity: 0.8; width: 2px; height: 2px; }
-      100% { transform: translate(-40px, 40px); opacity: 0; width: 0; height: 0; }
-    }
-    @keyframes particle-emit-3 {
-      0% { transform: translate(0, 0); opacity: 0.8; width: 2px; height: 2px; }
-      100% { transform: translate(40px, -40px); opacity: 0; width: 0; height: 0; }
-    }
-    @keyframes particle-emit-4 {
-      0% { transform: translate(0, 0); opacity: 0.8; width: 2px; height: 2px; }
-      100% { transform: translate(-40px, -40px); opacity: 0; width: 0; height: 0; }
-    }
-    @keyframes particle-emit-5 {
-      0% { transform: translate(0, 0); opacity: 0.8; width: 2px; height: 2px; }
-      100% { transform: translate(60px, 0); opacity: 0; width: 0; height: 0; }
-    }
-    @keyframes particle-emit-6 {
-      0% { transform: translate(0, 0); opacity: 0.8; width: 2px; height: 2px; }
-      100% { transform: translate(-60px, 0); opacity: 0; width: 0; height: 0; }
-    }
-    @keyframes particle-emit-7 {
-      0% { transform: translate(0, 0); opacity: 0.8; width: 2px; height: 2px; }
-      100% { transform: translate(0, 60px); opacity: 0; width: 0; height: 0; }
-    }
-    @keyframes particle-emit-8 {
-      0% { transform: translate(0, 0); opacity: 0.8; width: 2px; height: 2px; }
-      100% { transform: translate(0, -60px); opacity: 0; width: 0; height: 0; }
     }
 
     .hero-pattern {
@@ -2128,46 +1904,13 @@
     .valley-seal {
       position: absolute;
       top: 30px;
-      right: 60px; /* Moved more to the left */
+      right: 60px;
       z-index: 10;
-      transition: transform 0.3s ease;
     }
     
     .valley-seal img {
-      width: 100px; /* Slightly larger */
+      width: 100px;
       height: auto;
-    }
-    
-    .valley-seal:hover {
-      transform: scale(1.05);
-    }
-    
-    .valley-seal::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(
-        90deg, 
-        rgba(255,255,255,0) 0%,
-        rgba(255,255,255,0.3) 50%,
-        rgba(255,255,255,0) 100%
-      );
-      transform: translateX(-100%) skewX(-25deg);
-      animation: sealShine 5s ease-in-out infinite;
-      pointer-events: none;
-      z-index: 11;
-    }
-    
-    @keyframes sealShine {
-      0%, 30% {
-        transform: translateX(-100%) skewX(-25deg);
-      }
-      95%, 100% {
-        transform: translateX(200%) skewX(-25deg);
-      }
     }
     
     /* Make space for seal in headline area without affecting layout */
@@ -2181,34 +1924,34 @@
     @media (max-width: 992px) {
       .valley-seal {
         top: 20px;
-        right: 35px; /* Adjusted leftward */
+        right: 35px;
       }
       
       .valley-seal img {
-        width: 90px; /* Slightly larger */
+        width: 90px;
       }
     }
     
     @media (max-width: 768px) {
       .valley-seal {
         top: 15px;
-        right: 25px; /* Adjusted leftward */
+        right: 25px;
       }
       
       .valley-seal img {
-        width: 75px; /* Slightly larger */
+        width: 75px;
       }
     }
     
     @media (max-width: 576px) {
       .valley-seal {
         position: absolute;
-        right: 15px; /* Slightly more to the left */
-        top: 10px; /* Keep at top */
+        right: 15px;
+        top: 10px;
       }
       
       .valley-seal img {
-        width: 55px; /* Slightly larger */
+        width: 55px;
       }
       
       /* Remove padding from headline so it displays normally */
@@ -2303,345 +2046,6 @@
       text-align: left !important;
       color: var(--color-text);
     }
-
-    /* ============ WEBINAR-SEKTION: MINIMAL TIMELINE ============ */
-    .webinar-section-2 {
-      padding: 80px 0;
-      background-color: white;
-    }
-
-    /* Überschreiben der alten Styles mit den korrekten Styles */
-    .webinar-intro-2 {
-      display: none; /* Diese Klasse nicht mehr verwenden */
-    }
-    
-    /* Exakte Kopie der Styles für Silicon Valley Innovation Academy */
-    .webinar-section-2 .tracks-header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    
-    .webinar-section-2 .tracks-title {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-      font-weight: 700;
-      text-align: center;
-    }
-    
-    .webinar-section-2 .tracks-subtitle {
-      font-size: 1.1rem;
-      color: var(--color-muted);
-      max-width: 700px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .webinar-timeline-2 {
-      max-width: 900px;
-      margin: 0 auto;
-      position: relative;
-    }
-
-    .webinar-timeline-2::before {
-      content: '';
-      position: absolute;
-      height: 100%;
-      width: 2px;
-      background-color: #eaeaea;
-      left: 0;
-      top: 0;
-    }
-
-    .webinar-item-2 {
-      display: flex;
-      margin-bottom: 30px;
-      position: relative;
-      padding-left: 30px;
-    }
-
-    .webinar-item-2::before {
-      content: '';
-      position: absolute;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background-color: white;
-      border: 3px solid var(--imt-purple);
-      left: -7px;
-      top: 22px;
-      z-index: 1;
-    }
-
-    .webinar-item-2.upcoming::before {
-      background-color: var(--imt-purple);
-    }
-
-    .webinar-date-2 {
-      min-width: 120px;
-      margin-right: 25px;
-      text-align: right;
-    }
-
-    .webinar-day-2 {
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--color-text);
-      margin-bottom: 5px;
-    }
-
-    .webinar-month-2 {
-      font-size: 14px;
-      color: var(--color-muted);
-      text-transform: uppercase;
-    }
-
-    .webinar-card-2 {
-      flex: 1;
-      background-color: #f8f8fa;
-      border-radius: 12px;
-      overflow: hidden;
-      transition: all 0.3s ease;
-      display: flex;
-      border: 2px solid transparent;
-    }
-
-    .webinar-card-2:hover {
-      border-color: var(--imt-purple);
-    }
-
-    .webinar-content-2 {
-      flex: 1;
-      padding: 20px;
-    }
-
-    .webinar-status-2 {
-      display: inline-block;
-      font-size: 12px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      padding: 4px 8px;
-      border-radius: 4px;
-      margin-bottom: 10px;
-    }
-
-    .webinar-status-2.upcoming {
-      background-color: rgba(110, 69, 226, 0.1);
-      color: var(--imt-purple);
-    }
-
-    .webinar-status-2.live {
-      background-color: rgba(255, 59, 48, 0.1);
-      color: #ff3b30;
-    }
-
-    .webinar-topic-2 {
-      font-size: 18px;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: var(--color-text);
-    }
-
-    .webinar-meta-2 {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      margin-bottom: 12px;
-    }
-
-    .webinar-meta-item-2 {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 13px;
-      color: var(--color-muted);
-    }
-
-    .webinar-meta-item-2 i {
-      font-size: 16px;
-      color: var(--imt-purple);
-    }
-
-    .webinar-presenter-2 {
-      font-weight: 500;
-      color: var(--color-text);
-    }
-
-    .webinar-desc-2 {
-      font-size: 14px;
-      color: var(--color-muted);
-      margin-bottom: 15px;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-
-    .webinar-register-container-2 {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .webinar-action-2 {
-      flex: 1;
-    }
-
-    .webinar-register-2 {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--imt-purple);
-      padding: 6px 14px;
-      border: 1px solid var(--imt-purple);
-      border-radius: 6px;
-      transition: all 0.2s ease;
-      background-color: transparent;
-    }
-
-    .webinar-register-2:hover {
-      background-color: var(--imt-purple);
-      color: white;
-      text-decoration: none;
-    }
-
-    .webinar-price-2 {
-      font-size: 14px;
-      font-weight: 500;
-    }
-
-    .webinar-price-2.free {
-      color: var(--imt-green);
-    }
-
-    .webinar-price-2.paid {
-      color: var(--color-text);
-    }
-
-    .webinar-image-2 {
-      width: 100px;
-      flex-shrink: 0;
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-    }
-
-    .webinar-all-2 {
-      text-align: center;
-      margin-top: 40px;
-    }
-
-    .view-all-webinars-2 {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      font-size: 16px;
-      font-weight: 500;
-      color: white;
-      background-color: var(--imt-purple);
-      padding: 12px 24px;
-      border-radius: 30px;
-      transition: all 0.2s ease;
-    }
-
-    .view-all-webinars-2:hover {
-      background-color: #5c36cd;
-      transform: translateY(-2px);
-      text-decoration: none;
-    }
-
-    @media (max-width: 768px) {
-      .webinar-item-2 {
-        flex-direction: column;
-      }
-      
-      .webinar-date-2 {
-        margin-right: 0;
-        margin-bottom: 15px;
-        text-align: left;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-      
-      .webinar-day-2 {
-        margin-bottom: 0;
-      }
-      
-      .webinar-card-2 {
-        flex-direction: column;
-      }
-      
-      .webinar-image-2 {
-        width: 100%;
-        height: 120px;
-      }
-    }
-
-    /* Pagination Styles */
-    .webinar-pagination {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 40px;
-    }
-
-    .pagination-button {
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      border: none;
-      background-color: #f5f5f7;
-      color: var(--color-text);
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .pagination-button:hover {
-      background-color: #e5e5e7;
-    }
-
-    .pagination-button.active {
-      background-color: var(--imt-purple);
-      color: white;
-    }
-
-    .pagination-button.nav {
-      background-color: transparent;
-      border: 1px solid #e5e5e7;
-    }
-
-    .pagination-button.nav:hover {
-      background-color: #f5f5f7;
-    }
-
-    .pagination-button.disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-
-    .webinar-item-2 {
-      display: none; /* Standardmäßig ausblenden */
-    }
-
-    .webinar-item-2.visible {
-      display: flex; /* Nur sichtbare anzeigen */
-    }
-
-    .webinar-pagination {
-      display: flex; /* Pagination immer anzeigen */
-    }
-
-    .webinar-all-2 {
-      display: none; /* "Alle anzeigen" Button ausblenden */
-    }
   </style>
 
   <!-- BoxIcons für Icons -->
@@ -2678,46 +2082,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="valley-seal">
         <img src="assets/seal/valley_excellence.png" alt="Valley Excellence Seal">
       </div>
-      <div class="atom-container">
-        <div class="atom-core"></div>
-        
-        <!-- Energy particles in the nucleus -->
-        <div class="energy-particle particle-1"></div>
-        <div class="energy-particle particle-2"></div>
-        <div class="energy-particle particle-3"></div>
-        <div class="energy-particle particle-4"></div>
-        <div class="energy-particle particle-5"></div>
-        <div class="energy-particle particle-6"></div>
-        <div class="energy-particle particle-7"></div>
-        <div class="energy-particle particle-8"></div>
-        
-        <!-- First electron orbit -->
-        <div class="electron-orbit orbit-1">
-          <div class="electron electron-1"></div>
-          <div class="electron-trail trail-1"></div>
-        </div>
-        
-        <!-- Second electron orbit -->
-        <div class="electron-orbit orbit-2">
-          <div class="electron electron-2"></div>
-          <div class="electron electron-4"></div>
-          <div class="electron-trail trail-2"></div>
-        </div>
-        
-        <!-- Third electron orbit -->
-        <div class="electron-orbit orbit-3">
-          <div class="electron electron-3"></div>
-          <div class="electron electron-5"></div>
-          <div class="electron electron-7"></div>
-          <div class="electron-trail trail-1"></div>
-        </div>
-        
-        <!-- Fourth electron orbit -->
-        <div class="electron-orbit orbit-4">
-          <div class="electron electron-6"></div>
-          <div class="electron electron-8"></div>
-          <div class="electron-trail trail-2"></div>
-        </div>
+      <div class="wave-container">
+        <div class="wave wave-1"></div>
+        <div class="wave wave-2"></div>
+        <div class="wave wave-3"></div>
+        <div class="wave wave-4"></div>
+        <div class="wave wave-5"></div>
       </div>
       <div class="container">
         <div class="hero-content">
@@ -3058,387 +2428,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <i class="bx bx-chevron-right"></i>
             </button>
           </div>
-        </div>
-      </div>
-    </section>
-
-        <!-- Webinar-Sektion -->
-    <section class="webinar-section-2">
-      <div class="container">
-        <div class="tracks-header">
-          <h2 class="tracks-title">Kommende Webinare</h2>
-          <p class="tracks-subtitle">Nehmen Sie an unseren Experten-Webinaren teil, um Einblicke und Fähigkeiten zu gewinnen, die Ihre berufliche Entwicklung voranbringen.</p>
-        </div>
-        
-        <div class="webinar-timeline-2">
-          <!-- Webinar Item 1 -->
-          <div class="webinar-item-2 upcoming">
-            <div class="webinar-date-2">
-              <div class="webinar-day-2">15</div>
-              <div class="webinar-month-2">Juni</div>
-            </div>
-            
-            <div class="webinar-card-2">
-              <div class="webinar-content-2">
-                <span class="webinar-status-2 live">Live</span>
-                <h3 class="webinar-topic-2">KI für Unternehmensstrategien: Implementierung und ROI</h3>
-                
-                <div class="webinar-meta-2">
-                  <div class="webinar-meta-item-2">
-                    <i class='bx bx-time'></i>
-                    <span>14:00 - 15:30 Uhr MEZ</span>
-                  </div>
-                  <div class="webinar-meta-item-2">
-                    <i class='bx bx-timer'></i>
-                    <span>90 Minuten</span>
-                  </div>
-                  <div class="webinar-meta-item-2">
-                    <i class='bx bx-user'></i>
-                    <span class="webinar-presenter-2">Dr. Martin Weber</span>
-                  </div>
-                </div>
-                
-                <p class="webinar-desc-2">Erfahren Sie, wie Sie KI-Lösungen effektiv in Ihrer Unternehmensstrategie implementieren und den Return on Investment messen können. Dieses Webinar behandelt praktische Ansätze, Fallstudien und bewährte Methoden.</p>
-                
-                <div class="webinar-register-container-2">
-                  <div class="webinar-action-2">
-                    <a href="#" class="webinar-register-2">
-                      Jetzt anmelden
-                      <i class='bx bx-right-arrow-alt'></i>
-                    </a>
-                  </div>
-                  <span class="webinar-price-2 free">Kostenlos</span>
-                </div>
-              </div>
-              
-              <div class="webinar-image-2" style="background-image: url('https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')"></div>
-            </div>
-          </div>
-          
-          <!-- Webinar Item 2 -->
-          <div class="webinar-item-2">
-            <div class="webinar-date-2">
-              <div class="webinar-day-2">22</div>
-              <div class="webinar-month-2">Juni</div>
-            </div>
-            
-            <div class="webinar-card-2">
-              <div class="webinar-content-2">
-                <span class="webinar-status-2 upcoming">Bevorstehend</span>
-                <h3 class="webinar-topic-2">Digitale Transformation: Jenseits der Technologie</h3>
-                
-                <div class="webinar-meta-2">
-                  <div class="webinar-meta-item-2">
-                    <i class='bx bx-time'></i>
-                    <span>10:00 - 11:30 Uhr MEZ</span>
-                  </div>
-                  <div class="webinar-meta-item-2">
-                    <i class='bx bx-timer'></i>
-                    <span>90 Minuten</span>
-                  </div>
-                  <div class="webinar-meta-item-2">
-                    <i class='bx bx-user'></i>
-                    <span class="webinar-presenter-2">Prof. Sarah Johnson</span>
-                  </div>
-                </div>
-                
-                <p class="webinar-desc-2">Entdecken Sie, warum erfolgreiche digitale Transformation mehr als nur Technologie erfordert. Dieses Webinar untersucht die kulturellen, organisatorischen und Führungsaspekte, die für den digitalen Erfolg entscheidend sind.</p>
-                
-                <div class="webinar-register-container-2">
-                  <div class="webinar-action-2">
-                    <a href="#" class="webinar-register-2">
-                      Jetzt anmelden
-                      <i class='bx bx-right-arrow-alt'></i>
-                    </a>
-                  </div>
-                  <span class="webinar-price-2 paid">CHF 49</span>
-                </div>
-              </div>
-              
-              <div class="webinar-image-2" style="background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80')"></div>
-            </div>
-          </div>
-          
-          <!-- Webinar Item 3 -->
-          <div class="webinar-item-2">
-            <div class="webinar-date-2">
-              <div class="webinar-day-2">28</div>
-              <div class="webinar-month-2">Juni</div>
-            </div>
-            
-            <div class="webinar-card-2">
-              <div class="webinar-content-2">
-                <span class="webinar-status-2 upcoming">Bevorstehend</span>
-                <h3 class="webinar-topic-2">Führung im digitalen Zeitalter: Neue Kompetenzen</h3>
-                
-                <div class="webinar-meta-2">
-                  <div class="webinar-meta-item-2">
-                    <i class='bx bx-time'></i>
-                    <span>15:00 - 16:30 Uhr MEZ</span>
-                  </div>
-                  <div class="webinar-meta-item-2">
-                    <i class='bx bx-timer'></i>
-                    <span>90 Minuten</span>
-                  </div>
-                  <div class="webinar-meta-item-2">
-                    <i class='bx bx-user'></i>
-                    <span class="webinar-presenter-2">Dr. Michael Schmidt</span>
-                  </div>
-                </div>
-                
-                <p class="webinar-desc-2">Entdecken Sie die wesentlichen Führungskompetenzen, die in der heutigen digitalen Geschäftswelt benötigt werden. Lernen Sie, wie Sie Ihren Führungsstil anpassen und die Fähigkeiten entwickeln können, die am wichtigsten sind.</p>
-                
-                <div class="webinar-register-container-2">
-                  <div class="webinar-action-2">
-                    <a href="#" class="webinar-register-2">
-                      Jetzt anmelden
-                      <i class='bx bx-right-arrow-alt'></i>
-                    </a>
-                  </div>
-                  <span class="webinar-price-2 free">Kostenlos</span>
-                </div>
-              </div>
-              
-              <div class="webinar-image-2" style="background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')"></div>
-            </div>
-          </div>
-
-          <!-- Webinar Item 4 -->
-          <div class="webinar-item-2">
-            <div class="webinar-date-2">
-              <div class="webinar-day-2">10</div>
-              <div class="webinar-month-2">Juli</div>
-            </div>
-            
-            <div class="webinar-card-2">
-              <div class="webinar-content-2">
-                <span class="webinar-status-2 upcoming">Bevorstehend</span>
-                <h3 class="webinar-topic-2">KI im Marketing: Strategien und Anwendungsfälle</h3>
-                
-                <div class="webinar-meta-2">
-                  <div class="webinar-meta-item-2">
-                    <i class='bx bx-time'></i>
-                    <span>11:00 - 12:30 Uhr MEZ</span>
-                  </div>
-                  <div class="webinar-meta-item-2">
-                    <i class='bx bx-timer'></i>
-                    <span>90 Minuten</span>
-                  </div>
-                  <div class="webinar-meta-item-2">
-                    <i class='bx bx-user'></i>
-                    <span class="webinar-presenter-2">Prof. Laura Müller</span>
-                  </div>
-                </div>
-                
-                <p class="webinar-desc-2">Erfahren Sie, wie künstliche Intelligenz das Marketing revolutioniert. Dieses Webinar behandelt praktische Anwendungsfälle, Implementierungsstrategien und zukünftige Entwicklungen im KI-gestützten Marketing.</p>
-                
-                <div class="webinar-register-container-2">
-                  <div class="webinar-action-2">
-                    <a href="#" class="webinar-register-2">
-                      Jetzt anmelden
-                      <i class='bx bx-right-arrow-alt'></i>
-                    </a>
-                  </div>
-                  <span class="webinar-price-2 paid">CHF 49</span>
-                </div>
-              </div>
-              
-              <div class="webinar-image-2" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')"></div>
-            </div>
-          </div>
-
-          <!-- Webinar Item 5 -->
-          <div class="webinar-item-2">
-            <div class="webinar-date-2">
-              <div class="webinar-day-2">18</div>
-              <div class="webinar-month-2">Juli</div>
-            </div>
-            
-            <div class="webinar-card-2">
-              <div class="webinar-content-2">
-                <span class="webinar-status-2 upcoming">Bevorstehend</span>
-                <h3 class="webinar-topic-2">Nachhaltige Geschäftsmodelle entwickeln</h3>
-                
-                <div class="webinar-meta-2">
-                  <div class="webinar-meta-item-2">
-                    <i class='bx bx-time'></i>
-                    <span>14:00 - 15:30 Uhr MEZ</span>
-                  </div>
-                  <div class="webinar-meta-item-2">
-                    <i class='bx bx-timer'></i>
-                    <span>90 Minuten</span>
-                  </div>
-                  <div class="webinar-meta-item-2">
-                    <i class='bx bx-user'></i>
-                    <span class="webinar-presenter-2">Dr. Thomas Berger</span>
-                  </div>
-                </div>
-                
-                <p class="webinar-desc-2">Lernen Sie, wie Sie Nachhaltigkeit in Ihr Geschäftsmodell integrieren können. Dieses Webinar behandelt die neuesten Trends, regulatorische Anforderungen und erfolgreiche Fallstudien nachhaltiger Unternehmen.</p>
-                
-                <div class="webinar-register-container-2">
-                  <div class="webinar-action-2">
-                    <a href="#" class="webinar-register-2">
-                      Jetzt anmelden
-                      <i class='bx bx-right-arrow-alt'></i>
-                    </a>
-                  </div>
-                  <span class="webinar-price-2 free">Kostenlos</span>
-                </div>
-              </div>
-              
-              <div class="webinar-image-2" style="background-image: url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1290&q=80')"></div>
-            </div>
-          </div>
-
-          <!-- Webinar Item 6 -->
-          <div class="webinar-item-2">
-            <div class="webinar-date-2">
-              <div class="webinar-day-2">25</div>
-              <div class="webinar-month-2">Juli</div>
-            </div>
-            
-            <div class="webinar-card-2">
-              <div class="webinar-content-2">
-                <span class="webinar-status-2 upcoming">Bevorstehend</span>
-                <h3 class="webinar-topic-2">Digitale Transformation im Mittelstand</h3>
-                
-                <div class="webinar-meta-2">
-                  <div class="webinar-meta-item-2">
-                    <i class='bx bx-time'></i>
-                    <span>10:00 - 11:30 Uhr MEZ</span>
-                  </div>
-                  <div class="webinar-meta-item-2">
-                    <i class='bx bx-timer'></i>
-                    <span>90 Minuten</span>
-                  </div>
-                  <div class="webinar-meta-item-2">
-                    <i class='bx bx-user'></i>
-                    <span class="webinar-presenter-2">Prof. Dr. Andreas Klein</span>
-                  </div>
-                </div>
-                
-                <p class="webinar-desc-2">Praxisnahe Strategien für die digitale Transformation mittelständischer Unternehmen. Erfahren Sie, wie Sie mit begrenzten Ressourcen maximale Wirkung erzielen und Innovationspotenziale erschließen können.</p>
-                
-                <div class="webinar-register-container-2">
-                  <div class="webinar-action-2">
-                    <a href="#" class="webinar-register-2">
-                      Jetzt anmelden
-                      <i class='bx bx-right-arrow-alt'></i>
-                    </a>
-                  </div>
-                  <span class="webinar-price-2 paid">CHF 49</span>
-                </div>
-              </div>
-              
-              <div class="webinar-image-2" style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')"></div>
-            </div>
-          </div>
-
-          <!-- Webinar Item 7 -->
-          <div class="webinar-item-2">
-            <div class="webinar-date-2">
-              <div class="webinar-day-2">2</div>
-              <div class="webinar-month-2">August</div>
-            </div>
-            
-            <div class="webinar-card-2">
-              <div class="webinar-content-2">
-                <span class="webinar-status-2 upcoming">Bevorstehend</span>
-                <h3 class="webinar-topic-2">Data Analytics für Entscheidungsträger</h3>
-                
-                <div class="webinar-meta-2">
-                  <div class="webinar-meta-item-2">
-                    <i class='bx bx-time'></i>
-                    <span>14:00 - 15:30 Uhr MEZ</span>
-                  </div>
-                  <div class="webinar-meta-item-2">
-                    <i class='bx bx-timer'></i>
-                    <span>90 Minuten</span>
-                  </div>
-                  <div class="webinar-meta-item-2">
-                    <i class='bx bx-user'></i>
-                    <span class="webinar-presenter-2">Dr. Julia Hartmann</span>
-                  </div>
-                </div>
-                
-                <p class="webinar-desc-2">Lernen Sie, wie Sie Datenanalysen für strategische Entscheidungen nutzen können. Dieses Webinar bietet einen praxisorientierten Überblick über Methoden, Tools und Anwendungsfälle für Führungskräfte ohne IT-Hintergrund.</p>
-                
-                <div class="webinar-register-container-2">
-                  <div class="webinar-action-2">
-                    <a href="#" class="webinar-register-2">
-                      Jetzt anmelden
-                      <i class='bx bx-right-arrow-alt'></i>
-                    </a>
-                  </div>
-                  <span class="webinar-price-2 free">Kostenlos</span>
-                </div>
-              </div>
-              
-              <div class="webinar-image-2" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')"></div>
-            </div>
-          </div>
-
-          <!-- Webinar Item 8 -->
-          <div class="webinar-item-2">
-            <div class="webinar-date-2">
-              <div class="webinar-day-2">10</div>
-              <div class="webinar-month-2">August</div>
-            </div>
-            
-            <div class="webinar-card-2">
-              <div class="webinar-content-2">
-                <span class="webinar-status-2 upcoming">Bevorstehend</span>
-                <h3 class="webinar-topic-2">Agiles Projektmanagement in der Praxis</h3>
-                
-                <div class="webinar-meta-2">
-                  <div class="webinar-meta-item-2">
-                    <i class='bx bx-time'></i>
-                    <span>11:00 - 12:30 Uhr MEZ</span>
-                  </div>
-                  <div class="webinar-meta-item-2">
-                    <i class='bx bx-timer'></i>
-                    <span>90 Minuten</span>
-                  </div>
-                  <div class="webinar-meta-item-2">
-                    <i class='bx bx-user'></i>
-                    <span class="webinar-presenter-2">Markus Wagner</span>
-                  </div>
-                </div>
-                
-                <p class="webinar-desc-2">Entdecken Sie, wie agile Methoden Ihre Projektabläufe optimieren können. Von Scrum und Kanban bis hin zu hybriden Ansätzen – lernen Sie effektive Strategien für erfolgreiches Projektmanagement in dynamischen Umgebungen.</p>
-                
-                <div class="webinar-register-container-2">
-                  <div class="webinar-action-2">
-                    <a href="#" class="webinar-register-2">
-                      Jetzt anmelden
-                      <i class='bx bx-right-arrow-alt'></i>
-                    </a>
-                  </div>
-                  <span class="webinar-price-2 paid">CHF 49</span>
-                </div>
-              </div>
-              
-              <div class="webinar-image-2" style="background-image: url('https://images.unsplash.com/photo-1642543348745-775d77baec67?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')"></div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="webinar-pagination">
-          <button class="pagination-button nav prev" aria-label="Vorherige Seite">
-            <i class='bx bx-chevron-left'></i>
-          </button>
-          <!-- Pagination Nummern werden dynamisch hinzugefügt -->
-          <button class="pagination-button nav next" aria-label="Nächste Seite">
-            <i class='bx bx-chevron-right'></i>
-          </button>
-        </div>
-        
-        <div class="webinar-all-2">
-          <a href="#" class="view-all-webinars-2" id="view-all-webinars">
-            Alle Webinare anzeigen
-            <i class='bx bx-right-arrow-alt'></i>
-          </a>
         </div>
       </div>
     </section>
@@ -4468,9 +3457,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         return array;
       }
       
-      // Randomly select 7 logos - true randomization
+      // Randomly select 6 logos - true randomization
       const shuffledLogos = shuffleArray([...allLogos]);
-      const selectedLogos = shuffledLogos.slice(0, 7);
+      const selectedLogos = shuffledLogos.slice(0, 6);
       
       // Get the container element
       const logosContainer = document.getElementById('random-logos');
@@ -4478,34 +3467,50 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       // Clear the container
       logosContainer.innerHTML = '';
       
-      // Create first row with 4 logos
+      // Set container style to enforce column layout
+      logosContainer.style.display = 'flex';
+      logosContainer.style.flexDirection = 'column';
+      logosContainer.style.alignItems = 'center';
+      logosContainer.style.width = '100%';
+      
+      // Create first row with 3 logos
       const firstRow = document.createElement('div');
       firstRow.className = 'logo-row';
       firstRow.style.display = 'flex';
       firstRow.style.justifyContent = 'center';
-      firstRow.style.flexWrap = 'wrap';
-      firstRow.style.marginBottom = '10px';
+      firstRow.style.flexWrap = 'nowrap';
+      firstRow.style.marginBottom = '20px';
+      firstRow.style.width = '100%';
       
       // Create second row with 3 logos
       const secondRow = document.createElement('div');
       secondRow.className = 'logo-row';
       secondRow.style.display = 'flex';
       secondRow.style.justifyContent = 'center';
-      secondRow.style.flexWrap = 'wrap';
+      secondRow.style.flexWrap = 'nowrap';
+      secondRow.style.width = '100%';
       
-      // Add first 4 logos to first row
-      for (let i = 0; i < 4; i++) {
+      // Add first 3 logos to first row
+      for (let i = 0; i < 3; i++) {
         const img = document.createElement('img');
         img.src = selectedLogos[i];
         img.alt = selectedLogos[i].split('/').pop().split('.')[0]; // Use filename as alt text
+        img.style.margin = '0 20px';
+        img.style.maxWidth = '120px';
+        img.style.height = '30px';
+        img.style.objectFit = 'contain';
         firstRow.appendChild(img);
       }
       
       // Add remaining 3 logos to second row
-      for (let i = 4; i < 7; i++) {
+      for (let i = 3; i < 6; i++) {
         const img = document.createElement('img');
         img.src = selectedLogos[i];
         img.alt = selectedLogos[i].split('/').pop().split('.')[0]; // Use filename as alt text
+        img.style.margin = '0 20px';
+        img.style.maxWidth = '120px';
+        img.style.height = '30px';
+        img.style.objectFit = 'contain';
         secondRow.appendChild(img);
       }
       
@@ -4623,108 +3628,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           })
           .catch(error => console.error('Fehler beim Laden des Voucher-Popups:', error));
       }, 3000); // 3 Sekunden Verzögerung
-    });
-  </script>
-
-     <!-- Script für Pagination der Webinare -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Konstanten für die Pagination
-      const ITEMS_PER_PAGE = 4;
-      
-      // DOM-Elemente
-      const webinarContainer = document.querySelector('.webinar-timeline-2');
-      const webinarItems = Array.from(document.querySelectorAll('.webinar-item-2'));
-      const pagination = document.querySelector('.webinar-pagination');
-      const prevButton = document.querySelector('.pagination-button.prev');
-      const nextButton = document.querySelector('.pagination-button.next');
-      
-      // Zustandsvariablen
-      let currentPage = 1;
-      let itemsPerPage = ITEMS_PER_PAGE;
-      
-      // Erstelle die Paginationsbuttons
-      function createPaginationButtons() {
-        // Bestehende Numerische Buttons entfernen
-        const numericalButtons = document.querySelectorAll('.pagination-button.numerical');
-        numericalButtons.forEach(button => button.remove());
-        
-        // Anzahl der Seiten berechnen
-        const totalPages = Math.ceil(webinarItems.length / itemsPerPage);
-        
-        // Einfügen nach dem Prev-Button und vor dem Next-Button
-        for (let i = 1; i <= totalPages; i++) {
-          const button = document.createElement('button');
-          button.className = `pagination-button numerical ${i === currentPage ? 'active' : ''}`;
-          button.textContent = i;
-          button.setAttribute('data-page', i);
-          button.addEventListener('click', () => goToPage(i));
-          
-          // Einfügen vor dem Next-Button
-          pagination.insertBefore(button, nextButton);
-        }
-        
-        // Aktivieren/Deaktivieren der Prev/Next-Buttons
-        prevButton.classList.toggle('disabled', currentPage === 1);
-        nextButton.classList.toggle('disabled', currentPage === totalPages);
-      }
-      
-      // Wechsel zur angegebenen Seite
-      function goToPage(page) {
-        currentPage = page;
-        updateVisibleItems();
-        createPaginationButtons(); // Aktualisiere Buttons (für 'active' Status)
-        
-        // Zum Webinar-Abschnitt scrollen
-        const webinarSection = document.querySelector('.webinar-section-2');
-        if (webinarSection) {
-          // Mit zusätzlichem Offset nach oben scrollen
-          const yOffset = -80; // Negative Zahl = weiter nach oben
-          const y = webinarSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
-          
-          window.scrollTo({
-            top: y,
-            behavior: 'smooth'
-          });
-        }
-      }
-      
-      // Aktualisiere die sichtbaren Webinar-Items basierend auf der aktuellen Seite
-      function updateVisibleItems() {
-        const startIndex = (currentPage - 1) * itemsPerPage;
-        const endIndex = startIndex + itemsPerPage;
-        
-        webinarItems.forEach((item, index) => {
-          const isVisible = index >= startIndex && index < endIndex;
-          item.classList.toggle('visible', isVisible);
-        });
-      }
-      
-      // Initialisierung der Pagination und der sichtbaren Webinare
-      function initializeView() {
-        // Pagination direkt anzeigen
-        createPaginationButtons();
-        
-        // Erste Seite der Webinare anzeigen
-        updateVisibleItems();
-      }
-      
-      // Event-Listener für Paginationsbuttons
-      prevButton.addEventListener('click', function() {
-        if (currentPage > 1 && !this.classList.contains('disabled')) {
-          goToPage(currentPage - 1);
-        }
-      });
-      
-      nextButton.addEventListener('click', function() {
-        const totalPages = Math.ceil(webinarItems.length / itemsPerPage);
-        if (currentPage < totalPages && !this.classList.contains('disabled')) {
-          goToPage(currentPage + 1);
-        }
-      });
-      
-      // Initialisierung
-      initializeView();
     });
   </script>
 </body>
