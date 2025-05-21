@@ -212,68 +212,6 @@
   }
 
   @media (max-width: 768px) {
-    .close-button {
-      position: absolute !important; /* Am PopUp positioniert, nicht am Viewport */
-      top: 10px !important;
-      right: 10px !important;
-      width: 30px !important;
-      height: 30px !important;
-      background-color: white !important;
-      color: #000 !important;
-      border-radius: 50% !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      font-size: 16px !important;
-      z-index: 9999 !important; /* Höherer z-index */
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2) !important;
-    }
-  }
-
-  .newsletter-form .form-group {
-    margin-bottom: 20px;
-  }
-
-  .newsletter-form .form-control {
-    width: 100%;
-    padding: 12px 16px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 16px;
-    transition: all 0.2s ease;
-    background-color: #fff;
-  }
-
-  .newsletter-form .form-control:focus {
-    border-color: var(--imt-purple);
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(110, 69, 226, 0.1);
-  }
-
-  .newsletter-form .cta-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(to right, var(--imt-purple), #9c27b0);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    padding: 12px 24px;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    text-decoration: none;
-    width: 100%;
-  }
-
-  .newsletter-form .cta-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(106, 69, 226, 0.2);
-    text-decoration: none;
-  }
-
-  @media (max-width: 768px) {
     .popup-base {
       flex-direction: column;
       max-height: 90vh;
@@ -283,8 +221,11 @@
     
     .popup-graphic {
       width: 100%;
-      padding: 18px 12px;
-      min-height: auto;
+      padding: 15px 12px;
+      min-height: 135px;
+      height: 135px;
+      position: relative;
+      text-align: center;
     }
     
     .popup-content {
@@ -302,20 +243,41 @@
       margin-bottom: 15px;
     }
     
-    .voucher-badge {
-      font-size: 1.7rem;
-      width: 70px;
-      height: 70px;
-      margin-bottom: 8px;
+    .voucher-badge,
+    .popup-graphic h3,
+    .popup-graphic > p,
+    .confetti-container {
+      display: none !important;
     }
     
-    .popup-graphic h3 {
-      font-size: 1.2rem;
-      margin-bottom: 4px;
+    .countdown-container {
+      margin-top: 20px;
+      position: relative;
+      z-index: 3;
+      max-width: 300px;
+      margin-left: auto;
+      margin-right: auto;
     }
     
-    .popup-graphic p {
-      font-size: 0.8rem;
+    .countdown-timer-wrapper {
+      margin: 5px auto 10px;
+      padding: 5px 15px;
+    }
+    
+    .timer-icon {
+      width: 28px;
+      height: 28px;
+      margin-right: 12px;
+    }
+    
+    .countdown-timer {
+      font-size: 28px;
+    }
+    
+    .countdown-message {
+      font-size: 14px;
+      margin-top: 10px;
+      line-height: 1.3;
     }
     
     .newsletter-form .form-group {
@@ -334,6 +296,23 @@
     
     .newsletter-form small {
       font-size: 0.75rem;
+    }
+    
+    .close-button {
+      position: absolute !important;
+      top: 10px !important;
+      right: 10px !important;
+      width: 30px !important;
+      height: 30px !important;
+      background-color: white !important;
+      color: #000 !important;
+      border-radius: 50% !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      font-size: 16px !important;
+      z-index: 9999 !important;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2) !important;
     }
   }
   
@@ -624,6 +603,49 @@
   .hidden {
     display: none;
   }
+
+  .newsletter-form .form-group {
+    margin-bottom: 20px;
+  }
+
+  .newsletter-form .form-control {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.2s ease;
+    background-color: #fff;
+  }
+
+  .newsletter-form .form-control:focus {
+    border-color: var(--imt-purple);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(110, 69, 226, 0.1);
+  }
+
+  .newsletter-form .cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to right, var(--imt-purple), #9c27b0);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    width: 100%;
+  }
+
+  .newsletter-form .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(106, 69, 226, 0.2);
+    text-decoration: none;
+  }
 </style>
 
 <!-- Newsletter Popup HTML -->
@@ -654,7 +676,7 @@
           </svg>
           <div class="countdown-timer timer-pulse" id="countdown-timer">02:00</div>
         </div>
-        <p class="countdown-message">Sichern Sie sich jetzt Ihr Angebot bevor es abläuft. Melden Sie sich für den Newsletter an</p>
+        <p class="countdown-message">Sichern Sie sich jetzt 20% auf alle Weiterbildungen.</p>
       </div>
       
       <!-- Konfetti-Container -->
