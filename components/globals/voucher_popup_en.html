@@ -793,6 +793,11 @@
 <script>
   // Funktionen für das Popup
   function showNewsletterPopup() {
+    // Check if user already subscribed
+    if (localStorage.getItem('newsletter_subscribed') === 'true') {
+      return; // Don't show popup if already subscribed
+    }
+    
     const popup = document.getElementById('newsletter-popup');
     popup.classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -954,6 +959,9 @@
       const newsletterForm = document.querySelector('.newsletter-form');
       newsletterForm.style.display = 'none';
       document.getElementById('newsletter-success').classList.remove('hidden');
+      
+      // Store that user has subscribed
+      localStorage.setItem('newsletter_subscribed', 'true');
     })
     .catch(error => {
       console.error('Fehler beim Senden der Daten:', error);
@@ -961,6 +969,9 @@
       const newsletterForm = document.querySelector('.newsletter-form');
       newsletterForm.style.display = 'none';
       document.getElementById('newsletter-success').classList.remove('hidden');
+      
+      // Store that user has subscribed even on error (since we show success)
+      localStorage.setItem('newsletter_subscribed', 'true');
     });
     
     // Reset form for next time

@@ -105,6 +105,60 @@
     }
   }
 
+  /* Timer styles */
+  .countdown-container {
+    width: 100%;
+    margin-top: 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .countdown-timer-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.25);
+    border-radius: 8px;
+    padding: 5px 15px;
+    margin: 10px auto;
+  }
+
+  .timer-icon {
+    color: white;
+    margin-right: 10px;
+  }
+
+  .countdown-timer {
+    font-size: 26px;
+    font-weight: 700;
+    color: white;
+  }
+
+  .countdown-message {
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+    line-height: 1.3;
+  }
+
+  .timer-pulse {
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
   .voucher-badge {
     font-size: 2.2rem;
     font-weight: 700;
@@ -591,6 +645,18 @@
       <h3>VOUCHER</h3>
       <p>auf alle Weiterbildungen</p>
       
+      <!-- New countdown timer -->
+      <div class="countdown-container">
+        <div class="countdown-timer-wrapper">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="timer-icon">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          <div class="countdown-timer timer-pulse" id="countdown-timer">02:00</div>
+        </div>
+        <p class="countdown-message">Sichern Sie sich jetzt Ihr Angebot bevor es abläuft. Melden Sie sich für den Newsletter an</p>
+      </div>
+      
       <!-- Konfetti-Container -->
       <div class="confetti-container" id="confetti-container">
         <!-- Konfettis nach oben rechts -->
@@ -843,12 +909,53 @@
     
     // Initialisiere das Formular nach dem Öffnen des Popups
     initNewsletterForm();
+    
+    // Start countdown timer
+    startCountdown();
+  }
+  
+  // Start the 2-minute countdown timer
+  function startCountdown() {
+    const timerElement = document.getElementById('countdown-timer');
+    if (!timerElement) return;
+    
+    let timeLeft = 2 * 60; // 2 minutes in seconds
+    
+    // Clear any existing timer
+    if (window.countdownTimer) {
+      clearInterval(window.countdownTimer);
+    }
+    
+    // Update timer display
+    function updateTimer() {
+      const minutes = Math.floor(timeLeft / 60);
+      const seconds = timeLeft % 60;
+      timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+      
+      if (timeLeft <= 0) {
+        clearInterval(window.countdownTimer);
+        closeNewsletterPopup();
+      } else {
+        timeLeft--;
+      }
+    }
+    
+    // Initial display update
+    updateTimer();
+    
+    // Start the timer interval
+    window.countdownTimer = setInterval(updateTimer, 1000);
   }
   
   // Popup schließen
   function closeNewsletterPopup() {
     document.getElementById('newsletter-popup').classList.remove('active');
     document.body.style.overflow = 'auto';
+    
+    // Clear the countdown timer if it exists
+    if (window.countdownTimer) {
+      clearInterval(window.countdownTimer);
+    }
   }
   
   // Formular-Validierung initialisieren - separat, damit es auch nach dynamischem Laden funktioniert
