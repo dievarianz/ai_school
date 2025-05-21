@@ -575,7 +575,7 @@
 <!-- Newsletter Popup HTML -->
 <div class="popup-overlay" id="newsletter-popup">
   <!-- Hidden Netlify Form Schema -->
-  <form name="newsletter-voucher-popup" netlify netlify-honeypot="bot-field" hidden>
+  <form name="newsletter-voucher-popup-en" netlify netlify-honeypot="bot-field" hidden>
     <input type="text" name="firstname" />
     <input type="text" name="lastname" />
     <input type="email" name="email" />
@@ -654,7 +654,7 @@
         <p class="hidden" style="display: none;">
           <label>Don't fill this out if you're human: <input name="bot-field" /></label>
         </p>
-        <input type="hidden" name="form-name" value="newsletter-voucher-popup">
+        <input type="hidden" name="form-name" value="newsletter-voucher-popup-en">
         <div class="form-group">
           <input type="text" name="firstname" class="form-control" placeholder="First name" required>
         </div>
@@ -939,7 +939,7 @@
     const formData = new FormData(this);
     
     // Wichtig: Netlify erwartet form-name auch im FormData für AJAX-Übermittlung
-    formData.append("form-name", "newsletter-voucher-popup");
+    formData.append("form-name", "newsletter-voucher-popup-en");
     
     // Via fetch an Netlify senden
     fetch('/', {
