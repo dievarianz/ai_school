@@ -3493,56 +3493,48 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       // Clear the container
       logosContainer.innerHTML = '';
       
-      // Set container style to enforce column layout
+      // Set container style for a single row on desktop
       logosContainer.style.display = 'flex';
-      logosContainer.style.flexDirection = 'column';
+      logosContainer.style.flexWrap = 'nowrap'; // Force single line
+      logosContainer.style.justifyContent = 'center';
       logosContainer.style.alignItems = 'center';
       logosContainer.style.width = '100%';
+      logosContainer.style.overflowX = 'hidden'; // Prevent horizontal scroll
       
-      // Create first row with 3 logos
-      const firstRow = document.createElement('div');
-      firstRow.className = 'logo-row';
-      firstRow.style.display = 'flex';
-      firstRow.style.justifyContent = 'center';
-      firstRow.style.flexWrap = 'nowrap';
-      firstRow.style.marginBottom = '20px';
-      firstRow.style.width = '100%';
-      
-      // Create second row with 3 logos
-      const secondRow = document.createElement('div');
-      secondRow.className = 'logo-row';
-      secondRow.style.display = 'flex';
-      secondRow.style.justifyContent = 'center';
-      secondRow.style.flexWrap = 'nowrap';
-      secondRow.style.width = '100%';
-      
-      // Add first 3 logos to first row
-      for (let i = 0; i < 3; i++) {
+      // Add all logos directly to the container with grayscale effect
+      selectedLogos.forEach(logoSrc => {
         const img = document.createElement('img');
-        img.src = selectedLogos[i];
-        img.alt = selectedLogos[i].split('/').pop().split('.')[0]; // Use filename as alt text
-        img.style.margin = '0 20px';
-        img.style.maxWidth = '120px';
-        img.style.height = '30px';
+        img.src = logoSrc;
+        img.alt = logoSrc.split('/').pop().split('.')[0]; // Use filename as alt text
+        img.style.margin = '0 20px'; // Increased margin for desktop
+        img.style.maxWidth = '100px'; // Smaller max width
+        img.style.height = '25px'; // Slightly smaller height
         img.style.objectFit = 'contain';
-        firstRow.appendChild(img);
-      }
+        img.style.filter = 'grayscale(100%)'; // Convert all logos to grayscale
+        img.style.opacity = '0.8'; // Slightly increase opacity for better contrast
+        logosContainer.appendChild(img);
+      });
       
-      // Add remaining 3 logos to second row
-      for (let i = 3; i < 6; i++) {
-        const img = document.createElement('img');
-        img.src = selectedLogos[i];
-        img.alt = selectedLogos[i].split('/').pop().split('.')[0]; // Use filename as alt text
-        img.style.margin = '0 20px';
-        img.style.maxWidth = '120px';
-        img.style.height = '30px';
-        img.style.objectFit = 'contain';
-        secondRow.appendChild(img);
+      // Add CSS media query for mobile view (two rows)
+      if (!document.getElementById('logo-responsive-style')) {
+        const style = document.createElement('style');
+        style.id = 'logo-responsive-style';
+        style.textContent = `
+          @media (max-width: 767px) {
+            #random-logos {
+              display: flex;
+              flex-wrap: wrap !important; /* Override nowrap for mobile */
+              justify-content: center;
+            }
+            #random-logos img {
+              width: 30%;
+              height: 20px !important;
+              margin: 8px 5px !important;
+            }
+          }
+        `;
+        document.head.appendChild(style);
       }
-      
-      // Add both rows to the container
-      logosContainer.appendChild(firstRow);
-      logosContainer.appendChild(secondRow);
     });
   </script>
 
