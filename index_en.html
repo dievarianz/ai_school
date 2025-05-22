@@ -2127,7 +2127,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="hero-actions">
             <div class="program-selector">
               <div class="tooltip-container">
-                <div class="error-tooltip">Please select a professional development program</div>
+                <div class="error-tooltip">Please select an Executive Education Program</div>
                 <div class="custom-select">
                   <div class="select-selected">Explore our Executive Education Programs</div>
                   <div class="select-items select-hide">
@@ -3133,6 +3133,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           // Determine current position in scroll area
           const containerRect = scrollContainer.getBoundingClientRect();
           const cardWidth = visibleCards[0].offsetWidth + 16; // Card + margin
+          
+          // Determine the current scroll position
+          const currentScrollLeft = scrollContainer.scrollLeft;
           
           // Calculate new scroll position
           let newScrollLeft;
