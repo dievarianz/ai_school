@@ -114,6 +114,28 @@
       padding-top: 50px;
     }
 
+    /* Netzwerk-Überschriften mit Gradient */
+    .section-heading {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      text-align: left !important;
+      background: linear-gradient(90deg, #222 0%, #b0b0b0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+      display: inline-block;
+    }
+
+    .section-description {
+      color: var(--color-muted);
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+      width: 100%;
+      text-align: left !important;
+    }
+
     /* Logo Grid für Unternehmen und Universitäten */
     .logo-grid {
       display: grid;
@@ -197,6 +219,16 @@
       line-height: 1.4;
     }
 
+    /* Gradient Text Styling */
+    .gradient-text-muted {
+      background: linear-gradient(90deg, #222 0%, #b0b0b0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+      color: transparent; /* Fallback für Browser ohne Unterstützung */
+    }
+
     @media (max-width: 768px) {
       .content-section {
         padding: 50px 0;
@@ -253,8 +285,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- Unternehmenspartner -->
     <section class="content-section" id="unternehmenspartner">
       <div class="container">
-        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Unternehmenspartner</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Wir arbeiten mit führenden Unternehmen zusammen, um praxisnahe und zukunftsorientierte Weiterbildung zu gewährleisten.</p>
+        <h2 class="section-heading">Unternehmenspartner</h2>
+        <p class="section-description">Wir arbeiten mit führenden Unternehmen zusammen, um praxisnahe und zukunftsorientierte Weiterbildung zu gewährleisten.</p>
         
         <div class="logo-grid">
           <!-- Unternehmenslogos -->
@@ -313,8 +345,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- Akademische Partner -->
     <section class="content-section" id="Akademische Partner">
       <div class="container">
-        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Akademische Partner</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Unsere akademischen Partner garantieren wissenschaftliche Exzellenz und innovative Forschung in allen unseren Programmen.</p>
+        <h2 class="section-heading">Akademische Partner</h2>
+        <p class="section-description">Unsere akademischen Partner garantieren wissenschaftliche Exzellenz und innovative Forschung in allen unseren Programmen.</p>
         
         <div class="logo-grid">
           <!-- Universitätslogos -->
@@ -340,8 +372,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- Faculty & Experts Section -->
     <section class="content-section" id="faculty">
       <div class="container">
-        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Fakultät & Experten</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Lernen Sie von führenden Experten aus Wissenschaft und Praxis – profitieren Sie von jahrelanger Erfahrung.</p>
+        <h2 class="section-heading">Fakultät & Experten</h2>
+        <p class="section-description">Lernen Sie von führenden Experten aus Wissenschaft und Praxis – profitieren Sie von jahrelanger Erfahrung.</p>
         
         <div class="faculty-grid">
 

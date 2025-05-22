@@ -234,6 +234,20 @@
       text-align: left;
     }
 
+    /* Headings with Gradient */
+    .section-heading {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      text-align: left !important;
+      background: linear-gradient(90deg, #222 0%, #b0b0b0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+      display: inline-block;
+    }
+
     /* Contact page specific styles */
     .contact-container {
       max-width: 1100px;
@@ -397,8 +411,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- Contact Form Section -->
     <section class="content-section">
       <div class="container">
-        <h2>Contact Us</h2>
-        <p class="section-subtitle">Do you have questions about our Executive Education programs or would you like to get in touch with us? We're here for you.</p>
+        <div class="row">
+          <div class="col-12">
+            <h2 class="section-heading">Contact Us</h2>
+            <p class="section-subtitle">Do you have questions about our executive education programs or would you like to register for a seminar? Our team is happy to assist you.</p>
+          </div>
+        </div>
         
         <!-- Contact Form -->
         <div class="contact-form-container">
@@ -544,8 +562,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         
         <!-- Other Contact Options -->
-        <h2>Other Ways to Contact Us</h2>
-        <p class="section-subtitle">Choose your preferred way to get in touch with us.</p>
+        <h2 class="section-heading">Other Ways to Contact Us</h2>
+        <p class="section-subtitle">You can reach us in various ways</p>
         
         <div class="contact-cards">
           <!-- Phone -->

@@ -98,6 +98,28 @@
     .content-section:first-child {
       padding-top: 50px;
     }
+    
+    /* Überschriften mit Gradient */
+    .section-heading {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      text-align: left !important;
+      background: linear-gradient(90deg, #222 0%, #b0b0b0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+      display: inline-block;
+    }
+
+    .section-description {
+      color: var(--color-muted);
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+      width: 100%;
+      text-align: left !important;
+    }
 
     /* Back Link Styling */
     .back-link {
@@ -169,11 +191,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <a href="support.html" class="back-link"><i class='bx bx-arrow-back'></i> Zurück zur Support-Übersicht</a>
         </div>
         
-        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Ansprechpartner</h2>
+        <h2 class="section-heading">Ansprechpartner</h2>
         
         <!-- Content-Container mit definierter Breite -->
         <div style="max-width: 1000px; width: 100%;">
-          <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Ihr persönlicher Ansprechpartner für Fragen rund um unsere Managementseminare, Programme und individuelle Lösungen – profitieren Sie von einer individuellen Beratung.</p>
+          <p class="section-description">Ihr persönlicher Ansprechpartner für Fragen rund um unsere Managementseminare, Programme und individuelle Lösungen – profitieren Sie von einer individuellen Beratung.</p>
           
           <!-- Ansprechpartner Card -->
           <div class="contact-card" style="background: white; border-radius: 16px; overflow: hidden; margin-bottom: 60px; display: flex; flex-direction: column; width: 100%; border: 2px solid transparent; transition: all 0.3s ease; box-shadow: 0 1px 5px rgba(0,0,0,0.05);" onmouseover="this.style.border='2px solid #6e45e2'" onmouseout="this.style.border='2px solid transparent'">

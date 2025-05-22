@@ -114,6 +114,28 @@
       padding-top: 50px;
     }
 
+    /* Netzwerk-Überschriften mit Gradient */
+    .section-heading {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      text-align: left !important;
+      background: linear-gradient(90deg, #222 0%, #b0b0b0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+      display: inline-block;
+    }
+
+    .section-description {
+      color: var(--color-muted);
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+      width: 100%;
+      text-align: left !important;
+    }
+
     /* Logo grid for companies and universities */
     .logo-grid {
       display: grid;
@@ -253,8 +275,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- Corporate Partners -->
     <section class="content-section" id="unternehmenspartner">
       <div class="container">
-        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Corporate Partners</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">We collaborate with leading companies to ensure practical and future-oriented continuing education.</p>
+        <h2 class="section-heading">Corporate Partners</h2>
+        <p class="section-description">We collaborate with leading companies to ensure practical and future-oriented continuing education.</p>
         
         <div class="logo-grid">
           <!-- Company logos -->
@@ -313,8 +335,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- Academic Partners -->
     <section class="content-section" id="Akademische Partner">
       <div class="container">
-        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Academic Partners</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Our academic partners guarantee scientific excellence and innovative research in all our programs.</p>
+        <h2 class="section-heading">Academic Partners</h2>
+        <p class="section-description">Our academic partners guarantee scientific excellence and innovative research in all our programs.</p>
         
         <div class="logo-grid">
           <!-- University logos -->
@@ -340,8 +362,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- Faculty & Experts Section -->
     <section class="content-section" id="faculty">
       <div class="container">
-        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Faculty & Experts</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Learn from leading experts from academia and practice – benefit from years of experience.</p>
+        <h2 class="section-heading">Faculty & Experts</h2>
+        <p class="section-description">Learn from leading experts from academia and practice – benefit from years of experience.</p>
         
         <div class="faculty-grid">
 

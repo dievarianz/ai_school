@@ -234,6 +234,20 @@
       text-align: left;
     }
 
+    /* Überschriften mit Gradient */
+    .section-heading {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      text-align: left !important;
+      background: linear-gradient(90deg, #222 0%, #b0b0b0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+      display: inline-block;
+    }
+
     /* Kontakt Seite spezifische Styles */
     .contact-container {
       max-width: 1100px;
@@ -396,8 +410,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- Kontaktformular Sektion -->
     <section class="content-section">
       <div class="container">
-        <h2>Kontaktieren Sie uns</h2>
-        <p class="section-subtitle">Haben Sie Fragen zu unseren Weiterbildungen oder möchten Sie mit uns in Kontakt treten? Wir sind für Sie da.</p>
+        <div class="row">
+          <div class="col-12">
+            <h2 class="section-heading">Kontaktieren Sie uns</h2>
+            <p class="section-subtitle">Haben Sie Fragen zu unseren Weiterbildungen oder möchten Sie mit uns in Kontakt treten? Wir sind für Sie da.</p>
+          </div>
+        </div>
         
         <!-- Kontaktformular -->
         <div class="contact-form-container">
@@ -541,7 +559,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         
         <!-- Kontaktkarten Bereich -->
-        <h2>Nehmen Sie Kontakt auf</h2>
+        <h2 class="section-heading">Nehmen Sie Kontakt auf</h2>
         <p class="section-subtitle">Alternativ können Sie uns auch direkt auf einem der folgenden Wege erreichen.</p>
         
         <div class="contact-cards">

@@ -128,6 +128,28 @@
       padding-top: 50px;
     }
 
+    /* Überschriften mit Gradient */
+    .section-heading {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      text-align: left !important;
+      background: linear-gradient(90deg, #222 0%, #b0b0b0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+      display: inline-block;
+    }
+
+    .section-description {
+      color: var(--color-muted);
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+      width: 100%;
+      text-align: left !important;
+    }
+
     .content-section h2 {
       text-align: left;
       font-size: 1.5rem;
@@ -534,8 +556,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- Support-Kategorien -->
     <section class="content-section">
       <div class="container">
-        <h2>Zentrale Themen auf einem Blick</h2>
-        <p class="section-subtitle">In den folgenden Bereichen finden Sie detaillierte Informationen zur Institution, den Programminhalten sowie zu Kontakt- und Beratungsmöglichkeiten.</p>
+        <h2 class="section-heading">Zentrale Themen auf einem Blick</h2>
+        <p class="section-description">In den folgenden Bereichen finden Sie detaillierte Informationen zur Institution, den Programminhalten sowie zu Kontakt- und Beratungsmöglichkeiten.</p>
         
         <div class="support-grid">
           <!-- Karte 1: Über St. Gallen IMT -->
@@ -568,8 +590,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- FAQ-Bereich -->
     <section class="content-section" id="faq">
       <div class="container">
-        <h2>Häufig gestellte Fragen</h2>
-        <p class="section-subtitle">Hier finden Sie schnelle Antworten auf die am häufigsten gestellten Fragen.</p>
+        <h2 class="section-heading">Häufig gestellte Fragen</h2>
+        <p class="section-description">Hier finden Sie schnelle Antworten auf die am häufigsten gestellten Fragen.</p>
         
         <div class="faq-tabs">
           <button class="faq-tab active" data-category="all">Alle Fragen</button>
