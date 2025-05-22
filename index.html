@@ -455,18 +455,12 @@
       margin-bottom: 1.5rem;
       position: relative;
       display: inline-block;
+      /* Gradient- und Clip-Eigenschaften entfernt */
     }
 
+    /* Remove the underline effect */
     .hero-title::after {
-      content: '';
-      position: absolute;
-      height: 12px;
-      width: 60%;
-      background: linear-gradient(to right, var(--imt-purple), var(--color-accent2));
-      bottom: -5px;
-      left: 20%;
-      z-index: -1;
-      opacity: 0.3;
+      display: none;
     }
 
     .hero-subtitle {
@@ -1157,7 +1151,7 @@
     
     .network-title {
       font-size: 2.5rem;
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
       font-weight: 700;
     }
     
@@ -1165,14 +1159,10 @@
       color: var(--color-muted);
       font-size: 1.1rem;
       max-width: 900px;
-      margin: 0 auto 2rem;
+      margin: 0 auto 1.25rem;
       line-height: 1.5;
       white-space: normal;
       overflow-wrap: anywhere;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
     }
     
     .network-filter {
@@ -2049,6 +2039,33 @@
       text-align: left !important;
       color: var(--color-text);
     }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--imt-purple), var(--imt-green));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
+
+    .gradient-text-muted {
+      background: linear-gradient(90deg, #222 0%, #b0b0b0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
+  </style>
+  <style>
+    .network-intro.testimonials {
+      margin-bottom: 24px;
+    }
+    .network-intro.testimonials .network-title {
+      margin-bottom: 0.25rem;
+    }
+    .network-intro.testimonials .network-description {
+      margin-bottom: 2.5rem;
+    }
   </style>
 
   <!-- BoxIcons für Icons -->
@@ -2096,7 +2113,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <span class="hero-eyebrow">
             StGallen imt Business School
           </span>
-          <h1 class="hero-title">Weiterbildung für Exzellenz in Management und Technologie</h1>
+          <h1 class="hero-title gradient-text">Weiterbildung für Exzellenz in Management und Technologie</h1>
           <p class="hero-subtitle">Gestalten Sie Ihre berufliche Zukunft im St. Gallen Management Valley – mit fundierter Weiterbildung zwischen Management und Technologie.</p>
           
           <div class="hero-actions">
@@ -2139,7 +2156,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <section class="tracks-variant-3">
       <div class="container">
         <div class="tracks-header">
-          <h2 class="tracks-title">Unsere Weiterbildungen</h2>
+          <h2 class="tracks-title gradient-text-muted">Unsere Weiterbildungen</h2>
           <p class="tracks-subtitle">Entdecken Sie unsere praxisorientierten Weiterbildungen, die Management-Know-how mit Technologie-Kompetenz verbinden</p>
         </div>
         
@@ -2438,7 +2455,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <section class="tracks-section sv-innovation-academy-section">
       <div class="container">
         <div class="tracks-header">
-          <h2 class="tracks-title">Silicon Valley Innovation Academy</h2>
+          <h2 class="tracks-title gradient-text-muted">Silicon Valley Innovation Academy</h2>
           <p class="tracks-subtitle">Verbinden Sie eine einzigartige Reise ins Silicon Valley mit einem MBA der StGallen imt Business School</p>
         </div>
         
@@ -2498,8 +2515,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- Einblicke & Impressionen -->
     <section class="network-section">
       <div class="container">
-        <div class="network-intro">
-          <h2 class="network-title">Einblicke & Impressionen</h2>
+        <div class="network-intro testimonials">
+          <h2 class="network-title gradient-text-muted">Einblicke & Impressionen</h2>
           <p class="network-description">Tauchen Sie ein in eine einzigartige Lernumgebung – mit inspirierenden Workshops, Einblicken bei Unternehmen wie Google und einem einzigartigen Bildungsumfeld im St.Gallen Valley.</p>
         </div>
         <div class="gallery">
@@ -2539,8 +2556,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- Netzwerk-Sektion: In bester Gesellschaft -->
     <section class="network-section">
       <div class="container">
-        <div class="network-intro">
-          <h2 class="network-title">In bester Gesellschaft</h2>
+        <div class="network-intro testimonials">
+          <h2 class="network-title gradient-text-muted">In bester Gesellschaft</h2>
           <p class="network-description">Die StGallen imt Business School arbeitet mit führenden Unternehmen, renommierten Universitäten und Experten zusammen, um Ihnen das beste Weiterbildungserlebnis zu bieten.</p>
         </div>
         
@@ -2666,8 +2683,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- Teilnehmerstimmen -->
     <section class="content-section">
       <div class="container">
-        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Stimmen aus unserem Netzwerk</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Erfahrungen, Einblicke und Perspektiven aus unserem Netzwerk.</p>
+        <div class="network-intro testimonials">
+          <h2 class="network-title gradient-text-muted">Stimmen aus unserem Netzwerk</h2>
+          <p class="network-description">Erfahrungen, Einblicke und Perspektiven aus unserem Netzwerk.</p>
+        </div>
         
         <div class="gradient-quotes">
           <!-- Testimonial 1: Jonas Gillmann -->

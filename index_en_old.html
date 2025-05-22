@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="description" content="St.Gallen imt Business School offers premium management and executive education programs for your professional development. Executive education with practice-oriented programs and innovative learning methods."/>
+  <meta name="keywords" content="St.Gallen imt Business School, management, executive education, leadership, MBA, continuing education, executive development, Switzerland, St. Gallen, business school, management program, AI strategy, digital transformation"/>
   <title>StGallen imt Business School</title>
 
   <!-- ============ STYLES ============ -->
@@ -28,46 +30,31 @@
       margin: 0;
       padding: 0;
     }
-    
-    /* Ausblenden des Sprache-Elements außerhalb der Navigation auf Desktop-Größen */
-    @media (min-width: 1025px) {
-      body > .Sprache,
-      .nav-wrapper ~ .Sprache, 
-      body > div > .Sprache:not(.mobile-lang-section .Sprache),
-      nav ~ .Sprache,
-      div[class^="Sprache"],
-      span.Sprache,
-      #navigation-container ~ .Sprache,
-      #navigation-container ~ div:has(> .Sprache),
-      body > div:has(.Sprache):not(.nav-wrapper) {
-        display: none !important;
-      }
-    }
 
     body {
       font-family: var(--font-sans);
       color: var(--color-text);
-      background: #fff;
+      background: #fff !important;
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      /* Padding für fixierte Navigation */
+      /* Padding for fixed navigation */
       padding-top: 64px;
       transition: padding-top 0.3s ease;
     }
     
     /* When subnav is active, increase body padding */
     body.has-subnav {
-      padding-top: 110px; /* Reduziert von 120px auf 110px */
+      padding-top: 110px; /* Reduced from 120px to 110px */
     }
     
     @media (max-width: 1024px) {
       body.has-subnav {
-        padding-top: 64px; /* Auf mobile zurück zu standard padding */
+        padding-top: 64px; /* Back to standard padding on mobile */
       }
     }
 
-    /* Basis Styling für Container */
+    /* Basis Styling for Container */
     .container {
       max-width: var(--max-width);
       margin: 0 auto;
@@ -75,12 +62,12 @@
       width: 100%;
     }
 
-    /* Hauptinhalt der Seite */
+    /* Main content of the page */
     main {
       position: relative;
     }
 
-    /* Allgemeine Typografie */
+    /* General Typography */
     h1, h2, h3, h4, h5, h6 {
       margin-bottom: 1rem;
       font-weight: 600;
@@ -120,7 +107,7 @@
     /* Teaser Styles */
     .courses-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr); /* Nur 2 Karten pro Zeile */
+      grid-template-columns: repeat(2, 1fr); /* Only 2 cards per row */
       gap: 30px;
       max-width: 1080px;
       margin: 60px auto 40px;
@@ -131,14 +118,14 @@
       border-radius: 18px;
       overflow: hidden;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
-      transition: transform 0.2s ease, border 0.2s ease; /* Dezenterer Übergang */
+      transition: transform 0.2s ease, border 0.2s ease; /* Less dramatic transition */
       border: 2px solid transparent;
       display: flex;
       flex-direction: column;
     }
     
     .course-card:hover {
-      transform: translateY(-3px); /* Dezentere Bewegung nach oben */
+      transform: translateY(-3px); /* Slightly move up */
       border: 2px solid #7b4bec;
     }
     
@@ -248,13 +235,68 @@
     }
     
     .hero-btn-primary:hover .arrow-icon {
-      transform: translateX(3px);
+      transform: translateX(4px);
     }
 
     .section-intro {
       text-align: center;
       margin-bottom: 20px;
     }
+    
+    /* Fix for language dropdown display issues */
+    .mobile-lang-section {
+      margin-top: 15px;
+      padding: 15px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .lang-title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      color: rgba(255, 255, 255, 0.6);
+    }
+    
+    .mobile-lang-options {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .mobile-lang-option {
+      color: white;
+      text-decoration: none;
+      font-size: 0.9rem;
+      padding: 5px 0;
+      opacity: 0.7;
+      transition: opacity 0.2s ease;
+    }
+    
+    .mobile-lang-option.active {
+      opacity: 1;
+      font-weight: 600;
+      position: relative;
+    }
+    
+    .mobile-lang-option.active::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 2px;
+      background-color: white;
+    }
+    /* End of language display fix */
+    
+    /* Remove conflicting rule that hides the language switcher */
+    /*
+    .lang-title, 
+    .nav-wrapper .mobile-lang-section:not(.mobile-lang-options) {
+      display: none !important;
+    }
+    */
+    /* End of language display fix */
     
     .section-tag {
       display: inline-block;
@@ -289,7 +331,7 @@
       }
     }
 
-    /* Hero-Sektion */
+    /* Hero Section */
     .hero {
       background: linear-gradient(to bottom, #f9f9ff, #fff);
       padding: 80px 0 120px;
@@ -319,25 +361,16 @@
     .blob-1 {
       width: 500px;
       height: 500px;
-      background: rgba(110, 69, 226, 0.15);
+      background: rgba(110, 69, 226, 0.08);
       top: -150px;
       left: -100px;
       animation: blob-move-1 20s infinite alternate ease-in-out;
     }
 
-    .blob-2 {
-      width: 600px;
-      height: 600px;
-      background: rgba(76, 183, 150, 0.15);
-      bottom: -200px;
-      right: -100px;
-      animation: blob-move-2 25s infinite alternate ease-in-out;
-    }
-
     .blob-3 {
       width: 300px;
       height: 300px;
-      background: rgba(226, 178, 69, 0.1);
+      background: rgba(226, 178, 69, 0.05);
       top: 30%;
       right: 20%;
       animation: blob-move-3 15s infinite alternate ease-in-out;
@@ -346,11 +379,6 @@
     @keyframes blob-move-1 {
       0% { transform: translate(0, 0) scale(1); }
       100% { transform: translate(100px, 50px) scale(1.2); }
-    }
-
-    @keyframes blob-move-2 {
-      0% { transform: translate(0, 0) scale(1); }
-      100% { transform: translate(-100px, -70px) scale(1.3); }
     }
 
     @keyframes blob-move-3 {
@@ -365,51 +393,84 @@
       background-image: 
         linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
         linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
-      background-size: 20px 20px;
+      background-size: 20px 20px, 20px 20px;
       z-index: 1;
+      pointer-events: none;
     }
-
-    .layer-1 {
-      z-index: 1;
-    }
-
-    .layer-2 {
-      z-index: 2;
-    }
-
-    .layer-3 {
-      z-index: 3;
-    }
-
-    .circle {
+    .mesh-grid::after {
+      content: "";
       position: absolute;
+      left: 0; right: 0; top: 0; bottom: 0;
+      pointer-events: none;
+      background: linear-gradient(to bottom, transparent 70%, #fff 100%);
+    }
+
+    .hero-pattern {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(225, 225, 255, 0.6) 0%, rgba(255, 255, 255, 0) 70%);
       border-radius: 50%;
-      opacity: 0.5;
-      animation-duration: var(--duration, 20s);
-      animation-iteration-count: infinite;
-      animation-timing-function: linear;
-      animation-name: floating;
+      top: -100px;
+      left: -100px;
+      z-index: 0;
+    }
+
+    .hero-pattern-2 {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(244, 231, 255, 0.7) 0%, rgba(255, 255, 255, 0) 70%);
+      border-radius: 50%;
+      bottom: -100px;
+      right: -100px;
+      z-index: 0;
     }
     
-    @keyframes floating {
-      0% {
-        transform: translate(0, 0);
-      }
-      25% {
-        transform: translate(var(--move-x, 30px), var(--move-y, -20px));
-      }
-      50% {
-        transform: translate(var(--move-alt-x, -30px), var(--move-alt-y, 40px));
-      }
-      75% {
-        transform: translate(var(--move-x, 30px), var(--move-y, -20px));
-      }
-      100% {
-        transform: translate(0, 0);
-      }
+    /* Particle background */
+    .particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      opacity: 0.6;
+      pointer-events: none;
+      overflow: hidden;
     }
 
-    /* Rest des Hero-Styles beibehalten */
+    .particle {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background-color: var(--imt-purple);
+      border-radius: 50%;
+      opacity: 0.5;
+    }
+
+    .particle:nth-child(1) { top: 10%; left: 20%; animation: float1 15s infinite linear; }
+    .particle:nth-child(2) { top: 30%; left: 70%; animation: float2 20s infinite linear; }
+    .particle:nth-child(3) { top: 50%; left: 10%; animation: float3 18s infinite linear; }
+    .particle:nth-child(4) { top: 70%; left: 50%; animation: float4 12s infinite linear; }
+    .particle:nth-child(5) { top: 85%; left: 80%; animation: float5 16s infinite linear; }
+    .particle:nth-child(6) { top: 20%; left: 90%; animation: float6 14s infinite linear; }
+    .particle:nth-child(7) { top: 40%; left: 30%; animation: float7 22s infinite linear; }
+    .particle:nth-child(8) { top: 60%; left: 85%; animation: float8 19s infinite linear; }
+    .particle:nth-child(9) { top: 90%; left: 15%; animation: float9 21s infinite linear; }
+    .particle:nth-child(10) { top: 15%; left: 60%; animation: float10 17s infinite linear; }
+
+    @keyframes float1 { 0% { transform: translate(0, 0); } 50% { transform: translate(40px, 20px); } 100% { transform: translate(0, 0); } }
+    @keyframes float2 { 0% { transform: translate(0, 0); } 50% { transform: translate(-30px, 30px); } 100% { transform: translate(0, 0); } }
+    @keyframes float3 { 0% { transform: translate(0, 0); } 50% { transform: translate(20px, -20px); } 100% { transform: translate(0, 0); } }
+    @keyframes float4 { 0% { transform: translate(0, 0); } 50% { transform: translate(-20px, -10px); } 100% { transform: translate(0, 0); } }
+    @keyframes float5 { 0% { transform: translate(0, 0); } 50% { transform: translate(10px, 40px); } 100% { transform: translate(0, 0); } }
+    @keyframes float6 { 0% { transform: translate(0, 0); } 50% { transform: translate(-40px, 10px); } 100% { transform: translate(0, 0); } }
+    @keyframes float7 { 0% { transform: translate(0, 0); } 50% { transform: translate(30px, -30px); } 100% { transform: translate(0, 0); } }
+    @keyframes float8 { 0% { transform: translate(0, 0); } 50% { transform: translate(-15px, 25px); } 100% { transform: translate(0, 0); } }
+    @keyframes float9 { 0% { transform: translate(0, 0); } 50% { transform: translate(25px, -15px); } 100% { transform: translate(0, 0); } }
+    @keyframes float10 { 0% { transform: translate(0, 0); } 50% { transform: translate(-25px, -25px); } 100% { transform: translate(0, 0); } }
+
     .hero-content {
       text-align: center;
       position: relative;
@@ -441,7 +502,7 @@
       position: absolute;
       height: 12px;
       width: 60%;
-      background: linear-gradient(90deg, #222 60%, rgba(34,34,34,0.1) 100%);
+      background: linear-gradient(to right, var(--imt-purple), var(--color-accent2));
       bottom: -5px;
       left: 20%;
       z-index: -1;
@@ -660,7 +721,7 @@
       }
     }
 
-    /* Animierte Schweizer Flagge */
+    /* Animated Swiss Flag */
     .swiss-flag {
       display: inline-block;
       width: 20px;
@@ -765,7 +826,7 @@
       }
     }
 
-    /* Behalte den alten Code für .hero-button, damit bestehender Code nicht bricht */
+    /* Keep old code for .hero-button, so existing code doesn't break */
     .hero-button {
       display: inline-flex;
       align-items: center;
@@ -800,7 +861,7 @@
       margin-bottom: 40px;
     }
 
-    /* Responsive Anpassungen */
+    /* Responsive adjustments */
     @media (max-width: 768px) {
       h1 {
         font-size: 2rem;
@@ -825,7 +886,7 @@
 
     .tracks-variant-3 {
       padding: 80px 0;
-      background: #fff;
+      background: #fff !important;
       position: relative;
     }
     
@@ -1117,7 +1178,7 @@
 
     .network-section {
       padding: 100px 0;
-      background: linear-gradient(to bottom, #fff, #f9f9fa);
+      background: linear-gradient(to bottom, #fff, #f9f9fa) !important;
     }
     
     .network-intro {
@@ -1330,12 +1391,12 @@
       pointer-events: none;
     }
 
-    /* Teal-Farbe für Programme-Kategorie im Dropdown */
+    /* Teal color for Program category in dropdown */
     .select-category:nth-child(5) {
       color: #17a689;
     }
 
-    /* Direktes Ansprechen der Programm-Kategorie über Klasse */
+    /* Direct access to Program category via class */
     .programme-category {
       color: #17a689 !important;
     }
@@ -1345,36 +1406,36 @@
       border-top: 1px solid #eee;
     }
 
-    /* Teal Border bei Hover für Programme */
+    /* Teal border on hover for Programs */
     .track-card[data-category="programme"]:hover {
       border: 2px solid #17a689;
     }
 
-    /* Purple Border bei Hover für Managementseminare */
+    /* Purple border on hover for Management Seminars */
     .track-card[data-category="managementseminare"]:hover {
       border: 2px solid var(--imt-purple);
     }
 
-    /* Purple Button Hover für Managementseminare Filter */
+    /* Purple button hover for Management Seminars filter */
     .tracks-variant-3 .filter-btn[data-filter="managementseminare"]:hover {
       border-color: var(--imt-purple);
       color: var(--imt-purple);
     }
 
-    /* Purple Active Button für Managementseminare Filter */
+    /* Purple active button for Management Seminars filter */
     .tracks-variant-3 .filter-btn[data-filter="managementseminare"].active {
       background: var(--imt-purple);
       color: white;
       border-color: var(--imt-purple);
     }
 
-    /* Teal Button Hover für Programme Filter */
+    /* Teal button hover for Programs filter */
     .tracks-variant-3 .filter-btn[data-filter="programme"]:hover {
       border-color: #17a689;
       color: #17a689;
     }
 
-    /* Teal Active Button für Programme Filter */
+    /* Teal active button for Programs filter */
     .tracks-variant-3 .filter-btn[data-filter="programme"].active {
       background: #17a689;
       color: white;
@@ -1402,7 +1463,7 @@
 
     .sv-innovation-academy-section {
       padding: 80px 0;
-      background: #fff;
+      background: #fff !important;
     }
     
     .sv-gradient-teaser-v3 {
@@ -1714,8 +1775,8 @@
     .error-tooltip.visible {
       display: block;
     }
-    
-    /* ============ Gradientes Zitat-Layout ============ */
+
+    /* ============ Gradient Quote Layout ============ */
     .gradient-quotes {
       display: grid;
       grid-template-columns: repeat(2, 1fr); /* Changed to always show 2 columns */
@@ -1835,7 +1896,7 @@
     .gradient-info {
       display: flex;
       flex-direction: column;
-      margin-top: 6px; /* Verschiebt den Text nach unten für vertikale Zentrierung */
+      margin-top: 6px; /* Shifts the text down for vertical centering */
     }
     
     .gradient-name {
@@ -1886,46 +1947,13 @@
     .valley-seal {
       position: absolute;
       top: 30px;
-      right: 60px; /* Moved more to the left */
+      right: 60px;
       z-index: 10;
-      transition: transform 0.3s ease;
     }
     
     .valley-seal img {
-      width: 100px; /* Slightly larger */
+      width: 100px;
       height: auto;
-    }
-    
-    .valley-seal:hover {
-      transform: scale(1.05);
-    }
-    
-    .valley-seal::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(
-        90deg, 
-        rgba(255,255,255,0) 0%,
-        rgba(255,255,255,0.3) 50%,
-        rgba(255,255,255,0) 100%
-      );
-      transform: translateX(-100%) skewX(-25deg);
-      animation: sealShine 5s ease-in-out infinite;
-      pointer-events: none;
-      z-index: 11;
-    }
-    
-    @keyframes sealShine {
-      0%, 30% {
-        transform: translateX(-100%) skewX(-25deg);
-      }
-      95%, 100% {
-        transform: translateX(200%) skewX(-25deg);
-      }
     }
     
     /* Make space for seal in headline area without affecting layout */
@@ -1939,34 +1967,34 @@
     @media (max-width: 992px) {
       .valley-seal {
         top: 20px;
-        right: 35px; /* Adjusted leftward */
+        right: 35px;
       }
       
       .valley-seal img {
-        width: 90px; /* Slightly larger */
+        width: 90px;
       }
     }
     
     @media (max-width: 768px) {
       .valley-seal {
         top: 15px;
-        right: 25px; /* Adjusted leftward */
+        right: 25px;
       }
       
       .valley-seal img {
-        width: 75px; /* Slightly larger */
+        width: 75px;
       }
     }
     
     @media (max-width: 576px) {
       .valley-seal {
         position: absolute;
-        right: 15px; /* Slightly more to the left */
-        top: 10px; /* Keep at top */
+        right: 15px;
+        top: 10px;
       }
       
       .valley-seal img {
-        width: 55px; /* Slightly larger */
+        width: 55px;
       }
       
       /* Remove padding from headline so it displays normally */
@@ -1975,7 +2003,7 @@
       }
     }
 
-    /* Gallery styling for "Einblicke & Impressionen" section */
+    /* Gallery styling for "Insights & Impressions" section */
     .gallery {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -2002,6 +2030,17 @@
       object-fit: cover;
       transition: none;
     }
+    
+    /* Removed: 
+    .gallery-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+    */
     
     /* Positionsklassen */
     .item1 { grid-column: 1; grid-row: 1 / span 2; }
@@ -2048,361 +2087,27 @@
       }
     }
 
-    /* Impressionen Section */
-    #impressionen {
-      padding: 80px 0;
-      position: relative;
-    }
-    
-    #impressionen h2 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      font-weight: 600;
-      text-align: left !important;
-      color: var(--color-text);
-    }
-
-    /* ============ WEBINAR-SEKTION: MINIMAL TIMELINE ============ */
-    .webinar-section-2 {
-      padding: 80px 0;
-      background-color: white;
-    }
-
-    /* Überschreiben der alten Styles mit den korrekten Styles */
-    .webinar-intro-2 {
-      display: none; /* Diese Klasse nicht mehr verwenden */
-    }
-    
-    /* Exakte Kopie der Styles für Silicon Valley Innovation Academy */
-    .webinar-section-2 .tracks-header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    
-    .webinar-section-2 .tracks-title {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-      font-weight: 700;
-      text-align: center;
-    }
-    
-    .webinar-section-2 .tracks-subtitle {
-      font-size: 1.1rem;
-      color: var(--color-muted);
-      max-width: 700px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .webinar-timeline-2 {
-      max-width: 900px;
-      margin: 0 auto;
-      position: relative;
-    }
-
-    .webinar-timeline-2::before {
-      content: '';
+    /* Bild-Beschriftungen für die Galerie */
+    .img-caption {
       position: absolute;
-      height: 100%;
-      width: 2px;
-      background-color: #eaeaea;
+      bottom: 0;
       left: 0;
-      top: 0;
-    }
-
-    .webinar-item-2 {
-      display: flex;
-      margin-bottom: 30px;
-      position: relative;
-      padding-left: 30px;
-    }
-
-    .webinar-item-2::before {
-      content: '';
-      position: absolute;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background-color: white;
-      border: 3px solid var(--imt-purple);
-      left: -7px;
-      top: 22px;
-      z-index: 1;
-    }
-
-    .webinar-item-2.upcoming::before {
-      background-color: var(--imt-purple);
-    }
-
-    .webinar-date-2 {
-      min-width: 120px;
-      margin-right: 25px;
-      text-align: right;
-    }
-
-    .webinar-day-2 {
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--color-text);
-      margin-bottom: 5px;
-    }
-
-    .webinar-month-2 {
-      font-size: 14px;
-      color: var(--color-muted);
-      text-transform: uppercase;
-    }
-
-    .webinar-card-2 {
-      flex: 1;
-      background-color: #f8f8fa;
-      border-radius: 12px;
-      overflow: hidden;
-      transition: all 0.3s ease;
-      display: flex;
-      border: 2px solid transparent;
-    }
-
-    .webinar-card-2:hover {
-      border-color: var(--imt-purple);
-    }
-
-    .webinar-content-2 {
-      flex: 1;
-      padding: 20px;
-    }
-
-    .webinar-status-2 {
-      display: inline-block;
-      font-size: 12px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      padding: 4px 8px;
-      border-radius: 4px;
-      margin-bottom: 10px;
-    }
-
-    .webinar-status-2.upcoming {
-      background-color: rgba(110, 69, 226, 0.1);
-      color: var(--imt-purple);
-    }
-
-    .webinar-status-2.live {
-      background-color: rgba(255, 59, 48, 0.1);
-      color: #ff3b30;
-    }
-
-    .webinar-topic-2 {
-      font-size: 18px;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: var(--color-text);
-    }
-
-    .webinar-meta-2 {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      margin-bottom: 12px;
-    }
-
-    .webinar-meta-item-2 {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 13px;
-      color: var(--color-muted);
-    }
-
-    .webinar-meta-item-2 i {
-      font-size: 16px;
-      color: var(--imt-purple);
-    }
-
-    .webinar-presenter-2 {
+      right: 0;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 12px 16px;
+      font-size: 0.9rem;
       font-weight: 500;
-      color: var(--color-text);
-    }
-
-    .webinar-desc-2 {
-      font-size: 14px;
-      color: var(--color-muted);
-      margin-bottom: 15px;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-
-    .webinar-register-container-2 {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .webinar-action-2 {
-      flex: 1;
-    }
-
-    .webinar-register-2 {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--imt-purple);
-      padding: 6px 14px;
-      border: 1px solid var(--imt-purple);
-      border-radius: 6px;
-      transition: all 0.2s ease;
-      background-color: transparent;
-    }
-
-    .webinar-register-2:hover {
-      background-color: var(--imt-purple);
-      color: white;
-      text-decoration: none;
-    }
-
-    .webinar-price-2 {
-      font-size: 14px;
-      font-weight: 500;
-    }
-
-    .webinar-price-2.free {
-      color: var(--imt-green);
-    }
-
-    .webinar-price-2.paid {
-      color: var(--color-text);
-    }
-
-    .webinar-image-2 {
-      width: 100px;
-      flex-shrink: 0;
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-    }
-
-    .webinar-all-2 {
       text-align: center;
-      margin-top: 40px;
+      border-bottom-left-radius: 24px;
+      border-bottom-right-radius: 24px;
     }
-
-    .view-all-webinars-2 {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      font-size: 16px;
-      font-weight: 500;
-      color: white;
-      background-color: var(--imt-purple);
-      padding: 12px 24px;
-      border-radius: 30px;
-      transition: all 0.2s ease;
-    }
-
-    .view-all-webinars-2:hover {
-      background-color: #5c36cd;
-      transform: translateY(-2px);
-      text-decoration: none;
-    }
-
+    
+    /* Responsive Anpassungen für Bildunterschriften */
     @media (max-width: 768px) {
-      .webinar-item-2 {
-        flex-direction: column;
+      .img-caption {
+        padding: 8px 12px;
+        font-size: 0.85rem;
       }
-      
-      .webinar-date-2 {
-        margin-right: 0;
-        margin-bottom: 15px;
-        text-align: left;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-      
-      .webinar-day-2 {
-        margin-bottom: 0;
-      }
-      
-      .webinar-card-2 {
-        flex-direction: column;
-      }
-      
-      .webinar-image-2 {
-        width: 100%;
-        height: 120px;
-      }
-    }
-
-    /* Pagination Styles */
-    .webinar-pagination {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 40px;
-    }
-
-    .pagination-button {
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      border: none;
-      background-color: #f5f5f7;
-      color: var(--color-text);
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .pagination-button:hover {
-      background-color: #e5e5e7;
-    }
-
-    .pagination-button.active {
-      background-color: var(--imt-purple);
-      color: white;
-    }
-
-    .pagination-button.nav {
-      background-color: transparent;
-      border: 1px solid #e5e5e7;
-    }
-
-    .pagination-button.nav:hover {
-      background-color: #f5f5f7;
-    }
-
-    .pagination-button.disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-
-    .webinar-item-2 {
-      display: none; /* Standardmäßig ausblenden */
-    }
-
-    .webinar-item-2.visible {
-      display: flex; /* Nur sichtbare anzeigen */
-    }
-
-    .webinar-pagination {
-      display: flex; /* Pagination immer anzeigen */
-    }
-
-    .webinar-all-2 {
-      display: none; /* "Alle anzeigen" Button ausblenden */
-    }
-
-    .gradient-text-muted {
-      color: #6e6e73;
     }
   </style>
 
@@ -2443,48 +2148,47 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <!-- Gradient Mesh Animation Container -->
       <div class="mesh-container">
         <div class="gradient-blob blob-1"></div>
-        <div class="gradient-blob blob-2"></div>
         <div class="gradient-blob blob-3"></div>
         <div class="mesh-grid"></div>
       </div>
-
       <div class="container">
         <div class="hero-content">
           <span class="hero-eyebrow">
             StGallen imt Business School
           </span>
-          <h1 class="hero-title">Weiterbildung für Exzellenz in Management und Technologie</h1>
-          <p class="hero-subtitle">Gestalten Sie Ihre berufliche Zukunft im St. Gallen Management Valley – mit fundierter Weiterbildung zwischen Management und Technologie.</p>
+          <h1 class="hero-title">Executive Education for Excellence in Management and Technology</h1>
+          <p class="hero-subtitle">Advance your career in the St. Gallen Management Valley – with rigorous executive education in management and technology..</p>
           
           <div class="hero-actions">
             <div class="program-selector">
               <div class="tooltip-container">
-                <div class="error-tooltip">Bitte wählen Sie eine Weiterbildung aus</div>
+                <div class="error-tooltip">Please select an Executive Education Program</div>
                 <div class="custom-select">
-                  <div class="select-selected">Wählen Sie Ihre Weiterbildung</div>
+                  <div class="select-selected">Explore our Executive Education Programs</div>
                   <div class="select-items select-hide">
-                    <div class="select-category">Managementseminare</div>
-                    <div class="select-item" data-value="integrated_management_strategy.html">Integrated Management and Strategy</div>
-                    <div class="select-item" data-value="financial_management.html">Financial Management</div>
-                    <div class="select-item" data-value="inspirational_leadership.html">Inspirational Leadership</div>
-                    <div class="select-item" data-value="marketing_sales_brand_communication.html">Marketing, Sales and Brand Communication</div>
-                    <div class="select-item" data-value="intelligent_process_automation.html">Intelligent Process Automation</div>
-                    <div class="select-item" data-value="ai_augmented_decision_making.html">KI-Augmented Decision Making</div>
-                    <div class="select-category programme-category">Programme</div>
-                    <div class="select-item" data-value="management_programm.html">StGallen Management Programm</div>
-                    <div class="select-item" data-value="management_programm_cas.html">StGallen Certified Management CAS</div>
-                    <div class="select-item" data-value="ki_excellence_programm.html">StGallen AI Excellence Management Programm</div>
-                    <div class="select-item" data-value="fast_track_mba.html">StGallen Fast Track MBA Programm</div>
+                    <div class="select-category">Management Seminars</div>
+                    <div class="select-item" data-value="integrated_management_strategy_en.html">Integrated Management and Strategy</div>
+                    <div class="select-item" data-value="financial_management_en.html">Financial Management</div>
+                    <div class="select-item" data-value="inspirational_leadership_en.html">Inspirational Leadership</div>
+                    <div class="select-item" data-value="marketing_sales_brand_communication_en.html">Marketing, Sales and Brand Communication</div>
+                    <div class="select-item" data-value="intelligent_process_automation_en.html">Intelligent Process Automation</div>
+                    <div class="select-item" data-value="ki_business_strategy_digital_transformation_en.html">AI in Business Strategy &amp; Digital Transformation</div>
+                    <div class="select-item" data-value="ki_augmented_decision_making_en.html">AI-Augmented Decision Making</div>
+                    <div class="select-category programme-category">Programs</div>
+                    <div class="select-item" data-value="management_programm_en.html">StGallen Management Program</div>
+                    <div class="select-item" data-value="management_programm_cas_en.html">StGallen Certified Management CAS</div>
+                    <div class="select-item" data-value="ki_excellence_programm_en.html">StGallen AI Excellence Management Programm</div>
+                    <div class="select-item" data-value="fast_track_mba_en.html">StGallen Fast Track MBA Program</div>
                   </div>
                 </div>
               </div>
             </div>
             <a href="#" class="hero-btn hero-btn-primary" id="program-link">
-              Mehr erfahren <span class="arrow-icon">→</span>
+              Learn more <span class="arrow-icon">→</span>
             </a>
           </div>
           
-          <p class="hero-brands-text">Vertrauen unserer Kompetenz</p>
+          <p class="hero-brands-text">Trusted by</p>
           <div class="hero-brands" id="random-logos">
             <!-- Company logos will be loaded dynamically -->
           </div>
@@ -2496,14 +2200,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <section class="tracks-variant-3">
       <div class="container">
         <div class="tracks-header">
-          <h2 class="tracks-title">Unsere Weiterbildungen</h2>
-          <p class="tracks-subtitle">Entdecken Sie unsere praxisorientierten Weiterbildungen, die Management-Know-how mit Technologie-Kompetenz verbinden</p>
+          <h2 class="tracks-title">Our Executive Education Programs</h2>
+          <p class="tracks-subtitle">Discover our practice-oriented Executive Education programs that combine management expertise with technology competence</p>
         </div>
         
         <div class="track-filters">
-          <button class="filter-btn active" data-filter="alle">Alle</button>
-          <button class="filter-btn" data-filter="managementseminare">Managementseminare</button>
-          <button class="filter-btn" data-filter="programme">Programme</button>
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="managementseminare">Management Seminars</button>
+          <button class="filter-btn" data-filter="programme">Programs</button>
         </div>
         
         <div class="tracks-container">
@@ -2512,7 +2216,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="track-card" data-category="managementseminare">
               <a href="integrated_management_strategy.html" class="card-link" aria-label="Integrated Management and Strategy Details"></a>
               <div class="card-header">
-                <span class="track-category category-strategy">Managementseminar</span>
+                <span class="track-category category-strategy">Management Seminar</span>
                 <h3 class="track-title">Integrated Management and Strategy</h3>
               </div>
               <div class="card-body">
@@ -2523,15 +2227,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   </div>
                   <div class="card-row">
                     <i class="bx bx-time"></i>
-                    <span>3 Tage, optional mit ECTS</span>
+                    <span>3 days, optional with ECTS</span>
                   </div>
                   <div class="card-row">
                     <i class="bx bx-money"></i>
-                    <span>CHF 2'400 zzgl. 8,1 % MwSt.</span>
+                    <span>CHF 2,400 excl. 8.1% VAT</span>
                   </div>
                 </div>
-                <p class="track-description">Lernen Sie, integriertes Management wirksam einzusetzen – für strategische Ausrichtung, erfolgreiche Transformation und den nachhaltigen Einsatz von KI.</p>
-                <a href="integrated_management_strategy.html" class="track-link" style="position: relative; z-index: 2;">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
+                <p class="track-description">Learn how to effectively implement integrated management – for strategic alignment, successful transformation, and the sustainable use of AI.</p>
+                <a href="integrated_management_strategy.html" class="track-link" style="position: relative; z-index: 2;">Learn more <i class="bx bx-right-arrow-alt"></i></a>
               </div>
             </div>
             
@@ -2539,7 +2243,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="track-card" data-category="managementseminare">
               <a href="financial_management.html" class="card-link" aria-label="Financial Management Details"></a>
               <div class="card-header">
-                <span class="track-category category-strategy">Managementseminar</span>
+                <span class="track-category category-strategy">Management Seminar</span>
                 <h3 class="track-title">Financial Management</h3>
               </div>
               <div class="card-body">
@@ -2550,15 +2254,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   </div>
                   <div class="card-row">
                     <i class="bx bx-time"></i>
-                    <span>3 Tage, optional mit ECTS</span>
+                    <span>3 days, optional with ECTS</span>
                   </div>
                   <div class="card-row">
                     <i class="bx bx-money"></i>
-                    <span>CHF 2'400 zzgl. 8,1 % MwSt.</span>
+                    <span>CHF 2,400 excl. 8.1% VAT</span>
                   </div>
                 </div>
-                <p class="track-description">Entwickeln Sie finanzielle Entscheidungskompetenz, um strategisches Wachstum gezielt zu steuern.</p>
-                <a href="financial_management.html" class="track-link" style="position: relative; z-index: 2;">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
+                <p class="track-description">Develop financial decision-making competence to strategically direct growth.</p>
+                <a href="financial_management.html" class="track-link" style="position: relative; z-index: 2;">Learn more <i class="bx bx-right-arrow-alt"></i></a>
               </div>
             </div>
             
@@ -2566,7 +2270,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="track-card" data-category="managementseminare">
               <a href="inspirational_leadership.html" class="card-link" aria-label="Inspirational Leadership Details"></a>
               <div class="card-header">
-                <span class="track-category category-strategy">Managementseminar</span>
+                <span class="track-category category-strategy">Management Seminar</span>
                 <h3 class="track-title">Inspirational Leadership</h3>
               </div>
               <div class="card-body">
@@ -2577,15 +2281,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   </div>
                   <div class="card-row">
                     <i class="bx bx-time"></i>
-                    <span>3 Tage, optional mit ECTS</span>
+                    <span>3 days, optional with ECTS</span>
                   </div>
                   <div class="card-row">
                     <i class="bx bx-money"></i>
-                    <span>CHF 2'400 zzgl. 8,1 % MwSt.</span>
+                    <span>CHF 2,400 excl. 8.1% VAT</span>
                   </div>
                 </div>
-                <p class="track-description">Entwickeln Sie Ihre Führungspersönlichkeit für klare, empathische und strategische Führung in Zeiten digitaler und KI-getriebener Veränderung.</p>
-                <a href="inspirational_leadership.html" class="track-link" style="position: relative; z-index: 2;">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
+                <p class="track-description">Develop your leadership personality for clear, empathetic, and strategic leadership in times of digital and AI-driven change..</p>
+                <a href="inspirational_leadership.html" class="track-link" style="position: relative; z-index: 2;">Learn more <i class="bx bx-right-arrow-alt"></i></a>
               </div>
             </div>
             
@@ -2593,7 +2297,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="track-card" data-category="managementseminare">
               <a href="marketing_sales_brand_communication.html" class="card-link" aria-label="Marketing, Sales and Brand Communication Details"></a>
               <div class="card-header">
-                <span class="track-category category-strategy">Managementseminar</span>
+                <span class="track-category category-strategy">Management Seminar</span>
                 <h3 class="track-title">Marketing, Sales and Brand Communication</h3>
               </div>
               <div class="card-body">
@@ -2604,15 +2308,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   </div>
                   <div class="card-row">
                     <i class="bx bx-time"></i>
-                    <span>3 Tage, optional mit ECTS</span>
+                    <span>3 days, optional with ECTS</span>
                   </div>
                   <div class="card-row">
                     <i class="bx bx-money"></i>
-                    <span>CHF2'400 zzgl. 8,1 % MwSt.</span>
+                    <span>CHF 2,400 excl. 8.1% VAT</span>
                   </div>
                 </div>
-                <p class="track-description">Lernen Sie, wie Sie Marketing und Vertrieb mit Strategie und KI wirkungsvoll für nachhaltigen Markterfolg einsetzen.</p>
-                <a href="marketing_sales_brand_communication.html" class="track-link" style="position: relative; z-index: 2;">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
+                <p class="track-description">Learn how to effectively use marketing and sales with strategy and AI for sustainable market success.</p>
+                <a href="marketing_sales_brand_communication.html" class="track-link" style="position: relative; z-index: 2;">Learn more <i class="bx bx-right-arrow-alt"></i></a>
               </div>
             </div>
             
@@ -2620,7 +2324,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="track-card" data-category="managementseminare">
               <a href="intelligent_process_automation.html" class="card-link" aria-label="Intelligent Process Automation Details"></a>
               <div class="card-header">
-                <span class="track-category category-strategy">Managementseminar</span>
+                <span class="track-category category-strategy">Management Seminar</span>
                 <h3 class="track-title">Intelligent Process Automation</h3>
               </div>
               <div class="card-body">
@@ -2631,24 +2335,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   </div>
                   <div class="card-row">
                     <i class="bx bx-time"></i>
-                    <span>3 Tage, optional mit ECTS</span>
+                    <span>3 days, optional with ECTS</span>
                   </div>
                   <div class="card-row">
                     <i class="bx bx-money"></i>
-                    <span>CHF 2'400 zzgl. 8,1 % MwSt.</span>
+                    <span>CHF 2,400 excl. 8.1% VAT</span>
                   </div>
                 </div>
-                <p class="track-description">Lernen Sie, wie intelligente Prozessautomatisierung Ihnen helfen, Ressourcen effizienter zu gestalten und Ihr Unternehmen zu optimieren.</p>
-                <a href="intelligent_process_automation.html" class="track-link" style="position: relative; z-index: 2;">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
+                <p class="track-description">Learn how intelligent process automation can make your company more efficient and optimize resources.</p>
+                <a href="intelligent_process_automation.html" class="track-link" style="position: relative; z-index: 2;">Learn more <i class="bx bx-right-arrow-alt"></i></a>
               </div>
             </div>
             
             <!-- Card 6 -->
             <div class="track-card" data-category="managementseminare">
-              <a href="ai_augmented_decision_making.html" class="card-link" aria-label="KI-Augmented Decision Making Details"></a>
+              <a href="ai_augmented_decision_making.html" class="card-link" aria-label="AI-Augmented Decision Making Details"></a>
               <div class="card-header">
-                <span class="track-category category-strategy">Managementseminar</span>
-                <h3 class="track-title">KI-Augmented Decision Making</h3>
+                <span class="track-category category-strategy">Management Seminar</span>
+                <h3 class="track-title">AI-Augmented Decision Making</h3>
               </div>
               <div class="card-body">
                 <div class="info-section">
@@ -2658,24 +2362,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   </div>
                   <div class="card-row">
                     <i class="bx bx-time"></i>
-                    <span>3 Tage, optional mit ECTS</span>
+                    <span>3 days, optional with ECTS</span>
                   </div>
                   <div class="card-row">
                     <i class="bx bx-money"></i>
-                    <span>CHF 2'400 zzgl. 8,1 % MwSt.</span>
+                    <span>CHF 2,400 excl. 8.1% VAT</span>
                   </div>
                 </div>
-                <p class="track-description">Lernen Sie, wie KI-gestützte Entscheidungsprozesse Ihnen helfen, fundiertere und effektivere Entscheidungen zu treffen.</p>
-                <a href="ai_augmented_decision_making.html" class="track-link" style="position: relative; z-index: 2;">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
+                <p class="track-description">Learn how AI-supported decision-making processes can help you make more informed and effective decisions.</p>
+                <a href="ai_augmented_decision_making.html" class="track-link" style="position: relative; z-index: 2;">Learn more <i class="bx bx-right-arrow-alt"></i></a>
               </div>
             </div>
             
-            <!-- Card 7: Programm - StGallen Management Programm -->
+            <!-- Card 7: Program - StGallen Management Program -->
             <div class="track-card" data-category="programme">
-              <a href="management_programm.html" class="card-link" aria-label="StGallen Management Programm Details"></a>
+              <a href="management_programm.html" class="card-link" aria-label="StGallen Management Program Details"></a>
               <div class="card-header">
-                <span class="track-category category-program">Programm</span>
-                <h3 class="track-title">StGallen Management Programm</h3>
+                <span class="track-category category-program">Program</span>
+                <h3 class="track-title">StGallen Management Program</h3>
               </div>
               <div class="card-body">
                 <div class="info-section">
@@ -2685,23 +2389,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   </div>
                   <div class="card-row">
                     <i class="bx bx-time"></i>
-                    <span>4*3 Tage</span>
+                    <span>4*3 days</span>
                   </div>
                   <div class="card-row">
                     <i class="bx bx-money"></i>
-                    <span>CHF 8'400 zzgl. 8,1 % MwSt.</span>
+                    <span>CHF 8,400 excl. 8.1% VAT</span>
                   </div>
                 </div>
-                <p class="track-description">Umfassendes Programm zur Integration von Management-Know-how mit praxisorientierten Ansätzen und zertifiziertem Abschluss.</p>
-                <a href="management_programm.html" class="track-link" style="position: relative; z-index: 2;">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
+                <p class="track-description">Comprehensive program for integrating management expertise with practice-oriented approaches and certified completion.</p>
+                <a href="management_programm.html" class="track-link" style="position: relative; z-index: 2;">Learn more <i class="bx bx-right-arrow-alt"></i></a>
               </div>
             </div>
             
-            <!-- Card 8: Programm - Certified Management CAS -->
+            <!-- Card 8: Program - Certified Management CAS -->
             <div class="track-card" data-category="programme">
               <a href="management_programm_cas.html" class="card-link" aria-label="StGallen Certified Management CAS Details"></a>
               <div class="card-header">
-                <span class="track-category category-program">Programm</span>
+                <span class="track-category category-program">Program</span>
                 <h3 class="track-title">StGallen Certified Management CAS</h3>
               </div>
               <div class="card-body">
@@ -2712,24 +2416,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   </div>
                   <div class="card-row">
                     <i class="bx bx-time"></i>
-                    <span>4*3 Tage plus 4 Tage hybrid</span>
+                    <span>4*3 days plus 4 days hybrid</span>
                   </div>
                   <div class="card-row">
                     <i class="bx bx-money"></i>
-                    <span>CHF 12'400 zzgl. 8,1 % MwSt.</span>
+                    <span>CHF 12,400 excl. 8.1% VAT</span>
                   </div>
                 </div>
-                <p class="track-description">Certificate of Advanced Studies mit vertieftem Management-Know-how und anerkanntem akademischen Abschluss.</p>
-                <a href="management_programm_cas.html" class="track-link" style="position: relative; z-index: 2;">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
+                <p class="track-description">Certificate of Advanced Studies with in-depth management expertise and recognized academic qualification.</p>
+                <a href="management_programm_cas.html" class="track-link" style="position: relative; z-index: 2;">Learn more <i class="bx bx-right-arrow-alt"></i></a>
               </div>
             </div>
             
-            <!-- Card 9: Programm - AI Excellence Management Programm -->
+            <!-- Card 9: Program - AI Excellence Management Program -->
             <div class="track-card" data-category="programme">
-              <a href="ki_excellence_programm.html" class="card-link" aria-label="StGallen AI Excellence Management Programm Details"></a>
+              <a href="ki_excellence_programm.html" class="card-link" aria-label="StGallen AI Excellence Management Program Details"></a>
               <div class="card-header">
-                <span class="track-category category-program">Programm</span>
-                <h3 class="track-title">StGallen AI Excellence Management Programm</h3>
+                <span class="track-category category-program">Program</span>
+                <h3 class="track-title">StGallen AI Excellence Management Program</h3>
               </div>
               <div class="card-body">
                 <div class="info-section">
@@ -2739,24 +2443,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   </div>
                   <div class="card-row">
                     <i class="bx bx-time"></i>
-                    <span>4*3 Tage</span>
+                    <span>4*3 days</span>
                   </div>
                   <div class="card-row">
                     <i class="bx bx-money"></i>
-                    <span>CHF 8'400 zzgl. 8,1 % MwSt.</span>
+                    <span>CHF 8,400 excl. 8.1% VAT</span>
                   </div>
                 </div>
-                <p class="track-description">Spezialisiertes Programm zur Integration künstlicher Intelligenz in das Management mit Zertifizierung.</p>
-                <a href="ki_excellence_programm.html" class="track-link" style="position: relative; z-index: 2;">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
+                <p class="track-description">Specialized program for integrating artificial intelligence into management with certification.</p>
+                <a href="ki_excellence_programm.html" class="track-link" style="position: relative; z-index: 2;">Learn more <i class="bx bx-right-arrow-alt"></i></a>
               </div>
             </div>
             
-            <!-- Card 10: Programm - Fast-Track MBA -->
+            <!-- Card 10: Program - Fast-Track MBA -->
             <div class="track-card" data-category="programme">
-              <a href="fast_track_mba.html" class="card-link" aria-label="StGallen Fast Track MBA Programm Details"></a>
+              <a href="fast_track_mba.html" class="card-link" aria-label="StGallen Fast Track MBA Program Details"></a>
               <div class="card-header">
-                <span class="track-category category-program">Programm</span>
-                <h3 class="track-title">StGallen Fast Track MBA Programm</h3>
+                <span class="track-category category-program">Program</span>
+                <h3 class="track-title">StGallen Fast Track MBA Program</h3>
               </div>
               <div class="card-body">
                 <div class="info-section">
@@ -2766,15 +2470,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   </div>
                   <div class="card-row">
                     <i class="bx bx-time"></i>
-                    <span>7x3-4 Tage plus 7 Tage hybrid</span>
+                    <span>7x3-4 days plus 4 days hybrid</span>
                   </div>
                   <div class="card-row">
                     <i class="bx bx-money"></i>
-                    <span>CHF 24'900 zzgl. 8,1 % MwSt.</span>
+                    <span>CHF 24,900 excl. 8.1% VAT</span>
                   </div>
                 </div>
-                <p class="track-description">Beschleunigtes MBA-Programm mit Fokus auf Management und Technologie für aufstrebende Führungskräfte.</p>
-                <a href="fast_track_mba.html" class="track-link" style="position: relative; z-index: 2;">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
+                <p class="track-description">Accelerated MBA program focusing on management and technology for aspiring executives.</p>
+                <a href="fast_track_mba.html" class="track-link" style="position: relative; z-index: 2;">Learn more <i class="bx bx-right-arrow-alt"></i></a>
               </div>
             </div>
           </div>
@@ -2791,393 +2495,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </section>
 
-        <!-- Webinar-Sektion -->
-    <section class="webinar-section-2">
-      <div class="container">
-        <div class="tracks-header">
-          <h2 class="tracks-title">Kommende Webinare</h2>
-          <p class="tracks-subtitle">Nehmen Sie an unseren Experten-Webinaren teil, um Einblicke und Fähigkeiten zu gewinnen, die Ihre berufliche Entwicklung voranbringen.</p>
-        </div>
-        
-        <div class="webinar-timeline-2">
-          <!-- Webinar Item 1 -->
-          <div class="webinar-item-2 upcoming">
-            <div class="webinar-date-2">
-              <div class="webinar-day-2">15</div>
-              <div class="webinar-month-2">Juni</div>
-            </div>
-            
-            <div class="webinar-card-2">
-              <div class="webinar-content-2">
-                <span class="webinar-status-2 live">Live</span>
-                <h3 class="webinar-topic-2">KI für Unternehmensstrategien: Implementierung und ROI</h3>
-                
-                <div class="webinar-meta-2">
-                  <div class="webinar-meta-item-2">
-                    <i class='bx bx-time'></i>
-                    <span>14:00 - 15:30 Uhr MEZ</span>
-                  </div>
-                  <div class="webinar-meta-item-2">
-                    <i class='bx bx-timer'></i>
-                    <span>90 Minuten</span>
-                  </div>
-                  <div class="webinar-meta-item-2">
-                    <i class='bx bx-user'></i>
-                    <span class="webinar-presenter-2">Dr. Martin Weber</span>
-                  </div>
-                </div>
-                
-                <p class="webinar-desc-2">Erfahren Sie, wie Sie KI-Lösungen effektiv in Ihrer Unternehmensstrategie implementieren und den Return on Investment messen können. Dieses Webinar behandelt praktische Ansätze, Fallstudien und bewährte Methoden.</p>
-                
-                <div class="webinar-register-container-2">
-                  <div class="webinar-action-2">
-                    <a href="#" class="webinar-register-2">
-                      Jetzt anmelden
-                      <i class='bx bx-right-arrow-alt'></i>
-                    </a>
-                  </div>
-                  <span class="webinar-price-2 free">Kostenlos</span>
-                </div>
-              </div>
-              
-              <div class="webinar-image-2" style="background-image: url('https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')"></div>
-            </div>
-          </div>
-          
-          <!-- Webinar Item 2 -->
-          <div class="webinar-item-2">
-            <div class="webinar-date-2">
-              <div class="webinar-day-2">22</div>
-              <div class="webinar-month-2">Juni</div>
-            </div>
-            
-            <div class="webinar-card-2">
-              <div class="webinar-content-2">
-                <span class="webinar-status-2 upcoming">Bevorstehend</span>
-                <h3 class="webinar-topic-2">Digitale Transformation: Jenseits der Technologie</h3>
-                
-                <div class="webinar-meta-2">
-                  <div class="webinar-meta-item-2">
-                    <i class='bx bx-time'></i>
-                    <span>10:00 - 11:30 Uhr MEZ</span>
-                  </div>
-                  <div class="webinar-meta-item-2">
-                    <i class='bx bx-timer'></i>
-                    <span>90 Minuten</span>
-                  </div>
-                  <div class="webinar-meta-item-2">
-                    <i class='bx bx-user'></i>
-                    <span class="webinar-presenter-2">Prof. Sarah Johnson</span>
-                  </div>
-                </div>
-                
-                <p class="webinar-desc-2">Entdecken Sie, warum erfolgreiche digitale Transformation mehr als nur Technologie erfordert. Dieses Webinar untersucht die kulturellen, organisatorischen und Führungsaspekte, die für den digitalen Erfolg entscheidend sind.</p>
-                
-                <div class="webinar-register-container-2">
-                  <div class="webinar-action-2">
-                    <a href="#" class="webinar-register-2">
-                      Jetzt anmelden
-                      <i class='bx bx-right-arrow-alt'></i>
-                    </a>
-                  </div>
-                  <span class="webinar-price-2 paid">CHF 49</span>
-                </div>
-              </div>
-              
-              <div class="webinar-image-2" style="background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80')"></div>
-            </div>
-          </div>
-          
-          <!-- Webinar Item 3 -->
-          <div class="webinar-item-2">
-            <div class="webinar-date-2">
-              <div class="webinar-day-2">28</div>
-              <div class="webinar-month-2">Juni</div>
-            </div>
-            
-            <div class="webinar-card-2">
-              <div class="webinar-content-2">
-                <span class="webinar-status-2 upcoming">Bevorstehend</span>
-                <h3 class="webinar-topic-2">Führung im digitalen Zeitalter: Neue Kompetenzen</h3>
-                
-                <div class="webinar-meta-2">
-                  <div class="webinar-meta-item-2">
-                    <i class='bx bx-time'></i>
-                    <span>15:00 - 16:30 Uhr MEZ</span>
-                  </div>
-                  <div class="webinar-meta-item-2">
-                    <i class='bx bx-timer'></i>
-                    <span>90 Minuten</span>
-                  </div>
-                  <div class="webinar-meta-item-2">
-                    <i class='bx bx-user'></i>
-                    <span class="webinar-presenter-2">Dr. Michael Schmidt</span>
-                  </div>
-                </div>
-                
-                <p class="webinar-desc-2">Entdecken Sie die wesentlichen Führungskompetenzen, die in der heutigen digitalen Geschäftswelt benötigt werden. Lernen Sie, wie Sie Ihren Führungsstil anpassen und die Fähigkeiten entwickeln können, die am wichtigsten sind.</p>
-                
-                <div class="webinar-register-container-2">
-                  <div class="webinar-action-2">
-                    <a href="#" class="webinar-register-2">
-                      Jetzt anmelden
-                      <i class='bx bx-right-arrow-alt'></i>
-                    </a>
-                  </div>
-                  <span class="webinar-price-2 free">Kostenlos</span>
-                </div>
-              </div>
-              
-              <div class="webinar-image-2" style="background-image: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')"></div>
-            </div>
-          </div>
-
-          <!-- Webinar Item 4 -->
-          <div class="webinar-item-2">
-            <div class="webinar-date-2">
-              <div class="webinar-day-2">10</div>
-              <div class="webinar-month-2">Juli</div>
-            </div>
-            
-            <div class="webinar-card-2">
-              <div class="webinar-content-2">
-                <span class="webinar-status-2 upcoming">Bevorstehend</span>
-                <h3 class="webinar-topic-2">KI im Marketing: Strategien und Anwendungsfälle</h3>
-                
-                <div class="webinar-meta-2">
-                  <div class="webinar-meta-item-2">
-                    <i class='bx bx-time'></i>
-                    <span>11:00 - 12:30 Uhr MEZ</span>
-                  </div>
-                  <div class="webinar-meta-item-2">
-                    <i class='bx bx-timer'></i>
-                    <span>90 Minuten</span>
-                  </div>
-                  <div class="webinar-meta-item-2">
-                    <i class='bx bx-user'></i>
-                    <span class="webinar-presenter-2">Prof. Laura Müller</span>
-                  </div>
-                </div>
-                
-                <p class="webinar-desc-2">Erfahren Sie, wie künstliche Intelligenz das Marketing revolutioniert. Dieses Webinar behandelt praktische Anwendungsfälle, Implementierungsstrategien und zukünftige Entwicklungen im KI-gestützten Marketing.</p>
-                
-                <div class="webinar-register-container-2">
-                  <div class="webinar-action-2">
-                    <a href="#" class="webinar-register-2">
-                      Jetzt anmelden
-                      <i class='bx bx-right-arrow-alt'></i>
-                    </a>
-                  </div>
-                  <span class="webinar-price-2 paid">CHF 49</span>
-                </div>
-              </div>
-              
-              <div class="webinar-image-2" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')"></div>
-            </div>
-          </div>
-
-          <!-- Webinar Item 5 -->
-          <div class="webinar-item-2">
-            <div class="webinar-date-2">
-              <div class="webinar-day-2">18</div>
-              <div class="webinar-month-2">Juli</div>
-            </div>
-            
-            <div class="webinar-card-2">
-              <div class="webinar-content-2">
-                <span class="webinar-status-2 upcoming">Bevorstehend</span>
-                <h3 class="webinar-topic-2">Nachhaltige Geschäftsmodelle entwickeln</h3>
-                
-                <div class="webinar-meta-2">
-                  <div class="webinar-meta-item-2">
-                    <i class='bx bx-time'></i>
-                    <span>14:00 - 15:30 Uhr MEZ</span>
-                  </div>
-                  <div class="webinar-meta-item-2">
-                    <i class='bx bx-timer'></i>
-                    <span>90 Minuten</span>
-                  </div>
-                  <div class="webinar-meta-item-2">
-                    <i class='bx bx-user'></i>
-                    <span class="webinar-presenter-2">Dr. Thomas Berger</span>
-                  </div>
-                </div>
-                
-                <p class="webinar-desc-2">Lernen Sie, wie Sie Nachhaltigkeit in Ihr Geschäftsmodell integrieren können. Dieses Webinar behandelt die neuesten Trends, regulatorische Anforderungen und erfolgreiche Fallstudien nachhaltiger Unternehmen.</p>
-                
-                <div class="webinar-register-container-2">
-                  <div class="webinar-action-2">
-                    <a href="#" class="webinar-register-2">
-                      Jetzt anmelden
-                      <i class='bx bx-right-arrow-alt'></i>
-                    </a>
-                  </div>
-                  <span class="webinar-price-2 free">Kostenlos</span>
-                </div>
-              </div>
-              
-              <div class="webinar-image-2" style="background-image: url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1290&q=80')"></div>
-            </div>
-          </div>
-
-          <!-- Webinar Item 6 -->
-          <div class="webinar-item-2">
-            <div class="webinar-date-2">
-              <div class="webinar-day-2">25</div>
-              <div class="webinar-month-2">Juli</div>
-            </div>
-            
-            <div class="webinar-card-2">
-              <div class="webinar-content-2">
-                <span class="webinar-status-2 upcoming">Bevorstehend</span>
-                <h3 class="webinar-topic-2">Digitale Transformation im Mittelstand</h3>
-                
-                <div class="webinar-meta-2">
-                  <div class="webinar-meta-item-2">
-                    <i class='bx bx-time'></i>
-                    <span>10:00 - 11:30 Uhr MEZ</span>
-                  </div>
-                  <div class="webinar-meta-item-2">
-                    <i class='bx bx-timer'></i>
-                    <span>90 Minuten</span>
-                  </div>
-                  <div class="webinar-meta-item-2">
-                    <i class='bx bx-user'></i>
-                    <span class="webinar-presenter-2">Prof. Dr. Andreas Klein</span>
-                  </div>
-                </div>
-                
-                <p class="webinar-desc-2">Praxisnahe Strategien für die digitale Transformation mittelständischer Unternehmen. Erfahren Sie, wie Sie mit begrenzten Ressourcen maximale Wirkung erzielen und Innovationspotenziale erschließen können.</p>
-                
-                <div class="webinar-register-container-2">
-                  <div class="webinar-action-2">
-                    <a href="#" class="webinar-register-2">
-                      Jetzt anmelden
-                      <i class='bx bx-right-arrow-alt'></i>
-                    </a>
-                  </div>
-                  <span class="webinar-price-2 paid">CHF 49</span>
-                </div>
-              </div>
-              
-              <div class="webinar-image-2" style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')"></div>
-            </div>
-          </div>
-
-          <!-- Webinar Item 7 -->
-          <div class="webinar-item-2">
-            <div class="webinar-date-2">
-              <div class="webinar-day-2">2</div>
-              <div class="webinar-month-2">August</div>
-            </div>
-            
-            <div class="webinar-card-2">
-              <div class="webinar-content-2">
-                <span class="webinar-status-2 upcoming">Bevorstehend</span>
-                <h3 class="webinar-topic-2">Data Analytics für Entscheidungsträger</h3>
-                
-                <div class="webinar-meta-2">
-                  <div class="webinar-meta-item-2">
-                    <i class='bx bx-time'></i>
-                    <span>14:00 - 15:30 Uhr MEZ</span>
-                  </div>
-                  <div class="webinar-meta-item-2">
-                    <i class='bx bx-timer'></i>
-                    <span>90 Minuten</span>
-                  </div>
-                  <div class="webinar-meta-item-2">
-                    <i class='bx bx-user'></i>
-                    <span class="webinar-presenter-2">Dr. Julia Hartmann</span>
-                  </div>
-                </div>
-                
-                <p class="webinar-desc-2">Lernen Sie, wie Sie Datenanalysen für strategische Entscheidungen nutzen können. Dieses Webinar bietet einen praxisorientierten Überblick über Methoden, Tools und Anwendungsfälle für Führungskräfte ohne IT-Hintergrund.</p>
-                
-                <div class="webinar-register-container-2">
-                  <div class="webinar-action-2">
-                    <a href="#" class="webinar-register-2">
-                      Jetzt anmelden
-                      <i class='bx bx-right-arrow-alt'></i>
-                    </a>
-                  </div>
-                  <span class="webinar-price-2 free">Kostenlos</span>
-                </div>
-              </div>
-              
-              <div class="webinar-image-2" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')"></div>
-            </div>
-          </div>
-
-          <!-- Webinar Item 8 -->
-          <div class="webinar-item-2">
-            <div class="webinar-date-2">
-              <div class="webinar-day-2">10</div>
-              <div class="webinar-month-2">August</div>
-            </div>
-            
-            <div class="webinar-card-2">
-              <div class="webinar-content-2">
-                <span class="webinar-status-2 upcoming">Bevorstehend</span>
-                <h3 class="webinar-topic-2">Agiles Projektmanagement in der Praxis</h3>
-                
-                <div class="webinar-meta-2">
-                  <div class="webinar-meta-item-2">
-                    <i class='bx bx-time'></i>
-                    <span>11:00 - 12:30 Uhr MEZ</span>
-                  </div>
-                  <div class="webinar-meta-item-2">
-                    <i class='bx bx-timer'></i>
-                    <span>90 Minuten</span>
-                  </div>
-                  <div class="webinar-meta-item-2">
-                    <i class='bx bx-user'></i>
-                    <span class="webinar-presenter-2">Markus Wagner</span>
-                  </div>
-                </div>
-                
-                <p class="webinar-desc-2">Entdecken Sie, wie agile Methoden Ihre Projektabläufe optimieren können. Von Scrum und Kanban bis hin zu hybriden Ansätzen – lernen Sie effektive Strategien für erfolgreiches Projektmanagement in dynamischen Umgebungen.</p>
-                
-                <div class="webinar-register-container-2">
-                  <div class="webinar-action-2">
-                    <a href="#" class="webinar-register-2">
-                      Jetzt anmelden
-                      <i class='bx bx-right-arrow-alt'></i>
-                    </a>
-                  </div>
-                  <span class="webinar-price-2 paid">CHF 49</span>
-                </div>
-              </div>
-              
-              <div class="webinar-image-2" style="background-image: url('https://images.unsplash.com/photo-1642543348745-775d77baec67?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')"></div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="webinar-pagination">
-          <button class="pagination-button nav prev" aria-label="Vorherige Seite">
-            <i class='bx bx-chevron-left'></i>
-          </button>
-          <!-- Pagination Nummern werden dynamisch hinzugefügt -->
-          <button class="pagination-button nav next" aria-label="Nächste Seite">
-            <i class='bx bx-chevron-right'></i>
-          </button>
-        </div>
-        
-        <div class="webinar-all-2">
-          <a href="#" class="view-all-webinars-2" id="view-all-webinars">
-            Alle Webinare anzeigen
-            <i class='bx bx-right-arrow-alt'></i>
-          </a>
-        </div>
-      </div>
-    </section>
-
     <!-- Silicon Valley Innovation Academy -->
     <section class="tracks-section sv-innovation-academy-section">
       <div class="container">
         <div class="tracks-header">
-          <h2 class="tracks-title gradient-text-muted">Silicon Valley Innovation Academy</h2>
-          <p class="tracks-subtitle">Verbinden Sie eine einzigartige Reise ins Silicon Valley mit einem MBA der StGallen imt Business School</p>
+          <h2 class="tracks-title">Silicon Valley Innovation Academy</h2>
+          <p class="tracks-subtitle">Combine a unique journey to Silicon Valley with an MBA from StGallen imt Business School</p>
         </div>
         
         <div class="sv-gradient-teaser-v3">
@@ -3185,11 +2508,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="sv-gradient-v3-container">
             <div class="sv-gradient-v3-header">
               <div class="sv-gradient-v3-header-content">
-                <h2 class="sv-gradient-v3-title">Die Faszination des Silicon Valleys</h2>
-                <p class="sv-gradient-v3-subtitle">Verbinden Sie eine einzigartige Reise ins Silicon Valley mit einem MBA der StGallen imt Business School</p>
+                <h2 class="sv-gradient-v3-title">The Fascination of Silicon Valley</h2>
+                <p class="sv-gradient-v3-subtitle">Combine a unique journey to Silicon Valley with an MBA from StGallen imt Business School</p>
               </div>
               <div class="sv-gradient-v3-date-badge">
-                <div class="sv-gradient-v3-date">12. - 22. Juni 2025</div>
+                <div class="sv-gradient-v3-date">June 12-22, 2025</div>
                 <div class="sv-gradient-v3-location">San Francisco, USA</div>
               </div>
             </div>
@@ -3198,26 +2521,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <div class="sv-gradient-v3-feature">
                 <i class="sv-gradient-v3-feature-icon bx bx-bulb"></i>
                 <h4 class="sv-gradient-v3-feature-title">Innovation Academy</h4>
-                <p class="sv-gradient-v3-feature-text">Zweiwöchige Academy mit praxisnahen, von Experten geleiteten Sessions zu Innovationsmanagement und Corporate Venturing.</p>
+                <p class="sv-gradient-v3-feature-text">Two-week academy with practical, expert-led sessions on innovation management and corporate venturing.</p>
               </div>
               <div class="sv-gradient-v3-feature">
                 <i class="sv-gradient-v3-feature-icon bx bx-network-chart"></i>
                 <h4 class="sv-gradient-v3-feature-title">Open Innovation</h4>
-                <p class="sv-gradient-v3-feature-text">Erweitern Sie Ihre Kompetenzen und erhalten Sie exklusiven Zugang zum Innovationsökosystem des Silicon Valley.</p>
+                <p class="sv-gradient-v3-feature-text">Expand your competencies and gain exclusive access to Silicon Valley's innovation ecosystem.</p>
               </div>
               <div class="sv-gradient-v3-feature">
                 <i class="sv-gradient-v3-feature-icon bx bx-group"></i>
                 <h4 class="sv-gradient-v3-feature-title">Networking</h4>
-                <p class="sv-gradient-v3-feature-text">Hochkarätige Networking-Möglichkeiten mit Venture Capitalists, Startups und führenden Technologieunternehmen.</p>
+                <p class="sv-gradient-v3-feature-text">High-caliber networking opportunities with venture capitalists, startups, and leading technology companies.</p>
               </div>
             </div>
             
             <div class="sv-gradient-v3-footer">
-              <p class="sv-gradient-v3-footer-text">Nutzen Sie diese Erfahrung als Sprungbrett für ein <a href="fast_track_mba.html" class="sv-mba-link">Fast Track Executive MBA</a> und profitieren Sie von unserem einzigartigen Programm.</p>
+              <p class="sv-gradient-v3-footer-text">Use this experience as a springboard for a <a href="fast_track_mba_en.html" class="sv-mba-link">Fast Track Executive MBA</a> and benefit from our unique program.</p>
               
               <div class="sv-gradient-v3-partner-container">
                 <div class="sv-gradient-v3-partner">
-                  <span>In Zusammenarbeit mit</span>
+                  <span>In collaboration with</span>
                   <a href="https://www.plugandplaytechcenter.com/industries/goal/innovation-academy" target="_blank">
                     <img src="assets/pictures/plug_play_logo.png" alt="Plug and Play Logo">
                   </a>
@@ -3225,7 +2548,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               </div>
               
               <div style="width: 100%; display: flex; justify-content: center;">
-                <a href="https://www.plugandplaytechcenter.com/industries/goal/innovation-academy" class="sv-gradient-v3-cta" target="_blank">Programm entdecken <span class="arrow-icon">→</span></a>
+                <a href="https://www.plugandplaytechcenter.com/industries/goal/innovation-academy" class="sv-gradient-v3-cta" target="_blank">Discover program <span class="arrow-icon">→</span></a>
               </div>
             </div>
           </div>
@@ -3233,104 +2556,104 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </section>
 
-    <!-- Einblicke & Impressionen -->
+    <!-- Insights & Impressions -->
     <section class="network-section">
       <div class="container">
         <div class="network-intro">
-          <h2 class="network-title gradient-text-muted">Einblicke & Impressionen</h2>
-          <p class="network-description">Tauchen Sie ein in eine einzigartige Lernumgebung – mit inspirierenden Workshops, Einblicken bei Unternehmen wie Google und einem einzigartigen Bildungsumfeld im St.Gallen Valley.</p>
+          <h2 class="network-title">Insights & Impressions</h2>
+          <p class="network-description">Immerse yourself in a unique learning environment – with inspiring workshops, insights at companies like Google, and a unique educational environment in the St.Gallen Valley.</p>
         </div>
         <div class="gallery">
-          <!-- 1: Großes, hochformatiges Bild -->
+          <!-- 1: Large portrait image -->
           <div class="gallery-item item1">
-            <img src="assets/IMG_1.webp" alt="IMT Workshop mit Teilnehmern">
+            <img src="assets/IMG_1.webp" alt="IMT Workshop with participants">
           </div>
 
-          <!-- 2: Smartwatch -->
+          <!-- 2: Company visit -->
           <div class="gallery-item item2">
-            <img src="assets/IMG_2.webp" alt="Teilnehmer bei einer Werksbesichtigung">
+            <img src="assets/IMG_2.webp" alt="Participants at company visit">
           </div>
 
-          <!-- 3: Smartphone Videocall -->
+          <!-- 3: Presentation -->
           <div class="gallery-item item3">
-            <img src="assets/IMG_3.webp" alt="Präsentation bei der imt Business School">
+            <img src="assets/IMG_3.webp" alt="Presentation at the imt Business School">
           </div>
 
-          <!-- 4: Gruppe mit Smartphones -->
+          <!-- 4: Discussion panel -->
           <div class="gallery-item item4">
-            <img src="assets/IMG_4.webp" alt="Diskussionspanel">
+            <img src="assets/IMG_4.webp" alt="Discussion panel">
           </div>
 
-          <!-- 5: Tablet am Tisch -->
+          <!-- 5: Airport -->
           <div class="gallery-item item5">
-            <img src="assets/IMG_6.webp" alt="Teilnehmer am Flughafen">
+            <img src="assets/IMG_6.webp" alt="Participants at the airport">
           </div>
 
-          <!-- 6: Person am Desktop -->
+          <!-- 6: Google visit -->
           <div class="gallery-item item6">
-            <img src="assets/IMG_5.webp" alt="Besuch bei Google">
+            <img src="assets/IMG_5.webp" alt="Visit at Google">
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Netzwerk-Sektion: In bester Gesellschaft -->
+    <!-- Network section: In good company -->
     <section class="network-section">
       <div class="container">
         <div class="network-intro">
-          <h2 class="network-title gradient-text-muted">In bester Gesellschaft</h2>
-          <p class="network-description">Die StGallen imt Business School arbeitet mit führenden Unternehmen, renommierten Universitäten und Experten zusammen, um Ihnen das beste Weiterbildungserlebnis zu bieten.</p>
+          <h2 class="network-title">In Good Company</h2>
+          <p class="network-description">StGallen imt Business School works with leading companies, renowned universities, and experts to provide you with the best educational experience.</p>
         </div>
         
         <div class="network-filter">
-          <button class="filter-btn active">Alle</button>
-          <button class="filter-btn">Unternehmen</button>
-          <button class="filter-btn">Akademische Partner</button>
+          <button class="filter-btn active">All</button>
+          <button class="filter-btn">Companies</button>
+          <button class="filter-btn">Academic Partners</button>
         </div>
         
         <div class="partners">
           <!-- Partner Logos -->
-          <div class="partner-item" data-category="unternehmen">
+          <div class="partner-item" data-category="companies">
             <img src="assets/companies/jnj.png" alt="Johnson & Johnson" class="partner-logo">
           </div>
-          <div class="partner-item" data-category="unternehmen">
+          <div class="partner-item" data-category="companies">
             <img src="assets/companies/google.png" alt="Google" class="partner-logo">
           </div>
-          <div class="partner-item" data-category="unternehmen">
+          <div class="partner-item" data-category="companies">
             <img src="assets/companies/bayer.png" alt="Bayer" class="partner-logo">
           </div>
-          <div class="partner-item" data-category="akademische partner">
+          <div class="partner-item" data-category="academic partners">
             <img src="assets/universities/stockholm.png" alt="Stockholm University" class="partner-logo">
           </div>
-          <div class="partner-item" data-category="unternehmen">
+          <div class="partner-item" data-category="companies">
             <img src="assets/companies/salesforce.png" alt="Salesforce" class="partner-logo">
           </div>
-          <div class="partner-item" data-category="unternehmen">
+          <div class="partner-item" data-category="companies">
             <img src="assets/companies/wittenstein.png" alt="Wittenstein" class="partner-logo">
           </div>
-          <div class="partner-item" data-category="unternehmen">
+          <div class="partner-item" data-category="companies">
             <img src="assets/companies/mobileup.jpg" alt="MobileUp" class="partner-logo">
           </div>
-          <div class="partner-item" data-category="unternehmen">
+          <div class="partner-item" data-category="companies">
             <img src="assets/companies/datron.png" alt="Datron" class="partner-logo">
           </div>
-          <div class="partner-item" data-category="unternehmen">
+          <div class="partner-item" data-category="companies">
             <img src="assets/companies/ui.svg.png" alt="UI" class="partner-logo">
           </div>
-          <div class="partner-item" data-category="unternehmen">
+          <div class="partner-item" data-category="companies">
             <img src="assets/companies/mutares.svg.png" alt="Mutares" class="partner-logo">
           </div>
-          <div class="partner-item" data-category="akademische partner">
+          <div class="partner-item" data-category="academic partners">
             <img src="assets/universities/cracow.jpg" alt="Cracow University" class="partner-logo">
           </div>
-          <div class="partner-item" data-category="akademische partner">
+          <div class="partner-item" data-category="academic partners">
             <img src="assets/universities/steinbeis.jpg" alt="Hochschule Steinbeis" class="partner-logo">
           </div>
         </div>
         
         <div class="faculty-section">
           <div class="hero-content">
-            <span class="hero-eyebrow">Unsere Dozenten &amp; Experten</span>
+            <span class="hero-eyebrow">Our Lecturers &amp; Experts</span>
           </div>
           
           <div class="faculty-grid">
@@ -3339,7 +2662,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <img src="assets/faculty/abegglen.webp" alt="Prof. Dr. Christian Abegglen"/>
               <div class="faculty-info">
                   <h3 class="faculty-name">Prof. Dr. Christian Abegglen</h3>
-                  <div class="faculty-title">Präsident</div>
+                  <div class="faculty-title">President</div>
               </div>
             </div>
             
@@ -3394,26 +2717,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         
         <div class="section-link">
-          <a href="netzwerk.html" class="view-all-btn">
-            Gesamtes Netzwerk entdecken <i class="bx bx-right-arrow-alt"></i>
+          <a href="netzwerk_en.html" class="view-all-btn">
+            Discover the StGallen imt Business School network <i class="bx bx-right-arrow-alt"></i>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- Teilnehmerstimmen -->
+    <!-- Participant Testimonials -->
     <section class="content-section">
       <div class="container">
-        <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Stimmen aus unserem Netzwerk</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Erfahrungen, Einblicke und Perspektiven aus unserem Netzwerk.</p>
+        <div class="network-intro testimonials">
+          <h2 class="network-title gradient-text-muted">Voices from our Network</h2>
+          <p class="network-description">What our network says – experiences and takeaways</p>
+        </div>
         
         <div class="gradient-quotes">
-          <!-- Testimonial 1: Jonas Gillmann -->
+          <!-- Jonas Gillmann Testimonial -->
           <div class="gradient-quote-card testimonial-item">
             <div class="gradient-quote-inner">
               <div class="gradient-quote-content">
                 <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
-                <p class="gradient-quote-text">Die StGallen imt Business School war entscheidend für meinen Weg in den Vorstand. Mit praktischen Impulsen, strategischer Klarheit und wertvollen Perspektiven erhielt ich das beste Toolkit für erfolgreiche Unternehmensführung.</p>
+                <p class="gradient-quote-text">The StGallen imt Business School has been crucial in my journey to the board. With practical impulses, strategic clarity, and valuable perspectives, I received the best toolkit for successful corporate management.</p>
               </div>
               <div class="gradient-quote-footer">
                 <div class="gradient-person">
@@ -3430,12 +2755,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
           
-          <!-- Testimonial 2: Patrick Kling -->
+          <!-- Testimonial 1: Patrick Kling -->
           <div class="gradient-quote-card testimonial-item" style="display: none;">
             <div class="gradient-quote-inner">
               <div class="gradient-quote-content">
                 <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
-                <p class="gradient-quote-text">Ein fundiertes Verständnis von Strategie und Geschäftsmodellen ist angesichts wachsender Dynamik und Komplexität entscheidend. Die St.Gallen Integrated IMT Business School ist dabei ein starker Partner, um relevante Kompetenzen gezielt weiterzuentwickeln.</p>
+                <p class="gradient-quote-text">A thorough understanding of strategy and business models is crucial in the face of growing dynamics and complexity. The St.Gallen Integrated IMT Business School is a strong partner in specifically developing relevant competencies.</p>
               </div>
               <div class="gradient-quote-footer">
                 <div class="gradient-person">
@@ -3444,7 +2769,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   </div>
                   <div class="gradient-info">
                     <span class="gradient-name">Patrick Kling</span>
-                    <span class="gradient-position">Geschäftsführer, Steigerwald</span>
+                    <span class="gradient-position">Managing Director, Steigerwald</span>
                   </div>
                 </div>
                 <img src="assets/testimonials/steigerwald.png" alt="Steigerwald" class="gradient-company">
@@ -3452,12 +2777,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
           
-          <!-- Testimonial 3: Dr. Bertram Hoffmann -->
+          <!-- Testimonial 2: Dr. Bertram Hoffmann -->
           <div class="gradient-quote-card testimonial-item" style="display: none;">
             <div class="gradient-quote-inner">
               <div class="gradient-quote-content">
                 <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
-                <p class="gradient-quote-text">Exzellenz erfordert das Zusammenspiel von Kultur, Strategie und Führung – ganzheitlich, dynamisch und systemisch gedacht. Das St. Galler Konzept bietet dafür den passenden Rahmen; Christian Abegglen ist hier eine prägende, glaubwürdige Persönlichkeit.</p>
+                <p class="gradient-quote-text">Excellence requires the interplay of culture, strategy, and leadership - holistic, dynamic, and systemic thinking. The St. Gallen concept provides the appropriate framework; Christian Abegglen is a formative, credible personality in this field.</p>
               </div>
               <div class="gradient-quote-footer">
                 <div class="gradient-person">
@@ -3474,12 +2799,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
           
-          <!-- Testimonial 4: Dr. Manfred Wittenstein -->
+          <!-- Testimonial 3: Dr. Manfred Wittenstein -->
           <div class="gradient-quote-card testimonial-item" style="display: none;">
             <div class="gradient-quote-inner">
               <div class="gradient-quote-content">
                 <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
-                <p class="gradient-quote-text">Sich kontinuierlich zu hinterfragen und weiterzuentwickeln ist für nachhaltigen Erfolg entscheidend. Christian Abegglen ist dabei seit Jahrzehnten mein Freund, Förderer und zugleich anspruchsvoller Impulsgeber – stets auf höchstem Niveau.</p>
+                <p class="gradient-quote-text">Continuously questioning and developing oneself is essential for sustainable success. Christian Abegglen has been my friend, mentor, and at the same time demanding source of impulses for decades - always at the highest level.</p>
               </div>
               <div class="gradient-quote-footer">
                 <div class="gradient-person">
@@ -3488,7 +2813,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   </div>
                   <div class="gradient-info">
                     <span class="gradient-name">Dr. Manfred Wittenstein</span>
-                    <span class="gradient-position">Gründer und Eigentümer, Wittenstein</span>
+                    <span class="gradient-position">Founder and Owner, Wittenstein</span>
                   </div>
                 </div>
                 <img src="assets/testimonials/wittenstein.png" alt="Wittenstein" class="gradient-company">
@@ -3496,12 +2821,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
           
-          <!-- Testimonial 5: Dr. Sascha von Berchem -->
+          <!-- Testimonial 4: Dr. Sascha von Berchem -->
           <div class="gradient-quote-card testimonial-item" style="display: none;">
             <div class="gradient-quote-inner">
               <div class="gradient-quote-content">
                 <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
-                <p class="gradient-quote-text">Die St.Gallen IMT Business School verbindet wissenschaftliche Tiefe mit praxisnaher Anwendung – echte Herausforderungen, direkt übertragbar. Dieser Ansatz liefert Führungskräften wie mir als Gastdozent kontinuierlich neue Impulse für nachhaltige Weiterentwicklung und Erfolg.</p>
+                <p class="gradient-quote-text">The St.Gallen IMT Business School combines academic depth with practical application - real challenges, directly transferable. This approach continuously provides executives like myself, as a guest lecturer, with new impulses for sustainable development and success.</p>
               </div>
               <div class="gradient-quote-footer">
                 <div class="gradient-person">
@@ -3510,7 +2835,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   </div>
                   <div class="gradient-info">
                     <span class="gradient-name">Dr. Sascha von Berchem</span>
-                    <span class="gradient-position">Wittenstein Stiftung, Geschäftsführer</span>
+                    <span class="gradient-position">Managing Director, Wittenstein Foundation</span>
                   </div>
                 </div>
                 <img src="assets/testimonials/wittenstein.png" alt="Wittenstein" class="gradient-company">
@@ -3518,12 +2843,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
           
-          <!-- Testimonial 6: Elias Böni -->
+          <!-- Testimonial 5: Elias Böni -->
           <div class="gradient-quote-card testimonial-item" style="display: none;">
             <div class="gradient-quote-inner">
               <div class="gradient-quote-content">
                 <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
-                <p class="gradient-quote-text">Die vielfältigen Trainingsmethoden auf Basis des St.Galler Thinking & Learning Navigators – von Simulationen bis zu realen Fällen – sind äußerst bereichernd und herausfordernd, selbst für unser Geschäft mit aufbereiteten Mobiltelefonen.</p>
+                <p class="gradient-quote-text">The diverse training methods based on the St.Galler Thinking & Learning Navigator - from simulations to real cases - are extremely enriching and challenging, even for our business with refurbished mobile phones.</p>
               </div>
               <div class="gradient-quote-footer">
                 <div class="gradient-person">
@@ -3532,10 +2857,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   </div>
                   <div class="gradient-info">
                     <span class="gradient-name">Elias Böni</span>
-                    <span class="gradient-position">Co_Founder, MobileUp</span>
+                    <span class="gradient-position">Co-Founder, MobileUp</span>
                   </div>
                 </div>
                 <img src="assets/testimonials/mobileup.jpg" alt="MobileUp" class="gradient-company">
+              </div>
+            </div>
+          </div>
+          
+          <!-- Testimonial 6: Mark Mislin -->
+          <div class="gradient-quote-card testimonial-item" style="display: none;">
+            <div class="gradient-quote-inner">
+              <div class="gradient-quote-content">
+                <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
+                <p class="gradient-quote-text">The IMT faculty has challenged and supported us at every step of the learning journey - including concrete advice on solving specific challenges in our company.</p>
+              </div>
+              <div class="gradient-quote-footer">
+                <div class="gradient-person">
+                  <div class="gradient-avatar-container">
+                    <img src="assets/testimonials/mislin.jpg" alt="Mark Mislin" class="gradient-avatar">
+                  </div>
+                  <div class="gradient-info">
+                    <span class="gradient-name">Mark Mislin</span>
+                    <span class="gradient-position">CEO, Decon</span>
+                  </div>
+                </div>
+                <img src="assets/testimonials/decon.jpg" alt="Decon" class="gradient-company">
               </div>
             </div>
           </div>
@@ -3545,7 +2892,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="gradient-quote-inner">
               <div class="gradient-quote-content">
                 <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
-                <p class="gradient-quote-text">Ich bin beeindruckt, wie das St. Galler Konzept verschiedene Perspektiven integriert und vielfältige Themen adressiert – und so branchenübergreifend direkt in der Unternehmenspraxis anwendbar ist.</p>
+                <p class="gradient-quote-text">I am impressed by how the St. Gallen concept integrates different perspectives and addresses diverse topics - making it directly applicable across industries in business practice.</p>
               </div>
               <div class="gradient-quote-footer">
                 <div class="gradient-person">
@@ -3572,118 +2919,47 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- Footer einbinden -->
   <div id="footer-container"></div>
 
-  <!-- Entferne "Sprache" Element im Desktop-Modus direkt per JavaScript -->
+  <!-- Dynamic loading of global components -->
   <script>
-    // Funktion, die wiederholt nach dem Element sucht und es entfernt
-    function removeLanguageElements() {
-      // Alle Top-Level-Divs durchsuchen
-      const allDivs = document.querySelectorAll('body > div');
-      
-      allDivs.forEach(div => {
-        // Text enthält "Sprache" und ist nicht die Navigation
-        if (div.textContent && 
-            div.textContent.includes('Sprache') && 
-            !div.id.includes('navigation') && 
-            !div.id.includes('sidebar') && 
-            !div.id.includes('footer')) {
-          console.log('Removing unwanted language element:', div);
-          div.style.display = 'none';
-          // Alternativ komplett entfernen:
-          // div.parentNode.removeChild(div);
-        }
-      });
-      
-      // Alle Elemente mit Klasse "Sprache" außerhalb der Navigation ausblenden
-      document.querySelectorAll('.Sprache').forEach(el => {
-        if (!el.closest('#navigation-container') && !el.closest('.mobile-lang-section')) {
-          el.style.display = 'none';
-        }
-      });
-      
-      // Auch Elemente mit Deutsch/English-Links außerhalb der Navigation prüfen
-      document.querySelectorAll('a').forEach(link => {
-        const parent = link.parentElement;
-        if (
-          // Link ist entweder Deutsch oder English
-          (link.textContent === 'Deutsch' || link.textContent === 'English') &&
-          // Und ist nicht in der Navigation oder der mobilen Sprachauswahl
-          !link.closest('#navigation-container') && 
-          !link.closest('.mobile-lang-section') &&
-          // Und der Eltern-Container enthält den Text "Sprache"
-          parent && parent.textContent.includes('Sprache')
-        ) {
-          // Den Container ausblenden
-          parent.style.display = 'none';
-          // Wenn es ein größerer Container ist, auch diesen ausblenden
-          if (parent.parentElement && parent.parentElement.textContent.includes('Sprache')) {
-            parent.parentElement.style.display = 'none';
-          }
-        }
-      });
-    }
-    
-    // Ausführen nach dem Laden
-    document.addEventListener('DOMContentLoaded', function() {
-      // Mehrmals ausführen, um auch dynamisch eingefügte Elemente zu erwischen
-      removeLanguageElements();
-      setTimeout(removeLanguageElements, 500);
-      setTimeout(removeLanguageElements, 1000);
-      setTimeout(removeLanguageElements, 2000);
-    });
-    
-    // Nach jedem Laden von Komponenten die Funktion erneut ausführen
-    const originalFetch = window.fetch;
-    window.fetch = function() {
-      return originalFetch.apply(this, arguments)
-        .then(response => {
-          // Nach jedem Fetch die Überprüfung erneut ausführen
-          setTimeout(removeLanguageElements, 200);
-          return response;
-        });
-    };
-  </script>
-
-  <!-- Dynamisches Laden der globalen Komponenten -->
-  <script>
-    // Gespeicherte Spracheinstellung überprüfen
+    // Check for stored language preference
     const storedLanguage = sessionStorage.getItem('preferredLanguage');
     
-    // Bestimme die aktuelle Sprache anhand der URL
+    // Determine current language based on the page URL
     const currentPath = window.location.pathname;
     const currentPage = currentPath.substring(currentPath.lastIndexOf('/') + 1);
     const pageIsEnglish = currentPage.includes('_en');
     
-    // Wenn gespeicherte Präferenz nicht mit aktueller Seite übereinstimmt, umleiten
+    // If stored preference doesn't match current page, redirect
     if (storedLanguage) {
       const shouldBeEnglish = storedLanguage === 'en';
       
-      // Bei Bedarf umleiten
+      // Redirect if needed
       if (shouldBeEnglish !== pageIsEnglish) {
         if (shouldBeEnglish) {
-          // Zu Englisch wechseln
+          // Switch to English
           window.location.href = currentPage.replace('.html', '_en.html');
         } else {
-          // Zu Deutsch wechseln
+          // Switch to German
           window.location.href = currentPage.replace('_en.html', '.html');
         }
       }
     }
     
-    // Mit normalem Laden fortfahren - aktuelle Seitesprache verwenden
+    // Continue with normal loading - use current page language
     const isEnglish = pageIsEnglish;
     const langSuffix = isEnglish ? '_en' : '';
     
-    // Navigation laden
+    // Load navigation
     fetch(`components/globals/navigation_ohnesub${langSuffix}.html?t=${new Date().getTime()}`)
       .then(response => {
         if (!response.ok) {
-          console.error(`Fehler beim Laden der Navigation: ${response.status}`);
-          // Fallback auf includes Verzeichnis versuchen
+          console.error(`Error loading navigation: ${response.status}`);
+          // Try fallback to includes directory
           return fetch(`components/includes/navigation_ohnesub${langSuffix}.html?t=${new Date().getTime()}`)
             .then(resp => {
               if (!resp.ok) {
-                console.error('Includes-Pfad auch fehlgeschlagen, versuche Standard-Sprache:', resp.status);
-                // Letzter Ausweg: Versuche die Standard-Sprachversion
+                console.error('Includes path also failed, try default language version:', resp.status);
+                // Last resort: Try the default language version
                 return fetch(`components/includes/navigation_ohnesub.html?t=${new Date().getTime()}`);
               }
               return resp.text();
@@ -3692,53 +2968,40 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         return response.text();
       })
       .then(data => {
-        console.log('Navigation geladen');
+        console.log('Navigation loaded');
         if (data) {
           document.getElementById('navigation-container').innerHTML = data;
           
-          // Mobile Navigation initialisieren
+          // Initialize mobile navigation
           const navScript = document.createElement('script');
           navScript.src = 'assets/js/mobile-nav.js?t=' + new Date().getTime();
           document.body.appendChild(navScript);
           
-          // Startseiten-Link als aktiv markieren
+          // Initialize language switching after navigation is loaded
           setTimeout(() => {
-            // Verwende den passenden Startseiten-Link je nach Sprache
-            const homePage = isEnglish ? 'index_en.html' : 'index.html';
-            const homeLink = document.querySelector(`.nav-link[href="${homePage}"]`);
-            if (homeLink) {
-              console.log('Aktiviere Startseiten-Link:', homeLink);
-              homeLink.classList.add('active');
+            if (typeof initLanguageSwitching === 'function') {
+              initLanguageSwitching();
+            } else if (window.switchLanguage) {
+              console.log('Language-switch.js already loaded, using global function');
             } else {
-              console.error('Startseiten-Link nicht gefunden! Suche nach allen Links:', document.querySelectorAll('.nav-menu a'));
+              console.warn('Language-switch functions not found!');
             }
-            
-            // Initialize language switching after navigation is loaded
-            setTimeout(() => {
-              if (typeof initLanguageSwitching === 'function') {
-                initLanguageSwitching();
-              } else if (window.switchLanguage) {
-                console.log('Language-switch.js bereits geladen, verwende globale Funktion');
-              } else {
-                console.warn('Language-switch Funktionen nicht gefunden!');
-              }
-            }, 300);
-          }, 200);
+          }, 300);
         }
       })
-      .catch(error => console.error('Fehler beim Laden der Navigation:', error));
+      .catch(error => console.error('Error loading navigation:', error));
 
-    // Sidebar laden
+    // Load sidebar
     fetch(`components/globals/sidebar_other${langSuffix}.html?t=${new Date().getTime()}`)
       .then(response => {
         if (!response.ok) {
-          console.error(`Fehler beim Laden der Sidebar: ${response.status}`);
-          // Fallback auf includes Verzeichnis versuchen
+          console.error(`Error loading sidebar: ${response.status}`);
+          // Try fallback to includes directory
           return fetch(`components/includes/sidebar_other${langSuffix}.html?t=${new Date().getTime()}`)
             .then(resp => {
               if (!resp.ok) {
-                console.error('Includes-Pfad auch fehlgeschlagen, versuche Standard-Sprache:', resp.status);
-                // Letzter Ausweg: Versuche die Standard-Sprachversion
+                console.error('Includes path also failed, try default language version:', resp.status);
+                // Last resort: Try the default language version
                 return fetch(`components/includes/sidebar_other.html?t=${new Date().getTime()}`);
               }
               return resp.text();
@@ -3747,22 +3010,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         return response.text();
       })
       .then(data => {
-        console.log('Sidebar geladen');
+        console.log('Sidebar loaded');
         if (data) document.getElementById('sidebar-container').innerHTML = data;
       })
-      .catch(error => console.error('Fehler beim Laden der Sidebar:', error));
+      .catch(error => console.error('Error loading sidebar:', error));
 
-    // Footer laden
+    // Load footer
     fetch(`components/globals/footer${langSuffix}.html?t=${new Date().getTime()}`)
       .then(response => {
         if (!response.ok) {
-          console.error(`Fehler beim Laden des Footers: ${response.status}`);
-          // Fallback auf includes Verzeichnis versuchen
+          console.error(`Error loading footer: ${response.status}`);
+          // Try fallback to includes directory
           return fetch(`components/includes/footer${langSuffix}.html?t=${new Date().getTime()}`)
             .then(resp => {
               if (!resp.ok) {
-                console.error('Includes-Pfad auch fehlgeschlagen, versuche Standard-Sprache:', resp.status);
-                // Letzter Ausweg: Versuche die Standard-Sprachversion
+                console.error('Includes path also failed, try default language version:', resp.status);
+                // Last resort: Try the default language version
                 return fetch(`components/includes/footer.html?t=${new Date().getTime()}`);
               }
               return resp.text();
@@ -3771,10 +3034,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         return response.text();
       })
       .then(data => {
-        console.log('Footer geladen');
+        console.log('Footer loaded');
         if (data) document.getElementById('footer-container').innerHTML = data;
       })
-      .catch(error => console.error('Fehler beim Laden des Footers:', error));
+      .catch(error => console.error('Error loading footer:', error));
   </script>
 
   <!-- Script für die Track Scroll-Funktionalität und Filter -->
@@ -3899,7 +3162,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             trackCards.forEach(card => {
               const category = card.getAttribute('data-category');
               
-              if (filterValue === 'alle' || category === filterValue) {
+              if (filterValue === 'all' || category === filterValue) {
                 card.classList.remove('hidden');
                 visibleCards++;
               } else {
@@ -3921,7 +3184,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- Script für die Netzwerk Filter-Funktionalität -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Filter-Funktionalität für Partner im "In bester Gesellschaft"-Abschnitt
+      // Filter-Funktionalität für Partner im "In Good Company"-Abschnitt
       const networkFilterButtons = document.querySelectorAll('.network-section .filter-btn');
       const partnerItems = document.querySelectorAll('.network-section .partner-item');
       
@@ -3937,13 +3200,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             // Filterwert basierend auf Button-Text
             let filterValue = this.textContent.trim().toLowerCase();
             
-            // Spezielle Zuordnung für "Akademische Partner" zu "akademische partner"
-            if (filterValue === 'akademische partner') {
-              // Partner-Items filtern für Akademische Partner
+            // Spezielle Zuordnung für "Academic Partners"
+            if (filterValue === 'academic partners') {
+              // Partner-Items filtern für Academic Partners
               partnerItems.forEach(item => {
                 const category = item.getAttribute('data-category');
                 
-                if (filterValue === 'alle' || category === 'akademische partner') {
+                if (filterValue === 'all' || category === 'academic partners') {
                   item.style.display = 'flex';
                 } else {
                   item.style.display = 'none';
@@ -3954,7 +3217,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               partnerItems.forEach(item => {
                 const category = item.getAttribute('data-category');
                 
-                if (filterValue === 'alle' || category === filterValue) {
+                if (filterValue === 'all' || category === filterValue) {
                   item.style.display = 'flex';
                 } else {
                   item.style.display = 'none';
@@ -4056,82 +3319,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     });
   </script>
 
-  <!-- Script für Sprachumschaltung -->
-  <script>
-    // Simple language switching function
-    function switchLanguage(lang, event) {
-      if (event) {
-        event.preventDefault();
-      }
-      
-      // Store language preference
-      sessionStorage.setItem('preferredLanguage', lang);
-      
-      // Get current page path
-      const currentPath = window.location.pathname;
-      const currentPage = currentPath.substring(currentPath.lastIndexOf('/') + 1);
-      
-      // Navigate to the appropriate language version
-      if (lang === 'en' && !currentPage.includes('_en')) {
-        window.location.href = currentPage.replace('.html', '_en.html');
-      } else if (lang === 'de' && currentPage.includes('_en')) {
-        window.location.href = currentPage.replace('_en.html', '.html');
-      }
-    }
-
-    // Initialize language switching after navigation loads
-    document.addEventListener('DOMContentLoaded', function() {
-      // Wait for navigation to be fully loaded
-      setTimeout(function() {
-        const currentPath = window.location.pathname;
-        const currentPage = currentPath.substring(currentPath.lastIndexOf('/') + 1);
-        const isEnglish = currentPage.includes('_en');
-        
-        // Setup desktop language links
-        const deLinkDesktop = document.getElementById('lang-de-link');
-        const enLinkDesktop = document.getElementById('lang-en-link');
-        
-        if (deLinkDesktop && enLinkDesktop) {
-          deLinkDesktop.classList.remove('active');
-          enLinkDesktop.classList.remove('active');
-          
-          if (isEnglish) {
-            enLinkDesktop.classList.add('active');
-            deLinkDesktop.setAttribute('href', '#');
-            deLinkDesktop.setAttribute('onclick', "switchLanguage('de'); return false;");
-          } else {
-            deLinkDesktop.classList.add('active');
-            enLinkDesktop.setAttribute('href', '#');
-            enLinkDesktop.setAttribute('onclick', "switchLanguage('en'); return false;");
-          }
-        }
-        
-        // Setup mobile language links
-        const mobileLanguageOptions = document.querySelectorAll('.mobile-lang-option');
-        mobileLanguageOptions.forEach(link => {
-          const lang = link.getAttribute('data-lang');
-          link.classList.remove('active');
-          
-          if ((lang === 'en' && isEnglish) || (lang === 'de' && !isEnglish)) {
-            link.classList.add('active');
-          }
-          
-          link.setAttribute('href', '#');
-          link.setAttribute('onclick', `switchLanguage('${lang}'); return false;`);
-        });
-      }, 500);
-    });
-  </script>
-
-  <!-- JavaScript für Testimonial-Shuffler -->
+  <!-- JavaScript for Testimonial Shuffler -->
+  <!-- Language switching is exclusively managed through language-switch.js to avoid conflicts -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       // Testimonial Shuffler
       function shuffleTestimonials() {
-        // Alle Testimonials sammeln
+        // Collect all testimonials
         const testimonials = Array.from(document.querySelectorAll('.testimonial-item'));
         
-        // Fisher-Yates Shuffle Algorithmus
+        // Fisher-Yates Shuffle Algorithm
         function shuffleArray(array) {
           for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -4140,27 +3337,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           return array;
         }
         
-        // Testimonials shuffeln
+        // Shuffle testimonials
         const shuffledTestimonials = shuffleArray([...testimonials]);
         
-        // Alle Testimonials zunächst verstecken
+        // Hide all testimonials first
         testimonials.forEach(item => {
           item.style.display = 'none';
         });
         
-        // Anzahl der anzuzeigenden Testimonials (4 statt 2)
+        // Number of testimonials to show (4 instead of 2)
         const numToShow = 4;
         
-        // Die ersten 4 anzeigen
+        // Show the first 4
         for (let i = 0; i < Math.min(numToShow, shuffledTestimonials.length); i++) {
           shuffledTestimonials[i].style.display = 'block';
         }
       }
       
-      // Testimonials beim Laden der Seite shuffeln
+      // Shuffle testimonials when the page loads
       shuffleTestimonials();
       
-      // Optional: Testimonials alle 30 Sekunden automatisch neu shuffeln
+      // Optional: Automatically reshuffle testimonials every 30 seconds
       // setInterval(shuffleTestimonials, 30000);
     });
   </script>
@@ -4197,9 +3394,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         return array;
       }
       
-      // Randomly select 7 logos - true randomization
+      // Randomly select 6 logos - true randomization
       const shuffledLogos = shuffleArray([...allLogos]);
-      const selectedLogos = shuffledLogos.slice(0, 7);
+      const selectedLogos = shuffledLogos.slice(0, 6);
       
       // Get the container element
       const logosContainer = document.getElementById('random-logos');
@@ -4207,34 +3404,50 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       // Clear the container
       logosContainer.innerHTML = '';
       
-      // Create first row with 4 logos
+      // Set container style to enforce column layout
+      logosContainer.style.display = 'flex';
+      logosContainer.style.flexDirection = 'column';
+      logosContainer.style.alignItems = 'center';
+      logosContainer.style.width = '100%';
+      
+      // Create first row with 3 logos
       const firstRow = document.createElement('div');
       firstRow.className = 'logo-row';
       firstRow.style.display = 'flex';
       firstRow.style.justifyContent = 'center';
-      firstRow.style.flexWrap = 'wrap';
-      firstRow.style.marginBottom = '10px';
+      firstRow.style.flexWrap = 'nowrap';
+      firstRow.style.marginBottom = '20px';
+      firstRow.style.width = '100%';
       
       // Create second row with 3 logos
       const secondRow = document.createElement('div');
       secondRow.className = 'logo-row';
       secondRow.style.display = 'flex';
       secondRow.style.justifyContent = 'center';
-      secondRow.style.flexWrap = 'wrap';
+      secondRow.style.flexWrap = 'nowrap';
+      secondRow.style.width = '100%';
       
-      // Add first 4 logos to first row
-      for (let i = 0; i < 4; i++) {
+      // Add first 3 logos to first row
+      for (let i = 0; i < 3; i++) {
         const img = document.createElement('img');
         img.src = selectedLogos[i];
         img.alt = selectedLogos[i].split('/').pop().split('.')[0]; // Use filename as alt text
+        img.style.margin = '0 20px';
+        img.style.maxWidth = '120px';
+        img.style.height = '30px';
+        img.style.objectFit = 'contain';
         firstRow.appendChild(img);
       }
       
       // Add remaining 3 logos to second row
-      for (let i = 4; i < 7; i++) {
+      for (let i = 3; i < 6; i++) {
         const img = document.createElement('img');
         img.src = selectedLogos[i];
         img.alt = selectedLogos[i].split('/').pop().split('.')[0]; // Use filename as alt text
+        img.style.margin = '0 20px';
+        img.style.maxWidth = '120px';
+        img.style.height = '30px';
+        img.style.objectFit = 'contain';
         secondRow.appendChild(img);
       }
       
@@ -4244,16 +3457,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     });
   </script>
 
-  <!-- Script für Galerie-Shuffle in der "Einblicke & Impressionen" Sektion -->
+  <!-- Script for Gallery Shuffle in the "Insights & Impressions" section -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Array mit verfügbaren Bildern
+      // Array of available images
       const availableImages = [];
       for (let i = 1; i <= 12; i++) {
         availableImages.push(`assets/IMG_${i}.webp`);
       }
       
-      // Funktion zum Mischen eines Arrays (Fisher-Yates)
+      // Function to shuffle an array (Fisher-Yates algorithm)
       const shuffleArray = (array) => {
         for (let i = array.length - 1; i > 0; i--) {
           const j = Math.floor(Math.random() * (i + 1));
@@ -4262,29 +3475,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         return array;
       };
       
-      // Funktion zum Initialisieren und Mischen der Galerie
+      // Function to initialize and shuffle the gallery
       const initGallery = () => {
         const gallery = document.querySelector('.gallery');
         if (!gallery) return;
         
-        // Alle Bildcontainer holen (inkl. item1)
+        // Get all image containers (including item1)
         const items = Array.from(gallery.querySelectorAll('.gallery-item'));
         
-        // Wenn mehr Bilder als verfügbare Slots, nur so viele auswählen wie benötigt
+        // If we have items to display
         if (items.length > 0) {
-          // Bilder einmal mischen, damit keine Duplikate entstehen
+          // Shuffle images once to avoid duplicates
           const randomImages = shuffleArray([...availableImages]);
           
-          // Sicherstellen, dass wir genug Bilder haben und keine Duplikate verwenden
+          // Make sure we have enough images and won't use duplicates
           if (randomImages.length >= items.length) {
-            // Jedem Bildcontainer ein eindeutiges Bild zuweisen
+            // Assign a unique image to each container
             items.forEach((item, index) => {
               const img = item.querySelector('img');
               if (img) {
                 img.src = randomImages[index];
               }
               
-              // Zufällige Reihenfolge der Items (außer item1)
+              // Random order for items (except item1)
               if (!item.classList.contains('item1')) {
                 item.style.order = Math.floor(Math.random() * 100);
               }
@@ -4293,30 +3506,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         }
       };
       
-      // Initiale Initialisierung
+      // Initial initialization
       initGallery();
       
-      // Keine periodische Aktualisierung mehr
-      // setInterval(initGallery, 8000);
+      // No periodic updates anymore
+      // Removed: setInterval(initGallery, 8000);
     });
   </script>
 
   <!-- Voucher Popup Integration -->
   <div id="voucher-popup-container"></div>
   <script>
-    // Lade die Voucher-Popup-Komponente nach 3 Sekunden
+    // Load the voucher popup component after 3 seconds
     document.addEventListener('DOMContentLoaded', function() {
       setTimeout(function() {
-        // Komponente laden
-        fetch('components/globals/voucher_popup.html?t=' + new Date().getTime())
+        // Load component
+        fetch('components/globals/voucher_popup_en.html?t=' + new Date().getTime())
           .then(response => {
             if (!response.ok) {
-              console.error('Fehler beim Laden des Voucher Popups:', response.status);
-              // Fallback zum includes-Verzeichnis versuchen
-              return fetch('components/includes/voucher_popup.html?t=' + new Date().getTime())
+              console.error('Error loading the voucher popup:', response.status);
+              // Try fallback to includes directory
+              return fetch('components/includes/voucher_popup_en.html?t=' + new Date().getTime())
                 .then(resp => {
                   if (!resp.ok) {
-                    console.error('Auch includes-Pfad fehlgeschlagen:', resp.status);
+                    console.error('Includes path also failed:', resp.status);
                     return '';
                   }
                   return resp.text();
@@ -4327,9 +3540,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           .then(data => {
             if (data) {
               document.getElementById('voucher-popup-container').innerHTML = data;
-              console.log('Voucher Popup geladen');
+              console.log('Voucher Popup loaded');
               
-              // Alle Skripte im geladenen Inhalt ausführen
+              // Execute all scripts in the loaded content
               const scripts = document.getElementById('voucher-popup-container').querySelectorAll('script');
               scripts.forEach(script => {
                 const newScript = document.createElement('script');
@@ -4340,127 +3553,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 script.parentNode.replaceChild(newScript, script);
               });
               
-              // Popup nach dem Laden der Komponente anzeigen
+              // Show popup after component is loaded
               setTimeout(function() {
                 if (typeof showNewsletterPopup === 'function') {
                   showNewsletterPopup();
                 } else {
-                  console.warn('showNewsletterPopup Funktion nicht gefunden!');
+                  console.warn('showNewsletterPopup function not found!');
                 }
               }, 100);
             }
           })
-          .catch(error => console.error('Fehler beim Laden des Voucher-Popups:', error));
-      }, 3000); // 3 Sekunden Verzögerung
+          .catch(error => console.error('Error loading the voucher popup:', error));
+      }, 3000); // 3 seconds delay
     });
   </script>
-
-     <!-- Script für Pagination der Webinare -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Konstanten für die Pagination
-      const ITEMS_PER_PAGE = 4;
-      
-      // DOM-Elemente
-      const webinarContainer = document.querySelector('.webinar-timeline-2');
-      const webinarItems = Array.from(document.querySelectorAll('.webinar-item-2'));
-      const pagination = document.querySelector('.webinar-pagination');
-      const prevButton = document.querySelector('.pagination-button.prev');
-      const nextButton = document.querySelector('.pagination-button.next');
-      
-      // Zustandsvariablen
-      let currentPage = 1;
-      let itemsPerPage = ITEMS_PER_PAGE;
-      
-      // Erstelle die Paginationsbuttons
-      function createPaginationButtons() {
-        // Bestehende Numerische Buttons entfernen
-        const numericalButtons = document.querySelectorAll('.pagination-button.numerical');
-        numericalButtons.forEach(button => button.remove());
-        
-        // Anzahl der Seiten berechnen
-        const totalPages = Math.ceil(webinarItems.length / itemsPerPage);
-        
-        // Einfügen nach dem Prev-Button und vor dem Next-Button
-        for (let i = 1; i <= totalPages; i++) {
-          const button = document.createElement('button');
-          button.className = `pagination-button numerical ${i === currentPage ? 'active' : ''}`;
-          button.textContent = i;
-          button.setAttribute('data-page', i);
-          button.addEventListener('click', () => goToPage(i));
-          
-          // Einfügen vor dem Next-Button
-          pagination.insertBefore(button, nextButton);
-        }
-        
-        // Aktivieren/Deaktivieren der Prev/Next-Buttons
-        prevButton.classList.toggle('disabled', currentPage === 1);
-        nextButton.classList.toggle('disabled', currentPage === totalPages);
-      }
-      
-      // Wechsel zur angegebenen Seite
-      function goToPage(page) {
-        currentPage = page;
-        updateVisibleItems();
-        createPaginationButtons(); // Aktualisiere Buttons (für 'active' Status)
-        
-        // Zum Webinar-Abschnitt scrollen
-        const webinarSection = document.querySelector('.webinar-section-2');
-        if (webinarSection) {
-          // Mit zusätzlichem Offset nach oben scrollen
-          const yOffset = -80; // Negative Zahl = weiter nach oben
-          const y = webinarSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
-          
-          window.scrollTo({
-            top: y,
-            behavior: 'smooth'
-          });
-        }
-      }
-      
-      // Aktualisiere die sichtbaren Webinar-Items basierend auf der aktuellen Seite
-      function updateVisibleItems() {
-        const startIndex = (currentPage - 1) * itemsPerPage;
-        const endIndex = startIndex + itemsPerPage;
-        
-        webinarItems.forEach((item, index) => {
-          const isVisible = index >= startIndex && index < endIndex;
-          item.classList.toggle('visible', isVisible);
-        });
-      }
-      
-      // Initialisierung der Pagination und der sichtbaren Webinare
-      function initializeView() {
-        // Pagination direkt anzeigen
-        createPaginationButtons();
-        
-        // Erste Seite der Webinare anzeigen
-        updateVisibleItems();
-      }
-      
-      // Event-Listener für Paginationsbuttons
-      prevButton.addEventListener('click', function() {
-        if (currentPage > 1 && !this.classList.contains('disabled')) {
-          goToPage(currentPage - 1);
-        }
-      });
-      
-      nextButton.addEventListener('click', function() {
-        const totalPages = Math.ceil(webinarItems.length / itemsPerPage);
-        if (currentPage < totalPages && !this.classList.contains('disabled')) {
-          goToPage(currentPage + 1);
-        }
-      });
-      
-      // Initialisierung
-      initializeView();
-    });
-  </script>
-
-  <script src="assets/js/testimonials.js"></script>
-  <script src="assets/js/footer.js"></script>
-  <script src="assets/js/popup-manager.js"></script>
-  
-  <!-- Remove parallax effect JavaScript -->
 </body>
 </html>
