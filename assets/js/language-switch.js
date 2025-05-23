@@ -369,6 +369,12 @@
   function checkBrowserLanguage() {
     console.log("Checking browser language..."); // Debug log
     
+    // IMMEDIATE check to prevent multiple popups
+    if (sessionStorage.getItem('languagePopupShown') || popupShown) {
+      console.log("Language popup already shown in this session, skipping");
+      return;
+    }
+    
     // Get current page
     const currentPath = window.location.pathname;
     const currentPage = currentPath.substring(currentPath.lastIndexOf('/') + 1);
@@ -387,15 +393,24 @@
     // If browser is set to English, show the language popup
     if (isEnglishBrowser) {
       console.log("Showing language popup for English browser"); // Debug log
-      showLanguagePopup();
-      // Mark that we've shown the popup
+      
+      // SET FLAG IMMEDIATELY to prevent double execution
+      popupShown = true;
       sessionStorage.setItem('languagePopupShown', 'true');
+      
+      showLanguagePopup();
     }
   }
 
   // Show language selection popup
   function showLanguagePopup() {
     console.log("Creating language popup..."); // Debug log
+
+    // Additional safety check: if popup already exists, don't create another one
+    if (document.getElementById('language-popup-container')) {
+      console.log("Language popup already exists, skipping creation");
+      return;
+    }
 
     // Create a container div that will hold both overlay and popup
     const container = document.createElement('div');
