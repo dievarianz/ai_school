@@ -56,6 +56,24 @@
     max-width: 700px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
     display: flex;
+    /* Fix for edge styling issues and white pixels */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    /* Ensure smooth edges on mobile */
+    -webkit-border-radius: var(--radius);
+    -moz-border-radius: var(--radius);
+    /* Force hardware acceleration for better rendering */
+    will-change: transform;
+    /* Clip background to prevent bleeding */
+    background-clip: padding-box;
+    -webkit-background-clip: padding-box;
+    /* Stronger border to mask edge issues */
+    border: 2px solid white;
+    /* Additional properties for better edge handling */
+    isolation: isolate;
+    contain: layout style paint;
   }
 
   .popup-graphic {
@@ -66,12 +84,31 @@
     align-items: center;
     justify-content: center;
     color: white;
-    overflow: hidden; /* Added to contain the bouncing animation */
-    position: relative; /* Für die Konfetti-Positionierung */
+    overflow: hidden;
+    position: relative;
+    /* Stronger background to prevent white bleeding */
+    background-color: var(--imt-purple);
+    background-image: linear-gradient(135deg, var(--imt-purple), #9c27b0);
+    /* Force proper clipping */
+    border-top-left-radius: calc(var(--radius) - 2px);
+    border-bottom-left-radius: calc(var(--radius) - 2px);
+    -webkit-border-top-left-radius: calc(var(--radius) - 2px);
+    -webkit-border-bottom-left-radius: calc(var(--radius) - 2px);
+    /* Enhanced background clipping */
+    background-clip: padding-box;
+    -webkit-background-clip: padding-box;
+    /* Force clean edges with stronger properties */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    /* Ensure no gaps */
+    margin: -1px 0 -1px -1px;
+    padding: calc(40px + 1px) 20px calc(40px + 1px) calc(20px + 1px);
   }
 
   .popup-graphic-1 {
     background: linear-gradient(135deg, var(--imt-purple), #9c27b0);
+    /* Stronger fallback solid color */
+    background-color: var(--imt-purple) !important;
   }
 
   /* Bounce animation for the voucher badge */
@@ -105,60 +142,6 @@
     }
   }
 
-  /* Timer styles */
-  .countdown-container {
-    width: 100%;
-    margin-top: 15px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .countdown-timer-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(255, 255, 255, 0.25);
-    border-radius: 8px;
-    padding: 5px 15px;
-    margin: 10px auto;
-  }
-
-  .timer-icon {
-    color: white;
-    margin-right: 10px;
-  }
-
-  .countdown-timer {
-    font-size: 26px;
-    font-weight: 700;
-    color: white;
-  }
-
-  .countdown-message {
-    font-size: 14px;
-    text-align: center;
-    margin-top: 10px;
-    line-height: 1.3;
-  }
-
-  .timer-pulse {
-    animation: pulse 2s infinite;
-  }
-
-  @keyframes pulse {
-    0% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.7;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-
   .voucher-badge {
     font-size: 2.2rem;
     font-weight: 700;
@@ -169,7 +152,7 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: none;
     position: relative;
     animation: badgeBounce 1.2s forwards;
   }
@@ -177,6 +160,16 @@
   .voucher-badge-1 {
     background-color: white;
     color: var(--imt-purple);
+  }
+
+  .voucher-description {
+    font-size: 1rem;
+    font-weight: 400;
+    color: white;
+    margin: 0;
+    margin-top: -10px;
+    text-align: center;
+    letter-spacing: 0.5px;
   }
 
   .popup-content {
@@ -217,6 +210,24 @@
       max-height: 90vh;
       overflow-y: auto;
       width: 85%;
+      /* Stronger border radius for mobile to prevent white pixels */
+      border-radius: 16px;
+      -webkit-border-radius: 16px;
+      -moz-border-radius: 16px;
+      /* Enhanced background clipping for mobile */
+      background-clip: padding-box;
+      -webkit-background-clip: padding-box;
+      /* Force hardware acceleration for smoother rendering */
+      transform: translate3d(0, 0, 0);
+      -webkit-transform: translate3d(0, 0, 0);
+      will-change: transform;
+      /* Much stronger border for mobile to completely mask edge issues */
+      border: 3px solid white;
+      /* Additional containment for mobile */
+      isolation: isolate;
+      contain: layout style paint;
+      /* Force proper overflow handling */
+      overflow: hidden;
     }
     
     .popup-graphic {
@@ -226,11 +237,55 @@
       height: 135px;
       position: relative;
       text-align: center;
+      /* Stronger background first */
+      background-color: var(--imt-purple) !important;
+      background-image: linear-gradient(135deg, var(--imt-purple), #9c27b0) !important;
+      /* Fix rounded corners for mobile with proper clipping */
+      border-radius: calc(16px - 3px) calc(16px - 3px) 0 0;
+      -webkit-border-radius: calc(16px - 3px) calc(16px - 3px) 0 0;
+      -moz-border-radius: calc(16px - 3px) calc(16px - 3px) 0 0;
+      /* Enhanced gradient clipping */
+      background-clip: padding-box;
+      -webkit-background-clip: padding-box;
+      /* Force clean rendering */
+      transform: translateZ(0);
+      -webkit-transform: translateZ(0);
+      /* Ensure gradient covers properly with overlap */
+      background-size: 110% 110%;
+      background-position: center;
+      /* Much stronger overlap to eliminate gaps completely */
+      margin: -5px -8px 0 -5px;
+      /* Keep normal padding for proper spacing */
+      padding: 20px 20px 15px 20px;
+      /* Force overflow */
+      overflow: hidden;
+      /* Additional purple shadow to mask any remaining edges */
+      box-shadow: 0 0 0 5px var(--imt-purple);
+      /* Ensure it covers the full width */
+      width: calc(100% + 16px);
+      left: -8px;
     }
     
     .popup-content {
       width: 100%;
       padding: 20px 15px;
+      /* Stronger white background */
+      background-color: white !important;
+      /* Fix rounded corners for mobile */
+      border-radius: 0 0 calc(16px - 3px) calc(16px - 3px);
+      -webkit-border-radius: 0 0 calc(16px - 3px) calc(16px - 3px);
+      -moz-border-radius: 0 0 calc(16px - 3px) calc(16px - 3px);
+      /* Enhanced background clipping */
+      background-clip: padding-box;
+      -webkit-background-clip: padding-box;
+      /* Match the hero overlap for positioning */
+      margin: 0 -8px -5px -5px;
+      /* Adjusted padding to center content: fine-tuned for perfect symmetry */
+      padding: 20px 19px 25px 27px;
+      /* Ensure it covers the full width like hero */
+      width: calc(100% + 16px);
+      left: -8px;
+      position: relative;
     }
     
     .popup-content h2 {
@@ -243,41 +298,26 @@
       margin-bottom: 15px;
     }
     
-    .voucher-badge,
-    .popup-graphic h3,
-    .popup-graphic > p,
-    .confetti-container {
+    .popup-graphic h3 {
       display: none !important;
     }
     
-    .countdown-container {
-      margin-top: 20px;
-      position: relative;
-      z-index: 3;
-      max-width: 300px;
-      margin-left: auto;
-      margin-right: auto;
+    /* Show voucher description on mobile with smaller font size */
+    .voucher-description {
+      display: block !important;
+      font-size: 0.8rem !important;
+      margin-top: -5px !important;
+      margin-bottom: 5px !important;
     }
     
-    .countdown-timer-wrapper {
-      margin: 5px auto 10px;
-      padding: 5px 15px;
-    }
-    
-    .timer-icon {
-      width: 28px;
-      height: 28px;
-      margin-right: 12px;
-    }
-    
-    .countdown-timer {
-      font-size: 28px;
-    }
-    
-    .countdown-message {
-      font-size: 14px;
-      margin-top: 10px;
-      line-height: 1.3;
+    /* Zeige den Voucher Badge aber kleiner auf Mobile */
+    .voucher-badge {
+      font-size: 1.2rem !important;
+      width: 50px !important;
+      height: 50px !important;
+      margin-bottom: 10px !important;
+      position: relative !important;
+      z-index: 2 !important;
     }
     
     .newsletter-form .form-group {
@@ -380,6 +420,15 @@
     visibility: visible !important;
     position: relative !important;
     z-index: 10 !important;
+    transition: all 0.2s ease !important;
+  }
+  
+  /* Add hover effects for submit buttons */
+  .newsletter-form button[type="submit"]:hover,
+  .newsletter-form .form-group button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 12px rgba(110, 69, 226, 0.3) !important;
+    background: linear-gradient(to right, #5a37c7, #8b1fa3) !important;
   }
   
   .newsletter-form button[type="submit"] span,
@@ -410,7 +459,36 @@
   /* Anpassung für Mobile View */
   @media (max-width: 768px) {
     .confetti-container {
-      bottom: 80px; /* Bleibt gleich für mobile Ansicht, da es bereits perfekt ist */
+      /* Position in der Mitte des oberen Hero-Bereichs */
+      bottom: auto;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80px;
+      height: 80px;
+      /* Sicherstellen, dass es über anderen Elementen liegt */
+      z-index: 5;
+    }
+    
+    /* Kleinere Konfetti für Mobile */
+    .confetti {
+      width: 4px;
+      height: 4px;
+    }
+    
+    .confetti.small {
+      width: 4px;
+      height: 4px;
+    }
+    
+    .confetti.medium {
+      width: 6px;
+      height: 6px;
+    }
+    
+    .confetti.large {
+      width: 8px;
+      height: 8px;
     }
   }
   
@@ -676,18 +754,7 @@
     <div class="popup-graphic popup-graphic-1">
       <div class="voucher-badge voucher-badge-1">20%</div>
       <h3>VOUCHER</h3>
-      
-      <!-- New countdown timer -->
-      <div class="countdown-container">
-        <div class="countdown-timer-wrapper">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="timer-icon">
-            <circle cx="12" cy="12" r="10"></circle>
-            <polyline points="12 6 12 12 16 14"></polyline>
-          </svg>
-          <div class="countdown-timer timer-pulse" id="countdown-timer">02:00</div>
-        </div>
-        <p class="countdown-message">Sichern Sie sich jetzt 20% auf alle Weiterbildungen.</p>
-      </div>
+      <p class="voucher-description">auf alle Weiterbildungen</p>
       
       <!-- Konfetti-Container -->
       <div class="confetti-container" id="confetti-container">
@@ -941,53 +1008,12 @@
     
     // Initialisiere das Formular nach dem Öffnen des Popups
     initNewsletterForm();
-    
-    // Start countdown timer
-    startCountdown();
-  }
-  
-  // Start the 2-minute countdown timer
-  function startCountdown() {
-    const timerElement = document.getElementById('countdown-timer');
-    if (!timerElement) return;
-    
-    let timeLeft = 2 * 60; // 2 minutes in seconds
-    
-    // Clear any existing timer
-    if (window.countdownTimer) {
-      clearInterval(window.countdownTimer);
-    }
-    
-    // Update timer display
-    function updateTimer() {
-      const minutes = Math.floor(timeLeft / 60);
-      const seconds = timeLeft % 60;
-      timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-      
-      if (timeLeft <= 0) {
-        clearInterval(window.countdownTimer);
-        closeNewsletterPopup();
-      } else {
-        timeLeft--;
-      }
-    }
-    
-    // Initial display update
-    updateTimer();
-    
-    // Start the timer interval
-    window.countdownTimer = setInterval(updateTimer, 1000);
   }
   
   // Popup schließen
   function closeNewsletterPopup() {
     document.getElementById('newsletter-popup').classList.remove('active');
     document.body.style.overflow = 'auto';
-    
-    // Clear the countdown timer if it exists
-    if (window.countdownTimer) {
-      clearInterval(window.countdownTimer);
-    }
   }
   
   // Formular-Validierung initialisieren - separat, damit es auch nach dynamischem Laden funktioniert

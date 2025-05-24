@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voucher PopUp - Alternative Designs</title>
+    <style>
+        :root {
+            --font-sans: -apple-system,BlinkMacSystemFont,"San Francisco","Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+            --color-text: #1d1d1f;
+            --color-muted: #6e6e73;
+            --color-card-bg: #f5f5f7;
+            --color-accent2: #970289;
+            --color-badge: #e2b245;
+            --color-badge-hover: #d4a535;
+            --spacing: 24px;
+            --radius: 16px;
+            --max-width: 1200px;
+            --imt-purple: #6e45e2;
+            --swiss-red: #ff0000;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 40px 20px;
+            margin: 0;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--color-text);
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .alternatives-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .alternative-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .alternative-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--color-text);
+            text-align: center;
+        }
+
+        .popup-preview {
+            display: flex;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            min-height: 300px;
+        }
+
+        .popup-graphic {
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            padding: 30px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .popup-content-preview {
+            width: 60%;
+            padding: 30px;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Alternative 1: Original mit Verbesserungen */
+        .alternative-1 .popup-graphic {
+            background: linear-gradient(135deg, var(--imt-purple), #9c27b0);
+        }
+
+        .voucher-badge {
+            font-size: 2.2rem;
+            font-weight: 700;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            background-color: white;
+            color: var(--imt-purple);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .voucher-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .countdown-display {
+            background: rgba(255, 255, 255, 0.25);
+            border-radius: 8px;
+            padding: 10px 20px;
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .countdown-timer {
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+        }
+
+        /* Alternative 2: Moderne Karten-Design */
+        .alternative-2 .popup-graphic {
+            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+            border-radius: 0;
+        }
+
+        .alternative-2 .voucher-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            color: var(--color-text);
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transform: rotate(-5deg);
+            margin-bottom: 20px;
+            animation: cardFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes cardFloat {
+            0%, 100% { transform: rotate(-5deg) translateY(0px); }
+            50% { transform: rotate(-5deg) translateY(-10px); }
+        }
+
+        .alternative-2 .discount-amount {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #667eea;
+            margin: 0;
+        }
+
+        .alternative-2 .discount-text {
+            font-size: 0.9rem;
+            color: var(--color-muted);
+            margin: 5px 0;
+        }
+
+        /* Alternative 3: Minimalistisch-Elegant */
+        .alternative-3 .popup-graphic {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            position: relative;
+        }
+
+        .alternative-3 .popup-graphic::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .alternative-3 .discount-container {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .alternative-3 .discount-number {
+            font-size: 4rem;
+            font-weight: 100;
+            color: white;
+            margin: 0;
+            line-height: 1;
+        }
+
+        .alternative-3 .discount-percent {
+            font-size: 2rem;
+            font-weight: 300;
+            color: #e74c3c;
+            margin: 0;
+        }
+
+        .alternative-3 .discount-label {
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 10px;
+            text-transform: uppercase;
+        }
+
+        .timer-elegant {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 6px;
+            padding: 8px 16px;
+            margin-top: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Alternative 4: Gradient Badge */
+        .alternative-4 .popup-graphic {
+            background: linear-gradient(45deg, #ff6b6b 0%, #ffa500 50%, #ff1744 100%);
+            position: relative;
+        }
+
+        .alternative-4 .gradient-badge {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            padding: 20px 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .alternative-4 .gradient-badge::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #ff6b6b, #ffa500, #ff1744, #ff6b6b);
+            border-radius: 20px;
+            z-index: -1;
+            animation: gradientShift 3s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .alternative-4 .badge-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .alternative-4 .badge-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #ff6b6b, #ff1744);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 0;
+        }
+
+        .alternative-4 .badge-text {
+            font-size: 0.9rem;
+            color: #666;
+            margin: 5px 0 0 0;
+            font-weight: 500;
+        }
+
+        /* Alternative 5: Neon Gaming Style */
+        .alternative-5 .popup-graphic {
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%);
+            position: relative;
+        }
+
+        .alternative-5 .neon-container {
+            text-align: center;
+            position: relative;
+        }
+
+        .alternative-5 .neon-badge {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #00ffff;
+            text-shadow: 
+                0 0 5px #00ffff,
+                0 0 10px #00ffff,
+                0 0 15px #00ffff,
+                0 0 20px #00ffff;
+            margin-bottom: 15px;
+            animation: neonGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes neonGlow {
+            from {
+                text-shadow: 
+                    0 0 5px #00ffff,
+                    0 0 10px #00ffff,
+                    0 0 15px #00ffff,
+                    0 0 20px #00ffff;
+            }
+            to {
+                text-shadow: 
+                    0 0 2px #00ffff,
+                    0 0 5px #00ffff,
+                    0 0 8px #00ffff,
+                    0 0 12px #00ffff,
+                    0 0 15px #00ffff;
+            }
+        }
+
+        .alternative-5 .neon-text {
+            font-size: 1rem;
+            color: #ff00ff;
+            text-shadow: 0 0 10px #ff00ff;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .alternative-5 .cyber-timer {
+            border: 2px solid #00ffff;
+            border-radius: 4px;
+            padding: 8px 16px;
+            background: rgba(0, 255, 255, 0.1);
+            box-shadow: 
+                inset 0 0 10px rgba(0, 255, 255, 0.2),
+                0 0 10px rgba(0, 255, 255, 0.3);
+        }
+
+        .alternative-5 .scanlines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(0, 255, 255, 0.03) 2px,
+                rgba(0, 255, 255, 0.03) 4px
+            );
+            pointer-events: none;
+        }
+
+        /* Alternative 6: Corporate Business */
+        .alternative-6 .popup-graphic {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            position: relative;
+        }
+
+        .alternative-6 .business-container {
+            text-align: center;
+        }
+
+        .alternative-6 .percentage-display {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .alternative-6 .percentage-number {
+            font-size: 3.5rem;
+            font-weight: 300;
+            color: #1e3c72;
+            margin: 0;
+            line-height: 1;
+        }
+
+        .alternative-6 .percentage-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin: 8px 0 0 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .alternative-6 .professional-timer {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 6px;
+            padding: 10px 20px;
+            margin: 15px 0;
+        }
+
+        .alternative-6 .urgency-text {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-top: 15px;
+            line-height: 1.4;
+        }
+
+        /* Button Styles */
+        .test-button {
+            background: linear-gradient(135deg, var(--imt-purple), #9c27b0);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .test-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(110, 69, 226, 0.3);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .alternatives-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .popup-preview {
+                flex-direction: column;
+                min-height: auto;
+            }
+
+            .popup-graphic,
+            .popup-content-preview {
+                width: 100%;
+            }
+
+            .popup-graphic {
+                min-height: 200px;
+            }
+        }
+
+        /* Demo content styling */
+        .demo-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--color-text);
+        }
+
+        .demo-content p {
+            font-size: 0.9rem;
+            color: var(--color-muted);
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .demo-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .demo-input {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 2s infinite;
+        }
+
+        .star:nth-child(1) { top: 20%; left: 20%; width: 2px; height: 2px; animation-delay: 0s; }
+        .star:nth-child(2) { top: 30%; left: 80%; width: 1px; height: 1px; animation-delay: 0.5s; }
+        .star:nth-child(3) { top: 70%; left: 30%; width: 2px; height: 2px; animation-delay: 1s; }
+        .star:nth-child(4) { top: 80%; left: 70%; width: 1px; height: 1px; animation-delay: 1.5s; }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        /* Alternative 7: Apple Design */
+        .alternative-7 .popup-graphic {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: #1d1d1f;
+            position: relative;
+        }
+
+        .alternative-7 .apple-container {
+            text-align: center;
+            position: relative;
+        }
+
+        .alternative-7 .apple-badge {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 
+                0 1px 3px rgba(0, 0, 0, 0.1),
+                0 4px 20px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .alternative-7 .apple-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: appleShine 3s infinite;
+        }
+
+        @keyframes appleShine {
+            0% { left: -100%; }
+            50% { left: 100%; }
+            100% { left: 100%; }
+        }
+
+        .alternative-7 .apple-percent {
+            font-size: 3rem;
+            font-weight: 600;
+            color: #007aff;
+            margin: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .alternative-7 .apple-text {
+            font-size: 0.9rem;
+            color: #8e8e93;
+            margin: 8px 0 0 0;
+            font-weight: 500;
+            position: relative;
+            z-index: 1;
+        }
+
+        .alternative-7 .apple-timer {
+            background: rgba(0, 122, 255, 0.1);
+            border: 1px solid rgba(0, 122, 255, 0.2);
+            border-radius: 12px;
+            padding: 12px 20px;
+            margin: 15px 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .alternative-7 .apple-timer .countdown-timer {
+            color: #007aff;
+            font-weight: 600;
+        }
+
+        /* Alternative 8: Animated Fireworks */
+        .alternative-8 .popup-graphic {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .alternative-8 .fireworks-container {
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .alternative-8 .celebration-badge {
+            background: linear-gradient(135deg, #ffd700 0%, #ff6b35 100%);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+            animation: celebrateBounce 2s ease-in-out infinite;
+        }
+
+        @keyframes celebrateBounce {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            25% { transform: scale(1.05) rotate(-1deg); }
+            75% { transform: scale(1.05) rotate(1deg); }
+        }
+
+        .alternative-8 .celebration-percent {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: white;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .alternative-8 .celebration-text {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin: 8px 0 0 0;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .alternative-8 .firework {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            animation: fireworkExplode 2s infinite;
+        }
+
+        .alternative-8 .firework:nth-child(1) {
+            background: #ff6b35;
+            top: 20%;
+            left: 20%;
+            animation-delay: 0s;
+        }
+
+        .alternative-8 .firework:nth-child(2) {
+            background: #ffd700;
+            top: 30%;
+            right: 25%;
+            animation-delay: 0.5s;
+        }
+
+        .alternative-8 .firework:nth-child(3) {
+            background: #ff1744;
+            bottom: 30%;
+            left: 30%;
+            animation-delay: 1s;
+        }
+
+        .alternative-8 .firework:nth-child(4) {
+            background: #00e676;
+            bottom: 20%;
+            right: 20%;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes fireworkExplode {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+                box-shadow: 0 0 0 0 currentColor;
+            }
+            50% {
+                transform: scale(1);
+                opacity: 1;
+                box-shadow: 
+                    0 0 0 10px transparent,
+                    0 0 0 20px currentColor,
+                    0 0 0 30px transparent;
+            }
+            100% {
+                transform: scale(0);
+                opacity: 0;
+                box-shadow: 
+                    0 0 0 20px transparent,
+                    0 0 0 40px transparent,
+                    0 0 0 60px transparent;
+            }
+        }
+
+        /* Alternative 9: Price Tag */
+        .alternative-9 .popup-graphic {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            color: #333;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .alternative-9 .price-tag {
+            background: #fff;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px 25px;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transform: rotate(-5deg);
+            animation: tagFloat 3s ease-in-out infinite;
+        }
+
+        .alternative-9 .price-tag::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-right: 8px solid #fff;
+        }
+
+        .alternative-9 .price-tag::after {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-right: 10px solid #e9ecef;
+        }
+
+        @keyframes tagFloat {
+            0%, 100% { transform: rotate(-5deg) translateY(0px); }
+            50% { transform: rotate(-5deg) translateY(-8px); }
+        }
+
+        .alternative-9 .tag-hole {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #dee2e6;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .alternative-9 .tag-percent {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #dc3545;
+            margin: 0;
+            line-height: 1;
+        }
+
+        .alternative-9 .tag-discount {
+            font-size: 0.8rem;
+            color: #6c757d;
+            margin: 5px 0 0 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .alternative-9 .atomic-model {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+        }
+
+        .alternative-9 .nucleus {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 16px;
+            height: 16px;
+            background: #007bff;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+        }
+
+        .alternative-9 .orbit {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border: 1px solid rgba(0, 123, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .alternative-9 .orbit-1 {
+            width: 60px;
+            height: 60px;
+            animation: rotate 4s linear infinite;
+        }
+
+        .alternative-9 .orbit-2 {
+            width: 80px;
+            height: 80px;
+            animation: rotate 6s linear infinite reverse;
+        }
+
+        .alternative-9 .electron {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #28a745;
+            border-radius: 50%;
+            box-shadow: 0 0 5px rgba(40, 167, 69, 0.7);
+        }
+
+        .alternative-9 .orbit-1 .electron {
+            top: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .alternative-9 .orbit-2 .electron {
+            top: -3px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        @keyframes rotate {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Voucher PopUp - Alternative Designs für die linke Seite</h1>
+        
+        <div class="alternatives-grid">
+            <!-- Alternative 1: Verbesserte Original-Version -->
+            <div class="alternative-card alternative-1">
+                <h2 class="alternative-title">Alternative 1: Verbesserte Original-Version</h2>
+                <div class="popup-preview">
+                    <div class="popup-graphic">
+                        <div class="voucher-badge">20%</div>
+                        <div class="voucher-title">VOUCHER</div>
+                        <div class="countdown-display">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                            <div class="countdown-timer">02:00</div>
+                        </div>
+                        <p style="font-size: 0.85rem; text-align: center; margin-top: 10px; line-height: 1.3;">
+                            Sichern Sie sich jetzt 20% auf alle Weiterbildungen.
+                        </p>
+                    </div>
+                    <div class="popup-content-preview demo-content">
+                        <h3>Bleiben Sie auf dem Laufenden</h3>
+                        <p>Erhalten Sie Zugang zu exklusiven kostenlosen Webinaren und 20% Rabatt auf alle Weiterbildungen...</p>
+                        <div class="demo-form">
+                            <input type="text" class="demo-input" placeholder="Vorname" readonly>
+                            <input type="text" class="demo-input" placeholder="E-Mail" readonly>
+                        </div>
+                    </div>
+                </div>
+                <button class="test-button" onclick="showModal(1)">Design 1 testen</button>
+            </div>
+
+            <!-- Alternative 2: Moderne Karten-Design -->
+            <div class="alternative-card alternative-2">
+                <h2 class="alternative-title">Alternative 2: Moderne Karten-Design</h2>
+                <div class="popup-preview">
+                    <div class="popup-graphic">
+                        <div class="stars">
+                            <div class="star"></div>
+                            <div class="star"></div>
+                            <div class="star"></div>
+                            <div class="star"></div>
+                        </div>
+                        <div class="voucher-card">
+                            <div class="discount-amount">20%</div>
+                            <div class="discount-text">RABATT</div>
+                        </div>
+                        <div class="countdown-display">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                            <div class="countdown-timer">02:00</div>
+                        </div>
+                        <p style="font-size: 0.85rem; text-align: center; margin-top: 10px; line-height: 1.3;">
+                            Limitiertes Angebot nur für kurze Zeit!
+                        </p>
+                    </div>
+                    <div class="popup-content-preview demo-content">
+                        <h3>Bleiben Sie auf dem Laufenden</h3>
+                        <p>Erhalten Sie Zugang zu exklusiven kostenlosen Webinaren und 20% Rabatt auf alle Weiterbildungen...</p>
+                        <div class="demo-form">
+                            <input type="text" class="demo-input" placeholder="Vorname" readonly>
+                            <input type="text" class="demo-input" placeholder="E-Mail" readonly>
+                        </div>
+                    </div>
+                </div>
+                <button class="test-button" onclick="showModal(2)">Design 2 testen</button>
+            </div>
+
+            <!-- Alternative 3: Minimalistisch-Elegant -->
+            <div class="alternative-card alternative-3">
+                <h2 class="alternative-title">Alternative 3: Minimalistisch-Elegant</h2>
+                <div class="popup-preview">
+                    <div class="popup-graphic">
+                        <div class="discount-container">
+                            <div class="discount-number">20</div>
+                            <div class="discount-percent">%</div>
+                            <div class="discount-label">DISCOUNT</div>
+                        </div>
+                        <div class="timer-elegant">
+                            <div class="countdown-timer">02:00</div>
+                        </div>
+                        <p style="font-size: 0.8rem; text-align: center; margin-top: 15px; line-height: 1.3; opacity: 0.9;">
+                            Exklusiver Zugang zu Weiterbildungen
+                        </p>
+                    </div>
+                    <div class="popup-content-preview demo-content">
+                        <h3>Bleiben Sie auf dem Laufenden</h3>
+                        <p>Erhalten Sie Zugang zu exklusiven kostenlosen Webinaren und 20% Rabatt auf alle Weiterbildungen...</p>
+                        <div class="demo-form">
+                            <input type="text" class="demo-input" placeholder="Vorname" readonly>
+                            <input type="text" class="demo-input" placeholder="E-Mail" readonly>
+                        </div>
+                    </div>
+                </div>
+                <button class="test-button" onclick="showModal(3)">Design 3 testen</button>
+            </div>
+
+            <!-- Alternative 4: Gradient Badge -->
+            <div class="alternative-card alternative-4">
+                <h2 class="alternative-title">Alternative 4: Gradient Badge</h2>
+                <div class="popup-preview">
+                    <div class="popup-graphic">
+                        <div class="gradient-badge">
+                            <div class="badge-content">
+                                <div class="badge-number">20%</div>
+                                <div class="badge-text">RABATT</div>
+                            </div>
+                        </div>
+                        <div class="countdown-display">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                            <div class="countdown-timer">02:00</div>
+                        </div>
+                        <p style="font-size: 0.85rem; text-align: center; margin-top: 10px; line-height: 1.3;">
+                            🎉 Feiern Sie mit uns diesen spektakulären Deal! 🎉
+                        </p>
+                    </div>
+                    <div class="popup-content-preview demo-content">
+                        <h3>Bleiben Sie auf dem Laufenden</h3>
+                        <p>Erhalten Sie Zugang zu exklusiven kostenlosen Webinaren und 20% Rabatt auf alle Weiterbildungen...</p>
+                        <div class="demo-form">
+                            <input type="text" class="demo-input" placeholder="Vorname" readonly>
+                            <input type="text" class="demo-input" placeholder="E-Mail" readonly>
+                        </div>
+                    </div>
+                </div>
+                <button class="test-button" onclick="showModal(4)">Design 4 testen</button>
+            </div>
+
+            <!-- Alternative 5: Neon Gaming Style -->
+            <div class="alternative-card alternative-5">
+                <h2 class="alternative-title">Alternative 5: Neon Gaming Style</h2>
+                <div class="popup-preview">
+                    <div class="popup-graphic">
+                        <div class="scanlines"></div>
+                        <div class="neon-container">
+                            <div class="neon-badge">20%</div>
+                            <div class="neon-text">CYBER DEAL</div>
+                            <div class="cyber-timer">
+                                <div class="countdown-timer" style="color: #00ffff;">02:00</div>
+                            </div>
+                        </div>
+                        <p style="font-size: 0.8rem; text-align: center; margin-top: 15px; line-height: 1.3; color: #ff00ff;">
+                            >> SYSTEM ACTIVATED <<
+                        </p>
+                    </div>
+                    <div class="popup-content-preview demo-content">
+                        <h3>Bleiben Sie auf dem Laufenden</h3>
+                        <p>Erhalten Sie Zugang zu exklusiven kostenlosen Webinaren und 20% Rabatt auf alle Weiterbildungen...</p>
+                        <div class="demo-form">
+                            <input type="text" class="demo-input" placeholder="Vorname" readonly>
+                            <input type="text" class="demo-input" placeholder="E-Mail" readonly>
+                        </div>
+                    </div>
+                </div>
+                <button class="test-button" onclick="showModal(5)">Design 5 testen</button>
+            </div>
+
+            <!-- Alternative 6: Corporate Business -->
+            <div class="alternative-card alternative-6">
+                <h2 class="alternative-title">Alternative 6: Corporate Business</h2>
+                <div class="popup-preview">
+                    <div class="popup-graphic">
+                        <div class="business-container">
+                            <div class="percentage-display">
+                                <div class="percentage-number">20%</div>
+                                <div class="percentage-label">Executive Discount</div>
+                            </div>
+                            <div class="professional-timer">
+                                <div class="countdown-timer">02:00</div>
+                            </div>
+                            <div class="urgency-text">
+                                Exklusives Angebot für Führungskräfte und Entscheidungsträger.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="popup-content-preview demo-content">
+                        <h3>Bleiben Sie auf dem Laufenden</h3>
+                        <p>Erhalten Sie Zugang zu exklusiven kostenlosen Webinaren und 20% Rabatt auf alle Weiterbildungen...</p>
+                        <div class="demo-form">
+                            <input type="text" class="demo-input" placeholder="Vorname" readonly>
+                            <input type="text" class="demo-input" placeholder="E-Mail" readonly>
+                        </div>
+                    </div>
+                </div>
+                <button class="test-button" onclick="showModal(6)">Design 6 testen</button>
+            </div>
+
+            <!-- Alternative 7: Apple Design -->
+            <div class="alternative-card alternative-7">
+                <h2 class="alternative-title">Alternative 7: Apple Design</h2>
+                <div class="popup-preview">
+                    <div class="popup-graphic">
+                        <div class="apple-container">
+                            <div class="apple-badge">
+                                <div class="badge-content">
+                                    <div class="apple-percent">20%</div>
+                                    <div class="apple-text">RABATT</div>
+                                </div>
+                            </div>
+                            <div class="apple-timer">
+                                <div class="countdown-timer">02:00</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="popup-content-preview demo-content">
+                        <h3>Bleiben Sie auf dem Laufenden</h3>
+                        <p>Erhalten Sie Zugang zu exklusiven kostenlosen Webinaren und 20% Rabatt auf alle Weiterbildungen...</p>
+                        <div class="demo-form">
+                            <input type="text" class="demo-input" placeholder="Vorname" readonly>
+                            <input type="text" class="demo-input" placeholder="E-Mail" readonly>
+                        </div>
+                    </div>
+                </div>
+                <button class="test-button" onclick="showModal(7)">Design 7 testen</button>
+            </div>
+
+            <!-- Alternative 8: Animated Fireworks -->
+            <div class="alternative-card alternative-8">
+                <h2 class="alternative-title">Alternative 8: Animated Fireworks</h2>
+                <div class="popup-preview">
+                    <div class="popup-graphic">
+                        <div class="fireworks-container">
+                            <div class="celebration-badge">
+                                <div class="badge-content">
+                                    <div class="celebration-percent">20%</div>
+                                    <div class="celebration-text">RABATT</div>
+                                </div>
+                            </div>
+                            <div class="firework"></div>
+                            <div class="firework"></div>
+                            <div class="firework"></div>
+                            <div class="firework"></div>
+                        </div>
+                        <div class="countdown-display">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                            <div class="countdown-timer">02:00</div>
+                        </div>
+                        <p style="font-size: 0.85rem; text-align: center; margin-top: 10px; line-height: 1.3;">
+                            🎉 Feiern Sie mit uns diesen spektakulären Deal! 🎉
+                        </p>
+                    </div>
+                    <div class="popup-content-preview demo-content">
+                        <h3>Bleiben Sie auf dem Laufenden</h3>
+                        <p>Erhalten Sie Zugang zu exklusiven kostenlosen Webinaren und 20% Rabatt auf alle Weiterbildungen...</p>
+                        <div class="demo-form">
+                            <input type="text" class="demo-input" placeholder="Vorname" readonly>
+                            <input type="text" class="demo-input" placeholder="E-Mail" readonly>
+                        </div>
+                    </div>
+                </div>
+                <button class="test-button" onclick="showModal(8)">Design 8 testen</button>
+            </div>
+
+            <!-- Alternative 9: Price Tag -->
+            <div class="alternative-card alternative-9">
+                <h2 class="alternative-title">Alternative 9: Price Tag</h2>
+                <div class="popup-preview">
+                    <div class="popup-graphic">
+                        <div class="price-tag">
+                            <div class="tag-hole"></div>
+                            <div class="tag-percent">20%</div>
+                            <div class="tag-discount">RABATT</div>
+                        </div>
+                        <div class="atomic-model">
+                            <div class="nucleus"></div>
+                            <div class="orbit orbit-1">
+                                <div class="electron"></div>
+                            </div>
+                            <div class="orbit orbit-2">
+                                <div class="electron"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="popup-content-preview demo-content">
+                        <h3>Bleiben Sie auf dem Laufenden</h3>
+                        <p>Erhalten Sie Zugang zu exklusiven kostenlosen Webinaren und 20% Rabatt auf alle Weiterbildungen...</p>
+                        <div class="demo-form">
+                            <input type="text" class="demo-input" placeholder="Vorname" readonly>
+                            <input type="text" class="demo-input" placeholder="E-Mail" readonly>
+                        </div>
+                    </div>
+                </div>
+                <button class="test-button" onclick="showModal(9)">Design 9 testen</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal für Vollbildvorschau -->
+    <div id="modal-overlay" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.8); z-index: 10000; display: flex; align-items: center; justify-content: center;">
+        <div id="modal-content" style="background: white; border-radius: 12px; overflow: hidden; max-width: 700px; width: 90%; box-shadow: 0 20px 40px rgba(0,0,0,0.3); position: relative;">
+            <button onclick="closeModal()" style="position: absolute; top: 15px; right: 15px; background: #f5f5f7; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; z-index: 10001; display: flex; align-items: center; justify-content: center;">✕</button>
+            <div id="modal-popup" style="display: flex; min-height: 400px;">
+                <!-- Inhalt wird dynamisch eingefügt -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showModal(designNumber) {
+            const modal = document.getElementById('modal-overlay');
+            const modalPopup = document.getElementById('modal-popup');
+            
+            // Verschiedene Designs für den Modal
+            let leftSideHTML = '';
+            
+            switch(designNumber) {
+                case 1:
+                    leftSideHTML = `
+                        <div class="popup-graphic" style="background: linear-gradient(135deg, #6e45e2, #9c27b0); width: 40%; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; position: relative; overflow: hidden;">
+                            <div class="voucher-badge" style="font-size: 2.2rem; font-weight: 700; width: 100px; height: 100px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; box-shadow: 0 6px 15px rgba(0,0,0,0.2); background-color: white; color: #6e45e2; animation: pulse 2s infinite;">20%</div>
+                            <div style="font-size: 1.2rem; font-weight: 600; margin-bottom: 15px; letter-spacing: 2px;">VOUCHER</div>
+                            <div style="background: rgba(255,255,255,0.25); border-radius: 8px; padding: 10px 20px; margin: 10px 0; display: flex; align-items: center; gap: 10px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                                <div style="font-size: 24px; font-weight: 700; color: white;">02:00</div>
+                            </div>
+                            <p style="font-size: 0.85rem; text-align: center; margin-top: 10px; line-height: 1.3;">Sichern Sie sich jetzt 20% auf alle Weiterbildungen.</p>
+                        </div>
+                    `;
+                    break;
+                case 2:
+                    leftSideHTML = `
+                        <div class="popup-graphic" style="background: linear-gradient(45deg, #667eea 0%, #764ba2 100%); width: 40%; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; width: 100%; height: 100%; pointer-events: none;">
+                                <div style="position: absolute; top: 20%; left: 20%; width: 2px; height: 2px; background: white; border-radius: 50%; animation: twinkle 2s infinite;"></div>
+                                <div style="position: absolute; top: 30%; left: 80%; width: 1px; height: 1px; background: white; border-radius: 50%; animation: twinkle 2s infinite 0.5s;"></div>
+                                <div style="position: absolute; top: 70%; left: 30%; width: 2px; height: 2px; background: white; border-radius: 50%; animation: twinkle 2s infinite 1s;"></div>
+                                <div style="position: absolute; top: 80%; left: 70%; width: 1px; height: 1px; background: white; border-radius: 50%; animation: twinkle 2s infinite 1.5s;"></div>
+                            </div>
+                            <div style="background: white; border-radius: 12px; padding: 20px; color: #1d1d1f; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.15); transform: rotate(-5deg); margin-bottom: 20px; animation: cardFloat 3s ease-in-out infinite;">
+                                <div style="font-size: 3rem; font-weight: 800; color: #667eea; margin: 0;">20%</div>
+                                <div style="font-size: 0.9rem; color: #6e6e73; margin: 5px 0;">RABATT</div>
+                            </div>
+                            <div style="background: rgba(255,255,255,0.25); border-radius: 8px; padding: 10px 20px; margin: 10px 0; display: flex; align-items: center; gap: 10px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                                <div style="font-size: 24px; font-weight: 700; color: white;">02:00</div>
+                            </div>
+                            <p style="font-size: 0.85rem; text-align: center; margin-top: 10px; line-height: 1.3;">Limitiertes Angebot nur für kurze Zeit!</p>
+                        </div>
+                    `;
+                    break;
+                case 3:
+                    leftSideHTML = `
+                        <div class="popup-graphic" style="background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); width: 40%; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,<svg xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 100 100\\"><defs><pattern id=\\"grid\\" width=\\"10\\" height=\\"10\\" patternUnits=\\"userSpaceOnUse\\"><path d=\\"M 10 0 L 0 0 0 10\\" fill=\\"none\\" stroke=\\"rgba(255,255,255,0.1)\\" stroke-width=\\"0.5\\"/></pattern></defs><rect width=\\"100\\" height=\\"100\\" fill=\\"url(%23grid)\\"/></svg>'); opacity: 0.3;"></div>
+                            <div style="position: relative; z-index: 2; text-align: center;">
+                                <div style="font-size: 4rem; font-weight: 100; color: white; margin: 0; line-height: 1;">20</div>
+                                <div style="font-size: 2rem; font-weight: 300; color: #e74c3c; margin: 0;">%</div>
+                                <div style="font-size: 0.8rem; letter-spacing: 3px; color: rgba(255,255,255,0.8); margin-top: 10px; text-transform: uppercase;">DISCOUNT</div>
+                            </div>
+                            <div style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; padding: 8px 16px; margin-top: 20px; backdrop-filter: blur(10px);">
+                                <div style="font-size: 24px; font-weight: 700; color: white;">02:00</div>
+                            </div>
+                            <p style="font-size: 0.8rem; text-align: center; margin-top: 15px; line-height: 1.3; opacity: 0.9;">Exklusiver Zugang zu Weiterbildungen</p>
+                        </div>
+                    `;
+                    break;
+                case 4:
+                    leftSideHTML = `
+                        <div class="popup-graphic" style="background: linear-gradient(45deg, #ff6b6b 0%, #ffa500 50%, #ff1744 100%); width: 40%; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; position: relative; overflow: hidden;">
+                            <div style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); border: 3px solid rgba(255, 255, 255, 0.3); border-radius: 20px; padding: 20px 30px; text-align: center; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); margin-bottom: 20px; position: relative; overflow: hidden;">
+                                <div style="font-size: 2.5rem; font-weight: 800; background: linear-gradient(45deg, #ff6b6b, #ff1744); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin: 0;">20%</div>
+                                <div style="font-size: 0.9rem; color: #666; margin: 5px 0 0 0; font-weight: 500;">RABATT</div>
+                            </div>
+                            <div style="background: rgba(255,255,255,0.25); border-radius: 8px; padding: 10px 20px; margin: 10px 0; display: flex; align-items: center; gap: 10px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                                <div style="font-size: 24px; font-weight: 700; color: white;">02:00</div>
+                            </div>
+                            <p style="font-size: 0.85rem; text-align: center; margin-top: 10px; line-height: 1.3;">Exklusiver Gradient-Rabatt wartet auf Sie!</p>
+                        </div>
+                    `;
+                    break;
+                case 5:
+                    leftSideHTML = `
+                        <div class="popup-graphic" style="background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%); width: 40%; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 255, 255, 0.03) 2px, rgba(0, 255, 255, 0.03) 4px); pointer-events: none;"></div>
+                            <div style="text-align: center; position: relative; z-index: 2;">
+                                <div style="font-size: 3rem; font-weight: 900; color: #00ffff; text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff, 0 0 20px #00ffff; margin-bottom: 15px; animation: neonGlow 2s ease-in-out infinite alternate;">20%</div>
+                                <div style="font-size: 1rem; color: #ff00ff; text-shadow: 0 0 10px #ff00ff; margin-bottom: 20px; letter-spacing: 2px; text-transform: uppercase;">CYBER DEAL</div>
+                                <div style="border: 2px solid #00ffff; border-radius: 4px; padding: 8px 16px; background: rgba(0, 255, 255, 0.1); box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.2), 0 0 10px rgba(0, 255, 255, 0.3);">
+                                    <div style="font-size: 24px; font-weight: 700; color: #00ffff;">02:00</div>
+                                </div>
+                            </div>
+                            <p style="font-size: 0.8rem; text-align: center; margin-top: 15px; line-height: 1.3; color: #ff00ff;">>> SYSTEM ACTIVATED <<</p>
+                        </div>
+                    `;
+                    break;
+                case 6:
+                    leftSideHTML = `
+                        <div class="popup-graphic" style="background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); width: 40%; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; position: relative; overflow: hidden;">
+                            <div style="text-align: center;">
+                                <div style="background: rgba(255, 255, 255, 0.95); border-radius: 8px; padding: 25px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
+                                    <div style="font-size: 3.5rem; font-weight: 300; color: #1e3c72; margin: 0; line-height: 1;">20%</div>
+                                    <div style="font-size: 0.9rem; color: #666; margin: 8px 0 0 0; text-transform: uppercase; letter-spacing: 1px;">Executive Discount</div>
+                                </div>
+                                <div style="background: rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 6px; padding: 10px 20px; margin: 15px 0;">
+                                    <div style="font-size: 24px; font-weight: 700; color: white;">02:00</div>
+                                </div>
+                                <div style="font-size: 0.85rem; color: rgba(255, 255, 255, 0.9); margin-top: 15px; line-height: 1.4;">
+                                    Exklusives Angebot für Führungskräfte und Entscheidungsträger.
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                case 7:
+                    leftSideHTML = `
+                        <div class="popup-graphic" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); width: 40%; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #1d1d1f; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent); pointer-events: none;"></div>
+                            <div style="text-align: center; position: relative; z-index: 2;">
+                                <div style="background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(20px); border: 1px solid rgba(0, 0, 0, 0.05); border-radius: 16px; padding: 30px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 4px 20px rgba(0, 0, 0, 0.05);">
+                                    <div style="font-size: 3rem; font-weight: 600; color: #007aff; margin: 0;">20%</div>
+                                    <div style="font-size: 0.9rem; color: #8e8e93; margin: 8px 0 0 0; font-weight: 500;">RABATT</div>
+                                </div>
+                                <div style="background: rgba(0, 122, 255, 0.1); border: 1px solid rgba(0, 122, 255, 0.2); border-radius: 12px; padding: 12px 20px; margin: 15px 0;">
+                                    <div style="font-size: 24px; font-weight: 700; color: #007aff;">02:00</div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                case 8:
+                    leftSideHTML = `
+                        <div class="popup-graphic" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); width: 40%; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; width: 4px; height: 4px; border-radius: 50%; background: #ff6b35; top: 20%; left: 20%; animation: fireworkExplode 2s infinite;"></div>
+                            <div style="position: absolute; width: 4px; height: 4px; border-radius: 50%; background: #ffd700; top: 30%; right: 25%; animation: fireworkExplode 2s infinite 0.5s;"></div>
+                            <div style="position: absolute; width: 4px; height: 4px; border-radius: 50%; background: #ff1744; bottom: 30%; left: 30%; animation: fireworkExplode 2s infinite 1s;"></div>
+                            <div style="position: absolute; width: 4px; height: 4px; border-radius: 50%; background: #00e676; bottom: 20%; right: 20%; animation: fireworkExplode 2s infinite 1.5s;"></div>
+                            <div style="text-align: center; position: relative; z-index: 10;">
+                                <div style="background: linear-gradient(135deg, #ffd700 0%, #ff6b35 100%); border-radius: 20px; padding: 25px; margin-bottom: 20px; box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3); animation: celebrateBounce 2s ease-in-out infinite;">
+                                    <div style="font-size: 2.8rem; font-weight: 800; color: white; margin: 0; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">20%</div>
+                                    <div style="font-size: 0.9rem; color: rgba(255, 255, 255, 0.9); margin: 8px 0 0 0; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">CELEBRATION</div>
+                                </div>
+                                <div style="background: rgba(255,255,255,0.25); border-radius: 8px; padding: 10px 20px; margin: 10px 0; display: flex; align-items: center; gap: 10px;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <polyline points="12 6 12 12 16 14"></polyline>
+                                    </svg>
+                                    <div style="font-size: 24px; font-weight: 700; color: white;">02:00</div>
+                                </div>
+                            </div>
+                            <p style="font-size: 0.85rem; text-align: center; margin-top: 10px; line-height: 1.3;">🎉 Feier mit uns diesen spektakulären Rabatt! 🎉</p>
+                        </div>
+                    `;
+                    break;
+                case 9:
+                    leftSideHTML = `
+                        <div class="popup-graphic" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); width: 40%; padding: 40px 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #333; position: relative; overflow: hidden;">
+                            <div style="background: #fff; border: 2px solid #e9ecef; border-radius: 8px; padding: 20px 25px; position: relative; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); transform: rotate(-5deg); animation: tagFloat 3s ease-in-out infinite; margin-bottom: 20px;">
+                                <div style="position: absolute; left: -8px; top: 50%; transform: translateY(-50%); width: 0; height: 0; border-top: 8px solid transparent; border-bottom: 8px solid transparent; border-right: 8px solid #fff;"></div>
+                                <div style="position: absolute; left: -10px; top: 50%; transform: translateY(-50%); width: 0; height: 0; border-top: 10px solid transparent; border-bottom: 10px solid transparent; border-right: 10px solid #e9ecef;"></div>
+                                <div style="position: absolute; top: 15px; right: 15px; width: 12px; height: 12px; border-radius: 50%; background: #dee2e6; box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);"></div>
+                                <div style="font-size: 2.5rem; font-weight: 700; color: #dc3545; margin: 0; line-height: 1;">20%</div>
+                                <div style="font-size: 0.8rem; color: #6c757d; margin: 5px 0 0 0; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">DISCOUNT</div>
+                            </div>
+                            <div style="position: relative; width: 80px; height: 80px; margin: 0 auto 20px;">
+                                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 16px; height: 16px; background: #007bff; border-radius: 50%; box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);"></div>
+                                <div style="position: absolute; top: 50%; left: 50%; border: 1px solid rgba(0, 123, 255, 0.3); border-radius: 50%; transform: translate(-50%, -50%); width: 60px; height: 60px; animation: rotate 4s linear infinite;">
+                                    <div style="position: absolute; width: 6px; height: 6px; background: #28a745; border-radius: 50%; box-shadow: 0 0 5px rgba(40, 167, 69, 0.7); top: -3px; left: 50%; transform: translateX(-50%);"></div>
+                                </div>
+                                <div style="position: absolute; top: 50%; left: 50%; border: 1px solid rgba(0, 123, 255, 0.3); border-radius: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; animation: rotate 6s linear infinite reverse;">
+                                    <div style="position: absolute; width: 6px; height: 6px; background: #28a745; border-radius: 50%; box-shadow: 0 0 5px rgba(40, 167, 69, 0.7); top: -3px; left: 50%; transform: translateX(-50%);"></div>
+                                </div>
+                            </div>
+                            <div style="background: rgba(0, 122, 255, 0.1); border: 1px solid rgba(0, 122, 255, 0.2); border-radius: 12px; padding: 12px 20px; margin: 15px 0;">
+                                <div style="font-size: 24px; font-weight: 700; color: #007bff;">02:00</div>
+                            </div>
+                            <p style="font-size: 0.85rem; text-align: center; margin-top: 10px; line-height: 1.3;">🔬 Wissenschaftlich bestätigter Rabatt! 🔬</p>
+                        </div>
+                    `;
+                    break;
+            }
+            
+            const rightSideHTML = `
+                <div style="width: 60%; padding: 40px 30px; background: white; display: flex; flex-direction: column; justify-content: center;">
+                    <h2 style="background: linear-gradient(90deg, #222 0%, #b0b0b0 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: transparent; display: block; font-weight: 600; margin-bottom: 15px;">Bleiben Sie auf dem Laufenden</h2>
+                    <p style="color: #6e6e73; margin-bottom: 20px; line-height: 1.5;">Erhalten Sie Zugang zu exklusiven kostenlosen Webinaren und 20% Rabatt auf alle Weiterbildungen der StGallen imt Business School mit unserem Newsletter.</p>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 15px;">
+                        <input type="text" placeholder="Vorname" style="padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                        <input type="text" placeholder="Nachname" style="padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                        <input type="email" placeholder="E-Mail" style="padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                        <select style="padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;">
+                            <option>Land wählen</option>
+                            <option>Deutschland</option>
+                            <option>Österreich</option>
+                            <option>Schweiz</option>
+                        </select>
+                        
+                        <label style="display: flex; align-items: flex-start; gap: 8px; margin-top: 10px; font-size: 0.9rem; color: #6e6e73;">
+                            <input type="checkbox" style="margin-top: 3px;">
+                            <span>Ich stimme zu, Informationen per E-Mail zu Angeboten der StGallen imt Business School zu erhalten.</span>
+                        </label>
+                        
+                        <button style="width: 100%; display: flex; align-items: center; justify-content: center; background: linear-gradient(to right, #6e45e2, #9c27b0); color: white; padding: 14px 28px; font-size: 16px; font-weight: 500; border: none; border-radius: 8px; cursor: pointer; margin-top: 15px;">
+                            Jetzt Newsletter abonnieren
+                            <span style="margin-left: 10px;">→</span>
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            modalPopup.innerHTML = leftSideHTML + rightSideHTML;
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            
+            // Timer starten
+            startModalTimer();
+        }
+        
+        function closeModal() {
+            const modal = document.getElementById('modal-overlay');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            
+            if (window.modalTimer) {
+                clearInterval(window.modalTimer);
+            }
+        }
+        
+        function startModalTimer() {
+            let timeLeft = 2 * 60; // 2 minutes
+            
+            if (window.modalTimer) {
+                clearInterval(window.modalTimer);
+            }
+            
+            window.modalTimer = setInterval(() => {
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+                const timerElements = document.querySelectorAll('#modal-popup [style*="font-size: 24px"]');
+                
+                timerElements.forEach(el => {
+                    el.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                });
+                
+                if (timeLeft <= 0) {
+                    clearInterval(window.modalTimer);
+                    closeModal();
+                } else {
+                    timeLeft--;
+                }
+            }, 1000);
+        }
+        
+        // Schließen bei Klick außerhalb
+        document.getElementById('modal-overlay').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+        
+        // ESC zum Schließen
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
