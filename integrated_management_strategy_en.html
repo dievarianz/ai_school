@@ -4118,6 +4118,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       // Flag to ensure logos are only selected once
       let logosInitialized = false;
       let selectedLogos = [];
+      let currentDisplayCount = 0; // Track current number of displayed logos
       
       // Function to shuffle array (Fisher-Yates algorithm)
       function shuffleArray(array) {
@@ -4149,13 +4150,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         const isMobile = window.innerWidth <= 767;
         const numLogos = isMobile ? 4 : 6; // 4 logos on mobile, 6 on desktop
         
+        // Only update DOM if the number of logos to display has changed
+        if (numLogos === currentDisplayCount) {
+          return; // No change needed, exit early
+        }
+        
         // Use the pre-selected logos, just show different amounts
         const logosToShow = selectedLogos.slice(0, numLogos);
         
         // Get the container element
         const logosContainer = document.getElementById('random-logos');
         
-        // Clear the container
+        // Clear the container only when necessary
         logosContainer.innerHTML = '';
         
         // Set container style for desktop
@@ -4171,6 +4177,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           img.alt = logoSrc.split('/').pop().split('.')[0]; // Use filename as alt text
           logosContainer.appendChild(img);
         });
+        
+        // Update the current display count
+        currentDisplayCount = numLogos;
       }
       
       // Initial load - initialize and display logos
