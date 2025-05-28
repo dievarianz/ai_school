@@ -1635,6 +1635,12 @@
     font-size: 0.9rem;
     margin-left: 10px;
   }
+  
+  .date-language {
+    color: var(--color-muted);
+    font-size: 0.9rem;
+    margin-left: 10px;
+  }
 
   .date-places {
     background-color: #e9f7f2;
@@ -2032,6 +2038,13 @@
       font-size: 1rem;
     }
     
+    .date-language {
+      width: auto;
+      margin-left: 0;
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+    
     .date-places {
       width: auto;
       margin-left: 0;
@@ -2313,6 +2326,86 @@
     #hero h1 {
       padding-right: 0;
     }
+  }
+
+  /* Hero Brands Styles für "Trusted by" */
+  .hero-brands {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    max-width: 1100px;
+    margin: 30px auto 0;
+    padding: 0 40px;
+  }
+
+  .hero-brands img {
+    height: 40px;
+    max-width: 150px;
+    width: auto;
+    opacity: 0.75;
+    margin: 0 10px;
+    object-fit: contain;
+    vertical-align: middle;
+    filter: grayscale(100%);
+    transition: none;
+  }
+  
+  .hero-brands img:hover {
+    /* Hover-Effekt entfernt - Logos bleiben immer grau */
+  }
+  
+  /* Special handling for known large logos */
+  .hero-brands img[src*="jnj.png"],
+  .hero-brands img[src*="bayer.png"],
+  .hero-brands img[src*="unilever.png"] {
+    height: 35px;
+    max-width: 130px;
+  }
+
+  .hero-brands-text {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--color-muted);
+    margin-bottom: 1.5rem;
+  }
+
+  /* Responsive adjustments for logos - Mobile 4+2 Grid */
+  @media (max-width: 767px) {
+    .hero-brands {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto auto;
+      gap: 40px 15px;
+      max-width: 100%;
+      margin: 25px auto 0;
+      padding: 0 20px;
+      justify-items: center;
+      align-items: center;
+    }
+    
+    .hero-brands img {
+      height: 32px;
+      max-width: 90px;
+      margin: 0;
+    }
+    
+    .hero-brands img[src*="jnj.png"],
+    .hero-brands img[src*="bayer.png"],
+    .hero-brands img[src*="unilever.png"] {
+      height: 25px;
+      max-width: 70px;
+    }
+    
+    /* Erste 4 Logos in der ersten Zeile */
+    .hero-brands img:nth-child(1) { grid-column: 1; grid-row: 1; }
+    .hero-brands img:nth-child(2) { grid-column: 2; grid-row: 1; }
+    .hero-brands img:nth-child(3) { grid-column: 3; grid-row: 1; }
+    .hero-brands img:nth-child(4) { grid-column: 4; grid-row: 1; }
+    
+    /* Letzten 2 Logos in der zweiten Zeile, zentriert */
+    .hero-brands img:nth-child(5) { grid-column: 2; grid-row: 2; }
+    .hero-brands img:nth-child(6) { grid-column: 3; grid-row: 2; }
   }
 </style>
 
@@ -2617,6 +2710,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                       <div class="date-info-content">
                         <span class="date-text">05.-07.05.2025</span>
                         <span class="date-location">(St. Gallen)</span>
+                        <span class="date-language">German</span>
                       </div>
                     </div>
                   </li>
@@ -2627,6 +2721,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                       <div class="date-info-content">
                         <span class="date-text">28.-30.07.2025</span>
                         <span class="date-location">(St. Gallen)</span>
+                        <span class="date-language">German</span>
                       </div>
                     </div>
                   </li>
@@ -2637,6 +2732,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                       <div class="date-info-content">
                         <span class="date-text">06.-08.10.2025</span>
                         <span class="date-location">(St. Gallen)</span>
+                        <span class="date-language">German</span>
                       </div>
                     </div>
                   </li>
@@ -2654,6 +2750,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                       <div class="date-info-content">
                         <span class="date-text">20.-22.04.2026</span>
                         <span class="date-location">(St. Gallen)</span>
+                        <span class="date-language">German</span>
                       </div>
                     </div>
                   </li>
@@ -2664,6 +2761,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                       <div class="date-info-content">
                         <span class="date-text">27.-29.07.2026</span>
                         <span class="date-location">(St. Gallen)</span>
+                        <span class="date-language">German</span>
                       </div>
                     </div>
                   </li>
@@ -2674,6 +2772,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                       <div class="date-info-content">
                         <span class="date-text">05.-07.10.2026</span>
                         <span class="date-location">(St. Gallen)</span>
+                        <span class="date-language">German</span>
                       </div>
                     </div>
                   </li>
@@ -2743,7 +2842,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <path d="M15 17v1"></path>
                     </svg>
                 </div>
-                <div class="stat-value" data-target="35" data-suffix="%">0%</div>
+                <div class="stat-value" data-target="65" data-suffix="%">0%</div>
                 <div class="stat-label">SME Proportion</div>
             </div>
         </div>
@@ -3317,6 +3416,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               </a>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trusted by Section -->
+    <section id="company-trust" class="content-section" style="padding: 60px 0;">
+      <div class="container">
+        <h2 class="section-heading" style="text-align: left !important;">Trusted by</h2>
+        <div class="hero-brands" id="random-logos">
+          <!-- Company logos will be loaded dynamically -->
         </div>
       </div>
     </section>
@@ -3978,6 +4087,100 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       
       // Optional: Testimonials alle 30 Sekunden automatisch neu shuffeln
       // setInterval(shuffleTestimonials, 30000);
+    });
+  </script>
+
+  <!-- Script für zufällige Logo-Anzeige -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Array of all available logos - expanded to include all available logos
+      const allLogos = [
+        'assets/companies/google.png',
+        'assets/companies/hp.png',
+        'assets/companies/unilever.png',
+        'assets/companies/sap.png',
+        'assets/companies/ibm.png',
+        'assets/companies/bayer.png',
+        'assets/companies/jnj.png',
+        'assets/companies/salesforce.png',
+        'assets/companies/wittenstein.png',
+        'assets/companies/datron.png',
+        'assets/companies/hitachi.png',
+        'assets/companies/mutares.svg.png',
+        'assets/companies/ui.svg.png',
+        'assets/companies/caynova.jpg',
+        'assets/companies/mobileup.jpg',
+        'assets/companies/pnp.png'
+      ];
+      
+      // Function to shuffle array (Fisher-Yates algorithm)
+      function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+      }
+      
+      // Function to update logos based on current screen size
+      function updateLogos() {
+        // Check current screen size
+        const isMobile = window.innerWidth <= 767;
+        const numLogos = isMobile ? 4 : 6; // 4 logos on mobile, 6 on desktop
+        
+        // Randomly select logos based on screen size
+        const shuffledLogos = shuffleArray([...allLogos]);
+        const selectedLogos = shuffledLogos.slice(0, numLogos);
+        
+        // Get the container element
+        const logosContainer = document.getElementById('random-logos');
+        
+        // Clear the container
+        logosContainer.innerHTML = '';
+        
+        // Set container style for desktop
+        logosContainer.style.display = 'flex';
+        logosContainer.style.justifyContent = 'space-between';
+        logosContainer.style.alignItems = 'center';
+        logosContainer.style.width = '100%';
+        
+        // Add all logos directly to the container with grayscale effect
+        selectedLogos.forEach(logoSrc => {
+          const img = document.createElement('img');
+          img.src = logoSrc;
+          img.alt = logoSrc.split('/').pop().split('.')[0]; // Use filename as alt text
+          logosContainer.appendChild(img);
+        });
+      }
+      
+      // Initial load
+      updateLogos();
+      
+      // Add resize event listener for responsive behavior
+      let resizeTimeout;
+      window.addEventListener('resize', function() {
+        // Debounce resize events to avoid too many calls
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(updateLogos, 250);
+      });
+      
+      // Add CSS for mobile single row layout
+      if (!document.getElementById('logo-responsive-style')) {
+        const style = document.createElement('style');
+        style.id = 'logo-responsive-style';
+        style.textContent = `
+          @media (max-width: 767px) {
+            #random-logos {
+              display: flex !important;
+              justify-content: space-between !important;
+              align-items: center !important;
+              gap: 15px !important;
+              flex-wrap: nowrap !important;
+            }
+          }
+        `;
+        document.head.appendChild(style);
+      }
     });
   </script>
 </body>
