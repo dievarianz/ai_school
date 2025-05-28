@@ -2582,18 +2582,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <!-- Trusted by Section - moved after hero -->
-  <section id="company-trust" class="content-section" style="padding: 60px 0;">
-    <div class="container">
-      <h2 class="section-heading" style="text-align: left !important;">Trusted by</h2>
-      <div class="hero-brands" id="random-logos">
-        <!-- Company logos will be loaded dynamically -->
-      </div>
-    </div>
-  </section>
-
   <!-- Program Content -->
   <div class="container">
+    <!-- Trusted by Section - moved after hero -->
+    <section id="company-trust" class="content-section" style="padding: 60px 0;">
+      <div class="container">
+        <h2 class="section-heading">Trusted by</h2>
+        <div class="hero-brands" id="random-logos">
+          <!-- Company logos will be loaded dynamically -->
+        </div>
+      </div>
+    </section>
+
     <!-- Program modules with sidebar navigation -->
     <section style="padding: 60px 0;">
       <div class="container">
@@ -4301,6 +4301,10 @@ document.addEventListener('DOMContentLoaded', () => {
       'assets/companies/pnp.png'
     ];
     
+    // Flag to ensure logos are only selected once
+    let logosInitialized = false;
+    let selectedLogos = [];
+    
     // Function to shuffle array (Fisher-Yates algorithm)
     function shuffleArray(array) {
       for (let i = array.length - 1; i > 0; i--) {
@@ -4310,15 +4314,29 @@ document.addEventListener('DOMContentLoaded', () => {
       return array;
     }
     
-    // Function to update logos based on current screen size
-    function updateLogos() {
+    // Function to initialize logos (only called once)
+    function initializeLogos() {
+      if (logosInitialized) return;
+      
+      // Randomly select 6 logos once and store them
+      const shuffledLogos = shuffleArray([...allLogos]);
+      selectedLogos = shuffledLogos.slice(0, 6);
+      logosInitialized = true;
+    }
+    
+    // Function to update logo display based on current screen size
+    function updateLogoDisplay() {
+      // Ensure logos are initialized
+      if (!logosInitialized) {
+        initializeLogos();
+      }
+      
       // Check current screen size
       const isMobile = window.innerWidth <= 767;
       const numLogos = isMobile ? 4 : 6; // 4 logos on mobile, 6 on desktop
       
-      // Randomly select logos based on screen size
-      const shuffledLogos = shuffleArray([...allLogos]);
-      const selectedLogos = shuffledLogos.slice(0, numLogos);
+      // Use the pre-selected logos, just show different amounts
+      const logosToShow = selectedLogos.slice(0, numLogos);
       
       // Get the container element
       const logosContainer = document.getElementById('random-logos');
@@ -4332,8 +4350,8 @@ document.addEventListener('DOMContentLoaded', () => {
       logosContainer.style.alignItems = 'center';
       logosContainer.style.width = '100%';
       
-      // Add all logos directly to the container with grayscale effect
-      selectedLogos.forEach(logoSrc => {
+      // Add logos to the container with grayscale effect
+      logosToShow.forEach(logoSrc => {
         const img = document.createElement('img');
         img.src = logoSrc;
         img.alt = logoSrc.split('/').pop().split('.')[0]; // Use filename as alt text
@@ -4341,15 +4359,16 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
     
-    // Initial load
-    updateLogos();
+    // Initial load - initialize and display logos
+    initializeLogos();
+    updateLogoDisplay();
     
-    // Add resize event listener for responsive behavior
+    // Add resize event listener for responsive behavior (but don't reshuffle logos)
     let resizeTimeout;
     window.addEventListener('resize', function() {
       // Debounce resize events to avoid too many calls
       clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(updateLogos, 250);
+      resizeTimeout = setTimeout(updateLogoDisplay, 250);
     });
     
     // Add CSS for mobile single row layout

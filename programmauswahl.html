@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programmauswahl Varianten - StGallen imt Business School</title>
+  
+  <style>
+    :root {
+      --imt-purple: #6b46c1;
+      --color-text: #1d1d1f;
+      --color-muted: #86868b;
+      --color-background: #fbfbfd;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--color-text);
+      background: var(--color-background);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+      padding: 60px 0 0;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: var(--color-text);
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: var(--color-muted);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .variant-divider {
+      margin: 80px 0;
+      border-top: 2px solid #e1e1e1;
+      position: relative;
+    }
+
+    .variant-label {
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--color-background);
+      padding: 0 20px;
+      font-weight: 600;
+      color: var(--imt-purple);
+      font-size: 1.1rem;
+    }
+
+    /* VARIANTE A: KARUSSELL-LAYOUT (Original Design) */
+    .variant-a {
+      padding: 60px 0;
+    }
+
+    .variant-a .tracks-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .variant-a .tracks-title {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .variant-a .tracks-subtitle {
+      font-size: 1rem;
+      color: var(--color-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .variant-a .track-filters {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .variant-a .filter-btn {
+      background: none;
+      border: 1px solid #e1e1e1;
+      border-radius: 30px;
+      padding: 8px 20px;
+      font-size: 0.9rem;
+      color: var(--color-muted);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .variant-a .filter-btn:hover {
+      border-color: var(--imt-purple);
+      color: var(--imt-purple);
+    }
+
+    .variant-a .filter-btn.active {
+      background: var(--imt-purple);
+      color: white;
+      border-color: var(--imt-purple);
+    }
+
+    .variant-a .tracks-container {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .variant-a .scroll-container {
+      display: flex;
+      gap: 25px;
+      padding: 20px 0;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .variant-a .scroll-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    .variant-a .track-card {
+      flex: 0 0 350px;
+      border-radius: 15px;
+      background: #f5f5f7;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      border: 2px solid transparent;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .variant-a .track-card:hover {
+      border: 2px solid var(--imt-purple);
+    }
+
+    .variant-a .card-header {
+      padding: 20px;
+      border-bottom: 1px solid #e1e1e1;
+      min-height: 110px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .variant-a .track-category {
+      display: inline-block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      color: var(--imt-purple);
+    }
+
+    .variant-a .category-program {
+      color: #17a689;
+    }
+
+    .variant-a .track-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 0;
+      line-height: 1.3;
+      height: 65px;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .variant-a .card-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .variant-a .info-section {
+      margin-bottom: 15px;
+    }
+
+    .variant-a .card-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      color: var(--color-muted);
+      min-height: 24px;
+    }
+
+    .variant-a .card-row i {
+      color: var(--imt-purple);
+      font-size: 1.1rem;
+      width: 20px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .variant-a .track-description {
+      margin: 15px 0;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: var(--color-text);
+      flex-grow: 1;
+      min-height: 80px;
+    }
+
+    .variant-a .track-link {
+      color: var(--imt-purple);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+
+    .variant-a .track-link:hover {
+      text-decoration: none;
+    }
+
+    /* VARIANTE D: VERGLEICHSTABELLE */
+    .variant-d {
+      padding: 60px 0;
+    }
+
+    .variant-d .comparison-table {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    .variant-d .table-header {
+      background: linear-gradient(135deg, var(--imt-purple), #8b5cf6);
+      color: white;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .variant-d .table-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .variant-d .table-subtitle {
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    .variant-d .comparison-grid {
+      display: grid;
+      grid-template-columns: 200px repeat(auto-fit, minmax(250px, 1fr));
+      gap: 0;
+    }
+
+    .variant-d .feature-label {
+      background: #f8f9fa;
+      padding: 20px;
+      font-weight: 600;
+      border-bottom: 1px solid #e1e1e1;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .variant-d .feature-label i {
+      color: var(--imt-purple);
+      font-size: 1.2rem;
+    }
+
+    .variant-d .program-cell {
+      padding: 20px;
+      border-bottom: 1px solid #e1e1e1;
+      border-right: 1px solid #e1e1e1;
+      text-align: center;
+      transition: background 0.2s ease;
+    }
+
+    .variant-d .program-cell:hover {
+      background: #f8f9fa;
+    }
+
+    .variant-d .program-header {
+      background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+      padding: 25px 20px;
+      border-bottom: 2px solid var(--imt-purple);
+      text-align: center;
+    }
+
+    .variant-d .program-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 5px;
+      line-height: 1.3;
+    }
+
+    .variant-d .program-type {
+      font-size: 0.8rem;
+      color: var(--color-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .variant-d .cta-cell {
+      padding: 25px 20px;
+      background: #f8f9fa;
+    }
+
+    .variant-d .cta-button {
+      background: var(--imt-purple);
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      width: 100%;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .variant-d .cta-button:hover {
+      background: #553c9a;
+      transform: translateY(-2px);
+    }
+
+    /* VARIANTE C: KOMPAKTE GRID-ANSICHT */
+    .variant-c {
+      padding: 60px 0;
+    }
+
+    .variant-c .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .variant-c .program-card {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .variant-c .program-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--imt-purple), #8b5cf6);
+    }
+
+    .variant-c .program-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+      border-color: var(--imt-purple);
+    }
+
+    .variant-c .program-badge {
+      display: inline-block;
+      background: var(--imt-purple);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 15px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+    }
+
+    .variant-c .program-badge.program-type {
+      background: #17a689;
+    }
+
+    .variant-c .program-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      line-height: 1.3;
+    }
+
+    .variant-c .program-description {
+      font-size: 0.95rem;
+      color: var(--color-muted);
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .variant-c .program-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .variant-c .detail-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+    }
+
+    .variant-c .detail-item i {
+      color: var(--imt-purple);
+      font-size: 1.1rem;
+      width: 20px;
+      text-align: center;
+    }
+
+    .variant-c .program-price {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--imt-purple);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .variant-c .program-cta {
+      background: var(--imt-purple);
+      color: white;
+      border: none;
+      padding: 15px 25px;
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      width: 100%;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .variant-c .program-cta:hover {
+      background: #553c9a;
+      transform: translateY(-2px);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .variant-d .comparison-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .variant-d .feature-label {
+        display: none;
+      }
+      
+      .variant-c .programs-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .variant-c .program-details {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  
+  <!-- BoxIcons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="section-header">
+      <h1 class="section-title">Programmauswahl Varianten</h1>
+      <p class="section-subtitle">Drei verschiedene Design-Ansätze für die Darstellung unserer Weiterbildungsprogramme</p>
+    </div>
+
+    <!-- VARIANTE A: KARUSSELL-LAYOUT -->
+    <section class="variant-a">
+      <div class="tracks-header">
+        <h2 class="tracks-title">Variante A: Karussell-Layout</h2>
+        <p class="tracks-subtitle">Basierend auf dem bestehenden Design der index.html - horizontales Scrollen durch Programme</p>
+      </div>
+      
+      <div class="track-filters">
+        <button class="filter-btn active" data-filter="alle">Alle</button>
+        <button class="filter-btn" data-filter="managementseminare">Managementseminare</button>
+        <button class="filter-btn" data-filter="programme">Programme</button>
+      </div>
+      
+      <div class="tracks-container">
+        <div class="scroll-container">
+          <!-- Managementseminar Card -->
+          <div class="track-card" data-category="managementseminare">
+            <div class="card-header">
+              <span class="track-category">Managementseminar</span>
+              <h3 class="track-title">Integrated Management and Strategy</h3>
+            </div>
+            <div class="card-body">
+              <div class="info-section">
+                <div class="card-row">
+                  <i class="bx bx-map"></i>
+                  <span>St. Gallen</span>
+                </div>
+                <div class="card-row">
+                  <i class="bx bx-time"></i>
+                  <span>3 Tage, optional mit ECTS</span>
+                </div>
+                <div class="card-row">
+                  <i class="bx bx-money"></i>
+                  <span>CHF 2'400 zzgl. 8,1 % MwSt.</span>
+                </div>
+              </div>
+              <p class="track-description">Lernen Sie, integriertes Management wirksam einzusetzen – für strategische Ausrichtung, erfolgreiche Transformation und den nachhaltigen Einsatz von KI.</p>
+              <a href="#" class="track-link">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
+            </div>
+          </div>
+          
+          <!-- Programm Card -->
+          <div class="track-card" data-category="programme">
+            <div class="card-header">
+              <span class="track-category category-program">Programm</span>
+              <h3 class="track-title">StGallen Management Programm</h3>
+            </div>
+            <div class="card-body">
+              <div class="info-section">
+                <div class="card-row">
+                  <i class="bx bx-map"></i>
+                  <span>St. Gallen</span>
+                </div>
+                <div class="card-row">
+                  <i class="bx bx-time"></i>
+                  <span>4*3 Tage</span>
+                </div>
+                <div class="card-row">
+                  <i class="bx bx-money"></i>
+                  <span>CHF 8'400 zzgl. 8,1 % MwSt.</span>
+                </div>
+              </div>
+              <p class="track-description">Umfassendes Programm zur Integration von Management-Know-how mit praxisorientierten Ansätzen und zertifiziertem Abschluss.</p>
+              <a href="#" class="track-link">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
+            </div>
+          </div>
+
+          <!-- Weitere Cards... -->
+          <div class="track-card" data-category="managementseminare">
+            <div class="card-header">
+              <span class="track-category">Managementseminar</span>
+              <h3 class="track-title">Financial Management</h3>
+            </div>
+            <div class="card-body">
+              <div class="info-section">
+                <div class="card-row">
+                  <i class="bx bx-map"></i>
+                  <span>St. Gallen</span>
+                </div>
+                <div class="card-row">
+                  <i class="bx bx-time"></i>
+                  <span>3 Tage, optional mit ECTS</span>
+                </div>
+                <div class="card-row">
+                  <i class="bx bx-money"></i>
+                  <span>CHF 2'400 zzgl. 8,1 % MwSt.</span>
+                </div>
+              </div>
+              <p class="track-description">Entwickeln Sie finanzielle Entscheidungskompetenz, um strategisches Wachstum gezielt zu steuern.</p>
+              <a href="#" class="track-link">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="variant-divider">
+      <span class="variant-label">Variante D</span>
+    </div>
+
+    <!-- VARIANTE D: VERGLEICHSTABELLE -->
+    <section class="variant-d">
+      <div class="comparison-table">
+        <div class="table-header">
+          <h2 class="table-title">Variante D: Vergleichstabelle</h2>
+          <p class="table-subtitle">Programme nebeneinander vergleichbar - wichtige Merkmale auf einen Blick</p>
+        </div>
+        
+        <div class="comparison-grid">
+          <!-- Header Row -->
+          <div class="feature-label"></div>
+          <div class="program-header">
+            <div class="program-name">Integrated Management</div>
+            <div class="program-type">Managementseminar</div>
+          </div>
+          <div class="program-header">
+            <div class="program-name">Management Programm</div>
+            <div class="program-type">Programm</div>
+          </div>
+          <div class="program-header">
+            <div class="program-name">AI Excellence</div>
+            <div class="program-type">Programm</div>
+          </div>
+          
+          <!-- Dauer -->
+          <div class="feature-label">
+            <i class="bx bx-time"></i>
+            Dauer
+          </div>
+          <div class="program-cell">3 Tage</div>
+          <div class="program-cell">4×3 Tage</div>
+          <div class="program-cell">3 Tage</div>
+          
+          <!-- Ort -->
+          <div class="feature-label">
+            <i class="bx bx-map"></i>
+            Ort
+          </div>
+          <div class="program-cell">St. Gallen</div>
+          <div class="program-cell">St. Gallen</div>
+          <div class="program-cell">St. Gallen</div>
+          
+          <!-- Preis -->
+          <div class="feature-label">
+            <i class="bx bx-money"></i>
+            Investition
+          </div>
+          <div class="program-cell">CHF 2'400</div>
+          <div class="program-cell">CHF 8'400</div>
+          <div class="program-cell">CHF 8'400</div>
+          
+          <!-- ECTS -->
+          <div class="feature-label">
+            <i class="bx bx-award"></i>
+            ECTS
+          </div>
+          <div class="program-cell">Optional</div>
+          <div class="program-cell">12 ECTS</div>
+          <div class="program-cell">6 ECTS</div>
+          
+          <!-- CTA Buttons -->
+          <div class="feature-label"></div>
+          <div class="cta-cell">
+            <a href="#" class="cta-button">Mehr erfahren</a>
+          </div>
+          <div class="cta-cell">
+            <a href="#" class="cta-button">Mehr erfahren</a>
+          </div>
+          <div class="cta-cell">
+            <a href="#" class="cta-button">Mehr erfahren</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="variant-divider">
+      <span class="variant-label">Variante C</span>
+    </div>
+
+    <!-- VARIANTE C: KOMPAKTE GRID-ANSICHT -->
+    <section class="variant-c">
+      <div class="tracks-header">
+        <h2 class="tracks-title">Variante C: Kompakte Grid-Ansicht</h2>
+        <p class="tracks-subtitle">Moderne Karten-Ansicht mit allen wichtigen Informationen auf einen Blick</p>
+      </div>
+      
+      <div class="programs-grid">
+        <!-- Managementseminar -->
+        <div class="program-card">
+          <span class="program-badge">Managementseminar</span>
+          <h3 class="program-title">Integrated Management and Strategy</h3>
+          <p class="program-description">Lernen Sie, integriertes Management wirksam einzusetzen – für strategische Ausrichtung, erfolgreiche Transformation und den nachhaltigen Einsatz von KI.</p>
+          
+          <div class="program-details">
+            <div class="detail-item">
+              <i class="bx bx-map"></i>
+              <span>St. Gallen</span>
+            </div>
+            <div class="detail-item">
+              <i class="bx bx-time"></i>
+              <span>3 Tage</span>
+            </div>
+            <div class="detail-item">
+              <i class="bx bx-globe"></i>
+              <span>DE / EN</span>
+            </div>
+            <div class="detail-item">
+              <i class="bx bx-award"></i>
+              <span>Optional ECTS</span>
+            </div>
+          </div>
+          
+          <div class="program-price">CHF 2'400 zzgl. MwSt.</div>
+          <a href="#" class="program-cta">Mehr erfahren</a>
+        </div>
+        
+        <!-- Programm -->
+        <div class="program-card">
+          <span class="program-badge program-type">Programm</span>
+          <h3 class="program-title">StGallen Management Programm</h3>
+          <p class="program-description">Umfassendes Programm zur Integration von Management-Know-how mit praxisorientierten Ansätzen und zertifiziertem Abschluss.</p>
+          
+          <div class="program-details">
+            <div class="detail-item">
+              <i class="bx bx-map"></i>
+              <span>St. Gallen</span>
+            </div>
+            <div class="detail-item">
+              <i class="bx bx-time"></i>
+              <span>4×3 Tage</span>
+            </div>
+            <div class="detail-item">
+              <i class="bx bx-globe"></i>
+              <span>Deutsch</span>
+            </div>
+            <div class="detail-item">
+              <i class="bx bx-award"></i>
+              <span>12 ECTS</span>
+            </div>
+          </div>
+          
+          <div class="program-price">CHF 8'400 zzgl. MwSt.</div>
+          <a href="#" class="program-cta">Mehr erfahren</a>
+        </div>
+
+        <!-- AI Excellence -->
+        <div class="program-card">
+          <span class="program-badge program-type">Programm</span>
+          <h3 class="program-title">StGallen AI Excellence Management Programm</h3>
+          <p class="program-description">Spezialisiertes Programm zur Integration künstlicher Intelligenz in das Management mit Zertifizierung.</p>
+          
+          <div class="program-details">
+            <div class="detail-item">
+              <i class="bx bx-map"></i>
+              <span>St. Gallen</span>
+            </div>
+            <div class="detail-item">
+              <i class="bx bx-time"></i>
+              <span>3 Tage</span>
+            </div>
+            <div class="detail-item">
+              <i class="bx bx-globe"></i>
+              <span>DE / EN</span>
+            </div>
+            <div class="detail-item">
+              <i class="bx bx-award"></i>
+              <span>6 ECTS</span>
+            </div>
+          </div>
+          
+          <div class="program-price">CHF 8'400 zzgl. MwSt.</div>
+          <a href="#" class="program-cta">Mehr erfahren</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // Filter functionality for Variant A
+    document.querySelectorAll('.variant-a .filter-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        // Remove active class from all buttons
+        document.querySelectorAll('.variant-a .filter-btn').forEach(b => b.classList.remove('active'));
+        // Add active class to clicked button
+        this.classList.add('active');
+        
+        const filter = this.getAttribute('data-filter');
+        const cards = document.querySelectorAll('.variant-a .track-card');
+        
+        cards.forEach(card => {
+          if (filter === 'alle' || card.getAttribute('data-category') === filter) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html> 

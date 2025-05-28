@@ -3373,6 +3373,10 @@ document.addEventListener('DOMContentLoaded', function() {
       'assets/companies/pnp.png'
     ];
     
+    // Flag to ensure logos are only selected once
+    let logosInitialized = false;
+    let selectedLogos = [];
+    
     // Function to shuffle array (Fisher-Yates algorithm)
     function shuffleArray(array) {
       for (let i = array.length - 1; i > 0; i--) {
