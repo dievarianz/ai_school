@@ -49,7 +49,9 @@
     function getCurrentLanguage() {
         const currentPath = window.location.pathname;
         const currentPage = currentPath.substring(currentPath.lastIndexOf('/') + 1);
-        return currentPage.includes('_en') ? 'en' : 'de';
+        const language = currentPage.includes('_en') ? 'en' : 'de';
+        console.log(`DEBUG: Current page: ${currentPage}, Detected language: ${language}`);
+        return language;
     }
     
     // Lade die entsprechende Popup-Komponente
@@ -58,7 +60,7 @@
             'components/globals/voucher_popup_en.html' : 
             'components/globals/voucher_popup.html';
         
-        console.log(`Loading popup component: ${popupFile}`);
+        console.log(`DEBUG: Loading popup component: ${popupFile} for language: ${language}`);
         
         return fetch(`${popupFile}?t=${new Date().getTime()}`)
             .then(response => {
@@ -68,15 +70,18 @@
                     const fallbackFile = language === 'en' ? 
                         'components/includes/voucher_popup_en.html' : 
                         'components/includes/voucher_popup.html';
+                    console.log(`DEBUG: Trying fallback: ${fallbackFile}`);
                     return fetch(`${fallbackFile}?t=${new Date().getTime()}`)
                         .then(resp => {
                             if (!resp.ok) {
                                 console.error('Auch includes-Pfad fehlgeschlagen:', resp.status);
                                 return '';
                             }
+                            console.log(`DEBUG: Fallback successful: ${fallbackFile}`);
                             return resp.text();
                         });
                 }
+                console.log(`DEBUG: Primary popup loaded successfully: ${popupFile}`);
                 return response.text();
             })
             .catch(error => {
@@ -118,7 +123,13 @@
             .then(data => {
                 if (data) {
                     container.innerHTML = data;
-                    console.log('Voucher Popup geladen und eingefügt');
+                    console.log('DEBUG: Voucher Popup HTML loaded and inserted into DOM');
+                    
+                    // Überprüfe den Inhalt des geladenen Popups
+                    const popupTitle = container.querySelector('h3, .popup-title, [class*="title"]');
+                    if (popupTitle) {
+                        console.log(`DEBUG: Popup title found: ${popupTitle.textContent.trim()}`);
+                    }
                     
                     // Skripte ausführen
                     executePopupScripts(container);
@@ -127,13 +138,13 @@
                     setTimeout(() => {
                         if (typeof showNewsletterPopup === 'function') {
                             showNewsletterPopup();
-                            console.log('Voucher Popup angezeigt');
+                            console.log('DEBUG: Voucher Popup displayed successfully');
                         } else {
-                            console.warn('showNewsletterPopup Funktion nicht gefunden!');
+                            console.warn('DEBUG: showNewsletterPopup Funktion nicht gefunden!');
                         }
                     }, 100);
                 } else {
-                    console.warn('Keine Popup-Daten erhalten');
+                    console.warn('DEBUG: Keine Popup-Daten erhalten');
                 }
             });
     }

@@ -2348,6 +2348,415 @@
     .hero-brands img:nth-child(5) { grid-column: 2; grid-row: 2; }
     .hero-brands img:nth-child(6) { grid-column: 3; grid-row: 2; }
   }
+
+  /* Tracks Variant 3 Styles für "Unsere Weiterbildungen" */
+  .tracks-variant-3 {
+    padding: 80px 0;
+    background: #fff;
+    position: relative;
+  }
+  
+  .tracks-variant-3 .tracks-header {
+    text-align: left;
+    margin-bottom: 40px;
+  }
+  
+  .tracks-variant-3 .tracks-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    text-align: left !important;
+    background: linear-gradient(90deg, #222 0%, #b0b0b0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+  }
+  
+  .tracks-variant-3 .tracks-subtitle {
+    font-size: 1.1rem;
+    color: var(--color-muted);
+    max-width: 100%;
+    margin: 0;
+    text-align: left;
+  }
+  
+  .tracks-variant-3 .track-filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+  }
+  
+  .tracks-variant-3 .filter-btn {
+    background: none;
+    border: 1px solid #e1e1e1;
+    border-radius: 30px;
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    color: var(--color-muted);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .tracks-variant-3 .filter-btn:hover {
+    border-color: var(--imt-purple);
+    color: var(--imt-purple);
+  }
+  
+  .tracks-variant-3 .filter-btn.active {
+    background: var(--imt-purple);
+    color: white;
+    border-color: var(--imt-purple);
+  }
+  
+  .tracks-variant-3 .tracks-container {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .tracks-variant-3 .scroll-container {
+    display: flex;
+    gap: 25px;
+    padding: 20px 0;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .tracks-variant-3 .scroll-container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .tracks-variant-3 .track-card {
+    flex: 0 0 350px;
+    border-radius: 15px;
+    background: #f5f5f7;
+    overflow: hidden;
+    box-shadow: none;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid transparent;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  /* Box-Link, der die gesamte Karte umfasst */
+  .tracks-variant-3 .card-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    text-decoration: none;
+  }
+  
+  .tracks-variant-3 .track-card:hover {
+    border: 2px solid var(--imt-purple);
+    transform: none;
+    box-shadow: none;
+  }
+  
+  .tracks-variant-3 .card-header {
+    padding: 20px;
+    border-bottom: 1px solid #f5f5f7;
+    min-height: 110px; /* Stellt sicher, dass alle Header die gleiche Höhe haben */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .tracks-variant-3 .track-category {
+    display: inline-block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+  
+  .tracks-variant-3 .category-strategy {
+    color: var(--imt-purple);
+  }
+  
+  .tracks-variant-3 .category-program {
+    color: #17a689;
+  }
+  
+  .tracks-variant-3 .category-finance {
+    color: #17a689;
+  }
+  
+  .tracks-variant-3 .category-marketing {
+    color: #fc5c63;
+  }
+  
+  .tracks-variant-3 .category-technology {
+    color: #209cee;
+  }
+  
+  .tracks-variant-3 .track-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.3;
+    height: 65px; /* Feste Höhe für Titel, egal ob 1 oder 2 Zeilen */
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .tracks-variant-3 .card-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  
+  /* Info-Bereich für die Icons und Texte */
+  .tracks-variant-3 .info-section {
+    margin-bottom: 15px;
+  }
+  
+  .tracks-variant-3 .card-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: var(--color-muted);
+    min-height: 24px; /* Einheitliche Höhe für alle Zeilen */
+  }
+  
+  .tracks-variant-3 .card-row i {
+    color: var(--imt-purple);
+    font-size: 1.1rem;
+    width: 20px; /* Feste Breite für Icons */
+    text-align: center; /* Zentriert die Icons */
+    flex-shrink: 0; /* Verhindert Schrumpfen */
+  }
+  
+  /* Teal Icons für Programme */
+  .track-card[data-category="programme"] .card-row i {
+    color: #17a689;
+  }
+  
+  .tracks-variant-3 .track-description {
+    margin: 15px 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--color-text);
+    flex-grow: 1;
+    min-height: 80px; /* Mindesthöhe für Beschreibungen */
+  }
+  
+  .tracks-variant-3 .track-link {
+    color: var(--imt-purple);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Teal Link für Programme */
+  .track-card[data-category="programme"] .track-link {
+    color: #17a689;
+  }
+  
+  .tracks-variant-3 .track-link:hover {
+    text-decoration: none !important;
+  }
+  
+  /* Animierten Unterstrich entfernen */
+  .tracks-variant-3 .track-link::after {
+    content: none !important;
+    display: none !important;
+  }
+  
+  .tracks-variant-3 .track-link:hover::after {
+    transform: none;
+  }
+  
+  /* Stärkere Regel, um jeglichen Unterstrich zu verhindern */
+  .tracks-variant-3 a.track-link:hover {
+    text-decoration: none !important;
+    border-bottom: none !important;
+  }
+  
+  .tracks-variant-3 .track-link i {
+    transition: transform 0.2s ease;
+  }
+  
+  .tracks-variant-3 .track-link:hover i {
+    transform: translateX(4px);
+  }
+  
+  /* Pfeil bewegt sich auch beim Hover über die gesamte Karte */
+  .tracks-variant-3 .track-card:hover .track-link i {
+    transform: translateX(4px);
+  }
+  
+  .tracks-variant-3 .scroll-controls {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 20px;
+    padding-right: 20px;
+  }
+  
+  .tracks-variant-3 .scroll-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: #e0e0e0;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .tracks-variant-3 .scroll-btn:hover {
+    background: #cccccc;
+    color: white;
+  }
+  
+  .tracks-variant-3 .scroll-btn i {
+    font-size: 1.5rem;
+  }
+  
+  .tracks-variant-3 .scroll-btn.disabled {
+    opacity: 0.4;
+    cursor: default;
+    pointer-events: none;
+  }
+  
+  .tracks-variant-3 .track-card.hidden {
+    display: none;
+  }
+  
+  @media (max-width: 768px) {
+    .tracks-variant-3 .track-card {
+      flex: 0 0 100%;
+    }
+  }
+
+  .tracks-variant-3 .filter-btn[data-filter="managementseminare"]:hover {
+    border-color: var(--imt-purple);
+    color: var(--imt-purple);
+    background: rgba(110, 69, 226, 0.1);
+  }
+  
+  .tracks-variant-3 .filter-btn[data-filter="managementseminare"].active {
+    background: var(--imt-purple);
+    color: white;
+    border-color: var(--imt-purple);
+  }
+  
+  .tracks-variant-3 .filter-btn[data-filter="programme"]:hover {
+    border-color: #17a689;
+    color: #17a689;
+    background: rgba(23, 166, 137, 0.1);
+  }
+  
+  .tracks-variant-3 .filter-btn[data-filter="programme"].active {
+    background: #17a689;
+    color: white;
+    border-color: #17a689;
+  }
+
+  .current-page-badge {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    color: var(--imt-purple);
+    border: 1.5px solid var(--imt-purple);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    box-shadow: 0 2px 8px rgba(110, 69, 226, 0.15);
+    backdrop-filter: blur(10px);
+  }
+
+  .current-page-link {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .current-page-link:hover {
+    text-decoration: underline;
+  }
+
+  .tracks-variant-3 .filter-btn[data-filter="programme"].active {
+    background: #17a689;
+    color: white;
+    border-color: #17a689;
+  }
+
+  /* Styles für die aktuelle Seite */
+  .tracks-variant-3 .track-card.current-page {
+    border: 2px solid var(--imt-purple);
+    background: linear-gradient(135deg, #f8f7ff 0%, #f5f5f7 100%);
+  }
+
+  .current-page-badge {
+    background: var(--imt-purple);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+
+  .tracks-variant-3 .track-card.current-page .card-header {
+    position: relative;
+  }
+
+  .tracks-variant-3 .current-page-link {
+    color: var(--imt-purple);
+    font-weight: 600;
+  }
+
+  .tracks-variant-3 .current-page-link:hover {
+    text-decoration: none !important;
+    color: var(--imt-purple);
+  }
+
+  .tracks-variant-3 .current-page-link i {
+    color: #4CAF50;
+  }
+
+  .tracks-variant-3 .current-page-link i {
+    color: #4CAF50;
+    transition: none !important;
+  }
+
+  .tracks-variant-3 .current-page-link:hover i {
+    transform: none !important;
+  }
+
+  .tracks-variant-3 .track-card.current-page:hover .current-page-link i {
+    transform: none !important;
+  }
 </style>
 
 <!-- Favicon -->
@@ -2879,7 +3288,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           
           .gradient-quote-card::before {
             content: '';
-            position: absolute;
+    position: absolute;
             top: 0;
             left: 0;
             width: 100%;
@@ -2997,9 +3406,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             .gradient-quotes {
               grid-template-columns: 1fr;
             }
-          }
-        </style>
-        
+  }
+</style>
+
         <div class="gradient-quotes">
           <!-- Bestehende Testimonials - nur Jonas Gillmann beibehalten -->
           <div class="gradient-quote-card testimonial-item">
@@ -3368,6 +3777,305 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 Broschüre herunterladen <span class="arrow-icon">→</span>
               </a>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Unsere Weiterbildungen Section -->
+    <section class="tracks-variant-3">
+      <div class="container">
+        <div class="tracks-header">
+          <h2 class="tracks-title section-heading">Unsere Weiterbildungen</h2>
+          <p class="tracks-subtitle">Entdecken Sie unsere praxisorientierten Weiterbildungen, die Management-Know-how mit Technologie-Kompetenz verbinden</p>
+        </div>
+        
+        <div class="track-filters">
+          <button class="filter-btn active" data-filter="alle">Alle</button>
+          <button class="filter-btn" data-filter="managementseminare">Managementseminare</button>
+          <button class="filter-btn" data-filter="programme">Programme</button>
+        </div>
+        
+        <div class="tracks-container">
+          <div class="scroll-container">
+            <!-- Card 1 -->
+            <div class="track-card current-page" data-category="managementseminare">
+              <a href="integrated_management_strategy.html" class="card-link" aria-label="Integrated Management and Strategy Details"></a>
+              <div class="card-header">
+                <span class="track-category category-strategy">Managementseminar</span>
+                <h3 class="track-title">Integrated Management and Strategy</h3>
+              </div>
+              <div class="card-body">
+                <div class="info-section">
+                  <div class="card-row">
+                    <i class="bx bx-map"></i>
+                    <span>St. Gallen</span>
+                  </div>
+                  <div class="card-row">
+                    <i class="bx bx-time"></i>
+                    <span>3 Tage, optional mit ECTS</span>
+                  </div>
+                  <div class="card-row">
+                    <i class="bx bx-money"></i>
+                    <span>CHF 2'400 zzgl. 8,1 % MwSt.</span>
+                  </div>
+                </div>
+                <p class="track-description">Lernen Sie, integriertes Management wirksam einzusetzen – für strategische Ausrichtung, erfolgreiche Transformation und den nachhaltigen Einsatz von KI.</p>
+                <a href="integrated_management_strategy.html" class="track-link current-page-link" style="position: relative; z-index: 2;">Sie sind hier <i class="bx bx-check-circle"></i></a>
+              </div>
+            </div>
+            
+            <!-- Card 2 -->
+            <div class="track-card" data-category="managementseminare">
+              <a href="financial_management.html" class="card-link" aria-label="Financial Management Details"></a>
+              <div class="card-header">
+                <span class="track-category category-strategy">Managementseminar</span>
+                <h3 class="track-title">Financial Management</h3>
+              </div>
+              <div class="card-body">
+                <div class="info-section">
+                  <div class="card-row">
+                    <i class="bx bx-map"></i>
+                    <span>St. Gallen</span>
+                  </div>
+                  <div class="card-row">
+                    <i class="bx bx-time"></i>
+                    <span>3 Tage, optional mit ECTS</span>
+                  </div>
+                  <div class="card-row">
+                    <i class="bx bx-money"></i>
+                    <span>CHF 2'400 zzgl. 8,1 % MwSt.</span>
+                  </div>
+                </div>
+                <p class="track-description">Entwickeln Sie finanzielle Entscheidungskompetenz, um strategisches Wachstum gezielt zu steuern.</p>
+                <a href="financial_management.html" class="track-link" style="position: relative; z-index: 2;">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
+              </div>
+            </div>
+            
+            <!-- Card 3 -->
+            <div class="track-card" data-category="managementseminare">
+              <a href="inspirational_leadership.html" class="card-link" aria-label="Inspirational Leadership Details"></a>
+              <div class="card-header">
+                <span class="track-category category-strategy">Managementseminar</span>
+                <h3 class="track-title">Inspirational Leadership</h3>
+              </div>
+              <div class="card-body">
+                <div class="info-section">
+                  <div class="card-row">
+                    <i class="bx bx-map"></i>
+                    <span>St. Gallen</span>
+                  </div>
+                  <div class="card-row">
+                    <i class="bx bx-time"></i>
+                    <span>3 Tage, optional mit ECTS</span>
+                  </div>
+                  <div class="card-row">
+                    <i class="bx bx-money"></i>
+                    <span>CHF 2'400 zzgl. 8,1 % MwSt.</span>
+                  </div>
+                </div>
+                <p class="track-description">Entwickeln Sie Ihre Führungspersönlichkeit für klare, empathische und strategische Führung in Zeiten digitaler und KI-getriebener Veränderung.</p>
+                <a href="inspirational_leadership.html" class="track-link" style="position: relative; z-index: 2;">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
+              </div>
+            </div>
+            
+            <!-- Card 4 -->
+            <div class="track-card" data-category="managementseminare">
+              <a href="marketing_sales_brand_communication.html" class="card-link" aria-label="Marketing, Sales and Brand Communication Details"></a>
+              <div class="card-header">
+                <span class="track-category category-strategy">Managementseminar</span>
+                <h3 class="track-title">Marketing, Sales and Brand Communication</h3>
+              </div>
+              <div class="card-body">
+                <div class="info-section">
+                  <div class="card-row">
+                    <i class="bx bx-map"></i>
+                    <span>St. Gallen</span>
+                  </div>
+                  <div class="card-row">
+                    <i class="bx bx-time"></i>
+                    <span>3 Tage, optional mit ECTS</span>
+                  </div>
+                  <div class="card-row">
+                    <i class="bx bx-money"></i>
+                    <span>CHF2'400 zzgl. 8,1 % MwSt.</span>
+                  </div>
+                </div>
+                <p class="track-description">Lernen Sie, wie Sie Marketing und Vertrieb mit Strategie und KI wirkungsvoll für nachhaltigen Markterfolg einsetzen.</p>
+                <a href="marketing_sales_brand_communication.html" class="track-link" style="position: relative; z-index: 2;">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
+              </div>
+            </div>
+            
+            <!-- Card 5 -->
+            <div class="track-card" data-category="managementseminare">
+              <a href="intelligent_process_automation.html" class="card-link" aria-label="Intelligent Process Automation Details"></a>
+              <div class="card-header">
+                <span class="track-category category-strategy">Managementseminar</span>
+                <h3 class="track-title">Intelligent Process Automation</h3>
+              </div>
+              <div class="card-body">
+                <div class="info-section">
+                  <div class="card-row">
+                    <i class="bx bx-map"></i>
+                    <span>St. Gallen</span>
+                  </div>
+                  <div class="card-row">
+                    <i class="bx bx-time"></i>
+                    <span>3 Tage, optional mit ECTS</span>
+                  </div>
+                  <div class="card-row">
+                    <i class="bx bx-money"></i>
+                    <span>CHF 2'400 zzgl. 8,1 % MwSt.</span>
+                  </div>
+                </div>
+                <p class="track-description">Lernen Sie, wie intelligente Prozessautomatisierung Ihnen helfen, Ressourcen effizienter zu gestalten und Ihr Unternehmen zu optimieren.</p>
+                <a href="intelligent_process_automation.html" class="track-link" style="position: relative; z-index: 2;">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
+              </div>
+            </div>
+            
+            <!-- Card 6 -->
+            <div class="track-card" data-category="managementseminare">
+              <a href="ai_augmented_decision_making.html" class="card-link" aria-label="KI-Augmented Decision Making Details"></a>
+              <div class="card-header">
+                <span class="track-category category-strategy">Managementseminar</span>
+                <h3 class="track-title">KI-Augmented Decision Making</h3>
+              </div>
+              <div class="card-body">
+                <div class="info-section">
+                  <div class="card-row">
+                    <i class="bx bx-map"></i>
+                    <span>St. Gallen</span>
+                  </div>
+                  <div class="card-row">
+                    <i class="bx bx-time"></i>
+                    <span>3 Tage, optional mit ECTS</span>
+                  </div>
+                  <div class="card-row">
+                    <i class="bx bx-money"></i>
+                    <span>CHF 2'400 zzgl. 8,1 % MwSt.</span>
+                  </div>
+                </div>
+                <p class="track-description">Lernen Sie, wie KI-gestützte Entscheidungsprozesse Ihnen helfen, fundiertere und effektivere Entscheidungen zu treffen.</p>
+                <a href="ai_augmented_decision_making.html" class="track-link" style="position: relative; z-index: 2;">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
+              </div>
+            </div>
+            
+            <!-- Card 7: Programm - StGallen Management Programm -->
+            <div class="track-card" data-category="programme">
+              <a href="management_programm.html" class="card-link" aria-label="StGallen Management Programm Details"></a>
+              <div class="card-header">
+                <span class="track-category category-program">Programm</span>
+                <h3 class="track-title">StGallen Management Programm</h3>
+              </div>
+              <div class="card-body">
+                <div class="info-section">
+                  <div class="card-row">
+                    <i class="bx bx-map"></i>
+                    <span>St. Gallen</span>
+                  </div>
+                  <div class="card-row">
+                    <i class="bx bx-time"></i>
+                    <span>4*3 Tage</span>
+                  </div>
+                  <div class="card-row">
+                    <i class="bx bx-money"></i>
+                    <span>CHF 8'400 zzgl. 8,1 % MwSt.</span>
+                  </div>
+                </div>
+                <p class="track-description">Umfassendes Programm zur Integration von Management-Know-how mit praxisorientierten Ansätzen und zertifiziertem Abschluss.</p>
+                <a href="management_programm.html" class="track-link" style="position: relative; z-index: 2;">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
+              </div>
+            </div>
+            
+            <!-- Card 8: Programm - Certified Management CAS -->
+            <div class="track-card" data-category="programme">
+              <a href="management_programm_cas.html" class="card-link" aria-label="StGallen Certified Management CAS Details"></a>
+              <div class="card-header">
+                <span class="track-category category-program">Programm</span>
+                <h3 class="track-title">StGallen Certified Management CAS</h3>
+              </div>
+              <div class="card-body">
+                <div class="info-section">
+                  <div class="card-row">
+                    <i class="bx bx-map"></i>
+                    <span>St. Gallen</span>
+                  </div>
+                  <div class="card-row">
+                    <i class="bx bx-time"></i>
+                    <span>4*3 Tage plus 4 Tage hybrid</span>
+                  </div>
+                  <div class="card-row">
+                    <i class="bx bx-money"></i>
+                    <span>CHF 12'400 zzgl. 8,1 % MwSt.</span>
+                  </div>
+                </div>
+                <p class="track-description">Certificate of Advanced Studies mit vertieftem Management-Know-how und anerkanntem akademischen Abschluss.</p>
+                <a href="management_programm_cas.html" class="track-link" style="position: relative; z-index: 2;">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
+              </div>
+            </div>
+            
+            <!-- Card 9: Programm - AI Excellence Management Programm -->
+            <div class="track-card" data-category="programme">
+              <a href="ki_excellence_programm.html" class="card-link" aria-label="StGallen AI Excellence Management Programm Details"></a>
+              <div class="card-header">
+                <span class="track-category category-program">Programm</span>
+                <h3 class="track-title">StGallen AI Excellence Management Programm</h3>
+              </div>
+              <div class="card-body">
+                <div class="info-section">
+                  <div class="card-row">
+                    <i class="bx bx-map"></i>
+                    <span>St. Gallen</span>
+                  </div>
+                  <div class="card-row">
+                    <i class="bx bx-time"></i>
+                    <span>4*3 Tage</span>
+                  </div>
+                  <div class="card-row">
+                    <i class="bx bx-money"></i>
+                    <span>CHF 8'400 zzgl. 8,1 % MwSt.</span>
+                  </div>
+                </div>
+                <p class="track-description">Spezialisiertes Programm zur Integration künstlicher Intelligenz in das Management mit Zertifizierung.</p>
+                <a href="ki_excellence_programm.html" class="track-link" style="position: relative; z-index: 2;">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
+              </div>
+            </div>
+            
+            <!-- Card 10: Programm - Fast-Track MBA -->
+            <div class="track-card" data-category="programme">
+              <a href="fast_track_mba.html" class="card-link" aria-label="StGallen Fast Track MBA Programm Details"></a>
+              <div class="card-header">
+                <span class="track-category category-program">Programm</span>
+                <h3 class="track-title">StGallen Fast Track MBA Programm</h3>
+              </div>
+              <div class="card-body">
+                <div class="info-section">
+                  <div class="card-row">
+                    <i class="bx bx-map"></i>
+                    <span>St. Gallen</span>
+                  </div>
+                  <div class="card-row">
+                    <i class="bx bx-time"></i>
+                    <span>7x3-4 Tage plus 7 Tage hybrid</span>
+                  </div>
+                  <div class="card-row">
+                    <i class="bx bx-money"></i>
+                    <span>CHF 24'900 zzgl. 8,1 % MwSt.</span>
+                  </div>
+                </div>
+                <p class="track-description">Beschleunigtes MBA-Programm mit Fokus auf Management und Technologie für aufstrebende Führungskräfte.</p>
+                <a href="fast_track_mba.html" class="track-link" style="position: relative; z-index: 2;">Mehr erfahren <i class="bx bx-right-arrow-alt"></i></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="scroll-controls">
+            <button class="scroll-btn" id="scroll-left">
+              <i class="bx bx-chevron-left"></i>
+            </button>
+            <button class="scroll-btn" id="scroll-right">
+              <i class="bx bx-chevron-right"></i>
+            </button>
           </div>
         </div>
       </div>
@@ -4151,6 +4859,151 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           }
         `;
         document.head.appendChild(style);
+      }
+    });
+  </script>
+
+  <!-- Script für die Track Scroll-Funktionalität und Filter -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Track scroll functionality
+      const scrollContainer = document.querySelector('.tracks-variant-3 .scroll-container');
+      let scrollLeftBtn = document.getElementById('scroll-left');
+      let scrollRightBtn = document.getElementById('scroll-right');
+      
+      if (scrollContainer && scrollLeftBtn && scrollRightBtn) {
+        // Dynamische Berechnung der Scroll-Menge basierend auf der Viewport-Breite
+        const calculateScrollAmount = () => {
+          // Finde sichtbare Karten (nicht versteckt)
+          const visibleCards = Array.from(scrollContainer.querySelectorAll('.track-card:not(.hidden)'));
+          
+          if (visibleCards.length === 0) {
+            return 0; // Keine sichtbaren Karten
+          }
+          
+          // Breite einer sichtbaren Karte + Abstand
+          const cardWidth = visibleCards[0].offsetWidth + 16; // 16px Abstand
+          
+          // Auf mobilen Geräten präziser scrollen
+          if (window.innerWidth <= 768) {
+            // Mobile: Eine Karte pro Scroll
+            return cardWidth;
+          } else {
+            // Desktop: Zwei Karten pro Scroll oder die Hälfte der sichtbaren Karten
+            const scrollCount = Math.min(2, Math.ceil(visibleCards.length / 2));
+            return cardWidth * scrollCount;
+          }
+        };
+        
+        // Überprüfung, ob die Scroll-Buttons aktiviert oder deaktiviert sein sollten
+        const updateScrollButtons = () => {
+          const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+          
+          if (scrollContainer.scrollLeft <= 0) {
+            scrollLeftBtn.classList.add('disabled');
+          } else {
+            scrollLeftBtn.classList.remove('disabled');
+          }
+          
+          if (scrollContainer.scrollLeft >= maxScrollLeft - 5) {
+            scrollRightBtn.classList.add('disabled');
+          } else {
+            scrollRightBtn.classList.remove('disabled');
+          }
+        };
+        
+        // Initial Button-Status setzen
+        updateScrollButtons();
+        
+        // Event-Listener für Scroll-Ereignisse
+        scrollContainer.addEventListener('scroll', updateScrollButtons);
+        
+        // Finde alle sichtbaren Karten und scrolle zur nächsten/vorherigen
+        const scrollToNextVisibleCard = (direction) => {
+          // Alle nicht-versteckten Karten finden
+          const visibleCards = Array.from(
+            scrollContainer.querySelectorAll('.track-card:not(.hidden)')
+          );
+          
+          if (visibleCards.length === 0) return;
+          
+          // Aktuell sichtbare Karten bestimmen (im Viewport)
+          const containerRect = scrollContainer.getBoundingClientRect();
+          const cardWidth = visibleCards[0].offsetWidth + 16; // Card + margin
+          
+          // Bestimme die aktuelle Position im Scrollbereich
+          const currentScrollLeft = scrollContainer.scrollLeft;
+          
+          // Neue Scroll-Position berechnen
+          let newScrollLeft;
+          
+          if (direction === 'next') {
+            // Auf Desktop immer nur eine Karte weiter
+            newScrollLeft = currentScrollLeft + cardWidth;
+          } else {
+            // Auf Desktop immer nur eine Karte zurück
+            newScrollLeft = currentScrollLeft - cardWidth;
+          }
+          
+          // Scroll ausführen
+          scrollContainer.scrollTo({
+            left: newScrollLeft,
+            behavior: 'smooth'
+          });
+        };
+        
+        // Event-Listener für die Scroll-Buttons
+        scrollLeftBtn.addEventListener('click', function() {
+          scrollToNextVisibleCard('prev');
+        });
+        
+        scrollRightBtn.addEventListener('click', function() {
+          scrollToNextVisibleCard('next');
+        });
+        
+        // Auch beim Resize-Event die Scroll-Distanz anpassen
+        window.addEventListener('resize', updateScrollButtons);
+      }
+      
+      // Filter-Funktionalität
+      const filterButtons = document.querySelectorAll('.tracks-variant-3 .filter-btn');
+      const trackCards = document.querySelectorAll('.tracks-variant-3 .track-card');
+      
+      if (filterButtons.length && trackCards.length) {
+        filterButtons.forEach(btn => {
+          btn.addEventListener('click', function() {
+            // Aktive Klasse von allen Buttons entfernen
+            filterButtons.forEach(button => button.classList.remove('active'));
+            
+            // Aktive Klasse zum geklickten Button hinzufügen
+            this.classList.add('active');
+            
+            const filterValue = this.getAttribute('data-filter');
+            
+            // Karten filtern
+            let visibleCards = 0;
+            trackCards.forEach(card => {
+              const category = card.getAttribute('data-category');
+              
+              if (filterValue === 'alle' || category === filterValue) {
+                card.classList.remove('hidden');
+                visibleCards++;
+              } else {
+                card.classList.add('hidden');
+              }
+            });
+            
+            // Scroll zurücksetzen nach Filter-Änderung
+            if (scrollContainer) {
+              scrollContainer.scrollLeft = 0;
+            }
+            
+            // Scroll-Button-Status aktualisieren
+            if (typeof updateScrollButtons === 'function') {
+              updateScrollButtons();
+            }
+          });
+        });
       }
     });
   </script>
