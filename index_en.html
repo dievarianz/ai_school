@@ -3211,7 +3211,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- Script for network filter functionality -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Filter functionality for partners in "In best company" section
+      // Filter functionality for partners in "In Good Company" section
       const networkFilterButtons = document.querySelectorAll('.network-section .filter-btn');
       const partnerItems = document.querySelectorAll('.network-section .partner-item');
       
@@ -3225,32 +3225,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             this.classList.add('active');
             
             // Filter value based on button text
-            let filterValue = this.textContent.trim().toLowerCase();
+            let buttonText = this.textContent.trim().toLowerCase();
+            let filterValue;
             
-            // Special handling for "Academic Partners" to "akademische partner"
-            if (filterValue === 'akademische partner') {
-              // Filter partner items for Academic Partners
-              partnerItems.forEach(item => {
-                const category = item.getAttribute('data-category');
-                
-                if (filterValue === 'alle' || category === 'akademische partner') {
-                  item.style.display = 'flex';
-                } else {
-                  item.style.display = 'none';
-                }
-              });
+            // Map English button texts to German data-category values
+            if (buttonText === 'all') {
+              filterValue = 'alle';
+            } else if (buttonText === 'companies') {
+              filterValue = 'unternehmen';
+            } else if (buttonText === 'academic partners') {
+              filterValue = 'akademische partner';
             } else {
-              // Standard filtering for other categories
-              partnerItems.forEach(item => {
-                const category = item.getAttribute('data-category');
-                
-                if (filterValue === 'alle' || category === filterValue) {
-                  item.style.display = 'flex';
-                } else {
-                  item.style.display = 'none';
-                }
-              });
+              filterValue = buttonText;
             }
+            
+            // Filter partner items
+            partnerItems.forEach(item => {
+              const category = item.getAttribute('data-category');
+              
+              if (filterValue === 'alle' || category === filterValue) {
+                item.style.display = 'flex';
+              } else {
+                item.style.display = 'none';
+              }
+            });
           });
         });
       }

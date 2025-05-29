@@ -2602,9 +2602,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   
   .tracks-variant-3 .track-card:hover {
-    border: 2px solid var(--imt-purple);
     transform: none;
     box-shadow: none;
+  }
+  
+  /* Managementseminar Hover - Lila Stroke */
+  .tracks-variant-3 .track-card[data-category="managementseminare"]:hover {
+    border: 2px solid var(--imt-purple);
+  }
+  
+  /* Programme Hover - Grüner Stroke */
+  .tracks-variant-3 .track-card[data-category="programme"]:hover {
+    border: 2px solid #17a689;
   }
   
   .tracks-variant-3 .card-header {
@@ -2820,6 +2829,45 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   .tracks-variant-3 .track-card.current-page:hover .current-page-link i {
     transform: none !important;
+  }
+
+  .tracks-variant-3 .card-row i {
+    color: var(--imt-purple);
+    font-size: 1.1rem;
+    width: 20px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+  
+  /* Teal Icons für Programme */
+  .track-card[data-category="programme"] .card-row i {
+    color: #17a689;
+  }
+  
+  .tracks-variant-3 .track-description {
+    font-size: 0.9rem;
+    color: var(--color-muted);
+    line-height: 1.4;
+    margin: 0 0 15px;
+    flex-grow: 1;
+  }
+  
+  .tracks-variant-3 .track-link {
+    color: var(--imt-purple);
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    transition: color 0.2s ease;
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* Teal Link für Programme */
+  .track-card[data-category="programme"] .track-link {
+    color: #17a689;
   }
 </style>
 

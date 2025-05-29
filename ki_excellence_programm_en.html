@@ -2004,9 +2004,18 @@
   }
   
   .tracks-variant-3 .track-card:hover {
-    border: 2px solid var(--imt-purple);
     transform: none;
     box-shadow: none;
+  }
+  
+  /* Managementseminar Hover - Lila Stroke */
+  .tracks-variant-3 .track-card[data-category="managementseminare"]:hover {
+    border: 2px solid var(--imt-purple);
+  }
+  
+  /* Programme Hover - Grüner Stroke */
+  .tracks-variant-3 .track-card[data-category="programme"]:hover {
+    border: 2px solid #17a689;
   }
   
   .tracks-variant-3 .card-header {
@@ -2086,6 +2095,11 @@
     flex-shrink: 0;
   }
   
+  /* Teal Icons für Programme */
+  .track-card[data-category="programme"] .card-row i {
+    color: #17a689;
+  }
+  
   .tracks-variant-3 .track-description {
     font-size: 0.9rem;
     color: var(--color-muted);
@@ -2107,9 +2121,23 @@
     z-index: 2;
   }
   
+  /* Teal Link für Programme */
+  .track-card[data-category="programme"] .track-link {
+    color: #17a689;
+  }
+  
   .tracks-variant-3 .track-link:hover {
-    color: #4a2c94;
     text-decoration: none;
+  }
+  
+  /* Hover-Effekt für Managementseminare-Links */
+  .track-card[data-category="managementseminare"] .track-link:hover {
+    color: #4a2c94;
+  }
+  
+  /* Hover-Effekt für Programme-Links */
+  .track-card[data-category="programme"] .track-link:hover {
+    color: #0f7a65;
   }
   
   .tracks-variant-3 .track-link i {
@@ -3173,7 +3201,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="scroll-container">
             
             <!-- Track 1: Integrated Management and Strategy -->
-            <div class="track-card managementseminare">
+            <div class="track-card" data-category="managementseminare">
               <a href="integrated_management_strategy_en.html" class="card-link"></a>
               <div class="card-header">
                 <span class="track-category category-strategy">Management Seminar</span>
@@ -3202,7 +3230,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
 
             <!-- Track 2: Financial Management -->
-            <div class="track-card managementseminare">
+            <div class="track-card" data-category="managementseminare">
               <a href="financial_management_en.html" class="card-link"></a>
               <div class="card-header">
                 <span class="track-category category-strategy">Management Seminar</span>
@@ -3231,7 +3259,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
 
             <!-- Track 3: Inspirational Leadership -->
-            <div class="track-card managementseminare">
+            <div class="track-card" data-category="managementseminare">
               <a href="inspirational_leadership_en.html" class="card-link"></a>
               <div class="card-header">
                 <span class="track-category category-strategy">Management Seminar</span>
@@ -3260,7 +3288,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
 
             <!-- Track 4: Marketing, Sales & Brand Communication -->
-            <div class="track-card managementseminare">
+            <div class="track-card" data-category="managementseminare">
               <a href="marketing_sales_brand_communication_en.html" class="card-link"></a>
               <div class="card-header">
                 <span class="track-category category-strategy">Management Seminar</span>
@@ -3289,7 +3317,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
 
             <!-- Track 5: Intelligent Process Automation -->
-            <div class="track-card managementseminare">
+            <div class="track-card" data-category="managementseminare">
               <a href="intelligent_process_automation_en.html" class="card-link"></a>
               <div class="card-header">
                 <span class="track-category category-strategy">Management Seminar</span>
@@ -3318,7 +3346,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
 
             <!-- Track 6: AI-Augmented Decision Making -->
-            <div class="track-card managementseminare">
+            <div class="track-card" data-category="managementseminare">
               <a href="ai_augmented_decision_making_en.html" class="card-link"></a>
               <div class="card-header">
                 <span class="track-category category-strategy">Management Seminar</span>
@@ -3347,7 +3375,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
 
             <!-- Track 7: StGallen Management Program -->
-            <div class="track-card programme">
+            <div class="track-card" data-category="programme">
               <a href="management_programm_en.html" class="card-link"></a>
               <div class="card-header">
                 <span class="track-category category-program">Program</span>
@@ -3376,7 +3404,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
 
             <!-- Track 8: Management Program CAS -->
-            <div class="track-card programme">
+            <div class="track-card" data-category="programme">
               <a href="management_programm_cas_en.html" class="card-link"></a>
               <div class="card-header">
                 <span class="track-category category-program">Program</span>
@@ -3405,7 +3433,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
 
             <!-- Track 9: StGallen AI Excellence Management Program (aktuelle Seite als current-page) -->
-            <div class="track-card programme current-page">
+            <div class="track-card current-page" data-category="programme">
               <a href="ki_excellence_programm_en.html" class="card-link"></a>
               <div class="card-header">
                 <span class="track-category category-program">Program</span>
@@ -3434,7 +3462,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
 
             <!-- Track 10: Fast Track MBA -->
-            <div class="track-card programme">
+            <div class="track-card" data-category="programme">
               <a href="fast_track_mba_en.html" class="card-link"></a>
               <div class="card-header">
                 <span class="track-category category-program">Program</span>
