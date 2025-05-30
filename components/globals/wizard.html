@@ -964,38 +964,91 @@
 
   function findBestMatchesWizard() { // Umbenannt
     const programsWithScores = [];
+    
     for (const [key, program] of Object.entries(programs)) {
+      // HARTE FILTER - müssen alle erfüllt sein, sonst wird das Programm ausgeschlossen
+      
+      // 1. Zertifizierungs-Filter (sehr strikt!)
+      if (!program.certification.includes(wizardSelections.certification)) {
+        continue; // Programm wird komplett ausgeschlossen
+      }
+      
+      // 2. Sprach-Filter 
+      if (wizardSelections.language !== 'both' && !program.language.includes(wizardSelections.language)) {
+        continue; // Programm wird ausgeschlossen
+      }
+      
+      // 3. Zeitrahmen-Filter (sehr strikt!)
+      let timeframeMatch = false;
+      if (wizardSelections.timeframe === 'short' && program.duration.includes('3 Tage')) {
+        timeframeMatch = true;
+      } else if (wizardSelections.timeframe === 'medium' && (program.duration.includes('4x3') && !program.type.includes('MBA'))) {
+        timeframeMatch = true;
+      } else if (wizardSelections.timeframe === 'long' && program.type.includes('MBA')) {
+        timeframeMatch = true;
+      }
+      
+      if (!timeframeMatch) {
+        continue; // Programm wird ausgeschlossen
+      }
+      
+      // Wenn alle harten Filter bestanden sind, beginnt das Scoring
       let score = 0;
       let reasons = [];
+      
+      // Hauptkriterium: Lernziel (höchste Gewichtung)
       if (program.goals.includes(wizardSelections.goal)) {
-        score += 3;
-        const goalNames = {'strategy': 'Strategisches Management', 'leadership': 'Führungskompetenzen', 'finance': 'Financial Management', 'ai': 'KI & Digitalisierung', 'marketing': 'Marketing & Sales', 'comprehensive': 'Ganzheitliches Management'};
+        score += 10; // Deutlich höhere Gewichtung
+        const goalNames = {
+          'strategy': 'Strategisches Management', 
+          'leadership': 'Führungskompetenzen', 
+          'finance': 'Financial Management', 
+          'ai': 'KI & Digitalisierung', 
+          'marketing': 'Marketing & Sales', 
+          'comprehensive': 'Ganzheitliches Management'
+        };
         reasons.push(`Deckt Ihr Lernziel "${goalNames[wizardSelections.goal]}" ab`);
       }
+      
+      // Bonuspunkte für perfekte Übereinstimmungen
       if (wizardSelections.timeframe === 'short' && program.duration.includes('3 Tage')) {
-        score += 2; reasons.push('Passt zu Ihrem gewünschten Zeitrahmen (3-4 Tage)');
-      } else if (wizardSelections.timeframe === 'medium' && (program.duration.includes('4x3') || program.type.includes('Programm'))) {
-        score += 2; reasons.push('Passt zu Ihrem gewünschten Zeitrahmen (3-4 Monate)');
+        score += 5;
+        reasons.push('Passt zu Ihrem gewünschten Zeitrahmen (3-4 Tage)');
+      } else if (wizardSelections.timeframe === 'medium' && program.duration.includes('4x3')) {
+        score += 5;
+        reasons.push('Passt zu Ihrem gewünschten Zeitrahmen (3-4 Monate)');
       } else if (wizardSelections.timeframe === 'long' && program.type.includes('MBA')) {
-        score += 2; reasons.push('Passt zu Ihrem gewünschten Zeitrahmen (12+ Monate)');
+        score += 5;
+        reasons.push('Passt zu Ihrem gewünschten Zeitrahmen (12+ Monate)');
       }
-      if (program.language.includes(wizardSelections.language) || wizardSelections.language === 'both') {
-        score += 1;
-        if (wizardSelections.language !== 'both') {
-          const langName = wizardSelections.language === 'de' ? 'Deutsch' : 'Englisch';
-          reasons.push(`Verfügbar in ${langName}`);
-        }
+      
+      // Sprachbonus
+      if (wizardSelections.language !== 'both') {
+        score += 2;
+        const langName = wizardSelections.language === 'de' ? 'Deutsch' : 'Englisch';
+        reasons.push(`Verfügbar in ${langName}`);
       }
-      if (program.certification.includes(wizardSelections.certification)) {
-        score += 1;
-        const certNames = {'none': 'Keine Zertifizierung erforderlich', 'ects': 'ECTS-Punkte verfügbar', 'cas': 'CAS-Abschluss', 'mba': 'MBA-Abschluss'};
-        reasons.push(certNames[wizardSelections.certification]);
-      }
-      if (score >= 3) {
+      
+      // Zertifizierungsbonus
+      score += 3; // Da es bereits durch harten Filter gegangen ist
+      const certNames = {
+        'none': 'Keine Zertifizierung erforderlich', 
+        'ects': 'ECTS-Punkte verfügbar', 
+        'cas': 'CAS-Abschluss', 
+        'mba': 'MBA-Abschluss'
+      };
+      reasons.push(certNames[wizardSelections.certification]);
+      
+      // Nur Programme mit mindestens 10 Punkten (mindestens Lernziel-Match)
+      if (score >= 10) {
         programsWithScores.push({...program, score: score, matchReason: reasons.join(', ')});
       }
     }
+    
+    // Sortierung nach Score (höchster zuerst)
     programsWithScores.sort((a, b) => b.score - a.score);
+    
+    // Maximal 3 Programme zurückgeben
     return programsWithScores.slice(0, 3);
   }
 

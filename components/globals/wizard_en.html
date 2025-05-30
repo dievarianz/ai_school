@@ -947,29 +947,91 @@
 
   function findBestMatchesWizard() {
     const programsWithScores = [];
+    
     for (const [key, program] of Object.entries(programs)) {
-      let score = 0;
-      if (program.goals.includes(wizardSelections.goal)) {
-        score += 3;
+      // HARD FILTERS - all must be met, otherwise program is excluded
+      
+      // 1. Certification filter (very strict!)
+      if (!program.certification.includes(wizardSelections.certification)) {
+        continue; // Program is completely excluded
       }
+      
+      // 2. Language filter 
+      if (wizardSelections.language !== 'both' && !program.language.includes(wizardSelections.language)) {
+        continue; // Program is excluded
+      }
+      
+      // 3. Timeframe filter (very strict!)
+      let timeframeMatch = false;
       if (wizardSelections.timeframe === 'short' && program.duration.includes('3 days')) {
-        score += 2;
-      } else if (wizardSelections.timeframe === 'medium' && (program.duration.includes('4x3') || program.type.includes('Programme'))) {
-        score += 2;
+        timeframeMatch = true;
+      } else if (wizardSelections.timeframe === 'medium' && (program.duration.includes('4x3') && !program.type.includes('MBA'))) {
+        timeframeMatch = true;
       } else if (wizardSelections.timeframe === 'long' && program.type.includes('MBA')) {
+        timeframeMatch = true;
+      }
+      
+      if (!timeframeMatch) {
+        continue; // Program is excluded
+      }
+      
+      // If all hard filters are passed, start scoring
+      let score = 0;
+      let reasons = [];
+      
+      // Main criterion: Learning goal (highest weighting)
+      if (program.goals.includes(wizardSelections.goal)) {
+        score += 10; // Much higher weighting
+        const goalNames = {
+          'strategy': 'Strategic Management', 
+          'leadership': 'Leadership Skills', 
+          'finance': 'Financial Management', 
+          'ai': 'AI & Digitalization', 
+          'marketing': 'Marketing & Sales', 
+          'comprehensive': 'Comprehensive Management'
+        };
+        reasons.push(`Covers your learning goal "${goalNames[wizardSelections.goal]}"`);
+      }
+      
+      // Bonus points for perfect matches
+      if (wizardSelections.timeframe === 'short' && program.duration.includes('3 days')) {
+        score += 5;
+        reasons.push('Fits your desired timeframe (3-4 days)');
+      } else if (wizardSelections.timeframe === 'medium' && program.duration.includes('4x3')) {
+        score += 5;
+        reasons.push('Fits your desired timeframe (3-4 months)');
+      } else if (wizardSelections.timeframe === 'long' && program.type.includes('MBA')) {
+        score += 5;
+        reasons.push('Fits your desired timeframe (12+ months)');
+      }
+      
+      // Language bonus
+      if (wizardSelections.language !== 'both') {
         score += 2;
+        const langName = wizardSelections.language === 'de' ? 'German' : 'English';
+        reasons.push(`Available in ${langName}`);
       }
-      if (program.language.includes(wizardSelections.language) || wizardSelections.language === 'both') {
-        score += 1;
-      }
-      if (program.certification.includes(wizardSelections.certification)) {
-        score += 1;
-      }
-      if (score >= 3) {
-        programsWithScores.push({...program, score: score});
+      
+      // Certification bonus
+      score += 3; // Since it already passed the hard filter
+      const certNames = {
+        'none': 'No certification required', 
+        'ects': 'ECTS points available', 
+        'cas': 'CAS degree', 
+        'mba': 'MBA degree'
+      };
+      reasons.push(certNames[wizardSelections.certification]);
+      
+      // Only programs with at least 10 points (at least learning goal match)
+      if (score >= 10) {
+        programsWithScores.push({...program, score: score, matchReason: reasons.join(', ')});
       }
     }
+    
+    // Sort by score (highest first)
     programsWithScores.sort((a, b) => b.score - a.score);
+    
+    // Return maximum 3 programs
     return programsWithScores.slice(0, 3);
   }
 
