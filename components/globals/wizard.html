@@ -66,6 +66,17 @@
       border-radius: var(--radius) var(--radius) 0 0;
     }
 
+    .wizard-header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .wizard-logo {
+      height: 32px;
+      width: auto;
+    }
+
     .wizard-header h2 {
       font-size: 1.2rem;
       font-weight: 600;
@@ -98,7 +109,7 @@
     .wizard-body { /* Umbenannt von .modal-wizard */
       padding: 20px 24px;
       background: var(--color-card-bg);
-      border-radius: 0 0 var(--radius) var(--radius);
+      border-radius: 0;
     }
 
     /* Progress Bar */
@@ -204,7 +215,6 @@
 
     .option-card:hover {
       border-color: var(--imt-purple);
-      transform: translateY(-2px);
     }
 
     .option-card.selected {
@@ -311,7 +321,6 @@
 
     .btn:hover {
       background: #5a37c8;
-      transform: translateY(-1px);
     }
 
     .btn:disabled {
@@ -337,7 +346,7 @@
         color: var(--imt-purple);
         border: none;
         padding: 10px 0; /* Weniger Padding, da es ein Link ist */
-        text-decoration: underline;
+        text-decoration: none;
     }
     .btn-link:hover {
         color: #5a37c8;
@@ -348,11 +357,13 @@
 
     /* ============ RESULT CARD ============ */
     .result-card {
-      background: var(--imt-purple);
-      color: white;
+      background: white;
+      color: var(--color-text);
       border-radius: var(--radius);
       padding: 48px 32px;
       text-align: center;
+      border: 1px solid #e5e5e7;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
     .result-title {
@@ -360,24 +371,50 @@
       font-weight: 700;
       margin-bottom: 8px;
       letter-spacing: -0.02em;
+      color: var(--imt-purple);
     }
 
     .result-subtitle {
       font-size: 1.1rem;
-      opacity: 0.85;
+      color: var(--color-muted);
       margin-bottom: 32px;
       font-weight: 400;
     }
 
     .recommended-program {
-      background: rgba(255, 255, 255, 0.95);
+      background: white;
+      color: var(--color-text);
       border-radius: 16px;
       padding: 24px;
       margin-bottom: 16px;
       position: relative;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(10px);
+      border: 1px solid #e5e5e7;
+      transition: all 0.3s ease;
+    }
+
+    .recommended-program:hover {
+      border-color: var(--imt-purple);
+    }
+
+    .recommended-program .program-name {
       color: var(--color-text);
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+    }
+
+    .recommended-program .program-detail {
+      color: var(--color-muted);
+    }
+
+    .recommended-program .program-detail i {
+      color: var(--imt-purple);
+    }
+
+    .recommended-program .program-description {
+      color: var(--color-muted);
     }
 
     .program-name {
@@ -432,7 +469,7 @@
     }
 
     .multiple-programs .recommended-program.best-match {
-      background: rgba(255, 255, 255, 1);
+      background: white;
       border: 2px solid var(--imt-purple);
       box-shadow: 0 4px 20px rgba(110, 69, 226, 0.15);
     }
@@ -507,14 +544,14 @@
 
     /* Styling für den Ergebnis-Container (wizard-step-4) */
     #wizard-step-4 {
-      background-color: var(--imt-purple);
-      padding: 40px 32px;
-      border-radius: var(--radius);
+      background-color: transparent;
+      padding: 0;
+      border-radius: 0;
     }
 
     #wizard-step-4 .wizard-body {
-      background: transparent;
-      padding: 0;
+      background: var(--color-card-bg);
+      padding: 20px 24px;
     }
 
     /* Navigation Buttons für Schritt 4 */
@@ -524,20 +561,19 @@
 
     #wizard-step-4 .wizard-navigation .btn-secondary, 
     #wizard-step-4 .wizard-navigation .btn-link {
-        background-color: rgba(255, 255, 255, 0.15); 
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        color: white;
-        backdrop-filter: blur(10px);
-        border-radius: 12px;
-        padding: 12px 24px;
+        background-color: transparent; 
+        border: 1px solid #e5e5e7;
+        color: var(--color-muted);
+        border-radius: 8px;
+        padding: 10px 20px;
         font-weight: 600;
         transition: all 0.2s ease;
     }
 
     #wizard-step-4 .wizard-navigation .btn-secondary:hover,
     #wizard-step-4 .wizard-navigation .btn-link:hover {
-        background-color: rgba(255, 255, 255, 0.25);
-        color: white;
+        background-color: #f5f5f7;
+        color: var(--color-text);
         transform: translateY(-1px);
         text-decoration: none;
     }
@@ -627,6 +663,33 @@
       #wizard-step-4 .wizard-navigation {
         justify-content: center;
       }
+      
+      .wizard-header {
+        padding: 12px 16px;
+      }
+      
+      .wizard-logo {
+        height: 28px;
+      }
+      
+      .wizard-header h2 {
+        font-size: 1.1rem;
+      }
+      
+      .wizard-header-left {
+        gap: 8px;
+      }
+    }
+
+    /* Copyright Footer im Wizard */
+    .wizard-copyright {
+      margin-top: 0;
+      padding: 15px 24px;
+      border-top: 1px solid rgba(0,0,0,0.1);
+      background: var(--color-card-bg);
+      font-size: 0.85rem;
+      color: var(--color-muted);
+      text-align: left;
     }
   </style>
 </head>
@@ -635,7 +698,11 @@
   <div class="page-container"> <!-- Neuer Container für die Seite -->
     <div class="wizard-main-content"> <!-- Umbenannt von .modal-content -->
       <div class="wizard-header"> <!-- Umbenannt von .modal-header -->
-        <h2>Weiterbildungsberater</h2>
+        <div class="wizard-header-left">
+          <a href="javascript:history.back()" style="text-decoration: none;">
+            <img src="../../assets/pictures/imt_logo.png" alt="IMT Logo" class="wizard-logo" style="cursor: pointer;">
+          </a>
+        </div>
         <!-- Der Schließen-Button navigiert jetzt einfach zurück -->
         <a href="javascript:history.back()" class="wizard-close-button" title="Zurück">
           <i class='bx bx-x'></i>
@@ -792,6 +859,11 @@
           </div>
         </div>
       </div> <!-- Ende .wizard-body -->
+      
+      <!-- Copyright Footer im Wizard -->
+      <div class="wizard-copyright">
+        <span>Copyright ©2025 StGallen imt Business School</span>
+      </div>
     </div> <!-- Ende .wizard-main-content -->
   </div> <!-- Ende .page-container -->
 
@@ -892,7 +964,7 @@
       registerUrl: '#'
     },
     'management_programm_cas': {
-      name: 'StGallen Certified Management CAS',
+      name: 'StGallen Management Programm CAS',
       type: 'CAS Programm',
       duration: '4x3 Tage plus 4 Tage hybrid',
       language: ['de'],
@@ -954,14 +1026,18 @@
     document.getElementById(`wizard-step-${step}`).classList.remove('active');
     document.getElementById(`wizard-step-indicator-${step}`).classList.remove('active');
     document.getElementById(`wizard-step-indicator-${step - 1}`).classList.remove('completed');
-    document.getElementById(`wizard-connector-${step - 1}`).classList.remove('completed');
+    document.getElementById(`wizard-connector-${step - 1}`).classList.remove('active');
     
     currentWizardStep = step - 1;
     document.getElementById(`wizard-step-${currentWizardStep}`).classList.add('active');
     document.getElementById(`wizard-step-indicator-${currentWizardStep}`).classList.add('active');
+    
+    if (currentWizardStep > 1) {
+      document.getElementById(`wizard-connector-${currentWizardStep - 1}`).classList.add('active');
+    }
   }
 
-  function showWizardResults() { // Umbenannt
+  function showWizardResults() {
     document.getElementById('wizard-step-3').classList.remove('active');
     document.getElementById('wizard-step-indicator-3').classList.remove('active');
     document.getElementById('wizard-step-indicator-3').classList.add('completed');
@@ -971,12 +1047,12 @@
     document.getElementById('wizard-step-4').classList.add('active');
     document.getElementById('wizard-step-indicator-4').classList.add('active');
     
-    const recommendedPrograms = findBestMatchesWizard(); // Umbenannt
-    displayWizardResults(recommendedPrograms); // Umbenannt
+    const recommendedPrograms = findBestMatchesWizard();
+    displayWizardResults(recommendedPrograms);
   }
 
-  function displayWizardResults(recommendedPrograms) { // Umbenannt
-    const resultContent = document.getElementById('wizard-result-content'); // IDs im HTML sind jetzt wizard-result-content etc.
+  function displayWizardResults(recommendedPrograms) {
+    const resultContent = document.getElementById('wizard-result-content');
     
     if (recommendedPrograms.length === 0) {
       resultContent.innerHTML = `
@@ -985,7 +1061,8 @@
       `;
       return;
     }
-     if (recommendedPrograms.length === 1) {
+    
+    if (recommendedPrograms.length === 1) {
       const program = recommendedPrograms[0];
       resultContent.innerHTML = `
         <div class="result-title">Perfekte Übereinstimmung!</div>
@@ -1025,23 +1102,18 @@
     }
   }
 
-  function findBestMatchesWizard() { // Umbenannt
+  function findBestMatchesWizard() {
     const programsWithScores = [];
     
     for (const [key, program] of Object.entries(programs)) {
-      // HARTE FILTER - müssen alle erfüllt sein, sonst wird das Programm ausgeschlossen
-      
-      // 1. Zertifizierungs-Filter (sehr strikt!)
       if (!program.certification.includes(wizardSelections.certification)) {
-        continue; // Programm wird komplett ausgeschlossen
+        continue;
       }
       
-      // 2. Sprach-Filter 
       if (wizardSelections.language !== 'both' && !program.language.includes(wizardSelections.language)) {
-        continue; // Programm wird ausgeschlossen
+        continue;
       }
       
-      // 3. Zeitrahmen-Filter (sehr strikt!)
       let timeframeMatch = false;
       if (wizardSelections.timeframe === 'short' && program.duration.includes('3 Tage')) {
         timeframeMatch = true;
@@ -1052,16 +1124,14 @@
       }
       
       if (!timeframeMatch) {
-        continue; // Programm wird ausgeschlossen
+        continue;
       }
       
-      // Wenn alle harten Filter bestanden sind, beginnt das Scoring
       let score = 0;
       let reasons = [];
       
-      // Hauptkriterium: Lernziel (höchste Gewichtung)
       if (program.goals.includes(wizardSelections.goal)) {
-        score += 10; // Deutlich höhere Gewichtung
+        score += 10;
         const goalNames = {
           'strategy': 'Strategisches Management', 
           'leadership': 'Führungskompetenzen', 
@@ -1073,7 +1143,6 @@
         reasons.push(`Deckt Ihr Lernziel "${goalNames[wizardSelections.goal]}" ab`);
       }
       
-      // Bonuspunkte für perfekte Übereinstimmungen
       if (wizardSelections.timeframe === 'short' && program.duration.includes('3 Tage')) {
         score += 5;
         reasons.push('Passt zu Ihrem gewünschten Zeitrahmen (3-4 Tage)');
@@ -1085,15 +1154,13 @@
         reasons.push('Passt zu Ihrem gewünschten Zeitrahmen (12+ Monate)');
       }
       
-      // Sprachbonus
       if (wizardSelections.language !== 'both') {
         score += 2;
         const langName = wizardSelections.language === 'de' ? 'Deutsch' : 'Englisch';
         reasons.push(`Verfügbar in ${langName}`);
       }
       
-      // Zertifizierungsbonus
-      score += 3; // Da es bereits durch harten Filter gegangen ist
+      score += 3;
       const certNames = {
         'none': 'Keine Zertifizierung erforderlich', 
         'ects': 'ECTS-Punkte verfügbar', 
@@ -1102,68 +1169,58 @@
       };
       reasons.push(certNames[wizardSelections.certification]);
       
-      // Nur Programme mit mindestens 10 Punkten (mindestens Lernziel-Match)
       if (score >= 10) {
         programsWithScores.push({...program, score: score, matchReason: reasons.join(', ')});
       }
     }
     
-    // Sortierung nach Score (höchster zuerst)
     programsWithScores.sort((a, b) => b.score - a.score);
-    
-    // Maximal 3 Programme zurückgeben
     return programsWithScores.slice(0, 3);
   }
 
-  function wizardRestartWizard() { // Umbenannt
+  function wizardRestartWizard() {
     currentWizardStep = 1;
     wizardSelections = {goal: null, timeframe: null, language: null, certification: null};
-    document.querySelectorAll('.wizard-step').forEach(step => step.classList.remove('active')); // Allgemeine Klasse .wizard-step
+    document.querySelectorAll('.wizard-step').forEach(step => step.classList.remove('active'));
     document.getElementById('wizard-step-1').classList.add('active');
-    document.querySelectorAll('.progress-step').forEach((step, index) => { // Allgemeine Klasse .progress-step
+    document.querySelectorAll('.progress-step').forEach((step, index) => {
       step.classList.remove('active', 'completed');
       if (index === 0) step.classList.add('active');
     });
-    document.querySelectorAll('.progress-connector').forEach(connector => { // Allgemeine Klasse .progress-connector
+    document.querySelectorAll('.progress-connector').forEach(connector => {
       connector.classList.remove('active', 'completed');
     });
     document.querySelectorAll('.option-card').forEach(card => card.classList.remove('selected'));
-    document.getElementById('wizard-next-1').disabled = true; // IDs sind jetzt wizard-next-...
+    document.getElementById('wizard-next-1').disabled = true;
     document.getElementById('wizard-next-2').disabled = true;
     document.getElementById('wizard-next-3').disabled = true;
   }
 
-  // Event handlers for option selection
+  // Event handlers
   document.addEventListener('DOMContentLoaded', function() {
-    // Der DOMContentLoaded-Listener wird hier direkt ausgeführt, da es eine eigenständige Seite ist.
     const optionCards = document.querySelectorAll('.option-card');
     optionCards.forEach(card => {
-      // Die data-modal="true" Attribute werden nicht mehr benötigt
       card.addEventListener('click', function() {
-        handleWizardOptionSelection(this); // Umbenannt
+        handleWizardOptionSelection(this);
       });
     });
     
-    // Event Listener für ESC-Taste, um zur vorherigen Seite zu navigieren
     document.addEventListener('keydown', function(event) {
         if (event.key === 'Escape') {
-            history.back(); // Geht zur vorherigen Seite
+            history.back();
         }
     });
 
-    // Initialisiere den ersten Schritt (da die Seite jetzt direkt geladen wird)
-    // Es sollte schon .active sein durch HTML, aber zur Sicherheit:
     if (!document.querySelector('.wizard-step.active')) {
         document.getElementById('wizard-step-1').classList.add('active');
         document.getElementById('wizard-step-indicator-1').classList.add('active');
     }
-
   });
 
-  function handleWizardOptionSelection(card) { // Umbenannt
+  function handleWizardOptionSelection(card) {
     const step = currentWizardStep;
     const value = card.dataset.value;
-    const type = card.dataset.type; // Bleibt für Sprache/Zertifizierung
+    const type = card.dataset.type;
 
     if (step === 1) {
       document.querySelectorAll('#wizard-step-1 .option-card').forEach(c => c.classList.remove('selected'));
@@ -1190,7 +1247,6 @@
       }
     }
   }
-  // Die globalen Funktionen window.openModal/closeModal sind nicht mehr nötig.
 </script>
 </body>
-</html> 
+</html>

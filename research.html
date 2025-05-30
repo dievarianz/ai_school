@@ -825,8 +825,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         // Research-Link als aktiv markieren
         setTimeout(() => {
           document.querySelectorAll('.nav-link').forEach(link => {
-            if (link.textContent.trim() === 'Research') {
-              console.log('Aktiviere Research-Link:', link);
+            if (link.textContent.trim() === 'Forschung') {
+              console.log('Aktiviere Forschung-Link:', link);
               link.classList.add('active');
             }
           });
@@ -908,7 +908,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     });
     
     // Script zur Aktivierung des aktuellen Menüpunkts
-    console.log('Research-Seite geladen, markiere Research-Link als aktiv');
+    console.log('Forschung-Seite geladen, markiere Forschung-Link als aktiv');
     
     // Wir verwenden ein Interval, um sicherzustellen, dass die Navigation geladen ist
     let attempts = 0;
@@ -921,18 +921,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       const navLinks = document.querySelectorAll('.nav-link');
       
       if (navLinks.length > 0) {
-        console.log('Navigationslinks gefunden, suche nach Research-Link');
+        console.log('Navigationslinks gefunden, suche nach Forschung-Link');
         
         // Entferne die active-Klasse von allen Links
         navLinks.forEach(link => {
           link.classList.remove('active');
         });
         
-        // Setze die active-Klasse für den Research-Link
+        // Setze die active-Klasse für den Forschung-Link
         let researchLinkFound = false;
         navLinks.forEach(link => {
-          if (link.textContent.trim() === 'Research') {
-            console.log('Research-Link gefunden:', link);
+          if (link.textContent.trim() === 'Forschung') {
+            console.log('Forschung-Link gefunden:', link);
             link.classList.add('active');
             researchLinkFound = true;
           }
@@ -942,7 +942,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           // Interval stoppen, wenn alles erledigt ist
           clearInterval(checkAndActivate);
         } else if (attempts >= maxAttempts) {
-          console.error('Research-Link konnte nach mehreren Versuchen nicht gefunden werden');
+          console.error('Forschung-Link konnte nach mehreren Versuchen nicht gefunden werden');
           clearInterval(checkAndActivate);
         }
       } else if (attempts >= maxAttempts) {

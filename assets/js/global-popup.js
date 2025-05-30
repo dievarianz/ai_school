@@ -5,7 +5,7 @@
     'use strict';
     
     // Konfiguration
-    const POPUP_DELAY = 10000; // 10 Sekunden
+    const POPUP_DELAY = 15000; // 15 Sekunden
     const STORAGE_KEY = 'voucher_popup_submitted';
     
     // Prüfen ob Popup bereits erfolgreich ausgefüllt wurde
@@ -160,7 +160,7 @@
         // Form-Submission-Listener einrichten
         setupFormSubmissionListener();
         
-        console.log('Starte Voucher Popup Timer (10 Sekunden)');
+        console.log('Starte Voucher Popup Timer (15 Sekunden)');
         
         // Timer für Popup-Anzeige
         setTimeout(() => {

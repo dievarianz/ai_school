@@ -3408,7 +3408,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <a href="management_programm_cas_en.html" class="card-link"></a>
               <div class="card-header">
                 <span class="track-category category-program">Program</span>
-                <h3 class="track-title">Management Program CAS</h3>
+                <h3 class="track-title">StGallen Management Programm CAS</h3>
               </div>
               <div class="card-body">
                 <div class="info-section">
@@ -4344,7 +4344,8 @@ document.addEventListener('DOMContentLoaded', function() {
           if (filter === 'alle') {
             card.classList.remove('hidden');
           } else {
-            if (card.classList.contains(filter)) {
+            const cardCategory = card.getAttribute('data-category');
+            if (cardCategory === filter) {
               card.classList.remove('hidden');
             } else {
               card.classList.add('hidden');

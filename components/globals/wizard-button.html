@@ -26,6 +26,26 @@
   .wizard-floating-btn i {
     font-size: 1.8rem;
     color: white;
+    animation: brainPulse 3s ease-in-out infinite;
+  }
+
+  /* Dezente Pulsanimation für das Gehirn-Icon */
+  @keyframes brainPulse {
+    0%, 100% {
+      opacity: 0.9;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+  }
+
+  /* Pausiere Animation beim Hover für bessere UX */
+  .wizard-floating-btn:hover i {
+    animation-play-state: paused;
+    opacity: 1;
+    transform: scale(1);
   }
 
   /* Mobile Optimierungen */
