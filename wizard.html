@@ -1,0 +1,2563 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Weiterbildungs-Finder | StGallen imt Business School</title>
+
+<!-- BoxIcons für Icons -->
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+<!-- ============ STYLES ============ -->
+<style>
+  :root{
+    --font-sans:-apple-system,BlinkMacSystemFont,"San Francisco","Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+    --color-text:#1d1d1f;
+    --color-muted:#6e6e73;
+    --color-card-bg:#f5f5f7;
+    --color-accent2:#970289;
+    --color-badge:#e2b245;
+    --color-badge-hover:#d4a535;
+    --spacing:24px;
+    --radius:16px;
+    --max-width:1200px;
+    --imt-purple: #6e45e2;
+    --imt-green: #4CAF50;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-text);
+    background: #fff;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding: 40px 20px;
+    min-height: 100vh;
+  }
+
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing);
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    background: linear-gradient(90deg, var(--imt-purple) 0%, #9c27b0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .intro-text {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--color-muted);
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============ WIZARD CARD ============ */
+  .wizard-card {
+    background: var(--color-card-bg);
+    border-radius: var(--radius);
+    padding: 40px;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .progress-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    justify-content: center;
+  }
+
+  .progress-step {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e5e5e7;
+    color: var(--color-muted);
+    font-weight: 600;
+    font-size: 14px;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .progress-step.active {
+    background: var(--imt-purple);
+    color: white;
+    transform: scale(1.1);
+  }
+
+  .progress-step.completed {
+    background: var(--imt-green);
+    color: white;
+  }
+
+  .progress-connector {
+    width: 60px;
+    height: 2px;
+    background: #e5e5e7;
+    margin: 0 10px;
+    transition: all 0.3s ease;
+  }
+
+  .progress-connector.active {
+    background: var(--imt-purple);
+  }
+
+  .progress-connector.completed {
+    background: var(--imt-green);
+  }
+
+  .question-container {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .question-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+  }
+
+  .question-subtitle {
+    font-size: 1.1rem;
+    color: var(--color-muted);
+    margin-bottom: 2rem;
+  }
+
+  .options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+
+  .option-card {
+    background: white;
+    border: 2px solid #e5e5e7;
+    border-radius: 12px;
+    padding: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    position: relative;
+    min-height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .option-card:hover {
+    border-color: var(--imt-purple);
+    transform: translateY(-2px);
+  }
+
+  .option-card.selected {
+    border-color: var(--imt-purple);
+    background: rgba(110, 69, 226, 0.05);
+  }
+
+  .option-card.selected::after {
+    content: '✓';
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: var(--imt-purple);
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .option-icon {
+    font-size: 2.5rem;
+    color: var(--imt-purple);
+    margin-bottom: 1rem;
+  }
+
+  .option-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .option-description {
+    font-size: 0.95rem;
+    color: var(--color-muted);
+    line-height: 1.4;
+  }
+
+  .wizard-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .btn {
+    background: var(--imt-purple);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .btn:hover {
+    background: #5a37c8;
+    transform: translateY(-1px);
+  }
+
+  .btn:disabled {
+    background: #e5e5e7;
+    color: var(--color-muted);
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--color-muted);
+    border: 1px solid #e5e5e7;
+  }
+
+  .btn-secondary:hover {
+    background: var(--color-card-bg);
+    color: var(--color-text);
+  }
+
+  /* ============ WIZARD STEPS ============ */
+  .wizard-step {
+    display: none;
+  }
+
+  .wizard-step.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ============ RESULT CARD ============ */
+  .result-card {
+    background: linear-gradient(135deg, var(--imt-purple) 0%, #9c27b0 100%);
+    color: white;
+    border-radius: var(--radius);
+    padding: 40px;
+    text-align: center;
+    animation: slideIn 0.5s ease;
+  }
+
+  @keyframes slideIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  .result-title {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+  }
+
+  .result-subtitle {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin-bottom: 1.5rem;
+  }
+
+  .recommended-program {
+    background: rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 18px 16px;
+    margin-bottom: 16px;
+    position: relative;
+  }
+
+  .program-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+  }
+
+  .program-details {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 0.8rem;
+  }
+
+  .program-detail {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.8rem;
+    opacity: 0.9;
+  }
+
+  .program-description {
+    font-size: 0.85rem;
+    opacity: 0.9;
+    line-height: 1.3;
+    margin-bottom: 0.8rem;
+  }
+
+  .match-reason {
+    background: rgba(255,255,255,0.15);
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin-top: 0.6rem;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    text-align: left;
+  }
+
+  .match-reason i {
+    color: var(--imt-green);
+    font-size: 1.1rem;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  /* ============ MULTIPLE PROGRAMS ============ */
+  .multiple-programs {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .multiple-programs .recommended-program {
+    margin-bottom: 0;
+    text-align: left;
+  }
+
+  .multiple-programs .recommended-program.best-match {
+    border: 2px solid rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.15);
+  }
+
+  .best-match-badge {
+    position: absolute;
+    top: -6px;
+    right: 12px;
+    background: var(--imt-green);
+    color: white;
+    padding: 3px 8px;
+    border-radius: 10px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+  }
+
+  .program-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+  }
+
+  .btn-small {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    min-height: 32px;
+  }
+
+  .result-actions {
+    margin-top: 16px;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-white {
+    background: white;
+    color: var(--imt-purple);
+  }
+
+  .btn-white:hover {
+    background: rgba(255,255,255,0.9);
+    color: var(--imt-purple);
+  }
+
+  .btn-transparent {
+    background: rgba(255,255,255,0.2);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+
+  .btn-transparent:hover {
+    background: rgba(255,255,255,0.3);
+    color: white;
+  }
+
+  /* ============ MOBILE OPTIMIZATIONS ============ */
+  @media (max-width: 1024px) {
+    .options-grid {
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    body {
+      padding: 20px 10px;
+    }
+
+    .container {
+      padding: 0 10px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .intro-text {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      padding: 0 10px;
+    }
+
+    .wizard-card {
+      padding: 24px 20px;
+      border-radius: 12px;
+    }
+
+    .progress-bar {
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .progress-step {
+      width: 36px;
+      height: 36px;
+      font-size: 13px;
+    }
+
+    .progress-connector {
+      width: 40px;
+      margin: 0 5px;
+    }
+
+    .question-container {
+      margin-bottom: 32px;
+    }
+
+    .question-title {
+      font-size: 1.4rem;
+      margin-bottom: 0.8rem;
+      line-height: 1.3;
+    }
+
+    .question-subtitle {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      padding: 0 10px;
+    }
+
+    .options-grid {
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .option-card {
+      padding: 20px 16px;
+      min-height: 120px;
+      border-radius: 10px;
+    }
+
+    .option-icon {
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .option-title {
+      font-size: 1.1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .option-description {
+      font-size: 0.9rem;
+      line-height: 1.3;
+    }
+
+    .wizard-navigation {
+      flex-direction: column;
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    .wizard-navigation.has-back {
+      flex-direction: row;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn {
+      padding: 14px 20px;
+      font-size: 1rem;
+      width: 100%;
+      justify-content: center;
+      min-height: 48px;
+    }
+
+    .wizard-navigation.has-back .btn {
+      width: auto;
+      flex: 1;
+    }
+
+    /* Result card mobile optimizations */
+    .result-card {
+      padding: 20px 16px;
+      border-radius: 12px;
+    }
+
+    .result-title {
+      font-size: 1.3rem;
+      margin-bottom: 0.6rem;
+      line-height: 1.3;
+    }
+
+    .result-subtitle {
+      font-size: 0.9rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .recommended-program {
+      padding: 14px 12px;
+      border-radius: 10px;
+      margin-bottom: 12px;
+    }
+
+    .program-name {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+
+    .program-details {
+      flex-direction: column;
+      gap: 6px;
+      align-items: center;
+      margin-bottom: 0.8rem;
+    }
+
+    .program-detail {
+      font-size: 0.75rem;
+    }
+
+    .program-description {
+      font-size: 0.8rem;
+      line-height: 1.4;
+      margin-bottom: 0.8rem;
+    }
+
+    .match-reason {
+      padding: 6px 8px;
+      margin-top: 0.6rem;
+      font-size: 0.75rem;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+      text-align: left;
+    }
+
+    .match-reason i {
+      align-self: flex-start;
+    }
+
+    /* Multiple programs mobile */
+    .multiple-programs {
+      gap: 10px;
+    }
+
+    .multiple-programs .recommended-program {
+      text-align: center;
+    }
+
+    .best-match-badge {
+      top: -4px;
+      right: 8px;
+      padding: 2px 6px;
+      font-size: 0.65rem;
+    }
+
+    .program-actions {
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .btn-small {
+      padding: 8px 12px;
+      font-size: 0.8rem;
+      min-height: 36px;
+      width: 100%;
+    }
+
+    .result-actions {
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .btn-white,
+    .btn-transparent {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    body {
+      padding: 15px 5px;
+    }
+
+    .container {
+      padding: 0 5px;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      padding: 0 10px;
+    }
+
+    .intro-text {
+      font-size: 0.95rem;
+      padding: 0 15px;
+    }
+
+    .wizard-card {
+      padding: 20px 16px;
+      margin: 0 5px;
+    }
+
+    .progress-bar {
+      margin-bottom: 28px;
+    }
+
+    .progress-step {
+      width: 32px;
+      height: 32px;
+      font-size: 12px;
+    }
+
+    .progress-connector {
+      width: 30px;
+      margin: 0 3px;
+    }
+
+    .question-container {
+      margin-bottom: 28px;
+    }
+
+    .question-title {
+      font-size: 1.3rem;
+      padding: 0 5px;
+    }
+
+    .question-subtitle {
+      font-size: 0.95rem;
+      padding: 0 5px;
+    }
+
+    .options-grid {
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .option-card {
+      padding: 18px 14px;
+      min-height: 110px;
+    }
+
+    .option-icon {
+      font-size: 1.8rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .option-title {
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .option-description {
+      font-size: 0.85rem;
+    }
+
+    .btn {
+      padding: 16px 18px;
+      font-size: 0.95rem;
+      min-height: 50px;
+    }
+
+    /* Preferences section mobile layout */
+    .preferences-section h4 {
+      font-size: 1rem;
+      margin-bottom: 0.8rem;
+      text-align: center;
+    }
+
+    .preferences-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 8px;
+    }
+
+    .preferences-grid .option-card {
+      min-height: 80px;
+      padding: 12px 8px;
+    }
+
+    .preferences-grid .option-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .preferences-grid .option-title {
+      font-size: 0.9rem;
+      margin-bottom: 0;
+    }
+
+    /* Result card very small screens */
+    .result-card {
+      padding: 24px 16px;
+    }
+
+    .result-title {
+      font-size: 1.4rem;
+    }
+
+    .program-name {
+      font-size: 1.1rem;
+    }
+
+    /* Match reason mobile */
+    .match-reason {
+      padding: 8px 12px;
+      margin-top: 0.8rem;
+      font-size: 0.8rem;
+      gap: 6px;
+    }
+
+    /* Multiple programs mobile */
+    .multiple-programs {
+      gap: 14px;
+    }
+
+    .multiple-programs .recommended-program {
+      text-align: center;
+    }
+
+    .best-match-badge {
+      top: -5px;
+      right: 10px;
+      padding: 2px 6px;
+      font-size: 0.7rem;
+    }
+
+    .program-actions {
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .btn-small {
+      padding: 12px 14px;
+      font-size: 0.85rem;
+      min-height: 42px;
+      width: 100%;
+    }
+  }
+
+  /* Touch optimizations for mobile */
+  @media (max-width: 768px) and (pointer: coarse) {
+    .option-card {
+      padding: 22px 18px;
+      min-height: 130px;
+    }
+
+    .btn {
+      min-height: 50px;
+      padding: 16px 24px;
+    }
+
+    .option-card:hover {
+      transform: none; /* Disable hover transform on touch devices */
+    }
+
+    .option-card:active {
+      transform: scale(0.98);
+      transition: transform 0.1s ease;
+    }
+
+    .btn:active {
+      transform: scale(0.98);
+    }
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .option-card {
+      border-width: 3px;
+    }
+
+    .option-card.selected {
+      border-width: 4px;
+    }
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+
+    .option-card:hover,
+    .btn:hover {
+      transform: none;
+    }
+  }
+
+  /* ============ MODAL STYLES ============ */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+    padding: 20px;
+    overflow-y: auto;
+  }
+
+  .modal-overlay.active {
+    display: flex;
+    animation: modalFadeIn 0.3s ease;
+  }
+
+  @keyframes modalFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .modal-content {
+    background: white;
+    border-radius: var(--radius);
+    width: 100%;
+    max-width: 900px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    animation: modalSlideIn 0.3s ease;
+  }
+
+  @keyframes modalSlideIn {
+    from { opacity: 0; transform: scale(0.9) translateY(20px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+  }
+
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    border-bottom: 1px solid #e5e5e7;
+    background: var(--color-card-bg);
+    border-radius: var(--radius) var(--radius) 0 0;
+  }
+
+  .modal-header h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  .modal-close {
+    background: transparent;
+    border: none;
+    font-size: 1.3rem;
+    color: var(--color-muted);
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+  }
+
+  .modal-close:hover {
+    background: rgba(0, 0, 0, 0.1);
+    color: var(--color-text);
+  }
+
+  .modal-wizard {
+    padding: 20px 24px;
+    background: var(--color-card-bg);
+    border-radius: 0 0 var(--radius) var(--radius);
+  }
+
+  /* Modal-specific compact styles */
+  .modal-wizard .progress-bar {
+    margin-bottom: 20px;
+  }
+
+  .modal-wizard .progress-step {
+    width: 28px;
+    height: 28px;
+    font-size: 11px;
+  }
+
+  .modal-wizard .progress-connector {
+    width: 35px;
+    margin: 0 6px;
+  }
+
+  .modal-wizard .question-container {
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  .modal-wizard .question-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.4rem;
+    line-height: 1.3;
+  }
+
+  .modal-wizard .question-subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    color: var(--color-muted);
+  }
+
+  .modal-wizard .options-grid {
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .modal-wizard .option-card {
+    padding: 14px 10px;
+    min-height: 85px;
+    border-radius: 8px;
+  }
+
+  .modal-wizard .option-icon {
+    font-size: 1.6rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .modal-wizard .option-title {
+    font-size: 0.95rem;
+    margin-bottom: 0.2rem;
+    line-height: 1.2;
+  }
+
+  .modal-wizard .option-description {
+    font-size: 0.8rem;
+    line-height: 1.3;
+  }
+
+  .modal-wizard .preferences-section {
+    margin-bottom: 1rem;
+  }
+
+  .modal-wizard .preferences-section h4 {
+    font-size: 0.9rem;
+    margin-bottom: 0.6rem;
+    color: var(--color-text);
+    font-weight: 600;
+  }
+
+  .modal-wizard .preferences-grid .option-card {
+    min-height: 60px;
+    padding: 10px 6px;
+  }
+
+  .modal-wizard .preferences-grid .option-icon {
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .modal-wizard .preferences-grid .option-title {
+    font-size: 0.85rem;
+    margin-bottom: 0;
+  }
+
+  .modal-wizard .result-card {
+    padding: 12px 10px;
+    border-radius: 8px;
+  }
+
+  .modal-wizard .result-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.4rem;
+    line-height: 1.3;
+  }
+
+  .modal-wizard .result-subtitle {
+    font-size: 0.85rem;
+    margin-bottom: 0.8rem;
+    opacity: 0.9;
+  }
+
+  .modal-wizard .recommended-program {
+    padding: 10px 8px;
+    margin-bottom: 8px;
+    border-radius: 6px;
+  }
+
+  .modal-wizard .program-name {
+    font-size: 0.95rem;
+    margin-bottom: 0.3rem;
+    line-height: 1.2;
+  }
+
+  .modal-wizard .program-details {
+    gap: 6px;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .modal-wizard .program-detail {
+    font-size: 0.75rem;
+    gap: 3px;
+  }
+
+  .modal-wizard .program-description {
+    font-size: 0.8rem;
+    line-height: 1.3;
+    margin-bottom: 0.6rem;
+  }
+
+  .modal-wizard .match-reason {
+    padding: 6px 8px;
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    border-radius: 4px;
+    gap: 4px;
+  }
+
+  .modal-wizard .program-actions {
+    gap: 6px;
+    margin-top: 8px;
+  }
+
+  .modal-wizard .btn-small {
+    padding: 6px 10px;
+    font-size: 0.75rem;
+    min-height: 28px;
+  }
+
+  .modal-wizard .result-actions {
+    gap: 6px;
+    margin-top: 10px;
+  }
+
+  .modal-wizard .result-actions .btn {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+    min-height: 32px;
+  }
+
+  .modal-wizard .wizard-navigation {
+    margin-top: 16px;
+  }
+
+  .modal-wizard .btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    min-height: 36px;
+  }
+
+  /* Mobile Modal Optimizations */
+  @media (max-width: 768px) {
+    .modal-overlay {
+      padding: 5px;
+      align-items: flex-start;
+      padding-top: 10px;
+    }
+
+    .modal-content {
+      max-height: 98vh;
+      width: 100%;
+    }
+
+    .modal-header {
+      padding: 12px 16px;
+    }
+
+    .modal-header h2 {
+      font-size: 1.1rem;
+    }
+
+    .modal-wizard {
+      padding: 16px 12px;
+    }
+
+    .modal-close {
+      width: 28px;
+      height: 28px;
+      font-size: 1.2rem;
+    }
+
+    /* Mobile-specific compact styles */
+    .modal-wizard .progress-bar {
+      margin-bottom: 16px;
+    }
+
+    .modal-wizard .progress-step {
+      width: 24px;
+      height: 24px;
+      font-size: 10px;
+    }
+
+    .modal-wizard .progress-connector {
+      width: 25px;
+      margin: 0 4px;
+    }
+
+    .modal-wizard .question-container {
+      margin-bottom: 12px;
+    }
+
+    .modal-wizard .question-title {
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .modal-wizard .question-subtitle {
+      font-size: 0.85rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .modal-wizard .options-grid {
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .modal-wizard .option-card {
+      padding: 12px 8px;
+      min-height: 75px;
+    }
+
+    .modal-wizard .option-icon {
+      font-size: 1.4rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .modal-wizard .option-title {
+      font-size: 0.9rem;
+      margin-bottom: 0.1rem;
+    }
+
+    .modal-wizard .option-description {
+      font-size: 0.75rem;
+    }
+
+    .modal-wizard .preferences-section {
+      margin-bottom: 0.8rem;
+    }
+
+    .modal-wizard .preferences-section h4 {
+      font-size: 0.85rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .modal-wizard .preferences-grid .option-card {
+      min-height: 50px;
+      padding: 8px 4px;
+    }
+
+    .modal-wizard .preferences-grid .option-icon {
+      font-size: 1rem;
+      margin-bottom: 0.1rem;
+    }
+
+    .modal-wizard .preferences-grid .option-title {
+      font-size: 0.8rem;
+    }
+
+    .modal-wizard .wizard-navigation {
+      margin-top: 12px;
+    }
+
+    .modal-wizard .btn {
+      padding: 10px 14px;
+      font-size: 0.85rem;
+      min-height: 40px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .modal-overlay {
+      padding: 3px;
+      padding-top: 5px;
+    }
+
+    .modal-header {
+      padding: 10px 12px;
+    }
+
+    .modal-header h2 {
+      font-size: 1rem;
+    }
+
+    .modal-wizard {
+      padding: 12px 8px;
+    }
+
+    .modal-close {
+      width: 24px;
+      height: 24px;
+      font-size: 1.1rem;
+    }
+
+    /* Very compact styles for small screens */
+    .modal-wizard .progress-bar {
+      margin-bottom: 12px;
+    }
+
+    .modal-wizard .progress-step {
+      width: 20px;
+      height: 20px;
+      font-size: 9px;
+    }
+
+    .modal-wizard .progress-connector {
+      width: 20px;
+      margin: 0 3px;
+    }
+
+    .modal-wizard .question-title {
+      font-size: 1rem;
+    }
+
+    .modal-wizard .question-subtitle {
+      font-size: 0.8rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .modal-wizard .option-card {
+      padding: 10px 6px;
+      min-height: 65px;
+    }
+
+    .modal-wizard .option-icon {
+      font-size: 1.2rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .modal-wizard .option-title {
+      font-size: 0.85rem;
+    }
+
+    .modal-wizard .option-description {
+      font-size: 0.7rem;
+    }
+
+    .modal-wizard .preferences-grid .option-card {
+      min-height: 45px;
+      padding: 6px 3px;
+    }
+
+    .modal-wizard .preferences-grid .option-icon {
+      font-size: 0.9rem;
+    }
+
+    .modal-wizard .preferences-grid .option-title {
+      font-size: 0.75rem;
+    }
+  }
+
+  /* Floating Button Styles */
+  .floating-btn {
+    position: fixed;
+    right: 24px;
+    bottom: 40px;
+    cursor: pointer;
+    z-index: 999;
+    user-select: none;
+    transition: transform 0.2s ease;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .floating-btn:hover {
+    transform: scale(1.05);
+  }
+
+  .floating-btn i {
+    font-size: 1.8rem;
+    color: white;
+  }
+
+  /* Variante 1: IMT Purple */
+  .floating-btn-1 {
+    background: var(--imt-purple);
+  }
+
+  .floating-btn-1:hover {
+    background: #5a37c8;
+    transform: scale(1.05);
+  }
+
+  /* Variante 2: Dunkelblau */
+  .floating-btn-2 {
+    background: #1e3a8a;
+  }
+
+  .floating-btn-2:hover {
+    background: #1e40af;
+    transform: scale(1.05);
+  }
+
+  /* Variante 3: Grün */
+  .floating-btn-3 {
+    background: var(--imt-green);
+  }
+
+  .floating-btn-3:hover {
+    background: #45a049;
+    transform: scale(1.05);
+  }
+
+  /* Variante 4: Grau */
+  .floating-btn-4 {
+    background: #6b7280;
+  }
+
+  .floating-btn-4:hover {
+    background: #4b5563;
+    transform: scale(1.05);
+  }
+
+  /* Mobile Optimierungen */
+  @media (max-width: 768px) {
+    .floating-btn {
+      width: 50px;
+      height: 50px;
+    }
+
+    .floating-btn i {
+      font-size: 1.5rem;
+    }
+
+    .floating-btn-1 {
+      right: 16px;
+    }
+
+    .floating-btn-2 {
+      left: 16px;
+    }
+
+    .floating-btn-3 {
+      top: 20px;
+      right: 16px;
+    }
+
+    .floating-btn-4 {
+      top: 20px;
+      left: 16px;
+    }
+  }
+</style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Finden Sie Ihr ideales Weiterbildungsprogramm</h1>
+    <p class="intro-text">
+      Unser intelligenter Wizard analysiert Ihre Bedürfnisse und empfiehlt Ihnen das perfekte Programm der StGallen imt Business School.
+    </p>
+
+    <!-- Modal Trigger Button -->
+    <div style="text-align: center; margin-bottom: 2rem;">
+      <button class="btn" onclick="openModal()" style="margin-right: 1rem;">
+        <i class='bx bx-sparkles'></i>
+        Wizard als Modal öffnen
+      </button>
+      <span style="color: var(--color-muted); font-size: 0.9rem;">← Probieren Sie auch die Modal-Version aus</span>
+    </div>
+
+    <div class="wizard-card">
+      <div class="progress-bar">
+        <div class="progress-step active" id="step-indicator-1">1</div>
+        <div class="progress-connector" id="connector-1"></div>
+        <div class="progress-step" id="step-indicator-2">2</div>
+        <div class="progress-connector" id="connector-2"></div>
+        <div class="progress-step" id="step-indicator-3">3</div>
+        <div class="progress-connector" id="connector-3"></div>
+        <div class="progress-step" id="step-indicator-4">4</div>
+      </div>
+
+      <!-- ============ SCHRITT 1: LERNZIELE ============ -->
+      <div class="wizard-step active" id="step-1">
+        <div class="question-container">
+          <h3 class="question-title">Was ist Ihr primäres Lernziel?</h3>
+          <p class="question-subtitle">Wählen Sie den Bereich aus, in dem Sie sich weiterentwickeln möchten</p>
+        </div>
+
+        <div class="options-grid">
+          <div class="option-card" data-value="strategy">
+            <i class='bx bx-trending-up option-icon'></i>
+            <div class="option-title">Strategisches Management</div>
+            <div class="option-description">Unternehmensführung, Strategieentwicklung und Transformation</div>
+          </div>
+          
+          <div class="option-card" data-value="leadership">
+            <i class='bx bx-user-check option-icon'></i>
+            <div class="option-title">Führungskompetenzen</div>
+            <div class="option-description">Leadership, Teamführung und Mitarbeiterentwicklung</div>
+          </div>
+          
+          <div class="option-card" data-value="finance">
+            <i class='bx bx-money option-icon'></i>
+            <div class="option-title">Financial Management</div>
+            <div class="option-description">Finanzsteuerung, Controlling und Investitionsentscheidungen</div>
+          </div>
+          
+          <div class="option-card" data-value="ai">
+            <i class='bx bx-brain option-icon'></i>
+            <div class="option-title">KI & Digitalisierung</div>
+            <div class="option-description">Künstliche Intelligenz, Automatisierung und digitale Transformation</div>
+          </div>
+
+          <div class="option-card" data-value="marketing">
+            <i class='bx bx-bullseye option-icon'></i>
+            <div class="option-title">Marketing & Sales</div>
+            <div class="option-description">Markenführung, Vertrieb und Kommunikationsstrategien</div>
+          </div>
+
+          <div class="option-card" data-value="comprehensive">
+            <i class='bx bx-selection option-icon'></i>
+            <div class="option-title">Ganzheitliches Management</div>
+            <div class="option-description">Umfassende Managementkompetenzen in allen Bereichen</div>
+          </div>
+        </div>
+
+        <div class="wizard-navigation">
+          <div></div>
+          <button class="btn" id="next-1" onclick="nextStep(1)" disabled>
+            Weiter
+            <i class='bx bx-chevron-right'></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- ============ SCHRITT 2: ZEITRAHMEN ============ -->
+      <div class="wizard-step" id="step-2">
+        <div class="question-container">
+          <h3 class="question-title">Wie viel Zeit können Sie investieren?</h3>
+          <p class="question-subtitle">Wählen Sie den Zeitrahmen, der zu Ihrem Terminplan passt</p>
+        </div>
+
+        <div class="options-grid">
+          <div class="option-card" data-value="short">
+            <i class='bx bx-time-five option-icon'></i>
+            <div class="option-title">3-4 Tage</div>
+            <div class="option-description">Kompakte Managementseminare für schnelle Weiterbildung</div>
+          </div>
+          
+          <div class="option-card" data-value="medium">
+            <i class='bx bx-calendar option-icon'></i>
+            <div class="option-title">3-4 Monate</div>
+            <div class="option-description">Modulare Programme für fundierte Qualifikation</div>
+          </div>
+          
+          <div class="option-card" data-value="long">
+            <i class='bx bx-calendar-star option-icon'></i>
+            <div class="option-title">12+ Monate</div>
+            <div class="option-description">Umfassende MBA-Programme für Karrieresprung</div>
+          </div>
+        </div>
+
+        <div class="wizard-navigation has-back">
+          <button class="btn btn-secondary" onclick="prevStep(2)">
+            <i class='bx bx-chevron-left'></i>
+            Zurück
+          </button>
+          <button class="btn" id="next-2" onclick="nextStep(2)" disabled>
+            Weiter
+            <i class='bx bx-chevron-right'></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- ============ SCHRITT 3: PRÄFERENZEN ============ -->
+      <div class="wizard-step" id="step-3">
+        <div class="question-container">
+          <h3 class="question-title">Welche Präferenzen haben Sie?</h3>
+          <p class="question-subtitle">Sprache und gewünschte Zertifizierung</p>
+        </div>
+
+        <div class="preferences-section" style="margin-bottom: 2rem;">
+          <h4 style="margin-bottom: 1rem; color: var(--color-text); font-weight: 600;">Bevorzugte Sprache:</h4>
+          <div class="options-grid preferences-grid" style="grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); margin-bottom: 0;">
+            <div class="option-card" data-value="de" data-type="language">
+              <i class='bx bx-flag option-icon'></i>
+              <div class="option-title">Deutsch</div>
+            </div>
+            
+            <div class="option-card" data-value="en" data-type="language">
+              <i class='bx bx-world option-icon'></i>
+              <div class="option-title">Englisch</div>
+            </div>
+            
+            <div class="option-card" data-value="both" data-type="language">
+              <i class='bx bx-globe option-icon'></i>
+              <div class="option-title">Beides möglich</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="preferences-section">
+          <h4 style="margin-bottom: 1rem; color: var(--color-text); font-weight: 600;">Gewünschte Zertifizierung:</h4>
+          <div class="options-grid preferences-grid" style="grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));">
+            <div class="option-card" data-value="none" data-type="certification">
+              <i class='bx bx-bookmark option-icon'></i>
+              <div class="option-title">Nicht erforderlich</div>
+            </div>
+            
+            <div class="option-card" data-value="ects" data-type="certification">
+              <i class='bx bx-award option-icon'></i>
+              <div class="option-title">ECTS-Punkte</div>
+            </div>
+            
+            <div class="option-card" data-value="cas" data-type="certification">
+              <i class='bx bx-certification option-icon'></i>
+              <div class="option-title">CAS-Abschluss</div>
+            </div>
+            
+            <div class="option-card" data-value="mba" data-type="certification">
+              <i class='bx bx-medal option-icon'></i>
+              <div class="option-title">MBA-Abschluss</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="wizard-navigation has-back">
+          <button class="btn btn-secondary" onclick="prevStep(3)">
+            <i class='bx bx-chevron-left'></i>
+            Zurück
+          </button>
+          <button class="btn" id="next-3" onclick="nextStep(3)" disabled>
+            Empfehlung erhalten
+            <i class='bx bx-sparkles'></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- ============ SCHRITT 4: EMPFEHLUNG ============ -->
+      <div class="wizard-step" id="step-4">
+        <div class="result-card" id="result-content">
+          <!-- Dynamischer Inhalt wird hier eingefügt -->
+        </div>
+        
+        <div class="wizard-navigation" style="margin-top: 2rem;">
+          <button class="btn btn-secondary" onclick="restartWizard()">
+            <i class='bx bx-refresh'></i>
+            Erneut starten
+          </button>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ FLOATING BUTTON VARIANTEN ============ -->
+  <!-- Variante 1: IMT Purple (unten rechts) -->
+  <div class="floating-btn floating-btn-1" onclick="openModal()" title="KI-Weiterbildungsberater">
+    <i class='bx bx-brain'></i>
+  </div>
+
+  <!-- Variante 2: Dunkelblau (unten links) -->
+  <div class="floating-btn floating-btn-2" onclick="openModal()" style="left: 24px; right: auto;" title="KI-Weiterbildungsberater">
+    <i class='bx bx-brain'></i>
+  </div>
+
+  <!-- Variante 3: Grün (oben rechts) -->
+  <div class="floating-btn floating-btn-3" onclick="openModal()" style="top: 40px; bottom: auto;" title="KI-Weiterbildungsberater">
+    <i class='bx bx-brain'></i>
+  </div>
+
+  <!-- Variante 4: Grau (oben links) -->
+  <div class="floating-btn floating-btn-4" onclick="openModal()" style="top: 40px; left: 24px; bottom: auto; right: auto;" title="KI-Weiterbildungsberater">
+    <i class='bx bx-brain'></i>
+  </div>
+
+  <!-- ============ MODAL VERSION ============ -->
+  <div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <h2>Weiterbildungs-Finder</h2>
+        <button class="modal-close" onclick="closeModal()">
+          <i class='bx bx-x'></i>
+        </button>
+      </div>
+      
+      <div class="modal-wizard">
+        <div class="progress-bar">
+          <div class="progress-step active" id="modal-step-indicator-1">1</div>
+          <div class="progress-connector" id="modal-connector-1"></div>
+          <div class="progress-step" id="modal-step-indicator-2">2</div>
+          <div class="progress-connector" id="modal-connector-2"></div>
+          <div class="progress-step" id="modal-step-indicator-3">3</div>
+          <div class="progress-connector" id="modal-connector-3"></div>
+          <div class="progress-step" id="modal-step-indicator-4">4</div>
+        </div>
+
+        <!-- Modal Step 1 -->
+        <div class="wizard-step active" id="modal-step-1">
+          <div class="question-container">
+            <h3 class="question-title">Was ist Ihr primäres Lernziel?</h3>
+            <p class="question-subtitle">Wählen Sie den Bereich aus, in dem Sie sich weiterentwickeln möchten</p>
+          </div>
+
+          <div class="options-grid">
+            <div class="option-card" data-value="strategy" data-modal="true">
+              <i class='bx bx-trending-up option-icon'></i>
+              <div class="option-title">Strategisches Management</div>
+              <div class="option-description">Unternehmensführung, Strategieentwicklung und Transformation</div>
+            </div>
+            
+            <div class="option-card" data-value="leadership" data-modal="true">
+              <i class='bx bx-user-check option-icon'></i>
+              <div class="option-title">Führungskompetenzen</div>
+              <div class="option-description">Leadership, Teamführung und Mitarbeiterentwicklung</div>
+            </div>
+            
+            <div class="option-card" data-value="finance" data-modal="true">
+              <i class='bx bx-money option-icon'></i>
+              <div class="option-title">Financial Management</div>
+              <div class="option-description">Finanzsteuerung, Controlling und Investitionsentscheidungen</div>
+            </div>
+            
+            <div class="option-card" data-value="ai" data-modal="true">
+              <i class='bx bx-brain option-icon'></i>
+              <div class="option-title">KI & Digitalisierung</div>
+              <div class="option-description">Künstliche Intelligenz, Automatisierung und digitale Transformation</div>
+            </div>
+
+            <div class="option-card" data-value="marketing" data-modal="true">
+              <i class='bx bx-bullseye option-icon'></i>
+              <div class="option-title">Marketing & Sales</div>
+              <div class="option-description">Markenführung, Vertrieb und Kommunikationsstrategien</div>
+            </div>
+
+            <div class="option-card" data-value="comprehensive" data-modal="true">
+              <i class='bx bx-selection option-icon'></i>
+              <div class="option-title">Ganzheitliches Management</div>
+              <div class="option-description">Umfassende Managementkompetenzen in allen Bereichen</div>
+            </div>
+          </div>
+
+          <div class="wizard-navigation">
+            <div></div>
+            <button class="btn" id="modal-next-1" onclick="modalNextStep(1)" disabled>
+              Weiter
+              <i class='bx bx-chevron-right'></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Modal Step 2 -->
+        <div class="wizard-step" id="modal-step-2">
+          <div class="question-container">
+            <h3 class="question-title">Wie viel Zeit können Sie investieren?</h3>
+            <p class="question-subtitle">Wählen Sie den Zeitrahmen, der zu Ihrem Terminplan passt</p>
+          </div>
+
+          <div class="options-grid">
+            <div class="option-card" data-value="short" data-modal="true">
+              <i class='bx bx-time-five option-icon'></i>
+              <div class="option-title">3-4 Tage</div>
+              <div class="option-description">Kompakte Managementseminare für schnelle Weiterbildung</div>
+            </div>
+            
+            <div class="option-card" data-value="medium" data-modal="true">
+              <i class='bx bx-calendar option-icon'></i>
+              <div class="option-title">3-4 Monate</div>
+              <div class="option-description">Modulare Programme für fundierte Qualifikation</div>
+            </div>
+            
+            <div class="option-card" data-value="long" data-modal="true">
+              <i class='bx bx-calendar-star option-icon'></i>
+              <div class="option-title">12+ Monate</div>
+              <div class="option-description">Umfassende MBA-Programme für Karrieresprung</div>
+            </div>
+          </div>
+
+          <div class="wizard-navigation has-back">
+            <button class="btn btn-secondary" onclick="modalPrevStep(2)">
+              <i class='bx bx-chevron-left'></i>
+              Zurück
+            </button>
+            <button class="btn" id="modal-next-2" onclick="modalNextStep(2)" disabled>
+              Weiter
+              <i class='bx bx-chevron-right'></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Modal Step 3 -->
+        <div class="wizard-step" id="modal-step-3">
+          <div class="question-container">
+            <h3 class="question-title">Welche Präferenzen haben Sie?</h3>
+            <p class="question-subtitle">Sprache und gewünschte Zertifizierung</p>
+          </div>
+
+          <div class="preferences-section" style="margin-bottom: 2rem;">
+            <h4 style="margin-bottom: 1rem; color: var(--color-text); font-weight: 600;">Bevorzugte Sprache:</h4>
+            <div class="options-grid preferences-grid" style="grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); margin-bottom: 0;">
+              <div class="option-card" data-value="de" data-type="language" data-modal="true">
+                <i class='bx bx-flag option-icon'></i>
+                <div class="option-title">Deutsch</div>
+              </div>
+              
+              <div class="option-card" data-value="en" data-type="language" data-modal="true">
+                <i class='bx bx-world option-icon'></i>
+                <div class="option-title">Englisch</div>
+              </div>
+              
+              <div class="option-card" data-value="both" data-type="language" data-modal="true">
+                <i class='bx bx-globe option-icon'></i>
+                <div class="option-title">Beides möglich</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="preferences-section">
+            <h4 style="margin-bottom: 1rem; color: var(--color-text); font-weight: 600;">Gewünschte Zertifizierung:</h4>
+            <div class="options-grid preferences-grid" style="grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));">
+              <div class="option-card" data-value="none" data-type="certification" data-modal="true">
+                <i class='bx bx-bookmark option-icon'></i>
+                <div class="option-title">Nicht erforderlich</div>
+              </div>
+              
+              <div class="option-card" data-value="ects" data-type="certification" data-modal="true">
+                <i class='bx bx-award option-icon'></i>
+                <div class="option-title">ECTS-Punkte</div>
+              </div>
+              
+              <div class="option-card" data-value="cas" data-type="certification" data-modal="true">
+                <i class='bx bx-certification option-icon'></i>
+                <div class="option-title">CAS-Abschluss</div>
+              </div>
+              
+              <div class="option-card" data-value="mba" data-type="certification" data-modal="true">
+                <i class='bx bx-medal option-icon'></i>
+                <div class="option-title">MBA-Abschluss</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="wizard-navigation has-back">
+            <button class="btn btn-secondary" onclick="modalPrevStep(3)">
+              <i class='bx bx-chevron-left'></i>
+              Zurück
+            </button>
+            <button class="btn" id="modal-next-3" onclick="modalNextStep(3)" disabled>
+              Empfehlung erhalten
+              <i class='bx bx-sparkles'></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Modal Step 4 -->
+        <div class="wizard-step" id="modal-step-4">
+          <div class="result-card" id="modal-result-content">
+            <!-- Dynamischer Inhalt wird hier eingefügt -->
+          </div>
+          
+          <div class="wizard-navigation" style="margin-top: 2rem;">
+            <button class="btn btn-secondary" onclick="modalRestartWizard()">
+              <i class='bx bx-refresh'></i>
+              Erneut starten
+            </button>
+            <button class="btn" onclick="closeModal()">
+              <i class='bx bx-x'></i>
+              Modal schließen
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Wizard state
+    let currentStep = 1;
+    let selections = {
+      goal: null,
+      timeframe: null,
+      language: null,
+      certification: null
+    };
+
+    // Modal wizard state
+    let modalCurrentStep = 1;
+    let modalSelections = {
+      goal: null,
+      timeframe: null,
+      language: null,
+      certification: null
+    };
+
+    // Program database
+    const programs = {
+      'integrated_management_strategy': {
+        name: 'Integrated Management and Strategy',
+        type: 'Managementseminar',
+        duration: '3 Tage',
+        language: ['de', 'en'],
+        certification: ['none', 'ects'],
+        price: 'CHF 2\'400',
+        description: 'Lernen Sie, integriertes Management wirksam einzusetzen – für strategische Ausrichtung, erfolgreiche Transformation und den nachhaltigen Einsatz von KI.',
+        goals: ['strategy', 'comprehensive'],
+        detailsUrl: 'https://www.imt.ch/programme/managementseminare/integrated-management-strategy',
+        registerUrl: 'https://www.imt.ch/anmeldung/integrated-management-strategy'
+      },
+      'financial_management': {
+        name: 'Financial Management',
+        type: 'Managementseminar',
+        duration: '3 Tage',
+        language: ['de', 'en'],
+        certification: ['none', 'ects'],
+        price: 'CHF 2\'400',
+        description: 'Stärken Sie Ihre finanzielle Steuerungskompetenz und lernen Sie zentrale Instrumente für fundierte Entscheidungen.',
+        goals: ['finance', 'comprehensive'],
+        detailsUrl: 'https://www.imt.ch/programme/managementseminare/financial-management',
+        registerUrl: 'https://www.imt.ch/anmeldung/financial-management'
+      },
+      'inspirational_leadership': {
+        name: 'Inspirational Leadership',
+        type: 'Managementseminar',
+        duration: '3 Tage',
+        language: ['de', 'en'],
+        certification: ['none', 'ects'],
+        price: 'CHF 2\'400',
+        description: 'Entwickeln Sie Ihre Führungspersönlichkeit weiter und lernen Sie, in herausfordernden Situationen zu führen.',
+        goals: ['leadership', 'comprehensive'],
+        detailsUrl: 'https://www.imt.ch/programme/managementseminare/inspirational-leadership',
+        registerUrl: 'https://www.imt.ch/anmeldung/inspirational-leadership'
+      },
+      'marketing_sales': {
+        name: 'Marketing, Sales and Brand Communication',
+        type: 'Managementseminar',
+        duration: '3 Tage',
+        language: ['de', 'en'],
+        certification: ['none', 'ects'],
+        price: 'CHF 2\'400',
+        description: 'Lernen Sie, wie Marketing, Vertrieb und Markenführung im integrierten Management ganzheitlich wirken.',
+        goals: ['marketing', 'comprehensive'],
+        detailsUrl: 'https://www.imt.ch/programme/managementseminare/marketing-sales-brand-communication',
+        registerUrl: 'https://www.imt.ch/anmeldung/marketing-sales-brand-communication'
+      },
+      'ai_decision_making': {
+        name: 'KI-Augmented Decision Making',
+        type: 'Managementseminar',
+        duration: '3 Tage',
+        language: ['de', 'en'],
+        certification: ['none', 'ects'],
+        price: 'CHF 2\'400',
+        description: 'Lernen Sie, wie KI-gestützte Entscheidungsprozesse Ihnen helfen, fundiertere Entscheidungen zu treffen.',
+        goals: ['ai', 'comprehensive'],
+        detailsUrl: 'https://www.imt.ch/programme/managementseminare/ki-augmented-decision-making',
+        registerUrl: 'https://www.imt.ch/anmeldung/ki-augmented-decision-making'
+      },
+      'management_programm': {
+        name: 'StGallen Management Programm',
+        type: 'Programm',
+        duration: '4x3 Tage',
+        language: ['de'],
+        certification: ['none'],
+        price: 'CHF 9\'800',
+        description: 'Umfassendes Programm mit vier Modulen: Integrated Management, Financial Management, Leadership und Marketing.',
+        goals: ['comprehensive', 'strategy', 'leadership', 'finance', 'marketing'],
+        detailsUrl: 'https://www.imt.ch/programme/managementprogramme/stgallen-management-programm',
+        registerUrl: 'https://www.imt.ch/anmeldung/stgallen-management-programm'
+      },
+      'management_programm_cas': {
+        name: 'StGallen Management Programm CAS',
+        type: 'CAS-Programm',
+        duration: '4x3 Tage + 4 Tage hybrid',
+        language: ['de'],
+        certification: ['cas'],
+        price: 'CHF 12\'400',
+        ects: '20 ECTS',
+        description: 'Wie das Management Programm, aber mit zusätzlichen Coaching-Modulen und CAS-Abschluss.',
+        goals: ['comprehensive', 'strategy', 'leadership', 'finance', 'marketing'],
+        detailsUrl: 'https://www.imt.ch/programme/cas-programme/stgallen-management-programm-cas',
+        registerUrl: 'https://www.imt.ch/anmeldung/stgallen-management-programm-cas'
+      },
+      'ki_excellence': {
+        name: 'StGallen KI Excellence Management Programm',
+        type: 'Programm',
+        duration: '4x3 Tage',
+        language: ['de', 'en'],
+        certification: ['none'],
+        price: 'CHF 11\'200',
+        description: 'Spezialisiertes Programm mit Fokus auf KI, digitale Transformation und zukunftsorientiertes Management.',
+        goals: ['ai', 'strategy', 'comprehensive'],
+        detailsUrl: 'https://www.imt.ch/programme/managementprogramme/ki-excellence-management-programm',
+        registerUrl: 'https://www.imt.ch/anmeldung/ki-excellence-management-programm'
+      },
+      'fast_track_mba': {
+        name: 'StGallen Fast Track MBA Programm',
+        type: 'MBA-Programm',
+        duration: '12+ Monate',
+        language: ['de', 'en'],
+        certification: ['mba'],
+        price: 'CHF 42\'000',
+        description: 'Umfassendes MBA-Programm mit acht Modulen und Masterarbeit für Ihren Karrieresprung.',
+        goals: ['comprehensive', 'strategy', 'leadership', 'finance', 'marketing', 'ai'],
+        detailsUrl: 'https://www.imt.ch/programme/mba-programme/fast-track-mba',
+        registerUrl: 'https://www.imt.ch/anmeldung/fast-track-mba'
+      }
+    };
+
+    // Event handlers for option selection
+    document.addEventListener('DOMContentLoaded', function() {
+      const optionCards = document.querySelectorAll('.option-card');
+      optionCards.forEach(card => {
+        card.addEventListener('click', function() {
+          handleOptionSelection(this);
+        });
+      });
+    });
+
+    function handleOptionSelection(card) {
+      const isModal = card.dataset.modal === 'true';
+      const step = isModal ? modalCurrentStep : currentStep;
+      const value = card.dataset.value;
+      const type = card.dataset.type;
+      const selectionsObj = isModal ? modalSelections : selections;
+      const prefix = isModal ? 'modal-' : '';
+
+      if (step === 1) {
+        // Single selection for step 1
+        const stepSelector = isModal ? '#modal-step-1 .option-card' : '#step-1 .option-card';
+        document.querySelectorAll(stepSelector).forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+        selectionsObj.goal = value;
+        document.getElementById(`${prefix}next-1`).disabled = false;
+      } else if (step === 2) {
+        // Single selection for step 2
+        const stepSelector = isModal ? '#modal-step-2 .option-card' : '#step-2 .option-card';
+        document.querySelectorAll(stepSelector).forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+        selectionsObj.timeframe = value;
+        document.getElementById(`${prefix}next-2`).disabled = false;
+      } else if (step === 3) {
+        // Handle both language and certification selections
+        if (type === 'language') {
+          const langSelector = isModal ? '#modal-step-3 [data-type="language"]' : '#step-3 [data-type="language"]';
+          document.querySelectorAll(langSelector).forEach(c => c.classList.remove('selected'));
+          card.classList.add('selected');
+          selectionsObj.language = value;
+        } else if (type === 'certification') {
+          const certSelector = isModal ? '#modal-step-3 [data-type="certification"]' : '#step-3 [data-type="certification"]';
+          document.querySelectorAll(certSelector).forEach(c => c.classList.remove('selected'));
+          card.classList.add('selected');
+          selectionsObj.certification = value;
+        }
+        
+        // Enable next button only if both selections are made
+        if (selectionsObj.language && selectionsObj.certification) {
+          document.getElementById(`${prefix}next-3`).disabled = false;
+        }
+      }
+    }
+
+    function nextStep(step) {
+      if (step < 4) {
+        // Hide current step
+        document.getElementById(`step-${step}`).classList.remove('active');
+        
+        // Update progress
+        document.getElementById(`step-indicator-${step}`).classList.remove('active');
+        document.getElementById(`step-indicator-${step}`).classList.add('completed');
+        document.getElementById(`connector-${step}`).classList.add('completed');
+        
+        // Show next step
+        currentStep = step + 1;
+        document.getElementById(`step-${currentStep}`).classList.add('active');
+        document.getElementById(`step-indicator-${currentStep}`).classList.add('active');
+        
+        if (currentStep === 4) {
+          generateRecommendation();
+        }
+      }
+    }
+
+    function prevStep(step) {
+      if (step > 1) {
+        // Hide current step
+        document.getElementById(`step-${step}`).classList.remove('active');
+        document.getElementById(`step-indicator-${step}`).classList.remove('active');
+        
+        // Update progress
+        if (step > 1) {
+          document.getElementById(`step-indicator-${step-1}`).classList.remove('completed');
+          document.getElementById(`step-indicator-${step-1}`).classList.add('active');
+          document.getElementById(`connector-${step-1}`).classList.remove('completed');
+        }
+        
+        // Show previous step
+        currentStep = step - 1;
+        document.getElementById(`step-${currentStep}`).classList.add('active');
+      }
+    }
+
+    function generateRecommendation() {
+      const recommendedPrograms = findBestMatches();
+      const resultContent = document.getElementById('result-content');
+      
+      if (recommendedPrograms.length === 1) {
+        // Single recommendation
+        const program = recommendedPrograms[0];
+        resultContent.innerHTML = `
+          <div class="result-title">Perfekte Empfehlung für Sie!</div>
+          <div class="result-subtitle">Basierend auf Ihren Angaben haben wir das ideale Programm gefunden</div>
+          
+          <div class="recommended-program">
+            <div class="program-name">${program.name}</div>
+            <div class="program-details">
+              <div class="program-detail">
+                <i class='bx bx-time'></i>
+                ${program.duration}
+              </div>
+              <div class="program-detail">
+                <i class='bx bx-bookmark'></i>
+                ${program.type}
+              </div>
+              ${program.ects ? `
+              <div class="program-detail">
+                <i class='bx bx-award'></i>
+                ${program.ects}
+              </div>
+              ` : ''}
+              <div class="program-detail">
+                <i class='bx bx-money'></i>
+                ${program.price}
+              </div>
+            </div>
+            <p class="program-description">
+              ${program.description}
+            </p>
+            ${program.matchReason ? `
+            <div class="match-reason">
+              <i class='bx bx-check-circle'></i>
+              <strong>Warum passt das?</strong> ${program.matchReason}
+            </div>
+            ` : ''}
+          </div>
+          
+          <div class="result-actions">
+            <a href="${program.detailsUrl}" target="_blank" class="btn btn-white">
+              <i class='bx bx-info-circle'></i>
+              Mehr Details
+            </a>
+            <a href="${program.registerUrl}" target="_blank" class="btn btn-transparent">
+              <i class='bx bx-calendar-plus'></i>
+              Jetzt anmelden
+            </a>
+          </div>
+        `;
+      } else {
+        // Multiple recommendations  
+        const programsHtml = recommendedPrograms.map((program, index) => `
+          <div class="recommended-program ${index === 0 ? 'best-match' : ''}">
+            ${index === 0 ? '<div class="best-match-badge"><i class="bx bx-star"></i> Beste Übereinstimmung</div>' : ''}
+            <div class="program-name">${program.name}</div>
+            <div class="program-details">
+              <div class="program-detail">
+                <i class='bx bx-time'></i>
+                ${program.duration}
+              </div>
+              <div class="program-detail">
+                <i class='bx bx-bookmark'></i>
+                ${program.type}
+              </div>
+              ${program.ects ? `
+              <div class="program-detail">
+                <i class='bx bx-award'></i>
+                ${program.ects}
+              </div>
+              ` : ''}
+              <div class="program-detail">
+                <i class='bx bx-money'></i>
+                ${program.price}
+              </div>
+            </div>
+            <p class="program-description">
+              ${program.description}
+            </p>
+            ${program.matchReason ? `
+            <div class="match-reason">
+              <i class='bx bx-check-circle'></i>
+              <strong>Warum passt das?</strong> ${program.matchReason}
+            </div>
+            ` : ''}
+            <div class="program-actions">
+              <a href="${program.detailsUrl}" target="_blank" class="btn btn-white btn-small">
+                <i class='bx bx-info-circle'></i>
+                Details
+              </a>
+              <a href="${program.registerUrl}" target="_blank" class="btn btn-transparent btn-small">
+                <i class='bx bx-calendar-plus'></i>
+                Anmelden
+              </a>
+            </div>
+          </div>
+        `).join('');
+        
+        resultContent.innerHTML = `
+          <div class="result-title">Mehrere Programme passen zu Ihnen!</div>
+          <div class="result-subtitle">Wir haben ${recommendedPrograms.length} passende Programme gefunden - sortiert nach Relevanz</div>
+          
+          <div class="multiple-programs">
+            ${programsHtml}
+          </div>
+        `;
+      }
+    }
+
+    function findBestMatches() {
+      const programsWithScores = [];
+
+      for (const [key, program] of Object.entries(programs)) {
+        let score = 0;
+        let reasons = [];
+
+        // Check goal match
+        if (program.goals.includes(selections.goal)) {
+          score += 3;
+          const goalNames = {
+            'strategy': 'Strategisches Management',
+            'leadership': 'Führungskompetenzen', 
+            'finance': 'Financial Management',
+            'ai': 'KI & Digitalisierung',
+            'marketing': 'Marketing & Sales',
+            'comprehensive': 'Ganzheitliches Management'
+          };
+          reasons.push(`Deckt Ihr Lernziel "${goalNames[selections.goal]}" ab`);
+        }
+
+        // Check timeframe match
+        if (selections.timeframe === 'short' && program.duration.includes('3 Tage')) {
+          score += 2;
+          reasons.push('Passt zu Ihrem gewünschten Zeitrahmen (3-4 Tage)');
+        } else if (selections.timeframe === 'medium' && (program.duration.includes('4x3') || program.type.includes('Programm'))) {
+          score += 2;
+          reasons.push('Passt zu Ihrem gewünschten Zeitrahmen (3-4 Monate)');
+        } else if (selections.timeframe === 'long' && program.type.includes('MBA')) {
+          score += 2;
+          reasons.push('Passt zu Ihrem gewünschten Zeitrahmen (12+ Monate)');
+        }
+
+        // Check language match
+        if (program.language.includes(selections.language) || selections.language === 'both') {
+          score += 1;
+          if (selections.language !== 'both') {
+            const langName = selections.language === 'de' ? 'Deutsch' : 'Englisch';
+            reasons.push(`Verfügbar in ${langName}`);
+          }
+        }
+
+        // Check certification match
+        if (program.certification.includes(selections.certification)) {
+          score += 1;
+          const certNames = {
+            'none': 'Keine Zertifizierung erforderlich',
+            'ects': 'ECTS-Punkte verfügbar',
+            'cas': 'CAS-Abschluss',
+            'mba': 'MBA-Abschluss'
+          };
+          reasons.push(certNames[selections.certification]);
+        }
+
+        // Only include programs with a meaningful score (at least 3 points)
+        if (score >= 3) {
+          programsWithScores.push({
+            ...program,
+            score: score,
+            matchReason: reasons.join(', ')
+          });
+        }
+      }
+
+      // Sort by score (descending) and limit to top 4 programs
+      programsWithScores.sort((a, b) => b.score - a.score);
+      return programsWithScores.slice(0, 4);
+    }
+
+    function restartWizard() {
+      currentStep = 1;
+      selections = {
+        goal: null,
+        timeframe: null,
+        language: null,
+        certification: null
+      };
+
+      // Reset all steps
+      document.querySelectorAll('.wizard-step').forEach(step => step.classList.remove('active'));
+      document.getElementById('step-1').classList.add('active');
+
+      // Reset progress indicators
+      document.querySelectorAll('.progress-step').forEach((step, index) => {
+        step.classList.remove('active', 'completed');
+        if (index === 0) step.classList.add('active');
+      });
+
+      document.querySelectorAll('.progress-connector').forEach(connector => {
+        connector.classList.remove('active', 'completed');
+      });
+
+      // Reset selections
+      document.querySelectorAll('.option-card').forEach(card => card.classList.remove('selected'));
+
+      // Reset buttons
+      document.getElementById('next-1').disabled = true;
+      document.getElementById('next-2').disabled = true;
+      document.getElementById('next-3').disabled = true;
+    }
+
+    // ============ MODAL FUNCTIONS ============
+    function openModal() {
+      document.getElementById('modal-overlay').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(event) {
+      if (event && event.target !== event.currentTarget) return;
+      document.getElementById('modal-overlay').classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    function modalNextStep(step) {
+      if (step < 4) {
+        // Hide current step
+        document.getElementById(`modal-step-${step}`).classList.remove('active');
+        
+        // Update progress
+        document.getElementById(`modal-step-indicator-${step}`).classList.remove('active');
+        document.getElementById(`modal-step-indicator-${step}`).classList.add('completed');
+        document.getElementById(`modal-connector-${step}`).classList.add('completed');
+        
+        // Show next step
+        modalCurrentStep = step + 1;
+        document.getElementById(`modal-step-${modalCurrentStep}`).classList.add('active');
+        document.getElementById(`modal-step-indicator-${modalCurrentStep}`).classList.add('active');
+        
+        if (modalCurrentStep === 4) {
+          generateModalRecommendation();
+        }
+      }
+    }
+
+    function modalPrevStep(step) {
+      if (step > 1) {
+        // Hide current step
+        document.getElementById(`modal-step-${step}`).classList.remove('active');
+        document.getElementById(`modal-step-indicator-${step}`).classList.remove('active');
+        
+        // Update progress
+        if (step > 1) {
+          document.getElementById(`modal-step-indicator-${step-1}`).classList.remove('completed');
+          document.getElementById(`modal-step-indicator-${step-1}`).classList.add('active');
+          document.getElementById(`modal-connector-${step-1}`).classList.remove('completed');
+        }
+        
+        // Show previous step
+        modalCurrentStep = step - 1;
+        document.getElementById(`modal-step-${modalCurrentStep}`).classList.add('active');
+      }
+    }
+
+    function generateModalRecommendation() {
+      const recommendedPrograms = findBestMatchesModal();
+      const resultContent = document.getElementById('modal-result-content');
+      
+      if (recommendedPrograms.length === 1) {
+        // Single recommendation
+        const program = recommendedPrograms[0];
+        resultContent.innerHTML = `
+          <div class="result-title">Perfekte Empfehlung für Sie!</div>
+          <div class="result-subtitle">Basierend auf Ihren Angaben haben wir das ideale Programm gefunden</div>
+          
+          <div class="recommended-program">
+            <div class="program-name">${program.name}</div>
+            <div class="program-details">
+              <div class="program-detail">
+                <i class='bx bx-time'></i>
+                ${program.duration}
+              </div>
+              <div class="program-detail">
+                <i class='bx bx-bookmark'></i>
+                ${program.type}
+              </div>
+              ${program.ects ? `
+              <div class="program-detail">
+                <i class='bx bx-award'></i>
+                ${program.ects}
+              </div>
+              ` : ''}
+              <div class="program-detail">
+                <i class='bx bx-money'></i>
+                ${program.price}
+              </div>
+            </div>
+            <p class="program-description">
+              ${program.description}
+            </p>
+            ${program.matchReason ? `
+            <div class="match-reason">
+              <i class='bx bx-check-circle'></i>
+              <strong>Warum passt das?</strong> ${program.matchReason}
+            </div>
+            ` : ''}
+          </div>
+          
+          <div class="result-actions">
+            <a href="${program.detailsUrl}" target="_blank" class="btn btn-white">
+              <i class='bx bx-info-circle'></i>
+              Mehr Details
+            </a>
+            <a href="${program.registerUrl}" target="_blank" class="btn btn-transparent">
+              <i class='bx bx-calendar-plus'></i>
+              Jetzt anmelden
+            </a>
+          </div>
+        `;
+      } else {
+        // Multiple recommendations
+        const programsHtml = recommendedPrograms.map((program, index) => `
+          <div class="recommended-program ${index === 0 ? 'best-match' : ''}">
+            ${index === 0 ? '<div class="best-match-badge"><i class="bx bx-star"></i> Beste Übereinstimmung</div>' : ''}
+            <div class="program-name">${program.name}</div>
+            <div class="program-details">
+              <div class="program-detail">
+                <i class='bx bx-time'></i>
+                ${program.duration}
+              </div>
+              <div class="program-detail">
+                <i class='bx bx-bookmark'></i>
+                ${program.type}
+              </div>
+              ${program.ects ? `
+              <div class="program-detail">
+                <i class='bx bx-award'></i>
+                ${program.ects}
+              </div>
+              ` : ''}
+              <div class="program-detail">
+                <i class='bx bx-money'></i>
+                ${program.price}
+              </div>
+            </div>
+            <p class="program-description">
+              ${program.description}
+            </p>
+            ${program.matchReason ? `
+            <div class="match-reason">
+              <i class='bx bx-check-circle'></i>
+              <strong>Warum passt das?</strong> ${program.matchReason}
+            </div>
+            ` : ''}
+            <div class="program-actions">
+              <a href="${program.detailsUrl}" target="_blank" class="btn btn-white btn-small">
+                <i class='bx bx-info-circle'></i>
+                Details
+              </a>
+              <a href="${program.registerUrl}" target="_blank" class="btn btn-transparent btn-small">
+                <i class='bx bx-calendar-plus'></i>
+                Anmelden
+              </a>
+            </div>
+          </div>
+        `).join('');
+        
+        resultContent.innerHTML = `
+          <div class="result-title">Mehrere Programme passen zu Ihnen!</div>
+          <div class="result-subtitle">Wir haben ${recommendedPrograms.length} passende Programme gefunden - sortiert nach Relevanz</div>
+          
+          <div class="multiple-programs">
+            ${programsHtml}
+          </div>
+        `;
+      }
+    }
+
+    function findBestMatchesModal() {
+      const programsWithScores = [];
+
+      for (const [key, program] of Object.entries(programs)) {
+        let score = 0;
+        let reasons = [];
+
+        // Check goal match
+        if (program.goals.includes(modalSelections.goal)) {
+          score += 3;
+          const goalNames = {
+            'strategy': 'Strategisches Management',
+            'leadership': 'Führungskompetenzen', 
+            'finance': 'Financial Management',
+            'ai': 'KI & Digitalisierung',
+            'marketing': 'Marketing & Sales',
+            'comprehensive': 'Ganzheitliches Management'
+          };
+          reasons.push(`Deckt Ihr Lernziel "${goalNames[modalSelections.goal]}" ab`);
+        }
+
+        // Check timeframe match
+        if (modalSelections.timeframe === 'short' && program.duration.includes('3 Tage')) {
+          score += 2;
+          reasons.push('Passt zu Ihrem gewünschten Zeitrahmen (3-4 Tage)');
+        } else if (modalSelections.timeframe === 'medium' && (program.duration.includes('4x3') || program.type.includes('Programm'))) {
+          score += 2;
+          reasons.push('Passt zu Ihrem gewünschten Zeitrahmen (3-4 Monate)');
+        } else if (modalSelections.timeframe === 'long' && program.type.includes('MBA')) {
+          score += 2;
+          reasons.push('Passt zu Ihrem gewünschten Zeitrahmen (12+ Monate)');
+        }
+
+        // Check language match
+        if (program.language.includes(modalSelections.language) || modalSelections.language === 'both') {
+          score += 1;
+          if (modalSelections.language !== 'both') {
+            const langName = modalSelections.language === 'de' ? 'Deutsch' : 'Englisch';
+            reasons.push(`Verfügbar in ${langName}`);
+          }
+        }
+
+        // Check certification match
+        if (program.certification.includes(modalSelections.certification)) {
+          score += 1;
+          const certNames = {
+            'none': 'Keine Zertifizierung erforderlich',
+            'ects': 'ECTS-Punkte verfügbar',
+            'cas': 'CAS-Abschluss',
+            'mba': 'MBA-Abschluss'
+          };
+          reasons.push(certNames[modalSelections.certification]);
+        }
+
+        // Only include programs with a meaningful score (at least 3 points)
+        if (score >= 3) {
+          programsWithScores.push({
+            ...program,
+            score: score,
+            matchReason: reasons.join(', ')
+          });
+        }
+      }
+
+      // Sort by score (descending) and limit to top 4 programs
+      programsWithScores.sort((a, b) => b.score - a.score);
+      return programsWithScores.slice(0, 4);
+    }
+
+    function modalRestartWizard() {
+      modalCurrentStep = 1;
+      modalSelections = {
+        goal: null,
+        timeframe: null,
+        language: null,
+        certification: null
+      };
+
+      // Reset all modal steps
+      document.querySelectorAll('#modal-overlay .wizard-step').forEach(step => step.classList.remove('active'));
+      document.getElementById('modal-step-1').classList.add('active');
+
+      // Reset modal progress indicators
+      document.querySelectorAll('#modal-overlay .progress-step').forEach((step, index) => {
+        step.classList.remove('active', 'completed');
+        if (index === 0) step.classList.add('active');
+      });
+
+      document.querySelectorAll('#modal-overlay .progress-connector').forEach(connector => {
+        connector.classList.remove('active', 'completed');
+      });
+
+      // Reset modal selections
+      document.querySelectorAll('#modal-overlay .option-card').forEach(card => card.classList.remove('selected'));
+
+      // Reset modal buttons
+      document.getElementById('modal-next-1').disabled = true;
+      document.getElementById('modal-next-2').disabled = true;
+      document.getElementById('modal-next-3').disabled = true;
+    }
+
+    // ESC key to close modal
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        closeModal();
+      }
+    });
+  </script>
+</body>
+</html> 
