@@ -564,6 +564,69 @@
       .result-actions, .program-actions {
         flex-direction: column;
       }
+      
+      /* Mobile optimizations for results page */
+      .result-card {
+        padding: 24px 16px;
+      }
+      
+      #wizard-step-4 {
+        padding: 20px 16px;
+      }
+      
+      .recommended-program {
+        padding: 16px;
+        margin-bottom: 12px;
+      }
+      
+      .result-title {
+        font-size: 1.5rem;
+        margin-bottom: 6px;
+      }
+      
+      .result-subtitle {
+        font-size: 1rem;
+        margin-bottom: 24px;
+      }
+      
+      .program-name {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+      }
+      
+      .program-details {
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+      
+      .program-detail {
+        font-size: 0.85rem;
+      }
+      
+      .program-description {
+        font-size: 0.9rem;
+        margin-bottom: 16px;
+      }
+      
+      .result-actions {
+        margin-top: 20px;
+        gap: 12px;
+      }
+      
+      .btn-small {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+      }
+      
+      /* Hide the "Back to Homepage" button on mobile in step 4 */
+      #wizard-step-4 .wizard-navigation .btn-link {
+        display: none;
+      }
+      
+      /* Center the remaining button */
+      #wizard-step-4 .wizard-navigation {
+        justify-content: center;
+      }
     }
   </style>
 </head>

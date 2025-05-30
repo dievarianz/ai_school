@@ -4,46 +4,46 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Executive Education Advisor</title>
-  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-  <style>
-    :root{
-      --font-sans:-apple-system,BlinkMacSystemFont,"San Francisco","Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
-      --color-text:#1d1d1f;
-      --color-muted:#6e6e73;
-      --color-card-bg:#f5f5f7;
-      --color-accent2:#970289;
-      --color-badge:#e2b245;
-      --color-badge-hover:#d4a535;
-      --spacing:24px;
-      --radius:16px;
-      --max-width:1200px;
-      --imt-purple: #6e45e2;
-      --imt-green: #4CAF50;
-    }
-    body {
-      font-family: var(--font-sans);
-      color: var(--color-text);
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+<style>
+  :root{
+    --font-sans:-apple-system,BlinkMacSystemFont,"San Francisco","Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+    --color-text:#1d1d1f;
+    --color-muted:#6e6e73;
+    --color-card-bg:#f5f5f7;
+    --color-accent2:#970289;
+    --color-badge:#e2b245;
+    --color-badge-hover:#d4a535;
+    --spacing:24px;
+    --radius:16px;
+    --max-width:1200px;
+    --imt-purple: #6e45e2;
+    --imt-green: #4CAF50;
+  }
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-text);
       background-color: #f0f2f5;
       margin: 0;
       padding: 0;
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      min-height: 100vh;
+    min-height: 100vh;
       padding-top: 40px;
       padding-bottom: 40px;
-    }
+  }
 
     .page-container {
         width: 100%;
         max-width: 900px;
-        margin: 0 auto;
+    margin: 0 auto;
     }
 
     .wizard-main-content {
       background: white;
       border-radius: var(--radius);
-      width: 100%;
+    width: 100%;
       overflow-y: auto;
       position: relative;
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
@@ -61,7 +61,7 @@
 
     .wizard-header h2 {
       font-size: 1.2rem;
-      font-weight: 600;
+    font-weight: 600;
       color: var(--color-text);
       margin: 0;
     }
@@ -70,7 +70,7 @@
       background: transparent;
       border: none;
       font-size: 1.3rem;
-      color: var(--color-muted);
+    color: var(--color-muted);
       cursor: pointer;
       padding: 6px;
       border-radius: 6px;
@@ -89,59 +89,59 @@
     }
 
     .wizard-body {
-      padding: 20px 24px;
-      background: var(--color-card-bg);
+      padding: 15px 16px;
+    background: var(--color-card-bg);
       border-radius: 0 0 var(--radius) var(--radius);
-    }
+  }
 
-    .progress-bar {
-      display: flex;
-      align-items: center;
+  .progress-bar {
+    display: flex;
+    align-items: center;
       margin-bottom: 20px;
-      justify-content: center;
-    }
+    justify-content: center;
+  }
 
-    .progress-step {
+  .progress-step {
       width: 28px;
       height: 28px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #e5e5e7;
-      color: var(--color-muted);
-      font-weight: 600;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e5e5e7;
+    color: var(--color-muted);
+    font-weight: 600;
       font-size: 11px;
-      position: relative;
-      transition: all 0.3s ease;
-    }
+    position: relative;
+    transition: all 0.3s ease;
+  }
 
-    .progress-step.active {
-      background: var(--imt-purple);
-      color: white;
-      transform: scale(1.1);
-    }
+  .progress-step.active {
+    background: var(--imt-purple);
+    color: white;
+    transform: scale(1.1);
+  }
 
-    .progress-step.completed {
-      background: var(--imt-green);
-      color: white;
-    }
+  .progress-step.completed {
+    background: var(--imt-green);
+    color: white;
+  }
 
-    .progress-connector {
+  .progress-connector {
       width: 35px;
-      height: 2px;
-      background: #e5e5e7;
+    height: 2px;
+    background: #e5e5e7;
       margin: 0 6px;
-      transition: all 0.3s ease;
-    }
+    transition: all 0.3s ease;
+  }
 
-    .progress-connector.active {
-      background: var(--imt-purple);
-    }
+  .progress-connector.active {
+    background: var(--imt-purple);
+  }
 
-    .progress-connector.completed {
-      background: var(--imt-green);
-    }
+  .progress-connector.completed {
+    background: var(--imt-green);
+  }
 
     .wizard-step {
       display: none;
@@ -151,92 +151,92 @@
       display: block;
     }
 
-    .question-container {
-      text-align: center;
+  .question-container {
+    text-align: center;
       margin-bottom: 16px;
-    }
+  }
 
-    .question-title {
+  .question-title {
       font-size: 1.2rem;
-      font-weight: 600;
+    font-weight: 600;
       margin-bottom: 0.4rem;
-      color: var(--color-text);
+    color: var(--color-text);
       line-height: 1.3;
-    }
+  }
 
-    .question-subtitle {
+  .question-subtitle {
       font-size: 0.9rem;
-      color: var(--color-muted);
+    color: var(--color-muted);
       margin-bottom: 1rem;
-    }
+  }
 
-    .options-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  .options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 10px;
       margin-bottom: 16px;
-    }
+  }
 
-    .option-card {
-      background: white;
-      border: 2px solid #e5e5e7;
+  .option-card {
+    background: white;
+    border: 2px solid #e5e5e7;
       border-radius: 8px;
       padding: 14px 10px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-align: center;
-      position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    position: relative;
       min-height: 85px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
-    .option-card:hover {
-      border-color: var(--imt-purple);
-      transform: translateY(-2px);
-    }
+  .option-card:hover {
+    border-color: var(--imt-purple);
+    transform: translateY(-2px);
+  }
 
-    .option-card.selected {
-      border-color: var(--imt-purple);
-      background: rgba(110, 69, 226, 0.05);
-    }
+  .option-card.selected {
+    border-color: var(--imt-purple);
+    background: rgba(110, 69, 226, 0.05);
+  }
 
-    .option-card.selected::after {
-      content: '✓';
-      position: absolute;
+  .option-card.selected::after {
+    content: '✓';
+    position: absolute;
       top: 8px;
       right: 8px;
-      background: var(--imt-purple);
-      color: white;
+    background: var(--imt-purple);
+    color: white;
       width: 20px;
       height: 20px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
       font-size: 12px;
-      font-weight: bold;
-    }
+    font-weight: bold;
+  }
 
-    .option-icon {
+  .option-icon {
       font-size: 1.6rem;
-      color: var(--imt-purple);
+    color: var(--imt-purple);
       margin-bottom: 0.4rem;
-    }
+  }
 
-    .option-title {
+  .option-title {
       font-size: 0.95rem;
-      font-weight: 600;
+    font-weight: 600;
       margin-bottom: 0.2rem;
-      color: var(--color-text);
+    color: var(--color-text);
       line-height: 1.2;
-    }
+  }
 
-    .option-description {
+  .option-description {
       font-size: 0.8rem;
-      color: var(--color-muted);
+    color: var(--color-muted);
       line-height: 1.3;
     }
 
@@ -269,58 +269,58 @@
     .preferences-grid .option-title {
       font-size: 0.85rem;
       margin-bottom: 0;
-    }
+  }
 
-    .wizard-navigation {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+  .wizard-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
       margin-top: 20px;
     }
 
     .wizard-navigation.has-back {
       justify-content: space-between;
-    }
+  }
 
-    .btn {
+  .btn {
       padding: 10px 20px;
-      border-radius: 8px;
+    border-radius: 8px;
       border: none;
-      font-weight: 600;
-      cursor: pointer;
+    font-weight: 600;
+    cursor: pointer;
       display: flex;
-      align-items: center;
-      gap: 8px;
+    align-items: center;
+    gap: 8px;
       transition: all 0.2s ease;
       font-family: var(--font-sans);
       text-decoration: none;
       background: var(--imt-purple);
       color: white;
-    }
+  }
 
-    .btn:hover {
-      background: #5a37c8;
-      transform: translateY(-1px);
-    }
+  .btn:hover {
+    background: #5a37c8;
+    transform: translateY(-1px);
+  }
 
-    .btn:disabled {
-      background: #e5e5e7;
-      color: var(--color-muted);
-      cursor: not-allowed;
-      transform: none;
-    }
+  .btn:disabled {
+    background: #e5e5e7;
+    color: var(--color-muted);
+    cursor: not-allowed;
+    transform: none;
+  }
 
-    .btn-secondary {
-      background: transparent;
-      color: var(--color-muted);
-      border: 1px solid #e5e5e7;
-    }
+  .btn-secondary {
+    background: transparent;
+    color: var(--color-muted);
+    border: 1px solid #e5e5e7;
+  }
 
-    .btn-secondary:hover {
+  .btn-secondary:hover {
       background: #f5f5f7;
-      color: var(--color-text);
-    }
-    
+    color: var(--color-text);
+  }
+
     .btn-link {
         background: transparent;
         color: var(--imt-purple);
@@ -335,160 +335,160 @@
         background: transparent;
     }
 
-    .result-card {
-      background: var(--imt-purple);
-      color: white;
-      border-radius: var(--radius);
-      padding: 48px 32px;
-      text-align: center;
-    }
+  .result-card {
+    background: var(--imt-purple);
+    color: white;
+    border-radius: var(--radius);
+    padding: 48px 32px;
+    text-align: center;
+  }
 
-    .result-title {
-      font-size: 1.75rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-      letter-spacing: -0.02em;
-    }
+  .result-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+  }
 
-    .result-subtitle {
-      font-size: 1.1rem;
-      opacity: 0.85;
-      margin-bottom: 32px;
-      font-weight: 400;
-    }
+  .result-subtitle {
+    font-size: 1.1rem;
+    opacity: 0.85;
+    margin-bottom: 32px;
+    font-weight: 400;
+  }
 
-    .recommended-program {
-      background: rgba(255, 255, 255, 0.95);
-      border-radius: 16px;
-      padding: 24px;
-      margin-bottom: 16px;
-      position: relative;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(10px);
-      color: var(--color-text);
-    }
+  .recommended-program {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 16px;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    color: var(--color-text);
+  }
 
-    .program-name {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-bottom: 12px;
-      color: var(--color-text);
-      letter-spacing: -0.01em;
-      line-height: 1.3;
-    }
+  .program-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--color-text);
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+  }
 
-    .program-details {
-      display: flex;
-      justify-content: flex-start;
+  .program-details {
+    display: flex;
+    justify-content: flex-start;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+
+  .program-detail {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+    color: var(--color-muted);
+    font-weight: 500;
+  }
+
+  .program-detail i {
+    font-size: 1rem;
+    color: var(--imt-purple);
+  }
+
+  .program-description {
+    font-size: 0.95rem;
+    color: var(--color-muted);
+    line-height: 1.5;
+    margin-bottom: 20px;
+    font-weight: 400;
+  }
+
+  .multiple-programs {
+    display: flex;
+    flex-direction: column;
       gap: 16px;
-      flex-wrap: wrap;
-      margin-bottom: 16px;
-    }
+  }
 
-    .program-detail {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.9rem;
-      color: var(--color-muted);
-      font-weight: 500;
-    }
+  .multiple-programs .recommended-program {
+    margin-bottom: 0;
+    text-align: left;
+  }
 
-    .program-detail i {
-      font-size: 1rem;
-      color: var(--imt-purple);
-    }
-
-    .program-description {
-      font-size: 0.95rem;
-      color: var(--color-muted);
-      line-height: 1.5;
-      margin-bottom: 20px;
-      font-weight: 400;
-    }
-
-    .multiple-programs {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .multiple-programs .recommended-program {
-      margin-bottom: 0;
-      text-align: left;
-    }
-
-    .multiple-programs .recommended-program.best-match {
+  .multiple-programs .recommended-program.best-match {
       background: rgba(255, 255, 255, 1);
       border: 2px solid var(--imt-purple);
       box-shadow: 0 4px 20px rgba(110, 69, 226, 0.15);
-    }
+  }
 
-    .best-match-badge {
-      position: absolute;
+  .best-match-badge {
+    position: absolute;
       top: -8px;
       right: 16px;
-      background: var(--imt-green);
-      color: white;
+    background: var(--imt-green);
+    color: white;
       padding: 4px 12px;
       border-radius: 12px;
       font-size: 0.75rem;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
       gap: 4px;
       box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
-    }
+  }
 
-    .program-actions {
-      display: flex;
+  .program-actions {
+    display: flex;
       gap: 12px;
       margin-top: 0;
-      flex-wrap: wrap;
+    flex-wrap: wrap;
       justify-content: flex-start;
-    }
+  }
 
-    .btn-small {
+  .btn-small {
       padding: 6px 14px;
       font-size: 0.9rem;
-      min-height: 32px;
+    min-height: 32px;
       border-radius: 12px;
       font-weight: 600;
       transition: all 0.2s ease;
-    }
+  }
 
-    .result-actions {
+  .result-actions {
       margin-top: 24px;
-      display: flex;
+    display: flex;
       gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 
-    .btn-white {
-      background: white;
-      color: var(--imt-purple);
+  .btn-white {
+    background: white;
+    color: var(--imt-purple);
       border: 1px solid var(--imt-purple);
       box-shadow: 0 2px 8px rgba(110, 69, 226, 0.15);
-    }
+  }
 
-    .btn-white:hover {
+  .btn-white:hover {
       background: var(--imt-purple);
       color: white;
       transform: translateY(-1px);
       box-shadow: 0 4px 16px rgba(110, 69, 226, 0.25);
-    }
+  }
 
-    .btn-transparent {
+  .btn-transparent {
       background: rgba(255, 255, 255, 0.15);
-      color: white;
+    color: white;
       border: 1px solid rgba(255, 255, 255, 0.3);
       backdrop-filter: blur(10px);
-    }
+  }
 
-    .btn-transparent:hover {
+  .btn-transparent:hover {
       background: rgba(255, 255, 255, 0.25);
-      color: white;
+    color: white;
       transform: translateY(-1px);
     }
 
@@ -513,7 +513,7 @@
         border: 1px solid rgba(255, 255, 255, 0.3);
         color: white;
         backdrop-filter: blur(10px);
-        border-radius: 12px;
+      border-radius: 12px;
         padding: 12px 24px;
         font-weight: 600;
         transition: all 0.2s ease;
@@ -548,8 +548,71 @@
       .result-actions, .program-actions {
         flex-direction: column;
       }
+      
+      /* Mobile optimizations for results page */
+      .result-card {
+        padding: 24px 16px;
+      }
+      
+      #wizard-step-4 {
+        padding: 20px 16px;
+      }
+      
+      .recommended-program {
+        padding: 16px;
+        margin-bottom: 12px;
+      }
+      
+      .result-title {
+        font-size: 1.5rem;
+        margin-bottom: 6px;
+      }
+      
+      .result-subtitle {
+        font-size: 1rem;
+        margin-bottom: 24px;
+      }
+      
+      .program-name {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+      }
+      
+      .program-details {
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+      
+      .program-detail {
+        font-size: 0.85rem;
+      }
+      
+      .program-description {
+        font-size: 0.9rem;
+        margin-bottom: 16px;
+      }
+      
+      .result-actions {
+        margin-top: 20px;
+        gap: 12px;
+      }
+      
+      .btn-small {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+      }
+      
+      /* Hide the "Back to Homepage" button on mobile in step 4 */
+      #wizard-step-4 .wizard-navigation .btn-link {
+        display: none;
+      }
+      
+      /* Center the remaining button */
+      #wizard-step-4 .wizard-navigation {
+        justify-content: center;
+      }
     }
-  </style>
+</style>
 </head>
 <body>
 
@@ -560,10 +623,10 @@
         <a href="javascript:history.back()" class="wizard-close-button" title="Back">
           <i class='bx bx-x'></i>
         </a>
-      </div>
-      
+    </div>
+
       <div class="wizard-body">
-        <div class="progress-bar">
+      <div class="progress-bar">
           <div class="progress-step active" id="wizard-step-indicator-1">1</div>
           <div class="progress-connector" id="wizard-connector-1"></div>
           <div class="progress-step" id="wizard-step-indicator-2">2</div>
@@ -571,143 +634,143 @@
           <div class="progress-step" id="wizard-step-indicator-3">3</div>
           <div class="progress-connector" id="wizard-connector-3"></div>
           <div class="progress-step" id="wizard-step-indicator-4">4</div>
-        </div>
+      </div>
 
         <!-- Wizard Step 1 -->
         <div class="wizard-step active" id="wizard-step-1">
-          <div class="question-container">
+        <div class="question-container">
             <h3 class="question-title">What is your primary learning goal?</h3>
             <p class="question-subtitle">Choose the area in which you want to develop further</p>
-          </div>
-          <div class="options-grid">
-            <div class="option-card" data-value="strategy">
-              <i class='bx bx-trending-up option-icon'></i>
+        </div>
+        <div class="options-grid">
+          <div class="option-card" data-value="strategy">
+            <i class='bx bx-trending-up option-icon'></i>
               <div class="option-title">Strategic Management</div>
               <div class="option-description">Business leadership, strategy development and transformation</div>
-            </div>
-            <div class="option-card" data-value="leadership">
-              <i class='bx bx-user-check option-icon'></i>
+          </div>
+          <div class="option-card" data-value="leadership">
+            <i class='bx bx-user-check option-icon'></i>
               <div class="option-title">Leadership Skills</div>
               <div class="option-description">Leadership, team management and employee development</div>
-            </div>
-            <div class="option-card" data-value="finance">
-              <i class='bx bx-money option-icon'></i>
-              <div class="option-title">Financial Management</div>
+          </div>
+          <div class="option-card" data-value="finance">
+            <i class='bx bx-money option-icon'></i>
+            <div class="option-title">Financial Management</div>
               <div class="option-description">Financial control, controlling and investment decisions</div>
-            </div>
-            <div class="option-card" data-value="ai">
-              <i class='bx bx-brain option-icon'></i>
+          </div>
+          <div class="option-card" data-value="ai">
+            <i class='bx bx-brain option-icon'></i>
               <div class="option-title">AI & Digitalization</div>
               <div class="option-description">Artificial intelligence, automation and digital transformation</div>
-            </div>
-            <div class="option-card" data-value="marketing">
-              <i class='bx bx-bullseye option-icon'></i>
-              <div class="option-title">Marketing & Sales</div>
+          </div>
+          <div class="option-card" data-value="marketing">
+            <i class='bx bx-bullseye option-icon'></i>
+            <div class="option-title">Marketing & Sales</div>
               <div class="option-description">Brand management, sales and communication strategies</div>
-            </div>
-            <div class="option-card" data-value="comprehensive">
-              <i class='bx bx-selection option-icon'></i>
+          </div>
+          <div class="option-card" data-value="comprehensive">
+            <i class='bx bx-selection option-icon'></i>
               <div class="option-title">Comprehensive Management</div>
               <div class="option-description">Comprehensive management skills in all areas</div>
-            </div>
           </div>
-          <div class="wizard-navigation">
+        </div>
+        <div class="wizard-navigation">
             <a href="javascript:history.back()" class="btn btn-link">Back to Homepage</a>
             <button class="btn" id="wizard-next-1" onclick="wizardNextStep(1)" disabled>
               Next <i class='bx bx-chevron-right'></i>
-            </button>
-          </div>
+          </button>
         </div>
+      </div>
 
         <!-- Wizard Step 2 -->
         <div class="wizard-step" id="wizard-step-2">
-          <div class="question-container">
+        <div class="question-container">
             <h3 class="question-title">How much time can you invest?</h3>
             <p class="question-subtitle">Choose the timeframe that fits your schedule</p>
-          </div>
-          <div class="options-grid">
-            <div class="option-card" data-value="short">
-              <i class='bx bx-time-five option-icon'></i>
+        </div>
+        <div class="options-grid">
+          <div class="option-card" data-value="short">
+            <i class='bx bx-time-five option-icon'></i>
               <div class="option-title">3-4 Days</div>
               <div class="option-description">Compact management seminars for quick development</div>
-            </div>
-            <div class="option-card" data-value="medium">
-              <i class='bx bx-calendar option-icon'></i>
+          </div>
+          <div class="option-card" data-value="medium">
+            <i class='bx bx-calendar option-icon'></i>
               <div class="option-title">3-4 Months</div>
               <div class="option-description">Modular programs for comprehensive qualification</div>
-            </div>
-            <div class="option-card" data-value="long">
-              <i class='bx bx-calendar-star option-icon'></i>
+          </div>
+          <div class="option-card" data-value="long">
+            <i class='bx bx-calendar-star option-icon'></i>
               <div class="option-title">12+ Months</div>
               <div class="option-description">Comprehensive MBA programs for career advancement</div>
-            </div>
-          </div>
-          <div class="wizard-navigation has-back">
-            <button class="btn btn-secondary" onclick="wizardPrevStep(2)">
-              <i class='bx bx-chevron-left'></i> Back
-            </button>
-            <button class="btn" id="wizard-next-2" onclick="wizardNextStep(2)" disabled>
-              Next <i class='bx bx-chevron-right'></i>
-            </button>
           </div>
         </div>
+        <div class="wizard-navigation has-back">
+            <button class="btn btn-secondary" onclick="wizardPrevStep(2)">
+              <i class='bx bx-chevron-left'></i> Back
+          </button>
+            <button class="btn" id="wizard-next-2" onclick="wizardNextStep(2)" disabled>
+              Next <i class='bx bx-chevron-right'></i>
+          </button>
+        </div>
+      </div>
 
         <!-- Wizard Step 3 -->
         <div class="wizard-step" id="wizard-step-3">
-          <div class="question-container">
+        <div class="question-container">
             <h3 class="question-title">What are your preferences?</h3>
             <p class="question-subtitle">Language and desired certification</p>
-          </div>
-          <div class="preferences-section" style="margin-bottom: 2rem;">
+        </div>
+        <div class="preferences-section" style="margin-bottom: 2rem;">
             <h4 style="margin-bottom: 1rem; color: var(--color-text); font-weight: 600;">Preferred Language:</h4>
-            <div class="options-grid preferences-grid" style="grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); margin-bottom: 0;">
-              <div class="option-card" data-value="de" data-type="language">
+          <div class="options-grid preferences-grid" style="grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); margin-bottom: 0;">
+            <div class="option-card" data-value="de" data-type="language">
                 <i class='bx bx-flag option-icon'></i><div class="option-title">German</div>
-              </div>
-              <div class="option-card" data-value="en" data-type="language">
+            </div>
+            <div class="option-card" data-value="en" data-type="language">
                 <i class='bx bx-world option-icon'></i><div class="option-title">English</div>
-              </div>
-              <div class="option-card" data-value="both" data-type="language">
+            </div>
+            <div class="option-card" data-value="both" data-type="language">
                 <i class='bx bx-globe option-icon'></i><div class="option-title">Both possible</div>
-              </div>
             </div>
-          </div>
-          <div class="preferences-section">
-            <h4 style="margin-bottom: 1rem; color: var(--color-text); font-weight: 600;">Desired Certification:</h4>
-            <div class="options-grid preferences-grid" style="grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));">
-              <div class="option-card" data-value="none" data-type="certification">
-                <i class='bx bx-bookmark option-icon'></i><div class="option-title">Not required</div>
-              </div>
-              <div class="option-card" data-value="ects" data-type="certification">
-                <i class='bx bx-award option-icon'></i><div class="option-title">ECTS Points</div>
-              </div>
-              <div class="option-card" data-value="cas" data-type="certification">
-                <i class='bx bx-certification option-icon'></i><div class="option-title">CAS Degree</div>
-              </div>
-              <div class="option-card" data-value="mba" data-type="certification">
-                <i class='bx bx-medal option-icon'></i><div class="option-title">MBA Degree</div>
-              </div>
-            </div>
-          </div>
-          <div class="wizard-navigation has-back">
-            <button class="btn btn-secondary" onclick="wizardPrevStep(3)">
-              <i class='bx bx-chevron-left'></i> Back
-            </button>
-            <button class="btn" id="wizard-next-3" onclick="wizardNextStep(3)" disabled>
-              Get Recommendation <i class='bx bx-sparkles'></i>
-            </button>
           </div>
         </div>
+        <div class="preferences-section">
+            <h4 style="margin-bottom: 1rem; color: var(--color-text); font-weight: 600;">Desired Certification:</h4>
+          <div class="options-grid preferences-grid" style="grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));">
+            <div class="option-card" data-value="none" data-type="certification">
+                <i class='bx bx-bookmark option-icon'></i><div class="option-title">Not required</div>
+            </div>
+            <div class="option-card" data-value="ects" data-type="certification">
+                <i class='bx bx-award option-icon'></i><div class="option-title">ECTS Points</div>
+            </div>
+            <div class="option-card" data-value="cas" data-type="certification">
+                <i class='bx bx-certification option-icon'></i><div class="option-title">CAS Degree</div>
+            </div>
+            <div class="option-card" data-value="mba" data-type="certification">
+                <i class='bx bx-medal option-icon'></i><div class="option-title">MBA Degree</div>
+            </div>
+          </div>
+        </div>
+        <div class="wizard-navigation has-back">
+            <button class="btn btn-secondary" onclick="wizardPrevStep(3)">
+              <i class='bx bx-chevron-left'></i> Back
+          </button>
+            <button class="btn" id="wizard-next-3" onclick="wizardNextStep(3)" disabled>
+              Get Recommendation <i class='bx bx-sparkles'></i>
+          </button>
+        </div>
+      </div>
 
         <!-- Wizard Step 4 -->
         <div class="wizard-step" id="wizard-step-4">
           <div class="result-card" id="wizard-result-content">
             <!-- Dynamic content will be inserted here -->
-          </div>
-          <div class="wizard-navigation" style="margin-top: 2rem;">
+        </div>
+        <div class="wizard-navigation" style="margin-top: 2rem;">
             <button class="btn btn-secondary" onclick="wizardRestartWizard()">
               <i class='bx bx-refresh'></i> Start Over
-            </button>
+          </button>
             <a href="javascript:history.back()" class="btn btn-link">Back to Homepage</a>
           </div>
         </div>
@@ -715,63 +778,63 @@
     </div>
   </div>
 
-<script>
-  // Wizard state
+  <script>
+    // Wizard state
   let currentWizardStep = 1;
   let wizardSelections = {
-    goal: null,
-    timeframe: null,
-    language: null,
-    certification: null
-  };
+      goal: null,
+      timeframe: null,
+      language: null,
+      certification: null
+    };
 
   // Program database (English descriptions, same paths)
-  const programs = {
-    'integrated_management_strategy': {
-      name: 'Integrated Management and Strategy',
+    const programs = {
+      'integrated_management_strategy': {
+        name: 'Integrated Management and Strategy',
       type: 'Management Seminar',
       duration: '3 days',
-      language: ['de', 'en'],
-      certification: ['none', 'ects'],
+        language: ['de', 'en'],
+        certification: ['none', 'ects'],
       price: 'CHF 2.400',
       description: 'Learn to effectively apply integrated management - for strategic alignment, successful transformation and sustainable use of AI.',
-      goals: ['strategy', 'comprehensive'],
+        goals: ['strategy', 'comprehensive'],
       detailsUrl: '../../integrated_management_strategy_en.html',
       registerUrl: '#'
-    },
-    'financial_management': {
-      name: 'Financial Management',
+      },
+      'financial_management': {
+        name: 'Financial Management',
       type: 'Management Seminar',
       duration: '3 days',
-      language: ['de', 'en'],
-      certification: ['none', 'ects'],
+        language: ['de', 'en'],
+        certification: ['none', 'ects'],
       price: 'CHF 2.400',
       description: 'Develop financial decision-making skills to strategically control growth.',
-      goals: ['finance', 'comprehensive'],
+        goals: ['finance', 'comprehensive'],
       detailsUrl: '../../financial_management_en.html',
       registerUrl: '#'
-    },
-    'inspirational_leadership': {
-      name: 'Inspirational Leadership',
+      },
+      'inspirational_leadership': {
+        name: 'Inspirational Leadership',
       type: 'Management Seminar',
       duration: '3 days',
-      language: ['de', 'en'],
-      certification: ['none', 'ects'],
+        language: ['de', 'en'],
+        certification: ['none', 'ects'],
       price: 'CHF 2.400',
       description: 'Develop your leadership personality for clear, empathetic and strategic leadership in times of digital and AI-driven change.',
-      goals: ['leadership', 'comprehensive'],
+        goals: ['leadership', 'comprehensive'],
       detailsUrl: '../../inspirational_leadership_en.html',
       registerUrl: '#'
-    },
-    'marketing_sales': {
-      name: 'Marketing, Sales and Brand Communication',
+      },
+      'marketing_sales': {
+        name: 'Marketing, Sales and Brand Communication',
       type: 'Management Seminar',
       duration: '3 days',
-      language: ['de', 'en'],
-      certification: ['none', 'ects'],
+        language: ['de', 'en'],
+        certification: ['none', 'ects'],
       price: 'CHF 2.400',
       description: 'Learn how to effectively use marketing and sales with strategy and AI for sustainable market success.',
-      goals: ['marketing', 'comprehensive'],
+        goals: ['marketing', 'comprehensive'],
       detailsUrl: '../../marketing_sales_brand_communication_en.html',
       registerUrl: '#'
     },
@@ -786,65 +849,65 @@
       goals: ['ai', 'comprehensive'],
       detailsUrl: '../../intelligent_process_automation_en.html',
       registerUrl: '#'
-    },
-    'ai_decision_making': {
+      },
+      'ai_decision_making': {
       name: 'AI-Augmented Decision Making',
       type: 'Management Seminar',
       duration: '3 days',
-      language: ['de', 'en'],
-      certification: ['none', 'ects'],
+        language: ['de', 'en'],
+        certification: ['none', 'ects'],
       price: 'CHF 2.400',
       description: 'Learn how AI-supported decision-making processes help you make more informed and effective decisions.',
-      goals: ['ai', 'comprehensive'],
+        goals: ['ai', 'comprehensive'],
       detailsUrl: '../../ai_augmented_decision_making_en.html',
       registerUrl: '#'
-    },
-    'management_programm': {
+      },
+      'management_programm': {
       name: 'StGallen Management Programme',
       type: 'Programme',
       duration: '4x3 days',
-      language: ['de'],
-      certification: ['none'],
+        language: ['de'],
+        certification: ['none'],
       price: 'CHF 8.400',
       description: 'Comprehensive program for integrating management know-how with practice-oriented approaches and certified completion.',
-      goals: ['comprehensive', 'strategy', 'leadership', 'finance', 'marketing'],
+        goals: ['comprehensive', 'strategy', 'leadership', 'finance', 'marketing'],
       detailsUrl: '../../management_programm_en.html',
       registerUrl: '#'
-    },
-    'management_programm_cas': {
+      },
+      'management_programm_cas': {
       name: 'StGallen Certified Management CAS',
       type: 'CAS Programme',
       duration: '4x3 days plus 4 days hybrid',
-      language: ['de'],
-      certification: ['cas'],
+        language: ['de'],
+        certification: ['cas'],
       price: 'CHF 12.400',
-      ects: '20 ECTS',
+        ects: '20 ECTS',
       description: 'Certificate of Advanced Studies with in-depth management know-how and recognized academic degree.',
-      goals: ['comprehensive', 'strategy', 'leadership', 'finance', 'marketing'],
+        goals: ['comprehensive', 'strategy', 'leadership', 'finance', 'marketing'],
       detailsUrl: '../../management_programm_cas_en.html',
       registerUrl: '#'
-    },
-    'ki_excellence': {
+      },
+      'ki_excellence': {
       name: 'StGallen AI Excellence Management Programme',
       type: 'Programme',
       duration: '4x3 days',
-      language: ['de', 'en'],
-      certification: ['none'],
+        language: ['de', 'en'],
+        certification: ['none'],
       price: 'CHF 8.400',
       description: 'Specialized program for integrating artificial intelligence into management with certification.',
-      goals: ['ai', 'strategy', 'comprehensive'],
+        goals: ['ai', 'strategy', 'comprehensive'],
       detailsUrl: '../../ki_excellence_programm_en.html',
       registerUrl: '#'
-    },
-    'fast_track_mba': {
+      },
+      'fast_track_mba': {
       name: 'StGallen Fast Track MBA Programme',
       type: 'MBA Programme',
       duration: '7x3-4 days plus 7 days hybrid',
-      language: ['de', 'en'],
-      certification: ['mba'],
+        language: ['de', 'en'],
+        certification: ['mba'],
       price: 'CHF 24.900',
       description: 'Accelerated MBA program focusing on management and technology for aspiring leaders.',
-      goals: ['comprehensive', 'strategy', 'leadership', 'finance', 'marketing', 'ai'],
+        goals: ['comprehensive', 'strategy', 'leadership', 'finance', 'marketing', 'ai'],
       detailsUrl: '../../fast_track_mba_en.html',
       registerUrl: '#'
     }
@@ -905,39 +968,39 @@
       `;
       return;
     }
-     if (recommendedPrograms.length === 1) {
-      const program = recommendedPrograms[0];
-      resultContent.innerHTML = `
+      if (recommendedPrograms.length === 1) {
+        const program = recommendedPrograms[0];
+        resultContent.innerHTML = `
         <div class="result-title">Perfect Match!</div>
         <div class="result-subtitle">This education program perfectly fits your requirements</div>
         <a href="${program.detailsUrl}" class="recommended-program best-match" style="text-decoration: none; color: inherit; display: block; cursor: pointer;">
           <div class="best-match-badge"><i class="bx bx-star"></i> Best Match</div>
-          <div class="program-name">${program.name}</div>
-          <div class="program-details">
+            <div class="program-name">${program.name}</div>
+            <div class="program-details">
             <div class="program-detail"><i class='bx bx-time'></i> ${program.duration}</div>
             <div class="program-detail"><i class='bx bx-bookmark'></i> ${program.type}</div>
             ${program.ects ? `<div class="program-detail"><i class='bx bx-award'></i> ${program.ects}</div>` : ''}
             <div class="program-detail"><i class='bx bx-money'></i> ${program.price}</div>
-          </div>
+              </div>
           <p class="program-description">${program.description}</p>
         </a>
-      `;
-    } else {
-      const programsHtml = recommendedPrograms.map((program, index) => `
+        `;
+      } else {
+        const programsHtml = recommendedPrograms.map((program, index) => `
         <a href="${program.detailsUrl}" class="recommended-program ${index === 0 ? 'best-match' : ''}" style="text-decoration: none; color: inherit; display: block; cursor: pointer;">
           ${index === 0 ? '<div class="best-match-badge"><i class="bx bx-star"></i> Best Match</div>' : ''}
-          <div class="program-name">${program.name}</div>
-          <div class="program-details">
+            <div class="program-name">${program.name}</div>
+            <div class="program-details">
             <div class="program-detail"><i class='bx bx-time'></i> ${program.duration}</div>
             <div class="program-detail"><i class='bx bx-bookmark'></i> ${program.type}</div>
             ${program.ects ? `<div class="program-detail"><i class='bx bx-award'></i> ${program.ects}</div>` : ''}
             <div class="program-detail"><i class='bx bx-money'></i> ${program.price}</div>
-          </div>
+              </div>
           <p class="program-description">${program.description}</p>
         </a>
-      `).join('');
-      
-      resultContent.innerHTML = `
+        `).join('');
+        
+        resultContent.innerHTML = `
         <div class="result-title">Multiple Programs Match You!</div>
         <div class="result-subtitle">We found ${recommendedPrograms.length} matching programs - sorted by relevance</div>
         <div class="multiple-programs">${programsHtml}</div>
@@ -946,9 +1009,9 @@
   }
 
   function findBestMatchesWizard() {
-    const programsWithScores = [];
-    
-    for (const [key, program] of Object.entries(programs)) {
+      const programsWithScores = [];
+
+      for (const [key, program] of Object.entries(programs)) {
       // HARD FILTERS - all must be met, otherwise program is excluded
       
       // 1. Certification filter (very strict!)
@@ -976,18 +1039,18 @@
       }
       
       // If all hard filters are passed, start scoring
-      let score = 0;
-      let reasons = [];
-      
+        let score = 0;
+        let reasons = [];
+
       // Main criterion: Learning goal (highest weighting)
       if (program.goals.includes(wizardSelections.goal)) {
         score += 10; // Much higher weighting
-        const goalNames = {
+          const goalNames = {
           'strategy': 'Strategic Management', 
           'leadership': 'Leadership Skills', 
-          'finance': 'Financial Management', 
+            'finance': 'Financial Management',
           'ai': 'AI & Digitalization', 
-          'marketing': 'Marketing & Sales', 
+            'marketing': 'Marketing & Sales',
           'comprehensive': 'Comprehensive Management'
         };
         reasons.push(`Covers your learning goal "${goalNames[wizardSelections.goal]}"`);
@@ -1014,7 +1077,7 @@
       
       // Certification bonus
       score += 3; // Since it already passed the hard filter
-      const certNames = {
+          const certNames = {
         'none': 'No certification required', 
         'ects': 'ECTS points available', 
         'cas': 'CAS degree', 
@@ -1029,7 +1092,7 @@
     }
     
     // Sort by score (highest first)
-    programsWithScores.sort((a, b) => b.score - a.score);
+      programsWithScores.sort((a, b) => b.score - a.score);
     
     // Return maximum 3 programs
     return programsWithScores.slice(0, 3);
@@ -1038,16 +1101,16 @@
   function wizardRestartWizard() {
     currentWizardStep = 1;
     wizardSelections = {goal: null, timeframe: null, language: null, certification: null};
-    document.querySelectorAll('.wizard-step').forEach(step => step.classList.remove('active'));
+      document.querySelectorAll('.wizard-step').forEach(step => step.classList.remove('active'));
     document.getElementById('wizard-step-1').classList.add('active');
-    document.querySelectorAll('.progress-step').forEach((step, index) => {
-      step.classList.remove('active', 'completed');
-      if (index === 0) step.classList.add('active');
-    });
-    document.querySelectorAll('.progress-connector').forEach(connector => {
-      connector.classList.remove('active', 'completed');
-    });
-    document.querySelectorAll('.option-card').forEach(card => card.classList.remove('selected'));
+      document.querySelectorAll('.progress-step').forEach((step, index) => {
+        step.classList.remove('active', 'completed');
+        if (index === 0) step.classList.add('active');
+      });
+      document.querySelectorAll('.progress-connector').forEach(connector => {
+        connector.classList.remove('active', 'completed');
+      });
+      document.querySelectorAll('.option-card').forEach(card => card.classList.remove('selected'));
     document.getElementById('wizard-next-1').disabled = true;
     document.getElementById('wizard-next-2').disabled = true;
     document.getElementById('wizard-next-3').disabled = true;
@@ -1104,6 +1167,6 @@
       }
     }
   }
-</script>
+  </script>
 </body>
 </html> 
