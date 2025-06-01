@@ -113,7 +113,7 @@
       padding-top: 50px;
     }
     
-    /* Headings in content */
+    /* Headings in content should look like in netzwerk.html */
     .content-section h2:not(:first-child) {
       font-size: 1.3rem;
       margin-top: 1.5rem;
@@ -122,12 +122,36 @@
       color: var(--color-text);
     }
     
-    /* Paragraph styling */
+    /* Style paragraphs like in netzwerk.html */
     .content-section p {
       color: var(--color-muted);
       font-size: 1rem;
       line-height: 1.5;
       margin-bottom: 0.75rem;
+    }
+    
+    /* List items also gray */
+    .content-section li {
+      color: var(--color-muted);
+    }
+
+    .address-block {
+      background-color: var(--color-card-bg);
+      padding: 24px;
+      border-radius: var(--radius);
+      margin-bottom: 2rem;
+    }
+    
+    .address-block p {
+      margin-bottom: 0.5rem;
+    }
+    
+    .address-block h2 {
+      font-size: 1.3rem;
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      color: var(--color-text);
     }
 
     @media (max-width: 768px) {
@@ -190,43 +214,63 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="container">
         <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Terms and Conditions (T&C)</h2>
         
-        <h2>1. Scope</h2>
-        <p>These terms and conditions apply to all seminars and programs offered by StGallen Integrated imt Business School AG/Co. In case of any uncertainties, please contact us.</p>
+        <div class="address-block">
+          <h2>StGallen Integrated imt Business School AG</h2>
+          <p>Haus zum Schoren</p>
+          <p>Dufourstrasse 150</p>
+          <p>9000 St. Gallen</p>
+          <p>Switzerland</p>
+          <p>imt@imtschool.ch</p>
+        </div>
         
-        <h2>2. Registration</h2>
-        <p>By registering, participants accept our terms and conditions. Registration can be done by mail, email, or via our website. Upon receipt of registration, we will send a confirmation, invoice, and further documents. Places are allocated in the order registrations are received.</p>
+        <h2>Registration</h2>
+        <p>We are pleased to accept your registration for a management seminar or program via email, mail, or through our website. Upon receipt of your registration, you will receive from us:</p>
+        <ul style="margin-bottom: 1rem; padding-left: 1.5rem;">
+          <li style="margin-bottom: 0.5rem;">Confirmation of your registration with the corresponding invoice</li>
+          <li style="margin-bottom: 0.5rem;">Information about the process, notes on hotel/conference center and travel</li>
+        </ul>
+        <p>If the seminar is already fully booked, we will inform you immediately.</p>
         
-        <h2>3. Seminar Fees</h2>
-        <p>Unless otherwise stated, the seminar fee does not include hotel accommodation and meals. Hotel and meal costs are to be paid directly to the hotel.</p>
-        <p>The seminar fee will be invoiced upon registration and must be paid before the start of the seminar.</p>
+        <h2>Seminar Fee, Hotel Costs and Content</h2>
+        <p>The seminar fee (plus statutory VAT) includes participation in the seminar as well as seminar materials.</p>
+        <p>Hotel costs, meals and any daily rates of the conference center are not included in the seminar fee and must be paid directly to the hotel. Participants can decide whether to stay at the seminar hotel or externally. In the latter case, the daily rate of the hotel or conference center must be paid directly there.</p>
+        <p>The seminar fee becomes due after registration and must be transferred at least six weeks before the seminar begins. We reserve the right to make minor changes to topics, sequence or speakers.</p>
         
-        <h2>4. Cancellation / Withdrawal</h2>
-        <p>In case of cancellation, the following costs will be charged:</p>
-        <p>- Up to 30 days before seminar start: free of charge</p>
-        <p>- 29 to 15 days before seminar start: 50% of the seminar fee</p>
-        <p>- 14 to 8 days before seminar start: 75% of the seminar fee</p>
-        <p>- 7 to 0 days before seminar start or no-show: 100% of the seminar fee</p>
+        <h2>Cooperations</h2>
+        <p>Some seminars are conducted in cooperation with renowned institutions. Certifications and ECTS points are awarded in collaboration with Steinbeis Universities.</p>
         
-        <h2>5. Substitute Participants</h2>
-        <p>A substitute participant can be provided at any time without incurring additional costs.</p>
+        <h2>Confirmations and Certificate</h2>
+        <p>After successful completion of the seminar, you will receive a corresponding participation confirmation or certificate. For multi-part programs, certificates are awarded in the last module.</p>
         
-        <h2>6. Program Changes and Cancellation</h2>
-        <p>StGallen Integrated imt Business School AG reserves the right to make changes to the program and faculty. If there are too few participants, a seminar may be cancelled. In this case, all seminar fees already paid will be fully refunded.</p>
+        <h2>Rebooking and Postponement</h2>
+        <ul style="margin-bottom: 1rem; padding-left: 1.5rem;">
+          <li style="margin-bottom: 0.5rem;">Up to three months before seminar start: Free rebooking</li>
+          <li style="margin-bottom: 0.5rem;">Six weeks to three months before seminar start: 30% of seminar fee due</li>
+          <li style="margin-bottom: 0.5rem;">Less than six weeks before seminar start: 40% of seminar fee due</li>
+          <li style="margin-bottom: 0.5rem;">Less than two weeks before seminar start: 80% of seminar fee due</li>
+          <li style="margin-bottom: 0.5rem;">No-show: The seminar fee is forfeited without refund</li>
+        </ul>
+        <p>Rebookings may lead to program changes or overlaps. A proportional refund is not possible.</p>
         
-        <h2>7. Confidentiality and Copyright</h2>
-        <p>Participants agree to treat all information about companies disclosed during the seminar as confidential. The seminar materials are protected by copyright and may not be reproduced or shared with third parties.</p>
+        <h2>Cancellation, Withdrawal, Cancellation</h2>
+        <ul style="margin-bottom: 1rem; padding-left: 1.5rem;">
+          <li style="margin-bottom: 0.5rem;">Up to three months before seminar start: Cancellation fee of CHF 500.- plus VAT</li>
+          <li style="margin-bottom: 0.5rem;">Three months to six weeks before seminar start: 50% of seminar fee plus VAT</li>
+          <li style="margin-bottom: 0.5rem;">Less than 30 working days before seminar start: Full seminar fee due</li>
+        </ul>
+        <p>Alternatively, up to 14 days before the seminar start, a substitute person according to the target group description can be provided for a fee of CHF 800.- plus VAT.</p>
+        <p>Should a seminar be cancelled due to force majeure or insufficient number of participants by no later than ten working days before the seminar start, there is no claim for damages.</p>
         
-        <h2>8. Liability</h2>
-        <p>We do not accept liability for personal injury or property damage that occurs during our seminars, unless we are proven to have acted with intent or gross negligence.</p>
+        <h2>Postponement in Case of Dangerous Situation or Pandemic</h2>
+        <p>For pandemic-related rebookings, we offer accommodating regulations: No new seminar fee or rebooking fee will be charged. The seminar fee remains due with the due date stated on the invoice.</p>
+        <p>Dangerous situations are defined as events such as epidemics, pandemics, natural disasters or serious political or social upheavals that pose a threat to participants and make a postponement necessary. Cancellation by participants due to such circumstances is not possible.</p>
+        <p>StGallen imt Business School reserves the right to relocate seminars to another venue for compelling reasons, without this allowing withdrawal from the registration.</p>
         
-        <h2>9. Applicable Law</h2>
-        <p>Swiss law applies.</p>
-        
-        <h2>10. Invalidity</h2>
-        <p>If individual provisions of these terms and conditions are invalid or ineffective, this does not affect the validity of the remaining provisions and the terms and conditions as a whole.</p>
-        
-        <h2>11. Future Changes</h2>
-        <p>With the publication of new terms and conditions, all previous versions lose their validity.</p>
+        <h2>Insurance, Liability and Price Changes</h2>
+        <p>We recommend taking out seminar cancellation insurance to cover cancellation costs due to illness or other unforeseen events.</p>
+        <p>Any direct or indirect damages in connection with seminar attendance (e.g. accident, illness, liability, theft or application of the knowledge conveyed) must be covered by the participants or their companies themselves. Any liability on our part is excluded.</p>
+        <p style="margin-top: 2rem; font-weight: 600;">Swiss law applies, place of jurisdiction is St. Gallen.</p>
+        <p style="margin-top: 1.5rem; font-style: italic;">With the publication of a new prospectus, all previous information on content, conditions, speakers and prices becomes invalid.</p>
       </div>
     </section>
   </main>

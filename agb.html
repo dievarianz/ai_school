@@ -113,7 +113,7 @@
       padding-top: 50px;
     }
     
-    /* Überschriften im Content */
+    /* Überschriften im Content sollten wie in netzwerk.html aussehen */
     .content-section h2:not(:first-child) {
       font-size: 1.3rem;
       margin-top: 1.5rem;
@@ -122,12 +122,36 @@
       color: var(--color-text);
     }
     
-    /* Absätze stylen */
+    /* Absätze stylen wie in netzwerk.html */
     .content-section p {
       color: var(--color-muted);
       font-size: 1rem;
       line-height: 1.5;
       margin-bottom: 0.75rem;
+    }
+    
+    /* Listenpunkte auch grau */
+    .content-section li {
+      color: var(--color-muted);
+    }
+
+    .address-block {
+      background-color: var(--color-card-bg);
+      padding: 24px;
+      border-radius: var(--radius);
+      margin-bottom: 2rem;
+    }
+    
+    .address-block p {
+      margin-bottom: 0.5rem;
+    }
+    
+    .address-block h2 {
+      font-size: 1.3rem;
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      color: var(--color-text);
     }
 
     @media (max-width: 768px) {
@@ -190,43 +214,63 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="container">
         <h2 style="text-align: left !important; font-size: 1.5rem; margin-bottom: 1rem; font-weight: 600;">Allgemeine Geschäftsbedingungen (AGB)</h2>
         
-        <h2>1. Geltungsbereich</h2>
-        <p>Diese AGB gelten für sämtliche Seminare und Programme der StGallen Integrated imt Business School AG/Co. Bei Unklarheiten nehmen Sie bitte Kontakt auf.</p>
+        <div class="address-block">
+          <h2>StGallen Integrated imt Business School AG</h2>
+          <p>Haus zum Schoren</p>
+          <p>Dufourstrasse 150</p>
+          <p>9000 St. Gallen</p>
+          <p>Switzerland</p>
+          <p>imt@imtschool.ch</p>
+        </div>
         
-        <h2>2. Anmeldung</h2>
-        <p>Mit der Anmeldung akzeptieren die Teilnehmer unsere AGB. Die Anmeldung kann per Post, E-Mail oder über die Website erfolgen. Nach Erhalt der Anmeldung versenden wir die Anmeldebestätigung, Rechnung und weitere Unterlagen. Die Plätze werden nach Eingang der Anmeldung vergeben.</p>
+        <h2>Anmeldung</h2>
+        <p>Ihre Anmeldung zu einem Management-Seminar oder Programm nehmen wir gerne per E-Mail, Post oder über unsere Website entgegen. Nach Eingang Ihrer Anmeldung erhalten Sie von uns:</p>
+        <ul style="margin-bottom: 1rem; padding-left: 1.5rem;">
+          <li style="margin-bottom: 0.5rem;">Eine Bestätigung Ihrer Anmeldung mit der entsprechenden Rechnung</li>
+          <li style="margin-bottom: 0.5rem;">Informationen zum Ablauf, Hinweise zu Hotel/Tagungszentrum und Anreise</li>
+        </ul>
+        <p>Falls das Seminar bereits ausgebucht sein sollte, informieren wir Sie umgehend.</p>
         
-        <h2>3. Seminargebühren</h2>
-        <p>Die Seminargebühr versteht sich, sofern nicht anders vermerkt, exklusive Hotel und allfälliger Verpflegung. Hotel- und Verpflegungskosten werden direkt im Hotel bezahlt.</p>
-        <p>Die Seminargebühr wird bei Anmeldung in Rechnung gestellt und ist vor Beginn des Seminars zu begleichen.</p>
+        <h2>Seminargebühr, Hotelkosten und Inhalte</h2>
+        <p>Die Seminargebühr (zzgl. gesetzl. MwSt.) beinhaltet die Teilnahme am Seminar sowie Seminarunterlagen.</p>
+        <p>Hotelkosten, Verpflegung und ggf. Tagespauschalen des Tagungszentrums sind nicht in der Seminargebühr enthalten und sind direkt an das Hotel zu entrichten. Teilnehmende können selbst entscheiden, ob sie im Seminarhotel übernachten oder extern. In letzterem Fall ist die Tagespauschale des Hotels oder Tagungszentrums direkt dort zu bezahlen.</p>
+        <p>Die Seminargebühr wird nach Anmeldung fällig und ist spätestens sechs Wochen vor Seminarbeginn zu überweisen. Geringfügige Änderungen in Themen, Reihenfolge oder Referenten behalten wir uns vor.</p>
         
-        <h2>4. Annullierung / Abmeldung</h2>
-        <p>Bei Annullierung der Anmeldung werden folgende Kosten in Rechnung gestellt:</p>
-        <p>- bis 30 Tage vor Seminarbeginn: kostenlos</p>
-        <p>- 29 bis 15 Tage vor Seminarbeginn: 50% der Seminargebühr</p>
-        <p>- 14 bis 8 Tage vor Seminarbeginn: 75% der Seminargebühr</p>
-        <p>- 7 bis 0 Tage vor Seminarbeginn oder bei Nichterscheinen: 100% der Seminargebühr</p>
+        <h2>Kooperationen</h2>
+        <p>Einige Seminare werden in Kooperation mit renommierten Institutionen durchgeführt. Zertifizierungen und ECTS-Punkte werden in Zusammenarbeit mit den Steinbeis Hochschulen vergeben.</p>
         
-        <h2>5. Ersatzteilnehmer</h2>
-        <p>Ein Ersatzteilnehmer kann jederzeit und ohne Kostenfolge gestellt werden.</p>
+        <h2>Bestätigungen und Zertifikat</h2>
+        <p>Nach erfolgreichem Abschluss des Seminars erhalten Sie ein entsprechende Teilnahmebestätigung bzw. Zertifikat. Bei mehrteiligen Programmen erfolgt die Zertifikatsvergabe im letzten Modul.</p>
         
-        <h2>6. Programmänderungen und Absage</h2>
-        <p>Die StGallen Integrated imt Business School AG behält sich das Recht vor, Programmänderungen und Dozentenänderungen durchzuführen. Bei zu geringer Teilnehmeranzahl kann ein Seminar abgesagt werden. In diesem Fall werden alle bereits bezahlten Seminargebühren vollständig zurückerstattet.</p>
+        <h2>Umbuchung und Verschiebung</h2>
+        <ul style="margin-bottom: 1rem; padding-left: 1.5rem;">
+          <li style="margin-bottom: 0.5rem;">Bis drei Monate vor Seminarbeginn: Kostenlose Umbuchung</li>
+          <li style="margin-bottom: 0.5rem;">Sechs Wochen bis drei Monate vor Seminarbeginn: 30% der Seminargebühr fällig</li>
+          <li style="margin-bottom: 0.5rem;">Weniger als sechs Wochen vor Seminarbeginn: 40% der Seminargebühr fällig</li>
+          <li style="margin-bottom: 0.5rem;">Weniger als zwei Wochen vor Seminarbeginn: 80% der Seminargebühr fällig</li>
+          <li style="margin-bottom: 0.5rem;">Nichterscheinen: Die Seminargebühr verfällt ohne Rückerstattung</li>
+        </ul>
+        <p>Umbuchungen können zu Programmänderungen oder -überschneidungen führen. Eine anteilige Erstattung ist nicht möglich.</p>
         
-        <h2>7. Vertraulichkeit und Urheberrechte</h2>
-        <p>Die Teilnehmer verpflichten sich, alle während des Seminars gemachten Angaben über Unternehmen vertraulich zu behandeln. Die Seminarunterlagen sind urheberrechtlich geschützt und dürfen nicht vervielfältigt oder an Dritte weitergegeben werden.</p>
+        <h2>Annullation, Rücktritt, Stornierung</h2>
+        <ul style="margin-bottom: 1rem; padding-left: 1.5rem;">
+          <li style="margin-bottom: 0.5rem;">Bis drei Monate vor Seminarbeginn: Annullierungsgebühr von CHF 500.- zzgl. MwSt.</li>
+          <li style="margin-bottom: 0.5rem;">Drei Monate bis sechs Wochen vor Seminarbeginn: 50% der Seminargebühr zzgl. MwSt.</li>
+          <li style="margin-bottom: 0.5rem;">Weniger als 30 Werktage vor Seminarbeginn: Volle Seminargebühr fällig</li>
+        </ul>
+        <p>Alternativ kann bis 14 Tage vor Seminarbeginn gegen eine Gebühr von CHF 800.- zzgl. MwSt. eine Ersatzperson gemäss Zielgruppenbeschreibung gestellt werden.</p>
+        <p>Sollte ein Seminar aufgrund höherer Gewalt oder mangelnder Teilnehmerzahl bis spätestens zehn Werktage vor Seminarbeginn annulliert werden, besteht kein Anspruch auf Schadensersatz.</p>
         
-        <h2>8. Haftung</h2>
-        <p>Für Personen- und Sachschäden, die während unserer Seminare eintreten, übernehmen wir keine Haftung, soweit uns nicht Vorsatz oder grobe Fahrlässigkeit nachgewiesen wird.</p>
+        <h2>Verschiebung bei Gefahrenlage oder Pandemie</h2>
+        <p>Bei pandemiebedingten Umbuchungen bieten wir kulante Regelungen: Es wird keine erneute Seminargebühr oder Umbuchungsgebühr erhoben. Die Seminargebühr bleibt mit der auf der Rechnung genannten Valuta geschuldet.</p>
+        <p>Als Gefahrenlage gelten Ereignisse wie Epidemien, Pandemien, Naturkatastrophen oder schwerwiegende politische bzw. gesellschaftliche Verwerfungen, die eine Gefährdung der Teilnehmenden darstellen und eine Verschiebung erforderlich machen. Eine Annullation durch die Teilnehmenden aufgrund solcher Umstände ist nicht möglich.</p>
+        <p>Die StGallen imt Business School behält sich vor, Seminare aus triftigen Gründen an einen anderen Veranstaltungsort zu verlegen, ohne dass dadurch ein Rücktritt von der Anmeldung möglich ist.</p>
         
-        <h2>9. Anwendbares Recht</h2>
-        <p>Es gilt schweizerisches Recht.</p>
-        
-        <h2>10. Ungültigkeit</h2>
-        <p>Sind einzelne Bestimmungen dieser AGB ungültig oder unwirksam, so hat dies keinen Einfluss auf die Wirksamkeit der übrigen Bestimmungen und der AGB als Ganzes.</p>
-        
-        <h2>11. Zukünftige Änderungen</h2>
-        <p>Mit Erscheinen neuer AGB verlieren alle früheren Ausgaben ihre Gültigkeit.</p>
+        <h2>Versicherung, Haftung und Preisänderungen</h2>
+        <p>Wir empfehlen den Abschluss einer Seminar-Annullationsversicherung, um Stornokosten aufgrund von Krankheit oder anderen unvorhergesehenen Ereignissen abzudecken.</p>
+        <p>Jegliche direkten oder indirekten Schäden im Zusammenhang mit dem Seminarbesuch (z.B. Unfall, Krankheit, Haftpflicht, Diebstahl oder Anwendung des vermittelten Wissens) sind von den Teilnehmenden bzw. deren Unternehmen selbst abzusichern. Eine Haftung unsererseits ist ausgeschlossen.</p>
+        <p style="margin-top: 2rem; font-weight: 600;">Es gilt schweizerisches Recht, Gerichtsstand ist St. Gallen.</p>
+        <p style="margin-top: 1.5rem; font-style: italic;">Mit Erscheinen eines neuen Prospekts verlieren alle vorherigen Angaben zu Inhalten, Bedingungen, Referenten und Preisen ihre Gültigkeit.</p>
       </div>
     </section>
   </main>
