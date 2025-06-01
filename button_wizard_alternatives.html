@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wizard Button Alternativen</title>
+    
+    <!-- BoxIcons für verschiedene Icons -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --imt-purple: #6e45e2;
+            --imt-purple-dark: #5a37c8;
+            --imt-green: #10b981;
+            --imt-blue: #3b82f6;
+            --imt-orange: #f59e0b;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 40px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .header h1 {
+            color: var(--imt-purple);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #64748b;
+            font-size: 1.1rem;
+        }
+
+        .buttons-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .button-showcase {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            position: relative;
+        }
+
+        .button-showcase h3 {
+            color: var(--imt-purple);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .button-showcase p {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        /* Base button styles */
+        .wizard-btn {
+            cursor: pointer;
+            user-select: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            transition: all 0.3s ease;
+            position: relative;
+            border: none;
+            background: none;
+        }
+
+        /* Button 1: Original mit verbesserter Animation */
+        .btn-original {
+            width: 60px;
+            height: 60px;
+            background: var(--imt-purple);
+            box-shadow: 0 4px 12px rgba(110, 69, 226, 0.3);
+        }
+
+        .btn-original:hover {
+            transform: scale(1.1);
+            background: var(--imt-purple-dark);
+            box-shadow: 0 6px 20px rgba(110, 69, 226, 0.4);
+        }
+
+        .btn-original i {
+            font-size: 1.8rem;
+            color: white;
+            animation: brainThink 4s ease-in-out infinite;
+        }
+
+        @keyframes brainThink {
+            0%, 100% { opacity: 0.9; transform: scale(1) rotate(0deg); }
+            25% { opacity: 1; transform: scale(1.05) rotate(-2deg); }
+            50% { opacity: 1; transform: scale(1.1) rotate(0deg); }
+            75% { opacity: 1; transform: scale(1.05) rotate(2deg); }
+        }
+
+        /* Button 2: Magic Paint Brush mit Sparkle Animation */
+        .btn-magic {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #9333ea, #c084fc);
+            box-shadow: 0 4px 12px rgba(147, 51, 234, 0.3);
+            overflow: hidden;
+        }
+
+        .btn-magic:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 6px 20px rgba(147, 51, 234, 0.4);
+        }
+
+        .btn-magic i {
+            font-size: 1.8rem;
+            color: white;
+            animation: brushWave 3s ease-in-out infinite;
+        }
+
+        @keyframes brushWave {
+            0%, 100% { transform: rotate(-10deg); }
+            50% { transform: rotate(10deg); }
+        }
+
+        .btn-magic::before {
+            content: '✨';
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            font-size: 12px;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Button 3: Lightbulb mit Glow Effect */
+        .btn-lightbulb {
+            width: 60px;
+            height: 60px;
+            background: var(--imt-orange);
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+        }
+
+        .btn-lightbulb:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(245, 158, 11, 0.6);
+        }
+
+        .btn-lightbulb i {
+            font-size: 1.8rem;
+            color: white;
+            animation: lightbulbGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes lightbulbGlow {
+            0% { text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); }
+            100% { text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 25px rgba(245, 158, 11, 0.6); }
+        }
+
+        /* Button 4: Target mit Pulse Animation */
+        .btn-target {
+            width: 60px;
+            height: 60px;
+            background: var(--imt-green);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn-target:hover {
+            transform: scale(1.1);
+            background: #059669;
+        }
+
+        .btn-target i {
+            font-size: 1.8rem;
+            color: white;
+            animation: targetPulse 1.5s ease-in-out infinite;
+        }
+
+        .btn-target::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: 2px solid var(--imt-green);
+            border-radius: 50%;
+            animation: targetRing 2s ease-out infinite;
+        }
+
+        @keyframes targetPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        @keyframes targetRing {
+            0% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(1.5); }
+        }
+
+        /* Button 5: Robot mit Eye Blink */
+        .btn-robot {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #374151, #6b7280);
+            box-shadow: 0 4px 12px rgba(75, 85, 99, 0.3);
+        }
+
+        .btn-robot:hover {
+            transform: scale(1.1);
+            background: linear-gradient(135deg, #1f2937, #374151);
+        }
+
+        .btn-robot i {
+            font-size: 1.8rem;
+            color: #60f5a1;
+            animation: robotBlink 3s ease-in-out infinite;
+        }
+
+        @keyframes robotBlink {
+            0%, 90%, 100% { opacity: 1; }
+            95% { opacity: 0.3; }
+        }
+
+        /* Button 6: Compass mit Rotation */
+        .btn-compass {
+            width: 60px;
+            height: 60px;
+            background: var(--imt-blue);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-compass:hover {
+            transform: scale(1.1);
+            background: #2563eb;
+        }
+
+        .btn-compass i {
+            font-size: 1.8rem;
+            color: white;
+            animation: compassSpin 8s linear infinite;
+        }
+
+        @keyframes compassSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Button 7: Rocket mit Launch Animation */
+        .btn-rocket {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #dc2626, #ef4444);
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+        }
+
+        .btn-rocket:hover {
+            transform: scale(1.1) translateY(-3px);
+            background: linear-gradient(135deg, #b91c1c, #dc2626);
+        }
+
+        .btn-rocket i {
+            font-size: 1.8rem;
+            color: white;
+            animation: rocketLaunch 3s ease-in-out infinite;
+        }
+
+        @keyframes rocketLaunch {
+            0%, 100% { transform: translateY(0) rotate(-45deg); }
+            50% { transform: translateY(-3px) rotate(-45deg); }
+        }
+
+        /* Button 8: Crystal mit Rainbow Glow */
+        .btn-crystal {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #8b5cf6, #a78bfa, #c4b5fd);
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-crystal:hover {
+            transform: scale(1.1) rotate(10deg);
+        }
+
+        .btn-crystal i {
+            font-size: 1.8rem;
+            color: white;
+            animation: crystalShine 2s ease-in-out infinite;
+        }
+
+        .btn-crystal::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: crystalSweep 3s ease-in-out infinite;
+        }
+
+        @keyframes crystalShine {
+            0%, 100% { text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); }
+            50% { text-shadow: 0 0 20px rgba(255, 255, 255, 0.8); }
+        }
+
+        @keyframes crystalSweep {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        /* Button 9: Star mit Twinkle */
+        .btn-star {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            box-shadow: 0 4px 12px rgba(251, 191, 36, 0.3);
+            position: relative;
+        }
+
+        .btn-star:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(251, 191, 36, 0.6);
+        }
+
+        .btn-star i {
+            font-size: 1.8rem;
+            color: white;
+            animation: starTwinkle 1.5s ease-in-out infinite;
+        }
+
+        @keyframes starTwinkle {
+            0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+            25% { transform: scale(0.8) rotate(-5deg); opacity: 0.7; }
+            50% { transform: scale(1.2) rotate(0deg); opacity: 1; }
+            75% { transform: scale(0.9) rotate(5deg); opacity: 0.8; }
+        }
+
+        /* Button 10: Gear mit Mechanical Rotation */
+        .btn-gear {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #475569, #64748b);
+            box-shadow: 0 4px 12px rgba(71, 85, 105, 0.3);
+        }
+
+        .btn-gear:hover {
+            transform: scale(1.1);
+            background: linear-gradient(135deg, #334155, #475569);
+        }
+
+        .btn-gear i {
+            font-size: 1.8rem;
+            color: #fbbf24;
+            animation: gearRotate 4s linear infinite;
+        }
+
+        @keyframes gearRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Button 11: Heart mit Beat Animation */
+        .btn-heart {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #ec4899, #f472b6);
+            box-shadow: 0 4px 12px rgba(236, 72, 153, 0.3);
+        }
+
+        .btn-heart:hover {
+            transform: scale(1.1);
+            background: linear-gradient(135deg, #db2777, #ec4899);
+        }
+
+        .btn-heart i {
+            font-size: 1.8rem;
+            color: white;
+            animation: heartBeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartBeat {
+            0%, 100% { transform: scale(1); }
+            14% { transform: scale(1.1); }
+            28% { transform: scale(1); }
+            42% { transform: scale(1.1); }
+            70% { transform: scale(1); }
+        }
+
+        /* Button 12: Shield mit Protection Pulse */
+        .btn-shield {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #059669, #10b981);
+            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+            position: relative;
+        }
+
+        .btn-shield:hover {
+            transform: scale(1.1);
+            background: linear-gradient(135deg, #047857, #059669);
+        }
+
+        .btn-shield i {
+            font-size: 1.8rem;
+            color: white;
+            animation: shieldPulse 2s ease-in-out infinite;
+        }
+
+        .btn-shield::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: -3px;
+            right: -3px;
+            bottom: -3px;
+            border: 2px solid rgba(16, 185, 129, 0.5);
+            border-radius: 50%;
+            animation: shieldRing 3s ease-out infinite;
+        }
+
+        @keyframes shieldPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes shieldRing {
+            0% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(1.3); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .buttons-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 0 20px;
+            }
+            
+            .button-showcase {
+                padding: 25px 20px;
+            }
+            
+            .wizard-btn {
+                width: 50px !important;
+                height: 50px !important;
+            }
+            
+            .wizard-btn i {
+                font-size: 1.5rem !important;
+            }
+        }
+
+        /* Demo interaction styles */
+        .button-showcase:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .demo-note {
+            background: #f1f5f9;
+            border-left: 4px solid var(--imt-purple);
+            padding: 15px;
+            margin: 40px auto;
+            max-width: 800px;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Wizard Button Alternativen</h1>
+        <p>12 verschiedene Varianten für den KI-Weiterbildungsberater Button mit unterschiedlichen Icons und Animationen</p>
+    </div>
+
+    <div class="demo-note">
+        <strong>Hinweis:</strong> Alle Buttons sind interaktiv und zeigen verschiedene Hover-Effekte. 
+        Die Animationen laufen kontinuierlich, um die verschiedenen Stile zu demonstrieren.
+    </div>
+
+    <div class="buttons-container">
+        <!-- Button 1: Original Enhanced -->
+        <div class="button-showcase">
+            <h3>1. Original Enhanced (Gehirn)</h3>
+            <p>Der aktuelle Button mit verbesserter "Denkanimation" - das Gehirn bewegt sich subtil hin und her, als würde es nachdenken.</p>
+            <button class="wizard-btn btn-original" onclick="alert('KI-Weiterbildungsberater öffnen')">
+                <i class='bx bx-brain'></i>
+            </button>
+        </div>
+
+        <!-- Button 2: Magic Paint Brush -->
+        <div class="button-showcase">
+            <h3>2. Magic Paint Brush (Zauberpinsel)</h3>
+            <p>Ein Pinsel mit wedelnder Animation und funkelnden Sternen - symbolisiert die "Magie" der KI-Beratung beim Erschaffen neuer Möglichkeiten.</p>
+            <button class="wizard-btn btn-magic" onclick="alert('KI-Weiterbildungsberater öffnen')">
+                <i class='bx bx-brush'></i>
+            </button>
+        </div>
+
+        <!-- Button 3: Lightbulb -->
+        <div class="button-showcase">
+            <h3>3. Lightbulb (Glühbirne)</h3>
+            <p>Eine leuchtende Glühbirne mit Glow-Effekt - steht für Ideen und Erleuchtung bei der Weiterbildung.</p>
+            <button class="wizard-btn btn-lightbulb" onclick="alert('KI-Weiterbildungsberater öffnen')">
+                <i class='bx bx-bulb'></i>
+            </button>
+        </div>
+
+        <!-- Button 4: Target -->
+        <div class="button-showcase">
+            <h3>4. Target (Zielscheibe)</h3>
+            <p>Ein Ziel mit pulsierender Animation und äußerem Ring - symbolisiert präzise Weiterbildungsziele.</p>
+            <button class="wizard-btn btn-target" onclick="alert('KI-Weiterbildungsberater öffnen')">
+                <i class='bx bx-target-lock'></i>
+            </button>
+        </div>
+
+        <!-- Button 5: Robot -->
+        <div class="button-showcase">
+            <h3>5. Robot (Roboter)</h3>
+            <p>Ein Roboter-Kopf mit blinkenden "Augen" - direkter Bezug zur künstlichen Intelligenz.</p>
+            <button class="wizard-btn btn-robot" onclick="alert('KI-Weiterbildungsberater öffnen')">
+                <i class='bx bx-bot'></i>
+            </button>
+        </div>
+
+        <!-- Button 6: Compass -->
+        <div class="button-showcase">
+            <h3>6. Compass (Kompass)</h3>
+            <p>Ein sich drehender Kompass - symbolisiert Navigation und Orientierung im Weiterbildungsdschungel.</p>
+            <button class="wizard-btn btn-compass" onclick="alert('KI-Weiterbildungsberater öffnen')">
+                <i class='bx bx-compass'></i>
+            </button>
+        </div>
+
+        <!-- Button 7: Rocket -->
+        <div class="button-showcase">
+            <h3>7. Rocket (Rakete)</h3>
+            <p>Eine startende Rakete mit Auf-und-Ab-Bewegung - steht für den Karriere-Boost durch Weiterbildung.</p>
+            <button class="wizard-btn btn-rocket" onclick="alert('KI-Weiterbildungsberater öffnen')">
+                <i class='bx bx-rocket'></i>
+            </button>
+        </div>
+
+        <!-- Button 8: Crystal -->
+        <div class="button-showcase">
+            <h3>8. Crystal (Kristall)</h3>
+            <p>Ein funkelnder Kristall mit Regenbogen-Effekten - symbolisiert Klarheit und wertvolle Einsichten.</p>
+            <button class="wizard-btn btn-crystal" onclick="alert('KI-Weiterbildungsberater öffnen')">
+                <i class='bx bx-diamond'></i>
+            </button>
+        </div>
+
+        <!-- Button 9: Star -->
+        <div class="button-showcase">
+            <h3>9. Star (Stern)</h3>
+            <p>Ein funkelnder Stern mit Twinkle-Animation - steht für Exzellenz und herausragende Leistungen.</p>
+            <button class="wizard-btn btn-star" onclick="alert('KI-Weiterbildungsberater öffnen')">
+                <i class='bx bx-star'></i>
+            </button>
+        </div>
+
+        <!-- Button 10: Gear -->
+        <div class="button-showcase">
+            <h3>10. Gear (Zahnrad)</h3>
+            <p>Ein rotierendes Zahnrad - symbolisiert kontinuierliche Verbesserung und systematische Entwicklung.</p>
+            <button class="wizard-btn btn-gear" onclick="alert('KI-Weiterbildungsberater öffnen')">
+                <i class='bx bx-cog'></i>
+            </button>
+        </div>
+
+        <!-- Button 11: Heart -->
+        <div class="button-showcase">
+            <h3>11. Heart (Herz)</h3>
+            <p>Ein schlagendes Herz - zeigt Leidenschaft für Lernen und persönliche Entwicklung.</p>
+            <button class="wizard-btn btn-heart" onclick="alert('KI-Weiterbildungsberater öffnen')">
+                <i class='bx bx-heart'></i>
+            </button>
+        </div>
+
+        <!-- Button 12: Shield -->
+        <div class="button-showcase">
+            <h3>12. Shield (Schild)</h3>
+            <p>Ein Schutzschild mit pulsierendem Ring - symbolisiert Sicherheit und Vertrauen in der Beratung.</p>
+            <button class="wizard-btn btn-shield" onclick="alert('KI-Weiterbildungsberater öffnen')">
+                <i class='bx bx-shield-check'></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="demo-note">
+        <strong>Umsetzung:</strong> Jeder Button kann einfach in die bestehenden wizard-button.html/wizard-button_en.html Dateien übernommen werden. 
+        Einfach die gewünschte CSS-Klasse und das entsprechende Icon austauschen.
+    </div>
+
+    <script>
+        // Demo functionality - In Produktion würde hier openWizardModal() aufgerufen
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click sound effect (optional)
+            const buttons = document.querySelectorAll('.wizard-btn');
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Kurzer visueller Feedback-Effekt
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

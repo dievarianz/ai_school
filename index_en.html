@@ -3598,70 +3598,62 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </script>
 
   <!-- Wizard Button Component -->
-  <script>
-    // Wizard button loading with corrected component integration
-    document.addEventListener('DOMContentLoaded', function() {
-      // Add wizard button CSS and HTML
-      const wizardButtonHTML = `
-        <!-- Wizard Floating Button -->
-        <style>
-          .wizard-floating-btn {
-            position: fixed;
-            left: 24px;
-            bottom: 40px;
-            cursor: pointer;
-            z-index: 9999;
-            user-select: none;
-            transition: transform 0.2s ease;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #6e45e2;
-            box-shadow: 0 4px 12px rgba(110, 69, 226, 0.3);
-          }
+  <style>
+    .wizard-floating-btn {
+      position: fixed;
+      left: 24px;
+      bottom: 40px;
+      cursor: pointer;
+      z-index: 9999;
+      user-select: none;
+      transition: transform 0.2s ease;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f59e0b;
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+    }
 
-          .wizard-floating-btn:hover {
-            transform: scale(1.05);
-            background: #5a37c8;
-          }
+    .wizard-floating-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 30px rgba(245, 158, 11, 0.6);
+    }
 
-          .wizard-floating-btn i {
-            font-size: 1.8rem;
-            color: white;
-          }
+    .wizard-floating-btn i {
+      font-size: 1.8rem;
+      color: white;
+      animation: lightbulbGlow 2s ease-in-out infinite alternate;
+    }
 
-          /* Mobile Optimierungen */
-          @media (max-width: 768px) {
-            .wizard-floating-btn {
-              width: 50px;
-              height: 50px;
-              left: 16px;
-              bottom: 80px;
-              z-index: 10000;
-            }
+    /* Lightbulb Glow Animation */
+    @keyframes lightbulbGlow {
+      0% { text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); }
+      100% { text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 25px rgba(245, 158, 11, 0.6); }
+    }
 
-            .wizard-floating-btn i {
-              font-size: 1.5rem;
-            }
-          }
-        </style>
+    /* Mobile Optimizations */
+    @media (max-width: 768px) {
+      .wizard-floating-btn {
+        width: 50px;
+        height: 50px;
+        left: 16px;
+        bottom: 80px;
+        z-index: 10000;
+      }
 
-        <!-- Floating Button -->
-        <div class="wizard-floating-btn" onclick="window.location.href='components/globals/wizard_en.html'" title="AI Programme Advisor" id="wizard-btn">
-          <i class='bx bx-brain'></i>
-        </div>
+      .wizard-floating-btn i {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
 
-        <!-- Container nicht mehr nötig, da direkte Navigation -->
-      `;
-      
-      document.body.insertAdjacentHTML('beforeend', wizardButtonHTML);
-    });
-
-    // Alte Modal-Funktionen nicht mehr nötig - direkte Navigation wird verwendet
-  </script>
+  <!-- Floating Button -->
+  <div class="wizard-floating-btn" onclick="window.location.href='./components/globals/wizard_en.html'" title="AI Education Advisor" id="wizard-btn">
+    <i class='bx bx-bulb'></i>
+  </div>
 
 </body>
 </html>

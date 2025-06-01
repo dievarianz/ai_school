@@ -500,18 +500,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #6e45e2;
-            box-shadow: 0 4px 12px rgba(110, 69, 226, 0.3);
+            background: #f59e0b;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
           }
 
           .wizard-floating-btn:hover {
-            transform: scale(1.05);
-            background: #5a37c8;
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(245, 158, 11, 0.6);
           }
 
           .wizard-floating-btn i {
             font-size: 1.8rem;
             color: white;
+            animation: lightbulbGlow 2s ease-in-out infinite alternate;
+          }
+
+          /* Lightbulb Glow Animation */
+          @keyframes lightbulbGlow {
+            0% { text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); }
+            100% { text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 25px rgba(245, 158, 11, 0.6); }
           }
 
           /* Mobile Optimierungen */
@@ -531,8 +538,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </style>
 
         <!-- Floating Button -->
-        <div class="wizard-floating-btn" onclick="window.location.href='components/globals/wizard_en.html'" title="AI Program Advisor" id="wizard-btn">
-          <i class='bx bx-brain'></i>
+        <div class="wizard-floating-btn" onclick="window.location.href='components/globals/wizard_en.html'" title="AI Education Advisor" id="wizard-btn">
+          <i class='bx bx-bulb'></i>
         </div>
 
         <!-- Container nicht mehr nötig, da direkte Navigation -->

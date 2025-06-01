@@ -14,38 +14,25 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #6e45e2;
-    box-shadow: 0 4px 12px rgba(110, 69, 226, 0.3);
+    background: #f59e0b;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
   }
 
   .wizard-floating-btn:hover {
-    transform: scale(1.05);
-    background: #5a37c8;
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(245, 158, 11, 0.6);
   }
 
   .wizard-floating-btn i {
     font-size: 1.8rem;
     color: white;
-    animation: brainPulse 3s ease-in-out infinite;
+    animation: lightbulbGlow 2s ease-in-out infinite alternate;
   }
 
-  /* Dezente Pulsanimation für das Gehirn-Icon */
-  @keyframes brainPulse {
-    0%, 100% {
-      opacity: 0.9;
-      transform: scale(1);
-    }
-    50% {
-      opacity: 1;
-      transform: scale(1.05);
-    }
-  }
-
-  /* Pausiere Animation beim Hover für bessere UX */
-  .wizard-floating-btn:hover i {
-    animation-play-state: paused;
-    opacity: 1;
-    transform: scale(1);
+  /* Lightbulb Glow Animation */
+  @keyframes lightbulbGlow {
+    0% { text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); }
+    100% { text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 25px rgba(245, 158, 11, 0.6); }
   }
 
   /* Mobile Optimierungen */
@@ -64,88 +51,38 @@
   }
 </style>
 
-<!-- BoxIcons für das Gehirn-Icon -->
+<!-- BoxIcons für das Lightbulb-Icon -->
 <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 
 <!-- Floating Button -->
-<div class="wizard-floating-btn" onclick="openWizardModal()" title="KI-Weiterbildungsberater" id="wizard-btn">
-  <i class='bx bx-brain'></i>
+<div class="wizard-floating-btn" title="KI-Weiterbildungsberater" id="wizard-btn">
+  <i class='bx bx-bulb'></i>
 </div>
 
-<!-- Container für dynamisch geladenen Wizard -->
-<div id="wizard-modal-container"></div>
-
 <script>
-// Global wizard functions
-window.wizardLoaded = false;
-
-async function loadWizardComponent() {
-  if (window.wizardLoaded) return;
-  
-  try {
-    // Determine language from page
+  // Function to open wizard page
+  function openWizard() {
+    // Determine language for correct wizard page
     const isEnglish = document.documentElement.lang === 'en' || 
-                     document.querySelector('html[lang="en"]') !== null;
+                     document.querySelector('html[lang="en"]') !== null ||
+                     window.location.pathname.includes('_en');
     
-    const componentPath = isEnglish ? 
-      'components/globals/wizard_en.html' : 
-      'components/globals/wizard.html';
+    // Use correct relative path from index.html perspective
+    const wizardPage = isEnglish ? 
+      './components/globals/wizard_en.html' : 
+      './components/globals/wizard.html';
     
-    const response = await fetch(componentPath);
-    const wizardHTML = await response.text();
-    
-    // Extract only the modal part and scripts
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(wizardHTML, 'text/html');
-    
-    // Get modal overlay and script
-    const modalOverlay = doc.querySelector('.modal-overlay');
-    const scripts = doc.querySelectorAll('script');
-    const styles = doc.querySelectorAll('style');
-    
-    if (modalOverlay) {
-      const container = document.getElementById('wizard-modal-container');
-      
-      // Add styles
-      styles.forEach(style => {
-        document.head.appendChild(style.cloneNode(true));
-      });
-      
-      // Add modal HTML
-      container.appendChild(modalOverlay.cloneNode(true));
-      
-      // Add scripts
-      scripts.forEach(script => {
-        const newScript = document.createElement('script');
-        newScript.textContent = script.textContent;
-        document.body.appendChild(newScript);
-      });
-      
-      window.wizardLoaded = true;
+    // Open wizard in new tab/window
+    window.open(wizardPage, '_blank');
+  }
+
+  // Add event listener after the DOM is ready for this component
+  setTimeout(() => {
+    const wizardButton = document.getElementById('wizard-btn');
+    if (wizardButton) {
+      wizardButton.addEventListener('click', openWizard);
+    } else {
+      console.error('Wizard button not found to attach event listener.');
     }
-  } catch (error) {
-    console.error('Failed to load wizard component:', error);
-  }
-}
-
-async function openWizardModal() {
-  // Load wizard if not already loaded
-  if (!window.wizardLoaded) {
-    await loadWizardComponent();
-  }
-  
-  // Open modal
-  const modalOverlay = document.getElementById('modal-overlay');
-  if (modalOverlay && typeof openModal === 'function') {
-    openModal();
-  } else {
-    console.error('Wizard modal not properly loaded');
-  }
-}
-
-// Preload wizard component on page load for better UX
-document.addEventListener('DOMContentLoaded', function() {
-  // Small delay to not block initial page load
-  setTimeout(loadWizardComponent, 1000);
-});
+  }, 0);
 </script> 

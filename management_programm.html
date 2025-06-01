@@ -2243,6 +2243,11 @@
   .tracks-variant-3 .track-card.current-page:hover .current-page-link i {
     transform: none !important;
   }
+
+  .wizard-floating-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(245, 158, 11, 0.6);
+  }
 </style>
 
 <!-- BoxIcons für Icons -->
@@ -4458,18 +4463,28 @@ document.addEventListener('DOMContentLoaded', function() {
           display: flex;
           align-items: center;
           justify-content: center;
-          background: #6e45e2;
-          box-shadow: 0 4px 12px rgba(110, 69, 226, 0.3);
+          background: #f59e0b;
+          box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
         }
 
         .wizard-floating-btn:hover {
-          transform: scale(1.05);
-          background: #5a37c8;
+          transform: scale(1.1);
+          box-shadow: 0 0 30px rgba(245, 158, 11, 0.6);
         }
 
         .wizard-floating-btn i {
           font-size: 1.8rem;
           color: white;
+          animation: lightbulbGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes lightbulbGlow {
+          from {
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+          }
+          to {
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(245, 158, 11, 0.6);
+          }
         }
 
         /* Mobile Optimierungen */
@@ -4489,8 +4504,8 @@ document.addEventListener('DOMContentLoaded', function() {
       </style>
 
       <!-- Floating Button -->
-      <div class="wizard-floating-btn" onclick="window.location.href='components/globals/wizard.html'" title="KI-Bildungsberater" id="wizard-btn">
-        <i class='bx bx-brain'></i>
+      <div class="wizard-floating-btn" onclick="window.location.href='components/globals/wizard.html'" title="KI-Weiterbildungsberater" id="wizard-btn">
+        <i class='bx bx-bulb'></i>
       </div>
 
       <!-- Container nicht mehr nötig, da direkte Navigation -->
