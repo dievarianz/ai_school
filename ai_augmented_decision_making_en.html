@@ -4,8 +4,8 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>AI-Augmented Decision Making | St.Gallen imt Business School</title>
-<meta name="description" content="Master data-driven decision processes in the AI-Augmented Decision Making program at St.Gallen imt Business School. Practice-oriented education for strategic management in the AI era."/>
-<meta name="keywords" content="AI-Augmented Decision Making, artificial intelligence, decision making, St.Gallen, Business School, Executive Education, management seminar, data-driven decisions, AI strategies, leadership competence, business intelligence"/>
+<meta name="description" content="Master data-driven decision processes with the AI-Augmented Decision Making program at St.Gallen imt Business School. Practice-oriented continuing education for strategic management in the AI era."/>
+<meta name="keywords" content="AI-Augmented Decision Making, artificial intelligence, decision making, St.Gallen, Business School, Executive Education, Management Seminar, data-driven decisions, AI strategies, leadership competence, Business Intelligence"/>
 
 <!-- ============ STYLES ============ -->
 <style>
@@ -103,7 +103,7 @@
     text-decoration: underline;
   }
 
-  /* Gradient Headings */
+  /* Überschriften mit Gradient */
   .section-heading {
     font-size: 1.5rem;
     margin-bottom: 1rem;
@@ -115,6 +115,373 @@
     background-clip: text;
     color: transparent;
     display: inline-block;
+  }
+
+  /* Tracks Variant 3 Styles für "Unsere Weiterbildungen" */
+  .tracks-variant-3 {
+    padding: 80px 0;
+    background: #fff;
+    position: relative;
+  }
+  
+  .tracks-variant-3 .tracks-header {
+    text-align: left;
+    margin-bottom: 40px;
+  }
+  
+  .tracks-variant-3 .tracks-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    text-align: left !important;
+    background: linear-gradient(90deg, #222 0%, #b0b0b0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+  }
+  
+  .tracks-variant-3 .tracks-subtitle {
+    font-size: 1.1rem;
+    color: var(--color-muted);
+    max-width: 100%;
+    margin: 0;
+    text-align: left;
+  }
+  
+  .tracks-variant-3 .track-filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+  }
+  
+  .tracks-variant-3 .filter-btn {
+    background: none;
+    border: 1px solid #e1e1e1;
+    border-radius: 30px;
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    color: var(--color-muted);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .tracks-variant-3 .filter-btn:hover {
+    border-color: var(--imt-purple);
+    color: var(--imt-purple);
+  }
+  
+  .tracks-variant-3 .filter-btn.active {
+    background: var(--imt-purple);
+    color: white;
+    border-color: var(--imt-purple);
+  }
+  
+  .tracks-variant-3 .tracks-container {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .tracks-variant-3 .scroll-container {
+    display: flex;
+    gap: 25px;
+    padding: 20px 0;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .tracks-variant-3 .scroll-container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .tracks-variant-3 .track-card {
+    flex: 0 0 350px;
+    border-radius: 15px;
+    background: #f5f5f7;
+    overflow: hidden;
+    box-shadow: none;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid transparent;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  /* Box-Link, der die gesamte Karte umfasst */
+  .tracks-variant-3 .card-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    text-decoration: none;
+  }
+  
+  .tracks-variant-3 .track-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  
+  /* Managementseminar Hover - Lila Stroke */
+  .tracks-variant-3 .track-card[data-category="managementseminare"]:hover {
+    border: 2px solid var(--imt-purple);
+  }
+  
+  /* Programme Hover - Grüner Stroke */
+  .tracks-variant-3 .track-card[data-category="programme"]:hover {
+    border: 2px solid #17a689;
+  }
+  
+  .tracks-variant-3 .card-header {
+    padding: 20px;
+    border-bottom: 1px solid #f5f5f7;
+    min-height: 110px; /* Stellt sicher, dass alle Header die gleiche Höhe haben */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .tracks-variant-3 .track-category {
+    display: inline-block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+  
+  .tracks-variant-3 .category-strategy {
+    color: var(--imt-purple);
+  }
+  
+  .tracks-variant-3 .category-program {
+    color: #17a689;
+  }
+  
+  .tracks-variant-3 .category-finance {
+    color: #17a689;
+  }
+  
+  .tracks-variant-3 .category-marketing {
+    color: #fc5c63;
+  }
+  
+  .tracks-variant-3 .category-technology {
+    color: #209cee;
+  }
+  
+  .tracks-variant-3 .track-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.3;
+    height: 65px; /* Feste Höhe für Titel, egal ob 1 oder 2 Zeilen */
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .tracks-variant-3 .card-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  
+  /* Info-Bereich für die Icons und Texte */
+  .tracks-variant-3 .info-section {
+    margin-bottom: 15px;
+  }
+  
+  .tracks-variant-3 .card-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: var(--color-muted);
+    min-height: 24px; /* Einheitliche Höhe für alle Zeilen */
+  }
+  
+  .tracks-variant-3 .card-row i {
+    color: var(--imt-purple);
+    font-size: 1.1rem;
+    width: 20px; /* Feste Breite für Icons */
+    text-align: center; /* Zentriert die Icons */
+    flex-shrink: 0; /* Verhindert Schrumpfen */
+  }
+  
+  /* Teal Icons für Programme */
+  .track-card[data-category="programme"] .card-row i {
+    color: #17a689;
+  }
+  
+  .tracks-variant-3 .track-description {
+    margin: 15px 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--color-text);
+    flex-grow: 1;
+    min-height: 80px; /* Mindesthöhe für Beschreibungen */
+  }
+  
+  .tracks-variant-3 .track-link {
+    color: var(--imt-purple);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Teal Link für Programme */
+  .track-card[data-category="programme"] .track-link {
+    color: #17a689;
+  }
+  
+  .tracks-variant-3 .track-link:hover {
+    text-decoration: none !important;
+  }
+  
+  /* Animierten Unterstrich entfernen */
+  .tracks-variant-3 .track-link::after {
+    content: none !important;
+    display: none !important;
+  }
+  
+  .tracks-variant-3 .track-link:hover::after {
+    transform: none;
+  }
+  
+  /* Stärkere Regel, um jeglichen Unterstrich zu verhindern */
+  .tracks-variant-3 a.track-link:hover {
+    text-decoration: none !important;
+    border-bottom: none !important;
+  }
+  
+  .tracks-variant-3 .track-link i {
+    transition: transform 0.2s ease;
+  }
+  
+  .tracks-variant-3 .track-link:hover i {
+    transform: translateX(4px);
+  }
+  
+  /* Pfeil bewegt sich auch beim Hover über die gesamte Karte */
+  .tracks-variant-3 .track-card:hover .track-link i {
+    transform: translateX(4px);
+  }
+  
+  .tracks-variant-3 .scroll-controls {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 20px;
+    padding-right: 20px;
+  }
+  
+  .tracks-variant-3 .scroll-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: #e0e0e0;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .tracks-variant-3 .scroll-btn:hover {
+    background: #cccccc;
+    color: white;
+  }
+  
+  .tracks-variant-3 .scroll-btn i {
+    font-size: 1.5rem;
+  }
+  
+  .tracks-variant-3 .scroll-btn.disabled {
+    opacity: 0.4;
+    cursor: default;
+    pointer-events: none;
+  }
+  
+  .tracks-variant-3 .track-card.hidden {
+    display: none;
+  }
+  
+  @media (max-width: 768px) {
+    .tracks-variant-3 .track-card {
+      flex: 0 0 100%;
+    }
+  }
+
+  .tracks-variant-3 .filter-btn[data-filter="managementseminare"]:hover {
+    border-color: var(--imt-purple);
+    color: var(--imt-purple);
+    background: rgba(110, 69, 226, 0.1);
+  }
+  
+  .tracks-variant-3 .filter-btn[data-filter="managementseminare"].active {
+    background: var(--imt-purple);
+    color: white;
+    border-color: var(--imt-purple);
+  }
+  
+  .tracks-variant-3 .filter-btn[data-filter="programme"]:hover {
+    border-color: #17a689;
+    color: #17a689;
+    background: rgba(23, 166, 137, 0.1);
+  }
+  
+  .tracks-variant-3 .filter-btn[data-filter="programme"].active {
+    background: #17a689;
+    color: white;
+    border-color: #17a689;
+  }
+
+  /* Styles für die aktuelle Seite */
+  .tracks-variant-3 .track-card.current-page {
+    border: 2px solid var(--imt-purple);
+    background: linear-gradient(135deg, #f8f7ff 0%, #f5f5f7 100%);
+  }
+
+  .tracks-variant-3 .track-card.current-page .card-header {
+    position: relative;
+  }
+
+  .tracks-variant-3 .current-page-link {
+    color: var(--imt-purple);
+    font-weight: 600;
+  }
+
+  .tracks-variant-3 .current-page-link:hover {
+    text-decoration: none !important;
+    color: var(--imt-purple);
+  }
+
+  .tracks-variant-3 .current-page-link i {
+    color: #4CAF50;
+    transition: none !important;
+  }
+
+  .tracks-variant-3 .current-page-link:hover i {
+    transform: none !important;
+  }
+
+  .tracks-variant-3 .track-card.current-page:hover .current-page-link i {
+    transform: none !important;
   }
 
   /* Boxicon Styling */
@@ -387,7 +754,7 @@
   }
 
   /* Button-Styling aus index.html */
-  #hero a[href="#broschuere"] {
+  #hero a[href="#brochure"] {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -406,24 +773,24 @@
     cursor: pointer;
   }
 
-  #hero a[href="#broschuere"] span {
+  #hero a[href="#brochure"] span {
     margin-left: 8px;
     display: inline-block;
     transition: transform 0.2s ease;
   }
 
-  #hero a[href="#broschuere"]:hover {
+  #hero a[href="#brochure"]:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(106, 69, 226, 0.2);
     text-decoration: none;
   }
   
-  #hero a[href="#broschuere"]:hover span {
+  #hero a[href="#brochure"]:hover span {
     transform: translateX(4px);
   }
 
   /* Neues Button-Styling für Hero und Formular */
-  #hero a[href="#broschuere"], .cta-button {
+  #hero a[href="#brochure"], .cta-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -442,19 +809,19 @@
     margin: 24px 0 32px;
   }
 
-  #hero a[href="#broschuere"] span, .cta-button span {
+  #hero a[href="#brochure"] span, .cta-button span {
     margin-left: 8px;
     display: inline-block;
     transition: transform 0.2s ease;
   }
 
-  #hero a[href="#broschuere"]:hover, .cta-button:hover {
+  #hero a[href="#brochure"]:hover, .cta-button:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(106, 69, 226, 0.2);
     text-decoration: none;
   }
   
-  #hero a[href="#broschuere"]:hover span, .cta-button:hover span {
+  #hero a[href="#brochure"]:hover span, .cta-button:hover span {
     transform: translateX(4px);
   }
 
@@ -756,7 +1123,7 @@
   /* Hover Effekte */
   .flipper .front:hover,
   .flipper .back:hover {
-    border-color: var(--color-accent2);
+    border-color: var(--imt-purple);
   }
 
   .flipper .front:hover i {
@@ -1193,7 +1560,7 @@
       align-items: center;
     }
 
-    #hero a[href="#broschuere"] {
+    #hero a[href="#brochure"] {
       margin: 24px auto;
     }
   }
@@ -1617,11 +1984,11 @@
 
   /* Mobile-specific styling for the brochure download form */
   @media (max-width: 768px) {
-    #broschuere div[style*="flex: 1 1 400px; background: #f5f5f7; padding: 32px;"] {
+    #brochure div[style*="flex: 1 1 400px; background: #f5f5f7; padding: 32px;"] {
       padding: 15px !important;
     }
     
-    #broschuere .cta-button {
+    #brochure .cta-button {
       width: 100% !important;
       max-width: 100% !important;
       margin-left: 0 !important;
@@ -1631,17 +1998,17 @@
       justify-content: center !important;
     }
     
-    #broschuere .cta-button .arrow-icon {
+    #brochure .cta-button .arrow-icon {
       margin-top: 1px !important;
     }
     
-    #broschuere div[style*="text-align: center; width: 100%;"] {
+    #brochure div[style*="text-align: center; width: 100%;"] {
       text-align: center !important;
       width: 100% !important;
     }
   }
 
-  /* Hero Brands Styles für "Trusted by" */
+  /* Hero Brands Styles für "Vertrauen unserer Kompetenz" */
   .hero-brands {
     display: flex;
     justify-content: space-between;
@@ -1683,17 +2050,18 @@
     margin-bottom: 1.5rem;
   }
 
-  /* Responsive adjustments for logos - Mobile 4 logos in single row */
+  /* Responsive adjustments for logos - Mobile 4+2 Grid */
   @media (max-width: 767px) {
     .hero-brands {
-      display: flex !important;
-      justify-content: space-between !important;
-      align-items: center !important;
-      gap: 15px !important;
-      flex-wrap: nowrap !important;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto auto;
+      gap: 40px 15px;
       max-width: 100%;
       margin: 25px auto 0;
       padding: 0 20px;
+      justify-items: center;
+      align-items: center;
     }
     
     .hero-brands img {
@@ -1705,346 +2073,19 @@
     .hero-brands img[src*="jnj.png"],
     .hero-brands img[src*="bayer.png"],
     .hero-brands img[src*="unilever.png"] {
-      height: 25px;
-      max-width: 70px;
+      height: 28px;
+      max-width: 80px;
     }
-  }
-  
-  /* Tracks Variant 3 Styles für "Our Executive Education Programs" */
-  .tracks-variant-3 {
-    padding: 80px 0;
-    background: #fff;
-    position: relative;
-  }
-  
-  .tracks-variant-3 .tracks-header {
-    text-align: left;
-    margin-bottom: 40px;
-  }
-  
-  .tracks-variant-3 .tracks-title {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    font-weight: 600;
-    text-align: left !important;
-    background: linear-gradient(90deg, #222 0%, #b0b0b0 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
-    display: inline-block;
-  }
-  
-  .tracks-variant-3 .tracks-subtitle {
-    font-size: 1.1rem;
-    color: var(--color-muted);
-    max-width: 100%;
-    margin: 0;
-    text-align: left;
-  }
-  
-  .tracks-variant-3 .track-filters {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 30px;
-    flex-wrap: wrap;
-  }
-  
-  .tracks-variant-3 .filter-btn {
-    background: none;
-    border: 1px solid #e1e1e1;
-    border-radius: 30px;
-    padding: 8px 20px;
-    font-size: 0.9rem;
-    color: var(--color-muted);
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-  
-  .tracks-variant-3 .filter-btn:hover {
-    border-color: var(--imt-purple);
-    color: var(--imt-purple);
-  }
-  
-  .tracks-variant-3 .filter-btn.active {
-    background: var(--imt-purple);
-    color: white;
-    border-color: var(--imt-purple);
-  }
-  
-  .tracks-variant-3 .tracks-container {
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .tracks-variant-3 .scroll-container {
-    display: flex;
-    gap: 25px;
-    padding: 20px 0;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-  
-  .tracks-variant-3 .scroll-container::-webkit-scrollbar {
-    display: none;
-  }
-  
-  .tracks-variant-3 .track-card {
-    flex: 0 0 350px;
-    border-radius: 15px;
-    background: #f5f5f7;
-    overflow: hidden;
-    box-shadow: none;
-    transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    border: 2px solid transparent;
-    position: relative;
-    cursor: pointer;
-  }
-  
-  /* Box-Link, der die gesamte Karte umfasst */
-  .tracks-variant-3 .card-link {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    text-decoration: none;
-  }
-  
-  .tracks-variant-3 .track-card:hover {
-    transform: none;
-    box-shadow: none;
-  }
-  
-  /* Managementseminar Hover - Lila Stroke */
-  .tracks-variant-3 .track-card[data-category="managementseminare"]:hover {
-    border: 2px solid var(--imt-purple);
-  }
-  
-  /* Programme Hover - Grüner Stroke */
-  .tracks-variant-3 .track-card[data-category="programme"]:hover {
-    border: 2px solid #17a689;
-  }
-  
-  .tracks-variant-3 .card-header {
-    padding: 20px;
-    border-bottom: 1px solid #f5f5f7;
-    min-height: 110px;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .tracks-variant-3 .track-category {
-    display: inline-block;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    font-weight: 600;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
-  }
-  
-  .tracks-variant-3 .category-strategy {
-    color: var(--imt-purple);
-  }
-  
-  .tracks-variant-3 .category-program {
-    color: #17a689;
-  }
-  
-  .tracks-variant-3 .category-finance {
-    color: #17a689;
-  }
-  
-  .tracks-variant-3 .category-marketing {
-    color: #fc5c63;
-  }
-  
-  .tracks-variant-3 .category-technology {
-    color: #209cee;
-  }
-  
-  .tracks-variant-3 .track-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin: 0;
-    line-height: 1.3;
-    height: 65px;
-    display: flex;
-    align-items: flex-start;
-  }
-  
-  .tracks-variant-3 .card-body {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-  }
-  
-  /* Info-Bereich für die Icons und Texte */
-  .tracks-variant-3 .info-section {
-    margin-bottom: 15px;
-  }
-  
-  .tracks-variant-3 .card-row {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 8px;
-    font-size: 0.9rem;
-    color: var(--color-muted);
-    min-height: 24px;
-  }
-  
-  .tracks-variant-3 .card-row i {
-    color: var(--imt-purple);
-    font-size: 1.1rem;
-    width: 20px;
-    text-align: center;
-    flex-shrink: 0;
-  }
-  
-  .tracks-variant-3 .track-description {
-    font-size: 0.9rem;
-    color: var(--color-muted);
-    line-height: 1.4;
-    margin: 0 0 15px;
-    flex-grow: 1;
-  }
-  
-  .tracks-variant-3 .track-link {
-    color: var(--imt-purple);
-    text-decoration: none;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 8px;
-    transition: color 0.2s ease;
-    position: relative;
-    z-index: 2;
-  }
-  
-  .tracks-variant-3 .track-link:hover {
-    color: #4a2c94;
-    text-decoration: none;
-  }
-  
-  .tracks-variant-3 .track-link i {
-    transition: transform 0.2s ease;
-  }
-  
-  .tracks-variant-3 .track-card:hover .track-link i {
-    transform: translateX(4px);
-  }
-  
-  .tracks-variant-3 .scroll-controls {
-    display: flex;
-    justify-content: flex-end;
-    gap: 12px;
-    margin-top: 20px;
-    padding-right: 20px;
-  }
-  
-  .tracks-variant-3 .scroll-btn {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: none;
-    background: #e0e0e0;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-  
-  .tracks-variant-3 .scroll-btn:hover {
-    background: #cccccc;
-    color: white;
-  }
-  
-  .tracks-variant-3 .scroll-btn i {
-    font-size: 1.5rem;
-  }
-  
-  .tracks-variant-3 .scroll-btn.disabled {
-    opacity: 0.4;
-    cursor: default;
-    pointer-events: none;
-  }
-  
-  .tracks-variant-3 .track-card.hidden {
-    display: none;
-  }
-  
-  @media (max-width: 768px) {
-    .tracks-variant-3 .track-card {
-      flex: 0 0 100%;
-    }
-  }
-
-  .tracks-variant-3 .filter-btn[data-filter="managementseminare"]:hover {
-    border-color: var(--imt-purple);
-    color: var(--imt-purple);
-    background: rgba(110, 69, 226, 0.1);
-  }
-  
-  .tracks-variant-3 .filter-btn[data-filter="managementseminare"].active {
-    background: var(--imt-purple);
-    color: white;
-    border-color: var(--imt-purple);
-  }
-  
-  .tracks-variant-3 .filter-btn[data-filter="programme"]:hover {
-    border-color: #17a689;
-    color: #17a689;
-    background: rgba(23, 166, 137, 0.1);
-  }
-  
-  .tracks-variant-3 .filter-btn[data-filter="programme"].active {
-    background: #17a689;
-    color: white;
-    border-color: #17a689;
-  }
-
-  /* Styles für die aktuelle Seite */
-  .tracks-variant-3 .track-card.current-page {
-    border: 2px solid var(--imt-purple);
-    background: linear-gradient(135deg, #f8f7ff 0%, #f5f5f7 100%);
-  }
-
-  .tracks-variant-3 .track-card.current-page .card-header {
-    position: relative;
-  }
-
-  .tracks-variant-3 .current-page-link {
-    color: var(--imt-purple);
-    font-weight: 600;
-  }
-
-  .tracks-variant-3 .current-page-link:hover {
-    text-decoration: none !important;
-    color: var(--imt-purple);
-  }
-
-  .tracks-variant-3 .current-page-link i {
-    color: #4CAF50;
-    transition: none !important;
-  }
-
-  .tracks-variant-3 .current-page-link:hover i {
-    transform: none !important;
-  }
-
-  .tracks-variant-3 .track-card.current-page:hover .current-page-link i {
-    transform: none !important;
+    
+    /* Erste 4 Logos in der ersten Zeile */
+    .hero-brands img:nth-child(1) { grid-column: 1; grid-row: 1; }
+    .hero-brands img:nth-child(2) { grid-column: 2; grid-row: 1; }
+    .hero-brands img:nth-child(3) { grid-column: 3; grid-row: 1; }
+    .hero-brands img:nth-child(4) { grid-column: 4; grid-row: 1; }
+    
+    /* Letzten 2 Logos in der zweiten Zeile, zentriert */
+    .hero-brands img:nth-child(5) { grid-column: 2; grid-row: 2; }
+    .hero-brands img:nth-child(6) { grid-column: 3; grid-row: 2; }
   }
 
   /* Wizard Teaser Styles */
@@ -2146,7 +2187,6 @@
     .wizard-button {
       grid-column: 1 / -1;
       text-align: center;
-      justify-content: center;
     }
 
     .wizard-teaser {
@@ -2171,6 +2211,7 @@
 
     .wizard-teaser {
       padding: 35px 25px;
+      margin: 60px 0;
     }
 
     .wizard-icon {
@@ -2200,7 +2241,7 @@
       margin: 0 auto;
     }
   }
-</style>
+        </style>
 
 <!-- BoxIcons für Icons -->
 <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
@@ -2228,7 +2269,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
 <!-- Verstecktes Netlify-Formular mit allen Feldern -->
-<form name="ai-augmented-decision-making-brochure-en" netlify netlify-honeypot="bot-field" hidden>
+<form name="ai-augmented-decision-making-brochure" netlify netlify-honeypot="bot-field" hidden>
   <input type="text" name="firstname" />
   <input type="text" name="lastname" />
   <input type="email" name="email" />
@@ -2253,43 +2294,43 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <!-- Tag Teaser über der Überschrift -->
       <div style="text-align: center; margin-bottom: 5px;">
         <div class="teaser-tag">
-          Managementseminar
+          Management Seminar
         </div>
       </div>
       
       <h1 style="margin-top: 10px;">AI-Augmented Decision Making</h1>
 
       <!-- Button zwischen Überschrift und Info-Boxen -->
-      <a href="#broschuere">
-        Jetzt Broschüre herunterladen <span class="arrow-icon">→</span>
+      <a href="#brochure">
+        Download brochure now <span class="arrow-icon">→</span>
       </a>
 
       <div class="info-grid">
         <!-- Ort Box -->
         <div class="info-box">
           <i class="bx bx-map"></i>
-          <span class="info-label">Ort</span>
+          <span class="info-label">Location</span>
           <span class="info-value">St. Gallen</span>
         </div>
 
         <!-- Dauer Box -->
         <div class="info-box">
           <i class="bx bx-time"></i>
-          <span class="info-label">Dauer</span>
-          <span class="info-value">3 Tage</span>
+          <span class="info-label">Duration</span>
+          <span class="info-value">3 Days</span>
         </div>
 
         <!-- Sprache Box -->
         <div class="info-box">
           <i class="bx bx-globe"></i>
-          <span class="info-label">Sprache</span>
+          <span class="info-label">Language</span>
           <span class="info-value">DE / EN</span>
         </div>
 
         <!-- Starttermin Box -->
         <div class="info-box">
           <i class="bx bx-network-chart"></i>
-          <span class="info-label">Netzwerk</span>
+          <span class="info-label">Network</span>
           <span class="info-value">StGallen</span>
         </div>
 
@@ -2298,7 +2339,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <!-- Trusted by Section - nach Hero verschoben -->
+  <!-- Vertrauen unserer Kompetenz Section - nach Hero verschoben -->
   <section id="company-trust" class="content-section" style="padding: 60px 0;">
     <div class="container">
       <h2 class="section-heading" style="text-align: left !important;">Trusted by</h2>
@@ -2314,7 +2355,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <section id="module-content" class="content-section">
       <h2 class="section-heading">Content Overview</h2>
       
-      <p class="section-subtitle">Entdecken Sie die sieben Schlüsselmodule unseres Managementseminars – von KI-Grundlagen bis zur erfolgreichen Implementierung in Ihrem Unternehmen.</p>
+      <p class="section-subtitle">Discover the five key modules of our management seminar – from AI-supported decision-making to individual competency development.</p>
       
       <div class="slider-container">
         <button aria-label="Zurück" class="slider-btn prev" disabled></button>
@@ -2323,15 +2364,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="slide flip-container">
             <div class="flipper">
               <div class="front">
-                <i class='bx bx-brain icon-brain' style="font-size: 32px; margin-bottom: 16px; opacity: 0.85;"></i>
-                <h3>Konzepte &amp; strategische Relevanz von KI</h3>
-                <p>KI verstehen – jenseits des Hypes. Fundiertes Wissen für strategische Entscheidungen.</p>
+                <i class='bx bx-brain' style="font-size: 32px; margin-bottom: 16px; color: #9C27B0; opacity: 1;"></i>
+                <h3>Rethinking Decision-Making with AI Support</h3>
+                <p>AI-supported decisions for better quality and speed</p>
                 <a class="flip-link" href="#">
                   <i class='bx bx-plus-circle'></i>
                 </a>
               </div>
               <div class="back">
-                <p>Ein strukturierter Überblick über zentrale KI-Begriffe und Konzepte wird vermittelt. Die Relevanz für das eigene Unternehmen und die Branche wird herausgearbeitet.</p>
+                <p>Understand AI-supported decision processes. Data-based systems improve decision quality, speed, and consistency. Practical examples demonstrate successful AI integration in decision structures.</p>
                 <a class="flip-link" href="#">
                   <i class='bx bx-minus-circle'></i>
                 </a>
@@ -2343,15 +2384,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="slide flip-container">
             <div class="flipper">
               <div class="front">
-                <i class='bx bx-trending-up icon-trend' style="font-size: 32px; margin-bottom: 16px; opacity: 0.85;"></i>
-                <h3>Strategische Einsatzfelder und Business Impact von KI</h3>
-                <p>Wo KI echten Mehrwert schafft – datenbasiert, skalierbar, relevant</p>
+                <i class='bx bx-trending-up' style="font-size: 32px; margin-bottom: 16px; color: #2196F3; opacity: 1;"></i>
+                <h3>Strategic Use of AI in Decision Processes</h3>
+                <p>Unlock competitive advantages through smart decision models</p>
                 <a class="flip-link" href="#">
                   <i class='bx bx-plus-circle'></i>
                 </a>
               </div>
               <div class="back">
-                <p>Konkrete Anwendungsbereiche von KI zur Wertschöpfung, Effizienzsteigerung und Kundenbindung werden analysiert. Best-Practice-Beispiele aus verschiedenen Branchen werden diskutiert.</p>
+                <p>Unlock competitive advantages through smart decision models. Successful use cases from various industries. Predictive analytics, NLP, and decision intelligence as leadership tools.</p>
                 <a class="flip-link" href="#">
                   <i class='bx bx-minus-circle'></i>
                 </a>
@@ -2363,15 +2404,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="slide flip-container">
             <div class="flipper">
               <div class="front">
-                <i class='bx bx-data icon-data' style="font-size: 32px; margin-bottom: 16px; opacity: 0.85;"></i>
-                <h3>Datenstrategie als Enabler für KI</h3>
-                <p>KI funktioniert nur mit Daten – die richtige Strategie macht den Unterschied.</p>
+                <i class='bx bx-sitemap' style="font-size: 32px; margin-bottom: 16px; color: #4CAF50; opacity: 1;"></i>
+                <h3>AI as Part of Integrated Leadership Systems</h3>
+                <p>Strengthen transparency, consistency, and responsibility in leadership</p>
                 <a class="flip-link" href="#">
                   <i class='bx bx-plus-circle'></i>
                 </a>
               </div>
               <div class="back">
-                <p>Die Entwicklung einer effektiven Datenstrategie als Grundlage für KI-Initiativen wird vermittelt. Teilnehmer lernen, welche Daten relevant sind und wie sie zugänglich gemacht werden können.</p>
+                <p>Strengthen transparency, consistency, and responsibility in leadership. AI-supported decision models as part of holistic leadership. New role: monitoring, interpreting, and controlling with algorithmic systems.</p>
                 <a class="flip-link" href="#">
                   <i class='bx bx-minus-circle'></i>
                 </a>
@@ -2383,15 +2424,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="slide flip-container">
             <div class="flipper">
               <div class="front">
-                <i class='bx bx-cube icon-cube' style="font-size: 32px; margin-bottom: 16px; opacity: 0.85;"></i>
-                <h3>Geschäftsmodellinnovation durch KI</h3>
-                <p>KI verändert nicht nur Abläufe, sondern ganze Geschäftsmodelle.</p>
+                <i class='bx bx-user-check' style="font-size: 32px; margin-bottom: 16px; color: #FF9800; opacity: 1;"></i>
+                <h3>Develop New Role Profiles and Operational Security</h3>
+                <p>Build competencies for the future of decision-making</p>
                 <a class="flip-link" href="#">
                   <i class='bx bx-plus-circle'></i>
                 </a>
               </div>
               <div class="back">
-                <p>Teilnehmer erarbeiten, wie KI bestehende Geschäftsmodelle transformieren und neue kreieren kann. Methodiken zur systematischen Innovation werden angewandt.</p>
+                <p>Build competencies for the future – from data-driven leaders to AI competency holders. Reflective guidance, validation, and responsible use of AI decisions with practical projects.</p>
                 <a class="flip-link" href="#">
                   <i class='bx bx-minus-circle'></i>
                 </a>
@@ -2403,55 +2444,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="slide flip-container">
             <div class="flipper">
               <div class="front">
-                <i class='bx bx-crown icon-crown' style="font-size: 32px; margin-bottom: 16px; opacity: 0.85;"></i>
-                <h3>Leadership & Organisationsentwicklung im KI-Zeitalter</h3>
-                <p>KI verändert Führung, Zusammenarbeit und Unternehmensstrukturen.</p>
+                <i class='bx bx-cube-alt' style="font-size: 32px; margin-bottom: 16px; color: #F44336; opacity: 1;"></i>
+                <h3>Individuelle Kompetenzentwicklung in Modulen</h3>
+                <p>Lernen entlang spezifischer Entscheidungsherausforderungen</p>
                 <a class="flip-link" href="#">
                   <i class='bx bx-plus-circle'></i>
                 </a>
               </div>
               <div class="back">
-                <p>Notwendige Führungskompetenzen und organisatorische Veränderungen für erfolgreiche KI-Integration werden vermittelt. Die Bedeutung von Change Management wird hervorgehoben.</p>
-                <a class="flip-link" href="#">
-                  <i class='bx bx-minus-circle'></i>
-                </a>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Box 6 -->
-          <div class="slide flip-container">
-            <div class="flipper">
-              <div class="front">
-                <i class='bx bx-slider icon-slider' style="font-size: 32px; margin-bottom: 16px; opacity: 0.85;"></i>
-                <h3>Roadmap zur KI-Transformation</h3>
-                <p>Der strukturierte Weg zur erfolgreichen KI-Integration – von der Vision zur Umsetzung.</p>
-                <a class="flip-link" href="#">
-                  <i class='bx bx-plus-circle'></i>
-                </a>
-              </div>
-              <div class="back">
-                <p>Ein systematisches Vorgehen für den KI-Transformationsprozess wird erarbeitet. Methoden zur Priorisierung von Initiativen, Kompetenzaufbau und kultureller Integration werden vermittelt.</p>
-                <a class="flip-link" href="#">
-                  <i class='bx bx-minus-circle'></i>
-                </a>
-              </div>
-            </div>
-          </div>
-          
-          <!-- Box 7 -->
-          <div class="slide flip-container">
-            <div class="flipper">
-              <div class="front">
-                <i class='bx bx-expand icon-expand' style="font-size: 32px; margin-bottom: 16px; opacity: 0.85;"></i>
-                <h3>Skalierung & Governance von KI-Initiativen</h3>
-                <p>Pilotprojekte sind erst der Anfang – jetzt wird skaliert.</p>
-                <a class="flip-link" href="#">
-                  <i class='bx bx-plus-circle'></i>
-                </a>
-              </div>
-              <div class="back">
-                <p>Vorgehensweisen zur Skalierung und institutionellen Verankerung von KI werden aufgezeigt. Strukturen zur Governance, ethische Leitlinien und Erfolgsmetriken werden diskutiert.</p>
+                <p>Lernen Sie entlang spezifischer Entscheidungsherausforderungen – abgestimmt auf Rollen und Unternehmenskontext. Gezielte Vertiefung in Data Literacy, KI-Ethik oder Entscheidungsmodellierung mit flexiblen Modulen.</p>
                 <a class="flip-link" href="#">
                   <i class='bx bx-minus-circle'></i>
                 </a>
@@ -2467,63 +2468,63 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <section id="program-info" class="content-section" style="padding: 60px 0;">
       <div class="container">
         <h2 class="section-heading">Key Information at a Glance</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Alle wichtigen Details zum KI-Augmented Decision Making Managementseminar auf einen Blick.</p>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">All the important details about the AI-Augmented Decision Making management seminar at a glance.</p>
         
         <div class="program-info-grid">
           <!-- Box 1: Ort -->
           <div class="program-info-box">
             <i class='bx bx-map program-info-icon'></i>
-            <div class="program-info-label">Ort</div>
+            <div class="program-info-label">Location</div>
             <div class="program-info-value">St. Gallen</div>
           </div>
           
           <!-- Box 2: Dauer -->
           <div class="program-info-box">
             <i class='bx bx-time program-info-icon'></i>
-            <div class="program-info-label">Dauer</div>
-            <div class="program-info-value">3 Tage <br> optional mit ECTS</div>
+            <div class="program-info-label">Duration</div>
+            <div class="program-info-value">3 Days <br>optional with ECTS</div>
           </div>
 
           <!-- Box 6: Sprache -->
           <div class="program-info-box">
             <i class='bx bx-globe program-info-icon'></i>
-            <div class="program-info-label">Sprache</div>
-            <div class="program-info-value">Deutsch / Englisch</div>
+            <div class="program-info-label">Language</div>
+            <div class="program-info-value">German / English</div>
           </div>
 
           <!-- Box 7: Zielgruppe -->
           <div class="program-info-box">
             <i class='bx bx-group program-info-icon'></i>
-            <div class="program-info-label">Zielgruppe</div>
-            <div class="program-info-value" style="font-size: 0.9rem;">Führungskräfte, Nachwuchsmanager, Unternehmer</div>
+            <div class="program-info-label">Target Group</div>
+            <div class="program-info-value" style="font-size: 0.9rem;">Executives, Future Managers, Entrepreneurs</div>
           </div>
 
           <!-- Box 3: Investition -->
           <div class="program-info-box">
             <i class='bx bx-money program-info-icon'></i>
-            <div class="program-info-label">Investition</div>
-            <div class="program-info-value">CHF 2'400 zzgl. 8,1 % MwSt.</div>
+            <div class="program-info-label">Investment</div>
+            <div class="program-info-value">CHF 2,400 plus 8.1% VAT</div>
           </div>
 
           <!-- Box 9: Netzwerk -->
           <div class="program-info-box">
             <i class='bx bx-network-chart program-info-icon'></i>
-            <div class="program-info-label">Netzwerk</div>
+            <div class="program-info-label">Network</div>
             <div class="program-info-value">StGallen imt Alumni</div>
           </div>
         </div>
         
         <!-- Starttermine - Tab Design -->
         <div class="dates-tabs">
-          <h3 class="dates-heading"><i class='bx bx-calendar-alt' style="margin-right: 8px;"></i>Verfügbare Seminartermine</h3>
+          <h3 class="dates-heading"><i class='bx bx-calendar-alt' style="margin-right: 8px;"></i>Available Seminar Dates</h3>
           <div class="tabs-nav">
             <button class="tab-button active" data-target="tab-2025">2025</button>
             <button class="tab-button" data-target="tab-2026">2026</button>
           </div>
 
-          <p style="color: var(--color-muted); font-size: 0.95rem; margin: 12px 0 18px 0; text-align: left;">Die folgenden Termine stehen alternativ zur Auswahl</p>
+          <p style="color: var(--color-muted); font-size: 0.95rem; margin: 12px 0 18px 0; text-align: left;">The following dates are available for selection</p>
 
-          <p style="color: var(--color-muted); font-size: 0.95rem; margin: 0 0 18px 0; text-align: left;">Termine für Unternehmen individuell planbar. <a href="#contact" style="color: var(--imt-purple); text-decoration: none;">Kontaktieren Sie uns</a></p>
+          <p style="color: var(--color-muted); font-size: 0.95rem; margin: 0 0 18px 0; text-align: left;">Corporate dates can be scheduled individually. <a href="#contact" style="color: var(--imt-purple); text-decoration: none;">Contact us</a></p>
 
           <div class="tab-content">
             <!-- Tab 2025 -->
@@ -2614,7 +2615,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <section id="participants">
       <div class="container">
         <h2 class="section-heading">Participant Information</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Unser Managementseminar KI-Augmented Decision Making bringt ambitionierte Teilnehmer aus verschiedenen Branchen und Ländern zusammen.</p>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Our AI-Augmented Decision Making management seminar brings together ambitious participants from various industries and countries.</p>
         <div class="stats-grid">
             <!-- Berufserfahrung -->
             <div class="stat-card">
@@ -2626,7 +2627,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </svg>
                 </div>
                 <div class="stat-value" data-target="4">0</div>
-                <div class="stat-label">Jahre Berufserfahrung</div>
+                <div class="stat-label">Years Professional Experience</div>
             </div>
 
             <!-- Gehaltsteigerung (ersetzt Senior C-Level) -->
@@ -2639,7 +2640,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </svg>
                 </div>
                 <div class="stat-value" data-target="45" data-prefix="⌀ " data-suffix="%">⌀ 0%</div>
-                <div class="stat-label">Gehaltsteigerung</div>
+                <div class="stat-label">Salary Increase</div>
             </div>
 
             <!-- Durchschnittsalter -->
@@ -2651,7 +2652,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </svg>
                 </div>
                 <div class="stat-value" data-target="36">0</div>
-                <div class="stat-label">Durchschnittsalter</div>
+                <div class="stat-label">Average Age</div>
             </div>
 
             <!-- KMU-Anteil (ersetzt Nationalitäten) -->
@@ -2669,7 +2670,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </svg>
                 </div>
                 <div class="stat-value" data-target="74" data-suffix="%">0%</div>
-                <div class="stat-label">KMU-Anteil</div>
+                <div class="stat-label">SME Share</div>
             </div>
         </div>
       </div>
@@ -2679,7 +2680,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <section id="impressionen">
       <div class="container">
         <h2 class="section-heading">Insights & Impressions</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Tauchen Sie ein in eine einzigartige Lernumgebung – mit inspirierenden Workshops, Einblicken bei Unternehmen wie Google und einem einzigartigen Bildungsumfeld im St.Gallen Valley..</p>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Immerse yourself in a unique learning environment – with inspiring workshops, insights into companies like Google, and a unique educational setting in the St.Gallen Valley.</p>
         <div class="gallery">
           <!-- 1: Großes, hochformatiges Bild -->
           <div class="gallery-item item1">
@@ -2718,7 +2719,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <section class="content-section">
       <div class="container">
         <h2 class="section-heading">Voices from Our Network</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Erfahrungen, Einblicke und Perspektiven aus unserem Netzwerk.</p>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Experiences, insights, and perspectives from our network.</p>
         
         <style>
           /* ============ Gradientes Zitat-Layout ============ */
@@ -2726,13 +2727,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
             gap: 30px;
-    margin-bottom: 40px;
-  }
-  
+            margin-bottom: 40px;
+          }
+          
           .gradient-quote-card {
             border-radius: var(--radius);
             overflow: hidden;
-            position: relative;
+    position: relative;
             border: 2px solid transparent;
             transition: all 0.3s ease;
           }
@@ -2742,14 +2743,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           }
           
           .gradient-quote-inner {
-    display: flex;
+            display: flex;
             flex-direction: column;
             height: 100%;
             background: linear-gradient(to bottom right, #ffffff, #f8f9fa);
-            position: relative;
-            z-index: 1;
-          }
-          
+    position: relative;
+    z-index: 1;
+  }
+
           .gradient-quote-card::before {
             content: '';
             position: absolute;
@@ -2778,7 +2779,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             top: -15px;
             right: 25px;
             font-size: 4rem;
-    color: var(--imt-purple);
+            color: var(--imt-purple);
             opacity: 0.1;
             transition: transform 0.3s ease;
           }
@@ -2789,19 +2790,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           
           .gradient-quote-text {
             font-size: 1.2rem;
-            line-height: 1.6;
+    line-height: 1.6;
             color: var(--color-text);
             font-weight: 400;
-    position: relative;
+            position: relative;
             z-index: 1;
-  }
-  
+          }
+          
           .gradient-quote-footer {
             background-color: #fafafa;
             padding: 20px 30px;
     display: flex;
-            justify-content: space-between;
-            align-items: center;
+    justify-content: space-between;
+    align-items: center;
             border-top: 1px solid #f0f0f0;
           }
           
@@ -2814,10 +2815,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             width: 60px;
             height: 60px;
             border-radius: 50%;
-    overflow: hidden;
+            overflow: hidden;
             margin-right: 15px;
             border: 3px solid white;
-    transition: all 0.3s ease;
+            transition: all 0.3s ease;
           }
           
           .gradient-quote-card:hover .gradient-avatar-container {
@@ -2825,19 +2826,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           }
           
           .gradient-avatar {
-    width: 100%;
-    height: 100%;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
           }
           
           .gradient-info {
-    display: flex;
-    flex-direction: column;
+            display: flex;
+            flex-direction: column;
             margin-top: 6px; /* Verschiebt den Text nach unten für vertikale Zentrierung */
-  }
-  
+          }
+          
           .gradient-name {
-    font-weight: 600;
+            font-weight: 600;
             font-size: 1rem;
             margin-bottom: 2px;
           }
@@ -2850,13 +2851,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           
           .gradient-program {
             font-size: 0.8rem;
-    color: var(--imt-purple);
+            color: var(--imt-purple);
             margin-top: 2px;
           }
           
           .gradient-company {
-            height: 40px;
-            width: auto;
+    height: 40px;
+    width: auto;
             opacity: 0.7;
             transition: opacity 0.3s ease;
           }
@@ -2867,7 +2868,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           
           @media (max-width: 968px) {
             .gradient-quotes {
-              grid-template-columns: 1fr;
+      grid-template-columns: 1fr;
             }
           }
         </style>
@@ -3056,7 +3057,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- Faculty & Experts Section -->
     <section id="faculty">
       <div class="container">
-        <h2 class="section-heading">Academic Leadership</h2>
+        <h2 class="section-heading">Akademische Leitung</h2>
         <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Lernen Sie von führenden Experten aus Wissenschaft und Praxis – profitieren Sie von jahrelanger Erfahrung in KI und digitaler Transformation.</p>
         
         <div class="faculty-grid">
@@ -3075,13 +3076,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <section id="contact">
       <div class="container">
         <h2 class="section-heading">Contact</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Bei Fragen zum Managementseminar „KI-Augmented Decision Making" sind wir gerne persönlich für Sie da</p>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">We are happy to help you with any questions about the AI-Augmented Decision Making management seminar.</p>
         
         <div class="contact-info">
           <img alt="Monika Dutkiewicz" src="assets/Dutkiewicz.jpg"/>
           <div class="contact-details">
             <h3>Monika Dutkiewicz</h3>
-            <p style="margin-bottom: 0;">Ansprechpartner KI-Augmented Decision Making</p>
+            <p style="margin-bottom: 0;">Contact Person AI-Augmented Decision Making</p>
             <p style="margin-bottom: 0; margin-top: 0;"><a href="mailto:monika.dutkiewicz@imt.ch" style="color: #9c27b0;">monika.dutkiewicz@imt.ch</a></p>
             <p style="margin-bottom: 0; margin-top: 0;">+41 71 277 60 00</p>
           </div>
@@ -3089,102 +3090,102 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </section>
 
-    <!-- Broschüre Herunterladen Section -->
-    <section id="broschuere">
+    <!-- Broschüre Download Section -->
+    <section id="brochure">
       <div class="container">
         <h2 class="section-heading">Download Brochure</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Laden Sie jetzt die Broschüre zum Managementseminar KI-Augmented Decision Making herunter – mit allen Details zu Inhalten, Methoden und Ihrem Lernerfolg.</p>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Download the brochure for the AI-Augmented Decision Making management seminar now – with all details on content, methods and your learning success.</p>
         <div style="display: flex; gap: 32px; align-items: stretch; flex-wrap: wrap; margin-top: 32px;">
           
-          <!-- Formular -->
+          <!-- Form -->
           <div style="flex: 1 1 400px; background: #f5f5f7; padding: 32px; border-radius: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
             <form id="brochure-form" method="post" netlify name="ai-augmented-decision-making-brochure-en" netlify-honeypot="bot-field" data-netlify="true" action="/" novalidate>
               <p class="hidden" style="display: none;">
                 <label>Don't fill this out if you're human: <input name="bot-field" /></label>
               </p>
               <input type="hidden" name="form-name" value="ai-augmented-decision-making-brochure-en">
-              <input name="firstname" placeholder="First Name" style="width: 100%; padding: 12px; margin-bottom: 18px; border-radius: 8px; border: 1px solid #ccc;" type="text" required/>
-              <input name="lastname" placeholder="Last Name" style="width: 100%; padding: 12px; margin-bottom: 18px; border-radius: 8px; border: 1px solid #ccc;" type="text" required/>
-              <input name="email" placeholder="Email" style="width: 100%; padding: 12px; margin-bottom: 18px; border-radius: 8px; border: 1px solid #ccc;" type="email" required/>
+              <input name="firstname" placeholder="First Name*" style="width: 100%; padding: 12px; margin-bottom: 18px; border-radius: 8px; border: 1px solid #ccc;" type="text" required/>
+              <input name="lastname" placeholder="Last Name*" style="width: 100%; padding: 12px; margin-bottom: 18px; border-radius: 8px; border: 1px solid #ccc;" type="text" required/>
+              <input name="email" placeholder="E-Mail*" style="width: 100%; padding: 12px; margin-bottom: 18px; border-radius: 8px; border: 1px solid #ccc;" type="email" required/>
               
               <!-- Country Select -->
               <div style="position: relative; margin-bottom: 18px;">
                 <select name="country" required style="width: 100%; padding: 12px; padding-right: 40px; font-size: 1rem; border-radius: 8px; border: 1px solid #ccc; appearance: none; -webkit-appearance: none;">
-                  <option value="">Land wählen</option>
+                  <option value="">Select Country*</option>
                   <option value="AD">Andorra</option>
-                  <option value="AR">Argentinien</option>
-                  <option value="AU">Australien</option>
+                  <option value="AR">Argentina</option>
+                  <option value="AU">Australia</option>
                   <option value="BH">Bahrain</option>
-                  <option value="BE">Belgien</option>
-                  <option value="BR">Brasilien</option>
+                  <option value="BE">Belgium</option>
+                  <option value="BR">Brazil</option>
                   <option value="BN">Brunei</option>
                   <option value="CL">Chile</option>
                   <option value="CN">China</option>
-                  <option value="DK">Dänemark</option>
-                  <option value="DE">Deutschland</option>
-                  <option value="EE">Estland</option>
-                  <option value="FI">Finnland</option>
-                  <option value="FR">Frankreich</option>
+                  <option value="DK">Denmark</option>
+                  <option value="DE">Germany</option>
+                  <option value="EE">Estonia</option>
+                  <option value="FI">Finland</option>
+                  <option value="FR">France</option>
                   <option value="GI">Gibraltar</option>
-                  <option value="GR">Griechenland</option>
-                  <option value="HK">Hongkong</option>
-                  <option value="IN">Indien</option>
-                  <option value="ID">Indonesien</option>
-                  <option value="IE">Irland</option>
-                  <option value="IS">Island</option>
+                  <option value="GR">Greece</option>
+                  <option value="HK">Hong Kong</option>
+                  <option value="IN">India</option>
+                  <option value="ID">Indonesia</option>
+                  <option value="IE">Ireland</option>
+                  <option value="IS">Iceland</option>
                   <option value="IL">Israel</option>
-                  <option value="IT">Italien</option>
+                  <option value="IT">Italy</option>
                   <option value="JP">Japan</option>
-                  <option value="JO">Jordanien</option>
-                  <option value="CA">Kanada</option>
-                  <option value="CO">Kolumbien</option>
-                  <option value="HR">Kroatien</option>
-                  <option value="QA">Katar</option>
+                  <option value="JO">Jordan</option>
+                  <option value="CA">Canada</option>
+                  <option value="CO">Colombia</option>
+                  <option value="HR">Croatia</option>
+                  <option value="QA">Qatar</option>
                   <option value="KW">Kuwait</option>
-                  <option value="LB">Libanon</option>
+                  <option value="LB">Lebanon</option>
                   <option value="LI">Liechtenstein</option>
-                  <option value="LU">Luxemburg</option>
-                  <option value="MO">Macau</option>
+                  <option value="LU">Luxembourg</option>
+                  <option value="MO">Macao</option>
                   <option value="MY">Malaysia</option>
                   <option value="MT">Malta</option>
-                  <option value="MX">Mexiko</option>
+                  <option value="MX">Mexico</option>
                   <option value="MC">Monaco</option>
-                  <option value="NL">Niederlande</option>
-                  <option value="NZ">Neuseeland</option>
-                  <option value="NO">Norwegen</option>
+                  <option value="NL">Netherlands</option>
+                  <option value="NZ">New Zealand</option>
+                  <option value="NO">Norway</option>
                   <option value="OM">Oman</option>
-                  <option value="AT">Österreich</option>
+                  <option value="AT">Austria</option>
                   <option value="PK">Pakistan</option>
                   <option value="PA">Panama</option>
                   <option value="PE">Peru</option>
-                  <option value="PH">Philippinen</option>
-                  <option value="PL">Polen</option>
+                  <option value="PH">Philippines</option>
+                  <option value="PL">Poland</option>
                   <option value="PT">Portugal</option>
                   <option value="PR">Puerto Rico</option>
-                  <option value="RO">Rumänien</option>
-                  <option value="RU">Russland</option>
+                  <option value="RO">Romania</option>
+                  <option value="RU">Russia</option>
                   <option value="SM">San Marino</option>
-                  <option value="SA">Saudi-Arabien</option>
-                  <option value="SE">Schweden</option>
-                  <option value="CH">Schweiz</option>
-                  <option value="SG">Singapur</option>
-                  <option value="SK">Slowakei</option>
-                  <option value="SI">Slowenien</option>
-                  <option value="ES">Spanien</option>
-                  <option value="ZA">Südafrika</option>
-                  <option value="KR">Südkorea</option>
+                  <option value="SA">Saudi Arabia</option>
+                  <option value="SE">Sweden</option>
+                  <option value="CH">Switzerland</option>
+                  <option value="SG">Singapore</option>
+                  <option value="SK">Slovakia</option>
+                  <option value="SI">Slovenia</option>
+                  <option value="ES">Spain</option>
+                  <option value="ZA">South Africa</option>
+                  <option value="KR">South Korea</option>
                   <option value="TW">Taiwan</option>
                   <option value="TH">Thailand</option>
-                  <option value="TR">Türkei</option>
-                  <option value="CZ">Tschechische Republik</option>
+                  <option value="TR">Turkey</option>
+                  <option value="CZ">Czech Republic</option>
                   <option value="UA">Ukraine</option>
-                  <option value="HU">Ungarn</option>
-                  <option value="AE">Vereinigte Arabische Emirate</option>
-                  <option value="GB">Vereinigtes Königreich</option>
-                  <option value="US">Vereinigte Staaten</option>
+                  <option value="HU">Hungary</option>
+                  <option value="AE">United Arab Emirates</option>
+                  <option value="GB">United Kingdom</option>
+                  <option value="US">United States</option>
                   <option value="VN">Vietnam</option>
-                  <option value="CY">Zypern</option>
-                  <option value="OTHER">Andere</option>
+                  <option value="CY">Cyprus</option>
+                  <option value="OTHER">Other</option>
                 </select>
                 <div style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); pointer-events: none;">
                   <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -3193,12 +3194,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
               </div>
 
-              <!-- Checkbox für E-Mail-Zustimmung -->
+              <!-- Checkbox for Email Consent -->
               <div style="margin-bottom: 16px;">
                 <label style="display: flex; align-items: flex-start; gap: 8px; cursor: pointer;">
                   <input type="checkbox" name="email_consent" style="margin-top: 3px;">
                   <span style="font-size: 0.9rem; color: var(--color-muted);">
-                    Ich stimme zu, Informationen per E-Mail zu Angeboten der StGallen imt Business School zu erhalten.
+                    I agree to receive information via email about offers from StGallen imt Business School.
                   </span>
                 </label>
               </div>
@@ -3206,7 +3207,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <!-- Submit Button -->
               <div style="text-align: center; width: 100%;">
                 <button type="submit" class="cta-button" style="margin: 0 auto;">
-                  Jetzt Broschüre herunterladen <span class="arrow-icon">→</span>
+                  Download brochure now <span class="arrow-icon">→</span>
                 </button>
               </div>
 
@@ -3214,21 +3215,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <div style="margin-top: 24px; display: flex; flex-direction: column; gap: 12px;">
                 <div style="display: flex; align-items: center; gap: 8px;">
                   <i class='bx bx-group' style="font-size: 20px;"></i>
-                  <span id="downloads-today" style="font-size: 0.9rem; color: var(--color-muted);"><strong>7</strong> Executives haben die Broschüre heute bereits heruntergeladen</span>
+                  <span id="downloads-today" style="font-size: 0.9rem; color: var(--color-muted);"><strong>7</strong> executives have already downloaded the brochure today</span>
                 </div>
                 <div style="display: flex; align-items: center; gap: 8px;">
                   <i class='bx bx-shield' style="font-size: 20px;"></i>
-                  <span style="font-size: 0.9rem; color: var(--color-muted);">Ihre Daten sind bei uns sicher - wir versenden keine unerlaubte Werbung</span>
+                  <span style="font-size: 0.9rem; color: var(--color-muted);">Your data is secure with us - we do not send unsolicited advertising</span>
                 </div>
               </div>
             </form>
 
             <!-- Download-Ready Section (initially hidden) -->
             <div id="download-ready" class="hidden" style="text-align: center; margin-top: 24px;">
-              <h3 style="margin-bottom: 16px;">Vielen Dank für Ihr Interesse!</h3>
-              <p style="margin-bottom: 24px;">Ihre Broschüre steht zum Download bereit.</p>
-              <a href="assets/broschueren/ki_augmented_decision_making.pdf" download class="cta-button">
-                Broschüre herunterladen <span class="arrow-icon">→</span>
+              <h3 style="margin-bottom: 16px;">Thank you for your interest!</h3>
+              <p style="margin-bottom: 24px;">Your brochure is ready for download.</p>
+              <a href="assets/broschueren/ki_augmented_decision_making_en.pdf" download class="cta-button">
+                Download brochure <span class="arrow-icon">→</span>
               </a>
             </div>
           </div>
@@ -3240,14 +3241,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <section class="tracks-variant-3">
       <div class="container">
         <div class="tracks-header">
-          <h2 class="tracks-title section-heading">Our Executive Education Programs</h2>
-          <p class="tracks-subtitle">Discover our practice-oriented Executive Education programs that combine management expertise with technology competence</p>
+          <h2 class="tracks-title section-heading">Our Executive Education Programmes</h2>
+          <p class="tracks-subtitle">Discover our practice-oriented Executive Education programmes that combine management expertise with technology competence</p>
         </div>
         
         <div class="track-filters">
           <button class="filter-btn active" data-filter="alle">All</button>
           <button class="filter-btn" data-filter="managementseminare">Management Seminars</button>
-          <button class="filter-btn" data-filter="programme">Programs</button>
+          <button class="filter-btn" data-filter="programme">Programmes</button>
         </div>
         
         <div class="tracks-container">
@@ -3279,7 +3280,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               </div>
             </div>
             
-            <!-- Card 2: Financial Management -->
+            <!-- Card 2 -->
             <div class="track-card" data-category="managementseminare">
               <a href="financial_management_en.html" class="card-link" aria-label="Financial Management Details"></a>
               <div class="card-header">
@@ -3387,7 +3388,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               </div>
             </div>
             
-            <!-- Card 6: Current Page - AI-Augmented Decision Making -->
+            <!-- Card 6 - AI-Augmented Decision Making (current page) -->
             <div class="track-card current-page" data-category="managementseminare">
               <a href="ai_augmented_decision_making_en.html" class="card-link" aria-label="AI-Augmented Decision Making Details"></a>
               <div class="card-header">
@@ -3416,10 +3417,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             
             <!-- Card 7: Program - StGallen Management Program -->
             <div class="track-card" data-category="programme">
-              <a href="management_programm_en.html" class="card-link" aria-label="StGallen Management Program Details"></a>
+              <a href="management_programm_en.html" class="card-link" aria-label="StGallen Management Programme Details"></a>
               <div class="card-header">
-                <span class="track-category category-program">Program</span>
-                <h3 class="track-title">StGallen Management Program</h3>
+                <span class="track-category category-program">Programme</span>
+                <h3 class="track-title">StGallen Management Programme</h3>
               </div>
               <div class="card-body">
                 <div class="info-section">
@@ -3436,17 +3437,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <span>CHF 8,400 excl. 8.1% VAT</span>
                   </div>
                 </div>
-                <p class="track-description">Comprehensive program for integrating management know-how with practice-oriented approaches and certified completion.</p>
+                <p class="track-description">Comprehensive programme for integrating management know-how with practice-oriented approaches and certified completion.</p>
                 <a href="management_programm_en.html" class="track-link" style="position: relative; z-index: 2;">Learn more <i class="bx bx-right-arrow-alt"></i></a>
               </div>
             </div>
             
             <!-- Card 8: Program - Certified Management CAS -->
             <div class="track-card" data-category="programme">
-              <a href="management_programm_cas_en.html" class="card-link" aria-label="StGallen Management Programm CAS Details"></a>
+              <a href="management_programm_cas_en.html" class="card-link" aria-label="StGallen Management Programme CAS Details"></a>
               <div class="card-header">
-                <span class="track-category category-program">Program</span>
-                <h3 class="track-title">StGallen Management Programm CAS</h3>
+                <span class="track-category category-program">Programme</span>
+                <h3 class="track-title">StGallen Management Programme CAS</h3>
               </div>
               <div class="card-body">
                 <div class="info-section">
@@ -3472,7 +3473,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="track-card" data-category="programme">
               <a href="ki_excellence_programm_en.html" class="card-link" aria-label="StGallen AI Excellence Management Program Details"></a>
               <div class="card-header">
-                <span class="track-category category-program">Program</span>
+                <span class="track-category category-program">Programme</span>
                 <h3 class="track-title">StGallen AI Excellence Management Program</h3>
               </div>
               <div class="card-body">
@@ -3499,7 +3500,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="track-card" data-category="programme">
               <a href="fast_track_mba_en.html" class="card-link" aria-label="StGallen Fast Track MBA Program Details"></a>
               <div class="card-header">
-                <span class="track-category category-program">Program</span>
+                <span class="track-category category-program">Programme</span>
                 <h3 class="track-title">StGallen Fast Track MBA Program</h3>
               </div>
               <div class="card-body">
@@ -3517,7 +3518,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <span>CHF 24,900 excl. 8.1% VAT</span>
                   </div>
                 </div>
-                <p class="track-description">Accelerated MBA program with focus on management and technology for ambitious leaders.</p>
+                <p class="track-description">Accelerated MBA program with focus on management and technology for aspiring leaders.</p>
                 <a href="fast_track_mba_en.html" class="track-link" style="position: relative; z-index: 2;">Learn more <i class="bx bx-right-arrow-alt"></i></a>
               </div>
             </div>
@@ -3568,12 +3569,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   fetch('components/globals/navigation_ohnesub_en.html?t=' + new Date().getTime())
     .then(response => {
       if (!response.ok) {
-        console.error('Error loading navigation:', response.status);
-        // Try fallback to includes directory
+        console.error('Fehler beim Laden der Navigation:', response.status);
+        // Fallback zum globals-Verzeichnis versuchen
         return fetch('components/includes/navigation_ohnesub_en.html?t=' + new Date().getTime())
           .then(resp => {
             if (!resp.ok) {
-              console.error('Includes path also failed:', resp.status);
+              console.error('Auch globals-Pfad fehlgeschlagen:', resp.status);
               return '';
             }
             return resp.text();
@@ -3582,36 +3583,38 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       return response.text();
     })
     .then(data => {
-      if (data) document.getElementById('navigation-container').innerHTML = data;
-      
-      // Initialize mobile navigation via external file, as in research.html
-      const navScript = document.createElement('script');
-      navScript.src = 'assets/js/mobile-nav.js?t=' + new Date().getTime();
-      document.body.appendChild(navScript);
-      
-      // Initialize language switcher after navigation is loaded
-      setTimeout(() => {
-        if (typeof initLanguageSwitching === 'function') {
-          initLanguageSwitching();
-        } else if (window.switchLanguage) {
-          console.log('Language-switch.js already loaded, using global function');
-        } else {
-          console.warn('Language-switch functions not found!');
-        }
-      }, 300); // Short delay for DOM update
+      if (data) {
+        document.getElementById('navigation-container').innerHTML = data;
+        
+        // Mobile Navigation über externe Datei initialisieren, wie in research.html
+        const navScript = document.createElement('script');
+        navScript.src = 'assets/js/mobile-nav.js?t=' + new Date().getTime();
+        document.body.appendChild(navScript);
+        
+        // Sprachumschalter initialisieren, nachdem die Navigation geladen wurde
+        setTimeout(() => {
+          if (typeof initLanguageSwitching === 'function') {
+            initLanguageSwitching();
+          } else if (window.switchLanguage) {
+            console.log('Language-switch.js bereits geladen, verwende globale Funktion');
+          } else {
+            console.warn('Language-switch Funktionen nicht gefunden!');
+          }
+        }, 300); // Kurzes Delay für DOM-Update
+      }
     })
-    .catch(error => console.error('Error loading navigation:', error));
+    .catch(error => console.error('Fehler beim Laden der Navigation:', error));
   
   // Sidebar laden
   fetch('components/globals/sidebar_en.html?t=' + new Date().getTime())
     .then(response => {
       if (!response.ok) {
-        console.error('Error loading sidebar:', response.status);
-        // Try fallback to includes directory
+        console.error('Fehler beim Laden der Sidebar:', response.status);
+        // Fallback zum globals-Verzeichnis versuchen
         return fetch('components/includes/sidebar_en.html?t=' + new Date().getTime())
           .then(resp => {
             if (!resp.ok) {
-              console.error('Includes path also failed:', resp.status);
+              console.error('Auch globals-Pfad fehlgeschlagen:', resp.status);
               return '';
             }
             return resp.text();
@@ -3620,21 +3623,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       return response.text();
     })
     .then(data => {
-      console.log('Sidebar loaded');
+      console.log('Sidebar geladen');
       if (data) document.getElementById('sidebar-container').innerHTML = data;
     })
-    .catch(error => console.error('Error loading sidebar:', error));
+    .catch(error => console.error('Fehler beim Laden der Sidebar:', error));
   
-  // Load footer
+  // Footer laden
   fetch('components/globals/footer_en.html?t=' + new Date().getTime())
     .then(response => {
       if (!response.ok) {
-        console.error('Error loading footer:', response.status);
-        // Try fallback to includes directory
+        console.error('Fehler beim Laden des Footers:', response.status);
+        // Fallback zum globals-Verzeichnis versuchen
         return fetch('components/includes/footer_en.html?t=' + new Date().getTime())
           .then(resp => {
             if (!resp.ok) {
-              console.error('Includes path also failed:', resp.status);
+              console.error('Auch globals-Pfad fehlgeschlagen:', resp.status);
               return '';
             }
             return resp.text();
@@ -3643,17 +3646,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       return response.text();
     })
     .then(data => {
-      console.log('Footer loaded');
+      console.log('Footer geladen');
       if (data) document.getElementById('footer-container').innerHTML = data;
       
-      // Check footer styles
+      // Überprüfen der Footer-Styles
       if (document.querySelector('footer')) {
         console.log('Footer Styles:', window.getComputedStyle(document.querySelector('footer')));
       } else {
-        console.error('Footer element not found');
+        console.error('Footer-Element nicht gefunden');
       }
     })
-    .catch(error => console.error('Error loading footer:', error));
+    .catch(error => console.error('Fehler beim Laden des Footers:', error));
 
   // Slider Funktionalität
   document.addEventListener('DOMContentLoaded', function() {
@@ -3790,7 +3793,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   });
 </script>
 
-<!-- Skript für Broschüre-Formular Validierung und Netlify Integration -->
+<!-- Skript für Broschüre-Formular Validierung und Google Integration -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('brochure-form');
@@ -3829,7 +3832,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Form-Daten sammeln
             const formData = new FormData(form);
             
-            // Wichtig: Netlify erwartet form-name auch im FormData für AJAX-Übermittlung
+            // Netlify erwartet form-name für eine korrekte Zuordnung
             formData.append("form-name", "ai-augmented-decision-making-brochure-en");
             
             // Via fetch an Netlify senden
@@ -3849,7 +3852,7 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .catch(error => {
                 console.error('Error:', error);
-                alert('There was an error. Please try again later.');
+                alert('Es gab einen Fehler. Bitte versuchen Sie es später erneut.');
             });
         });
 
@@ -3938,7 +3941,7 @@ function updateDownloadStats() {
   
   const downloadsText = document.getElementById('downloads-today');
   if (downloadsText) {
-    downloadsText.innerHTML = `<strong>${finalCount}</strong> Executives haben die Broschüre heute bereits heruntergeladen`;
+    downloadsText.innerHTML = `<strong>${finalCount}</strong> executives have already downloaded the brochure today`;
   }
 }
 
@@ -3996,10 +3999,10 @@ document.addEventListener('DOMContentLoaded', () => {
           subNav.classList.add('active');
           document.body.classList.add('has-subnav');
           
-          // Programm-Titel setzen
+          // Set program title
           const programTitle = document.querySelector('.program-title');
           if (programTitle) {
-            programTitle.textContent = "KI-Augmented Decision Making";
+            programTitle.textContent = "AI-Augmented Decision Making";
             programTitle.href = "programm-seite.html";
           }
         }
@@ -4281,7 +4284,7 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('resize', function() {
       // Debounce resize events to avoid too many calls
       clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(updateLogos, 250);
+      resizeTimeout = setTimeout(updateLogoDisplay, 250);
     });
     
     // Add CSS for mobile single row layout
@@ -4304,85 +4307,75 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 </script>
 
-<!-- Tracks Scroll und Filter Funktionalität -->
+<!-- Tracks Variant 3 Funktionalität -->
 <script>
-  // Tracks Scroll Funktionalität
   document.addEventListener('DOMContentLoaded', function() {
-    const scrollContainer = document.querySelector('.tracks-variant-3 .scroll-container');
-    const scrollLeftBtn = document.querySelector('.tracks-variant-3 #scroll-left');
-    const scrollRightBtn = document.querySelector('.tracks-variant-3 #scroll-right');
-
-    if (scrollContainer && scrollLeftBtn && scrollRightBtn) {
-      const cardWidth = 375; // Kartenbreite plus Gap
-
-      // Scroll-Funktionen
-      scrollLeftBtn.addEventListener('click', () => {
-        scrollContainer.scrollBy({ left: -cardWidth, behavior: 'smooth' });
-        setTimeout(updateScrollButtons, 350);
-      });
-
-      scrollRightBtn.addEventListener('click', () => {
-        scrollContainer.scrollBy({ left: cardWidth, behavior: 'smooth' });
-        setTimeout(updateScrollButtons, 350);
-      });
-
-      // Überprüft, ob die Scroll-Buttons aktiviert oder deaktiviert sein sollten
-      function updateScrollButtons() {
-        const scrollPosition = scrollContainer.scrollLeft;
-        const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
-
-        scrollLeftBtn.disabled = scrollPosition <= 0;
-        scrollRightBtn.disabled = scrollPosition >= maxScrollLeft;
-
-        // Visual Feedback
-        scrollLeftBtn.classList.toggle('disabled', scrollPosition <= 0);
-        scrollRightBtn.classList.toggle('disabled', scrollPosition >= maxScrollLeft);
-      }
-
-      // Initial button status
-      updateScrollButtons();
-
-      // Bei Scroll den Button-Status aktualisieren
-      scrollContainer.addEventListener('scroll', updateScrollButtons);
-      
-      // Bei Resize die Berechnung aktualisieren
-      window.addEventListener('resize', updateScrollButtons);
-    }
-
-    // Filter-Funktionalität für Tracks
+    // Filter-Funktionalität
     const filterButtons = document.querySelectorAll('.tracks-variant-3 .filter-btn');
     const trackCards = document.querySelectorAll('.tracks-variant-3 .track-card');
-
+    
     filterButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const filter = button.getAttribute('data-filter');
+      button.addEventListener('click', function() {
+        const filter = this.dataset.filter;
         
-        // Aktiven Filter-Button setzen
+        // Aktiven Button aktualisieren
         filterButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
+        this.classList.add('active');
         
         // Karten filtern
         trackCards.forEach(card => {
-          const category = card.getAttribute('data-category');
-          
-          if (filter === 'alle' || category === filter) {
-            card.style.display = 'flex';
+          if (filter === 'alle' || card.dataset.category === filter) {
             card.classList.remove('hidden');
           } else {
-            card.style.display = 'none';
             card.classList.add('hidden');
           }
         });
         
-        // Scroll-Container nach dem Filtern aktualisieren
-        setTimeout(() => {
-          if (scrollContainer) {
-            scrollContainer.scrollLeft = 0; // Zurück zum Anfang
-            updateScrollButtons(); // Button-Status aktualisieren
-          }
-        }, 100);
+        // Scroll-Position zurücksetzen
+        const scrollContainer = document.querySelector('.tracks-variant-3 .scroll-container');
+        if (scrollContainer) {
+          scrollContainer.scrollLeft = 0;
+          updateScrollButtons();
+        }
       });
     });
+    
+    // Scroll-Funktionalität
+    const scrollContainer = document.querySelector('.tracks-variant-3 .scroll-container');
+    const scrollLeftBtn = document.getElementById('scroll-left');
+    const scrollRightBtn = document.getElementById('scroll-right');
+    
+    if (scrollContainer && scrollLeftBtn && scrollRightBtn) {
+      const scrollAmount = 375; // Breite einer Karte plus Gap
+      
+      scrollLeftBtn.addEventListener('click', () => {
+        scrollContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        setTimeout(updateScrollButtons, 300);
+      });
+      
+      scrollRightBtn.addEventListener('click', () => {
+        scrollContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        setTimeout(updateScrollButtons, 300);
+      });
+      
+      // Scroll-Button Status aktualisieren
+      function updateScrollButtons() {
+        const scrollLeft = scrollContainer.scrollLeft;
+        const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+        
+        scrollLeftBtn.classList.toggle('disabled', scrollLeft <= 0);
+        scrollRightBtn.classList.toggle('disabled', scrollLeft >= maxScrollLeft - 1);
+      }
+      
+      // Initial und bei Scroll aktualisieren
+      scrollContainer.addEventListener('scroll', updateScrollButtons);
+      window.addEventListener('resize', function() {
+        setTimeout(updateScrollButtons, 100);
+      });
+      
+      // Initial ausführen
+      setTimeout(updateScrollButtons, 100);
+    }
   });
 </script>
 
@@ -4446,7 +4439,7 @@ document.addEventListener('DOMContentLoaded', function() {
       </style>
 
       <!-- Floating Button -->
-      <div class="wizard-floating-btn" onclick="window.location.href='components/globals/wizard_en.html'" title="AI Education Advisor" id="wizard-btn">
+      <div class="wizard-floating-btn" onclick="window.location.href='components/globals/wizard.html'" title="KI-Weiterbildungsberater" id="wizard-btn">
         <i class='bx bx-bulb'></i>
       </div>
 
