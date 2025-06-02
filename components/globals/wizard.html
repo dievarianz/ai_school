@@ -741,7 +741,7 @@
     <div class="wizard-main-content"> <!-- Umbenannt von .modal-content -->
       <div class="wizard-header"> <!-- Umbenannt von .modal-header -->
         <div class="wizard-header-left">
-          <div class="wizard-mini-icon">
+          <div class="wizard-mini-icon" onclick="wizardRestartWizard()" style="cursor: pointer;" title="Zum Anfang zurückkehren">
             <i class='bx bx-bulb'></i>
           </div>
         </div>
@@ -805,7 +805,7 @@
           </div>
           <div class="wizard-navigation">
             <a href="javascript:history.back()" class="btn btn-link">Zurück zur Hauptseite</a>
-            <button class="btn" id="wizard-next-1" onclick="wizardNextStep(1)" disabled>
+            <button class="btn" id="wizard-next-1" onclick="wizardNextStep(1)">
               Weiter <i class='bx bx-chevron-right'></i>
             </button>
           </div>
@@ -838,7 +838,7 @@
             <button class="btn btn-secondary" onclick="wizardPrevStep(2)">
               <i class='bx bx-chevron-left'></i> Zurück
             </button>
-            <button class="btn" id="wizard-next-2" onclick="wizardNextStep(2)" disabled>
+            <button class="btn" id="wizard-next-2" onclick="wizardNextStep(2)">
               Weiter <i class='bx bx-chevron-right'></i>
             </button>
           </div>
@@ -848,7 +848,7 @@
         <div class="wizard-step" id="wizard-step-3">
           <div class="question-container">
             <h3 class="question-title">Welche Präferenzen haben Sie?</h3>
-            <p class="question-subtitle">Sprache und gewünschte Zertifizierung</p>
+            <p class="question-subtitle">Sprache und gewünschte Zertifizierung (alle Angaben optional)</p>
           </div>
           <div class="preferences-section" style="margin-bottom: 2rem;">
             <h4 style="margin-bottom: 1rem; color: var(--color-text); font-weight: 600;">Bevorzugte Sprache:</h4>
@@ -865,16 +865,16 @@
             </div>
           </div>
           <div class="preferences-section">
-            <h4 style="margin-bottom: 1rem; color: var(--color-text); font-weight: 600;">Gewünschte Zertifizierung:</h4>
+            <h4 style="margin-bottom: 1rem; color: var(--color-text); font-weight: 600;">Gewünschte Mindest-Zertifizierung:</h4>
             <div class="options-grid preferences-grid" style="grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));">
               <div class="option-card" data-value="none" data-type="certification">
                 <i class='bx bx-bookmark option-icon'></i><div class="option-title">Nicht erforderlich</div>
               </div>
               <div class="option-card" data-value="ects" data-type="certification">
-                <i class='bx bx-award option-icon'></i><div class="option-title">ECTS-Punkte</div>
+                <i class='bx bx-award option-icon'></i><div class="option-title">Mindestens ECTS</div>
               </div>
               <div class="option-card" data-value="cas" data-type="certification">
-                <i class='bx bx-certification option-icon'></i><div class="option-title">CAS-Abschluss</div>
+                <i class='bx bx-certification option-icon'></i><div class="option-title">Mindestens CAS</div>
               </div>
               <div class="option-card" data-value="mba" data-type="certification">
                 <i class='bx bx-medal option-icon'></i><div class="option-title">MBA-Abschluss</div>
@@ -885,7 +885,7 @@
             <button class="btn btn-secondary" onclick="wizardPrevStep(3)">
               <i class='bx bx-chevron-left'></i> Zurück
             </button>
-            <button class="btn" id="wizard-next-3" onclick="wizardNextStep(3)" disabled>
+            <button class="btn" id="wizard-next-3" onclick="wizardNextStep(3)">
               Empfehlung erhalten <i class='bx bx-sparkles'></i>
             </button>
           </div>
@@ -1156,31 +1156,57 @@
     const programsWithScores = [];
     
     for (const [key, program] of Object.entries(programs)) {
-      if (!program.certification.includes(wizardSelections.certification)) {
-        continue;
-      }
-      
-      if (wizardSelections.language !== 'both' && !program.language.includes(wizardSelections.language)) {
-        continue;
-      }
-      
-      let timeframeMatch = false;
-      if (wizardSelections.timeframe === 'short' && program.duration.includes('3 Tage')) {
-        timeframeMatch = true;
-      } else if (wizardSelections.timeframe === 'medium' && (program.duration.includes('4x3') && !program.type.includes('MBA'))) {
-        timeframeMatch = true;
-      } else if (wizardSelections.timeframe === 'long' && program.type.includes('MBA')) {
-        timeframeMatch = true;
-      }
-      
-      if (!timeframeMatch) {
-        continue;
-      }
-      
       let score = 0;
       let reasons = [];
       
-      if (program.goals.includes(wizardSelections.goal)) {
+      // Zertifizierungs-Filter mit Mindestanforderung
+      let certificationMatch = false;
+      if (!wizardSelections.certification || wizardSelections.certification === 'none') {
+        // Keine Zertifizierung gewünscht - alle Programme okay
+        certificationMatch = true;
+      } else if (wizardSelections.certification === 'ects') {
+        // ECTS gewünscht - ECTS, CAS und MBA Programme
+        certificationMatch = program.certification.includes('ects') || 
+                           program.certification.includes('cas') || 
+                           program.certification.includes('mba');
+      } else if (wizardSelections.certification === 'cas') {
+        // CAS gewünscht - CAS und MBA Programme
+        certificationMatch = program.certification.includes('cas') || 
+                           program.certification.includes('mba');
+      } else if (wizardSelections.certification === 'mba') {
+        // MBA gewünscht - nur MBA Programme
+        certificationMatch = program.certification.includes('mba');
+      }
+      
+      if (!certificationMatch) {
+        continue; // Programm ausschließen
+      }
+      
+      // Alle Programme sind in allen Sprachen verfügbar (Übersetzung möglich)
+      // Sprachpräferenz wird nur als Bonus gewertet, nicht als harter Filter
+      
+      // Zeitrahmen-Filter (weicher - wenn keine Auswahl, dann alle)
+      let timeframeScore = 0;
+      if (wizardSelections.timeframe) {
+        if (wizardSelections.timeframe === 'short' && program.duration.includes('3 Tage')) {
+          timeframeScore = 8;
+          reasons.push('Passt zu Ihrem gewünschten Zeitrahmen (3-4 Tage)');
+        } else if (wizardSelections.timeframe === 'medium' && (program.duration.includes('4x3') && !program.type.includes('MBA'))) {
+          timeframeScore = 8;
+          reasons.push('Passt zu Ihrem gewünschten Zeitrahmen (3-4 Monate)');
+        } else if (wizardSelections.timeframe === 'long' && program.type.includes('MBA')) {
+          timeframeScore = 8;
+          reasons.push('Passt zu Ihrem gewünschten Zeitrahmen (12+ Monate)');
+        } else {
+          timeframeScore = 2; // Nicht optimal, aber nicht ausschließen
+        }
+      } else {
+        timeframeScore = 5; // Neutral wenn keine Auswahl
+      }
+      score += timeframeScore;
+      
+      // Lernziel-Match (höchste Gewichtung)
+      if (wizardSelections.goal && program.goals.includes(wizardSelections.goal)) {
         score += 10;
         const goalNames = {
           'strategy': 'Strategisches Management', 
@@ -1191,41 +1217,56 @@
           'comprehensive': 'Ganzheitliches Management'
         };
         reasons.push(`Deckt Ihr Lernziel "${goalNames[wizardSelections.goal]}" ab`);
+      } else if (!wizardSelections.goal) {
+        score += 5; // Neutral wenn keine Auswahl
       }
       
-      if (wizardSelections.timeframe === 'short' && program.duration.includes('3 Tage')) {
-        score += 5;
-        reasons.push('Passt zu Ihrem gewünschten Zeitrahmen (3-4 Tage)');
-      } else if (wizardSelections.timeframe === 'medium' && program.duration.includes('4x3')) {
-        score += 5;
-        reasons.push('Passt zu Ihrem gewünschten Zeitrahmen (3-4 Monate)');
-      } else if (wizardSelections.timeframe === 'long' && program.type.includes('MBA')) {
-        score += 5;
-        reasons.push('Passt zu Ihrem gewünschten Zeitrahmen (12+ Monate)');
+      // Sprachbonus (nicht mehr als harter Filter)
+      if (wizardSelections.language && wizardSelections.language !== 'both') {
+        if (program.language.includes(wizardSelections.language)) {
+          score += 3;
+          const langName = wizardSelections.language === 'de' ? 'Deutsch' : 'Englisch';
+          reasons.push(`Verfügbar in ${langName}`);
+        } else {
+          score += 1; // Minimaler Punktabzug, aber nicht ausschließen
+          reasons.push('Übersetzung verfügbar');
+        }
+      } else {
+        score += 2; // Bonus für Flexibilität
       }
       
-      if (wizardSelections.language !== 'both') {
-        score += 2;
-        const langName = wizardSelections.language === 'de' ? 'Deutsch' : 'Englisch';
-        reasons.push(`Verfügbar in ${langName}`);
+      // Zertifizierungsbonus
+      if (wizardSelections.certification) {
+        score += 3;
+        const certNames = {
+          'none': 'Keine Zertifizierung erforderlich', 
+          'ects': 'ECTS-Punkte oder höher verfügbar', 
+          'cas': 'CAS-Abschluss oder höher verfügbar', 
+          'mba': 'MBA-Abschluss verfügbar'
+        };
+        reasons.push(certNames[wizardSelections.certification]);
       }
       
-      score += 3;
-      const certNames = {
-        'none': 'Keine Zertifizierung erforderlich', 
-        'ects': 'ECTS-Punkte verfügbar', 
-        'cas': 'CAS-Abschluss', 
-        'mba': 'MBA-Abschluss'
-      };
-      reasons.push(certNames[wizardSelections.certification]);
+      // Basis-Score für alle Programme
+      score += 1;
       
-      if (score >= 10) {
-        programsWithScores.push({...program, score: score, matchReason: reasons.join(', ')});
-      }
+      programsWithScores.push({...program, score: score, matchReason: reasons.join(', ')});
     }
     
+    // Nach Score sortieren (höchster zuerst)
     programsWithScores.sort((a, b) => b.score - a.score);
-    return programsWithScores.slice(0, 3);
+    
+    // Fallback: Wenn keine Programme gefunden, alle Programme anzeigen (sollte nicht passieren)
+    if (programsWithScores.length === 0) {
+      return Object.values(programs).map(program => ({
+        ...program, 
+        score: 1, 
+        matchReason: 'Allgemeine Empfehlung'
+      })).slice(0, 3);
+    }
+    
+    // Maximal 5 Programme zurückgeben
+    return programsWithScores.slice(0, 5);
   }
 
   function wizardRestartWizard() {
@@ -1241,9 +1282,7 @@
       connector.classList.remove('active', 'completed');
     });
     document.querySelectorAll('.option-card').forEach(card => card.classList.remove('selected'));
-    document.getElementById('wizard-next-1').disabled = true;
-    document.getElementById('wizard-next-2').disabled = true;
-    document.getElementById('wizard-next-3').disabled = true;
+    // Buttons bleiben immer aktiviert
   }
 
   // Event handlers
@@ -1273,27 +1312,46 @@
     const type = card.dataset.type;
 
     if (step === 1) {
-      document.querySelectorAll('#wizard-step-1 .option-card').forEach(c => c.classList.remove('selected'));
-      card.classList.add('selected');
-      wizardSelections.goal = value;
-      document.getElementById('wizard-next-1').disabled = false;
+      // Toggle selection - wenn bereits ausgewählt, dann entfernen
+      if (card.classList.contains('selected')) {
+        card.classList.remove('selected');
+        wizardSelections.goal = null;
+      } else {
+        document.querySelectorAll('#wizard-step-1 .option-card').forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+        wizardSelections.goal = value;
+      }
     } else if (step === 2) {
-      document.querySelectorAll('#wizard-step-2 .option-card').forEach(c => c.classList.remove('selected'));
-      card.classList.add('selected');
-      wizardSelections.timeframe = value;
-      document.getElementById('wizard-next-2').disabled = false;
+      // Toggle selection - wenn bereits ausgewählt, dann entfernen
+      if (card.classList.contains('selected')) {
+        card.classList.remove('selected');
+        wizardSelections.timeframe = null;
+      } else {
+        document.querySelectorAll('#wizard-step-2 .option-card').forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+        wizardSelections.timeframe = value;
+      }
     } else if (step === 3) {
       if (type === 'language') {
-        document.querySelectorAll('#wizard-step-3 [data-type="language"]').forEach(c => c.classList.remove('selected'));
-        card.classList.add('selected');
-        wizardSelections.language = value;
+        // Toggle selection - wenn bereits ausgewählt, dann entfernen
+        if (card.classList.contains('selected')) {
+          card.classList.remove('selected');
+          wizardSelections.language = null;
+        } else {
+          document.querySelectorAll('#wizard-step-3 [data-type="language"]').forEach(c => c.classList.remove('selected'));
+          card.classList.add('selected');
+          wizardSelections.language = value;
+        }
       } else if (type === 'certification') {
-        document.querySelectorAll('#wizard-step-3 [data-type="certification"]').forEach(c => c.classList.remove('selected'));
-        card.classList.add('selected');
-        wizardSelections.certification = value;
-      }
-      if (wizardSelections.language && wizardSelections.certification) {
-        document.getElementById('wizard-next-3').disabled = false;
+        // Toggle selection - wenn bereits ausgewählt, dann entfernen
+        if (card.classList.contains('selected')) {
+          card.classList.remove('selected');
+          wizardSelections.certification = null;
+        } else {
+          document.querySelectorAll('#wizard-step-3 [data-type="certification"]').forEach(c => c.classList.remove('selected'));
+          card.classList.add('selected');
+          wizardSelections.certification = value;
+        }
       }
     }
   }

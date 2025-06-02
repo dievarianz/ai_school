@@ -722,7 +722,7 @@
     <div class="wizard-main-content">
       <div class="wizard-header">
         <div class="wizard-header-left">
-          <div class="wizard-mini-icon">
+          <div class="wizard-mini-icon" onclick="wizardRestartWizard()" style="cursor: pointer;" title="Back to start">
             <i class='bx bx-bulb'></i>
           </div>
         </div>
@@ -785,9 +785,9 @@
         </div>
         <div class="wizard-navigation">
             <a href="javascript:history.back()" class="btn btn-link">Back to Homepage</a>
-            <button class="btn" id="wizard-next-1" onclick="wizardNextStep(1)" disabled>
+            <button class="btn" id="wizard-next-1" onclick="wizardNextStep(1)">
               Next <i class='bx bx-chevron-right'></i>
-          </button>
+            </button>
         </div>
       </div>
 
@@ -801,7 +801,7 @@
           <div class="option-card" data-value="short">
             <i class='bx bx-time-five option-icon'></i>
               <div class="option-title">3-4 Days</div>
-              <div class="option-description">Compact management seminars for quick development</div>
+              <div class="option-description">Compact management seminars for quick education</div>
           </div>
           <div class="option-card" data-value="medium">
             <i class='bx bx-calendar option-icon'></i>
@@ -818,7 +818,7 @@
             <button class="btn btn-secondary" onclick="wizardPrevStep(2)">
               <i class='bx bx-chevron-left'></i> Back
           </button>
-            <button class="btn" id="wizard-next-2" onclick="wizardNextStep(2)" disabled>
+            <button class="btn" id="wizard-next-2" onclick="wizardNextStep(2)">
               Next <i class='bx bx-chevron-right'></i>
           </button>
         </div>
@@ -828,7 +828,7 @@
         <div class="wizard-step" id="wizard-step-3">
         <div class="question-container">
             <h3 class="question-title">What are your preferences?</h3>
-            <p class="question-subtitle">Language and desired certification</p>
+            <p class="question-subtitle">Language and desired certification (all optional)</p>
         </div>
         <div class="preferences-section" style="margin-bottom: 2rem;">
             <h4 style="margin-bottom: 1rem; color: var(--color-text); font-weight: 600;">Preferred Language:</h4>
@@ -840,21 +840,21 @@
                 <i class='bx bx-world option-icon'></i><div class="option-title">English</div>
             </div>
             <div class="option-card" data-value="both" data-type="language">
-                <i class='bx bx-globe option-icon'></i><div class="option-title">Both possible</div>
+                <i class='bx bx-globe option-icon'></i><div class="option-title">Both Possible</div>
             </div>
           </div>
         </div>
         <div class="preferences-section">
-            <h4 style="margin-bottom: 1rem; color: var(--color-text); font-weight: 600;">Desired Certification:</h4>
+            <h4 style="margin-bottom: 1rem; color: var(--color-text); font-weight: 600;">Desired Minimum Certification:</h4>
           <div class="options-grid preferences-grid" style="grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));">
             <div class="option-card" data-value="none" data-type="certification">
-                <i class='bx bx-bookmark option-icon'></i><div class="option-title">Not required</div>
+                <i class='bx bx-bookmark option-icon'></i><div class="option-title">Not Required</div>
             </div>
             <div class="option-card" data-value="ects" data-type="certification">
-                <i class='bx bx-award option-icon'></i><div class="option-title">ECTS Points</div>
+                <i class='bx bx-award option-icon'></i><div class="option-title">At Least ECTS</div>
             </div>
             <div class="option-card" data-value="cas" data-type="certification">
-                <i class='bx bx-certification option-icon'></i><div class="option-title">CAS Degree</div>
+                <i class='bx bx-certification option-icon'></i><div class="option-title">At Least CAS</div>
             </div>
             <div class="option-card" data-value="mba" data-type="certification">
                 <i class='bx bx-medal option-icon'></i><div class="option-title">MBA Degree</div>
@@ -865,7 +865,7 @@
             <button class="btn btn-secondary" onclick="wizardPrevStep(3)">
               <i class='bx bx-chevron-left'></i> Back
           </button>
-            <button class="btn" id="wizard-next-3" onclick="wizardNextStep(3)" disabled>
+            <button class="btn" id="wizard-next-3" onclick="wizardNextStep(3)">
               Get Recommendation <i class='bx bx-sparkles'></i>
           </button>
         </div>
@@ -1128,111 +1128,136 @@
   }
 
   function findBestMatchesWizard() {
-      const programsWithScores = [];
-
-      for (const [key, program] of Object.entries(programs)) {
-      // HARD FILTERS - all must be met, otherwise program is excluded
+    const programsWithScores = [];
+    
+    for (const [key, program] of Object.entries(programs)) {
+      let score = 0;
+      let reasons = [];
       
-      // 1. Certification filter (very strict!)
-      if (!program.certification.includes(wizardSelections.certification)) {
-        continue; // Program is completely excluded
+      // Certification filter with minimum requirement
+      let certificationMatch = false;
+      if (!wizardSelections.certification || wizardSelections.certification === 'none') {
+        // No certification desired - all programmes okay
+        certificationMatch = true;
+      } else if (wizardSelections.certification === 'ects') {
+        // ECTS desired - ECTS, CAS and MBA programmes
+        certificationMatch = program.certification.includes('ects') || 
+                           program.certification.includes('cas') || 
+                           program.certification.includes('mba');
+      } else if (wizardSelections.certification === 'cas') {
+        // CAS desired - CAS and MBA programmes
+        certificationMatch = program.certification.includes('cas') || 
+                           program.certification.includes('mba');
+      } else if (wizardSelections.certification === 'mba') {
+        // MBA desired - only MBA programmes
+        certificationMatch = program.certification.includes('mba');
       }
       
-      // 2. Language filter 
-      if (wizardSelections.language !== 'both' && !program.language.includes(wizardSelections.language)) {
-        continue; // Program is excluded
+      if (!certificationMatch) {
+        continue; // Exclude programme
       }
       
-      // 3. Timeframe filter (very strict!)
-      let timeframeMatch = false;
-      if (wizardSelections.timeframe === 'short' && program.duration.includes('3 days')) {
-        timeframeMatch = true;
-      } else if (wizardSelections.timeframe === 'medium' && (program.duration.includes('4x3') && !program.type.includes('MBA'))) {
-        timeframeMatch = true;
-      } else if (wizardSelections.timeframe === 'long' && program.type.includes('MBA')) {
-        timeframeMatch = true;
-      }
+      // All programmes are available in all languages (translation possible)
+      // Language preference is only rated as bonus, not as hard filter
       
-      if (!timeframeMatch) {
-        continue; // Program is excluded
+      // Timeframe filter (softer - if no selection, then all)
+      let timeframeScore = 0;
+      if (wizardSelections.timeframe) {
+        if (wizardSelections.timeframe === 'short' && program.duration.includes('3 days')) {
+          timeframeScore = 8;
+          reasons.push('Fits your desired timeframe (3-4 days)');
+        } else if (wizardSelections.timeframe === 'medium' && (program.duration.includes('4x3') && !program.type.includes('MBA'))) {
+          timeframeScore = 8;
+          reasons.push('Fits your desired timeframe (3-4 months)');
+        } else if (wizardSelections.timeframe === 'long' && program.type.includes('MBA')) {
+          timeframeScore = 8;
+          reasons.push('Fits your desired timeframe (12+ months)');
+        } else {
+          timeframeScore = 2; // Not optimal, but don't exclude
+        }
+      } else {
+        timeframeScore = 5; // Neutral if no selection
       }
+      score += timeframeScore;
       
-      // If all hard filters are passed, start scoring
-        let score = 0;
-        let reasons = [];
-
-      // Main criterion: Learning goal (highest weighting)
-      if (program.goals.includes(wizardSelections.goal)) {
-        score += 10; // Much higher weighting
-          const goalNames = {
+      // Learning goal match (highest weighting)
+      if (wizardSelections.goal && program.goals.includes(wizardSelections.goal)) {
+        score += 10;
+        const goalNames = {
           'strategy': 'Strategic Management', 
           'leadership': 'Leadership Skills', 
-            'finance': 'Financial Management',
+          'finance': 'Financial Management', 
           'ai': 'AI & Digitalization', 
-            'marketing': 'Marketing & Sales',
+          'marketing': 'Marketing & Sales', 
           'comprehensive': 'Comprehensive Management'
         };
         reasons.push(`Covers your learning goal "${goalNames[wizardSelections.goal]}"`);
+      } else if (!wizardSelections.goal) {
+        score += 5; // Neutral if no selection
       }
       
-      // Bonus points for perfect matches
-      if (wizardSelections.timeframe === 'short' && program.duration.includes('3 days')) {
-        score += 5;
-        reasons.push('Fits your desired timeframe (3-4 days)');
-      } else if (wizardSelections.timeframe === 'medium' && program.duration.includes('4x3')) {
-        score += 5;
-        reasons.push('Fits your desired timeframe (3-4 months)');
-      } else if (wizardSelections.timeframe === 'long' && program.type.includes('MBA')) {
-        score += 5;
-        reasons.push('Fits your desired timeframe (12+ months)');
-      }
-      
-      // Language bonus
-      if (wizardSelections.language !== 'both') {
-        score += 2;
-        const langName = wizardSelections.language === 'de' ? 'German' : 'English';
-        reasons.push(`Available in ${langName}`);
+      // Language bonus (no longer a hard filter)
+      if (wizardSelections.language && wizardSelections.language !== 'both') {
+        if (program.language.includes(wizardSelections.language)) {
+          score += 3;
+          const langName = wizardSelections.language === 'de' ? 'German' : 'English';
+          reasons.push(`Available in ${langName}`);
+        } else {
+          score += 1; // Minimal point deduction, but don't exclude
+          reasons.push('Translation available');
+        }
+      } else {
+        score += 2; // Bonus for flexibility
       }
       
       // Certification bonus
-      score += 3; // Since it already passed the hard filter
-          const certNames = {
-        'none': 'No certification required', 
-        'ects': 'ECTS points available', 
-        'cas': 'CAS degree', 
-        'mba': 'MBA degree'
-      };
-      reasons.push(certNames[wizardSelections.certification]);
-      
-      // Only programs with at least 10 points (at least learning goal match)
-      if (score >= 10) {
-        programsWithScores.push({...program, score: score, matchReason: reasons.join(', ')});
+      if (wizardSelections.certification) {
+        score += 3;
+        const certNames = {
+          'none': 'No certification required', 
+          'ects': 'ECTS points or higher available', 
+          'cas': 'CAS degree or higher available', 
+          'mba': 'MBA degree available'
+        };
+        reasons.push(certNames[wizardSelections.certification]);
       }
+      
+      // Base score for all programmes
+      score += 1;
+      
+      programsWithScores.push({...program, score: score, matchReason: reasons.join(', ')});
     }
     
     // Sort by score (highest first)
-      programsWithScores.sort((a, b) => b.score - a.score);
+    programsWithScores.sort((a, b) => b.score - a.score);
     
-    // Return maximum 3 programs
-    return programsWithScores.slice(0, 3);
+    // Fallback: If no programmes found, show all programmes (should not happen)
+    if (programsWithScores.length === 0) {
+      return Object.values(programs).map(program => ({
+        ...program, 
+        score: 1, 
+        matchReason: 'General recommendation'
+      })).slice(0, 3);
+    }
+    
+    // Return maximum 5 programmes
+    return programsWithScores.slice(0, 5);
   }
 
   function wizardRestartWizard() {
     currentWizardStep = 1;
     wizardSelections = {goal: null, timeframe: null, language: null, certification: null};
-      document.querySelectorAll('.wizard-step').forEach(step => step.classList.remove('active'));
+    document.querySelectorAll('.wizard-step').forEach(step => step.classList.remove('active'));
     document.getElementById('wizard-step-1').classList.add('active');
-      document.querySelectorAll('.progress-step').forEach((step, index) => {
-        step.classList.remove('active', 'completed');
-        if (index === 0) step.classList.add('active');
-      });
-      document.querySelectorAll('.progress-connector').forEach(connector => {
-        connector.classList.remove('active', 'completed');
-      });
-      document.querySelectorAll('.option-card').forEach(card => card.classList.remove('selected'));
-    document.getElementById('wizard-next-1').disabled = true;
-    document.getElementById('wizard-next-2').disabled = true;
-    document.getElementById('wizard-next-3').disabled = true;
+    document.querySelectorAll('.progress-step').forEach((step, index) => {
+      step.classList.remove('active', 'completed');
+      if (index === 0) step.classList.add('active');
+    });
+    document.querySelectorAll('.progress-connector').forEach(connector => {
+      connector.classList.remove('active', 'completed');
+    });
+    document.querySelectorAll('.option-card').forEach(card => card.classList.remove('selected'));
+    // Buttons remain always enabled
   }
 
   // Event handlers for option selection
@@ -1262,27 +1287,46 @@
     const type = card.dataset.type;
 
     if (step === 1) {
-      document.querySelectorAll('#wizard-step-1 .option-card').forEach(c => c.classList.remove('selected'));
-      card.classList.add('selected');
-      wizardSelections.goal = value;
-      document.getElementById('wizard-next-1').disabled = false;
+      // Toggle selection - if already selected, then remove
+      if (card.classList.contains('selected')) {
+        card.classList.remove('selected');
+        wizardSelections.goal = null;
+      } else {
+        document.querySelectorAll('#wizard-step-1 .option-card').forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+        wizardSelections.goal = value;
+      }
     } else if (step === 2) {
-      document.querySelectorAll('#wizard-step-2 .option-card').forEach(c => c.classList.remove('selected'));
-      card.classList.add('selected');
-      wizardSelections.timeframe = value;
-      document.getElementById('wizard-next-2').disabled = false;
+      // Toggle selection - if already selected, then remove
+      if (card.classList.contains('selected')) {
+        card.classList.remove('selected');
+        wizardSelections.timeframe = null;
+      } else {
+        document.querySelectorAll('#wizard-step-2 .option-card').forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+        wizardSelections.timeframe = value;
+      }
     } else if (step === 3) {
       if (type === 'language') {
-        document.querySelectorAll('#wizard-step-3 [data-type="language"]').forEach(c => c.classList.remove('selected'));
-        card.classList.add('selected');
-        wizardSelections.language = value;
+        // Toggle selection - if already selected, then remove
+        if (card.classList.contains('selected')) {
+          card.classList.remove('selected');
+          wizardSelections.language = null;
+        } else {
+          document.querySelectorAll('#wizard-step-3 [data-type="language"]').forEach(c => c.classList.remove('selected'));
+          card.classList.add('selected');
+          wizardSelections.language = value;
+        }
       } else if (type === 'certification') {
-        document.querySelectorAll('#wizard-step-3 [data-type="certification"]').forEach(c => c.classList.remove('selected'));
-        card.classList.add('selected');
-        wizardSelections.certification = value;
-      }
-      if (wizardSelections.language && wizardSelections.certification) {
-        document.getElementById('wizard-next-3').disabled = false;
+        // Toggle selection - if already selected, then remove
+        if (card.classList.contains('selected')) {
+          card.classList.remove('selected');
+          wizardSelections.certification = null;
+        } else {
+          document.querySelectorAll('#wizard-step-3 [data-type="certification"]').forEach(c => c.classList.remove('selected'));
+          card.classList.add('selected');
+          wizardSelections.certification = value;
+        }
       }
     }
   }
