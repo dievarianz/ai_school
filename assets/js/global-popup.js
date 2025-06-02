@@ -1,11 +1,11 @@
 // Global Popup System
-// Zeigt das Voucher Popup nach 10 Sekunden an, einmalig pro Nutzer
+// Zeigt das Voucher Popup nach 10 Minuten an, einmalig pro Nutzer
 
 (function() {
     'use strict';
     
     // Konfiguration
-    const POPUP_DELAY = 15000; // 15 Sekunden
+    const POPUP_DELAY = 600000; // 10 Minuten (600.000ms)
     const STORAGE_KEY = 'voucher_popup_submitted';
     
     // Prüfen ob Popup bereits erfolgreich ausgefüllt wurde
@@ -160,7 +160,7 @@
         // Form-Submission-Listener einrichten
         setupFormSubmissionListener();
         
-        console.log('Starte Voucher Popup Timer (15 Sekunden)');
+        console.log('Starte Voucher Popup Timer (10 Minuten)');
         
         // Timer für Popup-Anzeige
         setTimeout(() => {
