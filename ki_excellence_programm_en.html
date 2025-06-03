@@ -3209,11 +3209,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           
           <!-- Formular -->
           <div style="flex: 1 1 400px; background: #f5f5f7; padding: 32px; border-radius: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
-            <form id="brochure-form" method="post" netlify name="ki-excellence-programm-brochure" netlify-honeypot="bot-field" data-netlify="true" action="/" novalidate>
+            <form id="brochure-form" method="post" netlify name="ki-excellence-programm-brochure-en" netlify-honeypot="bot-field" data-netlify="true" action="/" novalidate>
               <p class="hidden" style="display: none;">
                 <label>Don't fill this out if you're human: <input name="bot-field" /></label>
               </p>
-              <input type="hidden" name="form-name" value="ki-excellence-programm-brochure">
+              <input type="hidden" name="form-name" value="ki-excellence-programm-brochure-en">
               <input name="firstname" placeholder="First Name" style="width: 100%; padding: 12px; margin-bottom: 18px; border-radius: 8px; border: 1px solid #ccc;" type="text" required/>
               <input name="lastname" placeholder="Last Name" style="width: 100%; padding: 12px; margin-bottom: 18px; border-radius: 8px; border: 1px solid #ccc;" type="text" required/>
               <input name="email" placeholder="Email" style="width: 100%; padding: 12px; margin-bottom: 18px; border-radius: 8px; border: 1px solid #ccc;" type="email" required/>
@@ -3943,7 +3943,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const formData = new FormData(form);
             
             // Wichtig: Netlify erwartet form-name auch im FormData für AJAX-Übermittlung
-            formData.append("form-name", "ki-excellence-programm-brochure");
+            formData.append("form-name", "ki-excellence-programm-brochure-en");
             
             // Via fetch an Netlify senden
             fetch('/', {
