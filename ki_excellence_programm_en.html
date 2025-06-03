@@ -5,7 +5,7 @@
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>StGallen AI Excellence Management Programme | St.Gallen imt Business School</title>
 <meta name="description" content="Develop AI leadership competence with the AI Excellence Management Programme at St.Gallen imt Business School. Comprehensive executive education for leaders in the age of artificial intelligence."/>
-<meta name="keywords" content="AI Excellence, AI management, artificial intelligence, St.Gallen, Business School, Executive Education, AI strategy, leadership, management education, digital transformation, AI technologies, leadership competence"/>
+<meta name="keywords" content="AI Excellence, AI Management, artificial intelligence, St.Gallen, Business School, Executive Education, AI strategy, Leadership, management development, digital transformation, AI technologies, leadership competence"/>
 
 <!-- ============ STYLES ============ -->
 <style>
@@ -103,7 +103,7 @@
     text-decoration: underline;
   }
 
-  /* Gradient Headings */
+  /* Überschriften mit Gradient */
   .section-heading {
     font-size: 1.5rem;
     margin-bottom: 1rem;
@@ -327,13 +327,13 @@
     align-items: center;
     border: 1px solid white;
     color: white;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.3); /* Leicht transparenter Hintergrund */
     padding: 4px 10px;
     border-radius: 4px;
     font-size: 0.75rem;
     font-weight: 500;
     margin-bottom: 15px;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4); /* Reduzierter Textschatten */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6); /* Textschatten für bessere Lesbarkeit */
   }
 
   /* Info-Boxen exakt wie in index.html */
@@ -1069,7 +1069,7 @@
 
   /* IMT Advisor Section */
   #contact {
-    padding: 80px 0;
+    padding: 60px 0;
     position: relative;
   }
   
@@ -1155,7 +1155,7 @@
     margin-bottom: 1.5rem;
   }
 
-  /* Unified arrow style for all buttons */
+  /* Einheitlicher Pfeil-Stil für alle Buttons */
   .arrow-icon {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-weight: 400;
@@ -1273,9 +1273,10 @@
   
   .sidebar-title-v6 {
     font-weight: 500;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     color: var(--color-text);
     transition: color 0.3s ease;
+    line-height: 1.3;
   }
   
   .sidebar-tab-v6.active .sidebar-title-v6 {
@@ -1690,7 +1691,7 @@
   .gradient-info {
     display: flex;
     flex-direction: column;
-    margin-top: 6px; /* Shifts the text down for vertical centering */
+    margin-top: 6px; /* Verschiebt den Text nach unten für vertikale Zentrierung */
   }
   
   .gradient-name {
@@ -1827,7 +1828,7 @@
     }
   }
 
-  /* Hero Brands Styles für "Trusted by" */
+  /* Hero Brands Styles für "Vertrauen unserer Kompetenz" */
   .hero-brands {
     display: flex;
     justify-content: space-between;
@@ -1869,17 +1870,18 @@
     margin-bottom: 1.5rem;
   }
 
-  /* Responsive adjustments for logos - Mobile 4 logos in single row */
+  /* Responsive adjustments for logos - Mobile 4+2 Grid */
   @media (max-width: 767px) {
     .hero-brands {
-      display: flex !important;
-      justify-content: space-between !important;
-      align-items: center !important;
-      gap: 15px !important;
-      flex-wrap: nowrap !important;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto auto;
+      gap: 40px 15px;
       max-width: 100%;
       margin: 25px auto 0;
       padding: 0 20px;
+      justify-items: center;
+      align-items: center;
     }
     
     .hero-brands img {
@@ -1894,9 +1896,19 @@
       height: 25px;
       max-width: 70px;
     }
+    
+    /* Erste 4 Logos in der ersten Zeile */
+    .hero-brands img:nth-child(1) { grid-column: 1; grid-row: 1; }
+    .hero-brands img:nth-child(2) { grid-column: 2; grid-row: 1; }
+    .hero-brands img:nth-child(3) { grid-column: 3; grid-row: 1; }
+    .hero-brands img:nth-child(4) { grid-column: 4; grid-row: 1; }
+    
+    /* Letzten 2 Logos in der zweiten Zeile, zentriert */
+    .hero-brands img:nth-child(5) { grid-column: 2; grid-row: 2; }
+    .hero-brands img:nth-child(6) { grid-column: 3; grid-row: 2; }
   }
-  
-  /* Tracks Variant 3 Styles für "Our Executive Education Programmes" */
+
+  /* Tracks Variant 3 Styles für "Unsere Weiterbildungen" */
   .tracks-variant-3 {
     padding: 80px 0;
     background: #fff;
@@ -2021,7 +2033,7 @@
   .tracks-variant-3 .card-header {
     padding: 20px;
     border-bottom: 1px solid #f5f5f7;
-    min-height: 110px;
+    min-height: 110px; /* Stellt sicher, dass alle Header die gleiche Höhe haben */
     display: flex;
     flex-direction: column;
   }
@@ -2060,7 +2072,7 @@
     font-weight: 600;
     margin: 0;
     line-height: 1.3;
-    height: 65px;
+    height: 65px; /* Feste Höhe für Titel, egal ob 1 oder 2 Zeilen */
     display: flex;
     align-items: flex-start;
   }
@@ -2084,15 +2096,15 @@
     margin-bottom: 8px;
     font-size: 0.9rem;
     color: var(--color-muted);
-    min-height: 24px;
+    min-height: 24px; /* Einheitliche Höhe für alle Zeilen */
   }
   
   .tracks-variant-3 .card-row i {
     color: var(--imt-purple);
     font-size: 1.1rem;
-    width: 20px;
-    text-align: center;
-    flex-shrink: 0;
+    width: 20px; /* Feste Breite für Icons */
+    text-align: center; /* Zentriert die Icons */
+    flex-shrink: 0; /* Verhindert Schrumpfen */
   }
   
   /* Teal Icons für Programme */
@@ -2101,24 +2113,24 @@
   }
   
   .tracks-variant-3 .track-description {
-    font-size: 0.9rem;
-    color: var(--color-muted);
-    line-height: 1.4;
-    margin: 0 0 15px;
+    margin: 15px 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--color-text);
     flex-grow: 1;
+    min-height: 80px; /* Mindesthöhe für Beschreibungen */
   }
   
   .tracks-variant-3 .track-link {
     color: var(--imt-purple);
     text-decoration: none;
-    font-weight: 500;
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    justify-content: flex-start;
-    gap: 8px;
-    transition: color 0.2s ease;
+    gap: 5px;
+    font-weight: 500;
+    font-size: 0.9rem;
     position: relative;
-    z-index: 2;
+    overflow: hidden;
   }
   
   /* Teal Link für Programme */
@@ -2127,23 +2139,34 @@
   }
   
   .tracks-variant-3 .track-link:hover {
-    text-decoration: none;
+    text-decoration: none !important;
   }
   
-  /* Hover-Effekt für Managementseminare-Links */
-  .track-card[data-category="managementseminare"] .track-link:hover {
-    color: #4a2c94;
+  /* Animierten Unterstrich entfernen */
+  .tracks-variant-3 .track-link::after {
+    content: none !important;
+    display: none !important;
   }
   
-  /* Hover-Effekt für Programme-Links */
-  .track-card[data-category="programme"] .track-link:hover {
-    color: #0f7a65;
+  .tracks-variant-3 .track-link:hover::after {
+    transform: none;
+  }
+  
+  /* Stärkere Regel, um jeglichen Unterstrich zu verhindern */
+  .tracks-variant-3 a.track-link:hover {
+    text-decoration: none !important;
+    border-bottom: none !important;
   }
   
   .tracks-variant-3 .track-link i {
     transition: transform 0.2s ease;
   }
   
+  .tracks-variant-3 .track-link:hover i {
+    transform: translateX(4px);
+  }
+  
+  /* Pfeil bewegt sich auch beim Hover über die gesamte Karte */
   .tracks-variant-3 .track-card:hover .track-link i {
     transform: translateX(4px);
   }
@@ -2410,6 +2433,11 @@
 <!-- BoxIcons für Icons -->
 <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 
+        </style>
+
+<!-- BoxIcons für Icons -->
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
 <!-- Favicon -->
 <link rel="icon" href="assets/favicon.png" type="image/png">
 
@@ -2433,7 +2461,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
 <!-- Verstecktes Netlify-Formular mit allen Feldern -->
-<form name="ki-excellence-programm-brochure-en" netlify netlify-honeypot="bot-field" hidden>
+<form name="ki-excellence-programm-brochure" netlify netlify-honeypot="bot-field" hidden>
   <input type="text" name="firstname" />
   <input type="text" name="lastname" />
   <input type="email" name="email" />
@@ -2466,7 +2494,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <!-- Button zwischen Überschrift und Info-Boxen -->
       <a href="#broschuere">
-        Download Brochure now <span class="arrow-icon">→</span>
+        Download Brochure Now <span class="arrow-icon">→</span>
       </a>
 
       <div class="info-grid">
@@ -2481,21 +2509,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="info-box">
           <i class="bx bx-time"></i>
           <span class="info-label">Duration</span>
-          <span class="info-value">3 Days</span>
+          <span class="info-value">12 days</span>
         </div>
 
         <!-- Language Box -->
         <div class="info-box">
           <i class="bx bx-globe"></i>
           <span class="info-label">Language</span>
-          <span class="info-value">English</span>
+          <span class="info-value">DE / EN</span>
         </div>
 
-        <!-- Start Date Box -->
+        <!-- Network Box -->
         <div class="info-box">
-          <i class="bx bx-award"></i>
-          <span class="info-label">ECTS</span>
-          <span class="info-value">6</span>
+          <i class="bx bx-network-chart"></i>
+          <span class="info-label">Network</span>
+          <span class="info-value">StGallen</span>
         </div>
       </div>
     </div>
@@ -2514,7 +2542,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </section>
 
     <!-- Programmmodule mit Sidebar Navigation -->
-    <section style="padding: 60px 0;">
+    <section id="module-content" class="content-section">
       <div class="container">
         <h2 class="section-heading">Programme Modules</h2>
         <p style="margin-bottom: 1.5rem; color: var(--color-muted);">Explore the modules of the StGallen AI Excellence Management Programme.</p>
@@ -2527,60 +2555,60 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
             <div class="sidebar-tab-v6" data-tab="2">
               <div class="sidebar-number-v6">02</div>
-              <div class="sidebar-title-v6">Financial Management</div>
+              <div class="sidebar-title-v6">Inspirational Leadership</div>
             </div>
             <div class="sidebar-tab-v6" data-tab="3">
               <div class="sidebar-number-v6">03</div>
-              <div class="sidebar-title-v6">Inspirational Leadership</div>
+              <div class="sidebar-title-v6">Intelligent Process Automation</div>
             </div>
             <div class="sidebar-tab-v6" data-tab="4">
               <div class="sidebar-number-v6">04</div>
-              <div class="sidebar-title-v6">Marketing & Brand</div>
+              <div class="sidebar-title-v6">AI-Augmented Decision Making</div>
             </div>
           </div>
           
           <div class="content-container-v6">
             <div class="content-panel-v6 active" data-content="1">
               <h3 class="content-title-v6">Integrated Management and Strategy</h3>
-              <p>In this module, you will learn how to develop a holistic management approach and successfully implement business strategies. Key concepts covered include:</p>
+              <p>In this module, you will learn how to strategically align companies in complex markets, design transformation, and effectively implement integrated management. Central concepts covered include:</p>
               <ul>
-                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Strategic positioning and competitive advantages</li>
-                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Integrated management in the VUCA world</li>
-                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Development of sustainable business models</li>
-                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Strategic analysis and decision-making</li>
+                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Strategic transformation based on the St. Gallen Management House</li>
+                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Managing change processes in dynamic market environments</li>
+                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Application of the St.Gallen Integrated Framework for future-proofing</li>
+                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Innovation and efficiency as elements of integrated corporate management</li>
               </ul>
             </div>
             
             <div class="content-panel-v6" data-content="2">
-              <h3 class="content-title-v6">Financial Management</h3>
-              <p>This module provides you with a comprehensive understanding of financial concepts and their application in the corporate context. Topics include:</p>
+              <h3 class="content-title-v6">Inspirational Leadership</h3>
+              <p>In this module, you will further develop your leadership personality and learn to lead clearly, empathetically, and future-oriented in challenging situations. Key focus areas include:</p>
               <ul>
-                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Financial analysis and key figure interpretation</li>
-                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Investment assessment and decisions</li>
-                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Cash flow management and corporate financing</li>
-                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Financial risk assessment and hedging</li>
+                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Self-leadership, reflection, and development of your own leadership style</li>
+                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Conflict resolution, communication, and decision-making strength in team contexts</li>
+                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Avoiding typical leadership mistakes and building psychological safety</li>
+                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>New leadership requirements in digital and AI-influenced work environments</li>
               </ul>
             </div>
             
             <div class="content-panel-v6" data-content="3">
-              <h3 class="content-title-v6">Inspirational Leadership</h3>
-              <p>In this module, you will develop your leadership skills and learn how to inspire and motivate teams. Key topics include:</p>
+              <h3 class="content-title-v6">Intelligent Process Automation</h3>
+              <p>In this module, you will learn how to strategically use automation technologies to make business processes more efficient and optimize them sustainably. Central content includes:</p>
               <ul>
-                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Modern leadership styles and their effectiveness</li>
-                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Emotional intelligence and its importance for leaders</li>
-                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Change management and transformation leadership</li>
-                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Team building and conflict management</li>
+                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Fundamentals of process automation (RPA, Process Mining, AI workflows)</li>
+                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Strategic deployment of automation technologies</li>
+                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Process intelligence as a leadership tool</li>
+                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Role development and practical application competence</li>
               </ul>
             </div>
             
             <div class="content-panel-v6" data-content="4">
-              <h3 class="content-title-v6">Marketing, Sales & Brand Communication</h3>
-              <p>This module focuses on modern marketing strategies and effective brand management. You will deal with:</p>
+              <h3 class="content-title-v6">AI-Augmented Decision Making</h3>
+              <p>In this module, you will learn how to make well-founded and faster decisions with the help of artificial intelligence. Central content includes:</p>
               <ul>
-                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Strategic brand positioning and development</li>
-                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Integrated marketing communication</li>
-                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Digital marketing and omnichannel strategies</li>
-                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Sales psychology and customer journey optimization</li>
+                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Fundamentals of AI-supported decision-making</li>
+                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Strategic use of AI tools such as Predictive Analytics</li>
+                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Integration of AI into leadership and management processes</li>
+                <li><i class='bx bx-check' style="color: #a0a0a0; position: absolute; left: 0; top: 50%; transform: translateY(-50%);"></i>Development of new decision-making roles and data competence</li>
               </ul>
             </div>
           </div>
@@ -2588,11 +2616,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </section>
 
-    <!-- Program Information -->
+    <!-- Programm Informationen -->
     <section id="program-info" class="content-section" style="padding: 60px 0;">
       <div class="container">
-        <h2 class="section-heading">Programme Information</h2>
-        <p style="margin-bottom: 1.5rem; color: var(--color-muted);">Important details about the StGallen imt Management Programme at a glance.</p>
+        <h2 class="section-heading">Key Information at a Glance</h2>
+        <p style="margin-bottom: 1.5rem; color: var(--color-muted);">Important details about the StGallen AI Excellence Management Programme at a glance.</p>
         
         <div class="program-info-grid">
           <!-- Box 1: Location -->
@@ -2606,21 +2634,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="program-info-box">
             <i class='bx bx-time program-info-icon'></i>
             <div class="program-info-label">Duration</div>
-            <div class="program-info-value">3 Days</div>
+            <div class="program-info-value">4x3 Days</div>
           </div>
 
           <!-- Box 6: Language -->
           <div class="program-info-box">
             <i class='bx bx-globe program-info-icon'></i>
             <div class="program-info-label">Language</div>
-            <div class="program-info-value">English</div>
+            <div class="program-info-value">German or English</div>
           </div>
 
           <!-- Box 3: Start Date -->
           <div class="program-info-box">
             <i class='bx bx-calendar-alt program-info-icon'></i>
             <div class="program-info-label">Start Date</div>
-          <div class="program-info-value">Flexible</div>
+            <div class="program-info-value">Flexible</div>
           </div>  
 
 
@@ -2628,14 +2656,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
            <div class="program-info-box">
             <i class='bx bx-book-open program-info-icon'></i>
             <div class="program-info-label">Programme Type</div>
-            <div class="program-info-value">Programmes</div>
-          </div>
-
-          <!-- Box 4: ECTS -->
-            <div class="program-info-box">
-            <i class='bx bx-award program-info-icon'></i>
-            <div class="program-info-label">ECTS</div>
-            <div class="program-info-value">6</div>
+            <div class="program-info-value">Programme in 4 Modules</div>
           </div>
 
         
@@ -2643,14 +2664,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="program-info-box">
             <i class='bx bx-group program-info-icon'></i>
             <div class="program-info-label">Target Group</div>
-            <div class="program-info-value" style="font-size: 0.9rem;">Executives, Managers, Leaders</div>
+            <div class="program-info-value" style="font-size: 0.9rem;">Executives, Emerging Managers, Entrepreneurs</div>
           </div>
 
           <!-- Box 3: Investment -->
           <div class="program-info-box">
              <i class='bx bx-money program-info-icon'></i>
             <div class="program-info-label">Investment</div>
-            <div class="program-info-value">2,300 CHF</div>
+            <div class="program-info-value">CHF 8,400 plus 8.1% VAT</div>
            </div>
 
           <!-- Box 9: Network -->
@@ -2659,24 +2680,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="program-info-label">Network</div>
             <div class="program-info-value">StGallen imt Alumni</div>
           </div>
-
-          <!-- Box 3: Entry -->
-          <div class="program-info-box">
-            <i class='bx bx-calendar-alt program-info-icon'></i>
-            <div class="program-info-label">Entry</div>
-            <div class="program-info-value">25.5.2025</div>
-          </div>
         </div>
         
-        <!-- Available Start Dates - Tab Design -->
+        <!-- Startdates - Tab Design -->
         <div class="dates-tabs">
-          <h3 class="dates-heading"><i class='bx bx-calendar-alt' style="margin-right: 8px;"></i>Available Start Dates</h3>
+          <h3 class="dates-heading"><i class='bx bx-calendar-alt' style="margin-right: 8px;"></i>Available Seminar Dates</h3>
           <div class="tabs-nav">
             <button class="tab-button active" data-target="tab-2025">2025</button>
             <button class="tab-button" data-target="tab-2026">2026</button>
           </div>
 
-          <p style="color: var(--color-muted); font-size: 0.95rem; margin: 12px 0 18px 0; text-align: left;">Dates for companies can be scheduled individually. <a href="#contact" style="color: var(--imt-purple); text-decoration: none;">Contact us</a></p>
+          <p style="color: var(--color-muted); font-size: 0.95rem; margin: 12px 0 18px 0; text-align: left;">The following dates are available to choose from</p>
+          
+          <p style="color: var(--color-muted); font-size: 0.95rem; margin: 0 0 18px 0; text-align: left;">Custom dates available for companies. <a href="#contact" style="color: var(--imt-purple); text-decoration: none;">Contact us</a></p>
 
           <div class="tab-content">
             <!-- Tab 2025 -->
@@ -2690,7 +2706,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                       <div class="date-info-content">
                         <span class="date-text">05.-07.05.2025</span>
                         <span class="date-location">St. Gallen</span>
-                        <span class="date-language">German</span>
+                        <span class="date-language">Deutsch</span>
                       </div>
                     </div>
                   </li>
@@ -2700,7 +2716,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                       <div class="date-info-content">
                         <span class="date-text">06.-08.10.2025</span>
                         <span class="date-location">St. Gallen</span>
-                        <span class="date-language">German</span>
+                        <span class="date-language">Deutsch</span>
                       </div>
                     </div>
                   </li>
@@ -2716,7 +2732,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                       <div class="date-info-content">
                         <span class="date-text">08.-10.05.2025</span>
                         <span class="date-location">St. Gallen</span>
-                        <span class="date-language">German</span>
+                        <span class="date-language">Deutsch</span>
                       </div>
                     </div>
                   </li>
@@ -2726,7 +2742,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                       <div class="date-info-content">
                         <span class="date-text">09.-11.10.2025</span>
                         <span class="date-location">St. Gallen</span>
-                        <span class="date-language">German</span>
+                        <span class="date-language">Deutsch</span>
                       </div>
                     </div>
                   </li>
@@ -2742,7 +2758,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                       <div class="date-info-content">
                         <span class="date-text">26.-28.06.2025</span>
                         <span class="date-location">St. Gallen</span>
-                        <span class="date-language">German</span>
+                        <span class="date-language">Deutsch</span>
                       </div>
                     </div>
                   </li>
@@ -2752,7 +2768,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                       <div class="date-info-content">
                         <span class="date-text">04.-06.12.2025</span>
                         <span class="date-location">St. Gallen</span>
-                        <span class="date-language">German</span>
+                        <span class="date-language">Deutsch</span>
                       </div>
                     </div>
                   </li>
@@ -2768,7 +2784,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                       <div class="date-info-content">
                         <span class="date-text">23.-25.06.2025</span>
                         <span class="date-location">St. Gallen</span>
-                        <span class="date-language">German</span>
+                        <span class="date-language">Deutsch</span>
                       </div>
                     </div>
                   </li>
@@ -2778,7 +2794,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                       <div class="date-info-content">
                         <span class="date-text">01.-03.12.2025</span>
                         <span class="date-location">St. Gallen</span>
-                        <span class="date-language">German</span>
+                        <span class="date-language">Deutsch</span>
                       </div>
                     </div>
                   </li>
@@ -2797,7 +2813,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                       <div class="date-info-content">
                         <span class="date-text">20.-22.04.2026</span>
                         <span class="date-location">St. Gallen</span>
-                        <span class="date-language">German</span>
+                        <span class="date-language">Deutsch</span>
                       </div>
                     </div>
                   </li>
@@ -2813,7 +2829,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                       <div class="date-info-content">
                         <span class="date-text">23.-25.04.2026</span>
                         <span class="date-location">St. Gallen</span>
-                        <span class="date-language">German</span>
+                        <span class="date-language">Deutsch</span>
                       </div>
                     </div>
                   </li>
@@ -2829,7 +2845,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                       <div class="date-info-content">
                         <span class="date-text">18.-20.06.2026</span>
                         <span class="date-location">St. Gallen</span>
-                        <span class="date-language">German</span>
+                        <span class="date-language">Deutsch</span>
                       </div>
                     </div>
                   </li>
@@ -2845,7 +2861,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                       <div class="date-info-content">
                         <span class="date-text">15.-17.06.2026</span>
                         <span class="date-location">St. Gallen</span>
-                        <span class="date-language">German</span>
+                        <span class="date-language">Deutsch</span>
                       </div>
                     </div>
                   </li>
@@ -2857,13 +2873,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </section>
 
-    <!-- Information about participants -->
+    <!-- Informationen über Teilnehmer -->
     <section id="participants" style="padding: 60px 0;">
       <div class="container">
         <h2 class="section-heading">Participant Information</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Our StGallen imt Management Programme brings together experienced executives from various industries and countries.</p>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Our StGallen AI Excellence Management Programme brings together ambitious participants from various industries and countries.</p>
         <div class="stats-grid">
-            <!-- Professional Experience -->
+            <!-- Berufserfahrung -->
             <div class="stat-card">
                 <div class="stat-icon">
                     <svg viewBox="0 0 24 24" class="color-brain">
@@ -2873,10 +2889,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </svg>
                 </div>
                 <div class="stat-value" data-target="6">0</div>
-                <div class="stat-label">Years of Professional Experience</div>
+                <div class="stat-label">Jahre Berufserfahrung</div>
             </div>
 
-            <!-- Salary Increase (replaces Senior C-Level) -->
+            <!-- Gehaltsteigerung (ersetzt Senior C-Level) -->
             <div class="stat-card">
                 <div class="stat-icon">
                     <svg viewBox="0 0 24 24" class="color-trend">
@@ -2885,11 +2901,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <path d="M16 8l3-3 3 3"/>
                     </svg>
                 </div>
-                <div class="stat-value" data-target="35" data-prefix="⌀ " data-suffix="%">⌀ 0%</div>
-                <div class="stat-label">Salary Increase</div>
+                <div class="stat-value" data-target="45" data-prefix="⌀ " data-suffix="%">⌀ 0%</div>
+                <div class="stat-label">Gehaltsteigerung</div>
             </div>
 
-            <!-- Average Age -->
+            <!-- Durchschnittsalter -->
             <div class="stat-card">
                 <div class="stat-icon">
                     <svg viewBox="0 0 24 24" class="color-data">
@@ -2898,10 +2914,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </svg>
                 </div>
                 <div class="stat-value" data-target="38">0</div>
-                <div class="stat-label">Average Age</div>
+                <div class="stat-label">Durchschnittsalter</div>
             </div>
 
-            <!-- SME Share (replaces Nationalities) -->
+            <!-- KMU-Anteil (ersetzt Nationalitäten) -->
             <div class="stat-card">
                 <div class="stat-icon">
                     <svg viewBox="0 0 24 24" class="color-cube">
@@ -2916,21 +2932,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </svg>
                 </div>
                 <div class="stat-value" data-target="78" data-suffix="%">0%</div>
-                <div class="stat-label">SME Share</div>
+                <div class="stat-label">KMU-Anteil</div>
             </div>
         </div>
       </div>
     </section>
 
-    <!-- Insights & Impressions -->
+    <!-- Einblicke & Impressionen -->
     <section id="impressionen" style="padding: 60px 0;">
       <div class="container">
         <h2 class="section-heading">Insights & Impressions</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Immerse yourself in the atmosphere of our programme – from inspiring workshops to exclusive company visits at Google to intensive learning experiences in St. Gallen.</p>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Immerse yourself in a unique learning environment – with inspiring workshops, insights at companies like Google, and a unique educational setting in the St.Gallen Valley.</p>
         <div class="gallery">
-          <!-- 1: Large portrait image -->
+          <!-- 1: Großes, hochformatiges Bild -->
           <div class="gallery-item item1">
-            <img src="assets/IMG_1.webp" alt="Senior woman with AirPods">
+            <img src="assets/IMG_1.webp" alt="Seniorin mit AirPods">
           </div>
 
           <!-- 2: Smartwatch -->
@@ -2940,22 +2956,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
           <!-- 3: Smartphone Videocall -->
           <div class="gallery-item item3">
-            <img src="assets/IMG_3.webp" alt="Video call on smartphone">
+            <img src="assets/IMG_3.webp" alt="Videocall auf Smartphone">
           </div>
 
-          <!-- 4: Group with smartphones -->
+          <!-- 4: Gruppe mit Smartphones -->
           <div class="gallery-item item4">
-            <img src="assets/IMG_4.webp" alt="Two people with smartphones">
+            <img src="assets/IMG_4.webp" alt="Zwei Personen mit Smartphones">
           </div>
 
-          <!-- 5: Tablet at table -->
+          <!-- 5: Tablet am Tisch -->
           <div class="gallery-item item5">
-            <img src="assets/IMG_6.webp" alt="Person with tablet">
+            <img src="assets/IMG_6.webp" alt="Person mit Tablet">
           </div>
 
-          <!-- 6: Person at desktop -->
+          <!-- 6: Person am Desktop -->
           <div class="gallery-item item6">
-            <img src="assets/IMG_5.webp" alt="Person with headphones">
+            <img src="assets/IMG_5.webp" alt="Person mit Kopfhörern">
           </div>
         </div>
       </div>
@@ -2965,14 +2981,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <section class="content-section">
       <div class="container">
         <h2 class="section-heading">Voices from Our Network</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Learn how our graduates benefit from the Management Programme and apply the concepts learned in their professional lives.</p>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left;">Experiences, insights, and perspectives from our network.</p>
+        
         <div class="gradient-quotes">
-          <!-- Jonas Gillmann Testimonial -->
+          <!-- Existing Testimonials - keeping only Jonas Gillmann -->
           <div class="gradient-quote-card testimonial-item">
             <div class="gradient-quote-inner">
               <div class="gradient-quote-content">
                 <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
-                <p class="gradient-quote-text">The StGallen imt Business School has been crucial in my journey to the board. With practical impulses, strategic clarity, and valuable perspectives, I received the best toolkit for successful corporate management.</p>
+                <p class="gradient-quote-text">The StGallen imt Business School was crucial for my path to the executive board. With practical impulses, strategic clarity and valuable perspectives, I received the best toolkit for successful corporate management.</p>
               </div>
               <div class="gradient-quote-footer">
                 <div class="gradient-person">
@@ -2989,12 +3006,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
           
+          <!-- New Testimonials, initially hidden -->
           <!-- Testimonial 1: Patrick Kling -->
           <div class="gradient-quote-card testimonial-item" style="display: none;">
             <div class="gradient-quote-inner">
               <div class="gradient-quote-content">
                 <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
-                <p class="gradient-quote-text">A thorough understanding of strategy and business models is crucial in the face of growing dynamics and complexity. The St.Gallen Integrated IMT Business School is a strong partner in specifically developing relevant competencies.</p>
+                <p class="gradient-quote-text">A solid understanding of strategy and business models is crucial given growing dynamics and complexity. The St.Gallen Integrated IMT Business School is a strong partner for specifically developing relevant competencies.</p>
               </div>
               <div class="gradient-quote-footer">
                 <div class="gradient-person">
@@ -3016,7 +3034,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="gradient-quote-inner">
               <div class="gradient-quote-content">
                 <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
-                <p class="gradient-quote-text">Excellence requires the interplay of culture, strategy, and leadership - holistic, dynamic, and systemic thinking. The St. Gallen concept provides the appropriate framework; Christian Abegglen is a formative, credible personality in this field.</p>
+                <p class="gradient-quote-text">Excellence requires the interplay of culture, strategy and leadership – thought holistically, dynamically and systemically. The St. Gallen concept provides the appropriate framework for this; Christian Abegglen is a formative, credible personality here.</p>
               </div>
               <div class="gradient-quote-footer">
                 <div class="gradient-person">
@@ -3038,7 +3056,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="gradient-quote-inner">
               <div class="gradient-quote-content">
                 <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
-                <p class="gradient-quote-text">Continuously questioning and developing oneself is essential for sustainable success. Christian Abegglen has been my friend, mentor, and at the same time demanding source of impulses for decades - always at the highest level.</p>
+                <p class="gradient-quote-text">Continuously questioning and developing oneself is crucial for sustainable success. Christian Abegglen has been my friend, supporter and at the same time demanding impulse giver for decades – always at the highest level.</p>
               </div>
               <div class="gradient-quote-footer">
                 <div class="gradient-person">
@@ -3060,7 +3078,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="gradient-quote-inner">
               <div class="gradient-quote-content">
                 <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
-                <p class="gradient-quote-text">The St.Gallen IMT Business School combines academic depth with practical application - real challenges, directly transferable. This approach continuously provides executives like myself, as a guest lecturer, with new impulses for sustainable development and success.</p>
+                <p class="gradient-quote-text">The St.Gallen IMT Business School combines scientific depth with practical application – real challenges, directly transferable. This approach continuously provides executives like me as a guest lecturer with new impulses for sustainable development and success.</p>
               </div>
               <div class="gradient-quote-footer">
                 <div class="gradient-person">
@@ -3069,7 +3087,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   </div>
                   <div class="gradient-info">
                     <span class="gradient-name">Dr. Sascha von Berchem</span>
-                    <span class="gradient-position">Managing Director, Wittenstein Foundation</span>
+                    <span class="gradient-position">Wittenstein Foundation, Managing Director</span>
                   </div>
                 </div>
                 <img src="assets/testimonials/wittenstein.png" alt="Wittenstein" class="gradient-company">
@@ -3082,7 +3100,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="gradient-quote-inner">
               <div class="gradient-quote-content">
                 <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
-                <p class="gradient-quote-text">The diverse training methods based on the St.Galler Thinking & Learning Navigator - from simulations to real cases - are extremely enriching and challenging, even for our business with refurbished mobile phones.</p>
+                <p class="gradient-quote-text">The diverse training methods based on the St.Gallen Thinking & Learning Navigator – from simulations to real cases – are extremely enriching and challenging, even for our business with refurbished mobile phones.</p>
               </div>
               <div class="gradient-quote-footer">
                 <div class="gradient-person">
@@ -3091,7 +3109,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   </div>
                   <div class="gradient-info">
                     <span class="gradient-name">Elias Böni</span>
-                    <span class="gradient-position">Co-Founder, MobileUp</span>
+                    <span class="gradient-position">Co_Founder, MobileUp</span>
                   </div>
                 </div>
                 <img src="assets/testimonials/mobileup.jpg" alt="MobileUp" class="gradient-company">
@@ -3104,7 +3122,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="gradient-quote-inner">
               <div class="gradient-quote-content">
                 <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
-                <p class="gradient-quote-text">The IMT faculty has challenged and supported us at every step of the learning journey - including concrete advice on solving specific challenges in our company.</p>
+                <p class="gradient-quote-text">The IMT faculty challenged and supported us at every step of the learning journey – right down to concrete advice for solving specific challenges in our company.</p>
               </div>
               <div class="gradient-quote-footer">
                 <div class="gradient-person">
@@ -3126,7 +3144,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="gradient-quote-inner">
               <div class="gradient-quote-content">
                 <i class='bx bxs-quote-alt-right gradient-quote-icon'></i>
-                <p class="gradient-quote-text">I am impressed by how the St. Gallen concept integrates different perspectives and addresses diverse topics - making it directly applicable across industries in business practice.</p>
+                <p class="gradient-quote-text">I am impressed by how the St. Gallen concept integrates different perspectives and addresses diverse topics – making it directly applicable across industries in corporate practice.</p>
               </div>
               <div class="gradient-quote-footer">
                 <div class="gradient-person">
@@ -3150,31 +3168,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <section id="faculty" style="padding: 60px 0;">
       <div class="container">
         <h2 class="section-heading">Academic Leadership</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Learn from leading experts in academia and industry – benefit from years of experience in AI and management.</p>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Learn from leading experts from academia and practice – benefit from years of experience in AI and management.</p>
         
         <div class="faculty-grid">
             <div class="faculty-card">
               <img src="assets/faculty/bula.jpg" alt="Prof. Dr. Dr. h.c. Piotr Bula"/>
               <div class="faculty-info">
                   <h3 class="faculty-name">Prof. Dr. Dr. h.c. Piotr Bula</h3>
-                  <div class="faculty-title">Ececutive Council</div>
+                  <div class="faculty-title">Executive Council</div>
               </div>
             </div>
         </div>
       </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- IMT Advisor Section -->
     <section id="contact" style="padding: 60px 0;">
       <div class="container">
         <h2 class="section-heading">Contact</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Your personal contact for all questions about the StGallen imt Management Programme.</p>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">For questions about the "StGallen AI Excellence Management Programme," we're happy to assist you personally</p>
         
         <div class="contact-info">
           <img alt="Monika Dutkiewicz" src="assets/Dutkiewicz.jpg"/>
           <div class="contact-details">
             <h3>Monika Dutkiewicz</h3>
-            <p style="margin-bottom: 0;">Contact for StGallen imt Management Programme</p>
+            <p style="margin-bottom: 0;">Contact Person StGallen AI Excellence Management Programme</p>
             <p style="margin-bottom: 0; margin-top: 0;"><a href="mailto:monika.dutkiewicz@imt.ch" style="color: #9c27b0;">monika.dutkiewicz@imt.ch</a></p>
             <p style="margin-bottom: 0; margin-top: 0;">+41 71 277 60 00</p>
           </div>
@@ -3182,28 +3200,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </section>
 
-    <!-- Download Brochure Section -->
+    <!-- Broschüre Herunterladen Section -->
     <section id="broschuere" style="padding: 60px 0;">
       <div class="container">
         <h2 class="section-heading">Download Brochure</h2>
-        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Download the detailed programme brochure for the StGallen AI Excellence Management Programme now – with all details on content, methods, and your learning success.</p>
+        <p style="color: var(--color-muted); font-size: 1.1rem; margin-bottom: 40px; width: 100%; text-align: left !important;">Download the StGallen AI Excellence Management Programme brochure now – with all details about content, methods, and your learning success.</p>
         <div style="display: flex; gap: 32px; align-items: stretch; flex-wrap: wrap; margin-top: 32px;">
           
-          <!-- Form -->
+          <!-- Formular -->
           <div style="flex: 1 1 400px; background: #f5f5f7; padding: 32px; border-radius: 20px; box-shadow: 0 2px 6px rgba(0,0,0,0.05);">
-            <form id="brochure-form" method="post" netlify name="ki-excellence-programm-brochure-en" netlify-honeypot="bot-field" data-netlify="true" action="/" novalidate>
+            <form id="brochure-form" method="post" netlify name="ki-excellence-programm-brochure" netlify-honeypot="bot-field" data-netlify="true" action="/" novalidate>
               <p class="hidden" style="display: none;">
                 <label>Don't fill this out if you're human: <input name="bot-field" /></label>
               </p>
-              <input type="hidden" name="form-name" value="ki-excellence-programm-brochure-en">
-              <input name="firstname" placeholder="First name" style="width: 100%; padding: 12px; margin-bottom: 18px; border-radius: 8px; border: 1px solid #ccc;" type="text" required/>
-              <input name="lastname" placeholder="Last name" style="width: 100%; padding: 12px; margin-bottom: 18px; border-radius: 8px; border: 1px solid #ccc;" type="text" required/>
+              <input type="hidden" name="form-name" value="ki-excellence-programm-brochure">
+              <input name="firstname" placeholder="First Name" style="width: 100%; padding: 12px; margin-bottom: 18px; border-radius: 8px; border: 1px solid #ccc;" type="text" required/>
+              <input name="lastname" placeholder="Last Name" style="width: 100%; padding: 12px; margin-bottom: 18px; border-radius: 8px; border: 1px solid #ccc;" type="text" required/>
               <input name="email" placeholder="Email" style="width: 100%; padding: 12px; margin-bottom: 18px; border-radius: 8px; border: 1px solid #ccc;" type="email" required/>
               
               <!-- Country Select -->
               <div style="position: relative; margin-bottom: 18px;">
                 <select name="country" required style="width: 100%; padding: 12px; padding-right: 40px; font-size: 1rem; border-radius: 8px; border: 1px solid #ccc; appearance: none; -webkit-appearance: none;">
-                  <option value="">Select country</option>
+                  <option value="">Select Country</option>
                   <option value="AD">Andorra</option>
                   <option value="AR">Argentina</option>
                   <option value="AU">Australia</option>
@@ -3286,12 +3304,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
               </div>
 
-              <!-- Email consent checkbox -->
+              <!-- Checkbox for email consent -->
               <div style="margin-bottom: 16px;">
                 <label style="display: flex; align-items: flex-start; gap: 8px; cursor: pointer;">
                   <input type="checkbox" name="email_consent" style="margin-top: 3px;">
                   <span style="font-size: 0.9rem; color: var(--color-muted);">
-                    I agree to receive information via email about offers from the IMT Business School.
+                    I agree to receive information by email about offers from StGallen imt Business School.
                   </span>
                 </label>
               </div>
@@ -3299,7 +3317,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <!-- Submit Button -->
               <div style="text-align: center; width: 100%;">
                 <button type="submit" class="cta-button" style="margin: 0 auto;">
-                  Download free brochure now <span class="arrow-icon">→</span>
+                  Jetzt Broschüre herunterladen <span class="arrow-icon">→</span>
                 </button>
               </div>
 
@@ -3307,21 +3325,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <div style="margin-top: 24px; display: flex; flex-direction: column; gap: 12px;">
                 <div style="display: flex; align-items: center; gap: 8px;">
                   <i class='bx bx-group' style="font-size: 20px;"></i>
-                  <span id="downloads-today" style="font-size: 0.9rem; color: var(--color-muted);"><strong>7</strong> executives have already downloaded the brochure today</span>
+                  <span id="downloads-today" style="font-size: 0.9rem; color: var(--color-muted);"><strong>7</strong> Executives haben die Broschüre heute bereits heruntergeladen</span>
                 </div>
                 <div style="display: flex; align-items: center; gap: 8px;">
                   <i class='bx bx-shield' style="font-size: 20px;"></i>
-                  <span style="font-size: 0.9rem; color: var(--color-muted);">Your data is safe with us - we do not send unauthorized advertising</span>
+                  <span style="font-size: 0.9rem; color: var(--color-muted);">Ihre Daten sind bei uns sicher - wir versenden keine unerlaubte Werbung</span>
                 </div>
               </div>
             </form>
 
             <!-- Download-Ready Section (initially hidden) -->
-            <div id="download-ready" class="hidden" style="text-align: center; margin-top: 24px;">
-              <h3 style="margin-bottom: 16px;">Thank you for your interest!</h3>
-              <p style="margin-bottom: 24px;">Your brochure is ready for download.</p>
-              <a href="assets/broschueren/management_programm.pdf" download class="cta-button">
-                Download brochure <span class="arrow-icon">→</span>
+            <div id="download-ready" style="text-align: center; margin-top: 24px; display: none;">
+              <h3 style="margin-bottom: 16px;">Vielen Dank für Ihr Interesse!</h3>
+              <p style="margin-bottom: 24px;">Ihre Broschüre steht zum Download bereit.</p>
+              <a href="assets/broschueren/ai_excellence_programm_en.pdf" download class="cta-button">
+                Broschüre herunterladen <span class="arrow-icon">→</span>
               </a>
             </div>
           </div>
@@ -3329,7 +3347,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </section>
 
-    <!-- Our Executive Education Programmes Section -->
+    <!-- Unsere Weiterbildungen Section -->
     <section class="tracks-variant-3">
       <div class="container">
         <div class="tracks-header">
@@ -3342,13 +3360,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <button class="filter-btn" data-filter="managementseminare">Management Seminars</button>
           <button class="filter-btn" data-filter="programme">Programmes</button>
         </div>
-
+        
         <div class="tracks-container">
           <div class="scroll-container">
-            
-            <!-- Track 1: Integrated Management and Strategy -->
+            <!-- Card 1 -->
             <div class="track-card" data-category="managementseminare">
-              <a href="integrated_management_strategy_en.html" class="card-link"></a>
+              <a href="integrated_management_strategy_en.html" class="card-link" aria-label="Integrated Management and Strategy Details"></a>
               <div class="card-header">
                 <span class="track-category category-strategy">Management Seminar</span>
                 <h3 class="track-title">Integrated Management and Strategy</h3>
@@ -3369,15 +3386,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   </div>
                 </div>
                 <p class="track-description">Learn how to effectively implement integrated management – for strategic alignment, successful transformation, and the sustainable use of AI.</p>
-                <a href="integrated_management_strategy_en.html" class="track-link">
-                  Learn more <i class="bx bx-right-arrow-alt"></i>
-                </a>
+                <a href="integrated_management_strategy_en.html" class="track-link" style="position: relative; z-index: 2;">Learn more <i class="bx bx-right-arrow-alt"></i></a>
               </div>
             </div>
-
-            <!-- Track 2: Financial Management -->
+            
+            <!-- Card 2: Financial Management -->
             <div class="track-card" data-category="managementseminare">
-              <a href="financial_management_en.html" class="card-link"></a>
+              <a href="financial_management_en.html" class="card-link" aria-label="Financial Management Details"></a>
               <div class="card-header">
                 <span class="track-category category-strategy">Management Seminar</span>
                 <h3 class="track-title">Financial Management</h3>
@@ -3398,15 +3413,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   </div>
                 </div>
                 <p class="track-description">Develop financial decision-making competence to strategically direct growth.</p>
-                <a href="financial_management_en.html" class="track-link">
-                  Learn more <i class="bx bx-right-arrow-alt"></i>
-                </a>
+                <a href="financial_management_en.html" class="track-link" style="position: relative; z-index: 2;">Learn more <i class="bx bx-right-arrow-alt"></i></a>
               </div>
             </div>
-
-            <!-- Track 3: Inspirational Leadership -->
+            
+            <!-- Card 3 -->
             <div class="track-card" data-category="managementseminare">
-              <a href="inspirational_leadership_en.html" class="card-link"></a>
+              <a href="inspirational_leadership_en.html" class="card-link" aria-label="Inspirational Leadership Details"></a>
               <div class="card-header">
                 <span class="track-category category-strategy">Management Seminar</span>
                 <h3 class="track-title">Inspirational Leadership</h3>
@@ -3427,15 +3440,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   </div>
                 </div>
                 <p class="track-description">Develop your leadership personality for clear, empathetic, and strategic leadership in times of digital and AI-driven change.</p>
-                <a href="inspirational_leadership_en.html" class="track-link">
-                  Learn more <i class="bx bx-right-arrow-alt"></i>
-                </a>
+                <a href="inspirational_leadership_en.html" class="track-link" style="position: relative; z-index: 2;">Learn more <i class="bx bx-right-arrow-alt"></i></a>
               </div>
             </div>
-
-            <!-- Track 4: Marketing, Sales & Brand Communication -->
+            
+            <!-- Card 4 -->
             <div class="track-card" data-category="managementseminare">
-              <a href="marketing_sales_brand_communication_en.html" class="card-link"></a>
+              <a href="marketing_sales_brand_communication_en.html" class="card-link" aria-label="Marketing, Sales and Brand Communication Details"></a>
               <div class="card-header">
                 <span class="track-category category-strategy">Management Seminar</span>
                 <h3 class="track-title">Marketing, Sales and Brand Communication</h3>
@@ -3456,15 +3467,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   </div>
                 </div>
                 <p class="track-description">Learn how to effectively use marketing and sales with strategy and AI for sustainable market success.</p>
-                <a href="marketing_sales_brand_communication_en.html" class="track-link">
-                  Learn more <i class="bx bx-right-arrow-alt"></i>
-                </a>
+                <a href="marketing_sales_brand_communication_en.html" class="track-link" style="position: relative; z-index: 2;">Learn more <i class="bx bx-right-arrow-alt"></i></a>
               </div>
             </div>
-
-            <!-- Track 5: Intelligent Process Automation -->
+            
+            <!-- Card 5 -->
             <div class="track-card" data-category="managementseminare">
-              <a href="intelligent_process_automation_en.html" class="card-link"></a>
+              <a href="intelligent_process_automation_en.html" class="card-link" aria-label="Intelligent Process Automation Details"></a>
               <div class="card-header">
                 <span class="track-category category-strategy">Management Seminar</span>
                 <h3 class="track-title">Intelligent Process Automation</h3>
@@ -3485,15 +3494,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   </div>
                 </div>
                 <p class="track-description">Learn how intelligent process automation can make your company more efficient and optimize resources.</p>
-                <a href="intelligent_process_automation_en.html" class="track-link">
-                  Learn more <i class="bx bx-right-arrow-alt"></i>
-                </a>
+                <a href="intelligent_process_automation_en.html" class="track-link" style="position: relative; z-index: 2;">Learn more <i class="bx bx-right-arrow-alt"></i></a>
               </div>
             </div>
-
-            <!-- Track 6: AI-Augmented Decision Making -->
+            
+            <!-- Card 6 -->
             <div class="track-card" data-category="managementseminare">
-              <a href="ai_augmented_decision_making_en.html" class="card-link"></a>
+              <a href="ai_augmented_decision_making_en.html" class="card-link" aria-label="AI-Augmented Decision Making Details"></a>
               <div class="card-header">
                 <span class="track-category category-strategy">Management Seminar</span>
                 <h3 class="track-title">AI-Augmented Decision Making</h3>
@@ -3514,13 +3521,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   </div>
                 </div>
                 <p class="track-description">Learn how AI-supported decision-making processes help you make more informed and effective decisions.</p>
-                <a href="ai_augmented_decision_making_en.html" class="track-link">
-                  Learn more <i class="bx bx-right-arrow-alt"></i>
-                </a>
+                <a href="ai_augmented_decision_making_en.html" class="track-link" style="position: relative; z-index: 2;">Learn more <i class="bx bx-right-arrow-alt"></i></a>
               </div>
             </div>
-
-            <!-- Track 7: StGallen Management Programme -->
+            
+            <!-- Card 7: Programm - StGallen Management Programm -->
             <div class="track-card" data-category="programme">
               <a href="management_programm_en.html" class="card-link" aria-label="StGallen Management Programme Details"></a>
               <div class="card-header">
@@ -3547,7 +3552,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               </div>
             </div>
             
-            <!-- Track 8: StGallen Management Programme CAS -->
+            <!-- Card 8: Programme - Certified Management CAS -->
             <div class="track-card" data-category="programme">
               <a href="management_programm_cas_en.html" class="card-link" aria-label="StGallen Management Programme CAS Details"></a>
               <div class="card-header">
@@ -3574,9 +3579,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               </div>
             </div>
             
-            <!-- Track 9: StGallen AI Excellence Management Programme (aktuelle Seite als current-page) -->
+            <!-- Card 9: Current Page - AI Excellence Management Programme -->
             <div class="track-card current-page" data-category="programme">
-              <a href="ki_excellence_programm_en.html" class="card-link"></a>
+              <a href="ki_excellence_programm_en.html" class="card-link" aria-label="StGallen AI Excellence Management Programme Details"></a>
               <div class="card-header">
                 <span class="track-category category-program">Programme</span>
                 <h3 class="track-title">StGallen AI Excellence Management Programme</h3>
@@ -3597,42 +3602,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   </div>
                 </div>
                 <p class="track-description">Specialized programme for integrating artificial intelligence into management with certification.</p>
-                <a href="ki_excellence_programm_en.html" class="track-link current-page-link" style="position: relative; z-index: 2;">
-                  You are here <i class="bx bx-check-circle"></i>
-                </a>
+                <a href="ki_excellence_programm_en.html" class="track-link current-page-link" style="position: relative; z-index: 2;">You are here <i class="bx bx-check-circle"></i></a>
               </div>
             </div>
-
-            <!-- Track 10: Fast Track MBA -->
-            <div class="track-card" data-category="programme">
-              <a href="fast_track_mba_en.html" class="card-link"></a>
-              <div class="card-header">
-                <span class="track-category category-program">Programme</span>
-                <h3 class="track-title">Fast Track MBA</h3>
-              </div>
-              <div class="card-body">
-                <div class="info-section">
-                  <div class="card-row">
-                    <i class="bx bx-map"></i>
-                    <span>St. Gallen</span>
-                  </div>
-                  <div class="card-row">
-                    <i class="bx bx-time"></i>
-                    <span>24 Days</span>
-                  </div>
-                  <div class="card-row">
-                    <i class="bx bx-euro"></i>
-                    <span>CHF 16,800</span>
-                  </div>
-                </div>
-                <p class="track-description">Accelerated MBA programme designed for executives seeking comprehensive business education without career interruption.</p>
-                <a href="fast_track_mba_en.html" class="track-link">
-                  Learn more <i class="bx bx-right-arrow-alt"></i>
-                </a>
-              </div>
-            </div>
-
-            <!-- Track 10: StGallen Fast Track MBA Programme -->
+            
+            <!-- Card 10: Programme - Fast-Track MBA -->
             <div class="track-card" data-category="programme">
               <a href="fast_track_mba_en.html" class="card-link" aria-label="StGallen Fast Track MBA Programme Details"></a>
               <div class="card-header">
@@ -3658,11 +3632,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <a href="fast_track_mba_en.html" class="track-link" style="position: relative; z-index: 2;">Learn more <i class="bx bx-right-arrow-alt"></i></a>
               </div>
             </div>
-
           </div>
           
           <div class="scroll-controls">
             <button class="scroll-btn" id="scroll-left">
+              <i class="bx bx-chevron-left"></i>
+            </button>
+            <button class="scroll-btn" id="scroll-right">
+              <i class="bx bx-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wizard Teaser -->
+    <section style="padding: 80px 0;">
+      <div class="container">
+        <section class="wizard-teaser" onclick="window.location.href='components/globals/wizard_en.html';" style="cursor: pointer;">
+          <div class="wizard-content">
+            <div class="wizard-icon">
+              <i class="bx bx-bulb"></i>
+            </div>
+            <div class="wizard-text">
+              <h3>Need individual advice?</h3>
+              <p>Use our Advisor and find the perfect executive education for your career goals. Get personalized recommendations based on your experience and objectives.</p>
+            </div>
+            <div class="wizard-button">
+              <span>Start Advisor</span>
+              <i class="bx bx-right-arrow-alt"></i>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+  </div>
 </main>
 
 <!-- Footer einbinden -->
@@ -3670,16 +3675,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- ============ SCRIPTS ============ -->
 <script>
-  // Navigation laden
+  // Navigation load
   fetch('components/globals/navigation_ohnesub_en.html?t=' + new Date().getTime())
     .then(response => {
       if (!response.ok) {
-        console.error('Error loading navigation:', response.status);
-        // Fallback to the includes directory
-        return fetch('components/includes/navigation_ohnesub_en.html?t=' + new Date().getTime())
+        console.error('Fehler beim Laden der Navigation:', response.status);
+        // Fallback zum globals-Verzeichnis versuchen
+        return fetch('components/includes/navigation_ohnesub.html?t=' + new Date().getTime())
           .then(resp => {
             if (!resp.ok) {
-              console.error('Fallback path failed:', resp.status);
+              console.error('Auch globals-Pfad fehlgeschlagen:', resp.status);
               return '';
             }
             return resp.text();
@@ -3691,32 +3696,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       if (data) {
         document.getElementById('navigation-container').innerHTML = data;
         
-        // Mobile Navigation using external file, as in research.html
+        // Mobile Navigation über externe Datei initialisieren, wie in research.html
         const navScript = document.createElement('script');
         navScript.src = 'assets/js/mobile-nav.js?t=' + new Date().getTime();
         document.body.appendChild(navScript);
         
-        // Initialize language switcher after navigation has loaded
+        // Sprachumschalter initialisieren, nachdem die Navigation geladen wurde
         setTimeout(() => {
           if (typeof initLanguageSwitching === 'function') {
             initLanguageSwitching();
           } else if (window.switchLanguage) {
-            console.log('Language-switch.js already loaded, using global function');
+            console.log('Language-switch.js bereits geladen, verwende globale Funktion');
           } else {
-            console.warn('Language-switch functions not found!');
+            console.warn('Language-switch Funktionen nicht gefunden!');
           }
-        }, 300); // Short delay for DOM update
+        }, 300); // Kurzes Delay für DOM-Update
       }
     })
-    .catch(error => console.error('Error loading navigation:', error));
+    .catch(error => console.error('Fehler beim Laden der Navigation:', error));
   
-  // Sidebar laden
+  // Sidebar load
   fetch('components/globals/sidebar_en.html?t=' + new Date().getTime())
     .then(response => {
       if (!response.ok) {
         console.error('Fehler beim Laden der Sidebar:', response.status);
         // Fallback zum globals-Verzeichnis versuchen
-        return fetch('components/includes/sidebar_en.html?t=' + new Date().getTime())
+        return fetch('components/includes/sidebar.html?t=' + new Date().getTime())
           .then(resp => {
             if (!resp.ok) {
               console.error('Auch globals-Pfad fehlgeschlagen:', resp.status);
@@ -3733,13 +3738,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     })
     .catch(error => console.error('Fehler beim Laden der Sidebar:', error));
   
-  // Footer laden
+  // Footer load
   fetch('components/globals/footer_en.html?t=' + new Date().getTime())
     .then(response => {
       if (!response.ok) {
         console.error('Fehler beim Laden des Footers:', response.status);
         // Fallback zum globals-Verzeichnis versuchen
-        return fetch('components/includes/footer_en.html?t=' + new Date().getTime())
+        return fetch('components/includes/footer.html?t=' + new Date().getTime())
           .then(resp => {
             if (!resp.ok) {
               console.error('Auch globals-Pfad fehlgeschlagen:', resp.status);
@@ -3898,7 +3903,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   });
 </script>
 
-<!-- Skript für Broschüre-Formular Validierung und Netlify Integration -->
+<!-- Skript für Broschüre-Formular Validierung und Google Integration -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('brochure-form');
@@ -3938,7 +3943,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const formData = new FormData(form);
             
             // Wichtig: Netlify erwartet form-name auch im FormData für AJAX-Übermittlung
-            formData.append("form-name", "ki-excellence-programm-brochure-en");
+            formData.append("form-name", "ki-excellence-programm-brochure");
             
             // Via fetch an Netlify senden
             fetch('/', {
@@ -3957,7 +3962,7 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             .catch(error => {
                 console.error('Error:', error);
-                alert('There was an error. Please try again later.');
+                alert('Es gab einen Fehler. Bitte versuchen Sie es später erneut.');
             });
         });
 
@@ -4075,7 +4080,7 @@ document.addEventListener('DOMContentLoaded', () => {
       let programmeLink = null;
       
       for (const link of programmeLinks) {
-        if (link.textContent.trim().includes('Programmes')) {
+        if (link.textContent.trim().includes('Programme')) {
           programmeLink = link;
           break;
         }
@@ -4250,13 +4255,13 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-<!-- Script for random gallery images -->
+<!-- Script für zufällige Galeriebilder -->
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    // Array with all available images
+    // Array mit allen verfügbaren Bildern
     const availableImages = Array.from({length: 12}, (_, i) => `assets/IMG_${i + 1}.webp`);
     
-    // Fisher-Yates Shuffle Algorithm
+    // Fisher-Yates Shuffle Algorithmus
     function shuffleArray(array) {
       for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -4265,13 +4270,13 @@ document.addEventListener('DOMContentLoaded', function() {
       return array;
     }
     
-    // Mix images and select the first 6
+    // Bilder mischen und die ersten 6 auswählen
     const selectedImages = shuffleArray([...availableImages]).slice(0, 6);
     
-    // Select gallery elements
+    // Galerie-Elemente auswählen
     const galleryItems = document.querySelectorAll('.gallery-item img');
     
-    // Assign images
+    // Bilder zuweisen
     galleryItems.forEach((img, index) => {
       if (index < selectedImages.length) {
         img.src = selectedImages[index];
@@ -4280,15 +4285,15 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 </script>
 
-<!-- JavaScript for Testimonial Shuffler -->
+<!-- JavaScript für Testimonial-Shuffler -->
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     // Testimonial Shuffler
     function shuffleTestimonials() {
-      // Collect all testimonials
+      // Alle Testimonials sammeln
       const testimonials = Array.from(document.querySelectorAll('.testimonial-item'));
       
-      // Fisher-Yates shuffle algorithm
+      // Fisher-Yates Shuffle Algorithmus
       function shuffleArray(array) {
         for (let i = array.length - 1; i > 0; i--) {
           const j = Math.floor(Math.random() * (i + 1));
@@ -4297,27 +4302,27 @@ document.addEventListener('DOMContentLoaded', function() {
         return array;
       }
       
-      // Shuffle testimonials
+      // Testimonials shuffeln
       const shuffledTestimonials = shuffleArray([...testimonials]);
       
-      // Hide all testimonials first
+      // Alle Testimonials zunächst verstecken
       testimonials.forEach(item => {
         item.style.display = 'none';
       });
       
-      // Number of testimonials to show (2 in this case)
+      // Anzahl der anzuzeigenden Testimonials (2 in diesem Fall)
       const numToShow = 2;
       
-      // Show the first 2
+      // Die ersten 2 anzeigen
       for (let i = 0; i < Math.min(numToShow, shuffledTestimonials.length); i++) {
         shuffledTestimonials[i].style.display = 'block';
       }
     }
     
-    // Shuffle testimonials when the page loads
+    // Testimonials beim Laden der Seite shuffeln
     shuffleTestimonials();
     
-    // Optional: Automatically shuffle testimonials every 30 seconds
+    // Optional: Testimonials alle 30 Sekunden automatisch neu shuffeln
     // setInterval(shuffleTestimonials, 30000);
   });
 </script>
@@ -4465,102 +4470,63 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(updateScrollButtons, 350);
       });
 
-      // Button-Status basierend auf Scroll-Position aktualisieren
+      // Überprüft, ob die Scroll-Buttons aktiviert oder deaktiviert sein sollten
       function updateScrollButtons() {
-        const scrollLeft = scrollContainer.scrollLeft;
+        const scrollPosition = scrollContainer.scrollLeft;
         const maxScrollLeft = scrollContainer.scrollWidth - scrollContainer.clientWidth;
 
-        scrollLeftBtn.classList.toggle('disabled', scrollLeft <= 5);
-        scrollRightBtn.classList.toggle('disabled', scrollLeft >= maxScrollLeft - 5);
+        scrollLeftBtn.disabled = scrollPosition <= 0;
+        scrollRightBtn.disabled = scrollPosition >= maxScrollLeft;
+
+        // Visual Feedback
+        scrollLeftBtn.classList.toggle('disabled', scrollPosition <= 0);
+        scrollRightBtn.classList.toggle('disabled', scrollPosition >= maxScrollLeft);
       }
 
-      // Initiale Button-Zustände setzen
+      // Initial button status
       updateScrollButtons();
 
-      // Scroll-Event für live Updates
+      // Bei Scroll den Button-Status aktualisieren
       scrollContainer.addEventListener('scroll', updateScrollButtons);
+      
+      // Bei Resize die Berechnung aktualisieren
+      window.addEventListener('resize', updateScrollButtons);
     }
-  });
 
-  // Filter Funktionalität
-  document.addEventListener('DOMContentLoaded', function() {
+    // Filter-Funktionalität für Tracks
     const filterButtons = document.querySelectorAll('.tracks-variant-3 .filter-btn');
     const trackCards = document.querySelectorAll('.tracks-variant-3 .track-card');
 
     filterButtons.forEach(button => {
-      button.addEventListener('click', function() {
-        const filter = this.getAttribute('data-filter');
-
-        // Aktive Klasse von allen Buttons entfernen
-        filterButtons.forEach(btn => btn.classList.remove('active'));
+      button.addEventListener('click', () => {
+        const filter = button.getAttribute('data-filter');
         
-        // Aktive Klasse zu geklicktem Button hinzufügen
-        this.classList.add('active');
-
-        // Karten basierend auf Filter anzeigen/verstecken
+        // Aktiven Filter-Button setzen
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        
+        // Karten filtern
         trackCards.forEach(card => {
-          if (filter === 'alle') {
+          const category = card.getAttribute('data-category');
+          
+          if (filter === 'alle' || category === filter) {
+            card.style.display = 'flex';
             card.classList.remove('hidden');
           } else {
-            const cardCategory = card.getAttribute('data-category');
-            if (cardCategory === filter) {
-              card.classList.remove('hidden');
-            } else {
-              card.classList.add('hidden');
-            }
+            card.style.display = 'none';
+            card.classList.add('hidden');
           }
         });
-
-        // Container zurück zum Anfang scrollen bei Filteränderung
-        const scrollContainer = document.querySelector('.tracks-variant-3 .scroll-container');
-        if (scrollContainer) {
-          scrollContainer.scrollTo({ left: 0, behavior: 'smooth' });
-          
-          // Button-Status nach Scroll-Reset aktualisieren
-          setTimeout(() => {
-            if (typeof updateScrollButtons === 'function') {
-              updateScrollButtons();
-            }
-          }, 350);
-        }
+        
+        // Scroll-Container nach dem Filtern aktualisieren
+        setTimeout(() => {
+          if (scrollContainer) {
+            scrollContainer.scrollLeft = 0; // Zurück zum Anfang
+            updateScrollButtons(); // Button-Status aktualisieren
+          }
+        }, 100);
       });
     });
-  });
-
-  // Responsive Touch Scrolling für mobile Geräte
-  document.addEventListener('DOMContentLoaded', function() {
-    const scrollContainer = document.querySelector('.tracks-variant-3 .scroll-container');
-    
-    if (scrollContainer) {
-      let isDown = false;
-      let startX;
-      let scrollLeftPosition;
-
-      scrollContainer.addEventListener('mousedown', (e) => {
-        isDown = true;
-        scrollContainer.style.cursor = 'grabbing';
-        startX = e.pageX - scrollContainer.offsetLeft;
-        scrollLeftPosition = scrollContainer.scrollLeft;
-      });
-
-      scrollContainer.addEventListener('mouseleave', () => {
-        isDown = false;
-        scrollContainer.style.cursor = 'grab';
-      });
-
-      scrollContainer.addEventListener('mouseup', () => {
-        isDown = false;
-        scrollContainer.style.cursor = 'grab';
-      });
-
-      scrollContainer.addEventListener('mousemove', (e) => {
-        if (!isDown) return;
-        e.preventDefault();
-        const x = e.pageX - scrollContainer.offsetLeft;
-        const walk = (x - startX) * 2;
-        scrollContainer.scrollLeft = scrollLeftPosition - walk;
-      });
-    }
   });
 </script>
 
@@ -4627,7 +4593,7 @@ document.addEventListener('DOMContentLoaded', function() {
       </style>
 
       <!-- Floating Button -->
-      <div class="wizard-floating-btn" onclick="window.location.href='components/globals/wizard_en.html'" title="AI Education Advisor" id="wizard-btn">
+      <div class="wizard-floating-btn" onclick="window.location.href='components/globals/wizard.html'" title="KI-Weiterbildungsberater" id="wizard-btn">
         <i class='bx bx-bulb'></i>
       </div>
 
