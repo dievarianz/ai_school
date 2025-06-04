@@ -606,19 +606,16 @@
   }
 
   /* Anpassungen für kleinere Bildschirme, die noch nicht mobile sind */
-  @media (min-width: 1025px) and (max-width: 1200px) {
+  @media (min-width: 1025px) and (max-width: 1300px) {
+    .lang-dropdown {
+      right: auto !important; /* Remove right alignment */
+      left: -80px !important; /* Position moderately left - not too far */
+      min-width: 120px !important;
+    }
+    
     .program-dropdown {
       min-width: 90vw;
       left: 90%;
-    }
-    
-    .menu-column {
-      font-size: 0.9rem;
-    }
-    
-    .program-option {
-      padding: 10px 12px;
-      font-size: 0.9rem;
     }
   }
   

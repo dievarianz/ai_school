@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Cover Banner - St.Gallen imt Business School</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f7;
+            font-family: -apple-system, BlinkMacSystemFont, "San Francisco", "Segoe UI", Roboto, sans-serif;
+        }
+
+        .banner-container {
+            margin: 20px auto;
+            max-width: 1200px;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .banner-title {
+            padding: 20px;
+            background: #6e45e2;
+            color: white;
+            text-align: center;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .linkedin-banner {
+            width: 1584px;
+            height: 396px;
+            position: relative;
+            margin: 0 auto;
+            overflow: hidden;
+            transform: scale(0.7);
+            transform-origin: center top;
+        }
+
+        /* Banner 1: Innovation & Tradition */
+        .banner-1 {
+            background: linear-gradient(135deg, #6e45e2 0%, #4CB796 100%);
+            position: relative;
+        }
+
+        .banner-1::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M20 20 L80 20 L80 80 L20 80 Z" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/><circle cx="50" cy="50" r="15" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>') repeat;
+            opacity: 0.3;
+        }
+
+        .banner-1 .content {
+            position: absolute;
+            top: 50%;
+            left: 60px;
+            transform: translateY(-50%);
+            color: white;
+            z-index: 2;
+        }
+
+        .banner-1 .main-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+
+        .banner-1 .subtitle {
+            font-size: 18px;
+            font-weight: 500;
+            opacity: 0.9;
+            margin-bottom: 8px;
+        }
+
+        .banner-1 .tagline {
+            font-size: 16px;
+            font-weight: 400;
+            opacity: 0.85;
+        }
+
+        .banner-1 .logo-area {
+            position: absolute;
+            top: 50%;
+            right: 80px;
+            transform: translateY(-50%);
+            text-align: center;
+        }
+
+        .banner-1 .logo-placeholder {
+            width: 120px;
+            height: 120px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .banner-1 .school-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: white;
+            text-align: center;
+        }
+
+        /* Banner 2: Executive Excellence */
+        .banner-2 {
+            background: linear-gradient(45deg, #ffffff 0%, #6e45e2 100%);
+            position: relative;
+        }
+
+        .banner-2::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(110,69,226,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .banner-2 .content {
+            position: absolute;
+            top: 50%;
+            left: 80px;
+            transform: translateY(-50%);
+            z-index: 2;
+        }
+
+        .banner-2 .main-title {
+            font-size: 40px;
+            font-weight: 700;
+            color: #1d1d1f;
+            margin-bottom: 14px;
+            line-height: 1.1;
+        }
+
+        .banner-2 .subtitle {
+            font-size: 20px;
+            color: #6e45e2;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .banner-2 .tagline {
+            font-size: 15px;
+            color: #6e6e73;
+            font-weight: 500;
+        }
+
+        /* Banner 3: Network & Success */
+        .banner-3 {
+            background: #1d1d1f;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner-3::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><pattern id="network" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="rgba(110,69,226,0.3)"/><line x1="20" y1="20" x2="40" y2="20" stroke="rgba(110,69,226,0.2)" stroke-width="0.5"/><line x1="20" y1="20" x2="20" y2="40" stroke="rgba(110,69,226,0.2)" stroke-width="0.5"/></pattern></defs><rect width="200" height="200" fill="url(%23network)"/></svg>') repeat;
+        }
+
+        .banner-3 .content {
+            position: absolute;
+            top: 50%;
+            left: 80px;
+            transform: translateY(-50%);
+            color: white;
+            z-index: 2;
+        }
+
+        .banner-3 .main-title {
+            font-size: 38px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #6e45e2, #4CB796);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .banner-3 .subtitle {
+            font-size: 18px;
+            font-weight: 500;
+            opacity: 0.9;
+            margin-bottom: 6px;
+        }
+
+        .banner-3 .programs {
+            font-size: 14px;
+            opacity: 0.7;
+            font-weight: 400;
+        }
+
+        /* Banner 4: Swiss Premium */
+        .banner-4 {
+            background: linear-gradient(to right, #ffffff 0%, #f8f9fa 100%);
+            position: relative;
+            border: 2px solid #e5e7eb;
+        }
+
+        .banner-4::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(110,69,226,0.05) 0%, rgba(76,183,150,0.05) 100%);
+            clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%);
+        }
+
+        .banner-4 .content {
+            position: absolute;
+            top: 50%;
+            left: 80px;
+            transform: translateY(-50%);
+            z-index: 2;
+        }
+
+        .banner-4 .main-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: #1d1d1f;
+            margin-bottom: 14px;
+            line-height: 1.2;
+        }
+
+        .banner-4 .subtitle {
+            font-size: 18px;
+            color: #6e45e2;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .banner-4 .location {
+            font-size: 15px;
+            color: #6e6e73;
+            font-weight: 500;
+        }
+
+        .banner-4 .swiss-flag {
+            position: absolute;
+            top: 50%;
+            right: 120px;
+            transform: translateY(-50%);
+            width: 60px;
+            height: 60px;
+            background: #ff0000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+        }
+
+        .banner-4 .swiss-flag::before {
+            content: '+';
+            color: white;
+            font-size: 36px;
+            font-weight: 300;
+        }
+
+        /* NEUE PROFESSIONELLE BANNER MIT GRADIENT-TEXT */
+
+        /* Banner 5: Clean Gradient */
+        .banner-5 {
+            background: #ffffff;
+            position: relative;
+        }
+
+        .banner-5::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(110,69,226,0.03) 0%, rgba(76,183,150,0.03) 100%);
+        }
+
+        .banner-5 .content {
+            position: absolute;
+            top: 50%;
+            left: 80px;
+            transform: translateY(-50%);
+            z-index: 2;
+        }
+
+        .banner-5 .main-title {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #6e45e2, #4CB796);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .banner-5 .subtitle {
+            font-size: 20px;
+            color: #1d1d1f;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .banner-5 .tagline {
+            font-size: 16px;
+            color: #6e6e73;
+            font-weight: 500;
+        }
+
+        .banner-5 .accent-line {
+            position: absolute;
+            bottom: 40px;
+            left: 80px;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(135deg, #6e45e2, #4CB796);
+            border-radius: 2px;
+        }
+
+        /* Banner 6: Minimal Professional */
+        .banner-6 {
+            background: #f8f9fa;
+            position: relative;
+        }
+
+        .banner-6 .content {
+            position: absolute;
+            top: 50%;
+            left: 80px;
+            transform: translateY(-50%);
+            z-index: 2;
+        }
+
+        .banner-6 .main-title {
+            font-size: 38px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.2;
+            background: linear-gradient(135deg, #6e45e2, #4CB796);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .banner-6 .subtitle {
+            font-size: 18px;
+            color: #6e45e2;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .banner-6 .tagline {
+            font-size: 15px;
+            color: #6e6e73;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .banner-6 .side-element {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(110,69,226,0.08) 0%, rgba(76,183,150,0.08) 100%);
+            clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 0% 100%);
+        }
+
+        /* Banner 7: Corporate Lines */
+        .banner-7 {
+            background: #ffffff;
+            position: relative;
+            border-bottom: 4px solid #6e45e2;
+        }
+
+        .banner-7::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: linear-gradient(135deg, #6e45e2, #4CB796);
+        }
+
+        .banner-7 .content {
+            position: absolute;
+            top: 50%;
+            left: 100px;
+            transform: translateY(-50%);
+            z-index: 2;
+        }
+
+        .banner-7 .main-title {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #6e45e2, #4CB796);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .banner-7 .subtitle {
+            font-size: 19px;
+            color: #1d1d1f;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .banner-7 .tagline {
+            font-size: 16px;
+            color: #6e6e73;
+            font-weight: 500;
+        }
+
+        .banner-7 .decorative-lines {
+            position: absolute;
+            top: 60px;
+            right: 150px;
+            width: 200px;
+            height: 160px;
+            z-index: 1;
+        }
+
+        .banner-7 .line {
+            position: absolute;
+            background: rgba(110,69,226,0.1);
+            border-radius: 2px;
+        }
+
+        .banner-7 .line-1 {
+            top: 0;
+            right: 0;
+            width: 80px;
+            height: 3px;
+        }
+
+        .banner-7 .line-2 {
+            top: 30px;
+            right: 20px;
+            width: 120px;
+            height: 3px;
+        }
+
+        .banner-7 .line-3 {
+            top: 60px;
+            right: 0;
+            width: 100px;
+            height: 3px;
+        }
+
+        /* Banner 8: Elegant Depth */
+        .banner-8 {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            position: relative;
+        }
+
+        .banner-8::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            right: -200px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(110,69,226,0.04) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .banner-8::after {
+            content: '';
+            position: absolute;
+            bottom: -150px;
+            left: -150px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(76,183,150,0.04) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .banner-8 .content {
+            position: absolute;
+            top: 50%;
+            left: 80px;
+            transform: translateY(-50%);
+            z-index: 2;
+        }
+
+        .banner-8 .main-title {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #6e45e2, #4CB796);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .banner-8 .subtitle {
+            font-size: 19px;
+            color: #1d1d1f;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .banner-8 .tagline {
+            font-size: 16px;
+            color: #6e6e73;
+            font-weight: 500;
+        }
+
+        .banner-8 .quality-badge {
+            position: absolute;
+            bottom: 30px;
+            right: 80px;
+            background: linear-gradient(135deg, #6e45e2, #4CB796);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Banner 9: Trusted by Companies */
+        .banner-9 {
+            background: #ffffff;
+            position: relative;
+        }
+
+        .banner-9 .content {
+            position: absolute;
+            top: 40%;
+            left: 80px;
+            transform: translateY(-50%);
+            z-index: 2;
+        }
+
+        .banner-9 .main-title {
+            font-size: 38px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #6e45e2, #4CB796);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .banner-9 .subtitle {
+            font-size: 18px;
+            color: #1d1d1f;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        .banner-9 .trusted-section {
+            position: absolute;
+            bottom: 110px;
+            right: 80px;
+            left: 520px;
+            z-index: 2;
+        }
+
+        .banner-9 .trusted-title {
+            font-size: 14px;
+            color: #6e6e73;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .banner-9 .company-logos {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+        }
+
+        .banner-9 .company-logo {
+            height: 24px;
+            width: auto;
+            max-width: 80px;
+            object-fit: contain;
+            opacity: 0.4;
+            filter: grayscale(100%) brightness(0.7);
+            transition: opacity 0.3s ease, filter 0.3s ease;
+        }
+
+        .banner-9 .company-logo:hover {
+            opacity: 0.7;
+            filter: grayscale(80%) brightness(0.8);
+        }
+
+        .download-info {
+            padding: 20px;
+            background: #f8f9fa;
+            text-align: center;
+            color: #6e6e73;
+            font-size: 14px;
+        }
+
+        .banner-info {
+            padding: 15px 20px;
+            background: #f0f0f0;
+            color: #666;
+            font-size: 12px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner-container">
+        <div class="banner-title">LinkedIn Cover Banner Optionen - St.Gallen imt Business School</div>
+        
+        <!-- Banner 1: Innovation & Tradition -->
+        <div class="linkedin-banner banner-1">
+            <div class="content">
+                <div class="main-title">Weiterbildung für Exzellenz<br>in Management und Technologie</div>
+                <div class="subtitle">St.Gallen imt Business School</div>
+                <div class="tagline">Executive Education • Leadership • Innovation</div>
+            </div>
+            <div class="logo-area">
+                <div class="logo-placeholder">📚</div>
+                <div class="school-name">St.Gallen imt<br>Business School</div>
+            </div>
+        </div>
+        <div class="banner-info">Banner 1: Innovation & Tradition - Gradient Design mit Hero-Text</div>
+    </div>
+
+    <div class="banner-container">
+        <!-- Banner 2: Executive Excellence -->
+        <div class="linkedin-banner banner-2">
+            <div class="content">
+                <div class="main-title">Weiterbildung für Exzellenz<br>in Management und Technologie</div>
+                <div class="subtitle">St.Gallen imt Business School</div>
+                <div class="tagline">Premium Executive Education • Switzerland</div>
+            </div>
+        </div>
+        <div class="banner-info">Banner 2: Executive Excellence - Clean Design mit Hero-Text</div>
+    </div>
+
+    <div class="banner-container">
+        <!-- Banner 3: Network & Success -->
+        <div class="linkedin-banner banner-3">
+            <div class="content">
+                <div class="main-title">Weiterbildung für Exzellenz<br>in Management und Technologie</div>
+                <div class="subtitle">St.Gallen imt Business School</div>
+                <div class="programs">MBA • AI Excellence • Leadership • Strategy • Digital Transformation</div>
+            </div>
+        </div>
+        <div class="banner-info">Banner 3: Network & Success - Dunkles Design mit Hero-Text und Gradient</div>
+    </div>
+
+    <div class="banner-container">
+        <!-- Banner 4: Swiss Premium -->
+        <div class="linkedin-banner banner-4">
+            <div class="content">
+                <div class="main-title">Weiterbildung für Exzellenz<br>in Management und Technologie</div>
+                <div class="subtitle">St.Gallen imt Business School</div>
+                <div class="location">Switzerland • Premium Executive Education</div>
+            </div>
+            <div class="swiss-flag"></div>
+        </div>
+        <div class="banner-info">Banner 4: Swiss Premium - Minimalistisch mit Hero-Text und Schweizer Akzent</div>
+    </div>
+
+    <!-- NEUE PROFESSIONELLE BANNER MIT GRADIENT-TEXT -->
+
+    <div class="banner-container">
+        <!-- Banner 5: Clean Gradient -->
+        <div class="linkedin-banner banner-5">
+            <div class="content">
+                <div class="main-title">Weiterbildung für Exzellenz<br>in Management und Technologie</div>
+                <div class="subtitle">St.Gallen imt Business School</div>
+                <div class="tagline">Excellence in Executive Education</div>
+            </div>
+            <div class="accent-line"></div>
+        </div>
+        <div class="banner-info">Banner 5: Clean Gradient - Weißer Hintergrund mit Gradient-Text wie auf der Hauptseite</div>
+    </div>
+
+    <div class="banner-container">
+        <!-- Banner 6: Minimal Professional -->
+        <div class="linkedin-banner banner-6">
+            <div class="side-element"></div>
+            <div class="content">
+                <div class="main-title">Weiterbildung für Exzellenz<br>in Management und Technologie</div>
+                <div class="subtitle">St.Gallen imt Business School</div>
+                <div class="tagline">Premium Executive Education</div>
+            </div>
+        </div>
+        <div class="banner-info">Banner 6: Minimal Professional - Subtiler Hintergrund mit Gradient-Text</div>
+    </div>
+
+    <div class="banner-container">
+        <!-- Banner 7: Corporate Lines -->
+        <div class="linkedin-banner banner-7">
+            <div class="decorative-lines">
+                <div class="line line-1"></div>
+                <div class="line line-2"></div>
+                <div class="line line-3"></div>
+            </div>
+            <div class="content">
+                <div class="main-title">Weiterbildung für Exzellenz<br>in Management und Technologie</div>
+                <div class="subtitle">St.Gallen imt Business School</div>
+                <div class="tagline">Leading Business Education</div>
+            </div>
+        </div>
+        <div class="banner-info">Banner 7: Corporate Lines - Professionell mit dekorativen Linien und Gradient-Text</div>
+    </div>
+
+    <div class="banner-container">
+        <!-- Banner 8: Elegant Depth -->
+        <div class="linkedin-banner banner-8">
+            <div class="content">
+                <div class="main-title">Weiterbildung für Exzellenz<br>in Management und Technologie</div>
+                <div class="subtitle">St.Gallen imt Business School</div>
+                <div class="tagline">Executive Education Excellence</div>
+            </div>
+            <div class="quality-badge">Swiss Quality</div>
+        </div>
+        <div class="banner-info">Banner 8: Elegant Depth - Subtile Tiefe mit Qualitäts-Badge und Gradient-Text</div>
+    </div>
+
+    <div class="banner-container">
+        <!-- Banner 9: Trusted by Companies -->
+        <div class="linkedin-banner banner-9">
+            <div class="content">
+                <div class="main-title">Weiterbildung für Exzellenz<br>in Management und Technologie</div>
+                <div class="subtitle">St.Gallen imt Business School</div>
+            </div>
+            <div class="trusted-section">
+                <div class="trusted-title">Trusted by:</div>
+                <div class="company-logos">
+                    <img src="assets/companies/bayer.png" alt="Bayer" class="company-logo">
+                    <img src="assets/companies/google.png" alt="Google" class="company-logo">
+                    <img src="assets/companies/datron.png" alt="Datron" class="company-logo">
+                    <img src="assets/companies/mutares.svg.png" alt="Mutares" class="company-logo">
+                    <img src="assets/companies/wittenstein.png" alt="Wittenstein" class="company-logo">
+                </div>
+            </div>
+        </div>
+        <div class="banner-info">Banner 9: Trusted by - Mit Gradient-Text und Unternehmenslogos für Glaubwürdigkeit</div>
+    </div>
+
+    <div class="download-info">
+        <strong>LinkedIn Banner Spezifikationen:</strong><br>
+        Format: 1584 × 396 Pixel | Dateigröße: max. 8MB | Formate: JPG, PNG<br><br>
+        <strong>Anleitung:</strong> Öffnen Sie diese Seite im Browser, machen Sie einen Screenshot des gewünschten Banners und skalieren Sie ihn auf 1584×396 Pixel.<br>
+        Alternativ können Sie das Design als Vorlage für professionelle Grafikdesign-Tools verwenden.<br><br>
+        <strong>🎨 Jetzt mit 9 professionellen Designs - alle mit dem originalen Gradient-Text!</strong>
+    </div>
+</body>
+</html> 
