@@ -363,18 +363,6 @@
       min-height: 120px;
     }
     
-    .download-btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to right, rgba(255,255,255,0.1), rgba(255,255,255,0.2));
-      transform: translateX(-100%);
-      transition: transform 0.6s ease;
-    }
-    
     .programme-btn {
       background: linear-gradient(to right, #17a689, #0d8b73);
       box-shadow: 0 4px 6px rgba(23, 166, 137, 0.15);
@@ -383,10 +371,6 @@
     .download-btn:hover {
       transform: translateY(-3px);
       box-shadow: 0 8px 15px rgba(106, 69, 226, 0.25);
-    }
-    
-    .download-btn:hover::before {
-      transform: translateX(100%);
     }
     
     .programme-btn:hover {
