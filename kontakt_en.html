@@ -876,10 +876,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       
       // Capture the Submit event
       form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
         // Local development: Netlify Forms only work on Netlify
         if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+          e.preventDefault();
           console.log('Local development detected - simulate success');
           // Simulate success for local development
           form.style.display = 'none';
@@ -899,6 +898,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         // If the form is not valid
         if (!formIsValid) {
+          e.preventDefault();
           console.log('Form is invalid!');
           
           // Focus on the first invalid field
@@ -925,10 +925,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         submitButton.disabled = true;
         submitButton.textContent = 'Sending...';
         
-        // With Netlify Forms submit the form normally
-        // We temporarily remove preventDefault and let the form submit normally
-        form.method = 'POST';
-        form.submit();
+        // For Netlify: Let the form submit normally (NO preventDefault!)
+        // The form will automatically redirect to /kontakt_en.html?success=true
       });
     });
   </script>

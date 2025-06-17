@@ -877,10 +877,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       
       // Abfangen des Submit-Events
       form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
         // Lokale Entwicklung: Netlify Forms funktionieren nur auf Netlify
         if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+          e.preventDefault();
           console.log('Lokale Entwicklung erkannt - simuliere Success');
           // Simuliere Success für lokale Entwicklung
           form.style.display = 'none';
@@ -900,6 +899,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         // Wenn das Formular nicht gültig ist
         if (!formIsValid) {
+          e.preventDefault();
           console.log('Formular ist ungültig!');
           
           // Fokus auf das erste ungültige Feld setzen
@@ -926,10 +926,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         submitButton.disabled = true;
         submitButton.textContent = 'Wird gesendet...';
         
-        // Mit Netlify Forms das Formular normal submitten
-        // Wir entfernen preventDefault temporär und lassen das Form normal submitten
-        form.method = 'POST';
-        form.submit();
+        // Für Netlify: Formular normal submitten lassen (KEIN preventDefault!)
+        // Das Formular wird automatisch zu /kontakt.html?success=true weitergeleitet
       });
     });
   </script>
