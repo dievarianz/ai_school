@@ -421,7 +421,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <!-- Kontaktformular -->
         <div class="contact-form-container">
-          <form class="contact-form" id="contact-form" method="POST" netlify name="contact-form-de" netlify-honeypot="bot-field" data-netlify="true" action="/" novalidate>
+          <form class="contact-form" id="contact-form" method="POST" netlify name="contact-form-de" netlify-honeypot="bot-field" data-netlify="true" action="/kontakt.html?success=true" novalidate>
             <!-- Netlify Configuration -->
             <input type="hidden" name="bot-field" />
             
@@ -879,6 +879,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       form.addEventListener('submit', function(e) {
         e.preventDefault();
         
+        // Lokale Entwicklung: Netlify Forms funktionieren nur auf Netlify
+        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+          console.log('Lokale Entwicklung erkannt - simuliere Success');
+          // Simuliere Success für lokale Entwicklung
+          form.style.display = 'none';
+          successMessage.style.display = 'block';
+          return;
+        }
+        
         console.log('Submit-Versuch:');
         console.log('Vorname:', firstName.value);
         console.log('Nachname:', lastName.value);
@@ -917,8 +926,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         submitButton.disabled = true;
         submitButton.textContent = 'Wird gesendet...';
         
-        // Mit Netlify Forms können wir das Formular normal submitten
-        // Das Formular wird automatisch verarbeitet und weitergleitet
+        // Mit Netlify Forms das Formular normal submitten
+        // Wir entfernen preventDefault temporär und lassen das Form normal submitten
+        form.method = 'POST';
         form.submit();
       });
     });
