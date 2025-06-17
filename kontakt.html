@@ -421,14 +421,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <!-- Kontaktformular -->
         <div class="contact-form-container">
-          <form class="contact-form" id="contact-form" action="https://formsubmit.co/ajax/info@imtschool.ch" method="POST" novalidate>
-            <!-- FormSubmit Configuration -->
-            <input type="hidden" name="_subject" value="Kontaktformular StGallen IMT">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="https://imtschool.ch/kontakt.html?success=true">
-            <input type="hidden" name="_honey" value="">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_format" value="json">
+          <form class="contact-form" id="contact-form" method="POST" netlify name="contact-form-de" netlify-honeypot="bot-field" data-netlify="true" action="/" novalidate>
+            <!-- Netlify Configuration -->
+            <input type="hidden" name="bot-field" />
             
             <div class="form-grid">
               <div class="form-group">
@@ -918,45 +913,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         // Wenn das Formular gültig ist
         console.log('Formular ist gültig!');
         
-        // FormData für den Versand vorbereiten
-        const formData = new FormData(form);
-        
         // Submit-Button deaktivieren während dem Senden
         submitButton.disabled = true;
         submitButton.textContent = 'Wird gesendet...';
         
-        // Formular senden
-        fetch('https://formsubmit.co/ajax/info@imtschool.ch', {
-          method: 'POST',
-          body: formData,
-          headers: {
-            'Accept': 'application/json',
-            'X-Requested-With': 'XMLHttpRequest'
-          }
-        })
-        .then(response => {
-          console.log('Server-Antwort:', response.status);
-          
-          if (response.ok) {
-            // Erfolgsanzeige NUR bei erfolgreichem Senden
-            form.style.display = 'none';
-            successMessage.style.display = 'block';
-            form.reset();
-          } else {
-            console.error('Fehler beim Senden:', response.status);
-            // Button reaktivieren bei Fehler
-            submitButton.disabled = false;
-            submitButton.innerHTML = 'Nachricht senden <span class="arrow-icon">→</span>';
-            showSubmitError('Fehler beim Senden. Bitte versuchen Sie es erneut.');
-          }
-        })
-        .catch(error => {
-          console.error('Fehler beim Senden:', error);
-          // Button reaktivieren bei Fehler
-          submitButton.disabled = false;
-          submitButton.innerHTML = 'Nachricht senden <span class="arrow-icon">→</span>';
-          showSubmitError('Fehler beim Senden. Bitte überprüfen Sie Ihre Internetverbindung.');
-        });
+        // Mit Netlify Forms können wir das Formular normal submitten
+        // Das Formular wird automatisch verarbeitet und weitergleitet
+        form.submit();
       });
     });
   </script>

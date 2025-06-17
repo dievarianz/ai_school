@@ -421,14 +421,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <!-- Contact Form -->
         <div class="contact-form-container">
-          <form class="contact-form" id="contact-form" action="https://formsubmit.co/ajax/info@imtschool.ch" method="POST" novalidate>
-            <!-- FormSubmit Configuration -->
-            <input type="hidden" name="_subject" value="Contact Form StGallen IMT">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="https://imtschool.ch/kontakt_en.html?success=true">
-            <input type="hidden" name="_honey" value="">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_format" value="json">
+          <form class="contact-form" id="contact-form" method="POST" netlify name="contact-form-en" netlify-honeypot="bot-field" data-netlify="true" action="/" novalidate>
+            <!-- Netlify Configuration -->
+            <input type="hidden" name="bot-field" />
             
             <div class="form-grid">
               <div class="form-group">
@@ -917,33 +912,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         // If the form is valid
         console.log('Form is valid!');
         
-        // Prepare FormData for submission
-        const formData = new FormData(form);
+        // Disable submit button during sending
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending...';
         
-        // Show success display
-        form.style.display = 'none';
-        successMessage.style.display = 'block';
-        
-        // Send form
-        fetch('https://formsubmit.co/ajax/info@imtschool.ch', {
-          method: 'POST',
-          body: formData,
-          headers: {
-            'Accept': 'application/json',
-            'X-Requested-With': 'XMLHttpRequest'
-          }
-        })
-        .then(response => {
-          console.log('Server response:', response.status);
-          form.reset();
-          
-          if (!response.ok) {
-            console.error('Error sending:', response);
-          }
-        })
-        .catch(error => {
-          console.error('Error sending:', error);
-        });
+        // With Netlify Forms we can submit the form normally
+        // The form will be automatically processed and redirected
+        form.submit();
       });
     });
   </script>
