@@ -5,6 +5,7 @@
     'use strict';
     
     // Konfiguration
+    const POPUP_ENABLED = false; // false = deaktiviert, true = aktiviert
     const POPUP_DELAY = 600000; // 10 Minuten (600.000ms)
     const STORAGE_KEY = 'voucher_popup_submitted';
     
@@ -151,6 +152,12 @@
     
     // Initialisierung
     function initGlobalPopup() {
+        // Prüfen ob Popup aktiviert ist
+        if (!POPUP_ENABLED) {
+            console.log('Voucher Popup ist deaktiviert');
+            return;
+        }
+        
         // Prüfen ob Popup bereits erfolgreich ausgefüllt wurde
         if (hasPopupBeenSubmitted()) {
             console.log('Voucher Popup bereits ausgefüllt, überspringe');
@@ -186,7 +193,14 @@
             console.log('Popup Status zurückgesetzt');
         },
         show: function() {
+            if (!POPUP_ENABLED) {
+                console.log('Popup ist deaktiviert und kann nicht angezeigt werden');
+                return;
+            }
             showPopup();
+        },
+        isEnabled: function() {
+            return POPUP_ENABLED;
         },
         hasBeenSubmitted: hasPopupBeenSubmitted,
         markAsSubmitted: markPopupAsSubmitted

@@ -169,6 +169,172 @@
       margin-left: 0;
       margin-right: auto;
     }
+
+    /* ============ FLIP CARDS CSS ============ */
+    .section-title {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .heritage-flip-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-bottom: 50px;
+    }
+
+    .flip-card {
+      flex: 0 0 280px;
+      height: 280px;
+      perspective: 1200px;
+      margin-bottom: var(--spacing);
+      cursor: pointer !important;
+    }
+
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: var(--radius);
+      background: var(--color-card-bg);
+      padding: var(--spacing);
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+      box-sizing: border-box;
+    }
+
+    .flip-card-back {
+      transform: rotateY(180deg);
+      background: #fff;
+    }
+
+    .flip-card-front i {
+      font-size: 32px;
+      margin-bottom: 16px;
+      opacity: 0.85;
+      transition: all 0.3s ease;
+    }
+
+    .flip-card-front h3, .flip-card-back h3 {
+      margin-bottom: 8px;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .flip-card-front p, .flip-card-back p {
+      font-size: 0.9rem;
+      color: #555;
+      line-height: 1.4;
+      flex-grow: 1;
+      margin: 0;
+    }
+
+    .flip-link {
+      align-self: flex-end;
+      color: var(--color-muted);
+      text-decoration: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      padding: 0;
+      transition: transform 0.3s ease;
+      margin-top: auto;
+    }
+
+    .flip-link i {
+      font-size: 24px;
+      transition: transform 0.3s ease;
+      color: var(--color-muted);
+      margin-bottom: 0;
+    }
+
+    .flip-link:hover {
+      text-decoration: none;
+      transform: scale(1.1);
+    }
+
+    .flip-link:hover i {
+      color: var(--imt-purple);
+    }
+
+    .flip-link span {
+      display: none;
+    }
+
+    /* Hover Effects */
+    .flip-card-front:hover,
+    .flip-card-back:hover {
+      border-color: var(--imt-purple);
+    }
+
+    .flip-card-front:hover i {
+      opacity: 1;
+    }
+
+    /* Icon Colors */
+    .icon-origin { color: #9C27B0; }
+    .icon-school { color: #2196F3; }
+    .icon-ulrich { color: #4CAF50; }
+    .icon-model { color: #FF9800; }
+    .icon-bleicher { color: #F44336; }
+    .icon-concept { color: #00BCD4; }
+    .icon-milestones { color: #795548; }
+    .icon-years { color: #607D8B; }
+    .icon-house { color: #8BC34A; }
+    .icon-valley { color: #FFC107; }
+    .icon-network { color: #E91E63; }
+    .icon-abegglen { color: #3F51B5; }
+    .icon-founding { color: #009688; }
+    .icon-ecosystem { color: #CDDC39; }
+    .icon-knowledge { color: #FF5722; }
+    .icon-didactic { color: #9E9E9E; }
+    .icon-technology { color: #673AB7; }
+    .icon-ai { color: #2196F3; }
+    .icon-integration { color: #4CAF50; }
+    .icon-global { color: #FF9800; }
+    .icon-today { color: #F44336; }
+
+    .flipper {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform .6s;
+      cursor: pointer !important;
+    }
+
+    .flip-card.flipped .flipper {
+      transform: rotateY(180deg);
+    }
+
+    /* Mobile Optimizations */
+    @media (max-width: 768px) {
+      .heritage-flip-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      
+      .flip-card {
+        height: 280px;
+      }
+      
+      .flip-card-front p, .flip-card-back p {
+        font-size: 0.9rem;
+      }
+      
+      .flip-card-front h3, .flip-card-back h3 {
+        font-size: 1rem;
+      }
+    }
   </style>
 
   <!-- BoxIcons for Icons -->
@@ -228,6 +394,434 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <p><strong>Excellence in Management and Technology</strong><br>
         Forward-thinking continuing education at the intersection of management and technology – for leaders who shape change.</p>
+
+        <!-- Milestones of StGallen imt Business School -->
+        <section class="content-section">
+          <h2 class="section-heading">Milestones of StGallen imt Business School</h2>
+          <p class="section-description">Discover the most important developmental stages of our management school – from the first systemic approaches to today's excellence in management and technology.</p>
+          
+          <div class="heritage-flip-grid">
+            <!-- Flip Card 1 -->
+            <div class="flip-card">
+              <div class="flipper">
+                <div class="flip-card-front">
+                  <i class='bx bx-home icon-origin'></i>
+                  <h3>Origins in St. Gallen Management Thinking</h3>
+                  <p>StGallen imt Business School is rooted in the unique management understanding of the 1960s in St. Gallen.</p>
+                  <a class="flip-link" href="#">
+                    <i class='bx bx-plus-circle'></i>
+                  </a>
+                </div>
+                <div class="flip-card-back">
+                  <p>StGallen imt Business School is unthinkable without the "St. Gallen Management Concept": From the 1960s onwards, a new approach to management education developed in St. Gallen. Pioneers like Hans Ulrich propagated a holistic, systems-theoretical understanding of companies. The "St. Gallen Model" became a trademark far beyond Switzerland.</p>
+                  <a class="flip-link" href="#">
+                    <i class='bx bx-minus-circle'></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Flip Card 2 -->
+            <div class="flip-card">
+              <div class="flipper">
+                <div class="flip-card-front">
+                  <i class='bx bx-navigation icon-school'></i>
+                  <h3>The St. Gallen School – Navigating Complexity</h3>
+                  <p>The St. Gallen School represents management as the art of navigation in turbulent times – beyond trends and recipes.</p>
+                  <a class="flip-link" href="#">
+                    <i class='bx bx-plus-circle'></i>
+                  </a>
+                </div>
+                <div class="flip-card-back">
+                  <p>What is management really? Not just planning or control – but the sovereign handling of complexity. The St. Gallen School provides the theoretical framework for this. Particularly in times of upheaval, this school of thought is in demand – and StGallen imt Business School as one of its transfer centers.</p>
+                  <a class="flip-link" href="#">
+                    <i class='bx bx-minus-circle'></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Flip Card 3 -->
+            <div class="flip-card">
+              <div class="flipper">
+                <div class="flip-card-front">
+                  <i class='bx bx-user-circle icon-ulrich'></i>
+                  <h3>Hans Ulrich – The Systemic Visionary</h3>
+                  <p>Hans Ulrich laid the foundation of the St. Gallen School with his cybernetic understanding of companies.</p>
+                  <a class="flip-link" href="#">
+                    <i class='bx bx-plus-circle'></i>
+                  </a>
+                </div>
+                <div class="flip-card-back">
+                  <p>Prof. Dr. Dres. h.c. Hans Ulrich (1919–1997) revolutionized teaching: Not one-dimensional tools, but thinking models for complex realities. In 1965, he founded the "Institute for Business Administration (IfB)" – the nucleus of the St. Gallen School. With "The Enterprise as a Productive Social System," he shaped a new view of corporate management.</p>
+                  <a class="flip-link" href="#">
+                    <i class='bx bx-minus-circle'></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Flip Card 4 -->
+            <div class="flip-card">
+              <div class="flipper">
+                <div class="flip-card-front">
+                  <i class='bx bx-network-chart icon-model'></i>
+                  <h3>The St. Gallen Management Model</h3>
+                  <p>The original St. Gallen Management Model: a systemic framework for leadership in complex worlds.</p>
+                  <a class="flip-link" href="#">
+                    <i class='bx bx-plus-circle'></i>
+                  </a>
+                </div>
+                <div class="flip-card-back">
+                  <p>From the 1960s onwards, Hans Ulrich established the "St. Gallen Management Model" – a new understanding of management: Companies are not machines, but social systems – open, dynamic, networked. The model integrated systems theory and cybernetics into business administration.</p>
+                  <a class="flip-link" href="#">
+                    <i class='bx bx-minus-circle'></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Flip Card 5 -->
+            <div class="flip-card">
+              <div class="flipper">
+                <div class="flip-card-front">
+                  <i class='bx bx-cog icon-bleicher'></i>
+                  <h3>Knut Bleicher – The Architect</h3>
+                  <p>Bleicher translated Ulrich's systems approach into a practice-oriented architecture: the Integrated Management Concept.</p>
+                  <a class="flip-link" href="#">
+                    <i class='bx bx-plus-circle'></i>
+                  </a>
+                </div>
+                <div class="flip-card-back">
+                  <p>Prof. Dr. Dres. h.c. Knut Bleicher (1929-2017) was appointed to St. Gallen in 1984 as Hans Ulrich's successor. He further developed the St. Gallen Management Model into the "Integrated Management Concept" as an application framework for practice.</p>
+                  <a class="flip-link" href="#">
+                    <i class='bx bx-minus-circle'></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Flip Card 6 -->
+            <div class="flip-card">
+              <div class="flipper">
+                <div class="flip-card-front">
+                  <i class='bx bx-building icon-concept'></i>
+                  <h3>The St. Gallen Integrated Management Concept</h3>
+                  <p>Knut Bleicher's work: a robust management framework for turbulence – the Integrated Management Concept.</p>
+                  <a class="flip-link" href="#">
+                    <i class='bx bx-plus-circle'></i>
+                  </a>
+                </div>
+                <div class="flip-card-back">
+                  <p>What Hans Ulrich established as systemic thinking, Knut Bleicher developed into a practice-suitable architecture: the "Integrated Management Concept" (1991). He linked the three management levels – normative, strategic, and operative – into a holistic framework.</p>
+                  <a class="flip-link" href="#">
+                    <i class='bx bx-minus-circle'></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Flip Card 7 -->
+            <div class="flip-card">
+              <div class="flipper">
+                <div class="flip-card-front">
+                  <i class='bx bx-book icon-milestones'></i>
+                  <h3>Milestones of the St. Gallen Concept</h3>
+                  <p>A six-volume publication series documents the development path of the Integrated St. Gallen Management Concept.</p>
+                  <a class="flip-link" href="#">
+                    <i class='bx bx-plus-circle'></i>
+                  </a>
+                </div>
+                <div class="flip-card-back">
+                  <p>From 2005 onwards, Christian Abegglen published the six-volume series "Milestones on the Path to Integrated Management." It shows the evolutionary development of the concept. The last volume from 2017 honors Knut Bleicher's life's work and summarizes decades of research.</p>
+                  <a class="flip-link" href="#">
+                    <i class='bx bx-minus-circle'></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Flip Card 8 -->
+            <div class="flip-card">
+              <div class="flipper">
+                <div class="flip-card-front">
+                  <i class='bx bx-time icon-years'></i>
+                  <h3>35 Years of Integrated St. Gallen Concept</h3>
+                  <p>For over three decades, the Integrated Concept has shaped management education – practical, systemic, and future-oriented.</p>
+                  <a class="flip-link" href="#">
+                    <i class='bx bx-plus-circle'></i>
+                  </a>
+                </div>
+                <div class="flip-card-back">
+                  <p>The Integrated Concept has been continuously developed under Christian Abegglen since the 2010s. The 10th edition (2021) contains concrete implementation guidelines for the first time. StGallen imt Business School uses this concept as its central orientation framework.</p>
+                  <a class="flip-link" href="#">
+                    <i class='bx bx-minus-circle'></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Flip Card 9 -->
+            <div class="flip-card">
+              <div class="flipper">
+                <div class="flip-card-front">
+                  <i class='bx bx-home-alt icon-house'></i>
+                  <h3>The St. Gallen Management HOUSE</h3>
+                  <p>With the St. Gallen Management HOUSE, the concept becomes tangible: a metaphor for securing corporate success in the long term.</p>
+                  <a class="flip-link" href="#">
+                    <i class='bx bx-plus-circle'></i>
+                  </a>
+                </div>
+                <div class="flip-card-back">
+                  <p>The further development of the Integrated Concept culminates in Christian Abegglen's work "Reinventing the Enterprise." The nine fields of the St. Gallen Concept are visualized as a Management HOUSE – a powerful metaphor for systematic leadership.</p>
+                  <a class="flip-link" href="#">
+                    <i class='bx bx-minus-circle'></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Flip Card 10 -->
+            <div class="flip-card">
+              <div class="flipper">
+                <div class="flip-card-front">
+                  <i class='bx bx-buildings icon-valley'></i>
+                  <h3>Founding of Private Management Schools</h3>
+                  <p>From the 1980s onwards, numerous privately organized institutes emerged – as spin-offs from the university.</p>
+                  <a class="flip-link" href="#">
+                    <i class='bx bx-plus-circle'></i>
+                  </a>
+                </div>
+                <div class="flip-card-back">
+                  <p>From the 1980s onwards, consulting and continuing education activities were spun off from the university with the support of Hans Ulrich and Knut Bleicher. This led to successful institutes like MZSG, BSG, SCG, Malik Institute – the "Management Valley."</p>
+                  <a class="flip-link" href="#">
+                    <i class='bx bx-minus-circle'></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Flip Card 11 -->
+            <div class="flip-card">
+              <div class="flipper">
+                <div class="flip-card-front">
+                  <i class='bx bx-landscape icon-network'></i>
+                  <h3>The Management Valley St. Gallen</h3>
+                  <p>St. Gallen became a "Management Valley" – a knowledge landscape for management with international reach.</p>
+                  <a class="flip-link" href="#">
+                    <i class='bx bx-plus-circle'></i>
+                  </a>
+                </div>
+                <div class="flip-card-back">
+                  <p>The transfer from university to practice created a unique ecosystem: the "Management Valley St. Gallen." A network of institutes, companies, and experts that has made St. Gallen synonymous with excellent management education worldwide.</p>
+                  <a class="flip-link" href="#">
+                    <i class='bx bx-minus-circle'></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+                         <!-- Flip Card 12 -->
+             <div class="flip-card">
+               <div class="flipper">
+                 <div class="flip-card-front">
+                   <i class='bx bx-user-check icon-abegglen'></i>
+                   <h3>Christian Abegglen – The Systematic Developer</h3>
+                   <p>Christian Abegglen: systematic developer of the Integrated Concept and architect of its practical implementation.</p>
+                   <a class="flip-link" href="#">
+                     <i class='bx bx-plus-circle'></i>
+                   </a>
+                 </div>
+                 <div class="flip-card-back">
+                   <p>Prof. Dr. Dr. h.c. Christian Abegglen is the systematic developer of the Integrated Concept. Since 2005, he has published the complete series "Milestones on the Path to Integrated Management" and made the concept applicable in practice. His work forms the foundation of StGallen imt Business School.</p>
+                   <a class="flip-link" href="#">
+                     <i class='bx bx-minus-circle'></i>
+                   </a>
+                 </div>
+               </div>
+             </div>
+            
+            <!-- Flip Card 13 -->
+            <div class="flip-card">
+              <div class="flipper">
+                <div class="flip-card-front">
+                  <i class='bx bx-rocket icon-founding'></i>
+                  <h3>Founding of StGallen imt Business School</h3>
+                  <p>2019: Christian Abegglen founds StGallen imt Business School as a synthesis of management excellence and technology.</p>
+                  <a class="flip-link" href="#">
+                    <i class='bx bx-plus-circle'></i>
+                  </a>
+                </div>
+                <div class="flip-card-back">
+                  <p>In 2019, Christian Abegglen founded StGallen imt Business School. The vision: to combine the excellence of St. Gallen management education with the requirements of the digital age. From the beginning, the school stood for Integrated Management and Technology – "imt."</p>
+                  <a class="flip-link" href="#">
+                    <i class='bx bx-minus-circle'></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+                         <!-- Flip Card 14 -->
+             <div class="flip-card">
+               <div class="flipper">
+                 <div class="flip-card-front">
+                   <i class='bx bx-network-chart icon-ecosystem'></i>
+                   <h3>Building the imt Ecosystem</h3>
+                   <p>Development of a comprehensive ecosystem: from executive education to corporate consulting and research.</p>
+                   <a class="flip-link" href="#">
+                     <i class='bx bx-plus-circle'></i>
+                   </a>
+                 </div>
+                 <div class="flip-card-back">
+                   <p>StGallen imt Business School has built a comprehensive ecosystem since its founding: Executive education programs, corporate consulting, research projects, and an international network. The goal: holistic support for leaders and organizations at all levels.</p>
+                   <a class="flip-link" href="#">
+                     <i class='bx bx-minus-circle'></i>
+                   </a>
+                 </div>
+               </div>
+             </div>
+            
+            <!-- Flip Card 15 -->
+            <div class="flip-card">
+              <div class="flipper">
+                <div class="flip-card-front">
+                  <i class='bx bx-book icon-knowledge'></i>
+                  <h3>Proven Knowledge</h3>
+                  <p>The foundation: 60 years of St. Gallen management research and proven practical application.</p>
+                  <a class="flip-link" href="#">
+                    <i class='bx bx-plus-circle'></i>
+                  </a>
+                </div>
+                <div class="flip-card-back">
+                  <p>StGallen imt Business School builds on six decades of management research and practice. The foundation is solid: proven concepts, tested methods, and a wealth of experience from thousands of leaders who have applied the St. Gallen principles successfully.</p>
+                  <a class="flip-link" href="#">
+                    <i class='bx bx-minus-circle'></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+                         <!-- Flip Card 16 -->
+             <div class="flip-card">
+               <div class="flipper">
+                 <div class="flip-card-front">
+                   <i class='bx bxs-graduation icon-didactic'></i>
+                   <h3>Innovative Didactics</h3>
+                   <p>Combination of proven St. Gallen tradition with modern learning methods and digital technologies.</p>
+                   <a class="flip-link" href="#">
+                     <i class='bx bx-plus-circle'></i>
+                   </a>
+                 </div>
+                 <div class="flip-card-back">
+                   <p>The didactic approach combines the best of both worlds: proven St. Gallen methods with modern learning technologies. Interactive formats, case studies, simulations, and digital tools create an optimal learning environment for today's leaders.</p>
+                   <a class="flip-link" href="#">
+                     <i class='bx bx-minus-circle'></i>
+                   </a>
+                 </div>
+               </div>
+             </div>
+            
+            <!-- Flip Card 17 -->
+            <div class="flip-card">
+              <div class="flipper">
+                <div class="flip-card-front">
+                  <i class='bx bx-chip icon-technology'></i>
+                  <h3>Management meets Technology</h3>
+                  <p>Unique positioning: the systematic integration of management excellence and technological innovation.</p>
+                  <a class="flip-link" href="#">
+                    <i class='bx bx-plus-circle'></i>
+                  </a>
+                </div>
+                <div class="flip-card-back">
+                  <p>StGallen imt Business School occupies a unique position: it systematically connects management excellence with technological innovation. This is not about technology for technology's sake, but about the intelligent integration of both worlds for sustainable success.</p>
+                  <a class="flip-link" href="#">
+                    <i class='bx bx-minus-circle'></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Flip Card 18 -->
+            <div class="flip-card">
+              <div class="flipper">
+                <div class="flip-card-front">
+                  <i class='bx bx-brain icon-ai'></i>
+                  <h3>AI and Management</h3>
+                  <p>Pioneering work in the intelligent combination of artificial intelligence and management practice.</p>
+                  <a class="flip-link" href="#">
+                    <i class='bx bx-plus-circle'></i>
+                  </a>
+                </div>
+                <div class="flip-card-back">
+                  <p>StGallen imt Business School is pioneering the integration of artificial intelligence into management practice. Not as a replacement for human leadership, but as an intelligent tool for better decisions and more effective management.</p>
+                  <a class="flip-link" href="#">
+                    <i class='bx bx-minus-circle'></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+                         <!-- Flip Card 19 -->
+             <div class="flip-card">
+               <div class="flipper">
+                 <div class="flip-card-front">
+                   <i class='bx bx-merge icon-integration'></i>
+                   <h3>Integrated Management Strategy</h3>
+                   <p>Development of an integrated management strategy that combines normative, strategic, and operative levels.</p>
+                   <a class="flip-link" href="#">
+                     <i class='bx bx-plus-circle'></i>
+                   </a>
+                 </div>
+                 <div class="flip-card-back">
+                   <p>The core of the school's approach is the Integrated Management Strategy: a holistic approach that connects values, vision, and concrete actions. This creates sustainable competitive advantages and long-term success.</p>
+                   <a class="flip-link" href="#">
+                     <i class='bx bx-minus-circle'></i>
+                   </a>
+                 </div>
+               </div>
+             </div>
+            
+            <!-- Flip Card 20 -->
+            <div class="flip-card">
+              <div class="flipper">
+                <div class="flip-card-front">
+                  <i class='bx bx-globe icon-global'></i>
+                  <h3>Global Network</h3>
+                  <p>Building an international network of leaders, companies, and academic institutions.</p>
+                  <a class="flip-link" href="#">
+                    <i class='bx bx-plus-circle'></i>
+                  </a>
+                </div>
+                <div class="flip-card-back">
+                  <p>StGallen imt Business School has built a global network of leaders, companies, and academic institutions. This network enables exchange of experience, joint projects, and lifelong learning in an international context.</p>
+                  <a class="flip-link" href="#">
+                    <i class='bx bx-minus-circle'></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+                         <!-- Flip Card 21 -->
+             <div class="flip-card">
+               <div class="flipper">
+                 <div class="flip-card-front">
+                   <i class='bx bx-star icon-today'></i>
+                   <h3>StGallen imt Today</h3>
+                   <p>Today: A leading business school for integrated management and technology with international recognition.</p>
+                   <a class="flip-link" href="#">
+                     <i class='bx bx-plus-circle'></i>
+                   </a>
+                 </div>
+                 <div class="flip-card-back">
+                   <p>Today, StGallen imt Business School is a leading institution for executive education at the intersection of management and technology. With innovative programs, excellent faculty, and a strong network, it shapes the leaders of tomorrow.</p>
+                   <a class="flip-link" href="#">
+                     <i class='bx bx-minus-circle'></i>
+                   </a>
+                 </div>
+               </div>
+             </div>
+          </div>
+        </section>
       </div>
     </section>
   </main>
@@ -549,6 +1143,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     });
 
     // Alte Modal-Funktionen nicht mehr nötig - direkte Navigation wird verwendet
+  </script>
+
+  <!-- Flip Card JavaScript -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const flipCards = document.querySelectorAll('.flip-card');
+      
+      flipCards.forEach(card => {
+        card.addEventListener('click', function() {
+          this.classList.toggle('flipped');
+        });
+      });
+    });
   </script>
 </body>
 </html> 

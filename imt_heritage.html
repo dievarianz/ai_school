@@ -327,41 +327,144 @@
     padding: 20px;
   }
 
-  /* ============ DESIGN 5: Grid-Based Achievement Showcase ============ */
-  .heritage-grid {
+  /* ============ DESIGN 5: Flip Cards Grid ============ */
+  .heritage-flip-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
     margin-bottom: 50px;
   }
 
-  .grid-item {
-    background-color: white;
+  .flip-card {
+    flex: 0 0 280px;
+    height: 280px;
+    perspective: 1200px;
+    margin-bottom: var(--spacing);
+    cursor: pointer !important;
+  }
+
+  .flip-card-front, .flip-card-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
     border-radius: var(--radius);
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    display: flex;
-    min-height: 250px;
-    transition: transform 0.3s ease;
-  }
-
-  .grid-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-  }
-
-  .grid-image {
-    flex: 0 0 40%;
-    background-size: cover;
-    background-position: center;
-  }
-
-  .grid-content {
-    flex: 1;
-    padding: 25px;
+    background: var(--color-card-bg);
+    padding: var(--spacing);
     display: flex;
     flex-direction: column;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    box-sizing: border-box;
+  }
+
+  .flip-card-back {
+    transform: rotateY(180deg);
+    background: #fff;
+  }
+
+  .flip-card-front i {
+    font-size: 32px;
+    margin-bottom: 16px;
+    opacity: 0.85;
+    transition: all 0.3s ease;
+  }
+
+  .flip-card-front h3, .flip-card-back h3 {
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  .flip-card-front p, .flip-card-back p {
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.4;
+    flex-grow: 1;
+    margin: 0;
+  }
+
+  .flip-link {
+    align-self: flex-end;
+    color: var(--color-muted);
+    text-decoration: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
     justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    transition: transform 0.3s ease;
+    margin-top: auto;
+  }
+
+  .flip-link i {
+    font-size: 24px;
+    transition: transform 0.3s ease;
+    color: var(--color-muted);
+    margin-bottom: 0;
+  }
+
+  .flip-link:hover {
+    text-decoration: none;
+    transform: scale(1.1);
+  }
+
+  .flip-link:hover i {
+    color: var(--imt-purple);
+  }
+
+  .flip-link span {
+    display: none;
+  }
+
+  /* Hover Effekte */
+  .flip-card-front:hover,
+  .flip-card-back:hover {
+    border-color: var(--imt-purple);
+  }
+
+  .flip-card-front:hover i {
+    opacity: 1;
+  }
+
+  /* Icon Colors */
+  .icon-origin { color: #9C27B0; }
+  .icon-school { color: #2196F3; }
+  .icon-ulrich { color: #4CAF50; }
+  .icon-model { color: #FF9800; }
+  .icon-bleicher { color: #F44336; }
+  .icon-concept { color: #00BCD4; }
+  .icon-milestones { color: #795548; }
+  .icon-years { color: #607D8B; }
+  .icon-house { color: #8BC34A; }
+  .icon-valley { color: #FFC107; }
+  .icon-network { color: #E91E63; }
+  .icon-abegglen { color: #3F51B5; }
+  .icon-founding { color: #009688; }
+  .icon-ecosystem { color: #CDDC39; }
+  .icon-knowledge { color: #FF5722; }
+  .icon-didactic { color: #9E9E9E; }
+  .icon-technology { color: #673AB7; }
+  .icon-ai { color: #2196F3; }
+  .icon-integration { color: #4CAF50; }
+  .icon-global { color: #FF9800; }
+  .icon-today { color: #F44336; }
+
+  .flipper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform .6s;
+    cursor: pointer !important;
+  }
+
+  .flip-card.flipped .flipper {
+    transform: rotateY(180deg);
   }
 
   /* Responsive adjustments */
@@ -384,17 +487,21 @@
       left: 30px;
     }
     
-    .heritage-grid {
+    .heritage-flip-grid {
       grid-template-columns: 1fr;
+      gap: 20px;
     }
     
-    .grid-item {
-      flex-direction: column;
+    .flip-card {
+      height: 280px;
     }
     
-    .grid-image {
-      height: 180px;
-      flex: none;
+    .flip-card-front p, .flip-card-back p {
+      font-size: 0.9rem;
+    }
+    
+    .flip-card-front h3, .flip-card-back h3 {
+      font-size: 1rem;
     }
   }
 </style>
@@ -674,51 +781,431 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <!-- ========== DESIGN 5: Grid-Based Achievement Showcase ============ -->
+  <!-- ========== DESIGN 5: Flip Cards Heritage ============ -->
   <section class="content-section" style="background-color: #f9f9f9; padding-top: 60px; padding-bottom: 60px;">
     <div class="container">
       <h2 class="section-title">Variante 5: Achievement Grid</h2>
-      <p class="section-description">Ein modernes Grid-Layout, das Text und Bilder kombiniert, um die wichtigsten Errungenschaften hervorzuheben.</p>
+      <p class="section-description">Interaktive Flip-Cards, die die Heritage der StGallen imt Business School erzählen. Klicken Sie auf die Karten, um mehr zu erfahren.</p>
       
-      <div class="heritage-grid">
-        <!-- Grid Item 1 -->
-        <div class="grid-item">
-          <div class="grid-image" style="background-image: url('https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-          <div class="grid-content">
-            <div class="milestone-year">1995 - 2000</div>
-            <h3 class="milestone-title">Die Anfangsjahre</h3>
-            <p class="milestone-description">Von der Gründung bis zur Etablierung als anerkannte Business School mit innovativen Lehrkonzepten.</p>
+      <div class="heritage-flip-grid">
+        <!-- Flip Card 1 -->
+        <div class="flip-card">
+          <div class="flipper">
+            <div class="flip-card-front">
+              <i class='bx bx-home icon-origin'></i>
+              <h3>Ursprung im Management-Denken St. Gallens</h3>
+              <p>Die StGallen imt Business School wurzelt im einzigartigen Management-Verständnis der 1960er-Jahre in St. Gallen.</p>
+              <a class="flip-link" href="#">
+                <i class='bx bx-plus-circle'></i>
+              </a>
+            </div>
+            <div class="flip-card-back">
+              <p>Die StGallen imt Business School ist ohne das „St. Galler Management Konzept" nicht denkbar: Ab den 1960er-Jahren entwickelte sich in St. Gallen ein neuer Zugang zur Managementlehre. Wegbereiter wie Hans Ulrich propagierten ein ganzheitliches, systemtheoretisches Verständnis von Unternehmen. Das «St. Galler Modell» wurde zu einem Markenzeichen weit über die Schweiz hinaus.</p>
+              <a class="flip-link" href="#">
+                <i class='bx bx-minus-circle'></i>
+              </a>
+            </div>
           </div>
         </div>
         
-        <!-- Grid Item 2 -->
-        <div class="grid-item">
-          <div class="grid-content">
-            <div class="milestone-year">2000 - 2010</div>
-            <h3 class="milestone-title">Internationale Expansion</h3>
-            <p class="milestone-description">Eine Dekade des Wachstums mit neuen Programmen und internationaler Anerkennung.</p>
+        <!-- Flip Card 2 -->
+        <div class="flip-card">
+          <div class="flipper">
+            <div class="flip-card-front">
+              <i class='bx bx-navigation icon-school'></i>
+              <h3>Die St. Galler Schule – Navigieren in Komplexität</h3>
+              <p>Die St. Galler Schule steht für Management als Navigationskunst in turbulenten Zeiten – jenseits von Moden und Rezepten.</p>
+              <a class="flip-link" href="#">
+                <i class='bx bx-plus-circle'></i>
+              </a>
+            </div>
+            <div class="flip-card-back">
+              <p>Was ist Management wirklich? Nicht bloss Planung oder Kontrolle – sondern der souveräne Umgang mit Komplexität. Die St. Galler Schule liefert den theoretischen Bezugsrahmen dafür. Besonders in einer Zeit des Umbruchs ist diese Denkschule gefragt – und die StGallen imt Business School als eines ihrer Transferzentren.</p>
+              <a class="flip-link" href="#">
+                <i class='bx bx-minus-circle'></i>
+              </a>
+            </div>
           </div>
-          <div class="grid-image" style="background-image: url('https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
         </div>
         
-        <!-- Grid Item 3 -->
-        <div class="grid-item">
-          <div class="grid-image" style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-          <div class="grid-content">
-            <div class="milestone-year">2010 - 2020</div>
-            <h3 class="milestone-title">Innovation und Digitalisierung</h3>
-            <p class="milestone-description">Fokus auf digitale Transformation und innovative Lehrkonzepte für die Führungskräfte der Zukunft.</p>
+        <!-- Flip Card 3 -->
+        <div class="flip-card">
+          <div class="flipper">
+            <div class="flip-card-front">
+              <i class='bx bx-user-circle icon-ulrich'></i>
+              <h3>Hans Ulrich – Der systemische Visionär</h3>
+              <p>Hans Ulrich legte mit seinem kybernetischen Verständnis von Unternehmen die Basis der St. Galler Schule.</p>
+              <a class="flip-link" href="#">
+                <i class='bx bx-plus-circle'></i>
+              </a>
+            </div>
+            <div class="flip-card-back">
+              <p>Prof. Dr. Dres. h.c. Hans Ulrich (1919–1997) revolutionierte die Lehre: Nicht eindimensionale Tools, sondern Denkmodelle für komplexe Realitäten. 1965 gründete er das «Institut für Betriebswirtschaft (IfB)» – Keimzelle der St. Galler Schule. Mit «Die Unternehmung als produktives soziales System» prägte er eine neue Sicht auf Unternehmensführung.</p>
+              <a class="flip-link" href="#">
+                <i class='bx bx-minus-circle'></i>
+              </a>
+            </div>
           </div>
         </div>
         
-        <!-- Grid Item 4 -->
-        <div class="grid-item">
-          <div class="grid-content">
-            <div class="milestone-year">Ab 2020</div>
-            <h3 class="milestone-title">Zukunft gestalten</h3>
-            <p class="milestone-description">Mit zukunftsweisenden Programmen und einem globalen Netzwerk bereitet die Business School Führungskräfte auf die Herausforderungen der nächsten Dekade vor.</p>
+        <!-- Flip Card 4 -->
+        <div class="flip-card">
+          <div class="flipper">
+            <div class="flip-card-front">
+              <i class='bx bx-network-chart icon-model'></i>
+              <h3>Das St. Galler Management Modell</h3>
+              <p>Das ursprüngliche St. Galler Management Modell: ein systemischer Bezugsrahmen für Führung in komplexen Welten.</p>
+              <a class="flip-link" href="#">
+                <i class='bx bx-plus-circle'></i>
+              </a>
+            </div>
+            <div class="flip-card-back">
+              <p>Ab den 1960er-Jahren begründete Hans Ulrich das «St. Galler Management Modell» – ein neues Managementverständnis: Unternehmen sind keine Maschinen, sondern soziale Systeme – offen, dynamisch, vernetzt. Das Modell integrierte Systemtheorie und Kybernetik in die Betriebswirtschaft.</p>
+              <a class="flip-link" href="#">
+                <i class='bx bx-minus-circle'></i>
+              </a>
+            </div>
           </div>
-          <div class="grid-image" style="background-image: url('https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+        </div>
+        
+        <!-- Flip Card 5 -->
+        <div class="flip-card">
+          <div class="flipper">
+            <div class="flip-card-front">
+              <i class='bx bx-cog icon-bleicher'></i>
+              <h3>Knut Bleicher – Der Architekt</h3>
+              <p>Bleicher übersetzte Ulrichs Systemansatz in eine praxisnahe Architektur: das Integrierte Managementkonzept.</p>
+              <a class="flip-link" href="#">
+                <i class='bx bx-plus-circle'></i>
+              </a>
+            </div>
+            <div class="flip-card-back">
+              <p>Prof. Dr. Dres. h.c. Knut Bleicher (1929-2017) wurde 1984 als Nachfolger von Hans Ulrich nach St. Gallen berufen. Er entwickelte das St. Galler Management Modell weiter zum «Konzept Integriertes Management» als Anwendungsgerüst für die Praxis.</p>
+              <a class="flip-link" href="#">
+                <i class='bx bx-minus-circle'></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Flip Card 6 -->
+        <div class="flip-card">
+          <div class="flipper">
+            <div class="flip-card-front">
+              <i class='bx bx-building icon-concept'></i>
+              <h3>Das St. Galler Konzept Integriertes Management</h3>
+              <p>Knut Bleichers Werk: ein robustes Managementgebäude für Turbulenzen – das Konzept Integriertes Management.</p>
+              <a class="flip-link" href="#">
+                <i class='bx bx-plus-circle'></i>
+              </a>
+            </div>
+            <div class="flip-card-back">
+              <p>Was Hans Ulrich als systemisches Denken etablierte, führte Knut Bleicher zu einer praxistauglichen Architektur weiter: das «Konzept Integriertes Management» (1991). Er verknüpfte die drei Managementebenen – normativ, strategisch und operativ – zu einem ganzheitlichen Bezugsrahmen.</p>
+              <a class="flip-link" href="#">
+                <i class='bx bx-minus-circle'></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Flip Card 7 -->
+        <div class="flip-card">
+          <div class="flipper">
+            <div class="flip-card-front">
+              <i class='bx bx-book icon-milestones'></i>
+              <h3>Meilensteine des St. Galler Konzepts</h3>
+              <p>Eine sechsbändige Publikationsserie dokumentiert den Entwicklungsweg des Integrierten St. Galler Management Konzepts.</p>
+              <a class="flip-link" href="#">
+                <i class='bx bx-plus-circle'></i>
+              </a>
+            </div>
+            <div class="flip-card-back">
+              <p>Ab 2005 veröffentlichte Christian Abegglen die sechsbändige Reihe «Meilensteine auf dem Weg zu Integriertem Management». Sie zeigt die evolutionäre Entwicklung des Konzepts. Der letzte Band von 2017 würdigt Knut Bleichers Lebensleistung und fasst jahrzehntelange Forschung zusammen.</p>
+              <a class="flip-link" href="#">
+                <i class='bx bx-minus-circle'></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Flip Card 8 -->
+        <div class="flip-card">
+          <div class="flipper">
+            <div class="flip-card-front">
+              <i class='bx bx-time icon-years'></i>
+              <h3>35 Jahre Integriertes St. Galler Konzept</h3>
+              <p>Seit über drei Jahrzehnten prägt das Integrierte Konzept die Managementausbildung – praxisnah, systemisch und zukunftsorientiert.</p>
+              <a class="flip-link" href="#">
+                <i class='bx bx-plus-circle'></i>
+              </a>
+            </div>
+            <div class="flip-card-back">
+              <p>Das Integrierte Konzept wird seit den 2010er-Jahren unter Christian Abegglen kontinuierlich weiterentwickelt. Die 10. Auflage (2021) enthält erstmals konkrete Anleitungen zur Umsetzung. Die StGallen imt Business School nutzt dieses Konzept als zentralen Orientierungsrahmen.</p>
+              <a class="flip-link" href="#">
+                <i class='bx bx-minus-circle'></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Flip Card 9 -->
+        <div class="flip-card">
+          <div class="flipper">
+            <div class="flip-card-front">
+              <i class='bx bx-home-alt icon-house'></i>
+              <h3>Das St. Galler Management HAUS</h3>
+              <p>Mit dem St. Galler Management HAUS wird das Konzept greifbar: eine Metapher um Unternehmenserfolg langfristig zu sichern.</p>
+              <a class="flip-link" href="#">
+                <i class='bx bx-plus-circle'></i>
+              </a>
+            </div>
+            <div class="flip-card-back">
+              <p>Die Weiterentwicklung des Integrierten Konzepts kulminiert im Werk «Unternehmen neu erfinden» von Christian Abegglen. Die neun Felder des St. Galler Konzepts werden als Management HAUS visualisiert – eine kraftvolle Metapher für systematische Führung.</p>
+              <a class="flip-link" href="#">
+                <i class='bx bx-minus-circle'></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Flip Card 10 -->
+        <div class="flip-card">
+          <div class="flipper">
+            <div class="flip-card-front">
+              <i class='bx bx-buildings icon-valley'></i>
+              <h3>Gründung privater Management Schulen</h3>
+              <p>Ab den 1980er-Jahren entstanden zahlreiche privatrechtlich organisierte Institute – als Spin-offs der Universität.</p>
+              <a class="flip-link" href="#">
+                <i class='bx bx-plus-circle'></i>
+              </a>
+            </div>
+            <div class="flip-card-back">
+              <p>Ab den 1980er-Jahren wurden mit Unterstützung von Hans Ulrich und Knut Bleicher Beratungs- und Weiterbildungsaktivitäten aus der Universität ausgelagert. Daraus entstanden erfolgreiche Institute wie MZSG, BSG, SCG, Malik Institute – das «Management Valley».</p>
+              <a class="flip-link" href="#">
+                <i class='bx bx-minus-circle'></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Flip Card 11 -->
+        <div class="flip-card">
+          <div class="flipper">
+            <div class="flip-card-front">
+              <i class='bx bx-landscape icon-network'></i>
+              <h3>Das Management Valley St. Gallen</h3>
+              <p>St. Gallen wurde zu einem «Management Valley» – eine Wissenslandschaft für Management mit internationaler Ausstrahlung.</p>
+              <a class="flip-link" href="#">
+                <i class='bx bx-plus-circle'></i>
+              </a>
+            </div>
+            <div class="flip-card-back">
+              <p>Was mit Kloster und Stiftsbibliothek als frühem „Knowledge Center" begann, entwickelte sich zum Management Valley: Ein Ökosystem aus Universität, Beratungsfirmen und privaten Weiterbildungsanbietern. Die St. Gallen imt Business School trägt dazu bei, dieses Denken in pragmatische Bildungsformate zu überführen.</p>
+              <a class="flip-link" href="#">
+                <i class='bx bx-minus-circle'></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Flip Card 12 -->
+        <div class="flip-card">
+          <div class="flipper">
+            <div class="flip-card-front">
+              <i class='bx bx-user-check icon-abegglen'></i>
+              <h3>Christian Abegglen – Unternehmerischer Brückenbauer</h3>
+              <p>Christian Abegglen machte das St. Galler Denken für Führungskräfte erlebbar – klar strukturiert, praxisnah, zukunftsgerichtet.</p>
+              <a class="flip-link" href="#">
+                <i class='bx bx-plus-circle'></i>
+              </a>
+            </div>
+            <div class="flip-card-back">
+              <p>Als Gründungsdirektor 1994 und langjähriger Präsident der SGBS war Christian Abegglen zentral im Transfer des St. Galler Wissens. Als heutiger Verwaltungsratspräsident der StGallen imt Business School prägt er deren inhaltliche Ausrichtung mit.</p>
+              <a class="flip-link" href="#">
+                <i class='bx bx-minus-circle'></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Flip Card 13 -->
+        <div class="flip-card">
+          <div class="flipper">
+            <div class="flip-card-front">
+              <i class='bx bx-rocket icon-founding'></i>
+              <h3>Gründung der StGallen imt Business School</h3>
+              <p>Ein Pionierprojekt für Executive Education – praxisnah, technologieorientiert, wirkungsstark.</p>
+              <a class="flip-link" href="#">
+                <i class='bx bx-plus-circle'></i>
+              </a>
+            </div>
+            <div class="flip-card-back">
+              <p>2023 initiiert von erfahrenen Gestaltern der St. Galler Schule und global agierenden Unternehmern, wurde die StGallen imt Business School als neue Plattform für Executive Education gegründet – mit dem Anspruch, systemisches Denken und technologische Kompetenz zu vereinen.</p>
+              <a class="flip-link" href="#">
+                <i class='bx bx-minus-circle'></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Flip Card 14 -->
+        <div class="flip-card">
+          <div class="flipper">
+            <div class="flip-card-front">
+              <i class='bx bx-network-chart icon-ecosystem'></i>
+              <h3>Das Netzwerk der StGallen imt Business School</h3>
+              <p>Ein Netzwerk aus Praxis, Forschung und Technologie – wo Managementwissen auf Zukunft trifft.</p>
+              <a class="flip-link" href="#">
+                <i class='bx bx-plus-circle'></i>
+              </a>
+            </div>
+            <div class="flip-card-back">
+              <p>Die StGallen imt Business School ist Teil eines starken Netzwerks: Es verbindet renommierte Persönlichkeiten der St. Galler Schule, erfahrene Führungskräfte, Technologiepartner und Lehrende aus Praxis und Forschung. Dieses Ökosystem sichert Aktualität und Wirkung.</p>
+              <a class="flip-link" href="#">
+                <i class='bx bx-minus-circle'></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Flip Card 15 -->
+        <div class="flip-card">
+          <div class="flipper">
+            <div class="flip-card-front">
+              <i class='bx bx-book icon-knowledge'></i>
+              <h3>Abgesichertes Wissen</h3>
+              <p>Seit den 1960er-Jahren steht die St. Galler Schule für stabiles und anschlussfähiges Managementwissen.</p>
+              <a class="flip-link" href="#">
+                <i class='bx bx-plus-circle'></i>
+              </a>
+            </div>
+            <div class="flip-card-back">
+              <p>Die von Ulrich und Bleicher geprägte St. Galler Schule bietet einen fundierten Zugang zu Führung unter schwierigen Bedingungen. Die StGallen imt Business School schließt diese Lücke mit modernen, anwendungsnahen Didaktikformaten.</p>
+              <a class="flip-link" href="#">
+                <i class='bx bx-minus-circle'></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Flip Card 16 -->
+        <div class="flip-card">
+          <div class="flipper">
+            <div class="flip-card-front">
+              <i class='bx bx-graduation icon-didactic'></i>
+              <h3>Didaktische Innovation und Modularität</h3>
+              <p>Keine theoretische Lehre für Studierende – sondern für erfahrene Führungspersönlichkeiten mit Praxis.</p>
+              <a class="flip-link" href="#">
+                <i class='bx bx-plus-circle'></i>
+              </a>
+            </div>
+            <div class="flip-card-back">
+              <p>Die Programme der StGallen imt Business School richten sich an Personen mit Erfahrung: Executives, C-level, Unternehmer. Das didaktische Konzept kombiniert Präsenz, Selbststudium und individuelles Coaching. Die Inhalte orientieren sich an realen Herausforderungen.</p>
+              <a class="flip-link" href="#">
+                <i class='bx bx-minus-circle'></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Flip Card 17 -->
+        <div class="flip-card">
+          <div class="flipper">
+            <div class="flip-card-front">
+              <i class='bx bx-chip icon-technology'></i>
+              <h3>Technologie und Digitalisierung als Lernmotoren</h3>
+              <p>Die StGallen imt Business School versteht Digitalisierung als Chance: Neue Lernformate – neue Wege der Unternehmensführung.</p>
+              <a class="flip-link" href="#">
+                <i class='bx bx-plus-circle'></i>
+              </a>
+            </div>
+            <div class="flip-card-back">
+              <p>Digitale Transformation verändert nicht nur Unternehmen, sondern auch das Lernen selbst. Die StGallen imt Business School hat diese Entwicklung früh aufgegriffen: Online-Module, hybride Programme, digitale Coachings.</p>
+              <a class="flip-link" href="#">
+                <i class='bx bx-minus-circle'></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Flip Card 18 -->
+        <div class="flip-card">
+          <div class="flipper">
+            <div class="flip-card-front">
+              <i class='bx bx-brain icon-ai'></i>
+              <h3>KI im Management</h3>
+              <p>Für StGallen imt Business School ist KI Teil von Leadership, nicht nur Technologie.</p>
+              <a class="flip-link" href="#">
+                <i class='bx bx-plus-circle'></i>
+              </a>
+            </div>
+            <div class="flip-card-back">
+              <p>Die StGallen imt Business School integriert KI in ihre Curricula – nicht als „Hype", sondern als transformative Realität. KI wird immer im Kontext von Verantwortung, Nutzenstiftung und Nachhaltigkeit gedacht – ganz im Sinne der St. Galler Schule.</p>
+              <a class="flip-link" href="#">
+                <i class='bx bx-minus-circle'></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Flip Card 19 -->
+        <div class="flip-card">
+          <div class="flipper">
+            <div class="flip-card-front">
+              <i class='bx bx-puzzle icon-integration'></i>
+              <h3>Integration von Management und Technologie</h3>
+              <p>Nicht Kontrolle, sondern Navigation durch Komplexität – das ist moderne Führung nach St. Galler Prägung.</p>
+              <a class="flip-link" href="#">
+                <i class='bx bx-plus-circle'></i>
+              </a>
+            </div>
+            <div class="flip-card-back">
+              <p>Die Welt des Managements steht unter Druck: Digitalisierung, Ent-Globalisierung, Kriege. Das St. Galler Denken bietet einen anderen Zugang: Management ist ein reflexives, gestaltendes Navigieren durch komplexe Umwelten.</p>
+              <a class="flip-link" href="#">
+                <i class='bx bx-minus-circle'></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Flip Card 20 -->
+        <div class="flip-card">
+          <div class="flipper">
+            <div class="flip-card-front">
+              <i class='bx bx-globe icon-global'></i>
+              <h3>Internationalisierung und globale Relevanz</h3>
+              <p>Global aktiv: Die StGallen imt Business School vernetzt St. Galler Management Denken mit Partnern weltweit.</p>
+              <a class="flip-link" href="#">
+                <i class='bx bx-plus-circle'></i>
+              </a>
+            </div>
+            <div class="flip-card-back">
+              <p>Die Internationalisierung der Wirtschaft erforderte auch eine Internationalisierung der Weiterbildung. Die StGallen imt Business School reagierte mit englischsprachigen Programmen, Auslandsseminaren und internationalen Kooperationen.</p>
+              <a class="flip-link" href="#">
+                <i class='bx bx-minus-circle'></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Flip Card 21 -->
+        <div class="flip-card">
+          <div class="flipper">
+            <div class="flip-card-front">
+              <i class='bx bx-star icon-today'></i>
+              <h3>Die StGallen imt Business School heute</h3>
+              <p>Heute steht die StGallen imt Business School für Führung mit Haltung: systemisch, praxisnah, zukunftsorientiert.</p>
+              <a class="flip-link" href="#">
+                <i class='bx bx-plus-circle'></i>
+              </a>
+            </div>
+            <div class="flip-card-back">
+              <p>In einer Zeit des Wandels positioniert sich die StGallen imt Business School als Partnerin für Führungskräfte, die nicht nur managen, sondern gestalten wollen – mit Tiefgang, Verantwortung und Weitblick. Die StGallen imt Business School begleitet diese Transformation – fundiert und mit Verantwortung.</p>
+              <a class="flip-link" href="#">
+                <i class='bx bx-minus-circle'></i>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -756,6 +1243,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             allIcons[index].classList.replace('bx-chevron-up', 'bx-chevron-down');
           }
         });
+      });
+    });
+
+    // Heritage Flip Cards Functionality
+    document.querySelectorAll('.flip-card').forEach(card => {
+      card.addEventListener('click', function() {
+        this.classList.toggle('flipped');
+      });
+    });
+
+    // Flip-Link clicks should also toggle the card
+    document.querySelectorAll('.flip-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const card = this.closest('.flip-card');
+        card.classList.toggle('flipped');
       });
     });
 
